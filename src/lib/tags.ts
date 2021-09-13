@@ -3,24 +3,6 @@ import type { Tag } from './types/tag.type';
 // Permitted tags, sorted by key.
 const tags: Tag[] = [
   {
-    key: 'gatsby',
-    label: 'Gatsby',
-    title: 'Posts about Gatsby',
-    path: '/tags/gatsby',
-  },
-  {
-    key: 'nextjs',
-    label: 'Next.js',
-    title: 'Posts about Next.js',
-    path: '/tags/nextjs',
-  },
-  {
-    key: 'nodejs',
-    label: 'Node.js',
-    title: 'Posts about Node.js',
-    path: '/tags/nodejs',
-  },
-  {
     key: 'svelte',
     label: 'Svelte',
     title: 'Posts about Svelte',
@@ -31,6 +13,12 @@ const tags: Tag[] = [
     label: 'Tooling',
     title: 'Posts about developer tooling',
     path: '/tags/tooling',
+  },
+  {
+    key: 'vscode',
+    label: 'VSCode',
+    title: 'Posts about Visual Studio Code',
+    path: '/tags/vscode',
   },
 ];
 

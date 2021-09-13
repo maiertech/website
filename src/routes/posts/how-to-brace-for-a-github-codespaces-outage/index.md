@@ -7,7 +7,7 @@ description:
   grind your development workflow to a halt. This post explains how.
 category: creating
 tags:
-  - codespaces
+  - tooling
 ---
 
 In my post

@@ -7,7 +7,7 @@ description:
   the cloud and how to spin up a zero configuration development environment.
 category: creating
 tags:
-  - codespaces
+  - tooling
   - vscode
 links:
   - title:
