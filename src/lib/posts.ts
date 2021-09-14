@@ -5,7 +5,10 @@ import authors from '$lib/authors';
 import categories from '$lib/categories';
 import tags from '$lib/tags';
 
-export async function getPosts(tag?: string): Promise<PostMetadata[]> {
+export async function getPosts(
+  category?: string,
+  tag?: string
+): Promise<PostMetadata[]> {
   let posts: { frontmatter: PostFrontmatter; path: string }[];
 
   // Read frontmatters from all post Markdown files.
@@ -25,7 +28,14 @@ export async function getPosts(tag?: string): Promise<PostMetadata[]> {
     )
   );
 
-  // If a tag is provided filter posts by tag.
+  // If a category is provided, filter posts by category.
+  if (category) {
+    posts = posts.filter(
+      ({ frontmatter }) => frontmatter.category === category
+    );
+  }
+
+  // If a tag is provided, filter posts by tag.
   if (tag) {
     posts = posts.filter(({ frontmatter }) => frontmatter?.tags.includes(tag));
   }
