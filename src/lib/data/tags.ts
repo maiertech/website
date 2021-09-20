@@ -1,4 +1,4 @@
-import type { Tag } from './types/tag.type';
+import type { Tag } from '$lib/types/tag.type';
 
 // Permitted tags, sorted by key.
 const tags: Tag[] = [

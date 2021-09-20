@@ -1,9 +1,9 @@
 import type PostFrontmatter from './types/post-frontmatter.type';
 import type { PostMetadata } from './types/post-metadata.type';
 import { join } from 'path';
-import authors from '$lib/authors';
-import categories from '$lib/categories';
-import tags from '$lib/tags';
+import authors from '$lib/data/authors';
+import categories from '$lib/data/categories';
+import tags from '$lib/data/tags';
 
 export async function getPosts(
   category?: string,

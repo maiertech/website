@@ -1,4 +1,4 @@
-import type { Author } from './types/author.type';
+import type { Author } from '$lib/types/author.type';
 
 const authors: Author[] = [
   {
