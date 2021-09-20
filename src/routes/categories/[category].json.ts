@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import categories from '$lib/categories';
+import categories from '$lib/data/categories';
 import { getPosts } from '$lib/posts';
 
 export const get: RequestHandler = async function ({ params }) {

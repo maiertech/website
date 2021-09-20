@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import tags from '$lib/tags';
+import tags from '$lib/data/tags';
 import { getPosts } from '$lib/posts';
 
 export const get: RequestHandler = async function ({ params }) {
