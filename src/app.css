@@ -9,3 +9,70 @@
   flex-direction: column;
   min-height: 100vh;
 }
+
+.prose pre {
+  @apply text-text-default bg-background border-2 border-primary-lighter;
+}
+
+.remark-code-title {
+  @apply px-5 py-3 font-mono text-sm font-bold text-background bg-primary-lighter rounded-md rounded-b-none;
+}
+
+.remark-code-title + pre {
+  @apply mt-0 rounded-t-none !important;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-text-lighter;
+}
+
+.token.punctuation {
+  @apply text-text-default;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  @apply text-primary-default;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-text-default;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  @apply text-text-default;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  @apply text-primary-default;
+}
+
+.token.function,
+.token.class-name {
+  @apply text-primary-lighter;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  @apply text-primary-default;
+}

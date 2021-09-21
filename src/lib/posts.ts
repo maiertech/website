@@ -54,17 +54,18 @@ export async function getPosts(
 
 export function normalize(
   frontmatter: PostFrontmatter,
-  path: string
+  path?: string
 ): PostMetadata {
   const post = {
     title: frontmatter.title,
     author: authors.find(({ key }) => frontmatter.author === key),
-    date: frontmatter.date,
+    date: new Date(frontmatter.date),
     description: frontmatter.description,
     category: categories.find(({ key }) => frontmatter.category === key),
     tags: frontmatter?.tags
       .map((tag) => tags.find(({ key }) => tag === key))
       .filter((tag) => tag),
+    links: frontmatter.links,
     path,
   };
   return post;
