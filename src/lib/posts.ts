@@ -1,6 +1,5 @@
 import type PostFrontmatter from './types/post-frontmatter.type';
 import type { PostMetadata } from './types/post-metadata.type';
-import { join } from 'path';
 import authors from '$lib/data/authors';
 import categories from '$lib/data/categories';
 import tags from '$lib/data/tags';
@@ -22,7 +21,7 @@ export async function getPosts(
         const segments = path.split('/');
         return {
           frontmatter: metadata,
-          path: join('/', segments[3], segments[4]),
+          path: `/${segments[3]}/${segments[4]}`,
         };
       }
     )
