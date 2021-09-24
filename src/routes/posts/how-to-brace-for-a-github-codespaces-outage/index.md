@@ -10,6 +10,10 @@ tags:
   - tooling
 ---
 
+<script context="module">
+  export const prerender = true;
+</script>
+
 In my post
 [Move your IDE to the cloud: introduction to GitHub Codespaces](/posts/introduction-to-github-codespaces)
 I described the benefits of developing with

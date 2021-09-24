@@ -1,5 +1,4 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { join } from 'path';
 
 export const get: RequestHandler = async () => {
   // Caching files to avoid reading the same files several times from the file system would break local dev.
@@ -12,7 +11,7 @@ export const get: RequestHandler = async () => {
       async ([path, processMarkdown]) => {
         const { metadata } = await processMarkdown();
         const segments = path.split('/');
-        return { ...metadata, path: join('/', segments[3], segments[4]) };
+        return { ...metadata, path: `/${segments[3]}/${segments[4]}` };
       }
     )
   );

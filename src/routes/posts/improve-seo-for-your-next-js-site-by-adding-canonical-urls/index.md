@@ -21,6 +21,10 @@ links:
     href: https://developers.google.com/search/docs/advanced/guidelines/duplicate-content
 ---
 
+<script context="module">
+  export const prerender = true;
+</script>
+
 Duplicate content within a domain or across domains should be avoided since it
 can result in unexpected search rankings if not handled properly. When a search
 engine detects duplicate content it has to figure out which version it considers
