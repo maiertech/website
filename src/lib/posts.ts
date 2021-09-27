@@ -1,5 +1,6 @@
 import type PostFrontmatter from './types/post-frontmatter.type';
 import type { PostMetadata } from './types/post-metadata.type';
+import orderBy from 'lodash.orderby';
 import authors from '$lib/data/authors';
 import categories from '$lib/data/categories';
 import tags from '$lib/data/tags';
@@ -39,10 +40,8 @@ export async function getPosts(
     posts = posts.filter(({ frontmatter }) => frontmatter?.tags.includes(tag));
   }
 
-  // Sort posts by date descending (newest first).
-  posts.sort((a, b) =>
-    new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1
-  );
+  // Sort posts by `updated` desc, `date` desc, `title` asc.
+  posts = orderBy(posts, ['updated', 'date', 'title'], ['desc', 'desc', 'asc']);
 
   const normalizedPosts = posts.map(({ frontmatter, path }) =>
     normalize(frontmatter, path)
@@ -58,7 +57,8 @@ export function normalize(
   const post = {
     title: frontmatter.title,
     author: authors.find(({ key }) => frontmatter.author === key),
-    date: new Date(frontmatter.date),
+    date: frontmatter.date,
+    updated: frontmatter.updated,
     description: frontmatter.description,
     category: categories.find(({ key }) => frontmatter.category === key),
     tags: frontmatter?.tags

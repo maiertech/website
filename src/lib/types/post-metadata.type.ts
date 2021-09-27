@@ -9,7 +9,10 @@ export type PostMetadata = {
   title: string;
   /** Resolved author. */
   author: Author;
-  date: Date;
+  /** Original post date in local system time. */
+  date: string;
+  /** Date of last update in local system time. */
+  updated: string;
   description: string;
   category: Tag;
   tags: Tag[];
