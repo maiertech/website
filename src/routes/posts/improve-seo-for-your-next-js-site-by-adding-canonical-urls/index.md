@@ -2,6 +2,7 @@
 title: Improve SEO for your Next.js site by adding canonical URLs
 author: thilo
 date: 2021-06-04
+updated: 2021-09-24
 description:
   Syndicating content can have a negative impact on your search ranking. Learn
   how to fix this by adding link tags with canonical URLs to your Next.js site.

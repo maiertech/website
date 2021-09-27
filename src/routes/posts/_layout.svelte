@@ -22,10 +22,11 @@
   <div class="flex flex-col mb-3 md:mb-6 space-y-3">
     <H1>{post.title}</H1>
     <div class="text-lg mb-3">
-      {`${post.author.name} • `}
-      <time dateTime={format(post.date, 'yyyy-MM-dd')}>
-        {format(post.date, 'MMM d, yyyy')}
+      {post.author.name} •
+      <time dateTime={format(new Date(post.updated), 'yyyy-MM-dd')}>
+        {format(new Date(post.updated), 'MMM d, yyyy')}
       </time>
+      (last update)
     </div>
     <div class="space-x-2">
       {#each post.tags as tag (tag.key)}
@@ -55,4 +56,10 @@
       </ul>
     </div>
   {/if}
+  <div class="text-base mt-6">
+    Original post date:
+    <time dateTime={format(new Date(post.date), 'yyyy-MM-dd')}>
+      {format(new Date(post.date), 'MMM d, yyyy')}
+    </time>
+  </div>
 </article>
