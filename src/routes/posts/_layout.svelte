@@ -3,7 +3,7 @@
   // https://github.com/pngwn/MDsveX/issues/116
 
   /**
-   * @typedef { import('$lib/types/post-frontmatter.type').default} PostFrontmatter
+   * @typedef {import('$lib/types/post-frontmatter.type').default} PostFrontmatter
    * @typedef {import('$lib/types/post-metadata.type').PostMetadata} PostMetadata
    */
   import { format } from 'date-fns';

@@ -16,7 +16,7 @@ tags:
 </script>
 
 In my post
-[Move your IDE to the cloud: introduction to GitHub Codespaces](/posts/introduction-to-github-codespaces)
+[Move your IDE to the cloud: introduction to GitHub Codespaces](/posts/move-your-ide-to-the-cloud-introduction-to-github-codespaces)
 I described the benefits of developing with
 [GitHub Codespaces](https://github.com/features/codespaces) as an alternative to
 a local development environment. I mentioned in this post that I had occasional

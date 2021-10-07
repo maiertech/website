@@ -29,11 +29,25 @@
   };
 </script>
 
-<script>
-  export let tag;
-  export let posts;
+<script lang="ts">
+  import type { PostMetadata } from '$lib/types/post-metadata.type';
+  import type { Tag } from '$lib/types/tag.type';
+
+  import Posts from '$lib/components/posts.svelte';
+  import H1 from '$lib/components/h1.svelte';
+  import SEO from '$lib/components/seo.svelte';
+
+  export let tag: Tag;
+  export let posts: PostMetadata[];
 </script>
 
-<h1>{tag.title}</h1>
+<SEO
+  title={tag.title}
+  description={`${tag.title} in reverse chronological order.`}
+/>
 
-<pre>{JSON.stringify(posts, null, 2)}</pre>
+<H1>{tag.title}</H1>
+
+<div class="mt-6 md:mt-12">
+  <Posts {posts} />
+</div>
