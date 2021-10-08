@@ -1,24 +1,26 @@
 import type { Tag } from '$lib/types/tag.type';
 
+import { base } from '$app/paths';
+
 // Permitted categories, sorted by key.
 const categories: Tag[] = [
   {
     key: 'creating',
     label: 'Creating',
-    title: 'Creating with Svelte and SvelteKit',
-    path: '/categories/creating',
+    title: 'Creating web applications',
+    path: `${base}/creating`,
   },
   {
-    key: 'dataviz',
-    label: 'Data visualization',
-    title: 'Visualizing data with Observable and D3',
-    path: '/categories/dataviz',
+    key: 'visualizations',
+    label: 'Visualizing data',
+    title: 'Visualizing data in web applications',
+    path: '${base}/visualizations',
   },
   {
     key: 'privacy',
     label: 'Privacy',
-    title: 'DeApple and deGoogle your life',
-    path: '/categories/privacy',
+    title: 'DeApple and deGoogle your gadgets',
+    path: '${base}/privacy',
   },
 ];
 
