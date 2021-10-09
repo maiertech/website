@@ -5,28 +5,20 @@ import { base } from '$app/paths';
 // Permitted tags, sorted by key.
 const tags: Tag[] = [
   {
-    key: 'seo',
-    label: 'SEO',
-    title: 'Posts about SEO',
-    path: `${base}/tags/seo`,
-  },
-  {
     key: 'svelte',
-    label: 'Svelte',
-    title: 'Posts about Svelte',
+    label: 'SvelteKit and Svelte',
+    title: 'Creating web apps with SvelteKit and Svelte',
+    description:
+      'SvelteKit is my favorite framework to create fast and scalable websites. I write about issues I ran into and how I solved them.',
     path: `${base}/tags/svelte`,
   },
   {
     key: 'tooling',
-    label: 'Tooling',
-    title: 'Posts about developer tooling',
+    label: 'Developer tooling',
+    title: 'Boosting productivity with developer tooling',
+    description:
+      'I write about what developer tooling I use to boost my productivity.',
     path: `${base}/tags/tooling`,
-  },
-  {
-    key: 'vscode',
-    label: 'VSCode',
-    title: 'Posts about Visual Studio Code',
-    path: `${base}/tags/vscode`,
   },
 ];
 

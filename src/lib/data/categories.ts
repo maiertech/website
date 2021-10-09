@@ -7,21 +7,25 @@ const categories: Tag[] = [
   {
     key: 'creating',
     label: 'Creating',
-    title: 'Creating web applications',
+    title: 'Creating web apps',
+    description: 'I write about creating web apps with SvelteKit and Svelte.',
     path: `${base}/creating`,
   },
-  {
-    key: 'visualizations',
-    label: 'Visualizing data',
-    title: 'Visualizing data in web applications',
-    path: '${base}/visualizations',
-  },
-  {
-    key: 'privacy',
-    label: 'Privacy',
-    title: 'DeApple and deGoogle your gadgets',
-    path: '${base}/privacy',
-  },
+  // {
+  //   key: 'visualizations',
+  //   label: 'Visualizing data',
+  //   title: 'Visualizing data',
+  //   description:
+  //     'I write about exploring data with Observable and visualizing data with D3.',
+  //   path: '${base}/visualizations',
+  // },
+  // {
+  //   key: 'privacy',
+  //   label: 'Privacy',
+  //   title: 'Reclaiming privacy',
+  //   description: 'I write about how I reclaim my digital privacy.',
+  //   path: '${base}/privacy',
+  // },
 ];
 
 export default categories;

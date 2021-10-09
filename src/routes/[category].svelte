@@ -41,12 +41,9 @@
   export let posts: PostMetadata[];
 </script>
 
-<SEO
-  title={category.title}
-  description={`${category.title} in reverse chronological order.`}
-/>
+<SEO title={`${category.title}`} description={category.description} />
 
-<H1>{category.title}</H1>
+<H1>{`${category.title}`}</H1>
 
 <div class="mt-6 md:mt-12">
   <Posts {posts} />

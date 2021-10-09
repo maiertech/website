@@ -9,7 +9,6 @@ description:
 category: creating
 tags:
   - tooling
-  - vscode
 links:
   - title:
       A Gentle Introduction to Using a Docker Container as a Dev Environment

@@ -8,7 +8,7 @@ description:
   how to fix this by adding link tags with canonical URLs to your Next.js site.
 category: creating
 tags:
-  - seo
+  - svelte
 links:
   - title: 'rel=canonical: the ultimate guide (Yoast)'
     href: https://yoast.com/rel-canonical/

@@ -6,8 +6,10 @@ export type Tag = {
   key: string;
   /** Label used for displaying a tag. */
   label: string;
-  /** Tag page title. */
+  /** Tag title. */
   title: string;
+  /** Tag description. */
+  description: string;
   /** Path to tag page. */
   path: string;
 };
