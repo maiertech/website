@@ -42,11 +42,11 @@
 </script>
 
 <SEO
-  title={tag.title}
-  description={`${tag.title} in reverse chronological order.`}
+  title={`Posts about ${tag.label.toLowerCase()}`}
+  description={tag.description}
 />
 
-<H1>{tag.title}</H1>
+<H1>{`Posts about ${tag.label.toLowerCase()}`}</H1>
 
 <div class="mt-6 md:mt-12">
   <Posts {posts} />
