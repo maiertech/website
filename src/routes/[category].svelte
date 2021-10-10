@@ -10,7 +10,7 @@
     if (!res.ok) {
       return {
         status: res.status,
-        error: new Error(`Category '${key}' is not a permitted category.`),
+        error: new Error(`Not found: ${page.path}.`),
       };
     }
 
@@ -19,7 +19,7 @@
     if (posts.length === 0) {
       return {
         status: 404,
-        error: new Error(`There are no posts in category '${key}'.`),
+        error: new Error(`Not found: ${page.path}.`),
       };
     }
 

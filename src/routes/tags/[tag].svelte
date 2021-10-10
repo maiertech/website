@@ -10,7 +10,7 @@
     if (!res.ok) {
       return {
         status: res.status,
-        error: new Error(`Tag '${key}' is not a permitted tag.`),
+        error: new Error(`Not found: ${page.path}.`),
       };
     }
 
@@ -19,7 +19,7 @@
     if (posts.length === 0) {
       return {
         status: 404,
-        error: new Error(`There are no posts tagged with '${key}'.`),
+        error: new Error(`Not found: ${page.path}.`),
       };
     }
 
