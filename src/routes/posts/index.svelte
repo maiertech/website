@@ -20,14 +20,19 @@
 </script>
 
 <script lang="ts">
-  import type PostFrontmatter from '$lib/types/post-frontmatter.type';
-  export let posts: PostFrontmatter[];
+  import type { PostMetadata } from '$lib/types/post-metadata.type';
+
+  import H1 from '$lib/components/h1.svelte';
+  import SEO from '$lib/components/seo.svelte';
+  import Posts from '$lib/components/posts.svelte';
+
+  export let posts: PostMetadata[];
 </script>
 
-<h1>Posts</h1>
+<H1>Posts</H1>
 
-<ul>
-  {#each posts as post}
-    <li><pre>{JSON.stringify(post, null, 2)}</pre></li>
-  {/each}
-</ul>
+<SEO title="Posts" description="All posts." />
+
+<div class="mt-6 md:mt-12">
+  <Posts {posts} />
+</div>
