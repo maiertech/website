@@ -13,7 +13,7 @@
     } else {
       return {
         status: 500,
-        error: new Error(`Could not fetch ${url}`),
+        error: new Error(`Could not fetch ${url}.`),
       };
     }
   };
