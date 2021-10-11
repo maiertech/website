@@ -15,6 +15,10 @@
     {
       "source": "/posts/what-to-do-when-github-codespaces-is-down",
       "destination": "/posts/how-to-brace-for-a-github-codespaces-outage"
+    },
+    {
+      "source": "/posts/what-you-need-to-know-about-gatsby-s-file-system-route-api",
+      "destination": "/posts/what-you-need-to-know-about-gatsbys-file-system-route-api"
     }
   ]
 }
