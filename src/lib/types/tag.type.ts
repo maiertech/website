@@ -11,5 +11,5 @@ export type Tag = {
   /** Tag description. */
   description: string;
   /** Path to tag page. */
-  path: string;
+  path?: string;
 };

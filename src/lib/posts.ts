@@ -34,6 +34,12 @@ export async function getPosts(
       ({ frontmatter }) => frontmatter.category === category
     );
   }
+  // If no category is provided filter out posts in legacy category.
+  else {
+    posts = posts.filter(
+      ({ frontmatter }) => frontmatter.category !== 'legacy'
+    );
+  }
 
   // If a tag is provided, filter posts by tag.
   if (tag) {
@@ -62,7 +68,7 @@ export function normalize(
     description: frontmatter.description,
     category: categories.find(({ key }) => frontmatter.category === key),
     tags: frontmatter?.tags
-      .map((tag) => tags.find(({ key }) => tag === key))
+      ?.map((tag) => tags.find(({ key }) => tag === key))
       .filter((tag) => tag),
     links: frontmatter.links,
     path,

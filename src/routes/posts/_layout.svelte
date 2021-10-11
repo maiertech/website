@@ -28,16 +28,18 @@
       </time>
       (last update)
     </div>
-    <div class="space-x-2">
-      {#each post.tags as tag (tag.key)}
-        <a
-          href={tag.path}
-          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-background bg-primary-lighter"
-        >
-          {tag.label}
-        </a>
-      {/each}
-    </div>
+    {#if post.tags}
+      <div class="space-x-2">
+        {#each post.tags as tag (tag.key)}
+          <a
+            href={tag.path}
+            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-background bg-primary-lighter"
+          >
+            {tag.label}
+          </a>
+        {/each}
+      </div>
+    {/if}
   </div>
   <div class="prose md:prose-lg w-full">
     <slot />
@@ -57,9 +59,17 @@
     </div>
   {/if}
   <div class="text-base mt-6">
-    Original post date:
+    Posted on
     <time dateTime={format(new Date(post.date), 'yyyy-MM-dd')}>
       {format(new Date(post.date), 'MMM d, yyyy')}
     </time>
+    in category
+    <a
+      href={post.category.path}
+      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-background bg-primary-default"
+    >
+      {post.category.label}
+    </a>
+    .
   </div>
 </article>

@@ -2,7 +2,7 @@
   import type { Load } from '@sveltejs/kit';
 
   export const load: Load = async function ({ page, fetch }) {
-    // Check if category is permitted.
+    // Check if category is valid.
     const key = page.params.category;
     const url = `/categories/${key}.json`;
     const res = await fetch(url);

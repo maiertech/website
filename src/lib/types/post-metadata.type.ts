@@ -15,7 +15,7 @@ export type PostMetadata = {
   updated: string;
   description: string;
   category: Tag;
-  tags: Tag[];
+  tags?: Tag[];
   links?: Link[];
   /** path is optional. In a post page path is not needed and can be retrieved from store. In a list of posts path is needed. */
   path?: string;

@@ -7,14 +7,14 @@ export const get: RequestHandler = async function ({ params }) {
   // tag is undefined when not found in tags.
   const tag = tags.find((t) => t.key === key);
   if (!tag) {
-    const message = `Tag '${key}' is not a permitted tag.`;
+    const message = `Tag '${key}' is not a valid tag.`;
     return {
       status: 404,
       body: { error: message },
     };
   }
 
-  // Read tagged posts (in any category).
+  // Read tagged posts (in any category, but excluding legacy posts).
   const posts = await getPosts(null, key);
 
   return {

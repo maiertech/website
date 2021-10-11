@@ -6,9 +6,9 @@ updated: 2021-09-24
 description:
   When you adopt GitHub Codespaces you should ensure that an outage does not
   grind your development workflow to a halt. This post explains how.
-category: creating
+category: creating-web-apps
 tags:
-  - tooling
+  - vscode
 ---
 
 <script context="module">
