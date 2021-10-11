@@ -6,9 +6,7 @@ updated: 2021-09-24
 description:
   Syndicating content can have a negative impact on your search ranking. Learn
   how to fix this by adding link tags with canonical URLs to your Next.js site.
-category: creating
-tags:
-  - svelte
+category: legacy
 links:
   - title: 'rel=canonical: the ultimate guide (Yoast)'
     href: https://yoast.com/rel-canonical/

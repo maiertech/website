@@ -6,9 +6,9 @@ updated: 2021-09-24
 description:
   In this introduction to GitHub Codespaces you will learn how to run VS Code in
   the cloud and how to spin up a zero configuration development environment.
-category: creating
+category: creating-web-apps
 tags:
-  - tooling
+  - vscode
 links:
   - title:
       A Gentle Introduction to Using a Docker Container as a Dev Environment

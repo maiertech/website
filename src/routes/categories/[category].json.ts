@@ -4,10 +4,10 @@ import { getPosts } from '$lib/posts';
 
 export const get: RequestHandler = async function ({ params }) {
   const { category: key } = params;
-  // category is undefined when not found in categories.
   const category = categories.find((c) => c.key === key);
-  if (!category) {
-    const message = `Category '${key}' is not a permitted category.`;
+  // Category is invalid if not found or if found and it has no path.
+  if (!category || !category.path) {
+    const message = `Category '${key}' is not a valid category.`;
     return {
       status: 404,
       body: { error: message },
