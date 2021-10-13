@@ -10,10 +10,11 @@
   import '../app.css';
 
   onMount(() => {
-    Fathom.load(process.env.VITE_FATHOM_SITE_ID, {
+    Fathom.load(import.meta.env.VITE_FATHOM_SITE_ID as string, {
       url: 'https://firefly.maier.tech/script.js',
       includedDomains: ['maier.tech'],
     });
+    console.log(import.meta.env.VITE_FATHOM_SITE_ID);
   });
 
   // Track page view when path changes.
