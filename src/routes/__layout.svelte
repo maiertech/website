@@ -1,8 +1,24 @@
 <script lang="ts">
-  import '../app.css';
+  import { onMount } from 'svelte';
+  import * as Fathom from 'fathom-client';
+  import { page } from '$app/stores';
+  import { browser } from '$app/env';
+
   import Header from '$lib/components/header.svelte';
   import Container from '$lib/components/container.svelte';
   import Footer from '$lib/components/footer.svelte';
+  import '../app.css';
+
+  onMount(() => {
+    Fathom.load(process.env.VITE_FATHOM_SITE_ID, {
+      url: 'https://firefly.maier.tech/script.js',
+      includedDomains: ['maier.tech'],
+    });
+  });
+
+  // Track page view when path changes.
+  // This is a hack using the comma operator (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator).
+  $: $page.path, browser && Fathom.trackPageview();
 </script>
 
 <!-- Wrapped in flex #svelte div. -->

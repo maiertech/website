@@ -5,4 +5,5 @@ export type SocialIcon = {
   title: string;
   href: string;
   component: typeof SvelteComponent;
+  onclick?: () => void;
 };
