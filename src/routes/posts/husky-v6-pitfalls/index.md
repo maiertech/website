@@ -15,6 +15,10 @@ links:
     href: https://typicode.github.io/husky/
 ---
 
+<script context="module">
+  export const prerender = true;
+</script>
+
 _I published this post originally for Husky v5. v6 was released only two months
 after v5. It ironed out some of the kinks of v5. To keep this post relevant, I
 updated it for v6 and republished it._
