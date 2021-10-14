@@ -14,7 +14,6 @@
       url: 'https://firefly.maier.tech/script.js',
       includedDomains: ['maier.tech'],
     });
-    console.log(import.meta.env.VITE_FATHOM_SITE_ID);
   });
 
   // Track page view when path changes.
