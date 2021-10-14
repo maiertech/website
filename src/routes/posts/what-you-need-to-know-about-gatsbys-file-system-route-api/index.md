@@ -14,6 +14,10 @@ links:
     href: https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/
 ---
 
+<script context="module">
+  export const prerender = true;
+</script>
+
 The new
 [File System Route API](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/)
 in Gatsby takes inspiration from

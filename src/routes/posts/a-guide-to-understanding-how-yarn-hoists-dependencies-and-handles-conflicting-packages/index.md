@@ -11,6 +11,10 @@ description:
 category: legacy
 ---
 
+<script context="module">
+  export const prerender = true;
+</script>
+
 This post discusses the concept of
 [hoisting](https://yarnpkg.com/advanced/lexicon#hoisting), which is a key
 feature of [Yarn 1](https://classic.yarnpkg.com/lang/en/).
