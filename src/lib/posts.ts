@@ -1,9 +1,45 @@
 import type PostFrontmatter from './types/post-frontmatter.type';
 import type { PostMetadata } from './types/post-metadata.type';
-import orderBy from 'lodash.orderby';
 import authors from '$lib/data/authors';
 import categories from '$lib/data/categories';
 import tags from '$lib/data/tags';
+
+/**
+ * Transform post frontmatter into post metadata.
+ * @param frontmatter Frontmatter from a mdsvex file.
+ * @param path Optional path to be added to post metadata.
+ * @returns
+ */
+export function normalize(
+  frontmatter: PostFrontmatter,
+  path?: string
+): PostMetadata {
+  const post = {
+    title: frontmatter.title,
+    author: authors.find(({ key }) => frontmatter.author === key),
+    date: frontmatter.date,
+    updated: frontmatter.updated,
+    description: frontmatter.description,
+    category: categories.find(({ key }) => frontmatter.category === key),
+    tags: frontmatter?.tags
+      ?.map((tag) => tags.find(({ key }) => tag === key))
+      .filter((tag) => tag),
+    links: frontmatter.links,
+    path,
+  };
+  return post;
+}
+
+function compare(a: PostMetadata, b: PostMetadata): number {
+  return (
+    // desc
+    b.updated.localeCompare(a.updated) ||
+    // desc
+    b.date.localeCompare(a.date) ||
+    // asc
+    a.title.localeCompare(b.title)
+  );
+}
 
 export async function getPosts(
   category?: string,
@@ -46,32 +82,11 @@ export async function getPosts(
     posts = posts.filter(({ frontmatter }) => frontmatter?.tags.includes(tag));
   }
 
-  // Sort posts by `updated` desc, `date` desc, `title` asc.
-  posts = orderBy(posts, ['updated', 'date', 'title'], ['desc', 'desc', 'asc']);
-
   const normalizedPosts = posts.map(({ frontmatter, path }) =>
     normalize(frontmatter, path)
   );
 
-  return normalizedPosts;
-}
+  normalizedPosts.sort(compare);
 
-export function normalize(
-  frontmatter: PostFrontmatter,
-  path?: string
-): PostMetadata {
-  const post = {
-    title: frontmatter.title,
-    author: authors.find(({ key }) => frontmatter.author === key),
-    date: frontmatter.date,
-    updated: frontmatter.updated,
-    description: frontmatter.description,
-    category: categories.find(({ key }) => frontmatter.category === key),
-    tags: frontmatter?.tags
-      ?.map((tag) => tags.find(({ key }) => tag === key))
-      .filter((tag) => tag),
-    links: frontmatter.links,
-    path,
-  };
-  return post;
+  return normalizedPosts;
 }
