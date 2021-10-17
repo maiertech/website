@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
-    "date-fns": "^2.24.0",
     "fathom-client": "^3.2.0",
     "lodash.orderby": "^4.6.0",
     "remark-code-titles": "^0.1.2",
