@@ -12,12 +12,12 @@
   onMount(() => {
     Fathom.load(import.meta.env.VITE_FATHOM_SITE_ID as string, {
       url: 'https://firefly.maier.tech/script.js',
+      honorDNT: true,
       includedDomains: ['maier.tech'],
     });
   });
 
   // Track page view when path changes.
-  // This is a hack using the comma operator (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator).
   $: $page.path, browser && Fathom.trackPageview();
 </script>
 

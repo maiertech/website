@@ -8,11 +8,7 @@
   {#each icons as icon (icon.key)}
     <a href={icon.href} on:click={icon.onclick}>
       <span class="sr-only">{icon.title}</span>
-      <svelte:component
-        this={icon.component}
-        class="h-7 w-7"
-        aria-hidden={true}
-      />
+      <svelte:component this={icon.component} class="h-7 w-7" />
     </a>
   {/each}
 </div>
