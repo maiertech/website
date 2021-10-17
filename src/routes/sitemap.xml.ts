@@ -29,7 +29,6 @@ export const get: RequestHandler = async function () {
 
   const pages = [
     createPage('/'),
-    createPage('about'),
     createPage('posts'),
     ...postPages,
     createPage('categories'),
