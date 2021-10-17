@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { PostMetadata } from '$lib/types/post-metadata.type';
-  import { format } from 'date-fns';
 
   export let posts: PostMetadata[];
 </script>
@@ -9,8 +8,11 @@
   {#each posts as post (post.title)}
     <article class="flex flex-col space-y-3">
       <p class="text-sm text-text-lighter">
-        <time dateTime={format(new Date(post.updated), 'yyyy-MM-dd')}>
-          {format(new Date(post.updated), 'MMM d, yyyy')}
+        <time dateTime={post.updated}>
+          {new Intl.DateTimeFormat('en-US', {
+            dateStyle: 'medium',
+            timeZone: 'UTC',
+          }).format(new Date(post.updated))}
         </time>
       </p>
       <a href={post.path} class="flex-grow">

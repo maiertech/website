@@ -6,7 +6,6 @@
    * @typedef {import('$lib/types/post-frontmatter.type').default} PostFrontmatter
    * @typedef {import('$lib/types/post-metadata.type').PostMetadata} PostMetadata
    */
-  import { format } from 'date-fns';
   import { normalize } from '$lib/posts';
   import SEO from '$lib/components/seo.svelte';
   import H1 from '$lib/components/h1.svelte';
@@ -23,8 +22,11 @@
     <H1>{post.title}</H1>
     <div class="text-lg mb-3">
       {post.author.name} •
-      <time dateTime={format(new Date(post.updated), 'yyyy-MM-dd')}>
-        {format(new Date(post.updated), 'MMM d, yyyy')}
+      <time dateTime={post.updated}>
+        {new Intl.DateTimeFormat('en-US', {
+          dateStyle: 'medium',
+          timeZone: 'UTC',
+        }).format(new Date(post.updated))}
       </time>
       (last update)
     </div>
@@ -59,17 +61,20 @@
     </div>
   {/if}
   <div class="text-base mt-6">
-    Posted on
-    <time dateTime={format(new Date(post.date), 'yyyy-MM-dd')}>
-      {format(new Date(post.date), 'MMM d, yyyy')}
-    </time>
-    in category
+    Posted in
     <a
       href={post.category.path}
       class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-background bg-primary-default"
     >
       {post.category.label}
     </a>
+    on
+    <time dateTime={post.date}>
+      {new Intl.DateTimeFormat('en-US', {
+        dateStyle: 'medium',
+        timeZone: 'UTC',
+      }).format(new Date(post.date))}
+    </time>
     .
   </div>
 </article>
