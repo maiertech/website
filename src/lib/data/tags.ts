@@ -6,14 +6,6 @@ import { base } from '$app/paths';
 // Omitting path results in tag page not being generated.
 const tags: Tag[] = [
   {
-    key: 'nextjs',
-    label: 'Next.js',
-    title: 'Creating web apps with Next.js',
-    description:
-      'If you develop web apps in the React ecosystem, you should go with Next.js.',
-    path: `${base}/tags/nextjs`,
-  },
-  {
     key: 'sveltekit',
     label: 'SvelteKit',
     title: 'Creating web apps with SvelteKit',
