@@ -19,9 +19,9 @@ tags:
 
 When I migrated this website from [Next.js](https://nextjs.org/) to
 [SvelteKit](https://kit.svelte.dev/), I had to figure out how to wire up
-[Fathom Analytics](https://fathom.com/). Fathom Analytics is an alternative to
-Google Analytics. It features a better user experience for website owners and is
-more privacy-friendly for visitors to your website. This post expands on
+[Fathom Analytics](https://usefathom.com/). Fathom Analytics is an alternative
+to Google Analytics. It features a better user experience for website owners and
+is more privacy-friendly for visitors to your website. This post expands on
 [Matt Jennings's](https://mattjennings.io/) post
 [How to use Fathom Analytics with SvelteKit](https://mattjennings.io/blog/how-to-use-fathom-analytics-with-sveltekit).
 
