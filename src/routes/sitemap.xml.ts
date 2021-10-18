@@ -22,7 +22,10 @@ export const get: RequestHandler = async function () {
   const postPages = posts.map((post) => createPage(post.path, post.updated));
 
   // Category pages.
-  const categoryPages = categories.map((category) => createPage(category.path));
+  const categoryPages = categories
+    // If path is omitted, omit category in sitemap.
+    .filter((category) => category.path)
+    .map((category) => createPage(category.path));
 
   // Tag pages.
   const tagPages = tags.map((tag) => createPage(tag.path));
@@ -31,9 +34,7 @@ export const get: RequestHandler = async function () {
     createPage('/'),
     createPage('posts'),
     ...postPages,
-    createPage('categories'),
     ...categoryPages,
-    createPage('tags'),
     ...tagPages,
   ];
 
