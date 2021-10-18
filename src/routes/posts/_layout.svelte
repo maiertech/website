@@ -17,7 +17,14 @@
 </script>
 
 <article>
-  <SEO title={post.title} description={post.description} />
+  <SEO
+    title={post.title}
+    description={post.description}
+    published={post.date}
+    modified={post.updated}
+    category={post.category.label}
+    tags={post.tags?.map((tag) => tag.label)}
+  />
   <div class="flex flex-col mb-3 md:mb-6 space-y-3">
     <H1>{post.title}</H1>
     <div class="text-lg mb-3">
