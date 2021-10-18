@@ -35,7 +35,7 @@
           timeZone: 'UTC',
         }).format(new Date(post.updated))}
       </time>
-      (last update)
+      (last modified)
     </div>
     {#if post.tags}
       <div class="space-x-2">
@@ -68,7 +68,7 @@
     </div>
   {/if}
   <div class="text-base mt-6">
-    Posted in
+    Published in
     <a
       href={post.category.path}
       class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-background bg-primary-default"
