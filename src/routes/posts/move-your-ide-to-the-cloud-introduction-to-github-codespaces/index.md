@@ -2,12 +2,13 @@
 title: 'Move your IDE to the cloud: introduction to GitHub Codespaces'
 author: thilo
 date: 2021-01-03
-updated: 2021-09-24
+updated: 2021-10-19
 description:
   In this introduction to GitHub Codespaces you will learn how to run VS Code in
   the cloud and how to spin up a zero configuration development environment.
 category: creating-web-apps
 tags:
+  - github
   - vscode
 links:
   - title:

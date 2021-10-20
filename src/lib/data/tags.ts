@@ -6,6 +6,14 @@ import { base } from '$app/paths';
 // Omitting path results in tag page not being generated.
 const tags: Tag[] = [
   {
+    key: 'github',
+    label: 'GitHub',
+    title: 'Using GitHub as a platform for creation',
+    description:
+      'GitHub is the go to platform for developers to collaborate on code. I write about how to get the most out of GitHub.',
+    path: `${base}/tags/github`,
+  },
+  {
     key: 'sveltekit',
     label: 'SvelteKit',
     title: 'Creating web apps with SvelteKit',
