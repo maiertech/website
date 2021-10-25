@@ -31,7 +31,7 @@
 
 <H1>Posts</H1>
 
-<SEO title="Posts" description="All posts." />
+<SEO title="Posts" description="Overview of post categories." />
 
 <div class="mt-6 md:mt-12">
   <Posts {posts} />
