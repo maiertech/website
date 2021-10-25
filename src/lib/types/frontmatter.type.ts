@@ -4,4 +4,6 @@
  */
 export default interface Frontmatter {
   title: string;
+  /** SEO description. */
+  description: string;
 }

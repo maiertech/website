@@ -6,7 +6,6 @@ import type { Link } from './link.type';
  */
 export default interface PostFrontmatter extends TaggedFrontmatter {
   author: string;
-  description: string;
   /** A category in frontmatter is a string key. */
   category: string;
   links: Link[];
