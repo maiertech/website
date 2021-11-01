@@ -27,7 +27,7 @@
     "@types/lodash.orderby": "^4.6.6",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "autoprefixer": "^10.3.6",
+    "autoprefixer": "^10.4.0",
     "cssnano": "^5.0.8",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.1.0",
