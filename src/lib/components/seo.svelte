@@ -2,7 +2,7 @@
   import SvelteSeo from 'svelte-seo';
   import { page } from '$app/stores';
   import { base } from '$app/paths';
-  import pkg from '../../../package.json';
+  import { homepage } from '$lib/package.json';
 
   // Every page.
   export let title: string;
@@ -19,7 +19,7 @@
   if ($page.path !== `${base}/`) {
     decoratedTitle = `${title} – Thilo Maier`;
   }
-  const url = canonicalUrl ?? `${pkg.homepage}${$page.path}`;
+  const url = canonicalUrl ?? `${homepage}${$page.path}`;
 </script>
 
 <SvelteSeo

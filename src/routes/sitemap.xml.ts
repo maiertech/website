@@ -2,7 +2,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 import { getPosts } from '$lib/posts';
 import categories from '$lib/data/categories';
 import tags from '$lib/data/tags';
-import pkg from '../../package.json';
+import { homepage } from '$lib/package.json';
 
 // Generate a basic XML sitemap.
 // See https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap#xml.
@@ -10,7 +10,7 @@ import pkg from '../../package.json';
 function createPage(href: string, lastmod?: string | Date) {
   return `
     <url>
-      <loc>${new URL(href, pkg.homepage).href}</loc>
+      <loc>${new URL(href, homepage).href}</loc>
       ${lastmod ? '<lastmod>' + lastmod + '</lastmod>' : ''}
     </url>
   `;
