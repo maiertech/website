@@ -2,12 +2,12 @@
 title: How to wire up Fathom Analytics in a SvelteKit app
 author: thilo
 date: 2021-10-15
-updated: 2021-10-16
+updated: 2021-11-27
 description:
   In this post you will learn how to setup Fathom Analytics in a SvelteKit app
   in order to track pageviews and goals, while ensuring privacy for your
   visitors.
-category: creating-web-apps
+category: transitional-apps
 tags:
   - sveltekit
   - seo

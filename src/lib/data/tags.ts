@@ -14,6 +14,14 @@ const tags: Tag[] = [
     path: `${base}/tags/github`,
   },
   {
+    key: 'nodejs',
+    label: 'Node.js',
+    title: 'Node.js ecosystem',
+    description:
+      'Node.js drives modern web development. Occasionally I make a deep-dive into Node.js fundamentals.',
+    path: `${base}/tags/nodejs`,
+  },
+  {
     key: 'sveltekit',
     label: 'SvelteKit',
     title: 'Creating web apps with SvelteKit',
