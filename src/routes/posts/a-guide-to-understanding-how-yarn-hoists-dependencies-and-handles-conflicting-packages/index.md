@@ -4,11 +4,13 @@ title:
   packages
 author: thilo
 date: 2021-02-19
-updated: 2021-10-11
+updated: 2021-11-27
 description:
   Learn how Yarn 1 hoists packages, handles conflicting package versions and how
   you can use `yarn why` and the yarn.lock file to understand hoisting.
-category: legacy
+category: developer-tools
+tags:
+  - nodejs
 ---
 
 <script context="module">

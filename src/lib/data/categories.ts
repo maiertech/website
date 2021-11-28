@@ -5,11 +5,20 @@ import { base } from '$app/paths';
 // Permitted categories, sorted by key.
 const categories: Tag[] = [
   {
-    key: 'creating-web-apps',
-    label: 'Creating web apps',
-    title: 'Creating web apps',
-    description: 'I write about creating web apps with SvelteKit and Svelte.',
-    path: `${base}/creating-web-apps`,
+    key: 'developer-tools',
+    label: 'Developer tools',
+    title: 'Developer tools',
+    description:
+      'I write about developer tools, e.g. GitHub Codespaces and VS Code.',
+    path: `${base}/developer-tools`,
+  },
+  {
+    key: 'transitional-apps',
+    label: 'Transitional apps',
+    title: 'Transitional apps',
+    description:
+      'I write about creating transitional apps with SvelteKit and Svelte.',
+    path: `${base}/transitional-apps`,
   },
   {
     key: 'visualizing-data',
@@ -18,13 +27,6 @@ const categories: Tag[] = [
     description:
       'I write about exploring data with Observable and visualizing data with D3.',
     // path: '${base}/visualizing-data',
-  },
-  {
-    key: 'privacy',
-    label: 'Privacy',
-    title: 'Reclaiming privacy',
-    description: 'I write about how I reclaim my digital privacy.',
-    // path: '${base}/privacy',
   },
   {
     key: 'legacy',

@@ -2,7 +2,6 @@
   "name": "maier.tech",
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://maier.tech",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
