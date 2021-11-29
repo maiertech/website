@@ -22,6 +22,14 @@ const tags: Tag[] = [
     path: `${base}/tags/nodejs`,
   },
   {
+    key: 'screencasting',
+    label: 'Screencasting',
+    title: 'Creating screencasts',
+    description:
+      'Creating screencasts is harder than I thought. I share useful tips that make it easier to get started with screencasting.',
+    path: `${base}/tags/screencasting`,
+  },
+  {
     key: 'sveltekit',
     label: 'SvelteKit',
     title: 'Creating web apps with SvelteKit',

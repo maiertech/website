@@ -13,6 +13,7 @@
     "prepare": "git config core.hookspath .githooks"
   },
   "dependencies": {
+    "@joeinnes/svelte-image": "^0.0.4",
     "@tailwindcss/typography": "^0.4.1",
     "fathom-client": "^3.2.0",
     "remark-code-titles": "^0.1.2",
@@ -21,7 +22,7 @@
   "devDependencies": {
     "@maiertech/prettier-config": "^2.0.0",
     "@sveltejs/adapter-vercel": "^1.0.0-next.30",
-    "@sveltejs/kit": "next",
+    "@sveltejs/kit": "^1.0.0-next.201",
     "@types/cookie": "^0.4.0",
     "@types/lodash.orderby": "^4.6.6",
     "@typescript-eslint/eslint-plugin": "^5.4.0",

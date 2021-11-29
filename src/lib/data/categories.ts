@@ -5,6 +5,14 @@ import { base } from '$app/paths';
 // Permitted categories, sorted by key.
 const categories: Tag[] = [
   {
+    key: 'creating-content',
+    label: 'Creating content',
+    title: 'Creating content',
+    description:
+      'I write about writing posts, producing screencasts and making my content discoverable with SEO.',
+    path: `${base}/creating-content`,
+  },
+  {
     key: 'developer-tools',
     label: 'Developer tools',
     title: 'Developer tools',
