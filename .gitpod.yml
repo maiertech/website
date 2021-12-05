@@ -1,0 +1,27 @@
+ports:
+  - port: 3000
+    onOpen: open-preview
+
+tasks:
+  - init: npm install
+    command: |
+      export HMR_HOST=`gp url 3000`
+      npm run dev
+
+github:
+  prebuilds:
+    main: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: true
+    addComment: false
+    addBadge: true
+    addLabel: false
+
+vscode:
+  extensions:
+    - bradlc.vscode-tailwindcss
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - svelte.svelte-vscode
