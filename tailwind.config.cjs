@@ -1,13 +1,11 @@
 const colors = require('tailwindcss/colors');
 
 const config = {
-  mode: 'jit',
-  purge: ['./src/**/*.{html,js,svelte,ts}'],
-  darkMode: 'media',
+  content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
       colors: {
-        background: colors.coolGray[50],
+        background: colors.gray[50],
         text: {
           default: colors.gray[800],
           lighter: colors.gray[500],
