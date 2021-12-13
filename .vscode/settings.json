@@ -1,13 +1,17 @@
 {
+  "cSpell.enabledLanguageIds": ["markdown"],
+  "cSpell.ignoreWords": ["thilo"],
   "cSpell.words": [
-    "CNAME",
     "Codespaces",
-    "frontmatter",
-    "frontmatters",
-    "mdsvex",
-    "pageview",
-    "pageviews",
+    "Gitpod",
+    "prebuild",
+    "prebuilds",
     "prerender"
   ],
-  "cSpell.ignoreWords": ["FEFF", "VITE", "maier", "sveltekit", "thilo"]
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "svelte.enable-ts-plugin": true
 }
