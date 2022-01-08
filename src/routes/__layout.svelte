@@ -18,7 +18,7 @@
   });
 
   // Track page view when path changes.
-  $: $page.path, browser && Fathom.trackPageview();
+  $: $page.url.pathname, browser && Fathom.trackPageview();
 </script>
 
 <!-- Wrapped in flex #svelte div. -->

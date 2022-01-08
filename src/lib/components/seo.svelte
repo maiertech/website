@@ -16,10 +16,10 @@
   export let modified: string = null;
 
   let decoratedTitle = title;
-  if ($page.path !== `${base}/`) {
+  if ($page.url.pathname !== `${base}/`) {
     decoratedTitle = `${title} – Thilo Maier`;
   }
-  const url = canonicalUrl ?? `${BASE_URL}${$page.path}`;
+  const url = canonicalUrl ?? `${BASE_URL}${$page.url.pathname}`;
 </script>
 
 <SvelteSeo

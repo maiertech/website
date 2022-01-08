@@ -3,16 +3,16 @@
 
   export const prerender = true;
 
-  export const load: Load = async function ({ page, fetch }) {
+  export const load: Load = async function ({ url, params, fetch }) {
     // Check if tag is permitted.
-    const key = page.params.tag;
-    const url = `/tags/${key}.json`;
-    const res = await fetch(url);
+    const key = params.tag;
+    const path = `/tags/${key}.json`;
+    const res = await fetch(path);
 
     if (!res.ok) {
       return {
         status: res.status,
-        error: new Error(`Not found: ${page.path}.`),
+        error: new Error(`Not found: ${url.pathname}.`),
       };
     }
 
@@ -21,7 +21,7 @@
     if (posts.length === 0) {
       return {
         status: 404,
-        error: new Error(`Not found: ${page.path}.`),
+        error: new Error(`Not found: ${url.pathname}.`),
       };
     }
 
