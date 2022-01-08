@@ -2,11 +2,16 @@
   "cSpell.enabledLanguageIds": ["markdown"],
   "cSpell.ignoreWords": ["thilo"],
   "cSpell.words": [
+    "CNAME",
     "Codespaces",
     "Gitpod",
+    "pageview",
+    "pageviews",
     "prebuild",
     "prebuilds",
-    "prerender"
+    "prerender",
+    "sveltekit",
+    "VITE"
   ],
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",

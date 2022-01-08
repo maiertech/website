@@ -3,16 +3,16 @@
 
   export const prerender = true;
 
-  export const load: Load = async function ({ page, fetch }) {
+  export const load: Load = async function ({ url, params, fetch }) {
     // Check if category is valid.
-    const key = page.params.category;
-    const url = `/categories/${key}.json`;
-    const res = await fetch(url);
+    const key = params.category;
+    const path = `/categories/${key}.json`;
+    const res = await fetch(path);
 
     if (!res.ok) {
       return {
         status: res.status,
-        error: new Error(`Not found: ${page.path}.`),
+        error: new Error(`Not found: ${url.pathname}.`),
       };
     }
 
@@ -21,7 +21,7 @@
     if (posts.length === 0) {
       return {
         status: 404,
-        error: new Error(`Not found: ${page.path}.`),
+        error: new Error(`Not found: ${url.pathname}.`),
       };
     }
 

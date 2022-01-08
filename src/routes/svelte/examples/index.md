@@ -6,15 +6,13 @@ description: A collection of instructive Svelte examples.
 <script context="module">
   export const prerender = true;
 
-  export const load = async function ({ fetch, page }) {
+  export const load = async function ({ url, fetch }) {
     const res = await fetch('/svelte/examples.json');
-
-    debugger;
 
     if (!res.ok) {
       return {
         status: res.status,
-        error: new Error(`Not found: ${page.path}.`),
+        error: new Error(`Not found: ${url.pathname}.`),
       };
     }
 
@@ -25,7 +23,7 @@ description: A collection of instructive Svelte examples.
     if (examples.length === 0) {
       return {
         status: 404,
-        error: new Error(`Not found: ${page.path}.`),
+        error: new Error(`Not found: ${url.pathname}.`),
       };
     }
 

@@ -2,7 +2,7 @@
 title: How to wire up Fathom Analytics in a SvelteKit app
 author: thilo
 date: 2021-10-15
-updated: 2021-11-27
+updated: 2022-01-07
 description:
   In this post you will learn how to setup Fathom Analytics in a SvelteKit app
   in order to track pageviews and goals, while ensuring privacy for your
@@ -125,9 +125,9 @@ Fathom is upfront about this potential issue. They make a strong case for why
 you should trust them in
 [this post](https://usefathom.com/blog/bypass-adblockers).
 
-If you choose to serve your tracking script from your own custom domain, you
-need to set the `url` option, as shown below, using the custom tracking script
-URL provided by Fathom. While you are at it, you should also set the `honorDNT`
+If you choose to serve your tracking script from your custom domain, you need to
+set the `url` option, as shown below, using the custom tracking script URL
+provided by Fathom. While you are at it, you should also set the `honorDNT`
 option to true. DNT refers to the "Do Not Track" request header, which is
 [officially deprecated](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/DNT),
 but still supported in
@@ -174,7 +174,7 @@ corresponding imports:
   });
 
   // Track page view when path changes.
-  $: $page.path, browser && Fathom.trackPageview();
+  $: $page.url.pathname, browser && Fathom.trackPageview();
 </script>
 ```
 
@@ -187,7 +187,7 @@ but it is not the typical example from the
 variable. It uses JavaScript's
 [comma operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator),
 which evaluates comma separated operands in sequence and returns the value of
-the last operand. `$page.path` is a reference to the current path in
+the last operand. `$page.url.pathname` is a reference to the current path in
 [SvelteKit's page store](https://kit.svelte.dev/docs#modules-$app-stores) and
 whenever this value changes it triggers the reactive statement. The last operand
 fires a `trackPageview`, but only when the app is running in a browser.
