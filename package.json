@@ -22,7 +22,7 @@
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "autoprefixer": "^10.4.2",
-    "cssnano": "^5.0.14",
+    "cssnano": "^5.0.15",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-svelte3": "^3.2.1",
