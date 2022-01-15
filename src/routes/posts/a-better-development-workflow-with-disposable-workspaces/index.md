@@ -2,7 +2,7 @@
 title: A better development workflow with disposable workspaces
 author: thilo
 date: 2021-12-12
-updated: 2021-12-12
+updated: 2022-01-14
 description:
   Disposable workspaces with Gitpod and GitHub Codespaces enable a new
   development workflow which eliminates the friction of local development.
@@ -11,9 +11,11 @@ tags:
   - github
   - vscode
 links:
+  - title: Gitpod, iPad Coding, Web3, WTF NFT (Syntax Podcast)
+    href: https://syntax.fm/show/416/gitpod-ipad-coding-web3-wtf-nft
   - title:
-      Modern Web Podcast - Software Development in the Cloud with Mike Nikles &
-      Geoffrey Huntley
+      Software Development in the Cloud with Mike Nikles & Geoffrey Huntley
+      (Modern Web Podcast)
     href: https://modernweb.podbean.com/e/s09e03-modern-web-podcast-development-in-the-cloud-with-mike-nikles-geoffrey-huntley/
 ---
 
