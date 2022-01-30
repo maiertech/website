@@ -9,7 +9,7 @@
 
 <SEO
   title="Thilo Maier"
-  description="Learn, create, share. Repeat. I write about creating transitional apps with SvelteKit and Svelte, visualizing data and developer tools."
+  description="Hi, my name is Thilo. I am a developer based in Queens, NY. I write about web development and developer tools."
 />
 
 <section class="text-center py-8 lg:py-12">
@@ -18,8 +18,7 @@
   </p>
   <p class="max-w-xl mt-5 mx-auto text-xl text-text-light">
     Hi, my name is Thilo. I am a developer based in Queens, NY. I write about
-    creating transitional apps with SvelteKit and Svelte, visualizing data and
-    developer tools.
+    web development and developer tools.
   </p>
 </section>
 <section>

@@ -7,7 +7,7 @@ description:
   In this post you will learn how to setup Fathom Analytics in a SvelteKit app
   in order to track pageviews and goals, while ensuring privacy for your
   visitors.
-category: transitional-apps
+category: web-development
 tags:
   - sveltekit
   - seo
