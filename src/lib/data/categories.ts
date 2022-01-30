@@ -2,23 +2,23 @@ import type { Tag } from '$lib/types/tag.type';
 
 import { base } from '$app/paths';
 
-// Permitted categories, sorted by key.
+// Permitted categories, sorted by relevance.
 const categories: Tag[] = [
+  {
+    key: 'web-development',
+    label: 'Web development',
+    title: 'Web development',
+    description:
+      'I write about web development, mostly Svelte, SvelteKit and CSS.',
+    path: `${base}/web-development`,
+  },
   {
     key: 'developer-tools',
     label: 'Developer tools',
     title: 'Developer tools',
     description:
-      'I write about developer tools, e.g. GitHub Codespaces and VS Code.',
+      'I write about developer tools, mostly developing with cloud workspaces',
     path: `${base}/developer-tools`,
-  },
-  {
-    key: 'transitional-apps',
-    label: 'Transitional apps',
-    title: 'Transitional apps',
-    description:
-      'I write about creating transitional apps with SvelteKit and Svelte.',
-    path: `${base}/transitional-apps`,
   },
   {
     key: 'visualizing-data',

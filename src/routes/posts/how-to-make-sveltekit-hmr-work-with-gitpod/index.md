@@ -6,7 +6,7 @@ updated: 2022-01-30
 description:
   SvelteKit HMR breaks when developing with Gitpod. This posts explains how to
   fix it. The solution applies to any container-based development environment.
-category: transitional-apps
+category: web-development
 tags:
   - sveltekit
 ---
