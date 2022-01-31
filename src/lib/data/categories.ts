@@ -9,15 +9,14 @@ const categories: Tag[] = [
     label: 'Web development',
     title: 'Web development',
     description:
-      'I write about web development, mostly Svelte, SvelteKit and CSS.',
+      'I write about web development, mostly SvelteKit, Svelte and fundamentals.',
     path: `${base}/web-development`,
   },
   {
     key: 'developer-tools',
     label: 'Developer tools',
     title: 'Developer tools',
-    description:
-      'I write about developer tools, mostly developing with cloud workspaces',
+    description: 'I write about developer tools that make me more productive.',
     path: `${base}/developer-tools`,
   },
   {
