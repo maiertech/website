@@ -18,6 +18,6 @@
   <H1>{frontmatter.title}</H1>
 </div>
 
-<div class="prose md:prose-lg w-full">
+<div class="prose w-full md:prose-lg">
   <slot />
 </div>

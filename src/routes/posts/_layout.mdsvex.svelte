@@ -25,9 +25,9 @@
     category={post.category.label}
     tags={post.tags?.map((tag) => tag.label)}
   />
-  <div class="flex flex-col mb-3 md:mb-6 space-y-3">
+  <div class="mb-3 flex flex-col space-y-3 md:mb-6">
     <H1>{post.title}</H1>
-    <div class="text-lg mb-3">
+    <div class="mb-3 text-lg">
       {post.author.name} •
       <time dateTime={post.updated}>
         {new Intl.DateTimeFormat('en-US', {
@@ -42,7 +42,7 @@
         {#each post.tags as tag (tag.key)}
           <a
             href={tag.path}
-            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-background bg-primary-lighter"
+            class="inline-flex items-center rounded-full bg-primary-lighter px-2.5 py-0.5 text-xs font-medium text-background"
           >
             {tag.label}
           </a>
@@ -50,12 +50,12 @@
       </div>
     {/if}
   </div>
-  <div class="prose md:prose-lg w-full">
+  <div class="prose w-full md:prose-lg">
     <slot />
   </div>
   {#if post.links}
     <div
-      class="prose md:prose-lg w-full border-t-4 border-primary-lighter mt-6 pt-4"
+      class="prose mt-6 w-full border-t-4 border-primary-lighter pt-4 md:prose-lg"
     >
       <h2>Links</h2>
       <ul>
@@ -67,11 +67,11 @@
       </ul>
     </div>
   {/if}
-  <div class="text-base mt-6">
+  <div class="mt-6 text-base">
     Published in
     <a
       href={post.category.path}
-      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-background bg-primary-default"
+      class="inline-flex items-center rounded-full bg-primary-default px-2.5 py-0.5 text-xs font-medium text-background"
     >
       {post.category.label}
     </a>

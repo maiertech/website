@@ -12,11 +12,11 @@
   description="Hi, my name is Thilo. I am a developer based in Queens, NY. I write about web development and developer tools."
 />
 
-<section class="text-center py-8 lg:py-12">
-  <p class="font-extrabold text-4xl sm:text-5xl lg:text-6xl sm:tracking-tight">
+<section class="py-8 text-center lg:py-12">
+  <p class="text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">
     Learn, create, share. Repeat.
   </p>
-  <p class="max-w-xl mt-5 mx-auto text-xl text-text-light">
+  <p class="text-text-light mx-auto mt-5 max-w-xl text-xl">
     Hi, my name is Thilo. I am a developer based in Queens, NY. I write about
     web development and developer tools.
   </p>

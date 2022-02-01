@@ -11,11 +11,11 @@
 }
 
 .prose pre {
-  @apply text-text-default bg-background border-2 border-primary-lighter;
+  @apply border-2 border-primary-lighter bg-background text-text-default;
 }
 
 .remark-code-title {
-  @apply px-5 py-3 font-mono text-sm font-bold text-background bg-primary-lighter rounded-md rounded-b-none;
+  @apply rounded-md rounded-b-none bg-primary-lighter px-5 py-3 font-mono text-sm font-bold text-background;
 }
 
 .remark-code-title + pre {

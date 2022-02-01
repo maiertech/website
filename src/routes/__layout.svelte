@@ -22,10 +22,10 @@
 </script>
 
 <!-- Wrapped in flex #svelte div. -->
-<div class="flex-shrink-0 mb-3 md:mb-6">
+<div class="mb-3 flex-shrink-0 md:mb-6">
   <Header />
 </div>
-<main id="skip" class="flex-1 mb-8 md:mb-12">
+<main id="skip" class="mb-8 flex-1 md:mb-12">
   <Container><slot /></Container>
 </main>
 <div class="flex-shrink-0">

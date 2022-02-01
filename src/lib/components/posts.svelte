@@ -16,7 +16,7 @@
         </time>
       </p>
       <a href={post.path} class="flex-grow">
-        <p class="text-2xl md:text-3xl font-bold leading-tight">
+        <p class="text-2xl font-bold leading-tight md:text-3xl">
           {post.title}
         </p>
         <p class="mt-3 text-base">{post.description}</p>
