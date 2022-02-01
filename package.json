@@ -20,7 +20,7 @@
     "@types/cookie": "^0.4.0",
     "@types/lodash.orderby": "^4.6.6",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
-    "@typescript-eslint/parser": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.2",
     "autoprefixer": "^10.4.2",
     "cssnano": "^5.0.16",
     "eslint": "^8.8.0",
