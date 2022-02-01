@@ -18,8 +18,6 @@ description: A collection of instructive Svelte examples.
 
     const { examples } = await res.json();
 
-    debugger;
-
     if (examples.length === 0) {
       return {
         status: 404,
