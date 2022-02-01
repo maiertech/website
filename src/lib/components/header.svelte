@@ -14,7 +14,7 @@
 
 <header aria-label="Top">
   <Container>
-    <nav class="flex justify-between items-center py-6">
+    <nav class="flex items-center justify-between py-6">
       <div class="flex items-center space-x-3">
         <a href="/" class="text-primary-default hover:text-primary-lighter">
           <Logo class="h-8 sm:h-9 md:h-10 lg:h-12" />

@@ -1,3 +1,3 @@
-<h1 class="font-extrabold text-3xl md:text-5xl leading-snug">
+<h1 class="text-3xl font-extrabold leading-snug md:text-5xl">
   <slot />
 </h1>

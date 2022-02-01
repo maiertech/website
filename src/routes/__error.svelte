@@ -27,7 +27,7 @@
 
 <H1>{status}</H1>
 
-<div class="prose md:prose-lg w-full">
+<div class="prose w-full md:prose-lg">
   {#if error && error.message}
     <p>{error.message}</p>
   {/if}
