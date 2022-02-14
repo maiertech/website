@@ -2,11 +2,10 @@
 title: Route matching in SvelteKit
 author: thilo
 date: 2022-02-13
-updated: 2022-02-13
+updated: 2022-02-14
 description:
   This post explores how SvelteKit's filesystem-based router matches a requested
-  route to a page or an endpoint. You can run the example project in your
-  browser.
+  route to a page or an endpoint in src/routes.
 category: web-development
 tags:
   - sveltekit
@@ -24,6 +23,19 @@ links:
   import Highlight from '$lib/components/highlight.svelte';
 </script>
 
+<Highlight>
+
+I wrote this post originally with
+[@sveltejs/kit](https://www.npmjs.com/package/@sveltejs/kit) v1.0.0-next.254.
+After finishing it, I noticed that v1.0.0-next.260 introduced shadow endpoints
+in [this pull request](https://github.com/sveltejs/kit/pull/3679). This change
+came with a
+[check for duplicate route files](https://github.com/sveltejs/kit/blame/647131e00149cb5299042eedeb880efcd855a2df/packages/kit/src/core/create_manifest_data/index.js#L262-L279),
+which made original Rule 1 partially obsolete. To adapt this post to
+v1.0.0-next.260, I had to renumber the rules.
+
+</Highlight>
+
 The [SvelteKit docs](https://kit.svelte.dev/docs#routing) state that
 
 > At the heart of SvelteKit is a filesystem-based router. This means that the
@@ -32,15 +44,14 @@ The [SvelteKit docs](https://kit.svelte.dev/docs#routing) state that
 
 In this post we will explore how SvelteKit's
 [filesystem-based router](https://kit.svelte.dev/docs#routing) matches a
-requested route to a page or an endpoint. SvelteKit transforms each file in the
-`src/routes` directory into a page or an endpoint. Conversely, SvelteKit needs
-to match a requested route to a page or an endpoint. This is called route
-matching.
+requested route to a page or an endpoint. SvelteKit transforms each route file
+in `src/routes` into a page or an endpoint. Conversely, SvelteKit needs to match
+a requested route to a route file. This is called route matching.
 
 A filesystem-based router makes route matching straightforward: the route can be
-interpreted as sub-path in `src/routes` and often there is only one match. But
-what happens when there are multiple matches? How does SvelteKit decide which
-page or endpoint it serves?
+interpreted as sub-path in `src/routes` and often there is only one matching
+route file. But what happens when there are multiple matching route files? How
+does SvelteKit decide which route file it uses to render a page or endpoint?
 
 In this post we look at a SvelteKit example and explore the rules that SvelteKit
 applies to decide which page or endpoint to serve. You will take the most out of
@@ -55,34 +66,43 @@ repository and run it locally.
   openFile="src/routes/index.svelte"
 />
 
-To keep the example simple, it contains only pages, no endpoints. When you have
-the example up and running, click route `/green` in the preview. SvelteKit
-matches this request to page
+## Duplicate route files are not permitted
+
+When you have the example up and running, click route `/green` in the preview.
+SvelteKit matches this request to page
 [`src/routes/green.svelte`](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/green.svelte).
 This is the filesystem-based router at work, which takes the route and looks for
-the corresponding page or endpoint in `src/routes`.
+the corresponding route file in `src/routes`.
 
-## Index pages vs. non-index pages
+Now click route `/red`. This time SvelteKit matches the request to page
+[`src/routes/red/index.svelte`](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/red/index.svelte),
+which is equivalent to `src/routes/red.svelte`.
 
-What happens when you click on route `/red`? Two candidate pages for this route
-are:
+Create file `src/routes/red.svelte` in the example and copy the content of file
+`src/routes/red/index.svelte`. You should see this error message in the
+terminal:
 
-- [`src/routes/red.svelte`](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/red.svelte)
-  and
-- [`src/routes/red/index.svelte`](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/red/index.svelte).
-
-The filesystem-based router needs to be able to decide which page to render for
-route `/red`. The rendered page in the preview reveals that it has been rendered
-with `src/routes/red/index.svelte`.
+```bash
+$ svelte-kit dev
+> Duplicate route files: src/routes/red
+```
 
 <Highlight>
 
-**Rule 1: Index pages take precedence over non-index pages.**
+**Rule 1: Duplicate route files are not permitted.**
 
-E.g., `src/routes/red/index.svelte` takes precedence over
-`src/routes/red.svelte`.
+You cannot have both `src/routes/red/index.svelte` and `src/routes/red.svelte`.
+SvelteKit won't let you.
 
 </Highlight>
+
+Delete `src/routes/red.svelte` and run
+
+```bash
+npm run dev
+```
+
+to restart the development server.
 
 ## Matching against path segments
 
@@ -106,8 +126,9 @@ segments are, we realize that there were three more candidate pages:
   and
 - [`src/routes/[colour]/index.svelte`](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/%5Bcolour%5D/index.svelte).
 
-But we already know from the previous section, that `/red` is not rendered with
-any of the pages that have a dynamic path segment. The reason is this rule:
+These are not duplicate routes because the strings inside `[]` differ. We
+already know from the previous section, that `/red` is not rendered with any of
+above candidate pages. The reason is this rule:
 
 <Highlight>
 
@@ -126,17 +147,25 @@ Let's look at route `/blue` in the example. The candidate pages are:
 - `src/routes/[nocolor].svelte`,
 - `src/routes/[colour]/index.svelte`.
 
-When matching route segment `blue`, we can use Rule 1 to eliminate the first two
-candidate pages. This results in page `src/routes/[colour]/index.svelte` being
-rendered. You can confirm this by clicking on `/blue` in the example.
+We need another rule to choose the page that is used to render `/blue`:
+
+<Highlight>
+
+**Rule 4: Index pages take precedence over non-index pages.**
+
+This is only relevant for pages that are not considered duplicate routes, e.g.,
+`src/routes/[colour]/index.svelte` takes precedence over
+`src/routes/[color].svelte`.
+
+</Highlight>
+
+When matching route segment `blue`, we can use this rule to eliminate the first
+two candidate pages. This results in page `src/routes/[colour]/index.svelte`
+being rendered. You can confirm this by clicking on `/blue` in the example.
 
 Let's delete page `src/routes/[colour]/index.svelte` in the example. To make the
 workspace pick up this change, you need to click in the terminal and hit `⌃C`.
-Then restart the development server with
-
-```bash
-npm run dev
-```
+Restart the development server with `npm run dev`.
 
 Now the two candidates for route `/blue` are:
 
@@ -148,7 +177,7 @@ A look at the rendered page reveals that the router used
 
 <Highlight>
 
-**Rule 4: For two path segments of the same type, the first one in alphabetical
+**Rule 5: For two path segments of the same type, the first one in alphabetical
 order takes precedence.**
 
 E.g. `src/routes/[color].svelte` takes precedence over
@@ -173,7 +202,7 @@ render `/color/blue`:
 
 <Highlight>
 
-** Rule 5: Dynamic path segments take precedence over spread segments.**
+** Rule 6: Dynamic path segments take precedence over spread segments.**
 
 E.g. `src/routes/color/[color].svelte` takes precedence over
 `src/routes/color/[...rest].svelte`.
