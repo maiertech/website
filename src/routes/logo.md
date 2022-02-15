@@ -1,0 +1,32 @@
+---
+title: The story behind my logo
+description: This article explains the story behind my logo.
+---
+
+In late 2012, I started blogging about IT security on my blog "security4geeks".
+After writing a few posts, I felt that my blog needed a logo. I decided to
+[launch a design competition](https://99designs.com/logo-design/contests/logo-security-geeks-blog-196351).
+
+It was interesting to see how designers synthesized the two aspects of
+"security4geeks" into one logo: the security aspect and the geeky aspect.
+Designers chose padlocks, keyholes, umbrellas and shields to represent the
+security aspect. This was the easy part. The more difficult part was how to add
+a certain geekiness to the logo. Designers chose bow ties, ties, funny hats and
+geeky glasses.
+
+The combination of a security shield and geeky glasses began to grow on me early
+on, because I wear glasses in real life. The final round of the competition was
+all about refining the combination of a shield with geeky glasses. The winning
+design was created by FeliGizmo, a designer from Jakarta, Indonesia, who added
+an astute smile in the shape of a checkmark, which symbolizes that all is well
+and secure.
+
+Having a cool logo on a blog is more like icing on a cake. The cake itself is
+consistency. Consistency to create by writing and shipping stuff regularly. I
+did not manage to establish consistency. Consequently, my blog "security4geeks"
+never made it past 10 posts.
+
+I kept the logo around for almost a decade. And when I started getting more
+serious again with writing in January 2021, I decided to resurrect it with some
+minor modifications. I am not focusing on IT security any longer, but other than
+that I think that logo is still a great fit and represents who I am.
