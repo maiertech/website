@@ -4,12 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-#svelte {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 .prose pre {
   @apply border-2 border-primary-lighter bg-background text-text-default;
 }
