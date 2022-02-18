@@ -1,8 +1,8 @@
 ---
 title: What you need to know about Gatsby’s File System Route API
 author: thilo
-date: 2021-03-27
-updated: 2021-10-11
+published: 2021-03-27
+modified: 2021-10-11
 description:
   'Overview of Gatsby’s File System Route API, an alternative to gatsby-node.js
   for programmatic page generation and similar to dynamic routes in Next.js.'

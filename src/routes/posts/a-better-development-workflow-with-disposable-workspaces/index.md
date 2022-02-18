@@ -1,8 +1,8 @@
 ---
 title: A better development workflow with disposable workspaces
 author: thilo
-date: 2021-12-12
-updated: 2022-01-14
+published: 2021-12-12
+modified: 2022-01-14
 description:
   Disposable workspaces with Gitpod and GitHub Codespaces enable a new
   development workflow which eliminates the friction of local development.

@@ -17,8 +17,8 @@ export function normalize(
   const post = {
     title: frontmatter.title,
     author: authors.find(({ key }) => frontmatter.author === key),
-    date: frontmatter.date,
-    updated: frontmatter.updated,
+    published: frontmatter.published,
+    modified: frontmatter.modified,
     description: frontmatter.description,
     category: categories.find(({ key }) => frontmatter.category === key),
     tags: frontmatter?.tags
@@ -33,9 +33,9 @@ export function normalize(
 function compare(a: PostMetadata, b: PostMetadata): number {
   return (
     // desc
-    b.updated.localeCompare(a.updated) ||
+    b.modified.localeCompare(a.modified) ||
     // desc
-    b.date.localeCompare(a.date) ||
+    b.published.localeCompare(a.published) ||
     // asc
     a.title.localeCompare(b.title)
   );

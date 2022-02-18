@@ -1,8 +1,8 @@
 ---
 title: Optimizing lint-staged.config.js for Prettier
 author: thilo
-date: 2021-01-12
-updated: 2021-10-11
+published: 2021-01-12
+modified: 2021-10-11
 description:
   In this post I explain how to optimize lint-staged.config.js so Prettier can
   format any supported file without listing file endings in the configuration.

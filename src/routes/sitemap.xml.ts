@@ -19,7 +19,7 @@ function createPage(href: string, lastmod?: string | Date) {
 export const get: RequestHandler = async function () {
   // Post pages.
   const posts = await getPosts();
-  const postPages = posts.map((post) => createPage(post.path, post.updated));
+  const postPages = posts.map((post) => createPage(post.path, post.modified));
 
   // Category pages.
   const categoryPages = categories

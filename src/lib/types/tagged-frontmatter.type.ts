@@ -5,10 +5,10 @@ import type Frontmatter from './frontmatter.type';
  * Defined as interface, because there can be additional fields in frontmatter.
  */
 export default interface TaggedFrontmatter extends Frontmatter {
-  /** Original post date in local system time. */
-  date: string;
-  /** Date of last update in local system time. */
-  updated: string;
+  /** Published date in local system time. */
+  published: string;
+  /** Modified date of last modification in local system time. */
+  modified: string;
   /** A tag in frontmatter is a string key. */
   tags?: string[];
 }

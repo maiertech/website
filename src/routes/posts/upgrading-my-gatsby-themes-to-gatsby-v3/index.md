@@ -1,8 +1,8 @@
 ---
 title: Upgrading my Gatsby themes to Gatsby v3
 author: thilo
-date: 2021-03-02
-updated: 2021-10-11
+published: 2021-03-02
+modified: 2021-10-11
 description:
   In this post I describe my experience upgrading my Gatsby themes from Gatsby
   v2 to v3. I go over the errors I encountered and the migration step by step.

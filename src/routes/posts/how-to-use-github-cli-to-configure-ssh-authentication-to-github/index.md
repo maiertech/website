@@ -1,8 +1,8 @@
 ---
 title: How to use GitHub CLI to configure SSH authentication to GitHub
 author: thilo
-date: 2021-10-20
-updated: 2021-11-27
+published: 2021-10-20
+modified: 2021-11-27
 description:
   Setting up SSH authentication to GitHub used to be a tedious multi-step
   process. Now it is a breeze if you let GitHub CLI do the hard work for you.
