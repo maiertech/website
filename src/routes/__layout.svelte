@@ -21,13 +21,14 @@
   $: $page.url.pathname, browser && Fathom.trackPageview();
 </script>
 
-<!-- Wrapped in flex #svelte div. -->
-<div class="mb-3 flex-shrink-0 md:mb-6">
-  <Header />
-</div>
-<main id="skip" class="mb-8 flex-1 md:mb-12">
-  <Container><slot /></Container>
-</main>
-<div class="flex-shrink-0">
-  <Footer />
+<div class="flex min-h-screen flex-col">
+  <div class="mb-3 flex-shrink-0 md:mb-6">
+    <Header />
+  </div>
+  <main id="skip" class="mb-8 flex-1 md:mb-12">
+    <Container><slot /></Container>
+  </main>
+  <div class="flex-shrink-0">
+    <Footer />
+  </div>
 </div>
