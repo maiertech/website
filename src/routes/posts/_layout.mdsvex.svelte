@@ -20,8 +20,8 @@
   <SEO
     title={post.title}
     description={post.description}
-    published={post.date}
-    modified={post.updated}
+    published={post.published}
+    modified={post.modified}
     category={post.category.label}
     tags={post.tags?.map((tag) => tag.label)}
   />
@@ -29,11 +29,11 @@
     <H1>{post.title}</H1>
     <div class="mb-3 text-lg">
       {post.author.name} •
-      <time dateTime={post.updated}>
+      <time dateTime={post.modified}>
         {new Intl.DateTimeFormat('en-US', {
           dateStyle: 'medium',
           timeZone: 'UTC',
-        }).format(new Date(post.updated))}
+        }).format(new Date(post.modified))}
       </time>
       (last modified)
     </div>
@@ -76,11 +76,11 @@
       {post.category.label}
     </a>
     on
-    <time dateTime={post.date}>
+    <time dateTime={post.published}>
       {new Intl.DateTimeFormat('en-US', {
         dateStyle: 'medium',
         timeZone: 'UTC',
-      }).format(new Date(post.date))}
+      }).format(new Date(post.published))}
     </time>
     .
   </div>

@@ -1,8 +1,8 @@
 ---
 title: Route matching in SvelteKit
 author: thilo
-date: 2022-02-13
-updated: 2022-02-14
+published: 2022-02-13
+modified: 2022-02-14
 description:
   This post explores how SvelteKit's filesystem-based router matches a requested
   route to a page or an endpoint in src/routes.

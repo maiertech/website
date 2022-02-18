@@ -3,8 +3,8 @@ title:
   A guide to understanding how Yarn hoists dependencies and handles conflicting
   packages
 author: thilo
-date: 2021-02-19
-updated: 2021-11-27
+published: 2021-02-19
+modified: 2021-11-27
 description:
   Learn how Yarn 1 hoists packages, handles conflicting package versions and how
   you can use `yarn why` and the yarn.lock file to understand hoisting.

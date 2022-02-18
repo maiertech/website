@@ -8,11 +8,11 @@
   {#each posts as post (post.title)}
     <article class="flex flex-col space-y-3">
       <p class="text-sm text-text-lighter">
-        <time dateTime={post.updated}>
+        <time dateTime={post.modified}>
           {new Intl.DateTimeFormat('en-US', {
             dateStyle: 'medium',
             timeZone: 'UTC',
-          }).format(new Date(post.updated))}
+          }).format(new Date(post.modified))}
         </time>
       </p>
       <a href={post.path} class="flex-grow">

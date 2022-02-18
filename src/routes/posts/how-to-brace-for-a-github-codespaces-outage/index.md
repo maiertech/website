@@ -1,8 +1,8 @@
 ---
 title: How to brace for a GitHub Codespaces outage
 author: thilo
-date: 2021-04-04
-updated: 2021-11-27
+published: 2021-04-04
+modified: 2021-11-27
 description:
   When you adopt GitHub Codespaces you should ensure that an outage does not
   grind your development workflow to a halt. This post explains how.

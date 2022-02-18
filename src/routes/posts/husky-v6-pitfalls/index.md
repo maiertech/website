@@ -1,8 +1,8 @@
 ---
 title: Husky v6 pitfalls
 author: thilo
-date: 2021-04-02
-updated: 2021-10-11
+published: 2021-04-02
+modified: 2021-10-11
 description:
   Upgrading Husky from v4 to v6 turned out to be more complicated than I
   expected. In this post I explain how to migrate a simple v4 configuration to
