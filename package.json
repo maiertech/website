@@ -14,10 +14,10 @@
   },
   "devDependencies": {
     "@maiertech/prettier-config": "^2.0.0",
-    "@sveltejs/adapter-auto": "^1.0.0-next.18",
-    "@sveltejs/kit": "^1.0.0-next.253",
-    "@tailwindcss/typography": "^0.5.2",
     "@stackblitz/sdk": "^1.5.6",
+    "@sveltejs/adapter-auto": "^1.0.0-next.30",
+    "@sveltejs/kit": "^1.0.0-next.288",
+    "@tailwindcss/typography": "^0.5.2",
     "@types/cookie": "^0.4.0",
     "@types/lodash.orderby": "^4.6.6",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
