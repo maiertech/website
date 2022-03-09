@@ -27,7 +27,7 @@ configuration required.
 Things change when you develop with a cloud workspace such as
 [Gitpod](https://www.gitpod.io). If you are not familiar with cloud workspaces,
 check out my post
-[A better development workflow with disposable workspaces](https://maier.tech/posts/a-better-development-workflow-with-disposable-workspaces).
+[A better development workflow with disposable workspaces](/posts/a-better-development-workflow-with-disposable-workspaces).
 Inside a Gitpod workspace, the SvelteKit development server runs on port 3000
 (just like in your local development environment), but you access it via a URL
 on the `gitpod.io` domain (using default https port 443). In order to make this
