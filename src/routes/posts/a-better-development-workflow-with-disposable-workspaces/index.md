@@ -151,7 +151,7 @@ workflow that you cannot replicate locally.
 
 Last, but not least, I would also like to point out that Gitpod and Codespaces
 can be affected by outages. I wrote a post
-[How to brace for a GitHub Codespaces outage](https://maier.tech/posts/how-to-brace-for-a-github-codespaces-outage)
+[How to brace for a GitHub Codespaces outage](/posts/how-to-brace-for-a-github-codespaces-outage)
 in which I discuss what your plan B and plan C could be if you develop in the
 cloud. But since outages are not that frequent (see
 [Gitpod Status](https://www.gitpodstatus.com/) and
