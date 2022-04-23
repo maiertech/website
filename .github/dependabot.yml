@@ -5,6 +5,7 @@ updates:
     schedule:
       interval: 'monthly'
     rebase-strategy: 'auto'
+    open-pull-requests-limit: 10
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
