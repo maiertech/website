@@ -1,7 +1,8 @@
 <script lang="ts">
   import categories from '$lib/data/categories';
 
-  const validCategories = categories.filter((category) => category.path);
+  // Filter categories with `suppress` set to true.
+  const validCategories = categories.filter((category) => !category.suppress);
 </script>
 
 <dl class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

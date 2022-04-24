@@ -4,26 +4,34 @@ import authors from '$lib/data/authors';
 import categories from '$lib/data/categories';
 import tags from '$lib/data/tags';
 
-/**
- * Transform post frontmatter into post metadata.
- * @param frontmatter Frontmatter from a mdsvex file.
- * @param path Optional path to be added to post metadata.
- * @returns
- */
+const suppressedCategories = categories
+  .filter((category) => category.suppress)
+  .map((category) => category.key);
+
+// Transform post frontmatter into post metadata.
 export function normalize(
   frontmatter: PostFrontmatter,
-  path?: string
+  path: string
 ): PostMetadata {
+  const author = authors.find(({ key }) => frontmatter.author === key);
+  if (!author)
+    throw `Invalid author key '${frontmatter.author}' in post '${frontmatter.title}'`;
+  const category = categories.find(({ key }) => frontmatter.category === key);
+  if (!category)
+    throw `Invalid category key '${frontmatter.category}' in post '${frontmatter.title}'`;
   const post = {
     title: frontmatter.title,
-    author: authors.find(({ key }) => frontmatter.author === key),
+    author,
     published: frontmatter.published,
     modified: frontmatter.modified,
     description: frontmatter.description,
-    category: categories.find(({ key }) => frontmatter.category === key),
-    tags: frontmatter?.tags
-      ?.map((tag) => tags.find(({ key }) => tag === key))
-      .filter((tag) => tag),
+    category,
+    tags: frontmatter?.tags?.map((frontmatterTag) => {
+      const tag = tags.find(({ key }) => frontmatterTag === key);
+      if (!tag)
+        throw `Invalid tag key '${frontmatterTag}' in post '${frontmatter.title}'`;
+      return tag;
+    }),
     links: frontmatter.links,
     path,
   };
@@ -70,16 +78,18 @@ export async function getPosts(
       ({ frontmatter }) => frontmatter.category === category
     );
   }
-  // If no category is provided filter out posts in legacy category.
+  // If no category is provided filter out posts in suppressed categories.
   else {
     posts = posts.filter(
-      ({ frontmatter }) => frontmatter.category !== 'legacy'
+      ({ frontmatter }) => !suppressedCategories.includes(frontmatter.category)
     );
   }
 
   // If a tag is provided, filter posts by tag.
   if (tag) {
-    posts = posts.filter(({ frontmatter }) => frontmatter?.tags.includes(tag));
+    posts = posts.filter(({ frontmatter }) =>
+      frontmatter.tags ? frontmatter.tags.includes(tag) : false
+    );
   }
 
   const normalizedPosts = posts.map(({ frontmatter, path }) =>

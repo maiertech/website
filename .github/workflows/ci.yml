@@ -10,4 +10,6 @@ jobs:
           node-version: 'lts/*'
       - run: npm ci
       - run: npm run lint
+      # tsconfig.json extends ./.sveltekit/tsconfig.json, which is created during build.
+      - run: npm run build
       - run: npm run check

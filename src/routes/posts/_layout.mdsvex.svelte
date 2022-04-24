@@ -6,6 +6,7 @@
    * @typedef {import('$lib/types/post-frontmatter.type').default} PostFrontmatter
    * @typedef {import('$lib/types/post-metadata.type').PostMetadata} PostMetadata
    */
+  import { page } from '$app/stores';
   import { normalize } from '$lib/posts';
   import SEO from '$lib/components/seo.svelte';
   import H1 from '$lib/components/h1.svelte';
@@ -13,7 +14,7 @@
   const frontmatter = /** @type {PostFrontmatter} */ ({ ...$$restProps });
 
   /** @type {PostMetadata} */
-  const post = normalize(frontmatter);
+  const post = normalize(frontmatter, $page.url.pathname);
 </script>
 
 <article>
