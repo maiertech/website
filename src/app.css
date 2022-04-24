@@ -1,8 +1,6 @@
-/* Write your global styles here, in PostCSS syntax */
+/* Write your global styles here, in PostCSS syntax. */
 
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 .prose pre {
   @apply border-2 border-primary-lighter bg-background text-text-default;
@@ -70,3 +68,6 @@
 .token.variable {
   @apply text-primary-default;
 }
+
+@tailwind components;
+@tailwind utilities;
