@@ -13,6 +13,14 @@ const categories: Tag[] = [
     path: `${base}/web-development`,
   },
   {
+    key: 'data-viz',
+    label: 'Data visualization',
+    title: 'Data visualization',
+    description: 'I write about data visualization with Svelte and D3.',
+    path: `${base}/data-viz`,
+    suppress: true,
+  },
+  {
     key: 'developer-tools',
     label: 'Developer tools',
     title: 'Developer tools',
@@ -20,19 +28,12 @@ const categories: Tag[] = [
     path: `${base}/developer-tools`,
   },
   {
-    key: 'visualizing-data',
-    label: 'Visualizing data',
-    title: 'Visualizing data',
-    description:
-      'I write about exploring data with Observable and visualizing data with D3.',
-    // path: '${base}/visualizing-data',
-  },
-  {
     key: 'legacy',
     label: 'Legacy',
     title: 'Legacy posts',
     description: 'Kitchen sink category for legacy posts.',
-    // Omit path to suppress category page generation and linking.
+    path: `${base}/legacy`,
+    suppress: true,
   },
 ];
 

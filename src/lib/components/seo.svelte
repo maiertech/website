@@ -7,13 +7,13 @@
   // Every page.
   export let title: string;
   export let description: string;
-  export let canonicalUrl: string = null;
+  export let canonicalUrl: string | undefined = undefined;
 
   // Articles.
-  export let category: string = null;
-  export let tags: string[] = null;
-  export let published: string = null;
-  export let modified: string = null;
+  export let category: string | undefined = undefined;
+  export let tags: string[] | undefined = undefined;
+  export let published: string | undefined = undefined;
+  export let modified: string | undefined = undefined;
 
   let decoratedTitle = title;
   if ($page.url.pathname !== `${base}/`) {

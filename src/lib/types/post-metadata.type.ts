@@ -4,7 +4,7 @@ import type { Link } from './link.type';
 
 /**
  * PostFrontmatter is transformed into PostMetadata.
- *  */
+ */
 export type PostMetadata = {
   title: string;
   /** Resolved author. */
@@ -17,6 +17,5 @@ export type PostMetadata = {
   category: Tag;
   tags?: Tag[];
   links?: Link[];
-  /** path is optional. In a post page path is not needed and can be retrieved from store. In a list of posts path is needed. */
-  path?: string;
+  path: string;
 };

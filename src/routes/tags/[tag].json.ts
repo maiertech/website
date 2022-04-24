@@ -14,8 +14,8 @@ export const get: RequestHandler = async function ({ params }) {
     };
   }
 
-  // Read tagged posts (in any category, but excluding legacy posts).
-  const posts = await getPosts(null, key);
+  // Read tagged posts (in any category that has not set `suppress` to false.
+  const posts = await getPosts(undefined, key);
 
   return {
     status: 200,
