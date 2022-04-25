@@ -13,10 +13,6 @@ tags:
   - seo
 ---
 
-<script context="module">
-  export const prerender = true;
-</script>
-
 When I migrated this website from [Next.js](https://nextjs.org/) to
 [SvelteKit](https://kit.svelte.dev/), I had to figure out how to wire up
 [Fathom Analytics](https://usefathom.com/). Fathom Analytics is an alternative

@@ -17,6 +17,9 @@ const config = {
 
   kit: {
     adapter: adapter(),
+    prerender: {
+      default: true,
+    },
     vite: {
       server: {
         hmr: {

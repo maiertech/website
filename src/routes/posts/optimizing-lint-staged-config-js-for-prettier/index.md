@@ -9,10 +9,6 @@ description:
 category: legacy
 ---
 
-<script context="module">
-  export const prerender = true;
-</script>
-
 When you use [lint-staged](https://github.com/okonet/lint-staged) to run
 [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) on staged
 files using [Husky](https://github.com/typicode/husky)'s pre-commit and pre-push

@@ -1,7 +1,3 @@
-<script context="module" lang="ts">
-  export const prerender = true;
-</script>
-
 <script lang="ts">
   import SEO from '$lib/components/seo.svelte';
   import Categories from '$lib/components/categories.svelte';
