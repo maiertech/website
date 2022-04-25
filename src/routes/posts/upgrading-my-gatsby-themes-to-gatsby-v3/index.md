@@ -9,10 +9,6 @@ description:
 category: legacy
 ---
 
-<script context="module">
-  export const prerender = true;
-</script>
-
 [Gatsby v3](https://www.gatsbyjs.com/docs/reference/release-notes/v3.0/) was
 launched today at [Gatsby Conf](https://gatsbyconf.com/). The two features that
 stood out to me were

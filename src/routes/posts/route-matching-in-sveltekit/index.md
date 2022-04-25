@@ -14,10 +14,6 @@ links:
     href: https://www.youtube.com/watch?v=uyde7dAQwkA
 ---
 
-<script context="module">
-  export const prerender = true;
-</script>
-
 <script>
   import Example from '$lib/components/example.svelte';
   import Highlight from '$lib/components/highlight.svelte';

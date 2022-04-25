@@ -19,10 +19,6 @@ links:
     href: https://modernweb.podbean.com/e/s09e03-modern-web-podcast-development-in-the-cloud-with-mike-nikles-geoffrey-huntley/
 ---
 
-<script context="module">
-  export const prerender = true;
-</script>
-
 In my post
 [Move your IDE to the cloud: introduction to GitHub Codespaces](/posts/move-your-ide-to-the-cloud-introduction-to-github-codespaces)
 I was bullish about moving my local development environment to the cloud. During

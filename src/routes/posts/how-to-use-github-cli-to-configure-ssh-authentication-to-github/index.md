@@ -11,10 +11,6 @@ tags:
   - github
 ---
 
-<script context="module">
-  export const prerender = true;
-</script>
-
 Authenticating to [GitHub](https://github.com/) with SSH can be difficult to
 configure. It is a multi-step process, which is
 [outlined in the GitHub docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).

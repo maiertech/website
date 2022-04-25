@@ -1,8 +1,6 @@
 <script context="module" lang="ts">
   import type { Load } from '@sveltejs/kit';
 
-  export const prerender = true;
-
   export const load: Load = async function ({ url, params, fetch }) {
     // Check if category is valid.
     const key = params.category;

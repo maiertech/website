@@ -4,8 +4,6 @@ description: A collection of instructive Svelte examples.
 ---
 
 <script context="module">
-  export const prerender = true;
-
   export const load = async function ({ url, fetch }) {
     const res = await fetch('/svelte/examples.json');
 

@@ -11,10 +11,6 @@ tags:
   - sveltekit
 ---
 
-<script context="module">
-  export const prerender = true;
-</script>
-
 SvelteKit uses [Vite](https://vitejs.dev/) with
 [vite-plugin-svelte](https://github.com/sveltejs/vite-plugin-svelte) to
 implement hot module replacement (HMR). This ensures that any changes in your
