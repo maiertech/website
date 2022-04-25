@@ -4,7 +4,9 @@ ports:
 
 tasks:
   - init: npm install
-    command: npm run dev
+    command: |
+      export HMR_HOST=`gp url 3000`
+      npm run dev
 
 github:
   prebuilds:

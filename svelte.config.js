@@ -23,14 +23,34 @@ const config = {
     vite: {
       server: {
         hmr: {
-          clientPort: process.env.GITPOD_WORKSPACE_URL ? 443 : 3000,
-          host: process.env.GITPOD_WORKSPACE_URL
-            ? process.env.GITPOD_WORKSPACE_URL.replace('https://', '3000-')
+          clientPort: process.env.HMR_HOST ? 443 : 3000,
+          host: process.env.HMR_HOST
+            ? process.env.HMR_HOST.substring('https://'.length)
             : 'localhost',
         },
       },
     },
+    // vite: {
+    //   server: {
+    //     hmr: {
+    //       clientPort: process.env.GITPOD_WORKSPACE_URL ? 443 : 3000,
+    //       host: process.env.GITPOD_WORKSPACE_URL
+    //         ? process.env.GITPOD_WORKSPACE_URL.replace('https://', '3000-')
+    //         : 'localhost',
+    //     },
+    //   },
+    // },
+    // vite: {
+    //   server: {
+    //     hmr: {
+    //       clientPort: 443,
+    //       host: '3000-maiertech-maiertech-pqqa6r5vt44.ws-us42.gitpod.io',
+    //     },
+    //   },
+    // },
   },
 };
+
+debugger;
 
 export default config;
