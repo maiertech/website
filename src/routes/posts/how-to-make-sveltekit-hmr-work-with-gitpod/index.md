@@ -2,10 +2,10 @@
 title: How to make SvelteKit HMR work with Gitpod
 author: thilo
 published: 2022-01-30
-modified: 2022-03-07
+modified: 2022-04-25
 description:
-  SvelteKit HMR breaks when developing with Gitpod. This posts explains how to
-  fix it. The solution applies to any container-based development environment.
+  SvelteKit HMR breaks when developing with a Gitpod workspace inside a browser.
+  This post explains how to fix this.
 category: web-development
 tags:
   - sveltekit
@@ -13,7 +13,7 @@ tags:
 
 SvelteKit uses [Vite](https://vitejs.dev/) with
 [vite-plugin-svelte](https://github.com/sveltejs/vite-plugin-svelte) to
-implement hot module replacement (HMR). This ensures that any changes in your
+implement hot module replacement (HMR). HMR ensures that any changes in your
 code are reflected instantly in your browser preview, which results in a
 pleasant developer experience. HMR in SvelteKit works out of the box with no
 configuration required.
@@ -24,14 +24,21 @@ Things change when you develop with a cloud workspace such as
 [Gitpod](https://www.gitpod.io). If you are not familiar with cloud workspaces,
 check out my post
 [A better development workflow with disposable workspaces](/posts/a-better-development-workflow-with-disposable-workspaces).
-Inside a Gitpod workspace, the SvelteKit development server runs on port 3000
-(just like in your local development environment), but you access it via a URL
-on the `gitpod.io` domain (using default https port 443). In order to make this
-work, Gitpod proxies localhost to the external URL.
+Inside a Gitpod workspace, the SvelteKit development server runs on port 3000,
+just like in your local development environment. How you access the development
+server depends on how you access your Gitpod workspace:
 
-While developing a SvelteKit app with Gitpod, I noticed that HMR was broken. It
-would trigger indefinite page reloads after firing up the SvelteKit development
-server, similar to what is described in
+- When you access your Gitpod workspace **from within a browser**, you access
+  the development server via a URL on the `gitpod.io` domain (using default
+  https port 443). In order to make this work, Gitpod proxies `localhost` to the
+  external URL.
+- When you access your Gitpod workspace **from VS Code via SSH**, VS Code
+  proxies the development server to `localhost`. You work with your Gitpod
+  workspace as if it was a local development environment.
+
+While developing a SvelteKit app with Gitpod inside a browser, I noticed that
+HMR was broken. It would trigger indefinite page reloads after firing up the
+SvelteKit development server, similar to what is described in
 [this GitHub issue](https://github.com/sveltejs/kit/issues/2519). The
 [last issue comment](https://github.com/sveltejs/kit/issues/2519#issuecomment-947485636)
 points to the solution: you can add a custom Vite configuration to your
@@ -59,7 +66,7 @@ with the following format:
 
 Every Gitpod workspace sets
 [default environment variable `GITPOD_WORKSPACE_URL`](https://www.gitpod.io/docs/environment-variables#default-environment-variables),
-which contains the workspace URL.
+which contains the unique workspace URL.
 
 A development server is not exposed automatically. You need to tell the
 workspace which internal port it should expose. If, e.g., your development
@@ -121,10 +128,27 @@ vite: {
 ```
 
 We set `clientPort` and `host` depending on whether `GITPOD_WORKSPACE_URL`
-exists. This ensures that HMR works on Gitpod but also for anyone running the
-SvelteKit site in a local development environment. Even though this custom Vite
-configuration is Gitpod specific, you can use the same approach to fix HMR
-problems with SvelteKit in any container-based development environment.
+exists. This ensures that HMR works when running your Gitpod workspace inside a
+browser, but also for anyone running the SvelteKit site in a local development
+environment.
+
+There is a catch with this custom Vite configuration. `GITPOD_WORKSPACE_URL`
+also exists in a Gitpod workspace, which runs in a local VS Code via SSH. In
+this scenario you can access the development server on `localhost:3000`, but
+above custom Vite configuration expects it to be on the `gitpod.io` URL.
+
+Therefore, you should add the custom Vite configuration only if your intention
+is to access Gitpod workspaces from within the browser. If you access Gitpod
+workspaces from within a local VS Code, you do not need the custom Vite
+configuration.
+
+## Browser extensions that interfere with HMR
+
+One final word of caution. Even with the custom Vite configuration in place, HMR
+would still break for me. I narrowed this issue down to my browser extension
+[uBlock Origin](https://ublockorigin.com/) being the culprit. Any other ad
+blocker extension might interfere, too. Therefore, I run Gitpod workspaces only
+inside an icognito window inside my browser.
 
 ## Credits
 
