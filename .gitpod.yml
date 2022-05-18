@@ -20,7 +20,6 @@ github:
 
 vscode:
   extensions:
-    - bradlc.vscode-tailwindcss
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
     - svelte.svelte-vscode

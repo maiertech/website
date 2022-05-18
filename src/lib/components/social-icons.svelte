@@ -4,11 +4,24 @@
   export let icons: SocialIcon[];
 </script>
 
-<div class="flex flex-wrap justify-center space-x-5">
+<div>
   {#each icons as icon (icon.key)}
-    <a href={icon.href} on:click={icon.onclick}>
-      <span class="sr-only">{icon.title}</span>
-      <svelte:component this={icon.component} class="h-7 w-7" />
+    <a href={icon.href} on:click={icon.onclick} class="icon">
+      <svelte:component this={icon.component} title={icon.title} />
     </a>
   {/each}
 </div>
+
+<style>
+  div {
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    gap: var(--size-fluid-2);
+  }
+
+  .icon {
+    width: var(--size-fluid-4);
+  }
+</style>

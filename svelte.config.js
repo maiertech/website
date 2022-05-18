@@ -9,9 +9,7 @@ const config = {
 
   preprocess: [
     // See https://github.com/sveltejs/svelte-preprocess.
-    sveltePreprocess({
-      postcss: true,
-    }),
+    sveltePreprocess(),
     mdsvex({
       extensions: ['.md'],
       layout: {

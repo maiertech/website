@@ -33,7 +33,6 @@ export const get: RequestHandler = async function () {
   const pages = [
     createPage('/'),
     createPage('posts'),
-    createPage('svelte/examples'),
     ...postPages,
     ...categoryPages,
     ...tagPages,
