@@ -7,7 +7,7 @@
   import Header from '$lib/components/header.svelte';
   import Container from '$lib/components/container.svelte';
   import Footer from '$lib/components/footer.svelte';
-  import '../app.css';
+  import '../global.css';
 
   onMount(() => {
     Fathom.load(import.meta.env.VITE_FATHOM_SITE_ID as string, {
@@ -21,14 +21,36 @@
   $: $page.url.pathname, browser && Fathom.trackPageview();
 </script>
 
-<div class="flex min-h-screen flex-col">
-  <div class="mb-3 flex-shrink-0 md:mb-6">
+<div class="layout">
+  <div class="header">
     <Header />
   </div>
-  <main id="skip" class="mb-8 flex-1 md:mb-12">
-    <Container><slot /></Container>
+  <main id="skip">
+    <Container maxWidth="80rem"><slot /></Container>
   </main>
-  <div class="flex-shrink-0">
+  <div class="footer">
     <Footer />
   </div>
 </div>
+
+<style>
+  .layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .header {
+    flex-shrink: 0;
+    margin-bottom: var(--size-fluid-2);
+  }
+
+  main {
+    flex: 1;
+    margin-bottom: var(--size-fluid-4);
+  }
+
+  .footer {
+    flex-shrink: 0;
+  }
+</style>

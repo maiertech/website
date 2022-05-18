@@ -15,11 +15,11 @@ links:
 ---
 
 <script>
-  import Example from '$lib/components/example.svelte';
-  import Highlight from '$lib/components/highlight.svelte';
+  import Example from '$lib/components/example-stackblitz.svelte';
+  import Card from '$lib/components/card.svelte';
 </script>
 
-<Highlight>
+<Card>
 
 I wrote this post originally with
 [@sveltejs/kit](https://www.npmjs.com/package/@sveltejs/kit) v1.0.0-next.254.
@@ -30,7 +30,7 @@ came with a
 which made original Rule 1 partially obsolete. To adapt this post to
 v1.0.0-next.260, I had to renumber the rules.
 
-</Highlight>
+</Card>
 
 The [SvelteKit docs](https://kit.svelte.dev/docs#routing) state that
 
@@ -83,14 +83,14 @@ $ svelte-kit dev
 > Duplicate route files: src/routes/red
 ```
 
-<Highlight>
+<Card>
 
 **Rule 1: Duplicate route files are not permitted.**
 
 You cannot have both `src/routes/red/index.svelte` and `src/routes/red.svelte`.
 SvelteKit won't let you.
 
-</Highlight>
+</Card>
 
 Delete `src/routes/red.svelte` and run
 
@@ -108,44 +108,51 @@ segments inside `src/routes` can be static (`.../static/...`) or dynamic
 string. Static path segments require an exact match. The second rule describes
 the order in which SvelteKit matches route segments to path segments:
 
-<Highlight>
+<Card>
 
 **Rule 2: SvelteKit matches route segments to path segments left to right.**
 
-</Highlight>
+</Card>
 
 Let's revisit the `/red` route from before. Now that we know what dynamic path
 segments are, we realize that there were three more candidate pages:
 
-- [`src/routes/[color].svelte`](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/%5Bcolor%5D.svelte),
-- [`src/routes/[nocolor].svelte`](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/%5Bnocolor%5D.svelte)
-  and
-- [`src/routes/[colour]/index.svelte`](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/%5Bcolour%5D/index.svelte).
+```
+src/routes/[color].svelte
+
+src/routes/[nocolor].svelte
+
+src/routes/[colour]/index.svelte
+```
 
 These are not duplicate routes because the strings inside `[]` differ. We
 already know from the previous section, that `/red` is not rendered with any of
 above candidate pages. The reason is this rule:
 
-<Highlight>
+<Card>
 
 **Rule 3: Static path segments take precedence over dynamic path segments.**
 
 E.g., `src/routes/green.svelte` (static) takes precedence over
 `src/routes/[color].svelte` (dynamic).
 
-</Highlight>
+</Card>
 
 ## Alphabetical order of path segments
 
 Let's look at route `/blue` in the example. The candidate pages are:
 
-- `src/routes/[color].svelte`,
-- `src/routes/[nocolor].svelte`,
-- `src/routes/[colour]/index.svelte`.
+```
+src/routes/[color].svelte
+
+src/routes/[nocolor].svelte
+
+src/routes/[colour]/index.svelte
+```
 
 We need another rule to choose the page that is used to render `/blue`:
 
-<Highlight>
+<Card>
 
 **Rule 4: Index pages take precedence over non-index pages.**
 
@@ -153,7 +160,7 @@ This is only relevant for pages that are not considered duplicate routes, e.g.,
 `src/routes/[colour]/index.svelte` takes precedence over
 `src/routes/[color].svelte`.
 
-</Highlight>
+</Card>
 
 When matching route segment `blue`, we can use this rule to eliminate the first
 two candidate pages. This results in page `src/routes/[colour]/index.svelte`
@@ -165,13 +172,16 @@ Restart the development server with `npm run dev`.
 
 Now the two candidates for route `/blue` are:
 
-- `src/routes/[color].svelte` and
-- `src/routes/[nocolor].svelte`.
+```
+src/routes/[color].svelte
+
+src/routes/[nocolor].svelte
+```
 
 A look at the rendered page reveals that the router used
 `src/routes/[color].svelte`. It did so because of this rule:
 
-<Highlight>
+<Card>
 
 **Rule 5: For two path segments of the same type, the first one in alphabetical
 order takes precedence.**
@@ -180,15 +190,17 @@ E.g. `src/routes/[color].svelte` takes precedence over
 `src/routes/[nocolor].svelte` because `color` comes before `nocolor` in
 alphabetical order.
 
-</Highlight>
+</Card>
 
 ## Matching with spread syntax
 
 Let's look at route `/color/blue` in the example. The candidate pages are:
 
-- [`src/routes/color/[color].svelte`](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/color/%5Bcolor%5D.svelte)
-  and
-- [`src/routes/color/[...rest].svelte`](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/color/%5B...rest%5D.svelte).
+```
+src/routes/color/[color].svelte
+
+src/routes/color/[...rest].svelte
+```
 
 `[...rest]` in the second route is a dynamic path segment, which uses
 [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
@@ -196,14 +208,14 @@ and matches any path under `/color`, no matter how deep. We refer to it as
 spread segment. The following rule clarifies, which page the router chooses to
 render `/color/blue`:
 
-<Highlight>
+<Card>
 
 ** Rule 6: Dynamic path segments take precedence over spread segments.**
 
 E.g. `src/routes/color/[color].svelte` takes precedence over
 `src/routes/color/[...rest].svelte`.
 
-</Highlight>
+</Card>
 
 You can navigate to route `/color/blue/dark` to see an example of a route that
 is rendered with `src/routes/color/[...rest].svelte`.

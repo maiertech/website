@@ -15,8 +15,6 @@
 </script>
 
 <script lang="ts">
-  import H1 from '$lib/components/h1.svelte';
-
   export let status: number;
   export let error: Error;
 </script>
@@ -25,10 +23,8 @@
   <title>{status}</title>
 </svelte:head>
 
-<H1>{status}</H1>
+<h1>{status}</h1>
 
-<div class="prose w-full md:prose-lg">
-  {#if error && error.message}
-    <p>{error.message}</p>
-  {/if}
-</div>
+{#if error && error.message}
+  <p>{error.message}</p>
+{/if}

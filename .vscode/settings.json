@@ -13,6 +13,7 @@
     "prebuilds",
     "prerender",
     "proxied",
+    "stackblitz",
     "sveltekit",
     "VITE"
   ],

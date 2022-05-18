@@ -7,7 +7,6 @@
    */
 
   import SEO from '$lib/components/seo.svelte';
-  import H1 from '$lib/components/h1.svelte';
 
   const frontmatter = /** @type {Frontmatter} */ ({ ...$$restProps });
 </script>
@@ -15,7 +14,7 @@
 <SEO title={frontmatter.title} description={frontmatter.description} />
 
 <div class="mb-3 md:mb-6">
-  <H1>{frontmatter.title}</H1>
+  <h1>{frontmatter.title}</h1>
 </div>
 
 <div class="prose w-full md:prose-lg">
