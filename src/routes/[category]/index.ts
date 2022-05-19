@@ -17,7 +17,7 @@ export const get: RequestHandler = async function ({ params }) {
   }
 
   // Read posts for category.
-  const posts = await getPosts(key);
+  const posts = await getPosts({ category: key });
 
   return {
     status: 200,

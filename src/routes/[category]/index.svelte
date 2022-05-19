@@ -18,11 +18,11 @@
     <article>
       <h2>{post.title}</h2>
       <p class="date">
-        <time dateTime={post.modified}>
+        <time dateTime={post.published}>
           {new Intl.DateTimeFormat('en-US', {
             dateStyle: 'medium',
             timeZone: 'UTC',
-          }).format(new Date(post.modified))}
+          }).format(new Date(post.published))}
         </time>
       </p>
       <p class="description">{post.description}</p>
