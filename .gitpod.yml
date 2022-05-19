@@ -4,8 +4,15 @@ ports:
     onOpen: open-browser
 
 tasks:
-  - init: npm install
+  - name: Run dev server
+    init: |
+      npm install
+      gp sync-done install
     command: npm run dev
+  - name: Show outdated packages
+    init: gp sync-await install
+    command: npm outdated
+    openMode: split-right
 
 github:
   prebuilds:
