@@ -3,7 +3,7 @@ import { getPosts } from '$lib/posts';
 
 export const get: RequestHandler = async function () {
   // Don't cache files. This would break local dev.
-  const posts = await getPosts();
+  const posts = await getPosts({ compare: 'modified' });
 
   return {
     status: 200,

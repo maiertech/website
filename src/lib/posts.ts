@@ -4,11 +4,16 @@ import authors from '$lib/data/authors';
 import categories from '$lib/data/categories';
 import tags from '$lib/data/tags';
 
+/**
+ * Figure out keys of suppressed categories.
+ */
 const suppressedCategories = categories
   .filter((category) => category.suppress)
   .map((category) => category.key);
 
-// Transform post frontmatter into post metadata.
+/**
+ * Transform post frontmatter into post metadata.
+ */
 export function normalize(
   frontmatter: PostFrontmatter,
   path: string
@@ -38,21 +43,43 @@ export function normalize(
   return post;
 }
 
-function compare(a: PostMetadata, b: PostMetadata): number {
+/**
+ * Comparator for posts sort by
+ * 1. published date desc
+ * 2. modified date desc
+ * 3. title asc
+ */
+function PublishedDateCompare(a: PostMetadata, b: PostMetadata): number {
   return (
-    // desc
-    b.modified.localeCompare(a.modified) ||
-    // desc
     b.published.localeCompare(a.published) ||
-    // asc
+    b.modified.localeCompare(a.modified) ||
     a.title.localeCompare(b.title)
   );
 }
 
-export async function getPosts(
-  category?: string,
-  tag?: string
-): Promise<PostMetadata[]> {
+/**
+ * Comparator for posts sort by
+ * 1. modified date desc
+ * 2. published date desc
+ * 3. title asc
+ */
+function ModifiedDateCompare(a: PostMetadata, b: PostMetadata): number {
+  return (
+    b.modified.localeCompare(a.modified) ||
+    b.published.localeCompare(a.published) ||
+    a.title.localeCompare(b.title)
+  );
+}
+
+export async function getPosts({
+  category,
+  tag,
+  compare = 'published',
+}: {
+  category?: string;
+  tag?: string;
+  compare?: 'published' | 'modified';
+}): Promise<PostMetadata[]> {
   let posts: { frontmatter: PostFrontmatter; path: string }[];
 
   // Read frontmatters from all post Markdown files.
@@ -78,7 +105,7 @@ export async function getPosts(
       ({ frontmatter }) => frontmatter.category === category
     );
   }
-  // If no category is provided filter out posts in suppressed categories.
+  // If no category is provided, filter out posts in suppressed categories.
   else {
     posts = posts.filter(
       ({ frontmatter }) => !suppressedCategories.includes(frontmatter.category)
@@ -96,7 +123,13 @@ export async function getPosts(
     normalize(frontmatter, path)
   );
 
-  normalizedPosts.sort(compare);
+  switch (compare) {
+    case 'modified':
+      normalizedPosts.sort(ModifiedDateCompare);
+      break;
+    default:
+      normalizedPosts.sort(PublishedDateCompare);
+  }
 
   return normalizedPosts;
 }

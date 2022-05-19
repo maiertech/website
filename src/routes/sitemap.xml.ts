@@ -18,7 +18,7 @@ function createPage(href: string, lastmod?: string | Date) {
 
 export const get: RequestHandler = async function () {
   // Post pages.
-  const posts = await getPosts();
+  const posts = await getPosts({ compare: 'modified' });
   const postPages = posts.map((post) => createPage(post.path, post.modified));
 
   // Category pages.
