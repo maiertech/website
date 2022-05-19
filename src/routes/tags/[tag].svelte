@@ -1,34 +1,3 @@
-<script context="module" lang="ts">
-  import type { Load } from '@sveltejs/kit';
-
-  export const load: Load = async function ({ url, params, fetch }) {
-    // Check if tag is permitted.
-    const key = params.tag;
-    const path = `/tags/${key}.json`;
-    const res = await fetch(path);
-
-    if (!res.ok) {
-      return {
-        status: res.status,
-        error: new Error(`Not found: ${url.pathname}.`),
-      };
-    }
-
-    const { tag, posts } = await res.json();
-
-    if (posts.length === 0) {
-      return {
-        status: 404,
-        error: new Error(`Not found: ${url.pathname}.`),
-      };
-    }
-
-    return {
-      props: { tag, posts },
-    };
-  };
-</script>
-
 <script lang="ts">
   import type { PostMetadata } from '$lib/types/post-metadata.type';
   import type { Tag } from '$lib/types/tag.type';
