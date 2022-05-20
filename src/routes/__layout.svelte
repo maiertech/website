@@ -4,12 +4,14 @@
   import { page } from '$app/stores';
   import { browser } from '$app/env';
 
+  import Favicon from '$lib/components/favicon.svelte';
   import Header from '$lib/components/header.svelte';
   import Container from '$lib/components/container.svelte';
   import Footer from '$lib/components/footer.svelte';
   import '../global.css';
 
   onMount(() => {
+    // Get Fathom Analytics ready.
     Fathom.load(import.meta.env.VITE_FATHOM_SITE_ID as string, {
       url: 'https://firefly.maier.tech/script.js',
       honorDNT: true,
@@ -20,6 +22,8 @@
   // Track page view when path changes.
   $: $page.url.pathname, browser && Fathom.trackPageview();
 </script>
+
+<Favicon />
 
 <div class="layout">
   <div class="header">
