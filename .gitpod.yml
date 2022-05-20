@@ -29,5 +29,6 @@ vscode:
   extensions:
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
-    - svelte.svelte-vscode
+    - jock.svg
     - streetsidesoftware.code-spell-checker
+    - svelte.svelte-vscode
