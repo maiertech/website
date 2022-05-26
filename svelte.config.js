@@ -5,6 +5,10 @@ import codeTitles from 'remark-code-titles';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+  experimental: {
+    inspector: true,
+  },
+
   extensions: ['.svelte', '.md'],
 
   preprocess: [
