@@ -30,5 +30,6 @@ vscode:
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
     - jock.svg
+    - rangav.vscode-thunder-client
     - streetsidesoftware.code-spell-checker
     - svelte.svelte-vscode

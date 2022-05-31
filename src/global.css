@@ -90,6 +90,7 @@ a[href]:visited {
 
 .prose h1 {
   font-size: var(--font-size-fluid-3);
+  margin-block-end: var(--size-fluid-3);
 }
 
 .prose h2 {
