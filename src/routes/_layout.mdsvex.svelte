@@ -1,22 +1,9 @@
 <script>
-  // We cannot use TypeScript in mdsvex layout files:
+  // We cannot use TypeScript in mdsvex layout files, but we can import a TypeScript layout file:
   // https://github.com/pngwn/MDsveX/issues/116
-
-  /**
-   * @typedef {import('$lib/types/frontmatter.type').default} Frontmatter
-   */
-
-  import SEO from '$lib/components/seo.svelte';
-
-  const frontmatter = /** @type {Frontmatter} */ ({ ...$$restProps });
+  import Layout from './_layout.svelte';
 </script>
 
-<SEO title={frontmatter.title} description={frontmatter.description} />
-
-<div class="mb-3 md:mb-6">
-  <h1>{frontmatter.title}</h1>
-</div>
-
-<div class="prose w-full md:prose-lg">
+<Layout {...$$restProps}>
   <slot />
-</div>
+</Layout>

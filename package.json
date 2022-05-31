@@ -12,6 +12,11 @@
     "format": "prettier --write --plugin-search-dir=. .",
     "prepare": "git config core.hookspath .githooks"
   },
+  "dependencies": {
+    "@imgix/js-core": "^3.5.1",
+    "@stackblitz/sdk": "^1.5.3",
+    "fathom-client": "^3.4.0"
+  },
   "devDependencies": {
     "@maiertech/prettier-config": "^2.0.0",
     "@stackblitz/sdk": "^1.5.6",
