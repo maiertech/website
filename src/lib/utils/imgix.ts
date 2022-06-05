@@ -1,7 +1,5 @@
 import ImgixClient from '@imgix/js-core';
 
-console.log(`Domain: ${process.env.IMGIX_DOMAIN}`);
-
 const client = new ImgixClient({
   // Default value ensures that GitHub actions build does not fail.
   domain: process.env.IMGIX_DOMAIN || 'example.imgix.net',

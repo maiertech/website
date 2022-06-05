@@ -28,6 +28,14 @@ const categories: Tag[] = [
     path: `${base}/developer-tools`,
   },
   {
+    key: 'content-creation',
+    label: 'Content creation',
+    title: 'Content creation',
+    description:
+      'I write about crafting tweets, writing posts and producing screencasts.',
+    path: `${base}/content-creation`,
+  },
+  {
     key: 'legacy',
     label: 'Legacy',
     title: 'Legacy posts',
