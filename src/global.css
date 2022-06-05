@@ -107,6 +107,12 @@ a[href]:visited {
   margin: 0;
 }
 
+.prose figure {
+  place-items: start;
+  max-inline-size: var(--size-content-3);
+  margin-block-end: var(--size-fluid-3);
+}
+
 .prose pre {
   border-radius: var(--radius-2);
   background-color: var(--surface-3);
@@ -115,7 +121,12 @@ a[href]:visited {
   margin-block-end: var(--size-fluid-3);
 }
 
-.prose ul {
+.prose ul,
+.prose ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-fluid-2);
+  padding-inline-start: var(--size-fluid-3);
   margin-block-end: var(--size-fluid-3);
 }
 

@@ -1,7 +1,7 @@
 import { mdsvex } from 'mdsvex';
 import adapter from '@sveltejs/adapter-auto';
 import sveltePreprocess from 'svelte-preprocess';
-import codeTitles from 'remark-code-titles';
+import remarkCodeTitles from 'remark-code-titles';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -25,7 +25,7 @@ const config = {
         dashes: 'oldschool',
       },
 
-      remarkPlugins: [codeTitles],
+      remarkPlugins: [remarkCodeTitles],
       rehypePlugins: [],
     }),
   ],
