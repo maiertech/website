@@ -1,6 +1,7 @@
-import type { RequestHandler } from '@sveltejs/kit';
-import tags from '$lib/data/tags';
 import { getPosts } from '$lib/posts';
+
+import type { RequestHandler } from './__types';
+import tags from '$lib/data/tags';
 
 export const get: RequestHandler = async function ({ params }) {
   const { tag: key } = params;
