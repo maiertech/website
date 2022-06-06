@@ -1,6 +1,6 @@
 import { createSrc, createSrcset } from '$lib/utils/imgix';
 
-import type { RequestHandler } from '@sveltejs/kit';
+import type { RequestHandler } from './__types';
 
 export const post: RequestHandler = async function ({ request }) {
   const { path } = (await request.json()) as { path: string };

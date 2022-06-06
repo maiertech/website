@@ -1,8 +1,9 @@
-import type { RequestHandler } from '@sveltejs/kit';
 import { getPosts } from '$lib/posts';
 import categories from '$lib/data/categories';
 import tags from '$lib/data/tags';
 import { BASE_URL } from '$lib/data/urls';
+
+import type { RequestHandler } from './__types/sitemap.xml';
 
 // Generate a basic XML sitemap.
 // See https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap#xml.
