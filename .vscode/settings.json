@@ -1,25 +1,4 @@
 {
-  "cSpell.enabledLanguageIds": ["markdown"],
-  "cSpell.ignoreWords": ["thilo"],
-  "cSpell.words": [
-    "CNAME",
-    "Codespaces",
-    "Gitpod",
-    "icognito",
-    "maiertech",
-    "pageview",
-    "pageviews",
-    "prebuild",
-    "prebuilds",
-    "prerender",
-    "proxied",
-    "screencast",
-    "screencasts",
-    "srcset",
-    "stackblitz",
-    "sveltekit",
-    "VITE"
-  ],
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[svg]": {
@@ -27,5 +6,11 @@
   },
   "svelte.enable-ts-plugin": true,
   "svelte.plugin.svelte.defaultScriptLanguage": "ts",
-  "thunder-client.saveToWorkspace": true
+  "thunder-client.saveToWorkspace": true,
+  "grammarly.files.include": ["**/README.md", "**/*.md"],
+  "grammarly.config.documentDialect": "auto-text",
+  "grammarly.config.suggestions.ConjunctionAtStartOfSentence": true,
+  "grammarly.config.suggestions.PassiveVoice": true,
+  "grammarly.config.suggestions.UnnecessaryEllipses": true,
+  "grammarly.config.suggestions.StylisticFragments": true
 }
