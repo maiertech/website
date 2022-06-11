@@ -1,13 +1,13 @@
 <script lang="ts">
-  import type PostFrontmatter from '$lib/types/post-frontmatter.type';
-  import type { PostMetadata } from '$lib/types/post-metadata.type';
-
   import { page } from '$app/stores';
   import { normalize } from '$lib/posts';
   import SEO from '$lib/components/seo.svelte';
 
+  import type { PostFrontmatter } from '$models/frontmatter.model';
+  import type { Post } from '$models/content.model';
+
   const frontmatter: PostFrontmatter = { ...$$restProps } as PostFrontmatter;
-  const post: PostMetadata = normalize(frontmatter, $page.url.pathname);
+  const post: Post = normalize(frontmatter, $page.url.pathname);
 </script>
 
 <article>
@@ -43,7 +43,7 @@
     </p>
     {#if post.tags}
       <ul>
-        {#each post.tags as tag (tag.key)}
+        {#each post.tags as tag (tag.id)}
           <li class="pill">
             <a href={tag.path}>
               {tag.label}

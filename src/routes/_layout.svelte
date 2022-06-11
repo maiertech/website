@@ -1,6 +1,8 @@
 <script lang="ts">
-  import type Frontmatter from '$lib/types/frontmatter.type';
   import SEO from '$lib/components/seo.svelte';
+
+  import type { Frontmatter } from '$models/frontmatter.model';
+
   const frontmatter: Frontmatter = { ...$$restProps } as Frontmatter;
 </script>
 

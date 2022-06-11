@@ -8,16 +8,17 @@
 </script>
 
 <script lang="ts">
-  import type { SocialIcon } from '$lib/types/social-icon.type';
   import Container from '$lib/components/container.svelte';
   import SocialIcons from '$lib/components/social-icons.svelte';
   import TwitterLogo from './twitter-logo.svelte';
   import GitHubLogo from './github-logo.svelte';
   import * as Fathom from 'fathom-client';
 
+  import type { SocialIcon } from '$models/content.model';
+
   const icons: SocialIcon[] = [
     {
-      key: 'twitter',
+      id: 'twitter',
       title: 'Twitter',
       href: 'https://twitter.com/maiertech',
       component: TwitterLogo,
@@ -26,7 +27,7 @@
       },
     },
     {
-      key: 'github',
+      id: 'github',
       title: 'GitHub',
       href: 'https://github.com/maiertech',
       component: GitHubLogo,

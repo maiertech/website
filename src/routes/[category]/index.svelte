@@ -1,12 +1,11 @@
 <script lang="ts">
-  import type { PostMetadata } from '$lib/types/post-metadata.type';
-  import type { Tag } from '$lib/types/tag.type';
+  import type { Post, Tag } from '$models/content.model';
 
   import { goto } from '$app/navigation';
   import SEO from '$lib/components/seo.svelte';
 
   export let category: Tag;
-  export let posts: PostMetadata[];
+  export let posts: Post[];
 </script>
 
 <SEO title={`${category.title}`} description={category.description} />

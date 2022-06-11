@@ -1,11 +1,10 @@
 <script lang="ts">
-  import type { PostMetadata } from '$lib/types/post-metadata.type';
-  import type { Tag } from '$lib/types/tag.type';
-
   import SEO from '$lib/components/seo.svelte';
 
+  import type { Post, Tag } from '$models/content.model';
+
   export let tag: Tag;
-  export let posts: PostMetadata[];
+  export let posts: Post[];
 </script>
 
 <SEO
@@ -21,7 +20,7 @@
       <h2><a href={post.path}>{post.title}</a></h2>
       {#if post.tags}
         <ul>
-          {#each post.tags as tag (tag.key)}
+          {#each post.tags as tag (tag.id)}
             <li class="pill">
               {tag.label}
             </li>

@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { SocialIcon } from '$lib/types/social-icon.type';
+  import type { SocialIcon } from '$models/content.model';
 
   export let icons: SocialIcon[];
 </script>
 
 <div>
-  {#each icons as icon (icon.key)}
+  {#each icons as icon (icon.id)}
     <a href={icon.href} on:click={icon.onclick} class="icon">
       <svelte:component this={icon.component} title={icon.title} />
     </a>

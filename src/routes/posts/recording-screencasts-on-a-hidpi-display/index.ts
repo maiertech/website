@@ -1,7 +1,7 @@
 import { createSrc, createSrcset } from '$lib/utils/imgix';
 
 import type { RequestHandler } from './__types';
-import type { Images } from '$lib/types/images.type';
+import type { Images } from '$models/content.model';
 
 const assets = [
   {
