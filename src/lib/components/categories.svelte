@@ -1,5 +1,5 @@
 <script lang="ts">
-  import categories from '$lib/data/categories';
+  import categories from '$data/categories';
   import { goto } from '$app/navigation';
 
   // Filter categories with `suppress` set to true.

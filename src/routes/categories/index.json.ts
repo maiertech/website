@@ -1,4 +1,4 @@
-import categories from '$lib/data/categories';
+import categories from '$data/categories';
 
 import type { RequestHandler } from './__types/index.json';
 

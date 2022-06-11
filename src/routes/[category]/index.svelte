@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Post, Tag } from '$models/content.model';
-
   import { goto } from '$app/navigation';
   import SEO from '$lib/components/seo.svelte';
+
+  import type { Post, Tag } from '$models/content.model';
 
   export let category: Tag;
   export let posts: Post[];

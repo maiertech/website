@@ -1,6 +1,6 @@
-import authors from '$lib/data/authors';
-import categories from '$lib/data/categories';
-import tags from '$lib/data/tags';
+import authors from '$data/authors';
+import categories from '$data/categories';
+import tags from '$data/tags';
 
 import type { PostFrontmatter } from '$models/frontmatter.model';
 import type { Post } from '$models/content.model';
