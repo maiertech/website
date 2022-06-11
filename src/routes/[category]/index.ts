@@ -1,4 +1,4 @@
-import categories from '$lib/data/categories';
+import categories from '$data/categories';
 import { getPosts } from '$lib/posts';
 
 import type { RequestHandler } from './__types';

@@ -1,9 +1,9 @@
 <script context="module" lang="ts">
   import type { Load } from '@sveltejs/kit';
-  import links from '$lib/data/navigation';
+  import navLinks from '$data/navigation';
 
   export const load: Load = function () {
-    return { props: { links } };
+    return { props: { navLinks } };
   };
 </script>
 
@@ -38,7 +38,7 @@
 <footer>
   <Container>
     <nav aria-label="Footer">
-      {#each links as link (link.title)}
+      {#each navLinks as link (link.title)}
         <a href={link.href}>{link.title}</a>
       {/each}
     </nav>

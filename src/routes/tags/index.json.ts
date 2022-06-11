@@ -1,4 +1,4 @@
-import tags from '$lib/data/tags';
+import tags from '$data/tags';
 
 import type { RequestHandler } from './__types/index.json';
 

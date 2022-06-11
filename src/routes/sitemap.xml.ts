@@ -1,7 +1,7 @@
 import { getPosts } from '$lib/posts';
-import categories from '$lib/data/categories';
-import tags from '$lib/data/tags';
-import { BASE_URL } from '$lib/data/urls';
+import categories from '$data/categories';
+import tags from '$data/tags';
+import { BASE_URL } from '$data/urls';
 
 import type { RequestHandler } from './__types/sitemap.xml';
 

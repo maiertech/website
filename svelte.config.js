@@ -33,6 +33,7 @@ const config = {
   kit: {
     adapter: adapter(),
     alias: {
+      $data: 'src/data',
       $models: 'src/models',
     },
     prerender: {
