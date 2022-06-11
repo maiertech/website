@@ -102,6 +102,7 @@
 
   header ul {
     display: flex;
+    flex-direction: row;
     gap: var(--size-fluid-1);
     list-style-type: none;
     padding: 0;
