@@ -1,29 +1,38 @@
-import type PostFrontmatter from './types/post-frontmatter.type';
-import type { PostMetadata } from './types/post-metadata.type';
 import authors from '$lib/data/authors';
 import categories from '$lib/data/categories';
 import tags from '$lib/data/tags';
+
+import type { PostFrontmatter } from '$models/frontmatter.model';
+import type { Post } from '$models/content.model';
 
 /**
  * Figure out keys of suppressed categories.
  */
 const suppressedCategories = categories
   .filter((category) => category.suppress)
-  .map((category) => category.key);
+  .map((category) => category.id);
 
 /**
  * Transform post frontmatter into post metadata.
  */
-export function normalize(
-  frontmatter: PostFrontmatter,
-  path: string
-): PostMetadata {
-  const author = authors.find(({ key }) => frontmatter.author === key);
+export function normalize(frontmatter: PostFrontmatter, path: string): Post {
+  const author = authors.find(({ id }) => frontmatter.author === id);
+
   if (!author)
-    throw `Invalid author key '${frontmatter.author}' in post '${frontmatter.title}'`;
-  const category = categories.find(({ key }) => frontmatter.category === key);
+    throw `Invalid author ID '${frontmatter.author}' in post '${frontmatter.title}'`;
+
+  const category = categories.find(({ id }) => frontmatter.category === id);
+
   if (!category)
-    throw `Invalid category key '${frontmatter.category}' in post '${frontmatter.title}'`;
+    throw `Invalid category ID '${frontmatter.category}' in post '${frontmatter.title}'`;
+
+  const resolvedTags = frontmatter?.tags?.map((frontmatterTag) => {
+    const tag = tags.find(({ id }) => frontmatterTag === id);
+    if (!tag)
+      throw `Invalid tag key '${frontmatterTag}' in post '${frontmatter.title}'`;
+    return tag;
+  });
+
   const post = {
     title: frontmatter.title,
     author,
@@ -31,12 +40,7 @@ export function normalize(
     modified: frontmatter.modified,
     description: frontmatter.description,
     category,
-    tags: frontmatter?.tags?.map((frontmatterTag) => {
-      const tag = tags.find(({ key }) => frontmatterTag === key);
-      if (!tag)
-        throw `Invalid tag key '${frontmatterTag}' in post '${frontmatter.title}'`;
-      return tag;
-    }),
+    tags: resolvedTags,
     links: frontmatter.links,
     path,
   };
@@ -44,12 +48,12 @@ export function normalize(
 }
 
 /**
- * Comparator for posts sort by
+ * Comparator for posts. Sort by
  * 1. published date desc
  * 2. modified date desc
  * 3. title asc
  */
-function PublishedDateCompare(a: PostMetadata, b: PostMetadata): number {
+function PublishedDateCompare(a: Post, b: Post): number {
   return (
     b.published.localeCompare(a.published) ||
     b.modified.localeCompare(a.modified) ||
@@ -58,12 +62,12 @@ function PublishedDateCompare(a: PostMetadata, b: PostMetadata): number {
 }
 
 /**
- * Comparator for posts sort by
+ * Comparator for posts. Sort by
  * 1. modified date desc
  * 2. published date desc
  * 3. title asc
  */
-function ModifiedDateCompare(a: PostMetadata, b: PostMetadata): number {
+function ModifiedDateCompare(a: Post, b: Post): number {
   return (
     b.modified.localeCompare(a.modified) ||
     b.published.localeCompare(a.published) ||
@@ -79,7 +83,7 @@ export async function getPosts({
   category?: string;
   tag?: string;
   compare?: 'published' | 'modified';
-}): Promise<PostMetadata[]> {
+}): Promise<Post[]> {
   let posts: { frontmatter: PostFrontmatter; path: string }[];
 
   // Read frontmatters from all post Markdown files.

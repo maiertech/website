@@ -1,8 +1,8 @@
-import type { Author } from '$lib/types/author.type';
+import type { Author } from '$models/content.model';
 
 const authors: Author[] = [
   {
-    key: 'thilo',
+    id: 'thilo',
     name: 'Thilo Maier',
     twitter: 'maiertech',
   },

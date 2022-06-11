@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { PostMetadata } from '$lib/types/post-metadata.type';
+  import type { Post } from '$models/content.model';
 
   import SEO from '$lib/components/seo.svelte';
 
-  export let posts: PostMetadata[];
+  export let posts: Post[];
 </script>
 
 <SEO title="Posts" description="Overview of post categories." />
@@ -16,7 +16,7 @@
       <h2><a href={post.path}>{post.title}</a></h2>
       {#if post.tags}
         <ul>
-          {#each post.tags as tag (tag.key)}
+          {#each post.tags as tag (tag.id)}
             <li class="pill">
               {tag.label}
             </li>

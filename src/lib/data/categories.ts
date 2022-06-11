@@ -1,11 +1,11 @@
-import type { Tag } from '$lib/types/tag.type';
+import type { Tag } from '$models/content.model';
 
 import { base } from '$app/paths';
 
 // Permitted categories, sorted by relevance.
 const categories: Tag[] = [
   {
-    key: 'web-development',
+    id: 'web-development',
     label: 'Web development',
     title: 'Web development',
     description:
@@ -13,7 +13,7 @@ const categories: Tag[] = [
     path: `${base}/web-development`,
   },
   {
-    key: 'data-viz',
+    id: 'data-viz',
     label: 'Data visualization',
     title: 'Data visualization',
     description: 'I write about data visualization with Svelte and D3.',
@@ -21,14 +21,14 @@ const categories: Tag[] = [
     suppress: true,
   },
   {
-    key: 'developer-tools',
+    id: 'developer-tools',
     label: 'Developer tools',
     title: 'Developer tools',
     description: 'I write about developer tools that make me more productive.',
     path: `${base}/developer-tools`,
   },
   {
-    key: 'content-creation',
+    id: 'content-creation',
     label: 'Content creation',
     title: 'Content creation',
     description:
@@ -36,7 +36,7 @@ const categories: Tag[] = [
     path: `${base}/content-creation`,
   },
   {
-    key: 'legacy',
+    id: 'legacy',
     label: 'Legacy',
     title: 'Legacy posts',
     description: 'Kitchen sink category for legacy posts.',

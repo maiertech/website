@@ -1,4 +1,4 @@
-import type { Tag } from '$lib/types/tag.type';
+import type { Tag } from '$models/content.model';
 
 import { base } from '$app/paths';
 
@@ -6,7 +6,7 @@ import { base } from '$app/paths';
 // Omitting path results in tag page not being generated.
 const tags: Tag[] = [
   {
-    key: 'github',
+    id: 'github',
     label: 'GitHub',
     title: 'Using GitHub as a platform for creation',
     description:
@@ -14,7 +14,7 @@ const tags: Tag[] = [
     path: `${base}/tags/github`,
   },
   {
-    key: 'nodejs',
+    id: 'nodejs',
     label: 'Node.js',
     title: 'Node.js ecosystem',
     description:
@@ -22,7 +22,7 @@ const tags: Tag[] = [
     path: `${base}/tags/nodejs`,
   },
   {
-    key: 'screencasts',
+    id: 'screencasts',
     label: 'Screencasts',
     title: 'Producing high-quality screencasts',
     description:
@@ -30,7 +30,7 @@ const tags: Tag[] = [
     path: `${base}/tags/screencasting`,
   },
   {
-    key: 'sveltekit',
+    id: 'sveltekit',
     label: 'SvelteKit',
     title: 'Creating web apps with SvelteKit',
     description:
@@ -38,7 +38,7 @@ const tags: Tag[] = [
     path: `${base}/tags/sveltekit`,
   },
   {
-    key: 'seo',
+    id: 'seo',
     label: 'SEO',
     title: 'Growing your audience with SEO',
     description:
@@ -46,7 +46,7 @@ const tags: Tag[] = [
     path: `${base}/tags/seo`,
   },
   {
-    key: 'vscode',
+    id: 'vscode',
     label: 'VS Code',
     title: 'VS Code productivity hacks',
     description:
