@@ -8,7 +8,7 @@
   import Header from '$lib/components/header.svelte';
   import Container from '$lib/components/container.svelte';
   import Footer from '$lib/components/footer.svelte';
-  import '../global.css';
+  import '../app.css';
 
   onMount(() => {
     // Get Fathom Analytics ready.

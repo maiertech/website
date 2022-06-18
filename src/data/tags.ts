@@ -6,6 +6,14 @@ import { base } from '$app/paths';
 // Omitting path results in tag page not being generated.
 const tags: Tag[] = [
   {
+    id: 'css',
+    label: 'CSS',
+    title: 'Cascading Style Sheets',
+    description:
+      'Web developers often frown upon CSS. Yet, many do not have a good grasp of CSS. Read my posts about CSS to learn more about the heavy lifting modern CSS can do for your website.',
+    path: `${base}/tags/css`,
+  },
+  {
     id: 'github',
     label: 'GitHub',
     title: 'Using GitHub as a platform for creation',
@@ -44,6 +52,14 @@ const tags: Tag[] = [
     description:
       'Building an audience from scratch is hard. Growing traffic with SEO provides an opportunity to convert organic traffic into an audience.',
     path: `${base}/tags/seo`,
+  },
+  {
+    id: 'til',
+    label: 'TIL',
+    title: 'Today I Learned (TIL)',
+    description:
+      'Short posts that capture one lesson I learned. Learn it as well in under 5 minutes.',
+    path: `${base}/tags/til`,
   },
   {
     id: 'vscode',
