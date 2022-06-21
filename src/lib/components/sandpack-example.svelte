@@ -1,5 +1,6 @@
 <script lang="ts">
-  // This component uses @codesandbox/sandpack-client to create a sandbox to embed.
+  // This component uses @codesandbox/sandpack-client to create a sandbox that can be embedded.
+  // This component is experimental and should not be used in production.
 
   import { onMount } from 'svelte';
   import { SandpackClient } from '@codesandbox/sandpack-client';

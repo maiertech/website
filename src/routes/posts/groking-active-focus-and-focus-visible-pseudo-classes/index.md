@@ -2,7 +2,7 @@
 title: 'Groking :active, :focus and :focus-visible pseudo-classes'
 author: thilo
 published: 2022-06-20
-modified: 2022-06-20
+modified: 2022-06-21
 description:
   'This post explains the subtle differences between CSS pseudo-classes :active,
   :focus and :focus-visible.'
@@ -12,7 +12,7 @@ category: web-development
 
 <script>
   import Image from '$lib/components/image.svelte';
-  import Example from './_example-sandpack.svelte';
+  import Example from './_example-sandbox.svelte';
 
   // Provided by page endpoint.
   export let images;
