@@ -1,18 +1,16 @@
 <script lang="ts">
+  // This component uses the CodeSandbox API to create a sandbox to embed.
+
   import { onMount } from 'svelte';
 
   import type { ApiError } from '$models/api.model';
-  import type { EmbedOptions } from '$models/codesandbox.model';
-
-  type Files = {
-    [path: string]: { content: string; isBinary?: boolean };
-  };
+  import type { EmbedOptions, Files } from '$models/codesandbox.model';
 
   export let files: Files;
+  export let embedOptions: EmbedOptions = {};
 
-  let state: 'loading' | 'loaded' | { error: ApiError } = 'loading';
-  let sandbox_id: string;
-  let embedOptions: EmbedOptions;
+  let sandbox_id = '';
+  let error: ApiError;
 
   const embedQuerystring = new URLSearchParams({
     codemirror: '1',
@@ -26,8 +24,8 @@
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ files }),
       }
@@ -35,35 +33,32 @@
 
     if (!response.ok) {
       const { error: message } = await response.json();
-      state = {
-        error: {
-          status: response.status,
-          code: 'FAILED_TO_FETCH_SANDBOX_ID',
-          message,
-        },
+      error = {
+        status: response.status,
+        code: 'FAILED_TO_FETCH_SANDBOX_ID',
+        message,
       };
     } else {
       ({ sandbox_id } = await response.json());
-      state = 'loaded';
     }
   });
 </script>
 
 <div class="sandbox">
-  {#if state === 'loading'}
-    <div class="state">Loading...</div>
-  {:else if state === 'loaded'}
+  {#if sandbox_id}
     <iframe
       src={`https://codesandbox.io/embed/${sandbox_id}?${embedQuerystring}`}
       title="CodeSandbox example"
       allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
     />
-  {:else}
-    <div class="state">
-      <p>{state.error.code} ({state.error.status})</p>
-      <p>{state.error.message}</p>
+  {:else if error}
+    <div class="loading">
+      <p>{error.code} ({error.status})</p>
+      <p>{error.message}</p>
     </div>
+  {:else}
+    <div class="loading">Loading...</div>
   {/if}
 </div>
 
@@ -74,7 +69,7 @@
     border-radius: var(--radius-3);
   }
 
-  .state {
+  .loading {
     padding: var(--size-fluid-4);
     overflow: auto;
   }

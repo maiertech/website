@@ -13,6 +13,7 @@
     "prepare": "git config core.hookspath .githooks"
   },
   "dependencies": {
+    "@codesandbox/sandpack-client": "^1.1.3",
     "@imgix/js-core": "^3.5.1",
     "@stackblitz/sdk": "^1.5.3",
     "fathom-client": "^3.4.0"

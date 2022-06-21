@@ -2,7 +2,7 @@
 title: Route matching in SvelteKit
 author: thilo
 published: 2022-02-13
-modified: 2022-02-14
+modified: 2022-06-16
 description:
   This post explores how SvelteKit's filesystem-based router matches a requested
   route to a page or an endpoint in src/routes.
@@ -15,22 +15,9 @@ links:
 ---
 
 <script>
-  import Example from '$lib/components/example-stackblitz.svelte';
+  import Example from './_example.svelte';
   import Card from '$lib/components/card.svelte';
 </script>
-
-<Card>
-
-I wrote this post originally with
-[@sveltejs/kit](https://www.npmjs.com/package/@sveltejs/kit) v1.0.0-next.254.
-After finishing it, I noticed that v1.0.0-next.260 introduced shadow endpoints
-in [this pull request](https://github.com/sveltejs/kit/pull/3679). This change
-came with a
-[check for duplicate route files](https://github.com/sveltejs/kit/blame/647131e00149cb5299042eedeb880efcd855a2df/packages/kit/src/core/create_manifest_data/index.js#L262-L279),
-which made original Rule 1 partially obsolete. To adapt this post to
-v1.0.0-next.260, I had to renumber the rules.
-
-</Card>
 
 The [SvelteKit docs](https://kit.svelte.dev/docs#routing) state that
 
@@ -38,29 +25,22 @@ The [SvelteKit docs](https://kit.svelte.dev/docs#routing) state that
 > structure of your application is defined by the structure of your codebase —
 > specifically, the contents of `src/routes`.
 
-In this post we will explore how SvelteKit's
+In this post, we will explore how SvelteKit's
 [filesystem-based router](https://kit.svelte.dev/docs#routing) matches a
 requested route to a page or an endpoint. SvelteKit transforms each route file
 in `src/routes` into a page or an endpoint. Conversely, SvelteKit needs to match
 a requested route to a route file. This is called route matching.
 
 A filesystem-based router makes route matching straightforward: the route can be
-interpreted as sub-path in `src/routes` and often there is only one matching
+interpreted as the subpath in `src/routes` and often there is only one matching
 route file. But what happens when there are multiple matching route files? How
 does SvelteKit decide which route file it uses to render a page or endpoint?
 
-In this post we look at a SvelteKit example and explore the rules that SvelteKit
-applies to decide which page or endpoint to serve. You will take the most out of
-this post if you follow along. Use one of the options below to run the example
-in a separate tab in your browser. Alternatively, you can clone the GitHub
-repository and run it locally.
+In this post, we look at a SvelteKit example and explore the rules that
+SvelteKit applies to decide which page or endpoint to serve. You will take the
+most out of this post if you follow along:
 
-<Example 
-  title="SvelteKit route matching example"
-  description="Run the code for this post in your browser to follow along."
-  repository="maiertech/sveltekit-example-route-matching"
-  openFile="src/routes/index.svelte"
-/>
+<Example />
 
 ## Duplicate route files are not permitted
 
@@ -127,7 +107,7 @@ src/routes/[colour]/index.svelte
 
 These are not duplicate routes because the strings inside `[]` differ. We
 already know from the previous section, that `/red` is not rendered with any of
-above candidate pages. The reason is this rule:
+the above candidate pages. The reason is this rule:
 
 <Card>
 
@@ -204,7 +184,7 @@ src/routes/color/[...rest].svelte
 
 `[...rest]` in the second route is a dynamic path segment, which uses
 [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
-and matches any path under `/color`, no matter how deep. We refer to it as
+and matches any path under `/color`, no matter how deep. We refer to it as a
 spread segment. The following rule clarifies, which page the router chooses to
 render `/color/blue`:
 
