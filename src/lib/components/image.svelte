@@ -9,26 +9,19 @@
   export let loading: Loading = 'eager';
 </script>
 
-<div>
-  <img
-    {...$$restProps}
-    {alt}
-    {src}
-    {srcset}
-    {loading}
-    style:--ratio={ratio}
-    style:--fit={fit}
-  />
+<div style:--ratio={ratio}>
+  <img {...$$restProps} {alt} {src} {srcset} {loading} style:--fit={fit} />
 </div>
 
 <style>
   div {
+    width: 100%;
+    aspect-ratio: var(--ratio);
     background-color: var(--surface-2);
   }
 
   img {
     width: 100%;
-    aspect-ratio: var(--ratio);
     object-fit: var(--fit);
   }
 </style>
