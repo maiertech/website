@@ -76,7 +76,7 @@ a[href]:visited {
 
 /* Wrap Markdown in `prose` class. */
 
-.prose aside {
+.prose {
   margin-block-end: var(--size-fluid-3);
 }
 
@@ -127,6 +127,11 @@ a[href]:visited {
   flex-direction: column;
   gap: var(--size-fluid-2);
   padding-inline-start: var(--size-fluid-3);
+  margin-block-end: var(--size-fluid-3);
+}
+
+.prose .stackblitz,
+.prose .sandbox {
   margin-block-end: var(--size-fluid-3);
 }
 

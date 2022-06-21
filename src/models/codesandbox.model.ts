@@ -20,3 +20,8 @@ export type EmbedOptions = {
   view?: 'editor' | 'split' | 'preview';
   theme?: 'dark' | 'light';
 };
+
+// https://codesandbox.io/docs/api
+export type Files = {
+  [path: string]: { content: string; isBinary?: boolean };
+};

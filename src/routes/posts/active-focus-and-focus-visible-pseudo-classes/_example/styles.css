@@ -1,3 +1,0 @@
-input:where(:not(:active)):focus-visible {
-  outline-offset: 5px;
-}
