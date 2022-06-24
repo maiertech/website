@@ -2,7 +2,7 @@
 title: 'Groking :active, :focus and :focus-visible pseudo-classes'
 author: thilo
 published: 2022-06-20
-modified: 2022-06-21
+modified: 2022-06-24
 description:
   'This post explains the subtle differences between CSS pseudo-classes :active,
   :focus and :focus-visible.'
@@ -62,8 +62,8 @@ release the mouse button:
 
 <figure>
 
-<Image ratio={630/198} alt="Screenshot of the :active example while clicking the
-input field." src={images[`active-example-input-active`].src}
+<Image ratio={630/198} alt="Screenshot of the pdeudo-class :active example while
+clicking the input field." src={images[`active-example-input-active`].src}
 srcset={images[`active-example-input-active`].srcset} loading="lazy" />
 
 </figure>
@@ -73,8 +73,8 @@ a default outline around it to highlight its focus:
 
 <figure>
 
-<Image ratio={630/198} alt="Screenshot of the :active example while the input
-field has focus." src={images[`active-example-input-focus`].src}
+<Image ratio={630/198} alt="Screenshot of the pseudo-class :active example while
+the input field has focus." src={images[`active-example-input-focus`].src}
 srcset={images[`active-example-input-focus`].srcset} loading="lazy" />
 
 </figure>
@@ -84,8 +84,8 @@ release it:
 
 <figure>
 
-<Image ratio={630/198} alt="Screenshot of the :active example while clicking the
-submit button." src={images[`active-example-button-active`].src}
+<Image ratio={630/198} alt="Screenshot of the pseudo-class :active example while
+clicking the submit button." src={images[`active-example-button-active`].src}
 srcset={images[`active-example-button-active`].srcset} loading="lazy" />
 
 </figure>
@@ -116,8 +116,8 @@ this time it stays until the input field loses focus:
 
 <figure>
 
-<Image ratio=630/198} alt="Screenshot of the :focus example while the input
-field has focus." src={images[`focus-example-input`].src}
+<Image ratio={630/198} alt="Screenshot of the pseudo-class :focus example while
+the input field has focus." src={images[`focus-example-input`].src}
 srcset={images[`focus-example-input`].srcset} loading="lazy" />
 
 </figure>
@@ -127,8 +127,8 @@ it loses focus:
 
 <figure>
 
-<Image ratio=630/198} alt="Screenshot of the :focus example while the submit
-button has focus." src={images[`focus-example-button`].src}
+<Image ratio={630/198} alt="Screenshot of the pseudo-class :focus example while
+the submit button has focus." src={images[`focus-example-button`].src}
 srcset={images[`focus-example-button`].srcset} loading="lazy" />
 
 </figure>
@@ -164,8 +164,9 @@ the input field has focus:
 
 <figure>
 
-<Image ratio=762/202} alt="Screenshot of the :focus-visible example while the
-input field has focus." src={images[`focus-visible-example-input`].src}
+<Image ratio={762/202} alt="Screenshot of the pseudo-class :focus-visible
+example while the input field has focus."
+src={images[`focus-visible-example-input`].src}
 srcset={images[`focus-visible-example-input`].srcset} loading="lazy" />
 
 </figure>
@@ -176,8 +177,8 @@ is not visible:
 
 <figure>
 
-<Image ratio=762/202} alt="Screenshot of the :focus-visible example when the
-submit button receives focus with a click."
+<Image ratio={762/202} alt="Screenshot of the pseudo-class :focus-visible
+example when the submit button receives focus with a mouse click."
 src={images[`focus-visible-example-button-mouse`].src}
 srcset={images[`focus-visible-example-button-mouse`].srcset} loading="lazy" />
 
@@ -188,8 +189,8 @@ outline is visible:
 
 <figure>
 
-<Image ratio=762/202} alt="Screenshot of the :focus-visible example when the
-submit button receives focus with the Tab key."
+<Image ratio={762/202} alt="Screenshot of the pseudo-class :focus-visible
+example when the submit button receives focus with the Tab key."
 src={images[`focus-visible-example-button-keyboard`].src}
 srcset={images[`focus-visible-example-button-keyboard`].srcset} loading="lazy"
 />
