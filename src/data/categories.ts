@@ -18,7 +18,6 @@ const categories: Tag[] = [
     title: 'Data visualization',
     description: 'I write about data visualization with Svelte and D3.',
     path: `${base}/data-viz`,
-    suppress: true,
   },
   {
     id: 'developer-tools',

@@ -131,8 +131,8 @@ a[href]:visited {
 }
 
 .prose .stackblitz,
-.prose .sandbox {
-  margin-block-end: var(--size-fluid-3);
+.prose .codesandbox {
+  margin-block-end: var(--size-fluid-4);
 }
 
 .prose .card {

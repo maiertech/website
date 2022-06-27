@@ -14,6 +14,14 @@ const tags: Tag[] = [
     path: `${base}/tags/css`,
   },
   {
+    id: 'd3',
+    label: 'D3',
+    title: 'D3 foundations',
+    description:
+      'For data visualization with Svelte and D3 you need to be proficient with certain D3 helpers.',
+    path: `${base}/tags/d3`,
+  },
+  {
     id: 'github',
     label: 'GitHub',
     title: 'Using GitHub as a platform for creation',

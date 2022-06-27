@@ -15,7 +15,7 @@ links:
 ---
 
 <script>
-  import Example from './_example.svelte';
+  import Example from './_example/stackblitz.svelte';
   import Card from '$lib/components/card.svelte';
 </script>
 
