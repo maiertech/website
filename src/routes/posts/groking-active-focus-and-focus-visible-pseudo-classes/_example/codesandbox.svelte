@@ -1,9 +1,11 @@
 <script lang="ts">
-  import SandboxExample from '$lib/components/sandbox-example.svelte';
-  import index_html from './_example/index.html?raw';
-  import styles_css from './_example/styles.css?raw';
-  import sandbox_config_json from './_example/sandbox.config.json?raw';
-  import package_json from './_example/package.json?raw';
+  import CodeSandbox from '$lib/components/codesandbox.svelte';
+
+  // Import files for example as raw text.
+  import index_html from './index.html?raw';
+  import styles_css from './styles.css?raw';
+  import package_json from './package.json?raw';
+  import sandbox_config_json from './sandbox.config.json?raw';
 
   import type { Files } from '$models/codesandbox.model';
 
@@ -23,4 +25,4 @@
   };
 </script>
 
-<SandboxExample {files} />
+<CodeSandbox {files} />

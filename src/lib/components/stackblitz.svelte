@@ -29,7 +29,7 @@
 </script>
 
 <div class="stackblitz">
-  <iframe bind:this={element} title="This title will get lost when rendered." />
+  <iframe bind:this={element} title="This iframe will be swapped out." />
 </div>
 
 <style>

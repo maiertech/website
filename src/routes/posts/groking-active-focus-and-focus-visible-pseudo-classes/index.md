@@ -12,7 +12,7 @@ category: web-development
 
 <script>
   import Image from '$lib/components/image.svelte';
-  import Example from './_example-sandbox.svelte';
+  import Example from './_example/codesandbox.svelte';
 
   // Provided by page endpoint.
   export let images;

@@ -1,8 +1,8 @@
 <script>
-  import StackBlitzExample from '$lib/components/stackblitz-example.svelte';
+  import StackBlitz from '$lib/components/stackblitz.svelte';
 
   const project = 'maiertech/sveltekit-example-route-matching';
   const embedOptions = { openFile: 'src/routes/index.svelte' };
 </script>
 
-<StackBlitzExample {project} {embedOptions} />
+<StackBlitz {project} {embedOptions} />

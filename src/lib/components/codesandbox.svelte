@@ -44,7 +44,7 @@
   });
 </script>
 
-<div class="sandbox">
+<div class="codesandbox">
   {#if sandbox_id}
     <iframe
       src={`https://codesandbox.io/embed/${sandbox_id}?${embedQuerystring}`}
@@ -63,7 +63,7 @@
 </div>
 
 <style>
-  .sandbox {
+  .codesandbox {
     height: var(--size-fluid-10);
     background-color: var(--surface-2);
     border-radius: var(--radius-3);
