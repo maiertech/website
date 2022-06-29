@@ -2,14 +2,12 @@
 title: How to brace for a GitHub Codespaces outage
 author: thilo
 published: 2021-04-04
-modified: 2021-11-27
+modified: 2022-06-28
 description:
   When you adopt GitHub Codespaces you should ensure that an outage does not
   grind your development workflow to a halt. This post explains how.
-category: developer-tools
-tags:
-  - github
-  - vscode
+topics: [dx]
+tags: [github, vscode]
 ---
 
 In my post
@@ -23,9 +21,9 @@ service that is in beta and free of charge to be perfect. But I decided to brace
 for future Codespaces outages to ensure that my development workflow does not
 grind to a halt.
 
-## Plan B: Use Docker Desktop as Codespaces alternative
+## Plan B: Use Docker Desktop as a Codespaces alternative
 
-In my post mentioned above I explain that Codespaces are Docker containers that
+In my post mentioned above, I explain that Codespaces are Docker containers that
 can be run locally. To make this work, you need to install
 
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop),

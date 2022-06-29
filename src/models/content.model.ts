@@ -23,10 +23,10 @@ export type Post = {
   title: string;
   author: Author; // Resolved author.
   published: string; // Published date in local system time.
-  modified: string; // Last modified date in local system time.
+  modified: string;
   description: string;
-  category: Tag;
-  tags?: Tag[];
+  topics?: Topic[]; // Resolved topics.
+  tags?: Tag[]; // Resolved tags.
   links?: Link[];
   path: string;
 };
@@ -47,10 +47,16 @@ export type SocialIcon = {
 
 // A tag key from the frontmatter is transformed into a Tag.
 export type Tag = {
-  id: string; // Tag ID from frontmatter.
-  label: string; // Display label.
-  title: string; // Tag page title.
-  description: string;
+  id: string;
+  label: string;
+  description: string; // SEO description.
   path: string; // Path to tag page.
-  suppress?: boolean; // Suppress tag page generation when false.
+};
+
+export type Topic = {
+  id: string;
+  label: string;
+  title: string;
+  description: string; // SEO description.
+  path: string; // Path to topic page.
 };

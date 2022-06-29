@@ -9,9 +9,9 @@
   export let description: string;
   export let canonicalUrl: string | undefined = undefined;
 
-  // Articles.
-  export let category: string | undefined = undefined;
-  export let tags: string[] | undefined = undefined;
+  // Posts.
+  export let topics: string[] = [];
+  export let tags: string[] = [];
   export let published: string | undefined = undefined;
   export let modified: string | undefined = undefined;
 
@@ -33,8 +33,7 @@
     article: {
       publishedTime: published,
       modifiedTime: modified,
-      section: category,
-      tags,
+      tags: [...topics, ...tags],
     },
   }}
   twitter={{ title, description }}

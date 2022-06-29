@@ -2,12 +2,11 @@
 title: Husky v6 pitfalls
 author: thilo
 published: 2021-04-02
-modified: 2021-10-11
+modified: 2022-06-28
 description:
   Upgrading Husky from v4 to v6 turned out to be more complicated than I
-  expected. In this post I explain how to migrate a simple v4 configuration to
+  expected. In this post, I explain how to migrate a simple v4 configuration to
   v6.
-category: legacy
 links:
   - title: 'What’s new in husky 5'
     href: https://dev.to/typicode/what-s-new-in-husky-5-32g5
@@ -19,12 +18,12 @@ _I published this post originally for Husky v5. v6 was released only two months
 after v5. It ironed out some of the kinks of v5. To keep this post relevant, I
 updated it for v6 and republished it._
 
-[Husky](https://github.com/typicode/husky) is an NPM package which needs to be
+[Husky](https://github.com/typicode/husky) is an NPM package that needs to be
 installed in `devDependencies` in `package.json`. It installs Git hooks that can
 be executed when certain Git commands run. The most common use case for Git
-Hooks is a pre-commit hook which runs prior to a commit. I use a pre-commit hook
-to run [lint-staged](https://github.com/okonet/lint-staged) to lint all files
-that are part of a commit.
+Hooks is a pre-commit hook that runs before a commit. I use a pre-commit hook to
+run [lint-staged](https://github.com/okonet/lint-staged) to lint all files that
+are part of a commit.
 
 In husky v4 my hooks were configured in a `.huskyrc`:
 
@@ -87,7 +86,8 @@ branch, which should fail.
 Note that you should not create Git hooks manually since they need execute
 permissions to run. `husky add` makes sure that permissions are correct.
 
-Above migration script also adds the follwoing script to your `package.json`:
+The above migration script also adds the following script to your
+`package.json`:
 
 ```json:package.json
 "scripts": {
@@ -100,7 +100,7 @@ Above migration script also adds the follwoing script to your `package.json`:
 This ensures that all Git hooks are installed automatically whenever someone
 clones your repository and runs `npm install`.
 
-And finally, there is no point installing hooks in continuous integration (CI)
-or services like [Netlify](https://www.netlify.com/) or
+And finally, there is no point in installing hooks in continuous integration
+(CI) or services like [Netlify](https://www.netlify.com/) or
 [Vercel](https://vercel.com/). Set environment variable `HUSKY` to `0` in CI to
 suppress hooks.

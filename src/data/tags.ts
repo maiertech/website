@@ -3,78 +3,71 @@ import type { Tag } from '$models/content.model';
 import { base } from '$app/paths';
 
 // Valid tags, sorted by key.
-// Omitting path results in tag page not being generated.
 const tags: Tag[] = [
   {
     id: 'css',
     label: 'CSS',
-    title: 'Cascading Style Sheets',
-    description:
-      'Web developers often frown upon CSS. Yet, many do not have a good grasp of CSS. Read my posts about CSS to learn more about the heavy lifting modern CSS can do for your website.',
+    description: 'Posts tagged with CSS.',
     path: `${base}/tags/css`,
   },
   {
     id: 'd3',
     label: 'D3',
-    title: 'D3 foundations',
-    description:
-      'For data visualization with Svelte and D3 you need to be proficient with certain D3 helpers.',
+    description: 'Posts tagged with D3.',
     path: `${base}/tags/d3`,
   },
   {
     id: 'github',
     label: 'GitHub',
-    title: 'Using GitHub as a platform for creation',
-    description:
-      'GitHub is the go to platform for developers to collaborate on code. I write about how to get the most out of GitHub.',
+    description: 'Posts tagged with GitHub.',
     path: `${base}/tags/github`,
   },
   {
-    id: 'nodejs',
-    label: 'Node.js',
-    title: 'Node.js ecosystem',
-    description:
-      'Node.js drives modern web development. Occasionally I make a deep-dive into Node.js fundamentals.',
-    path: `${base}/tags/nodejs`,
+    id: 'gitpod',
+    label: 'Gitpod',
+    description: 'Posts tagged with Gitpod.',
+    path: `${base}/tags/gitpod`,
   },
   {
-    id: 'screencasts',
-    label: 'Screencasts',
-    title: 'Producing high-quality screencasts',
-    description:
-      'Creating high-quality screencasts is hard. I share what helped me learn it.',
-    path: `${base}/tags/screencasting`,
+    id: 'node',
+    label: 'Node',
+    description: 'Posts tagged with Node.',
+    path: `${base}/tags/node`,
+  },
+  {
+    id: 'screen-recording',
+    label: 'Screen recording',
+    description: 'Posts tagged with Screen recording.',
+    path: `${base}/tags/screen-recording`,
   },
   {
     id: 'sveltekit',
     label: 'SvelteKit',
-    title: 'Creating web apps with SvelteKit',
-    description:
-      'SvelteKit is my favorite framework to create fast and scalable websites. I write about issues I ran into and how I solved them.',
+    description: 'Posts tagged with SvelteKit.',
     path: `${base}/tags/sveltekit`,
   },
   {
     id: 'seo',
     label: 'SEO',
-    title: 'Growing your audience with SEO',
-    description:
-      'Building an audience from scratch is hard. Growing traffic with SEO provides an opportunity to convert organic traffic into an audience.',
+    description: 'Posts tagged with SEO.',
     path: `${base}/tags/seo`,
   },
   {
-    id: 'til',
-    label: 'TIL',
-    title: 'Today I Learned (TIL)',
-    description:
-      'Short posts that capture one lesson I learned. Learn it as well in under 5 minutes.',
-    path: `${base}/tags/til`,
+    id: 'stackblitz',
+    label: 'StackBlitz',
+    description: 'Posts labeled with StackBlitz.',
+    path: `${base}/tags/stackblitz`,
+  },
+  {
+    id: 'vite',
+    label: 'Vite',
+    description: 'Posts tagged with Vite.',
+    path: `${base}/tags/vite`,
   },
   {
     id: 'vscode',
     label: 'VS Code',
-    title: 'VS Code productivity hacks',
-    description:
-      'I write about how I boost my productivity with Visual Studio Code.',
+    description: 'Posts tagged with VS Code.',
     path: `${base}/tags/vscode`,
   },
 ];

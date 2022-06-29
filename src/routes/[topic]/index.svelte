@@ -2,15 +2,15 @@
   import { goto } from '$app/navigation';
   import SEO from '$lib/components/seo.svelte';
 
-  import type { Post, Tag } from '$models/content.model';
+  import type { Post, Topic } from '$models/content.model';
 
-  export let category: Tag;
+  export let topic: Topic;
   export let posts: Post[];
 </script>
 
-<SEO title={`${category.title}`} description={category.description} />
+<SEO title={`${topic.title}`} description={topic.description} />
 
-<h1 class="text-gradient">{`${category.title}`}</h1>
+<h1 class="text-gradient">{`${topic.title}`}</h1>
 
 <div>
   {#each posts as post (post.path)}

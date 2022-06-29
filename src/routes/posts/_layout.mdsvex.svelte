@@ -1,6 +1,6 @@
 <script context="module">
-  import { table, td, th } from '$lib/mdsvex';
-  export { table, td, th };
+  import { h1, p, table, td, th } from '$lib/elements';
+  export { h1, p, table, td, th };
 </script>
 
 <script>

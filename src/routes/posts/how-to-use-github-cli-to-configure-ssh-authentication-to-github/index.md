@@ -2,13 +2,12 @@
 title: How to use GitHub CLI to configure SSH authentication to GitHub
 author: thilo
 published: 2021-10-20
-modified: 2021-11-27
+modified: 2022-06-28
 description:
   Setting up SSH authentication to GitHub used to be a tedious multi-step
   process. Now it is a breeze if you let GitHub CLI do the hard work for you.
-category: developer-tools
-tags:
-  - github
+topics: [dx]
+tags: [github]
 ---
 
 Authenticating to [GitHub](https://github.com/) with SSH can be difficult to
@@ -23,9 +22,9 @@ When working with GitHub repositories, you can interact with the platform in
 different ways, each of which requires a different authentication method:
 
 - **Website:** authenticate with username, password and 2FA.
-- **Command line:** authenticate with personal access token or SSH key.
+- **Command-line:** authenticate with a personal access token or SSH key.
 - **VS Code:** authenticate with OAuth token (which is automatically created
-  upon first login with VS Code).
+  upon the first login with VS Code).
 - **GitHub CLI:** authenticate with OAuth token for commands using the GitHub
   API and one of the command line authentication methods mentioned above for
   basic commands such as cloning, fetching, pulling and pushing.
@@ -34,8 +33,8 @@ This post is about configuring SSH authentication for the command line. You can
 read up on the
 [two command line authentication options in the docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#authenticating-with-the-command-line).
 There is no right or wrong choice between the two. Both, personal access token
-and SSH key, have their pros and cons. I like the SSH key option, because you
-set it up once and all applications supporting SSH to interact with GitHub can
+and SSH key, have their pros and cons. I like the SSH key option because you set
+it up once and all applications supporting SSH to interact with GitHub can
 piggyback on the generated SSH key. If you need more fine-grained control over
 the permissions you grant to applications, personal access tokens are a better
 choice.
@@ -43,10 +42,10 @@ choice.
 ## SSH key generation and uploading
 
 If you do not have GitHub CLI installed, you can do so with `brew install gh`.
-Run `gh auth login` and answer the prompts. Choose SSH as preferred protocol.
-You do not need to enter a password for the generated SSH key. Just hit ↵. You
-can revoke SSH keys uploaded to GitHub at any time if you think that it has been
-compromised.
+Run `gh auth login` and answer the prompts. Choose SSH as the preferred
+protocol. You do not need to enter a password for the generated SSH key. Just
+hit ↵. You can revoke SSH keys uploaded to GitHub at any time if you think that
+it has been compromised.
 
 ```bash
 $ gh auth login
@@ -94,11 +93,11 @@ terminal, but do not run it:
 [[ "fingerprint1" == "fingerprint2" ]] && echo "Equal" || echo "Not equal"
 ```
 
-Next, copy the RSA fingerprint from above output (from your own terminal, not
+Next, copy the RSA fingerprint from the above output (from your terminal, not
 from this website) and paste it to replace `fingerprint1`. Then go to
 [GitHub's SSH key fingerprints page](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints),
 copy the RSA fingerprint and paste it to replace `fingerprint2`. Run the
-comparison command. If both fingerprints match, type yes to respond to above
+comparison command. If both fingerprints match, type yes to respond to the above
 prompt. You should see the following confirmation message:
 
 ```bash

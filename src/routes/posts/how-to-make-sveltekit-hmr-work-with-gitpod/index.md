@@ -2,13 +2,12 @@
 title: How to make SvelteKit HMR work with Gitpod
 author: thilo
 published: 2022-01-30
-modified: 2022-04-25
+modified: 2022-06-28
 description:
   SvelteKit HMR breaks when developing with a Gitpod workspace inside a browser.
   This post explains how to fix this.
-category: web-development
-tags:
-  - sveltekit
+topics: [svelte, dx]
+tags: [gitpod, sveltekit]
 ---
 
 SvelteKit uses [Vite](https://vitejs.dev/) with
@@ -30,8 +29,8 @@ server depends on how you access your Gitpod workspace:
 
 - When you access your Gitpod workspace **from within a browser**, you access
   the development server via a URL on the `gitpod.io` domain (using default
-  https port 443). In order to make this work, Gitpod proxies `localhost` to the
-  external URL.
+  https port 443). To make this work, Gitpod proxies `localhost` to the external
+  URL.
 - When you access your Gitpod workspace **from VS Code via SSH**, VS Code
   proxies the development server to `localhost`. You work with your Gitpod
   workspace as if it was a local development environment.
@@ -85,7 +84,7 @@ tasks:
     command: npm run dev
 ```
 
-`tasks` defines tasks which Gitpod runs when it initializes the workspace. This
+`tasks` defines tasks that Gitpod runs when it initializes the workspace. This
 configuration makes the development server available at this URL (which also
 requires authentication):
 
@@ -101,8 +100,8 @@ https://maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/
 
 The workspace ID `maiertech-maiertech-ti2zaqimh33` consists of my GitHub
 username `maiertech`, an ID derived from the repository name `maier.tech` and a
-UUID. With above `.gitpod.yml` configuration, the SvelteKit development server
-of this workspace can be reached at
+UUID. With the above `.gitpod.yml` configuration, the SvelteKit development
+server of this workspace can be reached at
 
 ```bash
 https://3000-maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/
@@ -134,11 +133,11 @@ environment.
 
 There is a catch with this custom Vite configuration. `GITPOD_WORKSPACE_URL`
 also exists in a Gitpod workspace, which runs in a local VS Code via SSH. In
-this scenario you can access the development server on `localhost:3000`, but
-above custom Vite configuration expects it to be on the `gitpod.io` URL.
+this scenario, you can access the development server on `localhost:3000`, but
+the above custom Vite configuration expects it to be on the `gitpod.io` URL.
 
-Therefore, you should add the custom Vite configuration only if your intention
-is to access Gitpod workspaces from within the browser. If you access Gitpod
+Therefore, you should add the custom Vite configuration only if you intend to
+access Gitpod workspaces from within the browser. If you access Gitpod
 workspaces from within a local VS Code, you do not need the custom Vite
 configuration.
 
@@ -148,7 +147,7 @@ One final word of caution. Even with the custom Vite configuration in place, HMR
 would still break for me. I narrowed this issue down to my browser extension
 [uBlock Origin](https://ublockorigin.com/) being the culprit. Any other ad
 blocker extension might interfere, too. Therefore, I run Gitpod workspaces only
-inside an icognito window inside my browser.
+inside an incognito window inside my browser.
 
 ## Credits
 

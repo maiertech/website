@@ -12,7 +12,7 @@
   description={tag.description}
 />
 
-<h1 class="text-gradient">{tag.title}</h1>
+<h1 class="text-gradient">{tag.label}</h1>
 
 <div>
   {#each posts as post (post.path)}

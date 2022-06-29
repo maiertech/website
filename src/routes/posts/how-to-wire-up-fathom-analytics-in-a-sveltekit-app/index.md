@@ -2,15 +2,12 @@
 title: How to wire up Fathom Analytics in a SvelteKit app
 author: thilo
 published: 2021-10-15
-modified: 2022-01-07
+modified: 2022-06-28
 description:
-  In this post you will learn how to setup Fathom Analytics in a SvelteKit app
-  in order to track pageviews and goals, while ensuring privacy for your
-  visitors.
-category: web-development
-tags:
-  - sveltekit
-  - seo
+  In this post, you will learn how to set up Fathom Analytics in a SvelteKit app
+  to track pageviews and goals while ensuring privacy for your visitors.
+topics: [svelte, web-fundamentals]
+tags: [sveltekit, seo]
 ---
 
 When I migrated this website from [Next.js](https://nextjs.org/) to
@@ -27,10 +24,10 @@ There are usually two things you want to track with web analytics: _pageviews_
 and _goals_. Tracking pageviews helps you understand how visitors navigate
 through your website, how long they spend on each page and which pages are more
 popular than others. Tracking goals helps you track specific actions that you
-would like your visitors do, e.g. subscribe to your newsletter or click through
-to your Twitter profile. Actions typically involve clicking a link or a button.
-When such a click happens, a visitor has done what you wanted them to do and you
-can track that you have accomplished your goal for this visitor.
+would like your visitors to do, e.g. subscribe to your newsletter or click
+through to your Twitter profile. Actions typically involve clicking a link or a
+button. When such a click happens, a visitor has done what you wanted them to do
+and you can track that you have accomplished your goal for this visitor.
 
 Like with any other analytics tool, Fathom requires a
 [custom tracking script](https://usefathom.com/docs/script/script) to be
@@ -106,7 +103,7 @@ ad-blockers. Fathom offers a way to serve the tracking script from a custom
 domain using a
 [CNAME record](https://www.cloudflare.com/learning/dns/dns-records/dns-cname-record/).
 Serving the tracking script from the same domain as the tracked website
-increases chances that the tracking script is not blocked by ad-blockers or
+increases the chances that the tracking script is not blocked by ad-blockers or
 other browser security mechanisms. I will not go into the details of how this is
 done, because you can read up on it
 [here in the Fathom docs](https://usefathom.com/docs/script/custom-domains).
@@ -130,7 +127,7 @@ but still supported in
 [Chrome](https://support.google.com/chrome/answer/2790761?hl=en&co=GENIE.Platform%3DDesktop&oco=1)
 and
 [Firefox](https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature).
-This gives visitors of your website a way to completely opt out from tracking.
+This gives visitors to your website a way to completely opt out of tracking.
 
 ```svelte:src/routes/__layout.svelte
 <script>
@@ -182,7 +179,7 @@ but it is not the typical example from the
 [Svelte tutorial](https://svelte.dev/tutorial) where something is assigned to a
 variable. It uses JavaScript's
 [comma operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator),
-which evaluates comma separated operands in sequence and returns the value of
+which evaluates comma-separated operands in sequence and returns the value of
 the last operand. `$page.url.pathname` is a reference to the current path in
 [SvelteKit's page store](https://kit.svelte.dev/docs#modules-$app-stores) and
 whenever this value changes it triggers the reactive statement. The last operand
@@ -197,7 +194,7 @@ whenever a visitor has completed an action that you wanted them to do.
 
 Let's assume that your goal is to make visitors click through to your Twitter
 profile. The following component can render social icons from an array of
-objects, which it receives as prop:
+objects, which it receives as a prop:
 
 ```svelte:social-icons.svelte
 <script>

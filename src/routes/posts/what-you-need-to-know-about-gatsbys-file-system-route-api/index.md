@@ -1,12 +1,11 @@
 ---
-title: What you need to know about Gatsby’s File System Route API
+title: 'What you need to know about Gatsby’s File System Route API'
 author: thilo
 published: 2021-03-27
-modified: 2021-10-11
+modified: 2022-06-28
 description:
   'Overview of Gatsby’s File System Route API, an alternative to gatsby-node.js
   for programmatic page generation and similar to dynamic routes in Next.js.'
-category: legacy
 links:
   - title: 'Announcing Gatsby’s new File System Route API'
     href: https://www.gatsbyjs.com/blog/fs-route-api/
@@ -22,13 +21,13 @@ main difference is that the File System API retrieves data from Gatsby’s Graph
 layer, while in Next.js for dynamic routes you have to write custom code to
 retrieve data from any data source that can be tapped with JavaScript.
 
-## Programmatic page generation with `gatsby-node.js`
+## Programmatic page generation with gatsby-node.js
 
 [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/)
-used to be the only way to generate pages programamtically inside a
+used to be the only way to generate pages programmatically inside a
 `gatsby-node.js`. You can think of Gatsby Node APIs as a collection of hooks
 with which you can hook into Gatsby’s build process to manipulate nodes in
-Gatsby’s GraphQL layer and to generate pages programamtically. In my
+Gatsby’s GraphQL layer and to generate pages programmatically. In my
 [Gatsby themes](https://github.com/maiertech/gatsby-themes) I usually create the
 following API functions inside `gatsby-node.js`:
 
@@ -44,7 +43,7 @@ following API functions inside `gatsby-node.js`:
   called
   [schema customization](https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/).
   You do not have to customize your GraphQL schema. Schema inference is robust
-  and works well. In my Gatbsy themes I customize the schema and introduce
+  and works well. In my Gatbsy themes, I customize the schema and introduce
   custom types to simplify GraphQL queries.
 
 A typical sequence for programmatic page generation looks like this:
@@ -59,13 +58,13 @@ This involves two types of GraphQL queries:
    from which pages should be generated. If you are familiar with Next.js, this
    is the equivalent of
    [getStaticPaths](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation).
-1. A **page query** exported from a template and run during page generation.
+1. A **page query** is exported from a template and run during page generation.
    This is the equivalent of
    [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
    in Next.js.
 
 The File System Route API does not make `gatsby-node.js` obsolete. It is an
-alterantive API for programmatic page generation that complements
+alternative API for programmatic page generation that complements
 `gatsby-node.js` and can replace it in certain scenarios. With the File System
 Route API, you trade in full control and complexity for a more simple but more
 opinionated approach that covers many common scenarios, but not all.
@@ -73,16 +72,16 @@ opinionated approach that covers many common scenarios, but not all.
 Before we dive into the File System Route API, let’s recall that directory
 [`src/pages` has special routing powers in Gatsby](https://www.gatsbyjs.com/docs/reference/routing/creating-routes/#routes-defined-in-srcpages).
 Any React component in this directory is turned into a page whose route
-corresponds to the file path. This is called file-system based routing.
+corresponds to the file path. This is called file-system-based routing.
 
 ## Generating pages for an entire collection with collection routes
 
-With the File System Route API you can place React components in `src/pages`
+With the File System Route API, you can place React components in `src/pages`
 that have additional information encoded in their filename and/or pathname.
 Component `src/pages/posts/{Post.title}.js` with `{}` notation in the filename
 triggers page generation for each GraphQL `Post` node. `{Post.title}` is
-interpreted as node selection query to select a collection of nodes from which
-to create pages and their routes. In this example Gatsby creates this query
+interpreted as a node selection query to select a collection of nodes from which
+to create pages and their routes. In this example, Gatsby creates this query
 under the hood
 
 ```graphql
@@ -98,7 +97,7 @@ and generates a page for each `id` using the default export of file
 `{Post.title}.js`, which also has to export a page query that receives `id` as
 query parameter.
 
-As a convention, the value between `{}`, in this case `Post.title`, is
+As a convention, the value between `{}`, in this case, `Post.title`, is
 [slugified](https://github.com/sindresorhus/slugify) and used as part of the
 route. For example, title **What you need to know about Gatsby’s File System
 Route API** would result in
@@ -120,7 +119,7 @@ client-only routes cannot be used as entry points for the site. For example,
 file `src/pages/users/[id].js` results in client-only routes following this
 pattern: `/users/:id` (`:id` is the
 [route paramters notation from Express](https://expressjs.com/en/guide/routing.html)).
-A `params` object with prop `id` is passed into the React component availalbe as
+A `params` object with prop `id` is passed into the React component available as
 default export in file `[id].js`. If you know Next.js this should sound
 familiar.
 
@@ -144,11 +143,11 @@ function App(props) {
 
 and pass them into a router like [React Router](https://reactrouter.com/).
 
-## 5 takeways from Gatsby’s File System Route API
+## 5 takeaways from Gatsby’s File System Route API
 
-- The File System Route API in Gatby does not make `gatsby-node.js` obsolete,
+- The File System Route API in Gatsby does not make `gatsby-node.js` obsolete,
   but rather complements it and can replace it in certain use cases.
-- `{}` notation adapts the concept of dynamic routes or file-system based
+- `{}` notation adapts the concept of dynamic routes or file-system-based
   routing to Gatsby’s GraphQL layer, which is Gatsby’s unique selling point to
   access data from various sources. There are more types of GraphQL queries that
   can be expressed with `{}` notation than covered in this post. Check the

@@ -1,6 +1,6 @@
 <script lang="ts">
   import SEO from '$lib/components/seo.svelte';
-  import Categories from '$lib/components/categories.svelte';
+  import Categories from '$lib/components/topics.svelte';
   import Container from '$lib/components/container.svelte';
 
   const title = 'Thilo Maier';

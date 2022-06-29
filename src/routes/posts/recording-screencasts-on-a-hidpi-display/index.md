@@ -2,12 +2,11 @@
 title: Recording screencasts on a HiDPI display
 author: thilo
 published: 2022-06-05
-modified: 2022-06-06
+modified: 2022-06-28
 description:
   This post explains the difference between scaled resolution and actual
   resolution and why it matters when recording a screencast on a HiDPI display.
-series: screencast-series
-category: content-creation
+topics: [content-creation]
 ---
 
 <script>
