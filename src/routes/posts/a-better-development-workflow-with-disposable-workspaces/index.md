@@ -2,14 +2,12 @@
 title: A better development workflow with disposable workspaces
 author: thilo
 published: 2021-12-12
-modified: 2022-01-14
+modified: 2022-06-27
 description:
   Disposable workspaces with Gitpod and GitHub Codespaces enable a new
-  development workflow which eliminates the friction of local development.
-category: developer-tools
-tags:
-  - github
-  - vscode
+  development workflow that eliminates the friction of local development.
+topics: [dx]
+tags: [github, gitpod, vscode]
 links:
   - title: Gitpod, iPad Coding, Web3, WTF NFT (Syntax Podcast)
     href: https://syntax.fm/show/416/gitpod-ipad-coding-web3-wtf-nft
@@ -27,11 +25,11 @@ able to run VS Code instances (referred to as workspaces) in the cloud as my
 main development environment for several months. Even though my experience with
 cloud workspaces was positive, I initially switched back to local development.
 Using cloud workspaces felt like local development (which is a big achievement),
-but they did not eliminate the pain points of local development.
+but did not eliminate the pain points of local development.
 
 ## Moving workspaces to the cloud is not enough
 
-In local development you normally clone a repository once. When working on
+In local development, you normally clone a repository once. When working on
 different branches, you switch context by switching branches and updating
 dependencies. When you work on multiple issues in parallel, switching between
 branches causes a lot of friction. Every time you switch branches, you need to
@@ -56,8 +54,8 @@ Gitpod turns cloud workspaces into a disposable commodity with their
 This is a radical departure from _one workspace for many tasks_, which is the
 default for local development.
 
-With Gitpod's approach you can be wasteful with workspaces. For every issue you
-work on and every pull request you review, you create a new fresh cloud
+With Gitpod's approach, you can be wasteful with workspaces. For every issue,
+you work on and every pull request you review, you create a new fresh cloud
 workspace. The technical prerequisite is that you can configure your workspace
 as code and add the configuration to your repository. This is done with a
 [`.gitpod.yml`](https://www.gitpod.io/docs/configure) file, which contains
@@ -74,8 +72,8 @@ idea is that you start coding in no time and once you have created a pull
 request, you dispose of your workspace. If you need to make changes after a pull
 request review, simply create a new workspace.
 
-Sounds good in theory. But in practice it can take long to create a workspace if
-your init task takes long. A command like `npm install` may run faster in the
+Sounds good in theory. But in practice, it can take longer to create a workspace
+if your init task takes long. A command like `npm install` may run faster in the
 cloud, but probably not fast enough to make the wait for your new workspace feel
 short. No developer will put up with long wait times in their workflow.
 
@@ -90,9 +88,9 @@ that make creating new workspaces fast and easy:
 
 - [Prebuilds](https://www.gitpod.io/docs/prebuilds): Instead of running the init
   task for a workspace when you actually launch a new workspace, Gitpod runs it
-  whenever you push to your repository (you have full control over when, e.g.
-  for every push to the main branch and every pull request). Chances are that by
-  the time you actually want to launch a new workspace the init task has
+  whenever you push to your repository (you have full control over when e.g. for
+  every push to the main branch and every pull request). Chances are that by the
+  time you actually want to launch a new workspace the init task has been
   completed already and workspace initialization feels instant.
 - [Browser extension](https://www.gitpod.io/docs/browser-extension): Gitpod's
   browser extension turns repository pages of [GitHub](https://github.com/),
@@ -106,8 +104,8 @@ that make creating new workspaces fast and easy:
   dependencies in your new workspace, it is all done for you.
 
 Combining prebuilds and the browser extension and adopting a _one task per
-workspace_ mindset, enables a great development workflow which treats workspaces
-as a disposable commodity. They can be created and disposed of with minimal
+workspace_ mindset, enables a great development workflow that treats workspaces
+as a disposable commodities. They can be created and disposed of with minimal
 overhead. You can have multiple workspaces for different tasks for the same
 repository. Rather than switching between branches, you switch between
 workspaces.
@@ -124,7 +122,7 @@ support GitHub's competitors GitLab and Bitbucket.
 Gitpod has a free plan which includes 50 hours per month. This is good enough
 for occasional side projects, but nowhere near what you need when using Gitpod
 full-time. This means that you would need to consider a
-[paid plan](https://www.gitpod.io/pricing). But this triggers the question
+[paid plan](https://www.gitpod.io/pricing). But this triggers the question of
 whether you want to pay for cloud workspaces when you can do unlimited local
 development on your laptop.
 

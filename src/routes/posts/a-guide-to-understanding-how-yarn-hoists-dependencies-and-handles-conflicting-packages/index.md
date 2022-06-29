@@ -4,13 +4,11 @@ title:
   packages
 author: thilo
 published: 2021-02-19
-modified: 2021-11-27
+modified: 2022-06-28
 description:
   Learn how Yarn 1 hoists packages, handles conflicting package versions and how
   you can use `yarn why` and the yarn.lock file to understand hoisting.
-category: developer-tools
-tags:
-  - nodejs
+tags: [node]
 ---
 
 This post discusses the concept of
@@ -19,7 +17,7 @@ feature of [Yarn 1](https://classic.yarnpkg.com/lang/en/).
 [Yarn 2](https://yarnpkg.com/)’s [Plug'n'Play](https://yarnpkg.com/features/pnp)
 has addressed most issues around hoisting. But most projects using Yarn continue
 using Yarn 1 and have not made the move to Yarn 2 yet. In this post Yarn
-(without version number) refers to Yarn 1.
+(without the version number) refers to Yarn 1.
 
 ## How Yarn hoists dependencies
 
@@ -38,7 +36,7 @@ state that
 > packages will always be able to access the dependencies they listed in their
 > manifests.
 
-The docs do not describe Yarn’s hoisting algorithm, but mention certain
+The docs do not describe Yarn’s hoisting algorithm but mention certain
 [hoisting guarantees](https://classic.yarnpkg.com/blog/2017/05/31/determinism/).
 These guarantees suggest that you should not expect your `node_modules` folder
 to have a specific layout. As you will see later in this post, small changes in
@@ -192,9 +190,9 @@ browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.12.2, browserslist@^4
 ...
 ```
 
-Let’s look at one more example. This time I installed package browserslist in my
-dependencies and pinned it to outdated version 4.16.2. This changed things quite
-a bit:
+Let’s look at one more example. This time I installed the package "browserslist"
+in my dependencies and pinned it to outdated version 4.16.2. This changed things
+quite a bit:
 
 ```bash
 [1/4] Why do we have the module "browserslist"...?
@@ -266,7 +264,7 @@ browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.12.2, browserslist@^4
   constraints you create for Yarn that make it hard to hoist packages.
 - You can debug issues with conflicting dependencies with a combination of
   running `yarn why` and looking at `yarn.lock`.
-- Hoisting can conceal missing dependencies, because hoisted dependencies can be
+- Hoisting can conceal missing dependencies because hoisted dependencies can be
   imported anywhere in your project. If you forget to declare a dependency in
   `package.json` and then import it, it will still work if Yarn happens to hoist
   this dependency from another node in the dependency tree. But it might stop

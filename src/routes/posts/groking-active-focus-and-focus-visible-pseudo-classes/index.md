@@ -2,12 +2,12 @@
 title: 'Groking :active, :focus and :focus-visible pseudo-classes'
 author: thilo
 published: 2022-06-20
-modified: 2022-06-24
+modified: 2022-06-28
 description:
   'This post explains the subtle differences between CSS pseudo-classes :active,
   :focus and :focus-visible.'
-tags: [css, til]
-category: web-development
+topics: [web-fundamentals]
+tags: [css]
 ---
 
 <script>

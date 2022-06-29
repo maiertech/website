@@ -2,11 +2,10 @@
 title: Optimizing lint-staged.config.js for Prettier
 author: thilo
 published: 2021-01-12
-modified: 2021-10-11
+modified: 2022-06-28
 description:
-  In this post I explain how to optimize lint-staged.config.js so Prettier can
+  In this post, I explain how to optimize lint-staged.config.js so Prettier can
   format any supported file without listing file endings in the configuration.
-category: legacy
 ---
 
 When you use [lint-staged](https://github.com/okonet/lint-staged) to run
@@ -89,7 +88,7 @@ hook would never terminate. While
 eslint --fix
 ```
 
-terminates correctly if it does not receive any files as argument,
+terminates correctly if it does not receive any files as arguments,
 
 ```bash
 prettier --write

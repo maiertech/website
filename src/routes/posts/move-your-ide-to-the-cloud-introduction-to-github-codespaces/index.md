@@ -2,14 +2,12 @@
 title: 'Move your IDE to the cloud: introduction to GitHub Codespaces'
 author: thilo
 published: 2021-01-03
-modified: 2021-11-27
+modified: 2022-06-28
 description:
   In this introduction to GitHub Codespaces you will learn how to run VS Code in
-  the cloud and how to spin up a zero configuration development environment.
-category: developer-tools
-tags:
-  - github
-  - vscode
+  the cloud and how to spin up a zero-configuration development environment.
+topics: [dx]
+tags: [github, vscode]
 links:
   - title:
       A Gentle Introduction to Using a Docker Container as a Dev Environment
@@ -26,7 +24,7 @@ links:
 [GitHub](https://github.com/) launched
 [Codespaces](https://github.com/features/codespaces) in limited public beta at
 [GitHub Satellite 2020](https://github.blog/2020-05-06-new-from-satellite-2020-github-codespaces-github-discussions-securing-code-in-private-repositories-and-more/).
-Codespaces come with the the promise of lowering the barrier to contributing to
+Codespaces come with the promise of lowering the barrier to contributing to
 GitHub repositories. It would be a huge win if contributors (or co-workers)
 could spin up an instance of VS Code in a browser with all required plugins and
 configurations in place, fully ready for their first commit. What previously
@@ -35,7 +33,7 @@ few minutes, which is the time it takes to spin up a development container.
 
 I have been using GitHub Codespaces for both work and side projects over the
 past few months. There were some rough edges, but overall Codespaces did not
-disappoint. In this post I will explain the underlying technology and discuss
+disappoint. In this post, I will explain the underlying technology and discuss
 the impact of Codespaces on making contributions to GitHub repositories so much
 easier.
 
@@ -45,11 +43,11 @@ The idea of Codespaces is simple: configure a [Docker](https://www.docker.com/)
 container and add VS Code configurations and plugins to this container. Then add
 the corresponding configuration files to your GitHub repository. Anyone can now
 run a pre-configured development container (with the repository cloned inside)
-in their browser or in a locally installed VS Code.
+in their browser or a locally installed VS Code.
 
 You do not have to be a Docker expert to use Codespaces. The
 [vscode-dev-containers](https://github.com/microsoft/vscode-dev-containers)
-repository is a collection of Docker images for common technology stacks. E.g.
+repository is a collection of Docker images for common technology stacks. E.g.,
 there is a
 [javascript-node](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/javascript-node)
 image that comes with [Node.js](https://nodejs.org/en/) and
@@ -67,7 +65,7 @@ a `.devcontainer` sub-directory that contains the following files:
 - `devcontainer.json`: a configuration file to customize VS Code when it runs in
   the container.
 
-To use a container from the vscode-dev-containers repository for your own
+To use a container from the vscode-dev-containers repository for your
 repository, copy `Dockerfile` and `devcontainer.json` into directory
 `.devcontainer`. If you need to customize the Docker image you can modify
 `Dockerfile`, which contains comments with pointers on how to customize it. A
@@ -97,11 +95,11 @@ Let’s look at the
 }
 ```
 
-In this example the `image` property references a Docker image on MCR. The
+In this example, the `image` property references a Docker image on MCR. The
 `settings` property contains
 [settings for VS Code](https://code.visualstudio.com/docs/getstarted/settings),
-in this case the shell is configured as Bash. The `extensions` property contains
-IDs of VS Code extensions that should be installed into the container.
+in this case, the shell is configured as Bash. The `extensions` property
+contains IDs of VS Code extensions that should be installed into the container.
 `postCreateCommand` runs `npm i` to install dependencies. Check out the
 [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference)
 for a full list of properties.
@@ -114,7 +112,7 @@ select your repository and a branch, usually `main` (if you do not have access
 to Codespaces yet, you can apply [here](https://github.com/features/codespaces)
 for the beta). This spins up a development container on GitHub’s cloud and
 launches a fully configured VS Code instance in the browser that connects to the
-container. At this point you are ready to make a commit. This works on any
+container. At this point, you are ready to make a commit. This works on any
 machine that runs a modern browser, including
 [Chromebooks](https://www.google.com/chromebook/).
 
@@ -130,9 +128,9 @@ an excellent development machine.
 Codespaces spins up a Docker container from the configuration files added to
 your repository. You can use the same configuration files to spin up a
 development container on your machine and tell VS Code to use that container for
-develeopment.
+development.
 
-First you have to install
+First, you have to install
 [Docker Desktop](https://www.docker.com/products/docker-desktop)
 (`brew install docker` on Mac). Then you need to install the following two VS
 Code extensions:
@@ -152,24 +150,24 @@ development environment.
 
 ## Containers lower the barrier to contributing
 
-In my opinion getting up and running fast when you are supposed to contribute to
-a project as a developer is widely underappreciated. All too often teams accept
-that spending hours or days configuring a development enviroment is inevitable.
-Fiddling with a development environement is often not even a one-off, but a a
-recurring issue because things break or get outdated and need to be fixed
+In my opinion, getting up and running fast when you are supposed to contribute
+to a project as a developer is widely underappreciated. All too often teams
+accept that spending hours or days configuring a development environment is
+inevitable. Fiddling with a development environment is often not even a one-off,
+but a recurring issue because things break or get outdated and need to be fixed
 manually by every team member.
 
-Incomplete instructions how to install a development environment are a sure way
-to frustrate new team members. They are often under pressure to contribute
+Incomplete instructions on how to install a development environment are a sure
+way to frustrate new team members. They are often under pressure to contribute
 quickly, yet they have to figure out by themselves how to get to the point where
 they can contribute. GitHub Codespaces and developing with containers does away
 with all this nonsense.
 
-This is also great news for open source projects, because submitting a pull
+This is also great news for open source projects because submitting a pull
 request can now be as easy as spinning up a Codespaces container, making a fix
 and submitting a pull request in just a few minutes. But there is another aspect
 of Codespaces that is important for open source: they make contributing to open
-source accessbile to more developers because owning powerful hardware to code
+source accessible to more developers because owning powerful hardware to code
 matters less. As long as your machine runs a modern browser you can have access
 to a powerful development container.
 
@@ -177,8 +175,8 @@ Finally, I would like to emphasize that GitHub Codespaces is a commercial
 product. Once it will be out of beta, GitHub will
 [start charging for Codespaces](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/about-billing-for-codespaces).
 We all know that the moment you spin up a container in the cloud there is a
-price tag attached to it, because it consumes hardware and power. Therefore, we
-should not expect Codespaces to cost nothing. But I think GitHub needs to ensure
-that there is some mechanism in place to make Codespaces affordable, because we
-do not want to miss out on all the contributions to open source by developers
-with limited hardware and financial resources.
+price tag attached to it because it consumes hardware and power. Therefore, we
+should not expect Codespaces to be a gratis product. But I think GitHub needs to
+ensure that there is some mechanism in place to make Codespaces affordable
+because we do not want to miss out on all the contributions to open source by
+developers with limited hardware and financial resources.

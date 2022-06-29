@@ -2,11 +2,10 @@
 title: Improve SEO for your Next.js site by adding canonical URLs
 author: thilo
 published: 2021-06-04
-modified: 2021-09-24
+modified: 2022-06-28
 description:
-  Syndicating content can have a negative impact on your search ranking. Learn
-  how to fix this by adding link tags with canonical URLs to your Next.js site.
-category: legacy
+  Syndicating content can harm your search ranking. Learn how to fix this by
+  adding link tags with canonical URLs to your Next.js site.
 links:
   - title: 'rel=canonical: the ultimate guide (Yoast)'
     href: https://yoast.com/rel-canonical/
@@ -26,10 +25,10 @@ engine detects duplicate content it has to figure out which version it considers
 to be the canonical (or original) version. A search engine will rank the
 canonical version higher than duplicates. If a search engine thinks that your
 original content is a duplicate, you have a problem. You can run into this issue
-when you syndicate content to other websites with the goal of increasing
-visibility in search results for your own website. If you do not configure
-canonical URLs correctly, there is a chance that you achieve the exact opposite,
-i.e. you lower the visbility of your own website in search results.
+when you syndicate content to other websites intending to increase visibility in
+search results for your website. If you do not configure canonical URLs
+correctly, there is a chance that you achieve the exact opposite, i.e. you lower
+the visibility of your website in search results.
 
 ## What is a canonical URL?
 
@@ -44,8 +43,8 @@ search engines a hint by pointing to the canonical version of the page:
 ```
 
 Search engines will honor this declaration and rank the canonical URL higher
-than any duplicates, unless they come across conflicting declarations of what
-the canonical URL of a specific piece of content is.
+than any duplicates unless they come across conflicting declarations of what the
+canonical URL of a specific piece of content is.
 
 ## Why would you want duplicate content?
 
@@ -64,7 +63,7 @@ reasons:
 
 But chances are that duplicate content is the result of a configuration error.
 For instance, if your blog serves the same content whether or not you put a
-trailing slash on URLs, you should configure your site to use one type of URLs
+trailing slash on URLs, you should configure your site to use one type of URL
 only. This URL
 
 ```
@@ -77,14 +76,14 @@ https://maier.tech/improve-seo-for-your-next-js-site-by-adding-canonical-urls
 https://maier.tech/improve-seo-for-your-next-js-site-by-adding-canonical-urls/
 ```
 
-(with trailing slash) are not the same.
+(with a trailing slash) are not the same.
 [Next.js automatically redirects a URL with trailing slash to the corresponding URL without trailing slash.](https://nextjs.org/docs/api-reference/next.config.js/trailing-slash)
 
 ## Add canonical URLs and other SEO metadata to your pages with next-seo
 
 You can use package [next-seo](https://github.com/garmeeh/next-seo) to add SEO
-metadata to every page in Next.js. You can create an `SEO` component as wrapper
-around `NextSeo` to handle canonical URLs:
+meta data to every page in Next.js. You can create an `SEO` component as a
+wrapper around `NextSeo` to handle canonical URLs:
 
 ```tsx:components/seo.tsx
 import { useRouter } from 'next/router';
@@ -161,7 +160,7 @@ the generated page is served from the canonical URL, you can omit the canonical
 `link` tag since in this case there is no duplicate content.
 
 But if you syndicate content from your own website to another website, such as
-DEV, you also need to add a canoncial URL on the other website. The canonical
+DEV, you also need to add a canonical URL on the other website. The canonical
 URL needs to point to the original content on your website. The exact way how
 this is done varies by service. You can find the instructions for adding a
 canonical URL on DEV [here](https://dev.to/p/editor_guide#front-matter).

@@ -2,13 +2,12 @@
 title: Exploring frequently used methods of d3-array
 author: thilo
 published: 2022-06-27
-modified: 2022-06-27
+modified: 2022-06-28
 description:
   Working with JavaScript arrays is a crucial skill for data visualization with
   D3. Explore frequently used methods of d3-array in this post.
-category: data-viz
-tags:
-  - d3
+topics: [data-visualization]
+tags: [d3, stackblitz]
 ---
 
 <script>

@@ -2,13 +2,12 @@
 title: Route matching in SvelteKit
 author: thilo
 published: 2022-02-13
-modified: 2022-06-16
+modified: 2022-06-28
 description:
   This post explores how SvelteKit's filesystem-based router matches a requested
   route to a page or an endpoint in src/routes.
-category: web-development
-tags:
-  - sveltekit
+topics: [svelte]
+tags: [sveltekit, stackblitz]
 links:
   - title: SvelteKit Routing (YouTube video by Tan Li Hau)
     href: https://www.youtube.com/watch?v=uyde7dAQwkA
@@ -37,7 +36,7 @@ route file. But what happens when there are multiple matching route files? How
 does SvelteKit decide which route file it uses to render a page or endpoint?
 
 In this post, we look at a SvelteKit example and explore the rules that
-SvelteKit applies to decide which page or endpoint to serve. You will take the
+SvelteKit applies to decide which page or endpoint to serve. You will make the
 most out of this post if you follow along:
 
 <Example />

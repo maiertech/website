@@ -1,5 +1,5 @@
 import { getPosts } from '$lib/posts';
-import categories from '$data/categories';
+import topics from '$data/topics';
 import tags from '$data/tags';
 import { BASE_URL } from '$data/urls';
 
@@ -22,11 +22,8 @@ export const get: RequestHandler = async function () {
   const posts = await getPosts({ compare: 'modified' });
   const postPages = posts.map((post) => createPage(post.path, post.modified));
 
-  // Category pages.
-  const categoryPages = categories
-    // If path is omitted, omit category in sitemap.
-    .filter((category) => category.path)
-    .map((category) => createPage(category.path));
+  // Topic pages.
+  const topicPages = topics.map((topic) => createPage(topic.path));
 
   // Tag pages.
   const tagPages = tags.map((tag) => createPage(tag.path));
@@ -35,7 +32,7 @@ export const get: RequestHandler = async function () {
     createPage('/'),
     createPage('posts'),
     ...postPages,
-    ...categoryPages,
+    ...topicPages,
     ...tagPages,
   ];
 

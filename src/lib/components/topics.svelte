@@ -1,17 +1,14 @@
 <script lang="ts">
-  import categories from '$data/categories';
+  import topics from '$data/topics';
   import { goto } from '$app/navigation';
-
-  // Filter categories with `suppress` set to true.
-  const validCategories = categories.filter((category) => !category.suppress);
 </script>
 
 <section>
-  {#each validCategories as category (category.path)}
+  {#each topics as topic (topic.id)}
     <article>
-      <h2>{category.title}</h2>
-      <p>{category.description}</p>
-      <button on:click={() => goto(category.path)}>Check out posts</button>
+      <h2>{topic.title}</h2>
+      <p>{topic.description}</p>
+      <button on:click={() => goto(topic.path)}>Check out posts</button>
     </article>
   {/each}
 </section>

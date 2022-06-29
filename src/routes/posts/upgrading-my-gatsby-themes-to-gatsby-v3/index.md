@@ -2,11 +2,10 @@
 title: Upgrading my Gatsby themes to Gatsby v3
 author: thilo
 published: 2021-03-02
-modified: 2021-10-11
+modified: 2021-06-28
 description:
   In this post I describe my experience upgrading my Gatsby themes from Gatsby
   v2 to v3. I go over the errors I encountered and the migration step by step.
-category: legacy
 ---
 
 [Gatsby v3](https://www.gatsbyjs.com/docs/reference/release-notes/v3.0/) was
@@ -42,8 +41,8 @@ Error: Can not convert field 'GatsbyPlugin.options' to InputType
 ...
 ```
 
-OK, long shot to hope that upgrading to Gatsby v3 without upgrading any plugins
-does not break anything. I ran
+OK, a long shot to hope that upgrading to Gatsby v3 without upgrading any
+plugins does not break anything. I ran
 
 ```bash
 yarn outdated
@@ -90,10 +89,10 @@ Note that the development build is not optimized.
 To create a production build, use gatsby build
 ```
 
-This is quite impressive for a major version upgrade. Nothing really broke in
-both example sites. But there were a ton of warnings. But this was expected
-after skimming over the migration guide. I tackled all warnings one by one,
-starting with this type of warning:
+This is quite impressive for a major version upgrade. Nothing broke in both
+example sites. But there were a ton of warnings. But this was expected after
+skimming over the migration guide. I tackled all warnings one by one, starting
+with this type of warning:
 
 ```bash
 warn Plugin @maiertech/gatsby-theme-posts-core is not compatible with your gatsby version 3.0.0 - It requires gatsby@^2.24.77
@@ -128,7 +127,7 @@ Gatsby v3 does not just pull the rug from under your feet and eliminate APIs.
 Instead, it offers a transition period until the release of Gatsby v4 for legacy
 APIs to be phased out.
 [Migration guide section `@nodeInterface`](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3/#nodeinterface)
-details this warning. I went ahead and eliminiated all occurrences of
+details this warning. I went ahead and eliminated all occurrences of
 `@nodeInterface` as explained in the guide. Second warning eliminated.
 
 The next error was triggered by Webpack, which complained that I was trying to
@@ -159,8 +158,8 @@ This error is shown because I use
 [@maiertech/gatsby-helpers](https://github.com/maiertech/gatsby-themes/tree/master/packages/gatsby-helpers),
 in which some helper functions use the Node API. One of them, `createPath`, uses
 Node’s `path` and runs in one example site in the browser during development.
-The solution to eliminating this error is outlined in above error message and
-the
+The solution to eliminating this error is outlined in the above error message
+and the
 [migration guide section about Webpack 5 config](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3/#webpack-5-node-configuration-changed-nodefs-nodepath-)
 tells you how to load a polyfill:
 
@@ -185,12 +184,12 @@ next warning was specific to one of my themes, which wires up
 warn Plugin gatsby-plugin-theme-ui is not compatible with your gatsby version 3.0.0 - It requires gatsby@^2.13.1
 ```
 
-gatsby-plugin-theme-ui’s `peerDependencies` has not yet been upgraded to Gatsby
+gatsby-plugin-theme-ui’s `peerDependencies` have not yet been upgraded to Gatsby
 v3. Following the advice in
 [migration guide section "Handling dependencies for plugins that are not yet updated"](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3/#handling-dependencies-for-plugins-that-are-not-yet-updated)
-I had not much choice other than ignore the warning since gatsby-plugin-theme-ui
-is outside my control. Since the plugin works fine with Gatsby v3, not a deal
-breaker.
+I had not much choice other than ignoring the warning since
+gatsby-plugin-theme-ui is outside my control. Since the plugin works fine with
+Gatsby v3, not a deal-breaker.
 
 Then I released new versions for all my themes and upgraded my digital garden to
 Gatsby v3 and the latest
@@ -218,7 +217,7 @@ yarn clean
 
 later, the upgrade to Gatsby v3 was complete.
 
-I think the Gatsby team did a great job with the v2 to v3 migration guide,
+I think the Gatsby team did a great job with the v2 to v3 migration guide
 because it covered everything I needed to know for the upgrade. For a normal
 Gatsby site that uses no theme or one of the
 [official themes](https://github.com/gatsbyjs/themes), I would expect that
