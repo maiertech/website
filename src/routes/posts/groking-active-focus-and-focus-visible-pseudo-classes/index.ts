@@ -6,35 +6,35 @@ import type { Images } from '$models/content.model';
 const imgArray = [
   {
     id: 'active-example-input-active',
-    url: 'https://share.mailbox.org/ajax/share/00cd62140d160f4004ead7fd160f4c9eb3c53058f6677fed/1/8/MTY0/MTY0LzIwOA?dl=true',
+    url: 'https://share.mailbox.org/ajax/share/0c0c3a2d09fbff5fc8ff5469fbff43298d3e163524e7ac09/1/8/MTcw/MTcwLzIyNQ?dl=true',
   },
   {
     id: 'active-example-input-focus',
-    url: 'https://share.mailbox.org/ajax/share/05f8277b08cd7a5457be8108cd7a4422967dcebdf488ac1c/1/8/MTY0/MTY0LzIxMQ?dl=true',
+    url: 'https://share.mailbox.org/ajax/share/0404799f066f9755487b6f466f9748fe8653c98b5342ce52/1/8/MTcw/MTcwLzIyNg?dl=true',
   },
   {
     id: 'active-example-button-active',
-    url: 'https://share.mailbox.org/ajax/share/05b1f54408d5f2415323a2f8d5f24a60817dc583c7ec0046/1/8/MTY0/MTY0LzIwNA?dl=true',
+    url: 'https://share.mailbox.org/ajax/share/07650c680eaf755d7e6c303eaf7543e9bbea856e03a8e088/1/8/MTcw/MTcwLzIyNA?dl=true',
   },
   {
     id: 'focus-example-input',
-    url: 'https://share.mailbox.org/ajax/share/098e6d23049dc35090da24849dc3417cb566198865235aec/1/8/MTY0/MTY0LzIwNw?dl=true',
+    url: 'https://share.mailbox.org/ajax/share/00a023bf0f47ac55023ecd4f47ac4abb868614088b2e12ff/1/8/MTcw/MTcwLzIyOA?dl=true',
   },
   {
     id: 'focus-example-button',
-    url: 'https://share.mailbox.org/ajax/share/02ad199b061f895a22ed6f061f894817addd29f0c00cec50/1/8/MTY0/MTY0LzIwNg?dl=true',
+    url: 'https://share.mailbox.org/ajax/share/079bce1703219264718017c3219244d89f32016b60224376/1/8/MTcw/MTcwLzIyNw?dl=true',
   },
   {
     id: 'focus-visible-example-input',
-    url: 'https://share.mailbox.org/ajax/share/08b7f91602e50c53834367d2e50c40eaa887f5a3c23f9806/1/8/MTY0/MTY0LzIwOQ?dl=true',
+    url: 'https://share.mailbox.org/ajax/share/0f6084be09803861fe34bd59803840e89fb9598f28a47ca4/1/8/MTcw/MTcwLzIzMQ?dl=true',
   },
   {
     id: 'focus-visible-example-button-mouse',
-    url: 'https://share.mailbox.org/ajax/share/0c7d36ea06ed6b50cfef9816ed6b44cca10627ea17b51666/1/8/MTY0/MTY0LzIxMA?dl=true',
+    url: 'https://share.mailbox.org/ajax/share/027182240c0477682f24d4fc04774ab08923dae53a6eca64/1/8/MTcw/MTcwLzIzMA?dl=true',
   },
   {
     id: 'focus-visible-example-button-keyboard',
-    url: 'https://share.mailbox.org/ajax/share/09dca60d03d4e05295f69663d4e047e69a99967b44c3510e/1/8/MTY0/MTY0LzIxMg?dl=true',
+    url: 'https://share.mailbox.org/ajax/share/08854d7d003835628068216038354109bfeac9fc96bfa88b/1/8/MTcw/MTcwLzIyOQ?dl=true',
   },
 ];
 
