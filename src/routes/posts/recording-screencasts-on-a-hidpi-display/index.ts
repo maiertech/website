@@ -6,11 +6,11 @@ import type { Images } from '$models/content.model';
 const imgArray = [
   {
     id: 'display-preferences-light',
-    url: 'https://share.mailbox.org/ajax/share/03ff1a5f08a2b74f37cd5348a2b742568a6f523945ee8091/1/8/MTY1/MTY1LzIxNA?dl=true',
+    url: 'https://share.mailbox.org/ajax/share/013e5cae0fbeb5681bd93c5fbeb54c658aaba3c04325a784/1/8/MTcx/MTcxLzIzMw?dl=true',
   },
   {
     id: 'display-preferences-dark',
-    url: 'https://share.mailbox.org/ajax/share/06fbc98e05155f4c67806e55155f42568c2d334e30d8248b/1/8/MTY1/MTY1LzIxMw?dl=true',
+    url: 'https://share.mailbox.org/ajax/share/01588329089bdd6a1db4c4289bdd4fe7bba1157f753b0644/1/8/MTcx/MTcxLzIzMg?dl=true',
   },
 ];
 
