@@ -5,6 +5,12 @@ import { base } from '$app/paths';
 // Valid tags, sorted by key.
 const tags: Tag[] = [
   {
+    id: 'codesandbox',
+    label: 'CodeSandbox',
+    description: 'Posts tagged with CodeSandbox',
+    path: `${base}/tags/codesandbox`,
+  },
+  {
     id: 'css',
     label: 'CSS',
     description: 'Posts tagged with CSS.',
