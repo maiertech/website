@@ -30,6 +30,7 @@ vscode:
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
     - jock.svg
+    - phoenisx.cssvar
     - rangav.vscode-thunder-client
     - svelte.svelte-vscode
     - yzhang.markdown-all-in-one
