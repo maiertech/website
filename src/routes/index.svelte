@@ -5,14 +5,14 @@
 
   const title = 'Thilo Maier';
   const description =
-    'Hi, my name is Thilo. I am a developer based in New York. I write about web development with Svelte, Web APIs and developer tools.';
+    "Hi, I'm Thilo. I am a developer based in New York. I build things with Svelte and keep improving my developer happiness.";
 </script>
 
 <SEO {title} {description} />
 
 <section class="intro">
   <Container padding="0">
-    <h1 class="text-gradient">Learn, create, share. Repeat.</h1>
+    <h1 class="text-gradient">Build better. With Svelte.</h1>
     <p>{description}</p>
   </Container>
 </section>

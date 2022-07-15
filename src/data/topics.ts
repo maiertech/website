@@ -9,7 +9,7 @@ const topics: Topic[] = [
     label: 'SV',
     title: 'Svelte',
     description:
-      'I write about the framework that disappears in production and puts the fun back into web development.',
+      'I build things with Svelte, the framework that puts the fun back into web development.',
     path: `${base}/svelte`,
   },
   {
@@ -17,30 +17,31 @@ const topics: Topic[] = [
     label: 'DV',
     title: 'Data visualization',
     description:
-      'I write about how D3 and Svelte complement each other and help me go from data to insights much faster.',
+      'I create data visualizations with Svelte and D3 to go from data to insights faster.',
     path: `${base}/data-visualization`,
+  },
+  {
+    id: 'dx',
+    label: 'DX',
+    title: 'Developer happiness',
+    description:
+      'I write about services and tools that improve my personal DX.',
+    path: `${base}/dx`,
   },
   {
     id: 'web-fundamentals',
     label: 'WF',
     title: 'Web fundamentals',
     description:
-      'I write about CSS and other Web APIs that come in handy when developing with Svelte.',
+      "Web APIs are Svelte's foundation. Brush up on the fundamentals they say.",
     path: `${base}/web-fundamentals`,
-  },
-  {
-    id: 'dx',
-    label: 'DX',
-    title: 'Personal DX',
-    description: 'I write about services and tools I use to improve my own DX.',
-    path: `${base}/dx`,
   },
   {
     id: 'content-creation',
     label: 'CC',
     title: 'Content creation',
     description:
-      'I write about how I write posts, craft tweets and record screencasts.',
+      'I share what I learn about content creation. Writing posts, crafting tweets and recording screencasts.',
     path: `${base}/content-creation`,
   },
 ];
