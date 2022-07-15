@@ -3,7 +3,7 @@ import { getPosts } from '$lib/posts';
 import type { RequestHandler } from './__types';
 import tags from '$data/tags';
 
-export const get: RequestHandler = async function ({ params }) {
+export const GET: RequestHandler = async function ({ params }) {
   const { tag: id } = params;
   // Tag is undefined when not found in tags.
   const tag = tags.find((t) => t.id === id);
