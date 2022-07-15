@@ -88,8 +88,10 @@ export async function getPosts({
     // Object.entries flattens object into array.
     // `import` is Vite's import function, which also triggers Markdown processing.
     Object.entries(import.meta.glob('/src/routes/posts/**/*.md')).map(
-      async ([path, processMarkdown]) => {
-        const { metadata } = await processMarkdown();
+      async ([path, resolver]) => {
+        const { metadata } = (await resolver()) as {
+          metadata: PostFrontmatter;
+        };
         const segments = path.split('/');
         return {
           frontmatter: metadata,

@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "Run SvelteKit",
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
-      "program": "${workspaceFolder}/node_modules/.bin/svelte-kit",
+      "program": "${workspaceFolder}/node_modules/.bin/vite",
       "args": ["dev"],
       "console": "integratedTerminal"
     }

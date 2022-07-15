@@ -3,7 +3,7 @@ import { getPosts } from '$lib/posts';
 
 import type { RequestHandler } from './__types';
 
-export const get: RequestHandler = async function ({ params }) {
+export const GET: RequestHandler = async function ({ params }) {
   const { topic: id } = params;
   // Topic is undefined when not found in topics.
   const topic = topics.find((t) => t.id === id);

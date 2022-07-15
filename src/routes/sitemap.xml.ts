@@ -17,7 +17,7 @@ function createPage(href: string, lastmod?: string | Date) {
   `;
 }
 
-export const get: RequestHandler = async function () {
+export const GET: RequestHandler = async function () {
   // Post pages.
   const posts = await getPosts({ compare: 'modified' });
   const postPages = posts.map((post) => createPage(post.path, post.modified));

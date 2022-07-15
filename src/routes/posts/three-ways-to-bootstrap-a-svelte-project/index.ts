@@ -38,7 +38,7 @@ imgArray
     imgObject[id] = { src, srcset };
   });
 
-export const get: RequestHandler = async function () {
+export const GET: RequestHandler = async function () {
   return {
     status: 200,
     body: { images: imgObject },
