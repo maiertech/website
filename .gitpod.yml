@@ -14,17 +14,6 @@ tasks:
     command: npm outdated
     openMode: split-right
 
-github:
-  prebuilds:
-    main: true
-    branches: true
-    pullRequests: true
-    pullRequestsFromForks: true
-    addCheck: true
-    addComment: false
-    addBadge: true
-    addLabel: false
-
 vscode:
   extensions:
     - dbaeumer.vscode-eslint
@@ -35,3 +24,13 @@ vscode:
     - svelte.svelte-vscode
     - yzhang.markdown-all-in-one
     - znck.grammarly
+
+github:
+  prebuilds:
+    main: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: false
+    addCheck: prevent-merge-on-error
+    addComment: false
+    addBadge: false
