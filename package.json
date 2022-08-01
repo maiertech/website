@@ -37,6 +37,6 @@
     "sveltekit-embed": "^0.0.5",
     "tslib": "^2.4.0",
     "typescript": "~4.7.2",
-    "vite": "^3.0.0"
+    "vite": "^3.0.4"
   }
 }
