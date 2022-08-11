@@ -1,7 +1,7 @@
 ports:
   - port: 5173
     visibility: public
-    onOpen: open-browser
+    onOpen: notify
 
 tasks:
   - name: Run dev server
