@@ -1,21 +1,26 @@
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[svg]": {
-    "editor.defaultFormatter": "jock.svg"
-  },
+  "cssvar.extensions": ["css", "js", "svelte", "ts"],
   "cssvar.files": [
     "./node_modules/open-props/open-props.min.css",
     "./src/app.css"
   ],
-  "cssvar.extensions": ["css", "html", "svelte"],
+
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+
   "grammarly.files.include": ["**/README.md", "**/*.md"],
-  "grammarly.config.documentDialect": "auto-text",
+  "grammarly.config.documentDialect": "american",
   "grammarly.config.suggestions.ConjunctionAtStartOfSentence": true,
   "grammarly.config.suggestions.PassiveVoice": true,
   "grammarly.config.suggestions.UnnecessaryEllipses": true,
+  "grammarly.config.suggestions.PrepositionAtTheEndOfSentence": true,
   "grammarly.config.suggestions.StylisticFragments": true,
+
   "svelte.enable-ts-plugin": true,
   "svelte.plugin.svelte.defaultScriptLanguage": "ts",
+
   "thunder-client.saveToWorkspace": true
 }
