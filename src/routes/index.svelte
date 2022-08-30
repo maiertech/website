@@ -1,7 +1,7 @@
 <script lang="ts">
-  import SEO from '$lib/components/seo.svelte';
-  import Categories from '$lib/components/topics.svelte';
   import Container from '$lib/components/container.svelte';
+  import SEO from '$lib/components/seo.svelte';
+  import Topics from '$lib/components/topics.svelte';
 
   const title = 'Thilo Maier';
   const description =
@@ -17,7 +17,7 @@
   </Container>
 </section>
 <section>
-  <Categories />
+  <Topics />
 </section>
 
 <style>

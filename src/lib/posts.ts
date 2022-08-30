@@ -1,9 +1,9 @@
 import authors from '$data/authors';
-import topics from '$data/topics';
 import tags from '$data/tags';
-
-import type { PostFrontmatter } from '$models/frontmatter.model';
+import topics from '$data/topics';
+import slugify from '$lib/utils/slugify';
 import type { Post } from '$models/content.model';
+import type { PostFrontmatter } from '$models/frontmatter.model';
 
 /**
  * Transform post frontmatter into post metadata.
@@ -84,18 +84,21 @@ export async function getPosts({
 
   // Read frontmatters from all post Markdown files.
   posts = await Promise.all(
-    // import.meta.glob returns object { 'path': () => import('path') }.
-    // Object.entries flattens object into array.
-    // `import` is Vite's import function, which also triggers Markdown processing.
-    Object.entries(import.meta.glob('/src/routes/posts/**/*.md')).map(
-      async ([path, resolver]) => {
+    // import.meta.glob returns an object that looks like this:
+    // {
+    //   './dir/foo.js': () => import('./dir/foo.js'),
+    //   './dir/bar.js': () => import('./dir/bar.js')
+    // }
+    //
+    // import.meta.glob triggers Mardown processing and Object.entries flattens object into array.
+    Object.entries(import.meta.glob('/src/routes/posts/**/*.{md,svx}')).map(
+      async ([, resolver]) => {
         const { metadata } = (await resolver()) as {
           metadata: PostFrontmatter;
         };
-        const segments = path.split('/');
         return {
           frontmatter: metadata,
-          path: `/${segments[3]}/${segments[4]}`,
+          path: `/posts/${slugify(metadata.title)}`,
         };
       }
     )

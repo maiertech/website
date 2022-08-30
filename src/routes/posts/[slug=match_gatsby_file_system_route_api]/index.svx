@@ -2,7 +2,7 @@
 title: 'What you need to know about Gatsby’s File System Route API'
 author: thilo
 published: 2021-03-27
-modified: 2022-06-28
+modified: 2022-08-12
 description:
   'Overview of Gatsby’s File System Route API, an alternative to gatsby-node.js
   for programmatic page generation and similar to dynamic routes in Next.js.'
@@ -12,6 +12,12 @@ links:
   - title: Gatsby File System Route API documentation
     href: https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/
 ---
+
+<script context="module">
+    import slugify from '$lib/utils/slugify';
+
+    export let slug = slugify(title);
+</script>
 
 The new
 [File System Route API](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/)
@@ -101,11 +107,11 @@ As a convention, the value between `{}`, in this case, `Post.title`, is
 [slugified](https://github.com/sindresorhus/slugify) and used as part of the
 route. For example, title **What you need to know about Gatsby’s File System
 Route API** would result in
-`what-you-need-to-know-about-gatsby-s-file-system-route-api`. And the route of
+`what-you-need-to-know-about-gatsbys-file-system-route-api`. And the route of
 the generated page is
 
 ```bash
-/posts/what-you-need-to-know-about-gatsby-s-file-system-route-api
+/posts/what-you-need-to-know-about-gatsbys-file-system-route-api
 ```
 
 which is the relative path to `{Post.title}.js` inside `src/pages` plus the

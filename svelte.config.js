@@ -1,16 +1,16 @@
-import { mdsvex } from 'mdsvex';
 import adapter from '@sveltejs/adapter-auto';
-import sveltePreprocess from 'svelte-preprocess';
+import { mdsvex } from 'mdsvex';
 import remarkCodeTitles from 'remark-code-titles';
+import sveltePreprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  extensions: ['.svelte', '.md'],
+  extensions: ['.svelte', '.md', '.svx'],
 
   preprocess: [
     sveltePreprocess(),
     mdsvex({
-      extensions: ['.md'],
+      extensions: ['.md', '.svx'],
       layout: {
         posts: './src/routes/posts/_layout.mdsvex.svelte',
         _: './src/routes/_layout.mdsvex.svelte',
