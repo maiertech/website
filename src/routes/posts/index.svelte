@@ -6,7 +6,7 @@
   export let posts: Post[];
 </script>
 
-<SEO title="Posts" description="Overview of post categories." />
+<SEO title="Posts" description="List of posts." />
 
 <h1 class="text-gradient">Posts</h1>
 

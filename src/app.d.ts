@@ -6,3 +6,5 @@ declare namespace App {
   // interface Session {}
   // interface Stuff {}
 }
+
+declare module '*.svx';

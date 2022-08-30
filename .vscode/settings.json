@@ -11,7 +11,11 @@
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
 
-  "grammarly.files.include": ["**/README.md", "**/*.md"],
+  "files.associations": {
+    "*.svx": "markdown"
+  },
+
+  "grammarly.files.include": ["**/README.md", "**/*.md", "**/*.svx"],
   "grammarly.config.documentDialect": "american",
   "grammarly.config.suggestions.ConjunctionAtStartOfSentence": true,
   "grammarly.config.suggestions.PassiveVoice": true,
