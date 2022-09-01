@@ -1,4 +1,4 @@
-import type { Link } from '$models/content.model';
+import type { Link, OriginImage } from '$models/content.model';
 
 export interface Frontmatter {
   title: string; // Page and SEO title.
@@ -14,5 +14,7 @@ export interface TaggedFrontmatter extends Frontmatter {
 export interface PostFrontmatter extends TaggedFrontmatter {
   author: string;
   topics?: string[];
-  links: Link[];
+  links?: Link[];
+  images?: OriginImage[];
+  unpublish?: boolean;
 }
