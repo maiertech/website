@@ -1,11 +1,11 @@
 import ImgixClient from '@imgix/js-core';
 
 const client = new ImgixClient({
-  // Default value ensures that GitHub actions build does not fail.
-  domain: process.env.IMGIX_DOMAIN || 'example.imgix.net',
-  // This token is a secret and needs to be protected.
-  secureURLToken: process.env.IMGIX_TOKEN,
-  includeLibraryParam: false,
+	// Default value ensures that GitHub actions build does not fail.
+	domain: process.env.IMGIX_DOMAIN || 'example.imgix.net',
+	// This token is a secret and needs to be protected.
+	secureURLToken: process.env.IMGIX_TOKEN,
+	includeLibraryParam: false
 });
 
 // Open Props breakpoints.
@@ -16,12 +16,12 @@ const params = { auto: 'format' };
 
 // Default image is original image.
 export const createSrc = function (path: string) {
-  return client.buildURL(path, params);
+	return client.buildURL(path, params);
 };
 
 export const createSrcset = function (path: string) {
-  return client.buildSrcSet(path, params, {
-    devicePixelRatios: [1, 2, 3],
-    widths,
-  });
+	return client.buildSrcSet(path, params, {
+		devicePixelRatios: [1, 2, 3],
+		widths
+	});
 };

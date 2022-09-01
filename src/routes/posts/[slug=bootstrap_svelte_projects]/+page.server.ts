@@ -5,5 +5,5 @@ import { metadata } from './+page.svx';
 const images = createImgMap(metadata.images);
 
 export const load: PageServerLoad = async function () {
-  return { images };
+	return { images };
 };
