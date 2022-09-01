@@ -1,9 +1,9 @@
 import {
-  stopArgRange,
-  startAndStopArgsRange,
-  floatingPointRange,
-  toFixedRange,
-  infiniteLoopRange,
+	stopArgRange,
+	startAndStopArgsRange,
+	floatingPointRange,
+	toFixedRange,
+	infiniteLoopRange
 } from './range';
 
 document.querySelector('#app').innerHTML = `

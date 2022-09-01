@@ -1,30 +1,31 @@
 {
-  "cssvar.extensions": ["css", "js", "svelte", "ts"],
-  "cssvar.files": [
-    "./node_modules/open-props/open-props.min.css",
-    "./src/app.css"
-  ],
+	"cssvar.extensions": ["css", "js", "svelte", "ts"],
+	"cssvar.files": ["./node_modules/open-props/open-props.min.css", "./src/app.css"],
 
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"editor.tabSize": 2,
 
-  "files.associations": {
-    "*.svx": "markdown"
-  },
+	"files.associations": {
+		"*.svx": "markdown"
+	},
+	"files.eol": "\n",
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
 
-  "grammarly.files.include": ["**/README.md", "**/*.md", "**/*.svx"],
-  "grammarly.config.documentDialect": "american",
-  "grammarly.config.suggestions.ConjunctionAtStartOfSentence": true,
-  "grammarly.config.suggestions.PassiveVoice": true,
-  "grammarly.config.suggestions.UnnecessaryEllipses": true,
-  "grammarly.config.suggestions.PrepositionAtTheEndOfSentence": true,
-  "grammarly.config.suggestions.StylisticFragments": true,
+	"grammarly.files.include": ["**/README.md", "**/*.md", "**/*.svx"],
+	"grammarly.config.documentDialect": "american",
+	"grammarly.config.suggestions.ConjunctionAtStartOfSentence": true,
+	"grammarly.config.suggestions.PassiveVoice": true,
+	"grammarly.config.suggestions.UnnecessaryEllipses": true,
+	"grammarly.config.suggestions.PrepositionAtTheEndOfSentence": true,
+	"grammarly.config.suggestions.StylisticFragments": true,
 
-  "svelte.enable-ts-plugin": true,
-  "svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	"svelte.enable-ts-plugin": true,
+	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
 
-  "thunder-client.saveToWorkspace": true
+	"thunder-client.saveToWorkspace": true
 }
