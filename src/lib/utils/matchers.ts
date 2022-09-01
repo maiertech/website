@@ -1,10 +1,12 @@
+import slugify from '$lib/utils/slugify';
+import type { PostFrontmatter } from '$models/frontmatter.model';
+
 export function matchSlug(
   param: string,
-  slug: string,
-  options: { hide: boolean }
+  frontmatter: PostFrontmatter
 ): boolean {
-  // Don't match route when hide flag is set to true.
-  if (options.hide) return false;
+  // Don't match route when unpublish is set to true.
+  if (frontmatter.unpublish) return false;
 
-  return param === slug;
+  return param === slugify(frontmatter.title);
 }

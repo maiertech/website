@@ -28,9 +28,7 @@ const config = {
     alias: {
       $data: 'src/data',
       $models: 'src/models',
-    },
-    prerender: {
-      default: true,
+      $posts: 'src/routes/posts',
     },
   },
 

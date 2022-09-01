@@ -11,6 +11,11 @@ export type Image = {
   srcset: string;
 };
 
+export type OriginImage = {
+  id: string;
+  url: string;
+};
+
 export type Images = { [id: string]: Image };
 
 export type Link = {
