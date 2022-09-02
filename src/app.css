@@ -90,6 +90,12 @@ a[href]:visited {
 	margin-block-end: var(--size-fluid-3);
 }
 
+.prose h3 {
+	font-size: var(--font-size-fluid-1);
+	font-weight: var(--font-weight-6);
+	margin-block-end: var(--size-fluid-2);
+}
+
 .prose figure {
 	place-items: start;
 	max-inline-size: var(--size-content-3);
