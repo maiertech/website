@@ -1,14 +1,12 @@
 <script lang="ts">
 	import Tags from '$lib/components/tags.svelte';
-	import { h1 as H1 } from '$lib/elements';
-
 	import type { Post } from '$models/content.model';
 
 	export let post: Post;
 </script>
 
 <header>
-	<H1>{post.title}</H1>
+	<h1>{post.title}</h1>
 	<div>
 		<span class="published">
 			{post.author.name} •
@@ -39,6 +37,11 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--size-fluid-3);
+	}
+
+	h1 {
+		font-size: var(--font-size-fluid-3);
+		line-height: var(--font-lineheight-1);
 	}
 
 	.published {

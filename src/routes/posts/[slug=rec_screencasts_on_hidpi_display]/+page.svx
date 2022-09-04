@@ -34,6 +34,7 @@ the pixel ratio of width to height in your final video should be 16:9. The follo
 recommended resolutions for YouTube:
 
 <figure>
+<div class="table">
 
 | Name    | Alternate name | Resolution   |
 | :------ | :------------- | :----------- |
@@ -42,6 +43,7 @@ recommended resolutions for YouTube:
 | Full HD | 1080p          | 1920 by 1080 |
 | HD      | 720p           | 1280 by 720  |
 
+</div>
 <figcaption>Recommended 16:9 video resolutions for YouTube.</figcaption>
 </figure>
 
@@ -78,8 +80,8 @@ MacOS always uses the default resolution, unless you opt for a different scaled 
 <figure>
 
 <Image ratio={1336/708} alt="Screenshot of display preferences on macOS."
-src={data.images[`display-preferences-light`].src}
-srcset={data.images[`display-preferences-light`].srcset} loading="lazy" />
+src={data.post.images[`display-preferences-light`].src}
+srcset={data.post.images[`display-preferences-light`].srcset} loading="lazy" />
 
 <figcaption>MacOS lets you choose your preferred scaled resolution.</figcaption>
 </figure>
@@ -88,6 +90,7 @@ Depending on which scaled resolution you choose, you get a different DPR. DPR do
 integer:
 
 <figure>
+<div class="table">
 
 | Resolution   | DPR | Description                     |
 | ------------ | --- | ------------------------------- |
@@ -95,6 +98,7 @@ integer:
 | 2560 by 1440 | 1.5 | Scaled Quad HD.                 |
 | 1920 by 1080 | 2   | Scaled Full HD (Default).       |
 
+</div>
 <figcaption>DPRs for different resolutions for the LG Ultra HD.</figcaption>
 </figure>
 
@@ -130,12 +134,14 @@ way to set a 16:9 resolution for the built-in display. The other surprise is tha
 default scaled resolution is 2560/1440 = 16/9 = 1.7777778 (_less_ than 2):
 
 <figure>
+<div class="table">
 
 | Resolution   | DPR  | Description                |
 | ------------ | ---- | -------------------------- |
 | 2560 by 1600 | 1    | Actual resolution.         |
 | 1440 by 900  | 16/9 | Default scaled resolution. |
 
+</div>
 <figcaption>Actual resolution and default scaled resolution on the MacBook Air M1.</figcaption>
 </figure>
 

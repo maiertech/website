@@ -1,9 +1,8 @@
-import { createImgMap } from '$lib/utils/img';
+import { normalize } from '$lib/utils/posts';
 import type { PageServerLoad } from './$types';
 import { metadata } from './+page.svx';
 
-const images = createImgMap(metadata.images);
-
-export const load: PageServerLoad = async function () {
-	return { images };
+export const load: PageServerLoad = async function ({ url }) {
+	const post = normalize(metadata, url.pathname);
+	return { post };
 };

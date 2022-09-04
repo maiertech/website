@@ -1,6 +1,7 @@
 {
 	"cssvar.extensions": ["css", "js", "svelte", "ts"],
 	"cssvar.files": ["./node_modules/open-props/open-props.min.css", "./src/app.css"],
+	"cssvar.ignore": [],
 
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",

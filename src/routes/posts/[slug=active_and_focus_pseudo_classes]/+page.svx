@@ -76,8 +76,8 @@ When you click the input field, you can see a dashed red outline until you relea
 <figure>
 
 <Image ratio={630/198} alt="Screenshot of the pdeudo-class :active example while clicking the input
-field." src={data.images[`active-example-input-active`].src}
-srcset={data.images[`active-example-input-active`].srcset} loading="lazy" />
+field." src={data.post.images[`active-example-input-active`].src}
+srcset={data.post.images[`active-example-input-active`].srcset} loading="lazy" />
 
 </figure>
 
@@ -87,8 +87,8 @@ around it to highlight its focus:
 <figure>
 
 <Image ratio={630/198} alt="Screenshot of the pseudo-class :active example while the input field has
-focus." src={data.images[`active-example-input-focus`].src}
-srcset={data.images[`active-example-input-focus`].srcset} loading="lazy" />
+focus." src={data.post.images[`active-example-input-focus`].src}
+srcset={data.post.images[`active-example-input-focus`].srcset} loading="lazy" />
 
 </figure>
 
@@ -97,8 +97,8 @@ While you click the submit button, you can see the dashed red outline until you 
 <figure>
 
 <Image ratio={630/198} alt="Screenshot of the pseudo-class :active example while clicking the submit
-button." src={data.images[`active-example-button-active`].src}
-srcset={data.images[`active-example-button-active`].srcset} loading="lazy" />
+button." src={data.post.images[`active-example-button-active`].src}
+srcset={data.post.images[`active-example-button-active`].srcset} loading="lazy" />
 
 </figure>
 
@@ -128,8 +128,8 @@ until the input field loses focus:
 <figure>
 
 <Image ratio={630/198} alt="Screenshot of the pseudo-class :focus example while the input field has
-focus." src={data.images[`focus-example-input`].src}
-srcset={data.images[`focus-example-input`].srcset} loading="lazy" />
+focus." src={data.post.images[`focus-example-input`].src}
+srcset={data.post.images[`focus-example-input`].srcset} loading="lazy" />
 
 </figure>
 
@@ -138,8 +138,8 @@ Likewise, when you click the submit button, you can see the dashed outline until
 <figure>
 
 <Image ratio={630/198} alt="Screenshot of the pseudo-class :focus example while the submit button
-has focus." src={data.images[`focus-example-button`].src}
-srcset={data.images[`focus-example-button`].srcset} loading="lazy" />
+has focus." src={data.post.images[`focus-example-button`].src}
+srcset={data.post.images[`focus-example-button`].srcset} loading="lazy" />
 
 </figure>
 
@@ -172,8 +172,8 @@ focus:
 <figure>
 
 <Image ratio={762/202} alt="Screenshot of the pseudo-class :focus-visible example while the input
-field has focus." src={data.images[`focus-visible-example-input`].src}
-srcset={data.images[`focus-visible-example-input`].srcset} loading="lazy" />
+field has focus." src={data.post.images[`focus-visible-example-input`].src}
+srcset={data.post.images[`focus-visible-example-input`].srcset} loading="lazy" />
 
 </figure>
 
@@ -184,8 +184,8 @@ click the submit button, the dashed red outline is not visible:
 
 <Image ratio={762/202} alt="Screenshot of the pseudo-class :focus-visible example when the submit
 button receives focus with a mouse click."
-src={data.images[`focus-visible-example-button-mouse`].src}
-srcset={data.images[`focus-visible-example-button-mouse`].srcset} loading="lazy" />
+src={data.post.images[`focus-visible-example-button-mouse`].src}
+srcset={data.post.images[`focus-visible-example-button-mouse`].srcset} loading="lazy" />
 
 </figure>
 
@@ -195,8 +195,8 @@ But when you use the `Tab` key to focus the submit button, the dashed red outlin
 
 <Image ratio={762/202} alt="Screenshot of the pseudo-class :focus-visible example when the submit
 button receives focus with the Tab key."
-src={data.images[`focus-visible-example-button-keyboard`].src}
-srcset={data.images[`focus-visible-example-button-keyboard`].srcset} loading="lazy" />
+src={data.post.images[`focus-visible-example-button-keyboard`].src}
+srcset={data.post.images[`focus-visible-example-button-keyboard`].srcset} loading="lazy" />
 
 </figure>
 

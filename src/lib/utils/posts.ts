@@ -2,29 +2,47 @@ import authors from '$data/authors';
 import tags from '$data/tags';
 import topics from '$data/topics';
 import slugify from '$lib/utils/slugify';
-import type { Post } from '$models/content.model';
+import type { Images, Post } from '$models/content.model';
 import type { PostFrontmatter } from '$models/frontmatter.model';
+import { createSrc, createSrcset } from './imgix';
 
 /**
- * Transform post frontmatter into post metadata.
+ * Transform post frontmatter into post metadata:
+ * 1. Validate author.
+ * 2. Resolve topics.
+ * 3. Resolve tags.
+ * 4. Process URLs of origin images.
  */
 export function normalize(frontmatter: PostFrontmatter, path: string): Post {
-	// Check if author ID is valid.
+	// 1. Validate author.
 	const author = authors.find(({ id }) => frontmatter.author === id);
-
 	if (!author) throw `Invalid author ID '${frontmatter.author}' in post '${frontmatter.title}'`;
 
+	// 2. Resolve topics.
 	const resolvedTopics = frontmatter?.topics?.map((frontmatterTopic) => {
 		const topic = topics.find(({ id }) => frontmatterTopic === id);
 		if (!topic) throw `Invalid topic ID '${frontmatterTopic}' in post '${frontmatter.title}'`;
 		return topic;
 	});
 
+	// 3. Resolve tags.
 	const resolvedTags = frontmatter?.tags?.map((frontmatterTag) => {
 		const tag = tags.find(({ id }) => frontmatterTag === id);
 		if (!tag) throw `Invalid tag ID '${frontmatterTag}' in post '${frontmatter.title}'`;
 		return tag;
 	});
+
+	// 4. Process URLs of origin images.
+	const images: Images = {};
+	frontmatter?.images
+		?.map(({ id, url }) => ({
+			id,
+			src: createSrc(url),
+			srcset: createSrcset(url)
+		}))
+		.forEach(({ id, src, srcset }) => {
+			images[id] = { src, srcset };
+		});
 
 	const post = {
 		title: frontmatter.title,
@@ -35,6 +53,7 @@ export function normalize(frontmatter: PostFrontmatter, path: string): Post {
 		topics: resolvedTopics,
 		tags: resolvedTags,
 		links: frontmatter.links,
+		images,
 		path
 	};
 	return post;

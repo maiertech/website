@@ -1,5 +1,5 @@
 import tags from '$data/tags';
-import { getPosts } from '$lib/posts';
+import { getPosts } from '$lib/utils/posts';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 

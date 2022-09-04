@@ -1,15 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { normalize } from '$lib/posts';
-	import SEO from '$lib/components/seo.svelte';
-	import Header from '$lib/components/post-header.svelte';
 	import Footer from '$lib/components/post-footer.svelte';
-
-	import type { PostFrontmatter } from '$models/frontmatter.model';
+	import Header from '$lib/components/post-header.svelte';
+	import SEO from '$lib/components/seo.svelte';
 	import type { Post } from '$models/content.model';
 
-	const frontmatter: PostFrontmatter = { ...$$restProps } as PostFrontmatter;
-	const post: Post = normalize(frontmatter, $page.url.pathname);
+	const post = $page.data.post as Post;
 </script>
 
 <article>
@@ -22,11 +18,11 @@
 		tags={post.tags?.map((tag) => tag.label)}
 	/>
 	<Header {post} />
-	<div class="prose">
+	<div class="global">
 		<slot />
 	</div>
 	{#if post.links}
-		<section class="prose">
+		<section class="global">
 			<h2>Links</h2>
 			<ul>
 				{#each post.links as link (link.href)}
@@ -45,5 +41,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--size-fluid-2);
+	}
+
+	.global {
+		margin-block-end: var(--size-fluid-3);
 	}
 </style>

@@ -1,7 +1,7 @@
 import tags from '$data/tags';
 import topics from '$data/topics';
 import { BASE_URL } from '$data/urls';
-import { getPosts } from '$lib/posts';
+import { getPosts } from '$lib/utils/posts';
 import type { RequestHandler } from './$types';
 
 // Generate a basic XML sitemap.
