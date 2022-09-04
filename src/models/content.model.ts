@@ -33,6 +33,7 @@ export type Post = {
 	topics?: Topic[]; // Resolved topics.
 	tags?: Tag[]; // Resolved tags.
 	links?: Link[];
+	images?: Images;
 	path: string;
 };
 

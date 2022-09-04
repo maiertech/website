@@ -56,7 +56,8 @@ code of every example:
 <figure>
 
 <Image ratio={16/9} alt="Screenshot of one of my Svelte experiments running in the Svelte REPL."
-src={data.images[`svelte-repl`].src} srcset={data.images[`svelte-repl`].srcset} loading="lazy" />
+src={data.post.images[`svelte-repl`].src} srcset={data.post.images[`svelte-repl`].srcset}
+loading="lazy" />
 
 <figcaption>
 
@@ -72,8 +73,8 @@ experiment on GitHub, download its source code and run it in your local VS Code:
 <figure>
 
 <Image ratio={1516/1030} alt="Screenshot of VS Code showing the Svelte project downloaded from the
-Svelte REPL, which is based on the Svelte template." src={data.images[`svelte-template`].src}
-srcset={data.images[`svelte-template`].srcset} loading="lazy" />
+Svelte REPL, which is based on the Svelte template." src={data.post.images[`svelte-template`].src}
+srcset={data.post.images[`svelte-template`].srcset} loading="lazy" />
 
 <figcaption>
 
@@ -102,8 +103,8 @@ including one for Svelte:
 <figure>
 
 <Image ratio={1866/870} alt="Screenshot of the CodeSandbox dialog to select a template for a new
-sandbox. The Svelte template is highlighted." src={data.images[`csb-new-sandbox-dialog`].src}
-srcset={data.images[`csb-new-sandbox-dialog`].srcset} loading="lazy" />
+sandbox. The Svelte template is highlighted." src={data.post.images[`csb-new-sandbox-dialog`].src}
+srcset={data.post.images[`csb-new-sandbox-dialog`].srcset} loading="lazy" />
 
 <figcaption>
 
@@ -120,8 +121,8 @@ you still get the latest version of Svelte, but most Rollup dependencies need an
 <figure>
 
 <Image ratio={16/9} alt="Screenshot of CodeSandbox's Svelte template running in-browser."
-src={data.images[`csb-svelte-template`].src} srcset={data.images[`csb-svelte-template`].srcset}
-loading="lazy" />
+src={data.post.images[`csb-svelte-template`].src}
+srcset={data.post.images[`csb-svelte-template`].srcset} loading="lazy" />
 
 <figcaption>
 
@@ -147,8 +148,9 @@ the other with TypeScript support:
 <figure>
 
 <Image ratio={16/9} alt="Screenshot of StackBlitz's dashboard. The two Svelte templates, one without
-and one with TypeScript support, are highlighted." src={data.images[`stackblitz-dashboard`].src}
-srcset={data.images[`stackblitz-dashboard`].srcset} loading="lazy" />
+and one with TypeScript support, are highlighted."
+src={data.post.images[`stackblitz-dashboard`].src}
+srcset={data.post.images[`stackblitz-dashboard`].srcset} loading="lazy" />
 
 <figcaption>
 

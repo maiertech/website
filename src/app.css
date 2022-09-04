@@ -2,6 +2,8 @@
 @import 'open-props/normalize';
 @import 'open-props/buttons';
 
+/* COLORS */
+
 :root {
 	/* Tailwind colors: https://tailwindcss.com/docs/customizing-colors. */
 
@@ -37,6 +39,8 @@
 	--link-visited: var(--link-visited-light);
 }
 
+/* DARK MODE */
+
 @media (prefers-color-scheme: dark) {
 	:root {
 		color-scheme: dark;
@@ -70,39 +74,54 @@ a[href]:visited {
 	-webkit-text-fill-color: transparent;
 }
 
-/* Wrap Markdown in `prose` class. */
+.remark-code-title {
+	font-weight: var(--font-weight-7);
+	margin-bottom: var(--size-1);
+}
 
-.prose {
+/* OPT-IN GLOBAL STYLES (via .global class) */
+
+.global blockquote {
 	margin-block-end: var(--size-fluid-3);
 }
 
-.prose blockquote {
-	margin-block-end: var(--size-fluid-3);
-}
-
-.prose blockquote > p {
+.global blockquote > p,
+.global blockquote > ol {
 	margin-block-end: 0;
 }
 
-.prose h2 {
+.global h1 {
+	font-size: var(--font-size-fluid-3);
+	line-height: var(--font-lineheight-1);
+}
+
+.global h2 {
 	font-size: var(--font-size-fluid-2);
 	font-weight: var(--font-weight-7);
 	margin-block-end: var(--size-fluid-3);
 }
 
-.prose h3 {
+.global h3 {
 	font-size: var(--font-size-fluid-1);
 	font-weight: var(--font-weight-6);
 	margin-block-end: var(--size-fluid-2);
 }
 
-.prose figure {
+.global p {
+	margin-block-end: var(--size-fluid-3);
+}
+
+.global p:last-child {
+	margin: 0;
+}
+
+.global figure {
 	place-items: start;
 	max-inline-size: var(--size-content-3);
 	margin-block-end: var(--size-fluid-3);
 }
 
-.prose pre {
+.global pre {
 	border-radius: var(--radius-2);
 	background-color: var(--surface-3);
 	overflow-x: auto;
@@ -110,8 +129,8 @@ a[href]:visited {
 	margin-block-end: var(--size-fluid-3);
 }
 
-.prose ul,
-.prose ol {
+.global ul,
+.global ol {
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-fluid-2);
@@ -119,23 +138,48 @@ a[href]:visited {
 	margin-block-end: var(--size-fluid-3);
 }
 
-.prose .stackblitz,
-.prose .codesandbox {
+.global .stackblitz,
+.global .codesandbox {
 	margin-block-end: var(--size-fluid-4);
 }
 
-.prose .card {
+.global .card {
 	margin-block-end: var(--size-fluid-3);
 }
 
-.prose .card code {
+.global .card code {
 	background-color: var(--surface-3);
 }
 
-.remark-code-title {
-	font-weight: var(--font-weight-7);
-	margin-bottom: var(--size-1);
+.global .table {
+	max-width: 100%;
+	overflow: hidden;
+	overflow-x: auto;
 }
+
+.global table {
+	border: var(--border-size-2) solid var(--text-2);
+	border-collapse: collapse;
+}
+
+.global th {
+	border: var(--border-size-1) solid var(--text-2);
+	background-color: var(--surface-3);
+	font-weight: var(--font-weight-5);
+	text-align: start;
+	white-space: nowrap;
+	padding-inline: var(--size-3);
+	padding-block: var(--size-2);
+}
+
+.global td {
+	border: var(--border-size-1) solid var(--text-2);
+	white-space: nowrap;
+	padding-inline: var(--size-3);
+	padding-block: var(--size-2);
+}
+
+/* CUSTOM PRISM THEME */
 
 .token.comment,
 .token.prolog,

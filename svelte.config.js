@@ -11,10 +11,6 @@ const config = {
 		sveltePreprocess(),
 		mdsvex({
 			extensions: ['.md', '.svx'],
-			layout: {
-				posts: './src/routes/posts/_layout.mdsvex.svelte',
-				_: './src/routes/_layout.mdsvex.svelte'
-			},
 			smartypants: {
 				dashes: 'oldschool'
 			},
