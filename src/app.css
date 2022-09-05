@@ -2,6 +2,9 @@
 @import 'open-props/normalize';
 @import 'open-props/buttons';
 
+@import url('./styles/prism.css') (prefers-color-scheme: light);
+@import url('./styles/prism-okaidia.css') (prefers-color-scheme: dark);
+
 /* COLORS */
 
 :root {
@@ -122,10 +125,6 @@ a[href]:visited {
 }
 
 .global pre {
-	border-radius: var(--radius-2);
-	background-color: var(--surface-3);
-	overflow-x: auto;
-	padding: var(--size-fluid-2);
 	margin-block-end: var(--size-fluid-3);
 }
 
@@ -177,61 +176,4 @@ a[href]:visited {
 	white-space: nowrap;
 	padding-inline: var(--size-3);
 	padding-block: var(--size-2);
-}
-
-/* CUSTOM PRISM THEME */
-
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-	color: var(--text-2);
-}
-
-.token.punctuation {
-	color: var(--text-1);
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-	color: var(--brand);
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-	color: var(--text-1);
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-	color: var(--text-1);
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-	color: var(--brand);
-}
-
-.token.function,
-.token.class-name {
-	color: var(--brand);
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-	color: var(--brand);
 }
