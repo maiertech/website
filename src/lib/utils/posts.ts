@@ -120,6 +120,13 @@ export async function getPosts({
 		)
 	);
 
+	// Remove posts with an unpublish flag in frontmatter.
+	posts = posts.filter(({ frontmatter }) => !frontmatter.unpublish);
+
+	// Remove posts with publish date in the future.
+	const today = new Date();
+	posts = posts.filter(({ frontmatter }) => new Date(frontmatter.published) <= today);
+
 	// If a topic is provided, filter posts by topic.
 	if (topic) {
 		posts = posts.filter(({ frontmatter }) =>
