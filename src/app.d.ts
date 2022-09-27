@@ -7,4 +7,10 @@ declare namespace App {
 	// interface Stuff {}
 }
 
+declare namespace Validation {
+	type FormErrors = string[];
+	type FieldErrors = { [field: string]: string[] };
+	type Errors = { formErrors: FormErrors; fieldErrors: FieldErrors };
+}
+
 declare module '*.svx';

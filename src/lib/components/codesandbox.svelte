@@ -1,16 +1,14 @@
 <script lang="ts">
-	// This component uses the CodeSandbox API to create a sandbox to embed.
-
+	import type { EmbedOptions, Files } from '$models/codesandbox.model';
+	import { error } from '@sveltejs/kit';
 	import { onMount } from 'svelte';
 
-	import type { ApiError } from '$models/api.model';
-	import type { EmbedOptions, Files } from '$models/codesandbox.model';
+	// This component uses the CodeSandbox API to create a sandbox to embed.
 
 	export let files: Files;
 	export let embedOptions: EmbedOptions = {};
 
 	let sandbox_id = '';
-	let error: ApiError;
 
 	const embedQuerystring = new URLSearchParams({
 		codemirror: '1',
@@ -30,11 +28,7 @@
 
 		if (!response.ok) {
 			const { error: message } = await response.json();
-			error = {
-				status: response.status,
-				code: 'FAILED_TO_FETCH_SANDBOX_ID',
-				message
-			};
+			throw error(response.status, message);
 		} else {
 			({ sandbox_id } = await response.json());
 		}
@@ -49,11 +43,6 @@
 			allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
 			sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 		/>
-	{:else if error}
-		<div class="loading">
-			<p>{error.code} ({error.status})</p>
-			<p>{error.message}</p>
-		</div>
 	{:else}
 		<div class="loading">Loading...</div>
 	{/if}

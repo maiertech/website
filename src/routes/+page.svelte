@@ -5,7 +5,7 @@
 
 	const title = 'Thilo Maier';
 	const description =
-		"Hi, I'm Thilo. I am a developer based in New York. I build things with Svelte and keep improving my developer happiness.";
+		"Hi, I'm Thilo. I am a developer based in New York. I build web apps with SvelteKit and Svelte and keep improving my developer happiness.";
 </script>
 
 <SEO {title} {description} />
@@ -16,20 +16,21 @@
 		<p>{description}</p>
 	</Container>
 </section>
+
 <section>
 	<Topics />
 </section>
 
 <style>
 	.intro h1 {
-		padding-bottom: var(--size-fluid-4);
+		padding-block-end: var(--size-fluid-4);
 	}
 
 	.intro p {
 		font-size: var(--size-4);
 		font-weight: var(--font-weight-5);
 		line-height: var(--font-lineheight-3);
-		padding-bottom: var(--size-fluid-3);
+		padding-bottom: var(--size-fluid-4);
 	}
 
 	/* lg */

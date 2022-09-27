@@ -1,0 +1,31 @@
+---
+title: Privacy policy
+description: Privacy policy for this website.
+---
+
+# {title}
+
+## Analytics
+
+1. I use privacy-focused website analytics [Fathom Analytics](https://usefathom.com/).
+1. Fathom Analytics helps me understand which websites are referrers to my website and which posts
+   are popular. I use this information to decide what posts to write next and how to improve this
+   website.
+1. You can opt-out from Fathom Analytics by turning
+   [Do not track](https://support.google.com/chrome/answer/2790761) in your browser on.
+
+## Newsletter
+
+1. I use [EmailOctopus](https://emailoctopus.com/) to manage newsletter subscriptions.
+1. If you sign up for my newsletter, your email address and optionally your first name will be
+   stored on EmailOctopus servers.
+1. Subscribing to my newsletter requires double opt-in. Subscription is complete only when you click
+   the email confirmation link in the subscription confirmation email.
+1. You can unsubscribe by clicking the unsubscribe link at the bottom of each newsletter issue.
+   Alternatively, you can use [this unsubscribe form](/newsletter/unsubscribe).
+1. When you unsubscribe from my newsletter, your email address will continue to be stored on
+   EmailOctopus servers to prevent future subscriptions. This is to protect you from malicious third
+   parties signing you up.
+1. If you would like to resubscribe, go to the [subscribe form](/newsletter/subscribe) and try to
+   subscribe. You will see an error message with an email address. Contact me via this email using
+   your subscription email.
