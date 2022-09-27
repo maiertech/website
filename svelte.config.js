@@ -25,6 +25,9 @@ const config = {
 			$data: 'src/data',
 			$models: 'src/models',
 			$posts: 'src/routes/posts'
+		},
+		csrf: {
+			checkOrigin: false
 		}
 	},
 

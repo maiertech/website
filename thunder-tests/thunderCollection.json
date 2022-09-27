@@ -1,0 +1,85 @@
+[
+	{
+		"_id": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"colName": "EmailOctopus",
+		"created": "2022-06-08T01:08:45.468Z",
+		"sortNum": 20000,
+		"folders": [
+			{
+				"_id": "cf0349c0-63b1-4b6d-b048-ff60c6863e69",
+				"name": "Get list",
+				"containerId": "",
+				"created": "2022-09-05T20:38:42.175Z",
+				"sortNum": 10000
+			},
+			{
+				"_id": "6e94c928-1dfe-4540-a251-9ca36d9f49de",
+				"name": "Create contact",
+				"containerId": "",
+				"created": "2022-09-05T21:19:10.850Z",
+				"sortNum": 20000
+			},
+			{
+				"_id": "379c0841-ff8b-4068-aaea-6a4005873b57",
+				"name": "Get contact",
+				"containerId": "",
+				"created": "2022-09-06T03:25:31.729Z",
+				"sortNum": 30000
+			},
+			{
+				"_id": "657709af-1b5a-457f-b769-13bdadadf222",
+				"name": "Update contact",
+				"containerId": "",
+				"created": "2022-09-06T03:26:43.513Z",
+				"sortNum": 40000
+			}
+		],
+		"settings": {
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"tests": []
+		}
+	},
+	{
+		"_id": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"colName": "API",
+		"created": "2022-06-08T03:08:52.000Z",
+		"sortNum": 30000,
+		"folders": [
+			{
+				"_id": "81cb3664-c267-48ff-acc2-957291cb03ff",
+				"name": "/api/newsletter/subscribers",
+				"containerId": "",
+				"created": "2022-09-06T00:29:01.763Z",
+				"sortNum": 10000
+			},
+			{
+				"_id": "22f17555-2c78-4481-a9f4-5ed55e1573b5",
+				"name": "/api/newsletter/subscribe",
+				"containerId": "",
+				"created": "2022-09-06T00:30:48.165Z",
+				"sortNum": 5000
+			},
+			{
+				"_id": "7b4e27bf-a9d3-4702-ab29-9950810e958b",
+				"name": "/newsletter/unsubscribe",
+				"containerId": "",
+				"created": "2022-09-06T03:15:29.219Z",
+				"sortNum": 30000
+			}
+		],
+		"settings": {
+			"headers": [
+				{
+					"name": "Accept",
+					"value": "application/json"
+				}
+			],
+			"tests": []
+		}
+	}
+]

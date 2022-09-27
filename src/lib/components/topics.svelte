@@ -1,6 +1,6 @@
 <script lang="ts">
-	import topics from '$data/topics';
 	import { goto } from '$app/navigation';
+	import topics from '$data/topics';
 </script>
 
 <section>
@@ -26,8 +26,8 @@
 		align-items: flex-start;
 		gap: var(--size-fluid-3);
 		background-color: var(--surface-2);
-		border-radius: var(--radius-blob-1);
-		padding: var(--size-fluid-5);
+		border-radius: var(--radius-2);
+		padding: var(--size-fluid-2);
 	}
 
 	h2 {

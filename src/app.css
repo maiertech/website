@@ -70,7 +70,28 @@ a[href]:visited {
 	text-decoration: none;
 }
 
-.text-gradient {
+button {
+	color: var(--surface-1);
+	background-color: var(--brand);
+	border: none;
+	text-shadow: none;
+}
+
+input {
+	background-color: var(--surface-2);
+	padding-inline: var(--size-4);
+	padding-block: var(--size-2);
+}
+
+input:focus-visible {
+	outline-offset: 0;
+}
+
+input::placeholder {
+	color: var(--text-2);
+}
+
+input .text-gradient {
 	background-image: linear-gradient(to bottom right, var(--brand), var(--surface-3));
 	background-clip: text;
 	-webkit-background-clip: text;
@@ -80,6 +101,18 @@ a[href]:visited {
 .remark-code-title {
 	font-weight: var(--font-weight-7);
 	margin-bottom: var(--size-1);
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }
 
 /* OPT-IN GLOBAL STYLES (via .global class) */

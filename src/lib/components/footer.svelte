@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
 	import navLinks from '$data/navigation';
+	import type { Load } from '@sveltejs/kit';
 
 	export const load: Load = function () {
 		return { props: { navLinks } };
@@ -10,9 +10,9 @@
 <script lang="ts">
 	import Container from '$lib/components/container.svelte';
 	import SocialIcons from '$lib/components/social-icons.svelte';
-	import TwitterLogo from './twitter-logo.svelte';
-	import GitHubLogo from './github-logo.svelte';
 	import * as Fathom from 'fathom-client';
+	import GitHubLogo from './github-logo.svelte';
+	import TwitterLogo from './twitter-logo.svelte';
 
 	import type { SocialIcon } from '$models/content.model';
 
@@ -59,6 +59,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		gap: var(--size-fluid-2);
 		padding-bottom: var(--size-fluid-3);
 	}
 

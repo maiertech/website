@@ -9,7 +9,7 @@ const topics: Topic[] = [
 		label: 'SV',
 		title: 'Svelte',
 		description:
-			'I build things with Svelte, the framework that puts the fun back into web development.',
+			'I build web apps with Svelte, the framework that puts the fun back into web development.',
 		path: `${base}/svelte`
 	},
 	{

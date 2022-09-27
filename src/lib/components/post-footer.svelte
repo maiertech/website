@@ -9,7 +9,7 @@
 	$: tags = post.topics?.map((topic) => ({ ...topic, label: topic.title }));
 </script>
 
-{#if post.topics}
+{#if tags}
 	<footer>
 		Published in <Tags {tags} inverse />.
 	</footer>

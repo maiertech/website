@@ -1,0 +1,382 @@
+[
+	{
+		"_id": "1d973d41-6684-4327-9a45-dc1f535983cc",
+		"colId": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"containerId": "cf0349c0-63b1-4b6d-b048-ff60c6863e69",
+		"name": "success",
+		"url": "https://emailoctopus.com/api/1.6/lists/{{EO_LIST_ID}}?api_key={{EO_API_KEY}}",
+		"method": "GET",
+		"sortNum": 10000,
+		"created": "2022-06-08T01:09:27.838Z",
+		"modified": "2022-09-05T20:38:49.119Z",
+		"headers": [],
+		"params": [
+			{
+				"name": "api_key",
+				"value": "{{EO_API_KEY}}",
+				"isPath": false
+			}
+		],
+		"tests": []
+	},
+	{
+		"_id": "2c8a1cbc-6102-4a18-8074-836936d97706",
+		"colId": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"containerId": "6e94c928-1dfe-4540-a251-9ca36d9f49de",
+		"name": "success [remove subscriber first]",
+		"url": "https://emailoctopus.com/api/1.6/lists/{{EO_LIST_ID}}/contacts",
+		"method": "POST",
+		"sortNum": 10000,
+		"created": "2022-06-08T01:21:15.420Z",
+		"modified": "2022-09-06T00:26:54.612Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "json",
+			"raw": "{\n    \"api_key\": \"{{EO_API_KEY}}\",\n    \"email_address\": \"test@maier.asia\",\n    \"fields\": {\n        \"FirstName\": \"Thilo\",\n        \"LastName\": \"Maier\"\n    }\n}",
+			"form": []
+		},
+		"tests": []
+	},
+	{
+		"_id": "8908f623-8881-4df9-b756-413f53153745",
+		"colId": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"containerId": "379c0841-ff8b-4068-aaea-6a4005873b57",
+		"name": "error (not found)",
+		"url": "https://emailoctopus.com/api/1.6/lists/{{EO_LIST_ID}}/contacts/e78decb494bbcefd4a7a8f8f4ad1bdae?api_key={{EO_API_KEY}}",
+		"method": "GET",
+		"sortNum": 10000,
+		"created": "2022-06-08T01:47:32.872Z",
+		"modified": "2022-09-06T03:25:34.893Z",
+		"headers": [],
+		"params": [
+			{
+				"name": "api_key",
+				"value": "{{EO_API_KEY}}",
+				"isPath": false
+			}
+		],
+		"tests": []
+	},
+	{
+		"_id": "2a676e88-742e-45f1-8192-24ae1a12df11",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "81cb3664-c267-48ff-acc2-957291cb03ff",
+		"name": "success",
+		"url": "http://127.0.0.1:5173/api/newsletter/subscribers",
+		"method": "GET",
+		"sortNum": 10000,
+		"created": "2022-06-08T17:41:13.907Z",
+		"modified": "2022-09-06T00:29:05.539Z",
+		"headers": [],
+		"params": [],
+		"tests": []
+	},
+	{
+		"_id": "f2ae3722-6e52-483b-be60-11121d41aaa8",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "22f17555-2c78-4481-a9f4-5ed55e1573b5",
+		"name": "error (prospect subscribed)",
+		"url": "http://127.0.0.1:5173/api/newsletter/subscribe",
+		"method": "POST",
+		"sortNum": 10000,
+		"created": "2022-06-12T03:28:37.938Z",
+		"modified": "2022-09-06T02:42:01.168Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "json",
+			"raw": "{\n    \"email_address\": \"status-subscribed@maier.asia\",\n    \"fields\": {\n        \"FirstName\": \"Peter\",\n        \"LastName\": \"Gedöns\"\n    }\n}",
+			"form": []
+		},
+		"tests": []
+	},
+	{
+		"_id": "9a52ac51-fa0c-4974-aa60-26da9edd3d75",
+		"colId": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"containerId": "657709af-1b5a-457f-b769-13bdadadf222",
+		"name": "success",
+		"url": "https://emailoctopus.com/api/1.6/lists/{{EO_LIST_ID}}/contacts/1db973a8fabc0d4738c6167750acd538",
+		"method": "PUT",
+		"sortNum": 10000,
+		"created": "2022-06-12T04:16:27.523Z",
+		"modified": "2022-09-06T03:28:03.839Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "json",
+			"raw": "{\n    \"api_key\": \"{{EO_API_KEY}}\",\n    \"status\": \"UNSUBSCRIBED\"\n}",
+			"form": []
+		},
+		"tests": []
+	},
+	{
+		"_id": "8f6d7fd3-27a3-4e92-8ed6-3fdf5c4fb59a",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "7b4e27bf-a9d3-4702-ab29-9950810e958b",
+		"name": "error (subscriber not found)",
+		"url": "http://127.0.0.1:5173/newsletter/unsubscribe",
+		"method": "POST",
+		"sortNum": 10000,
+		"created": "2022-06-12T05:02:26.491Z",
+		"modified": "2022-09-15T01:54:56.026Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "formdata",
+			"raw": "",
+			"form": [
+				{
+					"name": "email_address",
+					"value": "peter@gedoens.de"
+				}
+			]
+		},
+		"tests": []
+	},
+	{
+		"_id": "5150a7f9-048c-46e1-a87f-bb99fd48e49d",
+		"colId": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"containerId": "cf0349c0-63b1-4b6d-b048-ff60c6863e69",
+		"name": "error (invalid list)",
+		"url": "https://emailoctopus.com/api/1.6/lists/invalid-list-id?api_key={{EO_API_KEY}}",
+		"method": "GET",
+		"sortNum": 20000,
+		"created": "2022-09-05T20:41:33.169Z",
+		"modified": "2022-09-05T20:44:09.182Z",
+		"headers": [],
+		"params": [
+			{
+				"name": "api_key",
+				"value": "{{EO_API_KEY}}",
+				"isPath": false
+			}
+		],
+		"tests": []
+	},
+	{
+		"_id": "5281c052-ffff-4c6e-af8f-25ab710f2c8b",
+		"colId": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"containerId": "cf0349c0-63b1-4b6d-b048-ff60c6863e69",
+		"name": "error (invalid api key)",
+		"url": "https://emailoctopus.com/api/1.6/lists/{{EO_LIST_ID}}?api_key=invalid_api_key",
+		"method": "GET",
+		"sortNum": 15000,
+		"created": "2022-09-05T20:44:17.072Z",
+		"modified": "2022-09-05T20:44:50.815Z",
+		"headers": [],
+		"params": [
+			{
+				"name": "api_key",
+				"value": "invalid_api_key",
+				"isPath": false
+			}
+		],
+		"tests": []
+	},
+	{
+		"_id": "e091c8da-45a9-444f-9bbb-14316343e33d",
+		"colId": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"containerId": "6e94c928-1dfe-4540-a251-9ca36d9f49de",
+		"name": "error (invalid email syntax)",
+		"url": "https://emailoctopus.com/api/1.6/lists/{{EO_LIST_ID}}/contacts",
+		"method": "POST",
+		"sortNum": 7500,
+		"created": "2022-09-05T23:52:21.570Z",
+		"modified": "2022-09-06T00:24:19.709Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "json",
+			"raw": "{\n    \"api_key\": \"{{EO_API_KEY}}\",\n    \"email_address\": \"peter$gedoens.de\",\n    \"fields\": {\n        \"FirstName\": \"Peter\",\n        \"LastName\": \"Gedöns\"\n    }\n}",
+			"form": []
+		},
+		"tests": []
+	},
+	{
+		"_id": "a0a0e218-2bea-4807-a2ae-c50c3e55ca87",
+		"colId": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"containerId": "6e94c928-1dfe-4540-a251-9ca36d9f49de",
+		"name": "error (prospect pending)",
+		"url": "https://emailoctopus.com/api/1.6/lists/{{EO_LIST_ID}}/contacts",
+		"method": "POST",
+		"sortNum": 5000,
+		"created": "2022-09-06T00:19:46.932Z",
+		"modified": "2022-09-06T00:21:36.461Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "json",
+			"raw": "{\n    \"api_key\": \"{{EO_API_KEY}}\",\n    \"email_address\": \"status-pending@maier.asia\",\n    \"fields\": {\n        \"FirstName\": \"Peter\",\n        \"LastName\": \"Gedöns\"\n    }\n}",
+			"form": []
+		},
+		"tests": []
+	},
+	{
+		"_id": "acc0250f-9d26-4ed5-9db3-d076b4b76372",
+		"colId": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"containerId": "6e94c928-1dfe-4540-a251-9ca36d9f49de",
+		"name": "error (prospect subscribed)",
+		"url": "https://emailoctopus.com/api/1.6/lists/{{EO_LIST_ID}}/contacts",
+		"method": "POST",
+		"sortNum": 2500,
+		"created": "2022-09-06T00:21:42.101Z",
+		"modified": "2022-09-06T00:23:43.231Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "json",
+			"raw": "{\n    \"api_key\": \"{{EO_API_KEY}}\",\n    \"email_address\": \"status-subscribed@maier.asia\",\n    \"fields\": {\n        \"FirstName\": \"Peter\",\n        \"LastName\": \"Gedöns\"\n    }\n}",
+			"form": []
+		},
+		"tests": []
+	},
+	{
+		"_id": "0f85a35b-4c52-4c00-9121-7ee390e4d778",
+		"colId": "59dff772-5157-4862-99f8-f3fd80f1282c",
+		"containerId": "6e94c928-1dfe-4540-a251-9ca36d9f49de",
+		"name": "error (prospect unsubscribed)",
+		"url": "https://emailoctopus.com/api/1.6/lists/{{EO_LIST_ID}}/contacts",
+		"method": "POST",
+		"sortNum": 6250,
+		"created": "2022-09-06T00:24:22.397Z",
+		"modified": "2022-09-06T00:25:44.964Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "json",
+			"raw": "{\n    \"api_key\": \"{{EO_API_KEY}}\",\n    \"email_address\": \"status-unsubscribed@maier.asia\",\n    \"fields\": {\n        \"FirstName\": \"Peter\",\n        \"LastName\": \"Gedöns\"\n    }\n}",
+			"form": []
+		},
+		"tests": []
+	},
+	{
+		"_id": "5f4db5b3-a6d3-47ea-a945-dfa860a428c1",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "22f17555-2c78-4481-a9f4-5ed55e1573b5",
+		"name": "error (prospect pending)",
+		"url": "http://127.0.0.1:5173/api/newsletter/subscribe",
+		"method": "POST",
+		"sortNum": 20000,
+		"created": "2022-09-06T01:59:26.654Z",
+		"modified": "2022-09-06T01:59:55.006Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "json",
+			"raw": "{\n    \"email_address\": \"status-pending@maier.asia\",\n    \"fields\": {\n        \"FirstName\": \"Peter\",\n        \"LastName\": \"Gedöns\"\n    }\n}",
+			"form": []
+		},
+		"tests": []
+	},
+	{
+		"_id": "a9ef595e-50d5-4bc6-a3b4-e6a9965b0fe1",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "22f17555-2c78-4481-a9f4-5ed55e1573b5",
+		"name": "error (prospect unsubscribed)",
+		"url": "http://127.0.0.1:5173/api/newsletter/subscribe",
+		"method": "POST",
+		"sortNum": 30000,
+		"created": "2022-09-06T02:03:00.884Z",
+		"modified": "2022-09-06T02:03:47.346Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "json",
+			"raw": "{\n    \"email_address\": \"status-unsubscribed@maier.asia\",\n    \"fields\": {\n        \"FirstName\": \"Peter\",\n        \"LastName\": \"Gedöns\"\n    }\n}",
+			"form": []
+		},
+		"tests": []
+	},
+	{
+		"_id": "6f8c8b77-bc9f-4151-ad51-c0d82969a1b8",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "22f17555-2c78-4481-a9f4-5ed55e1573b5",
+		"name": "success [remove subscriber first]",
+		"url": "http://127.0.0.1:5173/api/newsletter/subscribe",
+		"method": "POST",
+		"sortNum": 40000,
+		"created": "2022-09-06T02:04:59.065Z",
+		"modified": "2022-09-06T02:06:11.151Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "json",
+			"raw": "{\n    \"email_address\": \"test@maier.asia\",\n    \"fields\": {\n        \"FirstName\": \"Thilo\",\n        \"LastName\": \"Maier\"\n    }\n}",
+			"form": []
+		},
+		"tests": []
+	},
+	{
+		"_id": "6733385e-0829-48a3-b82b-8a87759ce056",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "7b4e27bf-a9d3-4702-ab29-9950810e958b",
+		"name": "error (invalid email syntax)",
+		"url": "http://127.0.0.1:5173/newsletter/unsubscribe",
+		"method": "POST",
+		"sortNum": 20000,
+		"created": "2022-09-06T03:19:25.117Z",
+		"modified": "2022-09-15T01:57:02.364Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "formdata",
+			"raw": "",
+			"form": [
+				{
+					"name": "email_address",
+					"value": "peter$gedoens.de"
+				}
+			]
+		},
+		"tests": []
+	},
+	{
+		"_id": "bbfe6bcc-6da9-4c5f-b0e6-9cc7352a1fcf",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "7b4e27bf-a9d3-4702-ab29-9950810e958b",
+		"name": "success",
+		"url": "http://127.0.0.1:5173/newsletter/unsubscribe",
+		"method": "POST",
+		"sortNum": 30000,
+		"created": "2022-09-06T03:22:18.317Z",
+		"modified": "2022-09-15T01:59:26.694Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "formdata",
+			"raw": "",
+			"form": [
+				{
+					"name": "email_address",
+					"value": "status-unsubscribed@maier.asia"
+				}
+			]
+		},
+		"tests": []
+	},
+	{
+		"_id": "d38cc1b2-5669-401a-a276-91289fc60ef8",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "7b4e27bf-a9d3-4702-ab29-9950810e958b",
+		"name": "error (no email)",
+		"url": "http://127.0.0.1:5173/newsletter/unsubscribe",
+		"method": "POST",
+		"sortNum": 25000,
+		"created": "2022-09-15T05:01:54.178Z",
+		"modified": "2022-09-15T05:07:03.769Z",
+		"headers": [],
+		"params": [],
+		"body": {
+			"type": "formdata",
+			"raw": "",
+			"form": [
+				{
+					"name": "not_email_address",
+					"value": ""
+				}
+			]
+		},
+		"tests": []
+	}
+]

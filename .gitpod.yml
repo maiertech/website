@@ -18,11 +18,10 @@ vscode:
   extensions:
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
-    - GitHub.vscode-pull-request-github
     - phoenisx.cssvar
     - rangav.vscode-thunder-client
+    - ryanyang52.vscode-svelte-snippets
     - svelte.svelte-vscode
-    - yzhang.markdown-all-in-one
     - znck.grammarly
 
 github:
