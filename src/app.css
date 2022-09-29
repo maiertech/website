@@ -5,54 +5,51 @@
 @import url('./styles/prism.css') (prefers-color-scheme: light);
 @import url('./styles/prism-okaidia.css') (prefers-color-scheme: dark);
 
-/* COLORS */
-
 :root {
-	/* Tailwind colors: https://tailwindcss.com/docs/customizing-colors. */
-
-	/* Light color scheme. */
-	--brand-light: #1e40af; /* blue-800 */
-	--text-1-light: #1f2937; /* gray-800 */
-	--text-2-light: #374151; /* gray-700 */
-	--surface-1-light: #f9fafb; /* gray-50, c(brand): AAA, c(text-1): AAA, c(text-2): AAA */
-	--surface-2-light: #e5e7eb; /* gray-200, c(brand): AAA, c(text-1): AAA, c(text-2): AAA */
-	--surface-3-light: #bfdbfe; /* blue-200, c(brand): AA, c(text-1): AAA, c(text-2): AAA  */
+	/* Color scheme: light. */
+	--surface-1-light: #f9fafb;
+	--surface-2-light: #e5e7eb;
+	--surface-3-light: #bfdbfe;
+	--text-1-light: #1f2937;
+	--text-2-light: #4b5563;
+	--brand-light: #1e40af;
+	--accent-light: #065f46;
 	--link-light: var(--brand-light);
 	--link-visited-light: var(--brand-light);
 
-	/* Dark scheme. */
-	--brand-dark: #93c5fd; /* blue-300 */
-	--text-1-dark: #f3f4f6; /* gray-100 */
-	--text-2-dark: #e5e7eb; /* gray-200 */
-	--surface-1-dark: #111827; /* gray-900, c(brand): AAA, c(text-1): AAA, c(text-2): AAA */
-	--surface-2-dark: #374151; /* gray-700, c(brand): AA, c(text-1): AAA, c(text-2): AAA  */
-	--surface-3-dark: #1e3a8a; /* blue-900, c(brand): AA, c(text-1): AAA, c(text-2): AAA  */
+	/* Color scheme: dark. */
+	--surface-1-dark: #111827;
+	--surface-2-dark: #374151;
+	--surface-3-dark: #1e3a8a;
+	--text-1-dark: #f9fafb;
+	--text-2-dark: #d1d5db;
+	--brand-dark: #93c5fd;
+	--accent-dark: #34d399;
 	--link-dark: var(--brand-dark);
 	--link-visited-dark: var(--link-dark);
 
-	/* Default scheme. */
 	color-scheme: light;
-	--brand: var(--brand-light);
-	--text-1: var(--text-1-light);
-	--text-2: var(--text-2-light);
 	--surface-1: var(--surface-1-light);
 	--surface-2: var(--surface-2-light);
 	--surface-3: var(--surface-3-light);
+	--text-1: var(--text-1-light);
+	--text-2: var(--text-2-light);
+	--brand: var(--brand-light);
+	--accent: var(--brand-light);
 	--link: var(--link-light);
 	--link-visited: var(--link-visited-light);
 }
 
-/* DARK MODE */
-
 @media (prefers-color-scheme: dark) {
 	:root {
 		color-scheme: dark;
-		--brand: var(--brand-dark);
-		--text-1: var(--text-1-dark);
-		--text-2: var(--text-2-dark);
 		--surface-1: var(--surface-1-dark);
 		--surface-2: var(--surface-2-dark);
 		--surface-3: var(--surface-3-dark);
+		--text-1: var(--text-1-dark);
+		--text-2: var(--text-2-dark);
+		--brand: var(--brand-dark);
+		--accent: var(--accent-dark);
 		--link: var(--link-dark);
 		--link-visited: var(--link-visited-dark);
 	}
