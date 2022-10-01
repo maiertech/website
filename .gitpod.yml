@@ -18,10 +18,9 @@ vscode:
   extensions:
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
-    - phoenisx.cssvar
     - rangav.vscode-thunder-client
-    - ryanyang52.vscode-svelte-snippets
     - svelte.svelte-vscode
+    - vunguyentuan.vscode-css-variables
     - znck.grammarly
 
 github:
