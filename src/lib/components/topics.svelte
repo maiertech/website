@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import topics from '$data/topics';
+	import LinkButton from '$lib/components/atoms/link-button.svelte';
 </script>
 
 <section>
@@ -8,7 +8,7 @@
 		<article>
 			<h2>{topic.title}</h2>
 			<p>{topic.description}</p>
-			<button on:click={() => goto(topic.path)}>Check out posts</button>
+			<LinkButton href={topic.path}>Check out posts</LinkButton>
 		</article>
 	{/each}
 </section>
