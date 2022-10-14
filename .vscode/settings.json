@@ -1,6 +1,4 @@
 {
-	"cssVariables.lookupFiles": ["**/*.css", "node_modules/open-props/open-props.min.css"],
-
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[svelte]": {
@@ -24,7 +22,7 @@
 	"grammarly.config.suggestions.StylisticFragments": true,
 
 	"svelte.enable-ts-plugin": true,
-	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	"svelte.plugin.css.globals": "**/*.css, node_modules/open-props/open-props.min.css",
 
 	"thunder-client.saveToWorkspace": true
 }
