@@ -12,10 +12,11 @@
 	export const prerender = true;
 
 	onMount(() => {
-		// Get Fathom Analytics ready.
+		// Load Fathom Analytics tracking script.
 		Fathom.load(import.meta.env.VITE_FATHOM_SITE_ID as string, {
-			url: 'https://firefly.maier.tech/script.js',
+			url: 'https://refreshing-golden-years.maier.tech/script.js',
 			honorDNT: true,
+			// Track only maier.tech. Also configured on app.usefathom.com.
 			includedDomains: ['maier.tech']
 		});
 	});

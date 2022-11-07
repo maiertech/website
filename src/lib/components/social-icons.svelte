@@ -6,7 +6,12 @@
 
 <div>
 	{#each icons as icon (icon.id)}
-		<a href={icon.href} on:click={icon.onclick} class="icon">
+		<a
+			rel={icon.id === 'mastodon' ? 'me' : undefined}
+			href={icon.href}
+			on:click={icon.onclick}
+			class="icon"
+		>
 			<svelte:component this={icon.component} title={icon.title} />
 		</a>
 	{/each}
@@ -17,7 +22,6 @@
 		width: fit-content;
 		display: flex;
 		flex-wrap: wrap;
-		/* justify-content: center; */
 		gap: var(--size-fluid-2);
 	}
 
