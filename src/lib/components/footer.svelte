@@ -10,27 +10,36 @@
 <script lang="ts">
 	import Container from '$lib/components/container.svelte';
 	import SocialIcons from '$lib/components/social-icons.svelte';
-	import * as Fathom from 'fathom-client';
-	import GitHubLogo from './github-logo.svelte';
-	import TwitterLogo from './twitter-logo.svelte';
-
 	import type { SocialIcon } from '$models/content.model';
+	import * as Fathom from 'fathom-client';
+	import GitHubIcon from './icon-github.svelte';
+	import TwitterIcon from './icon-twitter.svelte';
+	import MastodonIcon from './icon-mastodon.svelte';
 
 	const icons: SocialIcon[] = [
 		{
-			id: 'twitter',
-			title: 'Twitter',
-			href: 'https://twitter.com/maiertech',
-			component: TwitterLogo,
+			id: 'mastodon',
+			title: 'Mastodon',
+			href: 'https://mastodon.online/@maiertech',
+			component: MastodonIcon,
 			onclick: () => {
-				Fathom.trackGoal('2I6NRT6B', 0);
+				Fathom.trackGoal('0R92Q3LP', 0);
 			}
 		},
 		{
 			id: 'github',
 			title: 'GitHub',
 			href: 'https://github.com/maiertech',
-			component: GitHubLogo
+			component: GitHubIcon
+		},
+		{
+			id: 'twitter',
+			title: 'Twitter',
+			href: 'https://twitter.com/maiertech',
+			component: TwitterIcon,
+			onclick: () => {
+				Fathom.trackGoal('2I6NRT6B', 0);
+			}
 		}
 	];
 </script>
