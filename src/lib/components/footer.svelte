@@ -13,7 +13,6 @@
 	import type { SocialIcon } from '$models/content.model';
 	import * as Fathom from 'fathom-client';
 	import GitHubIcon from './icon-github.svelte';
-	import TwitterIcon from './icon-twitter.svelte';
 	import MastodonIcon from './icon-mastodon.svelte';
 
 	const icons: SocialIcon[] = [
@@ -31,15 +30,6 @@
 			title: 'GitHub',
 			href: 'https://github.com/maiertech',
 			component: GitHubIcon
-		},
-		{
-			id: 'twitter',
-			title: 'Twitter',
-			href: 'https://twitter.com/maiertech',
-			component: TwitterIcon,
-			onclick: () => {
-				Fathom.trackGoal('2I6NRT6B', 0);
-			}
 		}
 	];
 </script>
