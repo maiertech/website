@@ -20,7 +20,7 @@
 		{
 			id: 'mastodon',
 			title: 'Mastodon',
-			href: 'https://mastodon.online/@maiertech',
+			href: 'https://mastodon.maier.social/@thilo',
 			component: MastodonIcon,
 			onclick: () => {
 				Fathom.trackGoal('0R92Q3LP', 0);
