@@ -28,7 +28,7 @@
 		"mdsvex": "^0.10.6",
 		"open-props": "^1.4.21",
 		"prettier": "^2.8.1",
-		"prettier-plugin-svelte": "^2.8.0",
+		"prettier-plugin-svelte": "^2.9.0",
 		"remark-code-titles": "^0.1.2",
 		"svelte": "^3.48.0",
 		"svelte-check": "^2.9.2",
