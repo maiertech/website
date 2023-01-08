@@ -1,5 +1,5 @@
 import type { Actions } from '@sveltejs/kit';
-import { invalid } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import { ZodError } from 'zod';
 import { update_contact } from '../api';
 import type { PageServerLoad } from './$types';
@@ -37,7 +37,7 @@ export const actions: Actions = {
 		} catch (e) {
 			if (e instanceof ZodError) {
 				errors = e.flatten() as Validation.Errors;
-				return invalid(400, {
+				return fail(400, {
 					success: false,
 					errors,
 					values: original_values
@@ -53,7 +53,7 @@ export const actions: Actions = {
 		if (!response.ok) {
 			const body = (await response.json()) as { error: EmailOctopusApiError };
 			errors = { formErrors: [body.error.message], fieldErrors: {} };
-			return invalid(response.status, {
+			return fail(response.status, {
 				success: false,
 				errors,
 				values: original_values

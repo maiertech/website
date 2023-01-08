@@ -9,7 +9,7 @@
 	import { onMount } from 'svelte';
 	import '../app.css';
 
-	export const prerender = true;
+	// export const prerender = true;
 
 	onMount(() => {
 		// Load Fathom Analytics tracking script.

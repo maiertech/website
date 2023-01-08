@@ -1,10 +1,9 @@
 import ImgixClient from '@imgix/js-core';
+import { IMGIX_DOMAIN, IMGIX_TOKEN } from '$env/static/private';
 
 const client = new ImgixClient({
-	// Default value ensures that GitHub actions build does not fail.
-	domain: process.env.IMGIX_DOMAIN || 'example.imgix.net',
-	// This token is a secret and needs to be protected.
-	secureURLToken: process.env.IMGIX_TOKEN,
+	domain: IMGIX_DOMAIN,
+	secureURLToken: IMGIX_TOKEN,
 	includeLibraryParam: false
 });
 
