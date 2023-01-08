@@ -1,5 +1,6 @@
 import type { Prospect, Subscriber as EOSubscriber } from '$models/newsletter.model';
-import { invalid, type Actions } from '@sveltejs/kit';
+import type { Actions } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import { ZodError } from 'zod';
 import { create_contact, get_contact } from '../api';
 import { SubscribeForm, type Subscriber } from './validation';
@@ -32,7 +33,7 @@ export const actions: Actions = {
 		} catch (e) {
 			if (e instanceof ZodError) {
 				errors = e.flatten() as Validation.Errors;
-				return invalid(400, {
+				return fail(400, {
 					success: false,
 					errors,
 					values: original_values
@@ -79,7 +80,7 @@ export const actions: Actions = {
 				}
 			}
 
-			return invalid(response.status, {
+			return fail(response.status, {
 				success: false,
 				errors: { formErrors, fieldErrors: {} },
 				values: original_values
