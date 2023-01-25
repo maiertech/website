@@ -5,7 +5,7 @@
 
 	const title = 'Thilo Maier';
 	const description =
-		"Hi, I'm Thilo. I am a developer based in New York. I build web apps with SvelteKit and Svelte and keep improving my developer happiness.";
+		"Hi, I'm Thilo. I am a developer based in Rotterdam, NL. I build web apps with SvelteKit and Svelte and keep improving my developer happiness.";
 </script>
 
 <SEO {title} {description} />
