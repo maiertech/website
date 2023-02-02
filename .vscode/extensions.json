@@ -1,9 +1,10 @@
 {
 	"recommendations": [
+		"Codeium.codeium",
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
 		"rangav.vscode-thunder-client",
-		"svelte.svelte-vscode",
-		"znck.grammarly"
+		"robole.marky-stats",
+		"svelte.svelte-vscode"
 	]
 }
