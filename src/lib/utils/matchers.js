@@ -1,7 +1,11 @@
 import slugify from '$lib/utils/slugify';
-import type { PostFrontmatter } from '$models/frontmatter.model';
 
-export function matchSlug(param: string, frontmatter: PostFrontmatter): boolean {
+/**
+ * @param {string} param
+ * @param { import('$models/frontmatter.model').PostFrontmatter} frontmatter
+ * @returns boolean
+ */
+export function matchSlug(param, frontmatter) {
 	// Don't match route when unpublish is set to true.
 	if (frontmatter.unpublish) return false;
 

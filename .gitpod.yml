@@ -16,11 +16,12 @@ tasks:
 
 vscode:
   extensions:
+    - Codeium.codeium
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
     - rangav.vscode-thunder-client
+    - robole.marky-stats
     - svelte.svelte-vscode
-    - znck.grammarly
 
 github:
   prebuilds:

@@ -13,13 +13,10 @@
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
 
-	"grammarly.files.include": ["**/README.md", "**/*.md", "**/*.svx"],
-	"grammarly.config.documentDialect": "american",
-	"grammarly.config.suggestions.ConjunctionAtStartOfSentence": true,
-	"grammarly.config.suggestions.PassiveVoice": true,
-	"grammarly.config.suggestions.UnnecessaryEllipses": true,
-	"grammarly.config.suggestions.PrepositionAtTheEndOfSentence": true,
-	"grammarly.config.suggestions.StylisticFragments": true,
+	"markyMarkdown.statsShowReadingTime": false,
+	"markyMarkdown.statsShowWords": true,
+	"markyMarkdown.statsShowLines": false,
+	"markyMarkdown.statsShowCharacters": false,
 
 	"svelte.enable-ts-plugin": true,
 	"svelte.plugin.css.globals": "**/*.css, node_modules/open-props/open-props.min.css",

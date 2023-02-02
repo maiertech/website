@@ -1,13 +1,15 @@
 ---
 name: Post
-about: Template for a post (1000 words)
+about: Template for a post
 title: '<Replace with working title>'
 labels: content
 assignees: ''
 ---
 
-- [ ] Draft post (1000 words).
-- [ ] Edit with post with Grammarly.
+- [ ] Draft post (500 to 1000 words).
+- [ ] Edit with Grammarly.
+- [ ] Check reading flow.
 - [ ] Write SEO description.
-- [ ] Edit description with Grammarly.
 - [ ] Finalize title and slug.
+- [ ] Final edit with Grammarly.
+- [ ] Final check.
