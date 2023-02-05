@@ -43,7 +43,7 @@
 		</nav>
 		<div class="center">
 			<SocialIcons {icons} />
-			<p>&copy; 2022 Thilo Maier</p>
+			<p>&copy; 2023 Thilo Maier</p>
 		</div>
 	</Container>
 </footer>
