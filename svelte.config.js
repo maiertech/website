@@ -26,7 +26,9 @@ const config = {
 			$posts: 'src/routes/posts'
 		},
 		csrf: {
-			checkOrigin: false
+			// Set environment variable NO_CHECK_ORIGIN=1 on Gitpod or StackBlitz:
+			// https://github.com/sveltejs/kit/issues/8314
+			checkOrigin: process.env.NO_CHECK_ORIGIN ? false : true
 		}
 	},
 
