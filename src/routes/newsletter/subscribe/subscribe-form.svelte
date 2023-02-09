@@ -1,25 +1,34 @@
-<script lang="ts">
+<script>
 	import { enhance } from '$app/forms';
 
-	// Form values are optional, because initial form data can be data that does not validate.
-	export let first_name: string | undefined = undefined;
-	export let email_address: string | undefined = undefined;
+	/** @type {string} */
+	export let message;
 
-	export let form_action: string | undefined = undefined;
-	export let message: string;
-	export let validation_errors: { first_name?: string; email_address?: string } | undefined =
-		undefined;
+	/** @type {import('../zod-types').ValidationErrors} */
+	export let errors = undefined;
+
+	/** @type {import('../zod-types').SubscribeForm} */
+	export let values = undefined;
+
+	/** @type {string|undefined} */
+	let first_name = values?.first_name;
+
+	/** @type {string|undefined} */
+	let email_address = values?.email_address;
 </script>
 
 <header>Subscribe to my newsletter</header>
 
-<p>{message}</p>
+{#if message}
+	<p>{message}</p>
+{/if}
 
-<form method="POST" action={form_action} use:enhance>
+<!-- use:enhance -->
+<form method="POST" use:enhance>
 	<div>
 		<label for="first_name" class="sr-only">First name</label>
-		{#if validation_errors?.first_name}
-			<p class="validation_error">{validation_errors.first_name}</p>
+		{#if errors?.first_name}
+			<p class="validation_error">{errors.first_name[0]}</p>
 		{/if}
 		<input
 			bind:value={first_name}
@@ -30,8 +39,8 @@
 	</div>
 	<div>
 		<label for="email_address" class="sr-only">Email address</label>
-		{#if validation_errors?.email_address}
-			<p class="validation_error">{validation_errors?.email_address}</p>
+		{#if errors?.email_address}
+			<p class="validation_error">{errors.email_address[0]}</p>
 		{/if}
 		<input
 			bind:value={email_address}

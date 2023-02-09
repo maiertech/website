@@ -1,6 +1,5 @@
 {
 	"recommendations": [
-		"Codeium.codeium",
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
 		"rangav.vscode-thunder-client",

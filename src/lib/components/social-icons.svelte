@@ -1,7 +1,6 @@
-<script lang="ts">
-	import type { SocialIcon } from '$models/content.model';
-
-	export let icons: SocialIcon[];
+<script>
+	/** @type {import('$lib/types').SocialIcon[]} */
+	export let icons;
 </script>
 
 <div>

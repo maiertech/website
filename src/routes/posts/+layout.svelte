@@ -1,11 +1,11 @@
-<script lang="ts">
+<script>
 	import { page } from '$app/stores';
 	import Footer from '$lib/components/post-footer.svelte';
 	import Header from '$lib/components/post-header.svelte';
 	import SEO from '$lib/components/seo.svelte';
-	import type { Post } from '$models/content.model';
 
-	const post = $page.data.post as Post;
+	/** @type {import('$lib/types').Post} */
+	const post = $page.data.post;
 </script>
 
 <article>

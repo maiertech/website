@@ -1,7 +1,7 @@
 import { base } from '$app/paths';
-import type { Link } from '$models/content.model';
 
-const navigation: Link[] = [
+/** @type {import('$lib/types').Link[]} */
+const navigation = [
 	{ title: 'Posts', href: `${base}/posts` },
 	{ title: 'Newsletter', href: `${base}/newsletter/subscribe` }
 ];

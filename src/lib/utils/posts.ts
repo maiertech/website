@@ -2,8 +2,7 @@ import authors from '$data/authors';
 import tags from '$data/tags';
 import topics from '$data/topics';
 import slugify from '$lib/utils/slugify';
-import type { Images, Post } from '$models/content.model';
-import type { PostFrontmatter } from '$models/frontmatter.model';
+import type { Image, Post, PostFrontmatter } from '$lib/types/index';
 import { createSrc, createSrcset } from './imgix';
 
 /**
@@ -33,7 +32,7 @@ export function normalize(frontmatter: PostFrontmatter, path: string): Post {
 	});
 
 	// 4. Process URLs of origin images.
-	const images: Images = {};
+	const images: { [id: string]: Image } = {};
 	frontmatter?.images
 		?.map(({ id, url }) => ({
 			id,

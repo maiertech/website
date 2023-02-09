@@ -23,7 +23,6 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$data: 'src/data',
-			$models: 'src/models',
 			$posts: 'src/routes/posts'
 		},
 		csrf: {

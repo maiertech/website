@@ -1,7 +1,6 @@
-<script lang="ts">
-	import type { Tag } from '$models/content.model';
-
-	export let tags: Tag[];
+<script>
+	/** @type {import('$lib/types').Tag[]} */
+	export let tags;
 	export let inverse = false;
 </script>
 

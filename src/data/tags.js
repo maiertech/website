@@ -1,9 +1,10 @@
-import type { Tag } from '$models/content.model';
-
 import { base } from '$app/paths';
 
-// Valid tags, sorted by key.
-const tags: Tag[] = [
+/**
+ * Valid tags, sorted by key.
+ * @type {import('$lib/types').Tag[]}
+ */
+const tags = [
 	{
 		id: 'codesandbox',
 		label: 'CodeSandbox',

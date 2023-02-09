@@ -1,43 +1,31 @@
-<script lang="ts">
+<script>
 	import { enhance } from '$app/forms';
-	import type { ActionData, PageData } from './$types';
 
-	export let data: PageData;
-	export let form: ActionData;
+	/** @type {import('./$types').PageData} */
+	export let data;
 
-	let email_address: string;
+	/** @type {import('./$types').ActionData} */
+	export let form;
 
-	// If original values in `form` are populated, they take precedence over `data`.
-	if (form?.values?.email_address) {
-		email_address = form.values.email_address;
-	} else if (data?.email_address) {
-		email_address = data.email_address;
-	}
-
-	function get_message(form_data: ActionData) {
-		if (form_data?.success) {
-			return 'You are no longer subscribed to my newsletter.';
-		}
-
-		if (form_data?.errors?.formErrors && form_data.errors.formErrors.length > 0) {
-			return form_data.errors.formErrors[0];
-		}
-
-		return 'Enter your email address and hit unsubscribe.';
-	}
-
-	$: message = get_message(form);
+	// Returned submitted email takes precedence over email from querystring.
+	let email_address = form?.values?.email_address
+		? form.values.email_address
+		: data?.email_address
+		? data.email_address
+		: undefined;
 </script>
 
 <h1>Unsubscribe from my newsletter</h1>
 
-<p>{message}</p>
+{#if form?.message}
+	<p>{form.message}</p>
+{/if}
 
 <form method="POST" use:enhance>
 	<div>
 		<label for="email_address" class="sr-only">Email address</label>
-		{#if form?.errors?.fieldErrors?.email_address}
-			<p class="validation_error">{form.errors.fieldErrors.email_address[0]}</p>
+		{#if form?.errors?.email_address}
+			<p class="validation_error">{form.errors.email_address[0]}</p>
 		{/if}
 		<input
 			bind:value={email_address}
