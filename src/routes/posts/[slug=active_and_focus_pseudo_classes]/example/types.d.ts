@@ -1,6 +1,9 @@
 type ZeroOrOne = '0' | '1';
 
-// https://codesandbox.io/docs/embedding#embed-options
+/**
+ * CodeSandbox embed options:
+ * https://codesandbox.io/docs/embedding#embed-options
+ */
 export type EmbedOptions = {
 	autoresize?: ZeroOrOne;
 	codemirror?: ZeroOrOne;
@@ -21,7 +24,10 @@ export type EmbedOptions = {
 	theme?: 'dark' | 'light';
 };
 
-// https://codesandbox.io/docs/api
+/**
+ * Files type for CodeSandbox API:
+ * https://codesandbox.io/docs/api
+ */
 export type Files = {
 	[path: string]: { content: string; isBinary?: boolean };
 };

@@ -28,7 +28,7 @@ images:
 
 <script>
   import Image from '$lib/components/image.svelte';
-  import Example from './example/codesandbox.svelte';
+  import Sandbox from './example/sandbox.svelte';
 
   /** @type {import('./$types').PageData} */
   export let data;
@@ -40,7 +40,7 @@ My handle on these pseudo-classes could have been better, and I decided to read 
 
 I took the screenshots in this post with Google Chrome. What you see in your CodeSandbox may be different if you use a different browser. There are subtle cross-browser differences for the pseudo-classes covered in this post.
 
-<Example />
+<Sandbox />
 
 ## Pseudo-class :active
 

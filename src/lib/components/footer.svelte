@@ -1,21 +1,21 @@
-<script context="module" lang="ts">
+<script context="module">
 	import navLinks from '$data/navigation';
-	import type { Load } from '@sveltejs/kit';
 
-	export const load: Load = function () {
+	/** @type {import('@sveltejs/kit').Load}*/
+	export const load = function () {
 		return { props: { navLinks } };
 	};
 </script>
 
-<script lang="ts">
+<script>
 	import Container from '$lib/components/container.svelte';
 	import SocialIcons from '$lib/components/social-icons.svelte';
-	import type { SocialIcon } from '$models/content.model';
 	import * as Fathom from 'fathom-client';
 	import GitHubIcon from './icon-github.svelte';
 	import MastodonIcon from './icon-mastodon.svelte';
 
-	const icons: SocialIcon[] = [
+	/** @type {import('$lib/types').SocialIcon[] } */
+	const icons = [
 		{
 			id: 'mastodon',
 			title: 'Mastodon',

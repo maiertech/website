@@ -1,17 +1,22 @@
-import type { List } from '$models/newsletter.model';
 import { error } from '@sveltejs/kit';
-import { get_list } from '../api';
-import type { RequestHandler } from './$types';
+import { list_info } from '../api';
+import { ApiErrorSchema, ListSchema } from '../zod-schemas';
 
-export const GET: RequestHandler = async () => {
-	const response = await get_list();
+/** @type {import('./$types').RequestHandler} */
+export async function GET() {
+	const response = await list_info();
 
 	if (!response.ok) {
-		const body = (await response.json()) as { error: EmailOctopusApiError };
+		/** @type {import('../zod-types').ApiError} */
+		const body = await response.json();
+		ApiErrorSchema.parse(body);
 		throw error(response.status, body.error.message);
 	}
 
-	const list = (await response.json()) as List;
+	/** @type {import('../zod-types').List} */
+	const list = await response.json();
+	ListSchema.parse(list);
+
 	const count = list.counts.subscribed;
 
 	return new Response(JSON.stringify({ count }), {
@@ -24,4 +29,4 @@ export const GET: RequestHandler = async () => {
 			'Cache-Control': 's-maxage=120, stale-while-revalidate=600'
 		}
 	});
-};
+}

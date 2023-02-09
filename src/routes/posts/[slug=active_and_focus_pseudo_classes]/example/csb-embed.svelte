@@ -1,12 +1,13 @@
-<script lang="ts">
-	import type { EmbedOptions, Files } from '$models/codesandbox.model';
+<script>
 	import { error } from '@sveltejs/kit';
 	import { onMount } from 'svelte';
 
 	// This component uses the CodeSandbox API to create a sandbox to embed.
 
-	export let files: Files;
-	export let embedOptions: EmbedOptions = {};
+	/** @type {import('./types').Files} */
+	export let files;
+	/** @type {import('./types').EmbedOptions} */
+	export let embedOptions = {};
 
 	let sandbox_id = '';
 

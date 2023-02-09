@@ -1,8 +1,8 @@
-<script lang="ts">
+<script>
 	import Tags from '$lib/components/tags.svelte';
-	import type { Post } from '$models/content.model';
 
-	export let post: Post;
+	/** @type {import('$lib/types').Post} */
+	export let post;
 </script>
 
 <header>

@@ -1,8 +1,8 @@
-<script lang="ts">
+<script>
 	import SEO from '$lib/components/seo.svelte';
-	import type { PageData } from './$types';
 
-	export let data: PageData;
+	/** @type {import('./$types').PageData} */
+	export let data;
 </script>
 
 <SEO title="Posts" description="List of posts." />

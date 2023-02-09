@@ -1,9 +1,10 @@
 import { base } from '$app/paths';
 
-import type { Topic } from '$models/content.model';
-
-// Permitted topics, sorted by relevance.
-const topics: Topic[] = [
+/**
+ * Permitted topics, sorted by relevance.
+ * @type {import('$lib/types').Topic[]}
+ */
+const topics = [
 	{
 		id: 'svelte',
 		label: 'SV',

@@ -1,9 +1,8 @@
-<script lang="ts">
+<script>
 	import Tags from '$lib/components/tags.svelte';
 
-	import type { Post } from '$models/content.model';
-
-	export let post: Post;
+	/** @type {import('$lib/types').Post}*/
+	export let post;
 
 	// Topic labels are short form. Use titles as labels.
 	$: tags = post.topics?.map((topic) => ({ ...topic, label: topic.title }));
