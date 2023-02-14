@@ -1,5 +1,15 @@
 name: CI
+
 on: [pull_request]
+
+# With pre-rendering enabled, build loads modules, which triggers imports.
+# These variables are just dummies that need to exist while build and check run.
+env:
+  EO_API_KEY: ${{ secrets.EO_API_KEY }}
+  EO_LIST_ID: ${{ secrets.EO_LIST_ID }}
+  IMGIX_DOMAIN: ${{ secrets.IMGIX_DOMAIN }}
+  IMGIX_TOKEN: ${{ secrets.IMGIX_TOKEN }}
+
 jobs:
   checks:
     runs-on: ubuntu-latest
