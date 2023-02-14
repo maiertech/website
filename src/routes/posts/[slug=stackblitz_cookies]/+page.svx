@@ -3,9 +3,9 @@ id: stackblitz-cookies
 title: Cookie settings for StackBlitz WebContainers
 author: thilo
 published: 2023-02-10
-modified: 2023-02-10
-description: When working with embedded StackBlitz WebContainers, your browser needs to have third-party cookies enabled. Alternatively, you can allow specific URL patterns to always use cookies. This post describes how WebContainers work in your browser without allowing third-party cookies for all sites.
-topics: [dx, svelte]
+modified: 2023-02-14
+description: Your browser needs to have third-party cookies enabled when you look at live-code examples embedded with StackBlitz WebContainers. Alternatively, you can allow specific URL patterns to always use cookies. This post describes how embedded WebContainers work in your browser without allowing third-party cookies for all sites.
+topics: [dx]
 tags: [stackblitz]
 images:
   - id: cookies-not-enabled
@@ -21,11 +21,11 @@ images:
   export let data;
 </script>
 
-More and more websites use StackBlitz WebContainers to embed live-code examples. The new Svelte tutorial at [learn.svelte.dev](https://learn.svelte.dev/) embeds StackBlitz WebContainers to run Svelte and SvelteKit examples in supported browsers. Think of WebContainers as a small operating system that runs in a browser and can run Node.js version 16. Once you have Node.js running natively in your browser, it takes little effort to run entire Node-based stacks, e.g., SvelteKit, in a browser.
+More and more websites use StackBlitz WebContainers to embed live-code examples. The new Svelte tutorial at [learn.svelte.dev](https://learn.svelte.dev/) embeds StackBlitz WebContainers to run Svelte and SvelteKit examples in supported browsers. Think of a WebContainer as a small operating system that runs in a browser and can run Node.js version 16. Once you have Node.js running in your browser, it takes little effort to run entire Node-based stacks, e.g., SvelteKit, natively in a browser.
 
 I experimented with embedded WebContainers in my post [Exploring frequently used methods of d3-array](https://maier.tech/posts/exploring-frequently-used-methods-of-d3-array). The first catch with WebContainers is that they are [not yet supported in all browsers](https://developer.stackblitz.com/platform/webcontainers/browser-support). Currently, Chrome and Firefox support WebContainers, but Safari does not.
 
-The second catch is that embedded WebContainers need third-party cookies enabled to work. If your audience is technical, there is a high chance that they are also security-conscious and have third-party cookies disabled. When they see an embedded WebContainer in a browser, they will see this warning:
+The second catch is that embedded WebContainers need third-party cookies enabled to work. If your audience is technical, there is a high chance that they are also security-conscious and have third-party cookies disabled. When they see an embedded WebContainer in a browser, they see this warning:
 
 <figure>
 <Image ratio={1672/736} alt="Screenshot of an embedded StackBlitz WebContainer with warning message 'Enable third-party cookies'." src={data.post.images[`cookies-not-enabled`].src} srcset={data.post.images[`cookies-not-enabled`].srcset} loading="lazy" />
