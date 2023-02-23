@@ -1,17 +1,18 @@
-<script lang="ts">
+<script>
 	import { goto } from '$app/navigation';
 	import SEO from '$lib/components/seo.svelte';
-	import type { PageData } from './$types';
 
-	export let data: PageData;
+	/** @type {import('./$types').PageData} */
+	export let data;
+	const { title, description, posts } = data;
 </script>
 
-<SEO title={`${data.topic.title}`} description={data.topic.description} />
+<SEO {title} {description} />
 
-<h1 class="text-gradient">{`${data.topic.title}`}</h1>
+<h1 class="text-gradient">{title}</h1>
 
 <div>
-	{#each data.posts as post (post.path)}
+	{#each posts as post (post.id)}
 		<article>
 			<h2>{post.title}</h2>
 			<p class="date">
@@ -23,7 +24,7 @@
 				</time>
 			</p>
 			<p class="description">{post.description}</p>
-			<button on:click={() => goto(post.path)}>Read post</button>
+			<button on:click={() => goto(`/posts/${post.slug}`)}>Read post</button>
 		</article>
 	{/each}
 </div>

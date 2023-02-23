@@ -1,6 +1,13 @@
 <script>
-	/** @type {import('$lib/types').Tag[]} */
+	/**
+	 * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TopicsSchema>} Topics
+	 * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TagsSchema>} Tags
+	 */
+
+	/** @type {Topics | Tags} */
 	export let tags;
+
+	/** Use inverse colors. */
 	export let inverse = false;
 </script>
 

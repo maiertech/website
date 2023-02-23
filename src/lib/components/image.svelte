@@ -1,12 +1,39 @@
-<script lang="ts">
-	type Loading = 'eager' | 'lazy';
+<script>
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
-	export let src: string;
-	export let srcset: string;
-	export let alt: string;
-	export let ratio: number = 16 / 9;
-	export let fit = 'cover';
-	export let loading: Loading = 'eager';
+	/** @type {number} */
+	export let ratio = 16 / 9;
+
+	/** @type {string} */
+	export let alt;
+
+	/** @type {string} */
+	export let url;
+
+	/** @type {'eager' | 'lazy'} */
+	export let loading = 'eager';
+
+	/** @type {string} */
+	let src;
+
+	/** @type {string} */
+	let srcset;
+
+	/**
+	 * Cover is probably all we need:
+	 * https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
+	 * @type {string}
+	 */
+	let fit = 'cover';
+
+	onMount(async () => {
+		const response = await fetch(`${$page.url.origin}/api/image`, {
+			method: 'POST',
+			body: JSON.stringify({ url })
+		});
+		({ src, srcset } = await response.json());
+	});
 </script>
 
 <div style:--ratio={ratio}>
