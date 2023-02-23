@@ -7,6 +7,17 @@
 			"request": "launch",
 			"command": "npm run dev",
 			"skipFiles": ["<node_internals>/**"]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Debug current test file",
+			"autoAttachChildProcesses": true,
+			"skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+			"program": "${workspaceRoot}/node_modules/vitest/vitest.mjs",
+			"args": ["run", "${relativeFile}"],
+			"smartStep": true,
+			"console": "integratedTerminal"
 		}
 	]
 }

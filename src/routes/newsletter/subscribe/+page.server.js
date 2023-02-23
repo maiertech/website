@@ -1,73 +1,69 @@
-import { fail } from '@sveltejs/kit';
-import { ZodError } from 'zod';
-import { subscribe, lookup_subscriber } from '../api';
-import { ApiErrorSchema, SubscribeFormSchema } from '../zod-schemas';
+import { error, fail } from '@sveltejs/kit';
+import { subscribe, getSubscriber } from '$lib/utils/eo-api';
+import { EOApiErrorSchema, EOSubscriber, SubscribeFormSchema } from '$lib/schemas/newsletter';
 
 /** @type {import('./$types').Actions} */
 export const actions = {
 	default: async ({ request }) => {
-		const formData = await request.formData();
+		const data = Object.fromEntries(await request.formData());
+		const result = SubscribeFormSchema.safeParse(data);
 
-		const submitted = {
-			first_name: formData.get('first_name')?.toString(),
-			email_address: formData.get('email_address')?.toString()
-		};
-
-		let validated;
-
-		// Validate form data.
-		try {
-			validated = SubscribeFormSchema.parse(submitted);
-		} catch (e) {
-			if (e instanceof ZodError) {
-				// { formErrors: [], fieldErrors: {} }
-				const flattenedErrors = e.flatten();
-				return fail(400, {
-					message: flattenedErrors?.formErrors[0] ?? 'Please check the validation errors.',
-					errors: flattenedErrors?.fieldErrors,
-					values: submitted
-				});
-			} else {
-				throw e;
-			}
+		if (!result.success) {
+			const { fieldErrors: errors } = result.error.flatten();
+			return fail(400, {
+				errors,
+				data
+			});
 		}
 
+		const validated_data = result.data;
+
 		// Try to subscribe.
-		const response = await subscribe(validated);
+		const response = await subscribe(validated_data);
 
 		if (!response.ok) {
-			/** @type {import('../zod-types').ApiError} */
-			const body = await response.json();
-			ApiErrorSchema.parse(body);
+			const result = EOApiErrorSchema.safeParse(await response.json());
 
-			let message = body.error.message;
+			if (!result.success) {
+				throw error(500, 'Subscription failed.');
+			}
 
-			// If prospect is already on list, lookup their status.
-			if (body.error.code === 'MEMBER_EXISTS_WITH_EMAIL_ADDRESS') {
-				const lookup_response = await lookup_subscriber(validated.email_address);
+			const { error: eo_api_error } = result.data;
 
-				// Try to look up subscriber status.
-				/** @type {import('../zod-types').Subscriber} */
-				const subscriber = await lookup_response.json();
+			/** @type {string} */
+			let message = '';
+
+			// If subscriber is already on list, lookup their status.
+			if (eo_api_error.code === 'MEMBER_EXISTS_WITH_EMAIL_ADDRESS') {
+				const res = await getSubscriber(validated_data.email_address);
+
+				if (!res.ok) {
+					throw error(500, 'Subscription failed.');
+				}
+
+				// Validate subscriber.
+				const result = EOSubscriber.safeParse(await res.json());
+
+				if (!result.success) {
+					throw error(500, 'Subscription failed.');
+				}
+
+				const subscriber = result.data;
 
 				switch (subscriber.status) {
 					case 'SUBSCRIBED':
-						message = 'You are already subscribed.';
+						message = 'Your subscription was successful.';
 						break;
 					case 'PENDING':
-						message =
-							'You have subscribed earlier, but not clicked the confirmation link. Please email to support@maier.asia for help.';
-						break;
 					case 'UNSUBSCRIBED':
-						message =
-							'You have unsubscribed earlier. Please email to support@maier.asia to resubscribe.';
+						message = 'Please email support@maier.asia to complete your subscription.';
 						break;
 				}
 			}
 
-			return fail(response.status, {
+			return fail(400, {
 				message,
-				values: submitted
+				data
 			});
 		}
 

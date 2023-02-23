@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
-	import navLinks from '$data/navigation';
+	import navLinks from '$lib/data/navigation';
 
 	export const load: Load = function () {
 		return { props: { navLinks } };

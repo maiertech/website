@@ -2,7 +2,7 @@
 	import SvelteSeo from 'svelte-seo';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import { BASE_URL } from '$data/urls';
+	import { BASE_URL } from '$lib/data/site';
 
 	// Every page.
 	export let title: string;

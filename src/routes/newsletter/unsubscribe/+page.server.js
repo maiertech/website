@@ -1,7 +1,6 @@
-import { fail } from '@sveltejs/kit';
-import { ZodError } from 'zod';
-import { unsubscribe } from '../api';
-import { ApiErrorSchema, UnsubscribeFormSchema } from '../zod-schemas';
+import { error, fail } from '@sveltejs/kit';
+import { unsubscribe } from '$lib/utils/eo-api';
+import { EOApiErrorSchema, UnsubscribeFormSchema } from '$lib/schemas/newsletter';
 
 const SUCCESS_MESSAGE = 'You have unsubscribed from my newsletter.';
 
@@ -14,50 +13,30 @@ export function load({ url }) {
 /** @type {import('./$types').Actions} */
 export const actions = {
 	default: async ({ request }) => {
-		const formData = await request.formData();
+		const data = Object.fromEntries(await request.formData());
+		const result = UnsubscribeFormSchema.safeParse(data);
 
-		const submitted = {
-			email_address: formData.get('email_address')?.toString()
-		};
-
-		let validated;
-
-		// Validate form data.
-		try {
-			validated = UnsubscribeFormSchema.parse(submitted);
-		} catch (e) {
-			if (e instanceof ZodError) {
-				// { formErrors: [], fieldErrors: {} }
-				const flattenedErrors = e.flatten();
-				return fail(400, {
-					message: flattenedErrors?.formErrors[0] ?? 'Please check the validation errors.',
-					errors: flattenedErrors?.fieldErrors,
-					values: submitted
-				});
-			} else {
-				throw e;
-			}
+		if (!result.success) {
+			const { fieldErrors: errors } = result.error.flatten();
+			return fail(400, {
+				errors,
+				data
+			});
 		}
 
+		const validated_data = result.data;
+
 		// Try to unsubscribe.
-		const response = await unsubscribe(validated.email_address);
+		const response = await unsubscribe(validated_data.email_address);
 
 		if (!response.ok) {
-			/** @type {import('../zod-types').ApiError)} */
-			const body = await response.json();
-			ApiErrorSchema.parse(body);
+			const result = EOApiErrorSchema.safeParse(await response.json());
 
-			let message = body.error.message;
-
-			// The MEMBER_NOT_FOUND error message would disclose that the email has never been subscribed.
-			if (body.error.code === 'MEMBER_NOT_FOUND') {
-				message = SUCCESS_MESSAGE;
+			if (!result.success) {
+				throw error(500, 'Unsubscription failed.');
 			}
 
-			return fail(response.status, {
-				message,
-				values: submitted
-			});
+			// No explicit fail to avoid disclosing subscription status.
 		}
 
 		return { message: SUCCESS_MESSAGE };

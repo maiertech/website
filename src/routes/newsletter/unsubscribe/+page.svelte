@@ -6,13 +6,6 @@
 
 	/** @type {import('./$types').ActionData} */
 	export let form;
-
-	// Returned submitted email takes precedence over email from querystring.
-	let email_address = form?.values?.email_address
-		? form.values.email_address
-		: data?.email_address
-		? data.email_address
-		: undefined;
 </script>
 
 <h1>Unsubscribe from my newsletter</h1>
@@ -24,16 +17,18 @@
 <form method="POST" use:enhance>
 	<div>
 		<label for="email_address" class="sr-only">Email address</label>
-		{#if form?.errors?.email_address}
-			<p class="validation_error">{form.errors.email_address[0]}</p>
-		{/if}
 		<input
-			bind:value={email_address}
 			type="email"
 			name="email_address"
 			placeholder="Enter email address (required)"
+			value={form?.data?.email_address ?? data.email_address}
 			required
 		/>
+		{#if form?.errors?.email_address}
+			<label for="email_address" class="error">
+				{form.errors.email_address[0]}
+			</label>
+		{/if}
 	</div>
 	<button type="submit">Unsubscribe</button>
 </form>
@@ -68,7 +63,8 @@
 	}
 
 	div {
-		position: relative;
+		display: flex;
+		flex-direction: column;
 	}
 
 	input {
@@ -81,9 +77,7 @@
 		}
 	}
 
-	.validation_error {
-		position: absolute;
-		bottom: calc(-1 * var(--size-fluid-2));
+	.error {
 		font-size: var(--font-size-fluid-0);
 		margin-block-end: 0;
 	}

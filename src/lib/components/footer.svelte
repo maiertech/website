@@ -1,5 +1,5 @@
 <script context="module">
-	import navLinks from '$data/navigation';
+	import navLinks from '$lib/data/navigation';
 
 	/** @type {import('@sveltejs/kit').Load}*/
 	export const load = function () {

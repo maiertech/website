@@ -1,15 +1,12 @@
 <script>
 	import Tags from '$lib/components/tags.svelte';
 
-	/** @type {import('$lib/types').Post}*/
-	export let post;
-
-	// Topic labels are short form. Use titles as labels.
-	$: tags = post.topics?.map((topic) => ({ ...topic, label: topic.title }));
+	/** @type {import('zod').z.infer<typeof import('$lib/schemas/content').TopicsSchema>} */
+	export let topics;
 </script>
 
-{#if tags}
+{#if topics.length > 0}
 	<footer>
-		Published in <Tags {tags} inverse />.
+		Published in <Tags tags={topics} inverse />.
 	</footer>
 {/if}

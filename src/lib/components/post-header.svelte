@@ -1,34 +1,52 @@
 <script>
 	import Tags from '$lib/components/tags.svelte';
 
-	/** @type {import('$lib/types').Post} */
-	export let post;
+	/** @type {string} */
+	export let title;
+
+	/** @type {string} */
+	export let author;
+
+	/**
+	 * ISO 8601 date string (YYYY-MM-DDTHH:MM:SS.SSSZ).
+	 * @type {string}
+	 */
+	export let publishedDate;
+
+	/**
+	 * IS) 8601 date string (YYYY-MM-DDTHH:MM:SS.SSSZ).
+	 * @type {string}
+	 */
+	export let modifiedDate;
+
+	/** @type {import('zod').z.infer<typeof import('$lib/schemas/content').TagsSchema> | undefined} */
+	export let tags = undefined;
 </script>
 
 <header>
-	<h1>{post.title}</h1>
+	<h1>{title}</h1>
 	<div>
 		<span class="published">
-			{post.author.name} •
-			<time dateTime={post.published}>
+			{author} •
+			<time dateTime={publishedDate}>
 				{new Intl.DateTimeFormat('en-US', {
 					dateStyle: 'medium',
 					timeZone: 'UTC'
-				}).format(new Date(post.published))}
+				}).format(new Date(publishedDate))}
 			</time>
 		</span><br />
 		<span class="modified">
 			Last modified:
-			<time dateTime={post.modified}>
+			<time dateTime={modifiedDate}>
 				{new Intl.DateTimeFormat('en-US', {
 					dateStyle: 'medium',
 					timeZone: 'UTC'
-				}).format(new Date(post.modified))}
+				}).format(new Date(modifiedDate))}
 			</time>
 		</span>
 	</div>
-	{#if post.tags}
-		<Tags tags={post.tags} />
+	{#if tags}
+		<Tags {tags} />
 	{/if}
 </header>
 

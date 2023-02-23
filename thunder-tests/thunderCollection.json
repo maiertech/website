@@ -44,11 +44,46 @@
 		"sortNum": 30000,
 		"folders": [
 			{
-				"_id": "81cb3664-c267-48ff-acc2-957291cb03ff",
-				"name": "/newsletter/subscribers",
+				"_id": "739be44d-90e8-402f-9627-8f04810a1a9a",
+				"name": "/api/authors",
 				"containerId": "",
-				"created": "2022-09-06T00:29:01.763Z",
+				"created": "2023-02-17T15:03:25.114Z",
 				"sortNum": 10000
+			},
+			{
+				"_id": "fea36fce-8cdb-4814-84c8-8befd1f93c9a",
+				"name": "/api/tags",
+				"containerId": "",
+				"created": "2023-02-17T15:24:32.964Z",
+				"sortNum": 17500
+			},
+			{
+				"_id": "cfb2a835-35fd-43ec-bbd0-1301931eef55",
+				"name": "/api/topics",
+				"containerId": "",
+				"created": "2023-02-17T15:25:21.338Z",
+				"sortNum": 40000
+			},
+			{
+				"_id": "f494139a-5e5b-4ab6-a097-c0c35da29b37",
+				"name": "/api/posts",
+				"containerId": "",
+				"created": "2023-02-17T15:26:24.270Z",
+				"sortNum": 13750
+			},
+			{
+				"_id": "8b91bef1-874b-40d1-8f3e-abdd0805ca3a",
+				"name": "/api/newsletter/subscribers",
+				"containerId": "",
+				"created": "2023-02-20T21:56:10.235Z",
+				"sortNum": 50000
+			},
+			{
+				"_id": "bfd438bd-735c-4d29-aefe-612158179247",
+				"name": "/api/image",
+				"containerId": "",
+				"created": "2023-02-23T13:17:42.230Z",
+				"sortNum": 11250
 			}
 		],
 		"settings": {

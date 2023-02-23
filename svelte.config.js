@@ -21,10 +21,6 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
-		alias: {
-			$data: 'src/data',
-			$posts: 'src/routes/posts'
-		},
 		csrf: {
 			// Set environment variable NO_CHECK_ORIGIN=1 on Gitpod or StackBlitz:
 			// https://github.com/sveltejs/kit/issues/8314
