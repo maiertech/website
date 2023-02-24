@@ -23,7 +23,7 @@ export async function load({ fetch }) {
 	return {
 		title: 'Thilo Maier',
 		description:
-			"Hi, I'm Thilo. I am a developer based in Rotterdam, Netherlands. I build web apps with SvelteKit and Svelte and keep improving my developer happiness.",
+			"Hi, I'm Thilo. I am a developer based in Rotterdam, The Netherlands. I build web apps with SvelteKit and Svelte and keep improving my developer happiness.",
 		topics
 	};
 }
