@@ -1,7 +1,7 @@
 ---
 name: Post
 about: Template for a post
-title: '<Replace with working title>'
+title: 'Post: <Replace with working title>'
 labels: content
 assignees: ''
 ---
@@ -12,4 +12,3 @@ assignees: ''
 - [ ] Write SEO description.
 - [ ] Finalize title and slug.
 - [ ] Final edit with Grammarly.
-- [ ] Final check.
