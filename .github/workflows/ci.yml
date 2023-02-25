@@ -9,6 +9,7 @@ env:
   EO_LIST_ID: ${{ secrets.EO_LIST_ID }}
   IMGIX_DOMAIN: ${{ secrets.IMGIX_DOMAIN }}
   IMGIX_TOKEN: ${{ secrets.IMGIX_TOKEN }}
+  ORIGIN: ${{ secrets.ORIGIN }}
 
 jobs:
   checks:

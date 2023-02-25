@@ -84,6 +84,13 @@
 				"containerId": "",
 				"created": "2023-02-23T13:17:42.230Z",
 				"sortNum": 11250
+			},
+			{
+				"_id": "1434763f-9562-43d5-8b28-f0d100d75e3b",
+				"name": "/sitemap.xml",
+				"containerId": "",
+				"created": "2023-02-25T17:00:20.755Z",
+				"sortNum": 60000
 			}
 		],
 		"settings": {

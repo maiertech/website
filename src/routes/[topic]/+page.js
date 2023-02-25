@@ -24,7 +24,7 @@ export async function load({ fetch, params }) {
 	const [resolved_topic] = result_topic.data;
 
 	// Fetch posts for topic.
-	response = await fetch('/api/posts', {
+	response = await fetch('/', {
 		method: 'POST',
 		body: JSON.stringify({ topics: [resolved_topic.id] })
 	});
