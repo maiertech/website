@@ -230,29 +230,10 @@
 		"tests": []
 	},
 	{
-		"_id": "67121439-976d-49d5-97a6-1dced05d14a1",
-		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "cfb2a835-35fd-43ec-bbd0-1301931eef55",
-		"name": "all topic IDs exist",
-		"url": "http://127.0.0.1:5173/api/topics",
-		"method": "POST",
-		"sortNum": 10000,
-		"created": "2023-02-17T13:24:46.387Z",
-		"modified": "2023-02-20T10:34:09.529Z",
-		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "[\n  \"dx\",\n  \"svelte\",\n  \"web-fundamentals\"\n]",
-			"form": []
-		},
-		"tests": []
-	},
-	{
 		"_id": "1f328537-560a-4138-8559-c2a0ed67b6d1",
 		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
 		"containerId": "fea36fce-8cdb-4814-84c8-8befd1f93c9a",
-		"name": "all tags",
+		"name": "success",
 		"url": "http://127.0.0.1:5173/api/tags",
 		"method": "GET",
 		"sortNum": 10000,
@@ -285,7 +266,7 @@
 		"_id": "643b7cb8-91b4-4992-9efd-272470df011b",
 		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
 		"containerId": "739be44d-90e8-402f-9627-8f04810a1a9a",
-		"name": "all authors",
+		"name": "success",
 		"url": "http://127.0.0.1:5173/api/authors",
 		"method": "GET",
 		"sortNum": 10000,
@@ -367,29 +348,10 @@
 		"tests": []
 	},
 	{
-		"_id": "409bd242-1bc0-41af-bc30-e10195e1e47d",
-		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "fea36fce-8cdb-4814-84c8-8befd1f93c9a",
-		"name": "all tag IDs exist",
-		"url": "http://127.0.0.1:5173/api/tags",
-		"method": "POST",
-		"sortNum": 20000,
-		"created": "2023-02-20T10:28:38.515Z",
-		"modified": "2023-02-20T10:32:23.365Z",
-		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "[\n  \"css\",\n  \"d3\",\n  \"node\"\n]",
-			"form": []
-		},
-		"tests": []
-	},
-	{
 		"_id": "36fed89b-d622-4a8f-bbbc-d87ef096cc9e",
 		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
 		"containerId": "cfb2a835-35fd-43ec-bbd0-1301931eef55",
-		"name": "all topics",
+		"name": "success",
 		"url": "http://127.0.0.1:5173/api/topics",
 		"method": "GET",
 		"sortNum": 10000,
@@ -397,101 +359,6 @@
 		"modified": "2023-02-20T12:48:40.841Z",
 		"headers": [],
 		"params": [],
-		"tests": []
-	},
-	{
-		"_id": "de0c9b8c-df45-4359-a946-1cae5b7d2379",
-		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "fea36fce-8cdb-4814-84c8-8befd1f93c9a",
-		"name": "one tag ID does not exist",
-		"url": "http://127.0.0.1:5173/api/tags",
-		"method": "POST",
-		"sortNum": 30000,
-		"created": "2023-02-20T10:43:10.504Z",
-		"modified": "2023-02-20T10:43:43.002Z",
-		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "[\n  \"css\",\n  \"void\",\n  \"node\"\n]",
-			"form": []
-		},
-		"tests": []
-	},
-	{
-		"_id": "5c26ddf2-f7b8-4c8b-8c25-7d5d706e9d29",
-		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "fea36fce-8cdb-4814-84c8-8befd1f93c9a",
-		"name": "empty tags",
-		"url": "http://127.0.0.1:5173/api/tags",
-		"method": "POST",
-		"sortNum": 40000,
-		"created": "2023-02-20T10:44:05.819Z",
-		"modified": "2023-02-20T10:44:21.947Z",
-		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "[]",
-			"form": []
-		},
-		"tests": []
-	},
-	{
-		"_id": "78fdc0fd-57cd-43d9-a36e-074319bfefdc",
-		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "cfb2a835-35fd-43ec-bbd0-1301931eef55",
-		"name": "one topic ID does not exist",
-		"url": "http://127.0.0.1:5173/api/topics",
-		"method": "POST",
-		"sortNum": 20000,
-		"created": "2023-02-20T13:13:19.705Z",
-		"modified": "2023-02-20T13:13:52.277Z",
-		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "[\n  \"dx\",\n  \"void\",\n  \"web-fundamentals\"\n]",
-			"form": []
-		},
-		"tests": []
-	},
-	{
-		"_id": "92bdb5cb-c9bb-4033-80f7-8678c6870daf",
-		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "cfb2a835-35fd-43ec-bbd0-1301931eef55",
-		"name": "empty topics",
-		"url": "http://127.0.0.1:5173/api/topics",
-		"method": "POST",
-		"sortNum": 30000,
-		"created": "2023-02-20T13:13:59.923Z",
-		"modified": "2023-02-20T13:14:18.794Z",
-		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "[]",
-			"form": []
-		},
-		"tests": []
-	},
-	{
-		"_id": "4e77d667-7888-4a20-8786-355773f77f0e",
-		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "739be44d-90e8-402f-9627-8f04810a1a9a",
-		"name": "all author IDs exist",
-		"url": "http://127.0.0.1:5173/api/authors",
-		"method": "POST",
-		"sortNum": 20000,
-		"created": "2023-02-20T13:58:32.195Z",
-		"modified": "2023-02-20T13:59:09.196Z",
-		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "[\n  \"thilo\"\n]",
-			"form": []
-		},
 		"tests": []
 	},
 	{
@@ -542,6 +409,90 @@
 		"sortNum": 110000,
 		"created": "2023-02-25T17:00:30.328Z",
 		"modified": "2023-02-25T17:00:54.585Z",
+		"headers": [],
+		"params": [],
+		"tests": []
+	},
+	{
+		"_id": "49740d57-8d29-441f-8111-d7ebd27416b2",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "30f8d5f9-b822-4815-bc2f-eace62aa71d2",
+		"name": "topic exists",
+		"url": "http://127.0.0.1:5173/api/topics/svelte",
+		"method": "GET",
+		"sortNum": 10000,
+		"created": "2023-02-25T22:22:17.184Z",
+		"modified": "2023-02-25T22:23:11.879Z",
+		"headers": [],
+		"params": [],
+		"tests": []
+	},
+	{
+		"_id": "0fa3107a-3ee8-4d6c-a6be-b0280dee9c17",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "30f8d5f9-b822-4815-bc2f-eace62aa71d2",
+		"name": "topic does not exist",
+		"url": "http://127.0.0.1:5173/api/topics/untopic",
+		"method": "GET",
+		"sortNum": 20000,
+		"created": "2023-02-25T22:23:27.570Z",
+		"modified": "2023-02-26T22:30:58.366Z",
+		"headers": [],
+		"params": [],
+		"tests": []
+	},
+	{
+		"_id": "61692415-f62d-42ce-9402-aa071ee2d7cc",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "4cdc46c2-a03a-4446-bd75-d82d192eab43",
+		"name": "author exists",
+		"url": "http://127.0.0.1:5173/api/authors/thilo",
+		"method": "GET",
+		"sortNum": 10000,
+		"created": "2023-02-26T20:44:40.427Z",
+		"modified": "2023-02-26T20:56:15.851Z",
+		"headers": [],
+		"params": [],
+		"tests": []
+	},
+	{
+		"_id": "8da57931-1bb0-402e-90e6-165f6fe2c061",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "4cdc46c2-a03a-4446-bd75-d82d192eab43",
+		"name": "author does not exist",
+		"url": "http://127.0.0.1:5173/api/authors/homer",
+		"method": "GET",
+		"sortNum": 20000,
+		"created": "2023-02-26T20:45:59.079Z",
+		"modified": "2023-02-26T20:56:19.274Z",
+		"headers": [],
+		"params": [],
+		"tests": []
+	},
+	{
+		"_id": "78c7dcf2-9155-4374-8e45-a98242fc719d",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "2e351db0-e249-4122-be22-3368ed4fa607",
+		"name": "tag exists",
+		"url": "http://127.0.0.1:5173/api/tags/css",
+		"method": "GET",
+		"sortNum": 10000,
+		"created": "2023-02-26T22:29:13.812Z",
+		"modified": "2023-02-27T16:55:51.997Z",
+		"headers": [],
+		"params": [],
+		"tests": []
+	},
+	{
+		"_id": "ae4263c1-ebe9-4eaa-be83-f8e18c191934",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "2e351db0-e249-4122-be22-3368ed4fa607",
+		"name": "tag does not exist",
+		"url": "http://127.0.0.1:5173/api/tags/psychology",
+		"method": "GET",
+		"sortNum": 20000,
+		"created": "2023-02-26T22:30:01.031Z",
+		"modified": "2023-02-27T16:56:48.775Z",
 		"headers": [],
 		"params": [],
 		"tests": []
