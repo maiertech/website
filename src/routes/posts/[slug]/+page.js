@@ -1,5 +1,5 @@
 import posts from '$lib/data/posts';
-import { AuthorsSchema, TagsSchema, TopicsSchema } from '$lib/schemas/content';
+import { AuthorSchema, TagSchema, TopicSchema } from '$lib/schemas/content';
 import { error } from '@sveltejs/kit';
 
 export const prerender = 'auto';
@@ -17,25 +17,16 @@ export async function load({ fetch, params }) {
 		throw error(404, 'Not found.');
 	}
 
-	// Resolve authors.
-
-	const response = await fetch('/api/authors', {
-		method: 'POST',
-		body: JSON.stringify([post.author])
-	});
-
+	// Resolve author.
+	const response = await fetch(`/api/authors/${post.author}`);
 	if (!response.ok) {
-		throw error(500, 'Failed to fetch authors.');
+		throw error(500, `Failed to fetch info for author ID ${post.author}.`);
 	}
-
-	// Validate authors.
-	const result = AuthorsSchema.safeParse(await response.json());
-
+	const result = AuthorSchema.safeParse(await response.json());
 	if (!result.success) {
-		throw error(500, 'Authors failed validation.');
+		throw error(500, `Author info for ID ${post.author} failed validation.`);
 	}
-
-	const [author] = result.data;
+	const author = result.data;
 
 	// Resolve topics.
 
@@ -43,23 +34,22 @@ export async function load({ fetch, params }) {
 	let topics;
 
 	if (post.topics) {
-		const response = await fetch('/api/topics', {
-			method: 'POST',
-			body: JSON.stringify(post.topics)
-		});
-
-		if (!response.ok) {
-			throw error(500, 'Failed to fetch topics.');
-		}
-
-		// Validate topics.
-		const result = TopicsSchema.safeParse(await response.json());
-
-		if (!result.success) {
-			throw error(500, 'Topics failed validation.');
-		}
-
-		topics = result.data;
+		topics = await Promise.all(
+			post.topics.map((topic) => {
+				return fetch(`/api/topics/${topic}`).then((response) => {
+					if (!response.ok) {
+						throw error(500, `Failed to fetch info for topic ID ${topic}.`);
+					}
+					return response.json().then((body) => {
+						const result = TopicSchema.safeParse(body);
+						if (!result.success) {
+							throw error(500, `Topic info for ID '${topic}' failed validation.`);
+						}
+						return result.data;
+					});
+				});
+			})
+		);
 	}
 
 	// Resolve tags.
@@ -68,20 +58,22 @@ export async function load({ fetch, params }) {
 	let tags;
 
 	if (post.tags) {
-		const response = await fetch('/api/tags', { method: 'POST', body: JSON.stringify(post.tags) });
-
-		if (!response.ok) {
-			throw error(500, 'Failed to fetch tags.');
-		}
-
-		// Validate tags.
-		const result = TagsSchema.safeParse(await response.json());
-
-		if (!result.success) {
-			throw error(500, 'Tags failed validation.');
-		}
-
-		tags = result.data;
+		tags = await Promise.all(
+			post.tags.map((tag) => {
+				return fetch(`/api/tags/${tag}`).then((response) => {
+					if (!response.ok) {
+						throw error(500, `Failed to fetch info for tag ID ${tag}.`);
+					}
+					return response.json().then((body) => {
+						const result = TagSchema.safeParse(body);
+						if (!result.success) {
+							throw error(500, `Tag info for ID '${tag}' failed validation.`);
+						}
+						return result.data;
+					});
+				});
+			})
+		);
 	}
 
 	/** @type {{ default: import('svelte').ComponentType}} */
