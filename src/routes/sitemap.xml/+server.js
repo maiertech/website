@@ -17,7 +17,12 @@ function createEntry(path, lastmod) {
 }
 
 /** @type {import('./$types').RequestHandler} */
-export async function GET({ fetch }) {
+export async function GET({ fetch, setHeaders }) {
+	setHeaders({
+		'Cache-Control': 's-maxage=3600',
+		'Content-Type': 'application/xml'
+	});
+
 	// Create entries for posts.
 	const response = await fetch('/api/posts', {
 		method: 'POST',
@@ -43,11 +48,7 @@ export async function GET({ fetch }) {
 	<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 		${pages.join('\n')}
 	</urlset>
-	`;
+	`.trim();
 
-	return new Response(sitemap, {
-		headers: {
-			'Content-Type': 'application/xml'
-		}
-	});
+	return new Response(sitemap);
 }
