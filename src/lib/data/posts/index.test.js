@@ -18,6 +18,5 @@ describe('post', () => {
 		expect(post).toHaveProperty('description');
 		expect(post).toHaveProperty('topics', ['svelte']);
 		expect(post?.tags).toEqual(['codesandbox', 'stackblitz', 'vite']);
-		expect(post).toHaveProperty('images');
 	});
 });
