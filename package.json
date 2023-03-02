@@ -20,7 +20,7 @@
 		"@sveltejs/kit": "^1.0.1",
 		"@typescript-eslint/eslint-plugin": "^5.50.0",
 		"@typescript-eslint/parser": "^5.48.0",
-		"eslint": "^8.31.0",
+		"eslint": "^8.35.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"fathom-client": "^3.5.0",
