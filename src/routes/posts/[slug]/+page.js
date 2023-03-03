@@ -2,8 +2,6 @@ import posts from '$lib/data/posts';
 import { AuthorSchema, TagSchema, TopicSchema } from '$lib/schemas/content';
 import { error } from '@sveltejs/kit';
 
-export const prerender = 'auto';
-
 /**
  * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TopicsSchema>} Topics
  * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TagsSchema>} Tags

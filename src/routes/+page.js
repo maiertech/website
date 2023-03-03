@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 import { TopicsSchema } from '$lib/schemas/content';
 
-// export const prerender = true;
+export const prerender = true;
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch }) {

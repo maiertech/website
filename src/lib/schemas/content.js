@@ -1,11 +1,5 @@
 import { z } from 'zod';
 
-export const FilterSchema = z.object({
-	topics: z.array(z.string()).optional(),
-	tags: z.array(z.string()).optional(),
-	limit: z.number().optional()
-});
-
 export const AuthorSchema = z.object({
 	id: z.string(),
 	name: z.string(),
