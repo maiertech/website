@@ -247,19 +247,14 @@
 		"_id": "5cbc66eb-ba9a-4aa1-bab2-0cc675de5888",
 		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
 		"containerId": "f494139a-5e5b-4ab6-a097-c0c35da29b37",
-		"name": "all posts",
+		"name": "success",
 		"url": "http://127.0.0.1:5173/api/posts",
-		"method": "POST",
+		"method": "GET",
 		"sortNum": 10000,
 		"created": "2023-02-17T14:34:52.332Z",
-		"modified": "2023-02-18T20:35:54.431Z",
+		"modified": "2023-03-02T22:49:28.511Z",
 		"headers": [],
 		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "{}",
-			"form": []
-		},
 		"tests": []
 	},
 	{
@@ -277,74 +272,63 @@
 		"tests": []
 	},
 	{
-		"_id": "583ba44e-3cc4-40a4-a8f7-c756dcf9b174",
-		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "f494139a-5e5b-4ab6-a097-c0c35da29b37",
-		"name": "no JSON",
-		"url": "http://127.0.0.1:5173/api/posts",
-		"method": "POST",
-		"sortNum": 20000,
-		"created": "2023-02-18T16:09:06.229Z",
-		"modified": "2023-02-18T20:37:07.897Z",
-		"headers": [],
-		"params": [],
-		"tests": []
-	},
-	{
 		"_id": "b6141ed3-4d0c-4a72-a8c3-547025f0c136",
 		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "f494139a-5e5b-4ab6-a097-c0c35da29b37",
-		"name": "tags: sveltekit",
-		"url": "http://127.0.0.1:5173/api/posts",
-		"method": "POST",
-		"sortNum": 15000,
+		"containerId": "f764cfae-ed3d-462a-8a18-d3f69fe978b5",
+		"name": "by tag",
+		"url": "http://127.0.0.1:5173/api/posts/filter?tag=sveltekit",
+		"method": "GET",
+		"sortNum": 20000,
 		"created": "2023-02-18T16:10:13.561Z",
-		"modified": "2023-02-18T20:36:45.932Z",
+		"modified": "2023-03-03T08:52:20.641Z",
 		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "{\n  \"tags\": [\n    \"sveltekit\"\n  ]\n}",
-			"form": []
-		},
+		"params": [
+			{
+				"name": "tag",
+				"value": "sveltekit",
+				"isPath": false
+			}
+		],
 		"tests": []
 	},
 	{
 		"_id": "07864bbc-62f6-4e0b-9814-79e0420cf994",
 		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "f494139a-5e5b-4ab6-a097-c0c35da29b37",
-		"name": "topics: dx",
-		"url": "http://127.0.0.1:5173/api/posts",
-		"method": "POST",
-		"sortNum": 17500,
+		"containerId": "f764cfae-ed3d-462a-8a18-d3f69fe978b5",
+		"name": "by topic",
+		"url": "http://127.0.0.1:5173/api/posts/filter?topic=dx",
+		"method": "GET",
+		"sortNum": 10000,
 		"created": "2023-02-18T16:17:45.946Z",
-		"modified": "2023-02-18T20:38:01.424Z",
+		"modified": "2023-03-03T08:51:23.979Z",
 		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "{\n  \"topics\": [\n    \"dx\"\n  ]\n}",
-			"form": []
-		},
+		"params": [
+			{
+				"name": "topic",
+				"value": "dx",
+				"isPath": false
+			}
+		],
 		"tests": []
 	},
 	{
 		"_id": "b90720ce-b0dd-400b-b9f3-725f0519633d",
 		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
-		"containerId": "f494139a-5e5b-4ab6-a097-c0c35da29b37",
-		"name": "limit: 2",
-		"url": "http://127.0.0.1:5173/api/posts",
-		"method": "POST",
-		"sortNum": 18750,
+		"containerId": "f764cfae-ed3d-462a-8a18-d3f69fe978b5",
+		"name": "limit",
+		"url": "http://127.0.0.1:5173/api/posts/filter?limit=2",
+		"method": "GET",
+		"sortNum": 40000,
 		"created": "2023-02-18T20:38:13.503Z",
-		"modified": "2023-02-18T20:38:43.221Z",
+		"modified": "2023-03-03T08:52:59.032Z",
 		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "{\n  \"limit\": 2\n}",
-			"form": []
-		},
+		"params": [
+			{
+				"name": "limit",
+				"value": "2",
+				"isPath": false
+			}
+		],
 		"tests": []
 	},
 	{
@@ -365,38 +349,40 @@
 		"_id": "b71f0693-077e-41e8-b1d5-83aa23b19d00",
 		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
 		"containerId": "bfd438bd-735c-4d29-aefe-612158179247",
-		"name": "valid payload",
-		"url": "http://127.0.0.1:5173/api/image",
-		"method": "POST",
+		"name": "valid URL",
+		"url": "http://127.0.0.1:5173/api/image?url=https://example.com/panorama.jpg",
+		"method": "GET",
 		"sortNum": 90000,
 		"created": "2023-02-23T13:18:04.032Z",
-		"modified": "2023-02-23T13:19:02.522Z",
+		"modified": "2023-03-03T23:28:43.689Z",
 		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "{\n  \"url\": \"https://example.com/panorama.jpg\"\n}",
-			"form": []
-		},
+		"params": [
+			{
+				"name": "url",
+				"value": "https://example.com/panorama.jpg",
+				"isPath": false
+			}
+		],
 		"tests": []
 	},
 	{
 		"_id": "1471a564-959c-4427-8898-413fe88c00e2",
 		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
 		"containerId": "bfd438bd-735c-4d29-aefe-612158179247",
-		"name": "invalid payload",
-		"url": "http://127.0.0.1:5173/api/image",
-		"method": "POST",
+		"name": "invalid URL",
+		"url": "http://127.0.0.1:5173/api/image?uri=https://example.com/panorama.jpg",
+		"method": "GET",
 		"sortNum": 100000,
 		"created": "2023-02-23T13:19:46.964Z",
-		"modified": "2023-02-23T13:20:22.418Z",
+		"modified": "2023-03-03T23:30:14.324Z",
 		"headers": [],
-		"params": [],
-		"body": {
-			"type": "json",
-			"raw": "{\n  \"uri\": \"https://example.com/panorama.jpg\"\n}",
-			"form": []
-		},
+		"params": [
+			{
+				"name": "uri",
+				"value": "https://example.com/panorama.jpg",
+				"isPath": false
+			}
+		],
 		"tests": []
 	},
 	{
@@ -495,6 +481,31 @@
 		"modified": "2023-02-27T16:56:48.775Z",
 		"headers": [],
 		"params": [],
+		"tests": []
+	},
+	{
+		"_id": "617f695f-9817-4f4a-86d1-5f8308e6e81b",
+		"colId": "cc563a09-5210-4394-a84e-085efcca6dab",
+		"containerId": "f764cfae-ed3d-462a-8a18-d3f69fe978b5",
+		"name": "by topic and tag",
+		"url": "http://127.0.0.1:5173/api/posts?topic=svelte&tag=seo",
+		"method": "GET",
+		"sortNum": 30000,
+		"created": "2023-03-02T23:13:55.241Z",
+		"modified": "2023-03-03T08:48:12.909Z",
+		"headers": [],
+		"params": [
+			{
+				"name": "topic",
+				"value": "svelte",
+				"isPath": false
+			},
+			{
+				"name": "tag",
+				"value": "seo",
+				"isPath": false
+			}
+		],
 		"tests": []
 	}
 ]

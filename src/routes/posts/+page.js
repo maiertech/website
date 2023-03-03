@@ -1,13 +1,12 @@
 import { PostsSchema } from '$lib/schemas/content';
 import { error } from '@sveltejs/kit';
 
+export const prerender = true;
+
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch }) {
-	// Fetch all posts (set filter to {}).
-	const response = await fetch('/api/posts', {
-		method: 'POST',
-		body: JSON.stringify({ filter: {} })
-	});
+	// Fetch all posts.
+	const response = await fetch('/api/posts');
 
 	if (!response.ok) {
 		throw error(500, 'Failed to fetch posts.');

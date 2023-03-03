@@ -1,8 +1,6 @@
 import { PostsSchema, TagSchema } from '$lib/schemas/content';
 import { error } from '@sveltejs/kit';
 
-export const prerender = 'auto';
-
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch, params }) {
 	const { tag } = params;
@@ -23,10 +21,7 @@ export async function load({ fetch, params }) {
 	const resolved_tag = result_tag.data;
 
 	// Fetch posts for tag.
-	response = await fetch('/api/posts', {
-		method: 'POST',
-		body: JSON.stringify({ tags: [resolved_tag.id] })
-	});
+	response = await fetch(`/api/posts/filter?${new URLSearchParams({ tag: resolved_tag.id })}`);
 
 	if (!response.ok) {
 		throw error(500, `Failed to fetch posts for tag ${resolved_tag.label}.`);

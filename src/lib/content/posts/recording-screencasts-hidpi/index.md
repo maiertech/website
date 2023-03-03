@@ -59,11 +59,13 @@ Depending on which scaled resolution you choose, you get a different DPR. DPR do
 
 <figure>
 <div class="table">
+
 | Resolution   | DPR | Description                     |
 | ------------ | --- | ------------------------------- |
 | 3840 by 2160 | 1   | Actual resolution (More Space). |
 | 2560 by 1440 | 1.5 | Scaled Quad HD.                 |
 | 1920 by 1080 | 2   | Scaled Full HD (Default).       |
+
 </div>
 <figcaption>DPRs for different resolutions for the LG Ultra HD.</figcaption>
 </figure>
@@ -86,10 +88,12 @@ If you do not have an external HiDPI display, you can record a screencast on you
 
 <figure>
 <div class="table">
+
 | Resolution   | DPR  | Description                |
 | ------------ | ---- | -------------------------- |
 | 2560 by 1600 | 1    | Actual resolution.         |
 | 1440 by 900  | 16/9 | Default scaled resolution. |
+
 </div>
 <figcaption>Actual resolution and default scaled resolution on the MacBook Air M1.</figcaption>
 </figure>

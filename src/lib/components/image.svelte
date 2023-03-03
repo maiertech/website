@@ -28,10 +28,7 @@
 	let fit = 'cover';
 
 	onMount(async () => {
-		const response = await fetch(`${$page.url.origin}/api/image`, {
-			method: 'POST',
-			body: JSON.stringify({ url })
-		});
+		const response = await fetch(`${$page.url.origin}/api/image?${new URLSearchParams({ url })}`);
 		({ src, srcset } = await response.json());
 	});
 </script>

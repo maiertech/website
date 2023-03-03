@@ -1,8 +1,6 @@
 import { PostsSchema, TopicSchema } from '$lib/schemas/content';
 import { error } from '@sveltejs/kit';
 
-export const prerender = 'auto';
-
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch, params }) {
 	const { topic } = params;
@@ -23,10 +21,11 @@ export async function load({ fetch, params }) {
 	const resolved_topic = result_topic.data;
 
 	// Fetch posts for topic.
-	response = await fetch('/api/posts', {
-		method: 'POST',
-		body: JSON.stringify({ topics: [resolved_topic.id] })
-	});
+	response = await fetch(
+		`/api/posts/filter?${new URLSearchParams({
+			topic: resolved_topic.id
+		}).toString()}`
+	);
 
 	if (!response.ok) {
 		throw error(500, `Failed to fetch posts for topic ${resolved_topic.label}.`);
