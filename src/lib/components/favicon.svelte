@@ -1,11 +1,13 @@
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
 
-	let theme: 'light' | 'dark';
+	/** @type {'light' | 'dark'} */
+	let theme;
 
 	const QUERY = '(prefers-color-scheme: dark)';
 
-	const handleChange = (e: MediaQueryListEvent) => (theme = e.matches ? 'dark' : 'light');
+	/** @param {MediaQueryListEvent} e */
+	const handleChange = (e) => (theme = e.matches ? 'dark' : 'light');
 
 	onMount(() => {
 		const darkMode = matchMedia(QUERY);

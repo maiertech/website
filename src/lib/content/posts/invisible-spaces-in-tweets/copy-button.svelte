@@ -1,10 +1,13 @@
-<script lang="ts">
+<script>
 	import copy from '$lib/actions/copy';
 	import timer from '$lib/actions/timer';
 
-	export let copyText: string;
+	/** @type {string} */
+	export let copyText;
 
-	let message: string;
+	/** @type {string} */
+	let message;
+
 	let isVisible = false;
 
 	function copiedHandler() {

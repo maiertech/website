@@ -1,12 +1,12 @@
-<script lang="ts">
+<script>
 	import StackBlitz from '$lib/components/stackblitz.svelte';
-	import type { EmbedOptions, Project } from '@stackblitz/sdk';
 	import index_html from '../index.html?raw';
 	import package_json from '../package.json?raw';
 	import extent_js from './extent?raw';
 	import main_js from './main?raw';
 
-	const project: Project = {
+	/** @type {import('@stackblitz/sdk').Project} */
+	const project = {
 		template: 'node',
 		title: 'Compute extent of an array of numbers',
 		description: 'The extent of a dataset is an array consisting of minimum and maximum.',
@@ -18,7 +18,8 @@
 		}
 	};
 
-	const embedOptions: EmbedOptions = {
+	/** @type {import('@stackblitz/sdk').EmbedOptions} */
+	const embedOptions = {
 		clickToLoad: true,
 		openFile: 'extent.js'
 	};

@@ -1,18 +1,22 @@
-<script lang="ts">
+<script>
 	import sdk from '@stackblitz/sdk';
 	import { onMount } from 'svelte';
 
-	import type { Project, EmbedOptions } from '@stackblitz/sdk';
+	/** @type {import('@stackblitz/sdk').Project | string} */
+	export let project;
 
-	export let project: Project | string;
-	export let embedOptions: EmbedOptions = {};
+	/** @type {import('@stackblitz/sdk').EmbedOptions} */
+	export let embedOptions = {};
 
-	let element: HTMLElement;
+	/** @type {HTMLElement} */
+	let element;
 
-	// https://developer.stackblitz.com/docs/platform/javascript-sdk#embed-options
-	let defaultEmbedOptions: EmbedOptions = {};
+	/**
+	 * https://developer.stackblitz.com/docs/platform/javascript-sdk#embed-options
+	 * @type {import('@stackblitz/sdk').EmbedOptions}
+	 */
+	let defaultEmbedOptions = {};
 
-	let mergedEmbedOptions: EmbedOptions;
 	$: mergedEmbedOptions = { ...defaultEmbedOptions, ...embedOptions };
 
 	function embed() {
