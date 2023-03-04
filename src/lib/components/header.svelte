@@ -1,13 +1,13 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
+<script context="module">
 	import navLinks from '$lib/data/navigation';
 
-	export const load: Load = function () {
+	/** @type {import('@sveltejs/kit').Load} */
+	export const load = function () {
 		return { props: { navLinks } };
 	};
 </script>
 
-<script lang="ts">
+<script>
 	import Container from '$lib/components/container.svelte';
 	import Logo from '$lib/components/logo.svelte';
 </script>

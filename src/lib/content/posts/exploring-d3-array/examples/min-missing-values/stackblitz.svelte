@@ -1,12 +1,12 @@
-<script lang="ts">
+<script>
 	import StackBlitz from '$lib/components/stackblitz.svelte';
-	import type { EmbedOptions, Project } from '@stackblitz/sdk';
 	import index_html from '../index.html?raw';
 	import package_json from '../package.json?raw';
 	import main_js from './main?raw';
 	import min_js from './min?raw';
 
-	const project: Project = {
+	/** @type {import('@stackblitz/sdk').Project} */
+	const project = {
 		template: 'node',
 		title: 'Compute minimum of array of numbers with missing values',
 		description: 'Unlike Math.min, d3.min can handle missing values.',
@@ -18,7 +18,8 @@
 		}
 	};
 
-	const embedOptions: EmbedOptions = {
+	/** @type {import('@stackblitz/sdk').EmbedOptions} */
+	const embedOptions = {
 		clickToLoad: true,
 		openFile: 'min.js'
 	};

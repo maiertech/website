@@ -1,5 +1,6 @@
-<script lang="ts">
-	export let href: string;
+<script>
+	/** @type {string} */
+	export let href;
 </script>
 
 <a {href}><slot /></a>
