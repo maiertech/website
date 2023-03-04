@@ -6,6 +6,7 @@
 <div>
 	{#each icons as icon (icon.id)}
 		<a
+			data-sveltekit-reload
 			rel={icon.id === 'mastodon' ? 'me' : undefined}
 			href={icon.href}
 			on:click={icon.onclick}

@@ -13,6 +13,7 @@
 	import * as Fathom from 'fathom-client';
 	import GitHubIcon from './icon-github.svelte';
 	import MastodonIcon from './icon-mastodon.svelte';
+	import RSSIcon from './icon-rss.svelte';
 
 	/** @type {import('$lib/types').SocialIcon[] } */
 	const icons = [
@@ -30,6 +31,12 @@
 			title: 'GitHub',
 			href: 'https://github.com/maiertech',
 			component: GitHubIcon
+		},
+		{
+			id: 'rss',
+			title: 'RSS',
+			href: '/rss.xml',
+			component: RSSIcon
 		}
 	];
 </script>
