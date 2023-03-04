@@ -3,5 +3,5 @@
 set -e
 
 npm i
-npm run lint
-npm run check
+npx turbo lint
+npx turbo check
