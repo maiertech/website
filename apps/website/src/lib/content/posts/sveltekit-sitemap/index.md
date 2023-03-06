@@ -2,7 +2,7 @@
 title: Do I need a sitemap for my SvelteKit app, and how do I create it?
 author: thilo
 published: 2023-03-01
-modified: 2023-03-01
+modified: 2023-03-06
 description: In this post, I provide an overview of when you need a sitemap, what format it should have, and explain how to create an endpoint for a sitemap in SveltKit.
 topics: [svelte, web-fundamentals]
 tags: [sveltekit, seo]
@@ -51,7 +51,7 @@ Google supports [different types of sitemaps](https://developers.google.com/sear
 </urlset>
 ```
 
-Every indexed page goes in a `<url>` tag. The `<loc>` tag contains the URL of the indexed page. The `<lastmod>` tag contains the last modified date. You may have encountered posts mentioning two more tags, `<priority>` and `<changefreq>`. There is no need to worry about choosing values for these two tags. [Google ignores both.](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml)
+Every indexed page goes in a `<url>` tag. The `<loc>` tag contains the URL of the indexed page. The `<lastmod>` tag contains the last modified date. You may have encountered posts mentioning two more tags, `<priority>` and `<changefreq>`. There is no need to worry about choosing values for these two tags. [Google ignores both](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml) ([and so does Bing](https://blogs.bing.com/webmaster/february-2023/The-Importance-of-Setting-the-lastmod-Tag-in-Your-Sitemap)).
 
 ## Creating a sitemap with SvelteKit
 
