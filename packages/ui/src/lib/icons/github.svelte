@@ -1,8 +1,12 @@
 <script>
+	/** @type {string} */
+	let className;
+
 	export let title = 'GitHub';
+	export { className as class };
 </script>
 
-<svg fill="currentColor" viewBox="0 0 24 24">
+<svg fill="currentColor" viewBox="0 0 24 24" class={className}>
 	<title>{title}</title>
 	<path
 		fill-rule="evenodd"

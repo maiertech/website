@@ -16,6 +16,8 @@ tasks:
 
 vscode:
   extensions:
+    - bradlc.vscode-tailwindcss
+    - csstools.postcss
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
     - mattpocock.ts-error-translator
