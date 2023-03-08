@@ -11,9 +11,7 @@
 	import Container from '$lib/components/container.svelte';
 	import SocialIcons from '$lib/components/social-icons.svelte';
 	import * as Fathom from 'fathom-client';
-	import GitHubIcon from './icon-github.svelte';
-	import MastodonIcon from './icon-mastodon.svelte';
-	import RSSIcon from './icon-rss.svelte';
+	import { GitHubIcon, MastodonIcon, RSSIcon } from 'ui';
 
 	/** @type {import('$lib/types').SocialIcon[] } */
 	const icons = [

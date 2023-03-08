@@ -1,5 +1,7 @@
 {
 	"recommendations": [
+		"bradlc.vscode-tailwindcss",
+		"csstools.postcss",
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
 		"rangav.vscode-thunder-client",
