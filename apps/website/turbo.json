@@ -1,6 +1,11 @@
 {
 	"extends": ["//"],
 	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"env": ["NO_CHECK_ORIGIN"],
+			"outputs": [".svelte-kit/**"]
+		},
 		"dev": {
 			"dependsOn": ["^build"],
 			"cache": false,
