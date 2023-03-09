@@ -1,35 +1,36 @@
 <script>
 	import sdk from '@stackblitz/sdk';
-	import { onMount } from 'svelte';
 
-	/** @type {import('@stackblitz/sdk').Project | string} */
+	/**
+	 * You can either provide an object with a StackBlitz project config
+	 * or a string that represents a GitHub repository.
+	 * @type {import('@stackblitz/sdk').Project | string} */
 	export let project;
 
 	/** @type {import('@stackblitz/sdk').EmbedOptions} */
-	export let embedOptions = {};
+	export let options = {};
 
 	/** @type {HTMLElement} */
 	let element;
 
+	/** @type {import('@stackblitz/sdk').VM} */
+	let vm;
+
 	/**
-	 * https://developer.stackblitz.com/docs/platform/javascript-sdk#embed-options
+	 * https://developer.stackblitz.com/platform/api/javascript-sdk-options
 	 * @type {import('@stackblitz/sdk').EmbedOptions}
 	 */
-	let defaultEmbedOptions = {};
+	let default_options = {};
 
-	$: mergedEmbedOptions = { ...defaultEmbedOptions, ...embedOptions };
+	$: merged_embed_options = { ...default_options, ...options };
 
-	function embed() {
+	$: (async function () {
 		if (typeof project === 'string') {
-			sdk.embedGithubProject(element, project, mergedEmbedOptions);
+			vm = await sdk.embedGithubProject(element, project, merged_embed_options);
 		} else {
-			sdk.embedProject(element, project, mergedEmbedOptions);
+			vm = await sdk.embedProject(element, project, merged_embed_options);
 		}
-	}
-
-	onMount(() => {
-		embed();
-	});
+	})();
 </script>
 
 <div class="stackblitz">

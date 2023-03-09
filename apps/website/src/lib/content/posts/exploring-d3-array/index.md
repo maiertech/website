@@ -2,7 +2,7 @@
 title: Exploring frequently used methods of d3-array
 author: thilo
 published: 2022-06-27
-modified: 2022-08-31
+modified: 2022-03-09
 description: Working with JavaScript arrays is a crucial skill for data visualization with D3. Explore frequently used methods of d3-array in this post.
 topics: [data-visualization]
 tags: [d3, stackblitz]
@@ -10,11 +10,11 @@ tags: [d3, stackblitz]
 
 <script>
   import { Tweet } from 'sveltekit-embed';
-  import MinMissingValuesExample from './examples/min-missing-values/stackblitz.svelte';
-  import MaxAccessorExample from './examples/max-accessor/stackblitz.svelte';
-  import ExtentExample from './examples/extent/stackblitz.svelte';
-  import RangeExample from './examples/range/stackblitz.svelte';
-  import TicksExample from './examples/ticks/stackblitz.svelte';
+  import MinMissingValuesExample from './examples/min-missing-values/example.svelte';
+  import MaxAccessorExample from './examples/max-accessor/example.svelte';
+  import ExtentExample from './examples/extent/example.svelte';
+  import RangeExample from './examples/range/example.svelte';
+  import TicksExample from './examples/ticks/example.svelte';
 </script>
 
 In this post, I will introduce you to the methods from [d3-array](https://github.com/d3/d3-array), which I use often for data visualization. All examples run inside your browser using [StackBlitz](https://stackblitz.com/). StackBlitz currently supports Chromium-based and Firefox browsers only.

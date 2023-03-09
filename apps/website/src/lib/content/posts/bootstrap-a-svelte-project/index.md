@@ -10,8 +10,7 @@ tags: [codesandbox, stackblitz, vite]
 
 <script>
   import Image from '$lib/components/image.svelte';
-  import SvelteJsTemplate from './svelte-js-template.svelte';
-  import SvelteTsTemplate from './svelte-ts-template.svelte';
+  import StackBlitzEmbed from '$lib/components/stackblitz-embed.svelte';
 </script>
 
 The [Svelte template](https://github.com/sveltejs/template) has long been the official way to bootstrap a Svelte project, and it is no longer maintained and is deprecated. What should you choose instead to bootstrap a Svelte project?
@@ -95,7 +94,7 @@ npm create vite@latest my-svelte-app -- --template svelte
 
 in a terminal. Here you can try out the Vite Svelte vanilla JavaScript template directly in your browser:
 
-<SvelteJsTemplate />
+<StackBlitzEmbed project="vitejs/vite/tree/main/packages/create-vite/template-svelte" options={{ openFile: 'src/App.svelte' }} />
 
 Clicking https://vite.new/svelte-ts bootstraps the Vite Svelte template with TypeScript and is equal to running
 
@@ -105,7 +104,7 @@ npm create vite@latest my-svelte-ts-app -- --template svelte-ts
 
 in your terminal. Here you can try the Vite Svelte TypeScript template directly in your browser:
 
-<SvelteTsTemplate />
+<StackBlitzEmbed project="vitejs/vite/tree/main/packages/create-vite/template-svelte-ts" options={{ openFile: 'src/App.svelte' }} />
 
 It does not get easier than clicking one of the two shortcuts to bootstrap a Svelte project. When you are ready, you can connect to GitHub, push your Svelte project to GitHub, and continue in your favorite IDE.
 

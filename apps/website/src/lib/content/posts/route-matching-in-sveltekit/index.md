@@ -12,8 +12,8 @@ links:
 ---
 
 <script>
-  import Example from './stackblitz.svelte';
   import Card from '$lib/components/card.svelte';
+  import StackBlitzEmbed from '$lib/components/stackblitz-embed.svelte';
 </script>
 
 **This post is outdated as of SvelteKit 1.0.0-next.406.**
@@ -28,7 +28,7 @@ A filesystem-based router makes route matching straightforward: the route can be
 
 In this post, we look at a SvelteKit example and explore the rules that SvelteKit applies to decide which page or endpoint to serve. You will make the most out of this post if you follow along:
 
-<Example />
+<StackBlitzEmbed project="maiertech/sveltekit-example-route-matching" options={{ openFile: 'src/routes/index.svelte' }} />
 
 ## Duplicate route files are not permitted
 
