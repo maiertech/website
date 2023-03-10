@@ -63,6 +63,11 @@ const tags = [
 		path: `${base}/tags/twitter`
 	},
 	{
+		id: 'typescript',
+		label: 'TypeScript',
+		path: `${base}/tags/typescript`
+	},
+	{
 		id: 'vite',
 		label: 'Vite',
 		path: `${base}/tags/vite`
