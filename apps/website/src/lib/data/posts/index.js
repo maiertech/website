@@ -21,6 +21,7 @@ const posts = Object.entries(files)
 		}
 
 		const frontmatter = result.data;
+
 		const slug = slugify(frontmatter.title);
 
 		// User folder name as post ID (not slug!).
