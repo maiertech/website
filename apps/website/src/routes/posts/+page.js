@@ -3,7 +3,6 @@ import { error } from '@sveltejs/kit';
 
 export const prerender = true;
 
-/** @type {import('./$types').PageLoad} */
 export async function load({ fetch }) {
 	// Fetch all posts.
 	const response = await fetch('/api/posts');

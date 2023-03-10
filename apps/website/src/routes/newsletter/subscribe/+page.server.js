@@ -2,7 +2,6 @@ import { error, fail } from '@sveltejs/kit';
 import { subscribe, getSubscriber } from '$lib/utils/eo-api';
 import { EOApiErrorSchema, EOSubscriber, SubscribeFormSchema } from '$lib/schemas/newsletter';
 
-/** @type {import('./$types').Actions} */
 export const actions = {
 	default: async ({ request }) => {
 		const data = Object.fromEntries(await request.formData());

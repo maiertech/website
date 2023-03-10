@@ -1,7 +1,6 @@
 <script>
 	import SEO from '$lib/components/seo.svelte';
 
-	/** @type {import('./$types').PageData} */
 	export let data;
 	const { title, description, posts } = data;
 </script>

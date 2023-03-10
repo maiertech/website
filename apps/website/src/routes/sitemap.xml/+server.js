@@ -18,7 +18,6 @@ function createEntry(path, lastmod) {
 	`.trim();
 }
 
-/** @type {import('./$types').RequestHandler} */
 export async function GET({ fetch }) {
 	// Create entries for posts.
 	const response = await fetch('/api/posts');

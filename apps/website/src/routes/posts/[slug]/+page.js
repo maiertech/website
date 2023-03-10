@@ -7,7 +7,6 @@ import { error } from '@sveltejs/kit';
  * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TagsSchema>} Tags
  */
 
-/** @type {import('./$types').PageLoad} */
 export async function load({ fetch, params }) {
 	const post = posts.find((post) => post.slug === params.slug);
 

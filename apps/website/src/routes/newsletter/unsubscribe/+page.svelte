@@ -1,10 +1,7 @@
 <script>
 	import { enhance } from '$app/forms';
 
-	/** @type {import('./$types').PageData} */
 	export let data;
-
-	/** @type {import('./$types').ActionData} */
 	export let form;
 </script>
 
