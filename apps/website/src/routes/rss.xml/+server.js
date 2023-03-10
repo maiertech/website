@@ -3,7 +3,6 @@ import { PostsSchema } from '$lib/schemas/content';
 import RSS from 'rss';
 import { ORIGIN } from '$env/static/private';
 
-/** @type {import('./$types').RequestHandler} */
 export async function GET({ fetch }) {
 	const feed = new RSS({
 		title: 'Thilo Maier',

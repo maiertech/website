@@ -1,7 +1,6 @@
 import { PostsSchema, TagSchema } from '$lib/schemas/content';
 import { error } from '@sveltejs/kit';
 
-/** @type {import('./$types').PageLoad} */
 export async function load({ fetch, params }) {
 	const { tag } = params;
 

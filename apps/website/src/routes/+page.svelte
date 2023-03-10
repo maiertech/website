@@ -3,7 +3,6 @@
 	import SEO from '$lib/components/seo.svelte';
 	import LinkButton from '$lib/components/atoms/link-button.svelte';
 
-	/** @type {import('./$types').PageData} */
 	export let data;
 	const { title, description, topics } = data;
 </script>

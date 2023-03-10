@@ -1,7 +1,6 @@
 import { PostsSchema, TopicSchema } from '$lib/schemas/content';
 import { error } from '@sveltejs/kit';
 
-/** @type {import('./$types').PageLoad} */
 export async function load({ fetch, params }) {
 	const { topic } = params;
 

@@ -3,7 +3,6 @@
 	import PostHeader from '$lib/components/post-header.svelte';
 	import PostFooter from '$lib/components/post-footer.svelte';
 
-	/** @type {import('./$types').PageData} */
 	export let data;
 	const { PostContent, metadata, author, topics, tags } = data;
 </script>

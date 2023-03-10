@@ -1,4 +1,8 @@
-const copy = (element: HTMLElement, text: string) => {
+/**
+ * @param {HTMLElement} element
+ * @param {string} text
+ */
+export default function (element, text) {
 	async function clickHandler() {
 		if (text) {
 			try {
@@ -13,9 +17,12 @@ const copy = (element: HTMLElement, text: string) => {
 	element.addEventListener('click', clickHandler);
 
 	return {
-		update: (t: string) => (text = t),
-		destroy: () => element.removeEventListener('click', clickHandler)
+		/** @param {string} t */
+		update(t) {
+			text = t;
+		},
+		destroy() {
+			element.removeEventListener('click', clickHandler);
+		}
 	};
-};
-
-export default copy;
+}
