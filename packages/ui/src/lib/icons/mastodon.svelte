@@ -1,6 +1,6 @@
 <script>
 	/** @type {string} */
-	let className;
+	let className = '';
 
 	export let title = 'Mastodon';
 	export { className as class };

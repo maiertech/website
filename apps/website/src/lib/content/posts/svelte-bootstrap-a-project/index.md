@@ -5,7 +5,7 @@ published: 2022-07-01
 modified: 2023-02-05
 description: This post discusses three ways to bootstrap a Svelte project. Learn why using the official Vite Svelte templates results in the best developer experience.
 topics: [svelte]
-tags: [codesandbox, stackblitz, vite]
+tags: [codesandbox, vite]
 ---
 
 <script>

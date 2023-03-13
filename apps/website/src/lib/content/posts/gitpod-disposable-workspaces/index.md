@@ -5,7 +5,7 @@ published: 2021-12-12
 modified: 2022-08-13
 description: Disposable workspaces with Gitpod and GitHub Codespaces enable a new development workflow that eliminates the friction of local development.
 topics: [dx]
-tags: [github, gitpod, vscode]
+tags: [gitpod, github, vscode]
 links:
   - title: Gitpod, iPad Coding, Web3, WTF NFT (Syntax Podcast)
     href: https://syntax.fm/show/416/gitpod-ipad-coding-web3-wtf-nft
