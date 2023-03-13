@@ -5,7 +5,7 @@ published: 2022-06-27
 modified: 2022-03-09
 description: Working with JavaScript arrays is a crucial skill for data visualization with D3. Explore frequently used methods of d3-array in this post.
 topics: [data-visualization]
-tags: [d3, stackblitz]
+tags: [d3]
 ---
 
 <script>

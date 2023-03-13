@@ -5,7 +5,7 @@ published: 2022-02-13
 modified: 2022-08-31
 description: This post explores how SvelteKit's filesystem-based router matches a requested route to a page or an endpoint in src/routes.
 topics: [svelte]
-tags: [sveltekit, stackblitz]
+tags: [sveltekit]
 links:
   - title: SvelteKit Routing (YouTube video by Tan Li Hau)
     href: https://www.youtube.com/watch?v=uyde7dAQwkA

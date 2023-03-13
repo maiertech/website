@@ -1,5 +1,9 @@
 <script>
-	import sdk from '@stackblitz/sdk';
+	import stackblitz from '$lib/actions/stackblitz';
+
+	/**
+	 * @typedef {import('@stackblitz/sdk').VM} VM
+	 */
 
 	/**
 	 * You can either provide an object with a StackBlitz project config
@@ -10,31 +14,17 @@
 	/** @type {import('@stackblitz/sdk').EmbedOptions} */
 	export let options = {};
 
-	/** @type {HTMLElement} */
-	let element;
-
-	/** @type {import('@stackblitz/sdk').VM} */
+	/** @type {VM} */
 	let vm;
 
-	/**
-	 * https://developer.stackblitz.com/platform/api/javascript-sdk-options
-	 * @type {import('@stackblitz/sdk').EmbedOptions}
-	 */
-	let default_options = {};
-
-	$: merged_embed_options = { ...default_options, ...options };
-
-	$: (async function () {
-		if (typeof project === 'string') {
-			vm = await sdk.embedGithubProject(element, project, merged_embed_options);
-		} else {
-			vm = await sdk.embedProject(element, project, merged_embed_options);
-		}
-	})();
+	/** @param {Promise<VM>} promise_vm */
+	async function cb(promise_vm) {
+		vm = await promise_vm;
+	}
 </script>
 
 <div class="stackblitz">
-	<iframe bind:this={element} title="This iframe will be swapped out." />
+	<iframe use:stackblitz={{ project, options, cb }} title="This iframe will be swapped out." />
 </div>
 
 <style>
