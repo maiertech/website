@@ -4,7 +4,7 @@
 		"build": {
 			"dependsOn": ["^build"],
 			"env": ["NO_CHECK_ORIGIN"],
-			"outputs": [".svelte-kit/**"]
+			"outputs": [".svelte-kit/**", ".vercel/**"]
 		},
 		"dev": {
 			"dependsOn": ["^build"],
