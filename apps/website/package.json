@@ -4,14 +4,13 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "npm run watch -w=ui & vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"test:unit": "vitest",
-		"lint": "prettier --check --ignore-path=../../.prettierignore . && eslint .",
-		"format": "prettier --write --ignore-path=../../.prettierignore ."
+		"lint": "prettier --check --ignore-path=../../.prettierignore . && eslint ."
 	},
 	"devDependencies": {
 		"@imgix/js-core": "^3.7.0",

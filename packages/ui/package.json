@@ -7,9 +7,10 @@
 		"preview": "vite preview",
 		"package": "svelte-kit sync && svelte-package && publint",
 		"prepublishOnly": "npm run package",
+		"watch": "svelte-package --watch",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
-		"lint": "eslint ."
+		"lint": "prettier --check --ignore-path=../../.prettierignore . && eslint ."
 	},
 	"exports": {
 		".": {
@@ -26,6 +27,7 @@
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "^0.132.5",
 		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-vercel": "^2.3.1",
 		"@sveltejs/kit": "^1.5.0",
 		"@sveltejs/package": "^2.0.0",
 		"@tailwindcss/forms": "^0.5.3",
