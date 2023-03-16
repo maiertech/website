@@ -58,14 +58,25 @@ const tags = [
 		path: `${base}/tags/stackblitz`
 	},
 	{
+		id: 'turborepo',
+		label: 'Turborepo',
+		path: `${base}/tags/turborepo`
+	},
+	{
 		id: 'twitter',
 		label: 'Twitter',
 		path: `${base}/tags/twitter`
 	},
+
 	{
 		id: 'typescript',
 		label: 'TypeScript',
 		path: `${base}/tags/typescript`
+	},
+	{
+		id: 'vercel',
+		label: 'Vercel',
+		path: `${base}/tags/vercel`
 	},
 	{
 		id: 'vite',

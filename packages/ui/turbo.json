@@ -2,7 +2,6 @@
 	"extends": ["//"],
 	"pipeline": {
 		"build": {
-			"dependsOn": ["^build"],
 			"outputs": ["dist/**", ".svelte-kit/**", ".vercel/**"]
 		}
 	}

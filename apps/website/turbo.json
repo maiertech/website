@@ -2,14 +2,7 @@
 	"extends": ["//"],
 	"pipeline": {
 		"build": {
-			"dependsOn": ["^build"],
-			"env": ["NO_CHECK_ORIGIN"],
-			"outputs": [".svelte-kit/**", ".vercel/**"]
-		},
-		"dev": {
-			"dependsOn": ["^build"],
-			"cache": false,
-			"persistent": true
+			"env": ["NO_CHECK_ORIGIN"]
 		}
 	}
 }
