@@ -24,7 +24,7 @@ vscode:
 
 github:
   prebuilds:
-    main: true
+    master: true
     branches: true
     pullRequests: true
     pullRequestsFromForks: false
