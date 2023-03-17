@@ -8,14 +8,8 @@ ports:
 
 tasks:
   - name: Run dev server
-    init: |
-      npm install
-      gp sync-done install
-    command: npx turbo run dev --filter=website
-  - name: Show outdated packages
-    init: gp sync-await install
-    command: npm outdated
-    openMode: split-right
+    init: npm install
+    command: turbo run dev --filter=website
 
 vscode:
   extensions:
