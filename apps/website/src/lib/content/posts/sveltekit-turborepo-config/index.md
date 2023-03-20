@@ -69,8 +69,8 @@ The Turborepo configuration is in `turbo.json` at the project root level. For my
 
 The `pipeline` property describes dependencies between NPM tasks (defined in the `scripts` tags of workspace `package.json` files). Each task can have additional properties, which you can look up in the [Turborepo docs (configuration options)](https://turbo.build/repo/docs/reference/configuration). I will highlight two of them:
 
-1. `"dependsOn": ["^build"]` means that every build task should run the build tasks of dependencies that reside inside the monorepo in other workspaces.
-1. `"outputs": [".svelte-kit/**", ".vercel/**"]` describes build artifacts that Turborepo should cache. E.g., the build of a SvelteKit app goes into directory `.svelte-kit`. If Turborepo figures out nothing has changed during a build, it will retrieve `.svelte-kit` from its cache instead of running the task. Similarly, the output of [adapter-vercel](https://kit.svelte.dev/docs/adapter-vercel) goes into the `.vercel` directory and needs to be cached. The best case for a build is that Turborepo can fetch both `.svelte-kit` and `.vercel` from the cache.
+1. `"dependsOn"`: Value `["^build"]` means that every build task should run the build tasks of dependencies that reside inside the monorepo in other workspaces.
+1. `"outputs"`: Describes build artifacts that Turborepo should cache. E.g., the build of a SvelteKit app goes into directory `.svelte-kit`. If Turborepo figures out nothing has changed during a build, it will retrieve `.svelte-kit` from its cache instead of running the task. Similarly, the output of [adapter-vercel](https://kit.svelte.dev/docs/adapter-vercel) goes into the `.vercel` directory and needs to be cached. The best case for a build is that Turborepo can fetch both `.svelte-kit` and `.vercel` from the cache.
 
 ## Nested configuration
 
