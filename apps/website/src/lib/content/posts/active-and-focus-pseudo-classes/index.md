@@ -3,10 +3,13 @@ id: active-and-focus-pseudo-classes
 title: 'Groking :active, :focus and :focus-visible pseudo-classes'
 author: thilo
 published: 2022-06-20
-modified: 2023-02-05
+modified: 2023-03-25
 description: 'This post explains the subtle differences between CSS pseudo-classes :active, :focus and :focus-visible.'
 topics: [web-fundamentals]
 tags: [css]
+links:
+  - title: 'Ire Aderinokun: When is :focus-visible visible?'
+    href: https://bitsofco.de/when-is-focus-visible-visible/
 ---
 
 <script>
