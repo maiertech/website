@@ -8,7 +8,7 @@
 	},
 	"dependencies": {
 		"eslint-config-prettier": "^8.3.0",
-		"eslint-config-turbo": "^0.0.9",
+		"eslint-config-turbo": "^0.0.10",
 		"eslint-plugin-svelte3": "^4.0.0"
 	},
 	"publishConfig": {

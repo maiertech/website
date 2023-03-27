@@ -5,12 +5,12 @@ import remarkCodeTitles from 'remark-code-titles';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte', '.md', '.svx'],
+	extensions: ['.svelte', '.md'],
 
 	preprocess: [
 		vitePreprocess(),
 		mdsvex({
-			extensions: ['.md', '.svx'],
+			extensions: ['.md'],
 			smartypants: {
 				dashes: 'oldschool'
 			},
