@@ -1,6 +1,10 @@
 name: CI
 
-on: [pull_request]
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    types: [opened, synchronize]
 
 # With pre-rendering enabled, build loads modules, which triggers imports.
 # These variables are just dummies that need to exist while build and check run.
@@ -10,17 +14,34 @@ env:
   IMGIX_DOMAIN: ${{ secrets.IMGIX_DOMAIN }}
   IMGIX_TOKEN: ${{ secrets.IMGIX_TOKEN }}
   ORIGIN: ${{ secrets.ORIGIN }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+  TURBO_REMOTE_ONLY: true
 
 jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
-      - run: npm ci
-      - run: npx turbo run lint
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
       # tsconfig.json extends ./.sveltekit/tsconfig.json, which is created during build.
-      - run: npx turbo run build
-      - run: npx turbo run check
+      - name: Build
+        run: npm run build
+
+      - name: Check
+        run: npm run check
