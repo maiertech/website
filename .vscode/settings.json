@@ -1,4 +1,10 @@
 {
+	"cssvar.files": ["node_modules/open-props/open-props.min.css", "apps/website/app.css"],
+	// Do not ignore node_modules CSS files, which is ignored by default.
+	"cssvar.ignore": [],
+	// Add support for autocomplete for these file types.
+	"cssvar.extensions": ["css", "svelte"],
+
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[svelte]": {
@@ -19,7 +25,6 @@
 	"markyMarkdown.statsShowCharacters": false,
 
 	"svelte.enable-ts-plugin": true,
-	"svelte.plugin.css.globals": "**/*.css, node_modules/open-props/open-props.min.css",
 
 	"thunder-client.saveToWorkspace": true
 }
