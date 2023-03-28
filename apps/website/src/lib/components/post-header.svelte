@@ -14,7 +14,7 @@
 	export let publishedDate;
 
 	/**
-	 * IS) 8601 date string (YYYY-MM-DDTHH:MM:SS.SSSZ).
+	 * IS0 8601 date string (YYYY-MM-DDTHH:MM:SS.SSSZ).
 	 * @type {string}
 	 */
 	export let modifiedDate;

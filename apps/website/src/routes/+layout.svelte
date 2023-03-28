@@ -1,12 +1,12 @@
 <script>
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
-	import Container from '$lib/components/container.svelte';
 	import Favicon from '$lib/components/favicon.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Header from '$lib/components/header.svelte';
 	import * as Fathom from 'fathom-client';
 	import { onMount } from 'svelte';
+	import { ContainerWithPadding } from 'ui';
 	import '../app.css';
 
 	onMount(() => {
@@ -34,7 +34,9 @@
 		<Header />
 	</div>
 	<main id="skip">
-		<Container maxWidth="80rem"><slot /></Container>
+		<ContainerWithPadding>
+			<slot />
+		</ContainerWithPadding>
 	</main>
 	<div class="footer">
 		<Footer />
