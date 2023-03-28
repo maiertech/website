@@ -1,7 +1,7 @@
 <script>
-	import Container from '$lib/components/container.svelte';
 	import SEO from '$lib/components/seo.svelte';
 	import LinkButton from '$lib/components/atoms/link-button.svelte';
+	import { ContainerWithoutPadding } from 'ui';
 
 	export let data;
 	const { title, description, topics } = data;
@@ -10,10 +10,10 @@
 <SEO {title} {description} />
 
 <section class="intro">
-	<Container padding="0">
+	<ContainerWithoutPadding>
 		<h1 class="text-gradient">Build better. With Svelte.</h1>
 		<p>{description}</p>
-	</Container>
+	</ContainerWithoutPadding>
 </section>
 
 <section class="topics">
@@ -63,14 +63,12 @@
 		flex: 1;
 	}
 
-	/* md */
 	@media (min-width: 768px) {
 		section.topics {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 
-	/* lg */
 	@media (min-width: 1024px) {
 		.intro p {
 			font-size: var(--size-5);

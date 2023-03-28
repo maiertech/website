@@ -1,6 +1,5 @@
-@import 'open-props/style';
+/* Write your global styles here, in PostCSS syntax */
 @import 'open-props/normalize';
-@import 'open-props/buttons';
 
 @import url('./styles/prism.css') (prefers-color-scheme: light);
 @import url('./styles/prism-okaidia.css') (prefers-color-scheme: dark);

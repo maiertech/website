@@ -8,11 +8,11 @@
 </script>
 
 <script>
-	import Container from '$lib/components/container.svelte';
 	import Logo from '$lib/components/logo.svelte';
+	import { ContainerWithPadding } from 'ui';
 </script>
 
-<Container maxWidth="80rem">
+<ContainerWithPadding>
 	<header>
 		<a href="/">
 			<div class="logo"><Logo /></div>
@@ -26,7 +26,7 @@
 			{/each}
 		</nav>
 	</header>
-</Container>
+</ContainerWithPadding>
 
 <style>
 	header {

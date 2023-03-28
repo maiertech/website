@@ -1,13 +1,8 @@
 <script>
-	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
-	import '@skeletonlabs/skeleton/styles/all.css';
-	import '../app.postcss';
-	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
+	import '../app.css';
+	import { ContainerWithPadding } from '$lib';
 </script>
 
-<AppShell>
-	<svelte:fragment slot="header">
-		<AppBar>Components</AppBar>
-	</svelte:fragment>
+<ContainerWithPadding>
 	<slot />
-</AppShell>
+</ContainerWithPadding>
