@@ -7,6 +7,6 @@
 
 {#if topics.length > 0}
 	<footer>
-		Published in <Tags tags={topics} inverse />.
+		Published in <Tags tags={topics} color="accent" />.
 	</footer>
 {/if}

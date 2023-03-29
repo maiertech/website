@@ -11,10 +11,10 @@
 		"format": "turbo run format"
 	},
 	"devDependencies": {
-		"eslint": "^8.0.0",
+		"eslint": "^8.37.0",
 		"eslint-config-custom": "*",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.7.0",
-		"turbo": "^1.8.3"
+		"turbo": "^1.8.6"
 	}
 }

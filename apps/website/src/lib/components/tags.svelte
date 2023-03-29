@@ -1,21 +1,23 @@
 <script>
+	import { Badge } from 'ui';
+
 	/**
 	 * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TopicsSchema>} Topics
 	 * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TagsSchema>} Tags
 	 */
 
+	/** @type {'brand' | 'accent' | 'warning'} */
+	export let color = 'brand';
+
 	/** @type {Topics | Tags} */
 	export let tags;
-
-	/** Use inverse colors. */
-	export let inverse = false;
 </script>
 
 <ul>
 	{#each tags as tag (tag.id)}
-		<li class:inverse>
+		<li>
 			<a href={tag.path}>
-				{tag.label}
+				<Badge type="large" {color}>{tag.label}</Badge>
 			</a>
 		</li>
 	{/each}
@@ -32,23 +34,7 @@
 	}
 
 	li {
-		background-color: var(--surface-3);
-		font-size: var(--font-size-fluid-0);
-		font-weight: var(--font-weight-6);
-		border-radius: var(--radius-round);
-		padding: 0.2em 0.6em;
-	}
-
-	li.inverse {
-		background-color: var(--surface-2);
-	}
-
-	li:hover {
-		background-color: var(--surface-2);
-	}
-
-	li:hover.inverse {
-		background-color: var(--surface-3);
+		padding: 0;
 	}
 
 	a {

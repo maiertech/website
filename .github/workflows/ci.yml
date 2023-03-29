@@ -39,9 +39,5 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      # tsconfig.json extends ./.sveltekit/tsconfig.json, which is created during build.
-      - name: Build
-        run: npm run build
-
       - name: Check
         run: npm run check
