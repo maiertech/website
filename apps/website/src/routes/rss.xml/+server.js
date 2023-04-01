@@ -1,7 +1,8 @@
-import { error } from '@sveltejs/kit';
-import { PostsSchema } from '$lib/schemas/content';
-import RSS from 'rss';
 import { ORIGIN } from '$env/static/private';
+import { PostSchema } from '$lib/schemas';
+import { error } from '@sveltejs/kit';
+import RSS from 'rss';
+import { z } from 'zod';
 
 export async function GET({ fetch }) {
 	const feed = new RSS({
@@ -17,7 +18,7 @@ export async function GET({ fetch }) {
 		throw error(500, 'Failed to fetch posts.');
 	}
 
-	const result = PostsSchema.safeParse(await response.json());
+	const result = z.array(PostSchema).safeParse(await response.json());
 
 	if (!result.success) {
 		throw error(500, 'Posts failed validation.');

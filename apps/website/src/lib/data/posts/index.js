@@ -1,11 +1,9 @@
-import { PostSchema } from '$lib/schemas/content';
+import { PostSchema } from '$lib/schemas';
 import slugify from '$lib/utils/slugify';
-
-/** @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').PostSchema>} Post */
 
 /**
  * With option eager Vite immediately imports all matching files (with mdsvex processing).
- * @type {Record<string, { metadata: Post}>}
+ * @type {Record<string, { metadata: import('$lib/types').Post}>}
  */
 const files = import.meta.glob('/src/lib/content/posts/**/*.md', {
 	eager: true

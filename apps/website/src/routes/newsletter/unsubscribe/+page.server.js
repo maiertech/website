@@ -1,6 +1,6 @@
 import { error, fail } from '@sveltejs/kit';
 import { unsubscribe } from '$lib/utils/eo-api';
-import { EOApiErrorSchema, UnsubscribeFormSchema } from '$lib/schemas/newsletter';
+import { EOApiErrorSchema, UnsubscribeFormSchema } from '$lib/schemas';
 
 const SUCCESS_MESSAGE = 'You have unsubscribed from my newsletter.';
 

@@ -1,11 +1,6 @@
 import posts from '$lib/data/posts';
-import { AuthorSchema, TagSchema, TopicSchema } from '$lib/schemas/content';
+import { AuthorSchema, TagSchema, TopicSchema } from '$lib/schemas';
 import { error } from '@sveltejs/kit';
-
-/**
- * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TopicsSchema>} Topics
- * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TagsSchema>} Tags
- */
 
 export async function load({ fetch, params }) {
 	const post = posts.find((post) => post.slug === params.slug);
@@ -27,7 +22,7 @@ export async function load({ fetch, params }) {
 
 	// Resolve topics.
 
-	/** @type {Topics | undefined} */
+	/** @type {import('$lib/types').Topic[] | undefined} */
 	let topics;
 
 	if (post.topics) {
@@ -51,7 +46,7 @@ export async function load({ fetch, params }) {
 
 	// Resolve tags.
 
-	/** @type {Tags | undefined} */
+	/** @type {import('$lib/types').Tag[] | undefined} */
 	let tags;
 
 	if (post.tags) {

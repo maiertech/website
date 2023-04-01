@@ -4,7 +4,7 @@ import { base } from '$app/paths';
  * Permitted topics, sorted by relevance.
  * Access via endpoint /api/topics.
  *
- * @type {import('zod').z.infer<typeof import('$lib/schemas/content').TopicsSchema>}
+ * @type {import('$lib/types').Topic[]}
  */
 const topics = [
 	{

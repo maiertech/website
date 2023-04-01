@@ -1,7 +1,6 @@
 <script>
 	import SEO from '$lib/components/seo.svelte';
-	import LinkButton from '$lib/components/atoms/link-button.svelte';
-	import { ContainerWithoutPadding } from 'ui';
+	import { ContainerWithoutPadding, Button } from 'ui';
 
 	export let data;
 	const { title, description, topics } = data;
@@ -21,7 +20,7 @@
 		<article>
 			<h2>{topic.label}</h2>
 			<p>{topic.description}</p>
-			<LinkButton href={topic.path}>Check out posts</LinkButton>
+			<a href={topic.path}><Button large>Check out posts</Button></a>
 		</article>
 	{/each}
 </section>

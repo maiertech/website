@@ -1,6 +1,6 @@
 <script>
-	import { goto } from '$app/navigation';
 	import SEO from '$lib/components/seo.svelte';
+	import { Button } from 'ui';
 
 	export let data;
 	const { title, description, posts } = data;
@@ -23,7 +23,7 @@
 				</time>
 			</p>
 			<p class="description">{post.description}</p>
-			<button on:click={() => goto(`/posts/${post.slug}`)}>Read post</button>
+			<a href={`/posts/${post.slug}`}><Button large>Read post</Button></a>
 		</article>
 	{/each}
 </div>
