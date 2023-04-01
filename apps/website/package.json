@@ -18,7 +18,7 @@
 		"@sindresorhus/slugify": "^2.1.1",
 		"@stackblitz/sdk": "^1.8.2",
 		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.9.2",
+		"@sveltejs/kit": "^1.15.0",
 		"@types/rss": "^0.0.30",
 		"autoprefixer": "^10.4.7",
 		"fathom-client": "^3.5.0",
