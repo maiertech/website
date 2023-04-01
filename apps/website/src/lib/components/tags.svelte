@@ -1,15 +1,10 @@
 <script>
 	import { Badge } from 'ui';
 
-	/**
-	 * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TopicsSchema>} Topics
-	 * @typedef {import('zod').z.infer<typeof import('$lib/schemas/content').TagsSchema>} Tags
-	 */
+	/** @type {import('$lib/types').Type} */
+	export let type = 'brand';
 
-	/** @type {'brand' | 'accent' | 'warning'} */
-	export let color = 'brand';
-
-	/** @type {Topics | Tags} */
+	/** @type {import('$lib/types').Tag[] | import('$lib/types').Topic[]} */
 	export let tags;
 </script>
 
@@ -17,7 +12,7 @@
 	{#each tags as tag (tag.id)}
 		<li>
 			<a href={tag.path}>
-				<Badge type="large" {color}>{tag.label}</Badge>
+				<Badge {type} large>{tag.label}</Badge>
 			</a>
 		</li>
 	{/each}

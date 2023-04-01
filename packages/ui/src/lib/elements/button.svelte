@@ -5,16 +5,15 @@
 	export let large = false;
 </script>
 
-<span class:large class:accent={type === 'accent'}>
+<button class:large class:accent={type === 'accent'}>
 	<slot />
-</span>
+</button>
 
 <style>
-	span {
-		display: inline;
+	button {
 		font-size: var(--font-size-0);
 		font-weight: var(--font-weight-5);
-		border-radius: var(--radius-round);
+		border-radius: var(--radius-2);
 		color: var(--surface-1);
 		background-color: var(--brand);
 		padding-block: var(--size-1);
@@ -29,5 +28,17 @@
 
 	.accent {
 		background-color: var(--accent);
+	}
+
+	@media (hover: hover) {
+		button:hover {
+			background-color: var(--brand-alt);
+			outline: var(--border-size-1) dashed var(--brand-alt);
+		}
+
+		button:hover.accent {
+			background-color: var(--accent-alt);
+			outline: var(--border-size-1) dashed var(--accent-alt);
+		}
 	}
 </style>

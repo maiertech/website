@@ -1,5 +1,6 @@
-import { PostsSchema, TagSchema } from '$lib/schemas/content';
+import { PostSchema, TagSchema } from '$lib/schemas';
 import { error } from '@sveltejs/kit';
+import { z } from 'zod';
 
 export async function load({ fetch, params }) {
 	const { tag } = params;
@@ -26,7 +27,7 @@ export async function load({ fetch, params }) {
 		throw error(500, `Failed to fetch posts for tag ${resolved_tag.label}.`);
 	}
 
-	const result_posts = PostsSchema.safeParse(await response.json());
+	const result_posts = z.array(PostSchema).safeParse(await response.json());
 
 	if (!result_posts.success) {
 		throw error(500, `Posts for tag ${resolved_tag.label} failed validation.`);

@@ -1,4 +1,4 @@
-/** @type {import('zod').z.infer<typeof import('$lib/schemas/content').AuthorsSchema>} */
+/** @type {import('$lib/types').Author[]} */
 const authors = [
 	{
 		id: 'thilo',

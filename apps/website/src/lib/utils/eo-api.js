@@ -8,7 +8,7 @@ const querystring = new URLSearchParams({ api_key: EO_API_KEY });
  * Subscribe (add contact to list):
  * https://emailoctopus.com/api-documentation/lists/create-contact
  *
- * @param {import('zod').infer<typeof import('$lib/schemas/newsletter').SubscribeFormSchema>} data
+ * @param {import('$lib/types').SubscribeForm} data
  */
 export function subscribe(data) {
 	const contact = {

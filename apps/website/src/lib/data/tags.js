@@ -4,7 +4,7 @@ import { base } from '$app/paths';
  * Valid tags, sorted by id.
  * Access via endpoint /api/tags.
  *
- * @type {import('zod').z.infer<typeof import('$lib/schemas/content').TagsSchema>}
+ * @type {import('$lib/types').Tag[]}
  */
 const tags = [
 	{

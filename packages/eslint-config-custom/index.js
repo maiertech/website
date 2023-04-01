@@ -1,7 +1,7 @@
 module.exports = {
 	root: true,
 	extends: ['eslint:recommended', 'prettier', 'turbo'],
-	plugins: ['svelte3'],
+	plugins: ['svelte3', 'jsdoc'],
 	overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
 	parserOptions: {
 		sourceType: 'module',

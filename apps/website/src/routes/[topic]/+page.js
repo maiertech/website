@@ -1,4 +1,5 @@
-import { PostsSchema, TopicSchema } from '$lib/schemas/content';
+import { PostSchema, TopicSchema } from '$lib/schemas';
+import { z } from 'zod';
 import { error } from '@sveltejs/kit';
 
 export async function load({ fetch, params }) {
@@ -30,7 +31,7 @@ export async function load({ fetch, params }) {
 		throw error(500, `Failed to fetch posts for topic ${resolved_topic.label}.`);
 	}
 
-	const result_posts = PostsSchema.safeParse(await response.json());
+	const result_posts = z.array(PostSchema).safeParse(await response.json());
 
 	if (!result_posts.success) {
 		throw error(500, `Posts for topic ${resolved_topic.label} failed validation.`);

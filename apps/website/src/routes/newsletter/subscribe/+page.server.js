@@ -1,6 +1,6 @@
 import { error, fail } from '@sveltejs/kit';
 import { subscribe, getSubscriber } from '$lib/utils/eo-api';
-import { EOApiErrorSchema, EOSubscriber, SubscribeFormSchema } from '$lib/schemas/newsletter';
+import { EOApiErrorSchema, EOSubscriberSchema, SubscribeFormSchema } from '$lib/schemas';
 
 export const actions = {
 	default: async ({ request }) => {
@@ -41,7 +41,7 @@ export const actions = {
 				}
 
 				// Validate subscriber.
-				const result = EOSubscriber.safeParse(await res.json());
+				const result = EOSubscriberSchema.safeParse(await res.json());
 
 				if (!result.success) {
 					throw error(500, 'Subscription failed.');

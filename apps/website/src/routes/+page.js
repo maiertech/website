@@ -1,5 +1,6 @@
+import { TopicSchema } from '$lib/schemas';
 import { error } from '@sveltejs/kit';
-import { TopicsSchema } from '$lib/schemas/content';
+import { z } from 'zod';
 
 export const prerender = true;
 
@@ -11,7 +12,7 @@ export async function load({ fetch }) {
 	}
 
 	// Validate topics.
-	const result = TopicsSchema.safeParse(await response.json());
+	const result = z.array(TopicSchema).safeParse(await response.json());
 
 	if (!result.success) {
 		throw error(500, 'Topics failed validation.');

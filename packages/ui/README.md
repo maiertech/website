@@ -31,7 +31,9 @@ The naming convention for colors follows [Open Prop's normalize.css](https://git
 | Color name | Tailwind name | surface-1  | surface-2 |
 | :--------- | :------------ | :--------- | --------- |
 | brand      | Blue 800      | AAA (8.00) | AA (5.88) |
-| accent     | Green 800     | AA (4.60)  | n/a       |
+| brand-alt  | Blue 700      | AA (6.15)  | n/a       |
+| accent     | Green 800     | AA (6.54)  | n/a       |
+| accent-alt | Green 700     | AA (4.60)  | n/a       |
 | warning    | Rose 800      | AAA (7.35) | n/a       |
 
 ### Dark mode
@@ -49,5 +51,7 @@ The naming convention for colors follows [Open Prop's normalize.css](https://git
 | Color name | Tailwind name | surface-1   | surface-2 |
 | :--------- | :------------ | :---------- | --------- |
 | brand      | Blue 300      | AAA (9.94)  | AA (5.75) |
+| brand-alt  | Blue 400      | AAA (7.05)  | n/a       |
 | accent     | Green 300     | AAA (12.77) | n/a       |
+| accent-alt | Green 400     | AAA (10.29) | n/a       |
 | warning    | Rose 300      | AAA (9.48)  | n/a       |

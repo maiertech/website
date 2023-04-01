@@ -1,4 +1,5 @@
-import { PostsSchema } from '$lib/schemas/content';
+import { PostSchema } from '$lib/schemas';
+import { z } from 'zod';
 import { error } from '@sveltejs/kit';
 
 export const prerender = true;
@@ -12,7 +13,7 @@ export async function load({ fetch }) {
 	}
 
 	// Validate posts.
-	const result = PostsSchema.safeParse(await response.json());
+	const result = z.array(PostSchema).safeParse(await response.json());
 
 	if (!result.success) {
 		throw error(500, 'Posts failed validation.');

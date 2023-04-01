@@ -19,7 +19,7 @@
 	 */
 	export let modifiedDate;
 
-	/** @type {import('zod').z.infer<typeof import('$lib/schemas/content').TagsSchema> | undefined} */
+	/** @type {import('$lib/types').Tag[] | undefined} */
 	export let tags = undefined;
 </script>
 

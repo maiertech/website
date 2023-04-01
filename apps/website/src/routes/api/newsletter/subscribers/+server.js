@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { getListInfo } from '$lib/utils/eo-api';
-import { EOListSchema } from '$lib/schemas/newsletter';
+import { EOListSchema } from '$lib/schemas';
 
 export async function GET() {
 	const response = await getListInfo();
