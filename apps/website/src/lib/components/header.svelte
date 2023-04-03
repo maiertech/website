@@ -9,27 +9,24 @@
 
 <script>
 	import Logo from '$lib/components/logo.svelte';
-	import { ContainerWithPadding } from 'ui';
 </script>
 
-<ContainerWithPadding>
-	<header>
-		<a href="/">
-			<div class="logo"><Logo /></div>
-			<div class="title">Thilo Maier</div>
-		</a>
-		<nav>
-			{#each navLinks as link (link.title)}
-				<a href={link.href}>
-					{link.title}
-				</a>
-			{/each}
-		</nav>
-	</header>
-</ContainerWithPadding>
+<div class="wrapper">
+	<a href="/">
+		<div class="logo"><Logo /></div>
+		<div class="title">Thilo Maier</div>
+	</a>
+	<nav>
+		{#each navLinks as link (link.title)}
+			<a href={link.href}>
+				{link.title}
+			</a>
+		{/each}
+	</nav>
+</div>
 
 <style>
-	header {
+	.wrapper {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
@@ -37,7 +34,7 @@
 		padding: var(--size-5) 0;
 	}
 
-	header > a {
+	.wrapper > a {
 		display: flex;
 		align-items: center;
 		gap: var(--size-fluid-1);

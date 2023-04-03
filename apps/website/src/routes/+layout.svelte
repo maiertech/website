@@ -6,7 +6,7 @@
 	import Header from '$lib/components/header.svelte';
 	import * as Fathom from 'fathom-client';
 	import { onMount } from 'svelte';
-	import { ContainerWithPadding } from 'ui';
+	import { RootLayout } from 'ui';
 	import '../app.css';
 
 	onMount(() => {
@@ -29,38 +29,14 @@
 	<link rel="alternate" type="application/rss+xml" title="Thilo Maier" href="/rss.xml" />
 </svelte:head>
 
-<div class="layout">
-	<div class="header">
+<RootLayout>
+	<svelte:fragment slot="header">
 		<Header />
-	</div>
-	<main id="skip">
-		<ContainerWithPadding>
-			<slot />
-		</ContainerWithPadding>
-	</main>
-	<div class="footer">
+	</svelte:fragment>
+
+	<slot />
+
+	<svelte:fragment slot="footer">
 		<Footer />
-	</div>
-</div>
-
-<style>
-	.layout {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	.header {
-		flex-shrink: 0;
-		margin-bottom: var(--size-fluid-2);
-	}
-
-	main {
-		flex: 1;
-		margin-bottom: var(--size-fluid-4);
-	}
-
-	.footer {
-		flex-shrink: 0;
-	}
-</style>
+	</svelte:fragment>
+</RootLayout>

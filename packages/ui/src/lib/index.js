@@ -9,8 +9,10 @@ export { default as RSSIcon } from './icons/rss.svelte';
 export { default as TwitterIcon } from './icons/twitter.svelte';
 
 // Layout.
-export { default as ContainerWithPadding } from './layout/container-with-padding.svelte';
-export { default as ContainerWithoutPadding } from './layout/container-without-padding.svelte';
+export { default as Container } from './layout/container.svelte';
+export { default as RootLayout } from './layout/root-layout.svelte';
+export { default as ContentLayout } from './layout/content-layout.svelte';
+export { default as PageLayout } from './layout/page-layout.svelte';
 
 // Schemas.
 export { default as TypeSchema } from './schemas/type-schema';

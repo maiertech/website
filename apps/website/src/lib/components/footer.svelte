@@ -10,7 +10,7 @@
 <script>
 	import SocialIcons from '$lib/components/social-icons.svelte';
 	import * as Fathom from 'fathom-client';
-	import { ContainerWithPadding, GitHubIcon, MastodonIcon, RSSIcon } from 'ui';
+	import { GitHubIcon, MastodonIcon, RSSIcon } from 'ui';
 
 	/** @type {import('$lib/types').SocialIcon[] } */
 	const icons = [
@@ -38,22 +38,20 @@
 	];
 </script>
 
-<footer>
-	<ContainerWithPadding>
-		<nav aria-label="Footer">
-			{#each navLinks as link (link.title)}
-				<a href={link.href}>{link.title}</a>
-			{/each}
-		</nav>
-		<div class="center">
-			<SocialIcons {icons} />
-			<p>&copy; 2023 Thilo Maier</p>
-		</div>
-	</ContainerWithPadding>
-</footer>
+<div class="wrapper">
+	<nav aria-label="Footer">
+		{#each navLinks as link (link.title)}
+			<a href={link.href}>{link.title}</a>
+		{/each}
+	</nav>
+	<div class="center">
+		<SocialIcons {icons} />
+		<p>&copy; 2023 Thilo Maier</p>
+	</div>
+</div>
 
 <style>
-	footer {
+	.wrapper {
 		background: var(--surface-2);
 		padding-block: var(--size-fluid-3);
 	}
