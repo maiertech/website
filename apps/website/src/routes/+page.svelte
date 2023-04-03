@@ -1,6 +1,6 @@
 <script>
 	import SEO from '$lib/components/seo.svelte';
-	import { ContainerWithoutPadding, Button } from 'ui';
+	import { Button } from 'ui';
 
 	export let data;
 	const { title, description, topics } = data;
@@ -8,11 +8,8 @@
 
 <SEO {title} {description} />
 
-<section class="intro">
-	<ContainerWithoutPadding>
-		<h1 class="text-gradient">Build better. With Svelte.</h1>
-		<p>{description}</p>
-	</ContainerWithoutPadding>
+<section class="about">
+	<p>{description}</p>
 </section>
 
 <section class="topics">
@@ -26,11 +23,7 @@
 </section>
 
 <style>
-	.intro h1 {
-		padding-block-end: var(--size-fluid-4);
-	}
-
-	.intro p {
+	.about p {
 		font-size: var(--size-4);
 		font-weight: var(--font-weight-5);
 		line-height: var(--font-lineheight-3);
@@ -69,7 +62,7 @@
 	}
 
 	@media (min-width: 1024px) {
-		.intro p {
+		.about p {
 			font-size: var(--size-5);
 			line-height: var(--font-lineheight-2);
 		}

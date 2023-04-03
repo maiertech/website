@@ -20,4 +20,10 @@
 			padding-inline: var(--size-7);
 		}
 	}
+
+	@media (min-width: 1440px) {
+		div {
+			padding-inline: 0;
+		}
+	}
 </style>
