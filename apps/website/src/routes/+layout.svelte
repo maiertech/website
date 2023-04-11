@@ -6,7 +6,7 @@
 	import Header from '$lib/components/header.svelte';
 	import * as Fathom from 'fathom-client';
 	import { onMount } from 'svelte';
-	import { RootLayout } from 'ui';
+	import { Container, RootLayout } from 'ui';
 	import '../app.css';
 
 	onMount(() => {
@@ -31,10 +31,14 @@
 
 <RootLayout>
 	<svelte:fragment slot="header">
-		<Header />
+		<Container>
+			<Header />
+		</Container>
 	</svelte:fragment>
 
-	<slot />
+	<Container>
+		<slot />
+	</Container>
 
 	<svelte:fragment slot="footer">
 		<Footer />

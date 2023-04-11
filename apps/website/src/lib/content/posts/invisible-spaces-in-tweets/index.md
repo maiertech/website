@@ -11,6 +11,8 @@ tags: [twitter]
 <script>
     import { Tweet } from 'sveltekit-embed';
     import CopyButton from './copy-button.svelte';
+    import Highlight from 'svelte-highlight';
+    import { javascript } from 'svelte-highlight/languages';
 </script>
 
 When scrolling through Svelte tweets in my Twitter timeline, occasionally, I see tweets about the [Svelte template syntax](https://svelte.dev/docs#template-syntax-const) which contain strings like @const (referring to the [`{@const ...}` tag](https://svelte.dev/docs#template-syntax-const)) or #if (referring to an [`{#if ...}` block](https://svelte.dev/docs#template-syntax-const)).
@@ -23,10 +25,7 @@ But there are tweets like this one by [Geoff Rich](https://geoffrich.net/) that 
 
 How did Geoff pull this off? Copying the @const string from the original tweet and displaying its second character like so
 
-```js
-const string = '@​const';
-string.charCodeAt(1);
-```
+<Highlight language={javascript} code={`const string = '@​const';\n` + `string.charCodeAt(1);`} />
 
 yields `8203` corresponding to `0x200B` (hexadecimal). This is the **U+200B ZERO-WIDTH SPACE** Unicode character. An invisible space between @ and const keeps Twitter from displaying the string as a mention.
 

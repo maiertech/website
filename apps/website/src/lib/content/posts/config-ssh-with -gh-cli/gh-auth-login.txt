@@ -1,0 +1,11 @@
+$ gh auth login
+
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations? SSH
+? Generate a new SSH key to add to your GitHub account? Yes
+? Enter a passphrase for your new SSH key (Optional)
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: 66B8-DDEE
+- Press Enter to open github.com in your browser...
+✓ Authentication complete. Press Enter to continue...

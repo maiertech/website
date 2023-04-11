@@ -2,7 +2,7 @@
 title: Configuring Turborepo for a SvelteKit monorepo
 author: thilo
 published: 2023-03-16
-modified: 2023-03-16
+modified: 2023-04-05
 description: This post provides an overview of configuring a Turborepo for a monorepo with SvelteKit apps and dependencies. It also looks at potential pitfalls when you configure your first Turborepo.
 topics: [svelte]
 tags: [sveltekit, turborepo, vercel]
@@ -10,6 +10,14 @@ tags: [sveltekit, turborepo, vercel]
 
 <script>
   import Image from '$lib/components/image.svelte';
+  import Highlight from 'svelte-highlight';
+  import { bash, json } from 'svelte-highlight/languages';
+  import tree from './tree.txt?raw';
+  import package_json from './package.json?raw';
+  import turbo_json from './turbo.json?raw';
+  import ui_turbo_json from './ui/turbo.json?raw';
+  import website_turbo_json from './website/turbo.json.txt?raw';
+  import website_package_json from './website/package.json.txt?raw';
 </script>
 
 Recently, I converted the repository for my website to a [Turborepo](https://turbo.build/repo). Turborepo is a task dependency management layer on top of a package manager, and it works for normal repositories and monorepos. The underlying package manager has to be one of [NPM](https://docs.npmjs.com/), [pnpm](https://pnpm.io/), or [Yarn](https://classic.yarnpkg.com/), all of which come with workspaces support.
@@ -20,28 +28,17 @@ The central pitch of Turborepo is to speed up workspace tasks, primarily builds.
 
 Let's look at how I configured the repository for my website with the following monorepo directory structure:
 
-```
-maier.tech/
-├─ apps/
-│  ├─ website/
-├─ packages/
-   ├─ ui/
-```
+<figure style="place-items: stretch;">
+  <Highlight language={bash} code={tree} />
+  <figcaption>File tree for the maier.tech monorepo.</figcaption>
+</figure>
 
 I use NPM as a package manager. Therefore, I defined my workspaces with the `workspaces` property:
 
-```json:package.json
-{
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "devDependencies": {
-    "turbo": "^1.8.3"
-  }
-}
-```
+<figure style="place-items: stretch;">
+  <Highlight language={json} code={package_json} />
+  <figcaption>package.json</figcaption>
+</figure>
 
 I recommended adding package `turbo` to `devDependencies`, which gives you control over which version to use. You should also install the `turbo` package globally to make the `turbo` command available in your terminal. A globally installed `turbo` command will use the Turborepo version declared in `devDependencies`.
 
@@ -49,23 +46,10 @@ I recommended adding package `turbo` to `devDependencies`, which gives you contr
 
 The Turborepo configuration is in `turbo.json` at the project root level. For my monorepo, it looks like this:
 
-```json:turbo.json
-{
-  "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".svelte-kit/**", ".vercel/**"]
-    },
-    "check": {},
-    "lint": {},
-    "dev": {
-      "cache": false,
-      "persistent": true
-    }
-  }
-}
-```
+<figure style="place-items: stretch;">
+  <Highlight language={json} code={turbo_json} />
+  <figcaption>turbo.json</figcaption>
+</figure>
 
 The `pipeline` property describes dependencies between NPM tasks (defined in the `scripts` tags of workspace `package.json` files). Each task can have additional properties, which you can look up in the [Turborepo docs (configuration options)](https://turbo.build/repo/docs/reference/configuration). I will highlight two of them:
 
@@ -78,16 +62,10 @@ Starting with Turborepo v1.8, you can nest configurations and complement a proje
 
 As an alternative, I created the file `packages/ui/turbo.json`, which extends the project root `turbo.json`:
 
-```json:packages/ui/turbo.json
-{
-  "extends": ["//"],
-  "pipeline": {
-    "build": {
-      "outputs": ["dist/**", ".svelte-kit/**", ".vercel/**"]
-    }
-  }
-}
-```
+<figure style="place-items: stretch;">
+  <Highlight language={json} code={ui_turbo_json} />
+  <figcaption>packages/ui/turbo.json</figcaption>
+</figure>
 
 Turborepo permits overrides only for anything under the `pipeline` property. The above `turbo.json` build task inherits all properties from the project root `turbo.json` and overrides only the `outputs` property.
 
@@ -110,33 +88,17 @@ By default, Vercel expects the deployment files in the `public` directory or ano
 
 Persistent tasks are long-running, e.g., the `dev` task is persistent. Turborepo does not allow any task to depend on a persistent task because it blocks subsequent tasks. Imagine `ui/package.json` defines a `watch` task that builds the library whenever a file changes. I want to add this configuration to `apps/website/turbo.json`:
 
-```json:apps/website/turbo.json
-...
-
-"pipeline": {
-  "dev": {
-    "dependsOn": ["ui#watch"]
-  }
-}
-
-...
-```
+<figure style="place-items: stretch;">
+  <Highlight language={json} code={website_turbo_json} />
+  <figcaption>apps/website/turbo.json</figcaption>
+</figure>
 
 But this is not permitted since Turorepo does not allow the `dev` task to depend on `watch`, which is a persistent task. Instead of defining the `watch` task as a dependency of the `dev` task in `turbo.json`, you need to launch the watch task at the NPM level:
 
-```json:apps/website/package.json
-{
-  ...
-
-  "scripts": {
-    "dev": "npm run watch -w=ui & vite dev",
-
-    ...
-  }
-
-  ...
-}
-```
+<figure style="place-items: stretch;">
+  <Highlight language={json} code={website_package_json} />
+  <figcaption>apps/website/package.json</figcaption>
+</figure>
 
 This script simultaneously launches the `watch` task for `packages/ui` and the `dev` task for `apps/website`.
 

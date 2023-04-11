@@ -17,6 +17,12 @@ links:
     href: https://www.youtube.com/watch?v=AphLm35cXHo
 ---
 
+<script>
+  import Highlight from 'svelte-highlight';
+  import { json } from 'svelte-highlight/languages';
+  import devcontainer_json from './devcontainer.json.txt?raw';
+</script>
+
 [GitHub](https://github.com/) launched [Codespaces](https://github.com/features/codespaces) in limited public beta at [GitHub Satellite 2020](https://github.blog/2020-05-06-new-from-satellite-2020-github-codespaces-github-discussions-securing-code-in-private-repositories-and-more/). Codespaces come with the promise of lowering the barrier to contributing to GitHub repositories. It would be a huge win if contributors (or co-workers) could spin up an instance of VS Code in a browser with all required plugins and configurations in place, fully ready for their first commit. What previously might have taken several hours to several days, would now be reduced to just a few minutes, which is the time it takes to spin up a development container.
 
 I have been using GitHub Codespaces for both work and side projects over the past few months. There were some rough edges, but overall Codespaces did not disappoint. In this post, I will explain the underlying technology and discuss the impact of Codespaces on making contributions to GitHub repositories so much easier.
@@ -35,24 +41,10 @@ To use a container from the vscode-dev-containers repository for your repository
 
 Let’s look at the [`devcontainer.json` of the GitHub repository for this website](https://github.com/maiertech/maier.tech/blob/main/.devcontainer/devcontainer.json):
 
-```json:.devcontainer/devcontainer.json
-{
-  "name": "Next.js on javascript-node:14",
-  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:14",
-  "settings": {
-    "terminal.integrated.profiles.linux": {
-      "bash": {
-        "path": "/bin/bash"
-      }
-    },
-    "terminal.integrated.defaultProfile.linux": "bash"
-  },
-  "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
-  "forwardPorts": [3000],
-  "postCreateCommand": "npm i",
-  "remoteUser": "node"
-}
-```
+<figure style="place-items: stretch;">
+  <Highlight language={json} code={devcontainer_json} />
+  <figcaption>.devcontainer/devcontainer.json</figcaption>
+</figure>
 
 In this example, the `image` property references a Docker image on MCR. The `settings` property contains [settings for VS Code](https://code.visualstudio.com/docs/getstarted/settings), in this case, the shell is configured as Bash. The `extensions` property contains IDs of VS Code extensions that should be installed into the container. `postCreateCommand` runs `npm i` to install dependencies. Check out the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) for a full list of properties.
 

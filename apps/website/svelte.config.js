@@ -1,7 +1,6 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import { mdsvex } from 'mdsvex';
-import remarkCodeTitles from 'remark-code-titles';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,9 +12,7 @@ const config = {
 			extensions: ['.md'],
 			smartypants: {
 				dashes: 'oldschool'
-			},
-			remarkPlugins: [remarkCodeTitles],
-			rehypePlugins: []
+			}
 		})
 	],
 

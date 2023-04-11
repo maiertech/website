@@ -1,0 +1,9 @@
+...
+
+"pipeline": {
+  "dev": {
+    "dependsOn": ["ui#watch"]
+  }
+}
+
+...

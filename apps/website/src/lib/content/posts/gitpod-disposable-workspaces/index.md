@@ -27,7 +27,7 @@ The early Codespaces beta had a [limit of two workspaces](https://github.communi
 
 With Gitpod's approach, you can be wasteful with workspaces. You create a new, fresh cloud workspace for every issue you work on and every pull request you review. The technical prerequisite is configuring your workspace as code and adding the configuration to your repository. This is done with a [`.gitpod.yml`](https://www.gitpod.io/docs/configure) file, which contains information such as
 
-- init task (e.g., run `npm` install`),
+- init task (e.g., run `npm install`),
 - install project-specific VS Code extensions,
 - expose ports and
 - configure environment variables.

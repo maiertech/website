@@ -3,7 +3,7 @@ id: active-and-focus-pseudo-classes
 title: 'Groking :active, :focus and :focus-visible pseudo-classes'
 author: thilo
 published: 2022-06-20
-modified: 2023-03-25
+modified: 2023-04-05
 description: 'This post explains the subtle differences between CSS pseudo-classes :active, :focus and :focus-visible.'
 topics: [web-fundamentals]
 tags: [css]
@@ -14,7 +14,9 @@ links:
 
 <script>
   import Image from '$lib/components/image.svelte';
-  import Sandbox from './example/sandbox.svelte';
+  import Example from './example.svelte';
+  import Highlight from 'svelte-highlight';
+  import { css } from 'svelte-highlight/languages';
 </script>
 
 Recently, I worked on the newsletter sign-up form for this website. When I looked at examples, I saw that other developers used pseudo-classes [`:active`](https://developer.mozilla.org/en-US/docs/Web/CSS/:active), [`:focus`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus), [`:focus-visible`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible) to style form fields.
@@ -23,7 +25,7 @@ My handle on these pseudo-classes could have been better, and I decided to read 
 
 I took the screenshots in this post with Google Chrome. What you see in your CodeSandbox may be different if you use a different browser. There are subtle cross-browser differences for the pseudo-classes covered in this post.
 
-<Sandbox />
+<Example />
 
 ## Pseudo-class :active
 
@@ -31,13 +33,7 @@ A browser applies `:active` when a user activates an element. Activation refers 
 
 In the first example we look at `:active`. I applied `:active` to the input element and submit button with the following styles:
 
-```css
-input:active,
-button:active {
-	outline: dashed red;
-	outline-offset: 1px;
-}
-```
+<Highlight language={css} code={ `input:active,\n` + `button:active {\n` + ` outline: dashed red;\n` + ` outline-offset: 1px;\n` + `}`} />
 
 When you click the input field, you can see a dashed red outline until you release the mouse button:
 
@@ -52,13 +48,11 @@ When you click the input field, you can see a dashed red outline until you relea
 When you release the mouse button, the input field has focus. The browser draws a default outline around it to highlight its focus:
 
 <figure>
-
 <Image
   ratio={630/198}
   alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applies a blue outline to it."
   url="https://share.mailbox.org/ajax/share/09ad53d00507a07692e9cbb507a04e1d9be3e0d320665945/1/8/MjM4/MjM4LzMzOA?dl=true"
   loading="lazy" />
-
 </figure>
 
 While you click the submit button, you can see the dashed red outline until you release it:
@@ -79,13 +73,7 @@ A browser applies `:focus` when the activation is complete, and an element is re
 
 In the second example, we look at `:focus`. I applied `:focus` to the input element and submit button with the same styles as before:
 
-```css
-input:focus,
-button:focus {
-	outline: dashed red;
-	outline-offset: 1px;
-}
-```
+<Highlight language={css} code={`input:focus,\n` + `button:focus {\n` + ` outline: dashed red;\n` + ` outline-offset: 1px;\n` + `}`} />
 
 You can see the dashed red outline again when you click the input field. But this time, it stays until the input field loses focus:
 
@@ -117,13 +105,7 @@ The takeaway from this example is that `:focus` styles are applied when an eleme
 
 In the third example, we look at `:focus-visible`. I applied `:focus-visible` to the input element and submit button with the same styles as in the previous examples:
 
-```css
-input:focus-visible,
-button:focus-visible {
-	outline: dashed red;
-	outline-offset: 1px;
-}
-```
+<Highlight language={css} code={`input:focus-visible,\n` + `button:focus-visible {\n` + ` outline: dashed red;\n` + ` outline-offset: 1px;\n` + `}`} />
 
 When you click the input field, you can see the dashed red outline again when the input field has focus:
 
