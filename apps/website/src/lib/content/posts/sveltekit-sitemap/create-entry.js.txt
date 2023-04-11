@@ -1,0 +1,8 @@
+function createEntry(path, lastmod) {
+	return `
+    <url>
+      <loc>${new URL(path, ORIGIN).href}</loc>
+      ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
+    </url>
+  `;
+}

@@ -1,48 +1,38 @@
-<script>
-	import { Container } from '$lib';
-</script>
-
-<div class="wrapper">
+<div class="root">
 	{#if $$slots.header}
-		<header>
-			<Container>
-				<slot name="header" />
-			</Container>
-		</header>
+		<div class="header">
+			<slot name="header" />
+		</div>
 	{/if}
 
-	<div class="main">
-		<Container>
-			<slot />
-		</Container>
+	<div class="content">
+		<slot />
 	</div>
 
 	{#if $$slots.footer}
-		<footer>
+		<div class="footer">
 			<slot name="footer" />
-		</footer>
+		</div>
 	{/if}
 </div>
 
 <style>
-	.wrapper {
+	.root {
 		display: flex;
 		flex-direction: column;
 		gap: var(--size-fluid-4);
 		min-height: 100vh;
 	}
 
-	header {
+	.header {
 		flex-shrink: 0;
 	}
 
-	.main {
+	.content {
 		flex: 1;
-		max-width: 80rem;
-		margin-inline: auto;
 	}
 
-	footer {
+	.footer {
 		flex-shrink: 0;
 	}
 </style>

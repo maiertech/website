@@ -2,7 +2,7 @@
 title: Exploring frequently used methods of d3-array
 author: thilo
 published: 2022-06-27
-modified: 2022-03-09
+modified: 2023-04-09
 description: Working with JavaScript arrays is a crucial skill for data visualization with D3. Explore frequently used methods of d3-array in this post.
 topics: [data-visualization]
 tags: [d3]
@@ -15,6 +15,8 @@ tags: [d3]
   import ExtentExample from './examples/extent/example.svelte';
   import RangeExample from './examples/range/example.svelte';
   import TicksExample from './examples/ticks/example.svelte';
+  import Highlight from 'svelte-highlight';
+  import { javascript } from 'svelte-highlight/languages';
 </script>
 
 In this post, I will introduce you to the methods from [d3-array](https://github.com/d3/d3-array), which I use often for data visualization. All examples run inside your browser using [StackBlitz](https://stackblitz.com/). StackBlitz currently supports Chromium-based and Firefox browsers only.
@@ -29,9 +31,7 @@ Let's look at examples:
 
 Likewise, [d3.max](https://github.com/d3/d3-array#max) returns the maximum. But what happens when the array, for which we would like to compute the maximum, contains objects? We can use an accessor function to retrieve a specific object property and transform it. In the following example, accessor
 
-```js
-(d) => new Date(d.date);
-```
+<Highlight language={javascript} code={`(d) => new Date(d.date);`} />
 
 extracts the date property and converts it into a JavaScript [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), which is used for comparison. This returns the most recent date (maximum). But what we need is the object with the most recent date, not just the most recent date. We can use [d3.maxIndex](https://github.com/d3/d3-array#maxIndex) to retrieve the index of the object with the most recent date.
 
@@ -55,9 +55,7 @@ Let's look at examples:
 
 As the `floatingPointRange` example shows, with d3.range you can run into the [pitfalls of binary floating point math](https://stackoverflow.com/questions/588004/is-floating-point-math-broken). You can fix this issue with [Number.toFixed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed):
 
-```js
-range(0, 1, 0.2).map((n) => n.toFixed(1));
-```
+<Highlight language={javascript} code={`range(0, 1, 0.2).map((n) => n.toFixed(1));`} />
 
 And finally, if you try to create a range that causes an infinite loop, like the `infiniteLoopRange`, d3.range returns an empty array.
 
@@ -65,9 +63,7 @@ And finally, if you try to create a range that causes an infinite loop, like the
 
 [d3.ticks](https://github.com/d3/d3-array#ticks) generates an array of nicely-rounded numbers inside an interval [_start_, _stop_]. You have to pass in three arguments:
 
-```js
-ticks(start, stop, count);
-```
+<Highlight language={javascript} code={`ticks(start, stop, count);`} />
 
 `count` is the number of ticks you are aiming for. But there is no guarantee that you will get this number. As the example below shows, you may get more or fewer ticks. The only thing that matters to d3.ticks is that the ticks are nicely rounded and inside [_start_, _stop_]. _start_ and _stop_ can be part of the ticks.
 

@@ -2,7 +2,7 @@
 title: Complement zero-effort type safety in SvelteKit with Zod for even more type safety
 author: thilo
 published: 2023-03-10
-modified: 2023-03-10
+modified: 2023-04-11
 description: Zero-effort type safety in SvelteKit gives you type safety for data that flows through your app. This post shows you how to complement zero-effort type safety with Zod schemas to validate and type incoming data in a SvelteKit app.
 topics: [svelte]
 tags: [sveltekit, typescript]
@@ -10,33 +10,21 @@ tags: [sveltekit, typescript]
 
 <script>
   import Image from '$lib/components/image.svelte';
+  import Highlight , { HighlightSvelte } from 'svelte-highlight';
+  import { javascript } from 'svelte-highlight/languages';
 </script>
 
-SvelteKit introduced [generated types](https://kit.svelte.dev/docs/types#generated-types) a while ago. SvelteKit would automatically generate types for `data` and `form` in `+page.svelte`/`+layout.svelte` files and load functions and request handlers in `+page.js`/`layout.js`, `+page.server.js`/`+layout.server.js` and `+server.js` files. But you had to annotate the types yourself, which felt like a repetitive chore:
+SvelteKit introduced [generated types](https://kit.svelte.dev/docs/types#generated-types) a while ago. SvelteKit would automatically generate types for `data` and `form` in `+page.svelte`/`+layout.svelte` files and load functions and request handlers in `+page.js`/`+layout.js`, `+page.server.js`/`+layout.server.js` and `+server.js` files. But you had to annotate the types yourself, which felt like a repetitive chore:
 
-```js:+page.js
-// You had to add type annotations like this (JSDoc):
+<figure style="place-items: stretch;">
+  <Highlight language={javascript} code={`/** @type {import('./$types').PageLoad} */\n` + `export async function load({ fetch, params }) {\n` + '\t// `fetch` and `params` are typed.\n' + `}`} />
+  <figcaption>JSDoc type annotation in +page.js.</figcaption>
+</figure>
 
-/** @type {import('./$types').PageLoad} */
-export async function load({ fetch, params }) {
-  // fetch and params are typed.
-}
-
-// ...
-```
-
-```js:+page.svelte
-<script>
-// Another type annotation in the page:
-
-/** @type {import('./$types').PageData} */
-export let data;
-// title, description, and topics are typed:
-const { title, description, topics } = data;
-
-// ...
-</script>
-```
+<figure style="place-items: stretch;">
+  <HighlightSvelte code={`<script>\n` + `\t/** @type {import('./$types').PageData} */\n` + `\texport let data;\n\n` + '\t// `title`, `description`, and `topics` are typed:\n' + `\tconst { title, description, topics } = data;\n\n` + `\t//...\n` + `</script>` } />
+  <figcaption>Another JSDoc type annotation in +page.svelte.</figcaption>
+</figure>
 
 Yesterday, the SvelteKit team went one step further and introduced zero-effort type safety for crucial parts of a SvelteKit app. This improvement makes manual annotations of generated types obsolete. You get type safety for data flowing through your SvelteKit app without TypeScript annotations. I removed a big chunk of my [JSDoc](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html) annotations from my website in [this pull request](https://github.com/maiertech/maier.tech/pull/660) without losing any type safety. You can read more about zero-effort type safety in the [announcement post](https://svelte.dev/blog/zero-config-type-safety).
 
@@ -54,40 +42,19 @@ All three scenarios have in common that type annotations of incoming data are mo
 
 [Zod](https://zod.dev/) is a schema validation library with first-class TypeScript support. The first thing to note is that most data coming into your app is structured, i.e., a combination of objects and arrays that contain strings. E.g., on my website, every post is in a Markdown file. Its frontmatter has a structure that can be described with a Zod schema:
 
-```js:src/lib/schemas.js
-import { z } from 'zod';
+<figure style="place-items: stretch;">
+  <Highlight language={javascript} code={`import { z } from 'zod';\n\n` + `export default z.object({\n` + `\ttitle: z.string(),\n` + `\tauthor: z.string(),\n` + `\tdescription: z.string(),\n` + `\tpublished: z.string().datetime(),\n` + `\ttopics: z.array(z.string()).optional(),\n` + `\ttags: z.array(z.string()).optional(),\n` + `});`} />
+  <figcaption>src/lib/schemas/post-schema.js</figcaption>
+</figure>
 
-// ...
-
-export const PostSchema = z.object({
-  /** Page and SEO title. */
-  title: z.string(),
-  author: z.string(),
-  description: z.string(),
-  published: z.string().datetime(),
-  topics: z.array(z.string()).optional(),
-  tags: z.array(z.string()).optional(),
-});
-
-// ...
-```
-
-Every property is required by default, and you can nest schemes and add additional constraints. E.g., `z.array(z.string()).optional()` means that the schema expects an optional array of strings.
+additional constraints. E.g., `z.array(z.string()).optional()` means that the schema expects an optional array of strings.
 
 Once you have a schema, you can validate incoming data against it. In this example, I validate the frontmatter of a post against the Zod schema in a helper function:
 
-```js:src/lib/posts.js
-// Validate frontmatter.
-const result = PostSchema.safeParse(post.metadata);
-
-if (!result.success) {
-  throw new Error(`Frontmatter of file ${path} failed validation.`);
-}
-
-const frontmatter = result.data;
-
-const slug = slugify(frontmatter.title);
-```
+<figure style="place-items: stretch;">
+  <Highlight language={javascript} code={`const result = PostSchema.safeParse(post.metadata);\n\n` + `if (!result.success) {\n` + '\tthrow new Error(`Frontmatter of file ${path} failed validation.`);\n' + `}\n\n` + `const frontmatter = result.data;\n\n` + `const slug = slugify(frontmatter.title);`} />
+  <figcaption>Frontmatter validation in src/lib/posts.js.</figcaption>
+</figure>
 
 Nothing spectacular except that `frontmatter`, which is the validated data, is typed:
 
@@ -106,22 +73,10 @@ Not only does Zod validate the data, but it also types it and gives you full typ
 
 To drive this point home, let's look at another example in a [form action](https://kit.svelte.dev/docs/form-actions):
 
-```js:+page.server.js
-const res = await getSubscriber(validated_data.email_address);
-
-if (!res.ok) {
-  throw error(500, 'Subscription failed.');
-}
-
-// Validate subscriber.
-const result = EOSubscriber.safeParse(await res.json());
-
-if (!result.success) {
-  throw error(500, 'Subscription failed.');
-}
-
-const subscriber = result.data;
-```
+<figure style="place-items: stretch;">
+  <Highlight language={javascript} code={`const res = await getSubscriber(validated_data.email_address);\n\n` + `if (!res.ok) {\n` + `\tthrow error(500, 'Subscription failed.');\n` + `}\n\n` + `// Validate subscriber.\n` + `const result = EOSubscriber.safeParse(await res.json());\n\n` + `if (!result.success) {\n` + `\tthrow error(500, 'Subscription failed.');\n` + `}\n\n` + `const subscriber = result.data;` } />
+  <figcaption>Validating data retrieved from an API in +page.server.js.</figcaption>
+</figure>
 
 This form action handles data from a newsletter subscription form. At this point in the handler, I know that the subscriber already exists, and I try to look up their status with API helper `getSubscriber`. I validate the API response against Zod schema `EOSubscriber`.
 

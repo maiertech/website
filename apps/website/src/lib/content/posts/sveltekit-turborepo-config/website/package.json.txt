@@ -1,0 +1,11 @@
+{
+  ...
+
+  "scripts": {
+    "dev": "npm run watch -w=ui & vite dev",
+
+    ...
+  }
+
+  ...
+}

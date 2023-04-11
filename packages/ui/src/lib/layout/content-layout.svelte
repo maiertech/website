@@ -1,14 +1,16 @@
-<div>
+<div class="content">
 	{#if $$slots.start}
-		<aside id="start">
+		<aside class="start">
 			<slot name="start" />
 		</aside>
 	{/if}
 
-	<slot />
+	<div class="page">
+		<slot />
+	</div>
 
 	{#if $$slots.end}
-		<aside id="end">
+		<aside class="end">
 			<slot name="end" />
 		</aside>
 	{/if}

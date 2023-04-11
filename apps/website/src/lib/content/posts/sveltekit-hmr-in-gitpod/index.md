@@ -8,6 +8,11 @@ topics: [svelte, dx]
 tags: [gitpod, sveltekit]
 ---
 
+<script>
+  import Highlight from 'svelte-highlight';
+  import { javascript, plaintext, yaml } from 'svelte-highlight/languages';
+</script>
+
 SvelteKit uses [Vite](https://vitejs.dev/) with [vite-plugin-svelte](https://github.com/sveltejs/vite-plugin-svelte) to implement hot module replacement (HMR). HMR ensures that changes in your code are reflected instantly in your browser preview. This results in a pleasant developer experience. HMR in SvelteKit works out of the box with no configuration required.
 
 ## Why HMR on Gitpod is different
@@ -29,43 +34,28 @@ Vite brokers between the external URL and the development server running in your
 
 A Gitpod workspace is available at a unique URL (which requires authentication) with the following format:
 
-```bash
-<uuid>.<region>.gitpod.io
-```
+<Highlight language={plaintext} code={`<uuid>.<region>.gitpod.io`} />
 
 Every Gitpod workspace sets [`GITPOD_WORKSPACE_URL`](https://www.gitpod.io/docs/environment-variables#default-environment-variables), which contains the unique workspace URL.
 
 By default, a development server is not accessible externally. You need to tell the workspace which internal port it should expose. If e.g., your development server runs at `127.0.0.1:5173` you need to add the following configuration to your `.gitpod.yml`:
 
-```yaml:.gitpod.yml
-ports:
-    # Expose port 5173.
-  - port: 5173
-
-tasks:
-    # Install dependencies.
-  - init: npm install
-    # Run SvelteKit dev server (which uses port 5173).
-    command: npm run dev
-```
+<figure style="place-items: stretch;">
+  <Highlight language={yaml} code={`ports:\n` + `\t\t# Expose port 5173.\n` + `\t- port: 5173\n\n` + `tasks:\n` + `\t\t# Install dependencies.\n` + `\t- init: npm install\n` + `\t\t# Run SvelteKit dev server (which uses port 5173).\n` + `\t\tcommand: npm run dev`} />
+  <figcaption>.gitpod.yml</figcaption>
+</figure>
 
 `tasks` defines tasks that Gitpod runs when it initializes the workspace. This configuration makes the development server available at this URL:
 
-```bash
-<port>-<workspace-id>.<region>.gitpod.io
-```
+<Highlight language={plaintext} code={`<port>-<workspace-id>.<region>.gitpod.io`} />
 
-E.g. I wrote this post on a Gitpod workspace running at
+E.g., I wrote this post on a Gitpod workspace running at
 
-```bash
-https://maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/
-```
+<Highlight language={plaintext} code={`https://maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/`} />
 
 The workspace ID `maiertech-maiertech-ti2zaqimh33` consists of my GitHub username `maiertech`, an ID derived from the repository name `maier.tech` and a UUID. With the above `.gitpod.yml` configuration, the SvelteKit development server of this workspace can be reached at
 
-```bash
-https://5173-maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/
-```
+<Highlight language={plaintext} code={`https://5173-maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/`} />
 
 You can access the development server only when authenticated to Gitpod.
 
@@ -73,18 +63,10 @@ You can access the development server only when authenticated to Gitpod.
 
 Next, we override a the HMR configuration in `vite.config.js`:
 
-```js:vite.config.js
-...
-server: {
-  hmr: {
-    clientPort: process.env.GITPOD_WORKSPACE_URL ? 443 : 5173,
-    host: process.env.GITPOD_WORKSPACE_URL
-      ? process.env.GITPOD_WORKSPACE_URL.replace('https://', '5173-')
-      : '127.0.0.1',
-  },
-},
-...
-```
+<figure style="place-items: stretch;">
+  <Highlight language={javascript} code={`// ...\n\n` + `server: {\n` + `\thmr: {\n` + `\t\tclientPort: process.env.GITPOD_WORKSPACE_URL ? 443 : 5173,\n` + `\t\thost: process.env.GITPOD_WORKSPACE_URL\n` + `\t\t\t? process.env.GITPOD_WORKSPACE_URL.replace('https://', '5173-')\n` + `\t\t\t: '127.0.0.1',\n` + `\t},\n` + `},\n\n` + `// ...`} />
+  <figcaption>vite.config.js</figcaption>
+</figure>
 
 We set `clientPort` and `host` depending on whether `GITPOD_WORKSPACE_URL` exists. This ensures that HMR works when running your Gitpod workspace inside a browser. But also for anyone running the SvelteKit site in a local development environment.
 

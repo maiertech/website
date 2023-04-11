@@ -10,6 +10,12 @@ tags: [sveltekit, seo]
 
 <script>
   import Image from '$lib/components/image.svelte';
+  import Highlight from 'svelte-highlight';
+  import { javascript, xml} from 'svelte-highlight/languages';
+  import sitemap_xml from './sitemap.xml.txt?raw';
+  import endpoint_js from './endpoint.js.txt?raw';
+  import create_entry_js from './create-entry.js.txt?raw';
+  import error_handling_js from './error-handling.js.txt?raw';
 </script>
 
 Last week I refactored parts of this website and broke the endpoint that creates <a data-sveltekit-reload href="/sitemap.xml">this sitemap</a>. I decided to read up on sitemaps before fixing the route. Here is what I learned.
@@ -41,15 +47,7 @@ My website [maier.tech](https://maier.techg) is small, and all pages are discove
 
 Google supports [different types of sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml). If your site already has an RSS feed, you can submit the feed URL as a sitemap and call it a day. But the most common sitemap type is XML. A simple XML sitemap that indexes only the homepage looks like this:
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://maier.tech/</loc>
-    <lastmod>2023-02-28</lastmod>
-  </url>
-</urlset>
-```
+<Highlight language={xml} code={sitemap_xml} />
 
 Every indexed page goes in a `<url>` tag. The `<loc>` tag contains the URL of the indexed page. The `<lastmod>` tag contains the last modified date. You may have encountered posts mentioning two more tags, `<priority>` and `<changefreq>`. There is no need to worry about choosing values for these two tags. [Google ignores both](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml) ([and so does Bing](https://blogs.bing.com/webmaster/february-2023/The-Importance-of-Setting-the-lastmod-Tag-in-Your-Sitemap)).
 
@@ -65,72 +63,19 @@ I created an endpoint [`src/api/posts/+server.js`](https://github.com/maiertech/
 
 Create endpoint `src/routes/sitemap.xml/+server.js` and add an async `GET` handler with the following structure:
 
-```js
-export async function GET({ fetch, setHeaders }) {
-  setHeaders({
-    'Content-Type': 'application/xml'
-  });
-
-  const response = await fetch('/api/posts');
-
-  ...
-
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    Add an entry for each post.
-
-  </urlset>
-  `;
-
-  return new Response(sitemap);
-}
-```
+<Highlight language={javascript} code={endpoint_js} />
 
 Since this endpoint returns XML, I set the content type to `application/xml`. Then I fetch all posts from my endpoint `/api/posts`. At the end of the handler, I create the XML string, wrap it in a response object and return it.
 
 To make creating entries easier, I use this helper function:
 
-```js
-function createEntry(path, lastmod) {
-	return `
-    <url>
-      <loc>${new URL(path, ORIGIN).href}</loc>
-      ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
-    </url>
-  `;
-}
-```
+<Highlight language={javascript} code={create_entry_js} />
 
 `path` is a relative path, and `lastmod` is a date string in ISO format. I get both from my `/api/posts` endpoint. `ORIGIN` is an environment variable containing my site's origin, `https://maier.tech`. Google expects absolute URLs in a sitemap. And since a SvelteKit app cannot determine its public URL, I use the `ORIGIN` variable to assemble absolute URLs.
 
 Let's add error handling to wrap up the handler:
 
-```js
-export async function GET({ fetch, setHeaders }) {
-	setHeaders({
-		'Content-Type': 'application/xml'
-	});
-
-	const response = await fetch('/api/posts');
-
-	if (!response.ok) {
-		throw error(500, 'Failed to fetch posts.');
-	}
-
-	const raw_posts = await response.json();
-
-	const posts = raw_posts.map((post) => createEntry(post.path, post.lastmod));
-
-	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${posts.join('\n')}
-  </urlset>
-  `;
-
-	return new Response(sitemap);
-}
-```
+<Highlight language={javascript} code={error_handling_js} />
 
 The above code is a simplified version of my [actual endpoint](https://github.com/maiertech/maier.tech/blob/main/src/routes/sitemap.xml/%2Bserver.js), which you can explore on GitHub. My actual endpoint adds caching, validation, and prerendering.
 

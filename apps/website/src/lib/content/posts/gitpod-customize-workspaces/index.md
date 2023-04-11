@@ -2,7 +2,7 @@
 title: Five ways to customize a Gitpod workspace
 author: thilo
 published: 2023-03-23
-modified: 2023-03-23
+modified: 2023-04-11
 description: Gitpod offers unique ways to customize a workspace, which sets it apart from its competitors. This post will show five ways to customize a Gitpod workspace and how they result in one of the best cloud workspace offerings.
 topics: [dx]
 tags: [gitpod, vscode]
@@ -10,6 +10,8 @@ tags: [gitpod, vscode]
 
 <script>
   import Image from '$lib/components/image.svelte';
+  import Highlight from 'svelte-highlight';
+  import { dockerfile, yaml } from 'svelte-highlight/languages';
 </script>
 
 A [Gitpod](https://gitpod.io/) workspace aims to be a no-compromise replacement for a local workspace, no matter whether you access it with a browser or via SSH with your desktop editor. Like a local workspace, a Gitpod workspace is fully customizable. This post will show you five ways to customize a Gitpod workspace.
@@ -24,21 +26,12 @@ You can configure Gitpod workspaces by adding a `.gitpod.yml` to your repository
 
 Creating a workspace from `.gitpod.yml` may take several minutes, depending on your stack. With prebuilds, you can accelerate the launch of a new workspace. Prebuilds trigger whenever you push code to certain repository branches. If possible, Gitpod launches a prebuild instead of creating a workspace from scratch, which feels instantaneous. Use the `github` key to configure prebuilds:
 
-```yaml:.gitpod.yml
-...
-
-github:
-  prebuilds:
-    master: true
-    branches: true
-    pullRequests: true
-    pullRequestsFromForks: false
-    addCheck: prevent-merge-on-error
-    addComment: false
-    addBadge: false
-
-...
-```
+<figure>
+  <p>
+    <Highlight language={yaml} code={`# ...\n\n` + `github:\n` + `\tprebuilds:\n` + `\t\tmaster: true\n` + `\t\tbranches: true\n` + `\t\tpullRequests: true\n` + `\t\tpullRequestsFromForks: false\n` + `\t\taddCheck: prevent-merge-on-error\n` + `\t\taddComment: false\n` + `\t\taddBadge: false\n\n` + `# ...`} />
+  </p>
+  <figcaption>.gitpod.yml</figcaption>
+</figure>
 
 For prebuilds to work, you must create a project linked to your GitHub repository in the Gitpod dashboard [as explained in the docs](https://www.gitpod.io/docs/configure/projects/prebuilds).
 
@@ -46,16 +39,10 @@ For prebuilds to work, you must create a project linked to your GitHub repositor
 
 The next step is to create tasks that run when you launch a workspace. Here is an example of a task that installs NPM dependencies and launches the development server:
 
-```yaml:.gitpod.yml
-...
-
-tasks:
-  - name: Run dev server
-    init: npm install
-    command: npm run dev
-
-...
-```
+<figure style="place-items: stretch;">
+  <Highlight language={yaml} code={`# ...\n\n` + `tasks:\n` + `\t- name: Run dev server\n` + `\t\tinit: npm install\n` + `\t\tcommand: npm run dev\n\n` + `# ...`} />
+  <figcaption>.gitpod.yml</figcaption>
+</figure>
 
 With prebuilds enabled, the `init` portion of the task will run during the prebuild, and the `command` portion will run when the workspace launches.
 
@@ -63,15 +50,10 @@ With prebuilds enabled, the `init` portion of the task will run during the prebu
 
 When you run a development server, you need to let Gitpod know the port of your server and whether a preview should be publicly accessible. For a SvelteKit app, e.g., Gitpod needs to expose port 5173:
 
-```yaml:.gitpod.yml
-...
-
-ports:
-  - port: 5173
-    visibility: public
-
-...
-```
+<figure style="place-items: stretch;">
+  <Highlight language={yaml} code={`# ...\n\n` + `ports:\n` + `\t- port: 5173\n` + `\t\tvisibility: public\n\n` + `# ...`} />
+  <figcaption>.gitpod.yml</figcaption>
+</figure>
 
 Typically, you should set visibility to `private`. Then you have to be authenticated to Gitpod to access the preview. But if you want an easy way to test a website on another device or you want to share a preview with someone else, set visibility to `public`.
 
@@ -81,11 +63,10 @@ By default, new Gitpod workspaces launch with Docker image [`gitpod/workspace-fu
 
 To replace the default workspace image with a custom image, set the `image` key in `.gitpod.yml`:
 
-```yml:.gitpod.yml
-image: gitpod/workspace-node-lts
-
-...
-```
+<figure style="place-items: stretch;">
+    <Highlight language={yaml} code={`image: gitpod/workspace-node-lts\n\n` + `# ...`} />
+  <figcaption>.gitpod.yml</figcaption>
+</figure>
 
 While you can use a custom Docker image with Gitpod, I recommend customizing an official image rather than trying to create a custom image from scratch.
 
@@ -93,26 +74,21 @@ Gitpod makes simple customizations of workspace images easy. If, e.g., you need 
 
 You first have to declare the custom image using the `image` key:
 
-```yml:.gitpod.yml
-image:
-  file: .gitpod.Dockerfile
-
-...
-```
+<figure style="place-items: stretch;">
+  <Highlight language={yaml} code={`image:\n` + `\tfile: .gitpod.Dockerfile\n\n` + `# ...`} />
+  <figcaption>.gitpod.yml</figcaption>
+</figure>
 
 Gitpod will then look for the Docker image file `.gitpod.Dockerfile` when launching the workspace. I customized the Docker image like this:
 
-```docker:.gitpod.Dockerfile
-FROM gitpod/workspace-node-lts
-
-RUN npm i -g turbo
-```
+<figure style="place-items: stretch;">
+  <Highlight language={dockerfile} code={`FROM gitpod/workspace-node-lts\n\n` + `RUN npm i -g turbo`} />
+  <figcaption>.gitpod.Dockerfile</figcaption>
+</figure>
 
 `FROM` indicates the image to be customized, and `RUN` runs the NPM command to install the `turbo` package globally. Official workspace images also include [Homebrew for Linux](https://docs.brew.sh/Homebrew-on-Linux) to make customizations easier. E.g., you could add
 
-```docker
-RUN brew install pandoc
-```
+<Highlight language={dockerfile} code={`RUN brew install pandoc`} />
 
 to install document converter [Pandoc](https://pandoc.org/) into your Docker image with Homebrew.
 
@@ -132,15 +108,10 @@ The Open VSX Registry contains a subset of the VS Code marketplace. Many extensi
 
 If you list project-specific extensions in `.gitpod.yml`, they will be automatically installed into every workspace launched with this configuration:
 
-```yaml:.gitpod.yml
-vscode:
-  extensions:
-    - bradlc.vscode-tailwindcss
-    - dbaeumer.vscode-eslint
-    - esbenp.prettier-vscode
-    - mattpocock.ts-error-translator
-    - svelte.svelte-vscode
-```
+<figure style="place-items: stretch;">
+  <Highlight language={yaml} code={`# ...\n\n` + `vscode:\n` + `\textensions:\n` + `\t\t- bradlc.vscode-tailwindcss\n` + `\t\t- dbaeumer.vscode-eslint\n` + `\t\t- esbenp.prettier-vscode\n` + `\t\t- svelte.svelte-vscode\n\n` + `# ...`} />
+  <figcaption>.gitpod.yml</figcaption>
+</figure>
 
 When you access a Gitpod workspace with VS Code desktop, extensions will be installed from the VS Code marketplace and for a browser-based Gitpod workspace from the Open VSX Registry.
 

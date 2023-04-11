@@ -11,6 +11,8 @@ tags: [stackblitz]
 
 <script>
   import Image from '$lib/components/image.svelte';
+  import Highlight from 'svelte-highlight';
+  import { http } from 'svelte-highlight/languages';
 </script>
 
 At ViteConf 2022, StackBlitz launched [Codeflow Beta](https://stackblitz.com/codeflow/beta), a development environment that runs natively in modern browsers. They entered a crowded market for browser-based development environments. [Gitpod](https://www.gitpod.io/), [CodeSandbox](https://codesandbox.io/), and [GitHub Codespaces](https://github.com/features/codespaces) are the better-known players in this space. They all have cloud-based products built with VS Code that aim to replace local development environments.
@@ -29,15 +31,11 @@ If your project runs on Node.js, you can work on it with Codeflow. Gitpod, on th
 
 You can create a disposable workspace with the shortcut [pr.new](https://pr.new). For instance, to write this post, I logged this issue on GitHub:
 
-```
-https://github.com/maiertech/maier.tech/issues/589
-```
+<Highlight language={http} code={`https://github.com/maiertech/maier.tech/issues/589`} />
 
 To fire up a Codeflow workspace for this issue, I prepended the URL with **pr.new** and launched the prepended URL in my browser:
 
-```
-https://pr.new/github.com/maiertech/maier.tech/issues/589
-```
+<Highlight language={http} code={`https://pr.new/github.com/maiertech/maier.tech/issues/589`} />
 
 Codeflow fired up a workspace in my browser on branch `maiertech/issue589` and installed all dependencies.
 

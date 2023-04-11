@@ -1,7 +1,31 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<style>
+			:root {
+				--style: dashed;
+				--color: red;
+				--offset: 1px;
+			}
+
+			.active-example input:active,
+			.active-example button:active {
+				outline: var(--style) var(--color);
+				outline-offset: var(--offset);
+			}
+
+			.focus-example input:focus,
+			.focus-example button:focus {
+				outline: var(--style) var(--color);
+				outline-offset: var(--offset);
+			}
+
+			.focus-visible-example input:focus-visible,
+			.focus-visible-example button:focus-visible {
+				outline: var(--style) var(--color);
+				outline-offset: var(--offset);
+			}
+		</style>
 	</head>
 	<body>
 		<h2>Pseudo-class :active example</h2>

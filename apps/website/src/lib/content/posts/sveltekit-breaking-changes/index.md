@@ -10,6 +10,8 @@ tags: [sveltekit]
 
 <script>
   import { Tweet } from 'sveltekit-embed';
+  import Highlight from 'svelte-highlight';
+  import { bash, json } from 'svelte-highlight/languages';
 </script>
 
 In August 2022, the SvelteKit team around [Rich Harris](https://twitter.com/rich_harris) released several refactorings in preparation for the release of SvelteKit 1.0. The most significant changes were a complete overhaul of SvelteKit's [router and load API](https://github.com/sveltejs/kit/discussions/5748), and this redesign resulted in several breaking changes.
@@ -55,9 +57,7 @@ If you have a SvelteKit app in production that you have not upgraded in a while,
 
 Then read the [first comment in Rich Harris's migration guide](https://github.com/sveltejs/kit/discussions/5774#discussion-4267008) and run the migration script:
 
-```bash
-npx svelte-migrate routes
-```
+<Highlight language={bash} code={`npx svelte-migrate routes`} />
 
 This script is magic. It handles all the renaming of files and leaves `@migration` comments with links to the other comments in the [migration guide](https://github.com/sveltejs/kit/discussions/5774). You should review all migration comments and review all proposed changes. Depending on the size of your site, this can take a couple of hours.
 
@@ -73,13 +73,10 @@ This script is magic. It handles all the renaming of files and leaves `@migratio
 
 [1.0.0-next.450](https://github.com/sveltejs/kit/blob/master/packages/kit/CHANGELOG.md#100-next450) requires an upgrade of `vite` in `package.json`:
 
-```json:package.json
-{
-  ...
-  "vite": "^3.1.0-beta.1"
-  ...
-}
-```
+<figure style="place-items: stretch;">
+  <Highlight language={json} code={`"vite": "^3.1.0-beta.1"`} />
+  <figcaption>package.json</figcaption>
+</figure>
 
 And [1.0.0-next.455](https://github.com/sveltejs/kit/blob/master/packages/kit/CHANGELOG.md#100-next455) overhauls prerendering. Read the docs on [page options](https://kit.svelte.dev/docs/page-options) to find out what has changed.
 

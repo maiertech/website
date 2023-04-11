@@ -1,8 +1,8 @@
-<div>
+<div class="page">
 	{#if $$slots.header}
-		<header>
+		<div class="header">
 			<slot name="header" />
-		</header>
+		</div>
 	{/if}
 
 	<main>
@@ -10,8 +10,8 @@
 	</main>
 
 	{#if $$slots.footer}
-		<footer>
+		<div class="footer">
 			<slot name="footer" />
-		</footer>
+		</div>
 	{/if}
 </div>

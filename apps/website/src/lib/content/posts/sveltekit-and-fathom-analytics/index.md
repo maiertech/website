@@ -2,11 +2,22 @@
 title: How to wire up Fathom Analytics in a SvelteKit app
 author: thilo
 published: 2021-10-15
-modified: 2022-06-28
+modified: 2023-04-11
 description: In this post, you will learn how to set up Fathom Analytics in a SvelteKit app to track pageviews and goals while ensuring privacy for your visitors.
 topics: [svelte, web-fundamentals]
 tags: [sveltekit, seo]
 ---
+
+<script>
+  import Highlight, { HighlightSvelte } from 'svelte-highlight';
+  import { javascript } from 'svelte-highlight/languages';
+  import fathom_1_svelte from './fathom-1.svelte?raw';
+  import fathom_2_svelte from './fathom-2.svelte?raw';
+  import fathom_3_svelte from './fathom-3.svelte?raw';
+  import fathom_4_svelte from './fathom-4.svelte?raw';
+  import social_icons_svelte from './social-icons.svelte.txt?raw';
+  import icons_js from './icons.js.txt?raw';
+</script>
 
 When I migrated this website from [Next.js](https://nextjs.org/) to [SvelteKit](https://kit.svelte.dev/), I had to figure out how to wire up [Fathom Analytics](https://usefathom.com/). Fathom Analytics is an alternative to Google Analytics. It features a better user experience for website owners and is more privacy-friendly for visitors to your website. This post expands on [Matt Jennings's](https://mattjennings.io/) post [How to use Fathom Analytics with SvelteKit](https://mattjennings.io/blog/how-to-use-fathom-analytics-with-sveltekit).
 
@@ -18,20 +29,12 @@ Like with any other analytics tool, Fathom requires a [custom tracking script](h
 
 ## Package fathom-client
 
-Package [fathom-client](https://github.com/derrickreimer/fathom-client) gives you full control over triggering Fathom calls at various points in your SPA's page lifecycle. As Matt's post suggests, `src/routes/__layout.svelte`, the default layout component, is the place to initialize the tracking script:
+Package [fathom-client](https://github.com/derrickreimer/fathom-client) gives you full control over triggering Fathom calls at various points in your SPA's page lifecycle. As Matt's post suggests, `src/routes/+layout.svelte`, the default layout component, is the place to initialize the tracking script:
 
-```svelte:src/routes/__layout.svelte
-<script>
-  import { onMount } from 'svelte';
-  import * as Fathom from 'fathom-client';
-
-  onMount(() => {
-    Fathom.load('FATHOM_SITE_ID', {
-      includedDomains: ['maier.tech'],
-    });
-  });
-</script>
-```
+<figure style="place-items: stretch;">
+  <HighlightSvelte code={fathom_1_svelte} />
+  <figcaption>src/routes/+layout.svelte</figcaption>
+</figure>
 
 This code snippet uses Svelte's [`onMount` callback](https://svelte.dev/docs#onMount) to load the tracking script as soon as the layout component has been mounted. Whenever that is the case, the tracking script records a pageview.
 
@@ -41,16 +44,10 @@ The second argument in `load` is an [object of options](https://github.com/derri
 
 Your Fathom site ID needs to be exposed to the client for tracking to work. There is no harm in hard-wiring this ID in your code, but it is better to move it into an environment variable as shown here:
 
-```svelte:src/routes/__layout.svelte
-<script>
-  import { onMount } from 'svelte';
-  import * as Fathom from 'fathom-client';
-
-  onMount(() => {
-    Fathom.load(import.meta.env.VITE_FATHOM_SITE_ID, {});
-  });
-</script>
-```
+<figure style="place-items: stretch;">
+  <HighlightSvelte code={fathom_2_svelte} />
+  <figcaption>src/routes/+layout.svelte</figcaption>
+</figure>
 
 [Environment variables in SvelteKit](https://kit.svelte.dev/faq#env-vars) actually [rely on Vite to expose them to the client](https://vitejs.dev/guide/env-and-mode.html#env-variables-and-modes). Therefore, you need to access the environment variable via `import&#xFEFF;.meta.env` and not `process&#xFEFF;.env`. Vite will expose any environment variables defined in the build environment that start with `VITE_`.
 
@@ -62,42 +59,19 @@ This approach is a double-edged sword. On the one hand, you as the website owner
 
 If you choose to serve your tracking script from your custom domain, you need to set the `url` option, as shown below, using the custom tracking script URL provided by Fathom. While you are at it, you should also set the `honorDNT` option to true. DNT refers to the "Do Not Track" request header, which is [officially deprecated](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/DNT), but still supported in [Chrome](https://support.google.com/chrome/answer/2790761?hl=en&co=GENIE.Platform%3DDesktop&oco=1) and [Firefox](https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature). This gives visitors to your website a way to completely opt out of tracking.
 
-```svelte:src/routes/__layout.svelte
-<script>
-  import { onMount } from 'svelte';
-  import * as Fathom from 'fathom-client';
-
-  onMount(() => {
-    Fathom.load(import.meta.env.VITE_FATHOM_SITE_ID, {
-      url: 'https://firefly.maier.tech/script.js',
-      honorDNT: true,
-    });
-  });
-</script>
-```
+<figure style="place-items: stretch;">
+  <HighlightSvelte code={fathom_3_svelte} />
+  <figcaption>src/routes/+layout.svelte</figcaption>
+</figure>
 
 ## Tracking client-side route changes
 
 The previous code snippet tracks the initial page load, which is the server-rendered app that has been delivered to the client. But once this page has been loaded and the JavaScript fully hydrated, the app switches to client-side routing and the tracking configured so far is completely blind to client-side route changes. To fix this, let's add one more line and corresponding imports:
 
-```svelte:src/routes/__layout.svelte
-<script>
-  import { onMount } from 'svelte';
-  import * as Fathom from 'fathom-client';
-  import { page } from '$app/stores';
-  import { browser } from '$app/environment';
-
-  onMount(() => {
-    Fathom.load(import.meta.env.VITE_FATHOM_SITE_ID, {
-      url: 'https://firefly.maier.tech/script.js',
-      honorDNT: true,
-    });
-  });
-
-  // Track page view when path changes.
-  $: $page.url.pathname, browser && Fathom.trackPageview();
-</script>
-```
+<figure style="place-items: stretch;">
+  <HighlightSvelte code={fathom_4_svelte} />
+  <figcaption>src/routes/+layout.svelte</figcaption>
+</figure>
 
 This great hack from Matt's post took me a while to understand. This [Twitter thread](https://twitter.com/liyuanqiu/status/1149235193296773122) gave me a crucial hint. The last line is a Svelte [reactive statement](https://svelte.dev/docs#3_$_marks_a_statement_as_reactive), but it is not the typical example from the [Svelte tutorial](https://svelte.dev/tutorial) where something is assigned to a variable. It uses JavaScript's [comma operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator), which evaluates comma-separated operands in sequence and returns the value of the last operand. `$page.url.pathname` is a reference to the current path in [SvelteKit's page store](https://kit.svelte.dev/docs#modules-$app-stores) and whenever this value changes it triggers the reactive statement. The last operand fires a `trackPageview`, but only when the app is running in a browser.
 
@@ -107,43 +81,13 @@ Unlike tracking pageviews, there is no blueprint for tracking goals with Fathom.
 
 Let's assume that your goal is to make visitors click through to your Twitter profile. The following component can render social icons from an array of objects, which it receives as a prop:
 
-```svelte:social-icons.svelte
-<script>
-  export let icons;
-</script>
-
-<div>
-  {#each icons as icon (icon.key)}
-    <a href={icon.href} on:click={icon.onclick}>
-      <span>{icon.title}</span>
-      <svelte:component
-        this={icon.component}
-      />
-    </a>
-  {/each}
-</div>
-```
+<figure style="place-items: stretch;">
+  <HighlightSvelte code={social_icons_svelte} />
+  <figcaption>social-icons.svelte</figcaption>
+</figure>
 
 Note the [`on:click`](https://svelte.dev/docs#on_element_event) directive to which an (optional) `icon.onclick` callback can be assigned. When rendering social icons with the following array
 
-```js
-const icons = [
-	{
-		key: 'twitter',
-		title: 'Twitter',
-		href: 'https://twitter.com/maiertech',
-		component: TwitterLogo,
-		onclick: () => {
-			Fathom.trackGoal('FATHOM_GOAL_ID', 0);
-		}
-	},
-	{
-		key: 'github',
-		title: 'GitHub',
-		href: 'https://github.com/maiertech',
-		component: GitHubLogo
-	}
-];
-```
+<Highlight language={javascript} code={icons_js} />
 
 you get a Twitter icon, which tracks goal `FATHOM_GOAL_ID` when clicked. But when you click the GitHub icon, no goal is tracked, because no callback has been assigned.

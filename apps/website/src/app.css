@@ -1,8 +1,13 @@
-/* Write your global styles here, in PostCSS syntax */
 @import 'ui/app.css';
 
-@import url('./styles/prism.css') (prefers-color-scheme: light);
-@import url('./styles/prism-okaidia.css') (prefers-color-scheme: dark);
+/* Styles for syntax highlighting. */
+@import 'svelte-highlight/styles/a11y-light.css' (prefers-color-scheme: light);
+@import 'svelte-highlight/styles/a11y-dark.css' (prefers-color-scheme: dark);
+
+/* Tab size for code examples. */
+pre {
+	tab-size: 2;
+}
 
 a[href] {
 	text-decoration: none;
@@ -14,13 +19,6 @@ a[href]:hover {
 
 a[href]:visited {
 	text-decoration: none;
-}
-
-button {
-	color: var(--surface-1);
-	background-color: var(--brand);
-	border: none;
-	text-shadow: none;
 }
 
 input {
@@ -44,11 +42,6 @@ input .text-gradient {
 	-webkit-text-fill-color: transparent;
 }
 
-.remark-code-title {
-	font-weight: var(--font-weight-7);
-	margin-bottom: var(--size-1);
-}
-
 .sr-only {
 	position: absolute;
 	width: 1px;
@@ -59,100 +52,4 @@ input .text-gradient {
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border-width: 0;
-}
-
-/* OPT-IN GLOBAL STYLES (via .global class) */
-
-.global blockquote {
-	margin-block-end: var(--size-fluid-3);
-}
-
-.global blockquote > p,
-.global blockquote > ol {
-	margin-block-end: 0;
-}
-
-.global h1 {
-	font-size: var(--font-size-fluid-3);
-	line-height: var(--font-lineheight-1);
-}
-
-.global h2 {
-	font-size: var(--font-size-fluid-2);
-	font-weight: var(--font-weight-7);
-	margin-block-end: var(--size-fluid-3);
-}
-
-.global h3 {
-	font-size: var(--font-size-fluid-1);
-	font-weight: var(--font-weight-6);
-	margin-block-end: var(--size-fluid-2);
-}
-
-.global p {
-	margin-block-end: var(--size-fluid-3);
-}
-
-.global p:last-child {
-	margin: 0;
-}
-
-.global figure {
-	place-items: start;
-	max-inline-size: var(--size-content-3);
-	margin-block-end: var(--size-fluid-3);
-}
-
-.global pre {
-	margin-block-end: var(--size-fluid-3);
-}
-
-.global ul,
-.global ol {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-fluid-2);
-	padding-inline-start: var(--size-fluid-3);
-	margin-block-end: var(--size-fluid-3);
-}
-
-.global .stackblitz,
-.global .codesandbox {
-	margin-block-end: var(--size-fluid-4);
-}
-
-.global .card {
-	margin-block-end: var(--size-fluid-3);
-}
-
-.global .card code {
-	background-color: var(--surface-3);
-}
-
-.global .table {
-	max-width: 100%;
-	overflow: hidden;
-	overflow-x: auto;
-}
-
-.global table {
-	border: var(--border-size-2) solid var(--text-2);
-	border-collapse: collapse;
-}
-
-.global th {
-	border: var(--border-size-1) solid var(--text-2);
-	background-color: var(--surface-3);
-	font-weight: var(--font-weight-5);
-	text-align: start;
-	white-space: nowrap;
-	padding-inline: var(--size-3);
-	padding-block: var(--size-2);
-}
-
-.global td {
-	border: var(--border-size-1) solid var(--text-2);
-	white-space: nowrap;
-	padding-inline: var(--size-3);
-	padding-block: var(--size-2);
 }
