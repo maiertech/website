@@ -1,6 +1,7 @@
 <script>
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
+	import { PUBLIC_FATHOM_SITE_ID } from '$env/static/public';
 	import Favicon from '$lib/components/favicon.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Header from '$lib/components/header.svelte';
@@ -10,12 +11,8 @@
 	import '../app.css';
 
 	onMount(() => {
-		// Load Fathom Analytics tracking script.
-		Fathom.load(import.meta.env.VITE_FATHOM_SITE_ID, {
-			url: 'https://refreshing-golden-years.maier.tech/script.js',
-			honorDNT: true,
-			// Track only maier.tech. Also configured on app.usefathom.com.
-			includedDomains: ['maier.tech']
+		Fathom.load(PUBLIC_FATHOM_SITE_ID, {
+			url: 'https://refreshing-golden-years.maier.tech/script.js'
 		});
 	});
 

@@ -4,20 +4,20 @@
 	/** @type {string} */
 	export let title;
 
-	/** @type {string} */
+	/** @type {string | undefined} */
 	export let author;
 
 	/**
 	 * ISO 8601 date string (YYYY-MM-DDTHH:MM:SS.SSSZ).
 	 * @type {string}
 	 */
-	export let publishedDate;
+	export let published;
 
 	/**
 	 * IS0 8601 date string (YYYY-MM-DDTHH:MM:SS.SSSZ).
-	 * @type {string}
+	 * @type {string | undefined}
 	 */
-	export let modifiedDate;
+	export let lastmod;
 
 	/** @type {import('$lib/types').Tag[] | undefined} */
 	export let tags = undefined;
@@ -28,22 +28,25 @@
 	<div>
 		<span class="published">
 			{author} •
-			<time dateTime={publishedDate}>
+			<time dateTime={published}>
 				{new Intl.DateTimeFormat('en-US', {
 					dateStyle: 'medium',
 					timeZone: 'UTC'
-				}).format(new Date(publishedDate))}
-			</time>
-		</span><br />
-		<span class="modified">
-			Last modified:
-			<time dateTime={modifiedDate}>
-				{new Intl.DateTimeFormat('en-US', {
-					dateStyle: 'medium',
-					timeZone: 'UTC'
-				}).format(new Date(modifiedDate))}
+				}).format(new Date(published))}
 			</time>
 		</span>
+		{#if lastmod}
+			<br />
+			<span class="modified">
+				Last modified:
+				<time dateTime={lastmod}>
+					{new Intl.DateTimeFormat('en-US', {
+						dateStyle: 'medium',
+						timeZone: 'UTC'
+					}).format(new Date(lastmod))}
+				</time>
+			</span>
+		{/if}
 	</div>
 	{#if tags}
 		<Tags {tags} />
@@ -55,6 +58,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--size-fluid-3);
+		margin-bottom: var(--size-fluid-4);
 	}
 
 	h1 {

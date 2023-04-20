@@ -1,34 +1,21 @@
 import { ORIGIN } from '$env/static/private';
-import { PostSchema } from '$lib/schemas';
-import { error } from '@sveltejs/kit';
+import { top_posts } from '$lib/utils/posts';
 import RSS from 'rss';
-import { z } from 'zod';
 
-export async function GET({ fetch }) {
+export const prerender = true;
+
+export async function GET() {
 	const feed = new RSS({
 		title: 'Thilo Maier',
 		feed_url: `${ORIGIN}/rss.xml`,
 		site_url: `${ORIGIN}`
 	});
 
-	// Fetch latest 10 posts.
-	const response = await fetch(`/api/posts/filter?${new URLSearchParams({ limit: '10' })}`);
-
-	if (!response.ok) {
-		throw error(500, 'Failed to fetch posts.');
-	}
-
-	const result = z.array(PostSchema).safeParse(await response.json());
-
-	if (!result.success) {
-		throw error(500, 'Posts failed validation.');
-	}
-
-	result.data.forEach((post) => {
+	top_posts(10).forEach((post) => {
 		feed.item({
 			title: post.title,
 			description: post.description,
-			url: `${ORIGIN}/posts/${post.slug}`,
+			url: `${ORIGIN}${post.path}`,
 			date: post.published
 		});
 	});

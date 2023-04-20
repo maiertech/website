@@ -11,7 +11,7 @@
 <h1 class="text-gradient">{title}</h1>
 
 <div>
-	{#each posts as post (post.id)}
+	{#each posts as post (post.path)}
 		<article>
 			<h2>{post.title}</h2>
 			<p class="date">
@@ -23,7 +23,7 @@
 				</time>
 			</p>
 			<p class="description">{post.description}</p>
-			<a href={`/posts/${post.slug}`}><Button large>Read post</Button></a>
+			<a href={post.path}><Button large>Read post</Button></a>
 		</article>
 	{/each}
 </div>

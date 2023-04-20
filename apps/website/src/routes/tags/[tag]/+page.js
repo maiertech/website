@@ -1,43 +1,19 @@
-import { PostSchema, TagSchema } from '$lib/schemas';
+import { filter_by_tag } from '$lib/utils/posts';
+import { resolve } from '$lib/utils/tags';
 import { error } from '@sveltejs/kit';
-import { z } from 'zod';
 
-export async function load({ fetch, params }) {
-	const { tag } = params;
+export async function load({ params }) {
+	const tag = resolve(params.tag);
 
-	// Resolve tag.
-	let response = await fetch(`/api/tags/${tag}`);
-
-	if (!response.ok) {
+	if (!tag) {
 		throw error(404, 'Not found.');
 	}
 
-	let result_tag = TagSchema.safeParse(await response.json());
-
-	if (!result_tag.success) {
-		throw error(500, `Tag ${tag} failed validation.`);
-	}
-
-	const resolved_tag = result_tag.data;
-
-	// Fetch posts for tag.
-	response = await fetch(`/api/posts/filter?${new URLSearchParams({ tag: resolved_tag.id })}`);
-
-	if (!response.ok) {
-		throw error(500, `Failed to fetch posts for tag ${resolved_tag.label}.`);
-	}
-
-	const result_posts = z.array(PostSchema).safeParse(await response.json());
-
-	if (!result_posts.success) {
-		throw error(500, `Posts for tag ${resolved_tag.label} failed validation.`);
-	}
-
-	const posts = result_posts.data;
+	const posts = filter_by_tag(tag.id);
 
 	if (posts.length === 0) {
 		throw error(404, 'Not found.');
 	}
 
-	return { title: resolved_tag.label, posts };
+	return { title: tag.label, posts };
 }

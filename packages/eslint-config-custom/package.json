@@ -9,7 +9,7 @@
 	"dependencies": {
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-config-turbo": "^1.8.6",
-		"eslint-plugin-jsdoc": "^40.1.0",
+		"eslint-plugin-jsdoc": "^43.0.6",
 		"eslint-plugin-svelte3": "^4.0.0"
 	},
 	"publishConfig": {

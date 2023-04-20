@@ -1,93 +1,84 @@
-import { base } from '$app/paths';
-
 /**
  * Valid tags, sorted by id.
  * Access via endpoint /api/tags.
  *
  * @type {import('$lib/types').Tag[]}
  */
-const tags = [
+export default [
 	{
 		id: 'codesandbox',
 		label: 'CodeSandbox',
-		path: `${base}/tags/codesandbox`
+		path: '/tags/codesandbox'
 	},
 	{
 		id: 'css',
 		label: 'CSS',
-		path: `${base}/tags/css`
+		path: '/tags/css'
 	},
 	{
 		id: 'd3',
 		label: 'D3',
-		path: `${base}/tags/d3`
+		path: '/tags/d3'
 	},
 	{
 		id: 'github',
 		label: 'GitHub',
-		path: `${base}/tags/github`
+		path: '/tags/github'
 	},
 	{
 		id: 'gitpod',
 		label: 'Gitpod',
-		path: `${base}/tags/gitpod`
-	},
-	{
-		id: 'node',
-		label: 'Node',
-		path: `${base}/tags/node`
+		path: '/tags/gitpod'
 	},
 	{
 		id: 'screen-recording',
 		label: 'Screen recording',
-		path: `${base}/tags/screen-recording`
+		path: '/tags/screen-recording'
 	},
 	{
 		id: 'sveltekit',
 		label: 'SvelteKit',
-		path: `${base}/tags/sveltekit`
+		path: '/tags/sveltekit'
 	},
 	{
 		id: 'seo',
 		label: 'SEO',
-		path: `${base}/tags/seo`
+		path: '/tags/seo'
 	},
 	{
 		id: 'stackblitz',
 		label: 'StackBlitz',
-		path: `${base}/tags/stackblitz`
+		path: '/tags/stackblitz'
 	},
 	{
 		id: 'turborepo',
 		label: 'Turborepo',
-		path: `${base}/tags/turborepo`
+		path: '/tags/turborepo'
 	},
 	{
 		id: 'twitter',
 		label: 'Twitter',
-		path: `${base}/tags/twitter`
+		path: '/tags/twitter'
 	},
 
 	{
 		id: 'typescript',
 		label: 'TypeScript',
-		path: `${base}/tags/typescript`
+		path: '/tags/typescript'
 	},
 	{
 		id: 'vercel',
 		label: 'Vercel',
-		path: `${base}/tags/vercel`
+		path: '/tags/vercel'
 	},
 	{
 		id: 'vite',
 		label: 'Vite',
-		path: `${base}/tags/vite`
+		path: '/tags/vite'
 	},
 	{
 		id: 'vscode',
 		label: 'VS Code',
-		path: `${base}/tags/vscode`
+		path: '/tags/vscode'
 	}
 ];
-
-export default tags;

@@ -1,5 +1,3 @@
-import type { ComponentType } from 'svelte';
-import { TypeSchema } from 'ui';
 import {
 	AuthorSchema,
 	PostSchema,
@@ -7,6 +5,9 @@ import {
 	TagSchema,
 	TopicSchema
 } from '$lib/schemas';
+import { EmbedOptions, Project } from '@stackblitz/sdk';
+import type { ComponentType } from 'svelte';
+import { TypeSchema } from 'ui';
 import { z } from 'zod';
 
 // Types inferred from local schemas.
@@ -31,3 +32,7 @@ export type SocialIcon = {
 	component: ComponentType;
 	onclick?: () => void;
 };
+
+export type NotUndefined<T> = (item: T | undefined) => item is T;
+
+export type StackBlitzExample = { project: Project; options: EmbedOptions };

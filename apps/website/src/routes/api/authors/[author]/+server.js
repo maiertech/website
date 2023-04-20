@@ -1,9 +1,8 @@
-import authors from '$lib/data/authors';
+import { resolve } from '$lib/utils/authors';
 import { error, json } from '@sveltejs/kit';
 
-// Resolve an author ID.
 export function GET({ params }) {
-	const author = authors.find((author) => author.id === params.author);
+	const author = resolve(params.author);
 
 	if (!author) {
 		throw error(404, 'Author not found.');

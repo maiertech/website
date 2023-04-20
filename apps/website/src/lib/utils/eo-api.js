@@ -30,7 +30,7 @@ export function subscribe(data) {
  * Get list info:
  * https://emailoctopus.com/api-documentation/lists/get
  */
-export function getListInfo() {
+export function get_list_info() {
 	const url = `${base}lists/${EO_LIST_ID}?${querystring}`;
 	return fetch(url, { method: 'GET' });
 }
@@ -41,7 +41,7 @@ export function getListInfo() {
  *
  * @param {string} email_address
  */
-export function getSubscriber(email_address) {
+export function get_subscriber(email_address) {
 	// EO expects lower case email address to be hashed with MD5.
 	const digest = createHash('md5').update(email_address.toLowerCase()).digest('hex');
 	const url = `${base}lists/${EO_LIST_ID}/contacts/${digest}?${querystring}`;

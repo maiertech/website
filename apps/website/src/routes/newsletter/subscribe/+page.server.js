@@ -1,5 +1,5 @@
 import { error, fail } from '@sveltejs/kit';
-import { subscribe, getSubscriber } from '$lib/utils/eo-api';
+import { subscribe, get_subscriber } from '$lib/utils/eo-api';
 import { EOApiErrorSchema, EOSubscriberSchema, SubscribeFormSchema } from '$lib/schemas';
 
 export const actions = {
@@ -34,7 +34,7 @@ export const actions = {
 
 			// If subscriber is already on list, lookup their status.
 			if (eo_api_error.code === 'MEMBER_EXISTS_WITH_EMAIL_ADDRESS') {
-				const res = await getSubscriber(validated_data.email_address);
+				const res = await get_subscriber(validated_data.email_address);
 
 				if (!res.ok) {
 					throw error(500, 'Subscription failed.');

@@ -8,3 +8,4 @@ export { default as SubscribeFormSchema } from './subscribe-form-schema';
 export { default as TagSchema } from './tag-schema';
 export { default as TopicSchema } from './topic-schema';
 export { default as UnsubscribeFormSchema } from './unsubscribe-form-schema';
+export { default as GHCommitSchema } from './gh-commit-schema';
