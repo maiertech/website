@@ -1,10 +1,8 @@
 /** @type {import('$lib/types').Author[]} */
-const authors = [
+export default [
 	{
 		id: 'thilo',
 		name: 'Thilo Maier',
 		mastodonUrl: 'https://maier.social/@thilo'
 	}
 ];
-
-export default authors;

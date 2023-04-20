@@ -11,9 +11,11 @@ on:
 env:
   EO_API_KEY: ${{ secrets.EO_API_KEY }}
   EO_LIST_ID: ${{ secrets.EO_LIST_ID }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMGIX_DOMAIN: ${{ secrets.IMGIX_DOMAIN }}
   IMGIX_TOKEN: ${{ secrets.IMGIX_TOKEN }}
   ORIGIN: ${{ secrets.ORIGIN }}
+  PUBLIC_FATHOM_SITE_ID: ${{ secrets.PUBLIC_FATHOM_SITE_ID }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
   TURBO_REMOTE_ONLY: true

@@ -1,9 +1,8 @@
-import topics from '$lib/data/topics';
+import { resolve } from '$lib/utils/topics';
 import { error, json } from '@sveltejs/kit';
 
-// Resolve a topic ID.
 export function GET({ params }) {
-	const topic = topics.find((topic) => topic.id === params.topic);
+	const topic = resolve(params.topic);
 
 	if (!topic) {
 		throw error(404, 'Topic not found.');

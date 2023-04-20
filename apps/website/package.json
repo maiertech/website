@@ -9,7 +9,6 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
-		"test:unit": "vitest",
 		"lint": "prettier --check --ignore-path=../../.prettierignore . && eslint .",
 		"format": "prettier --write --ignore-path=../../.prettierignore ."
 	},
@@ -22,7 +21,6 @@
 		"@types/rss": "^0.0.30",
 		"autoprefixer": "^10.4.7",
 		"fathom-client": "^3.5.0",
-		"mdsvex": "^0.10.6",
 		"open-props": "^1.5.7",
 		"postcss": "^8.4.14",
 		"postcss-jit-props": "^1.0.13",
@@ -35,7 +33,6 @@
 		"typescript": "^5.0.3",
 		"ui": "*",
 		"vite": "^4.0.3",
-		"vitest": "^0.29.8",
 		"zod": "^3.19.1"
 	}
 }

@@ -1,9 +1,9 @@
 import { error } from '@sveltejs/kit';
-import { getListInfo } from '$lib/utils/eo-api';
+import { get_list_info } from '$lib/utils/eo-api';
 import { EOListSchema } from '$lib/schemas';
 
 export async function GET() {
-	const response = await getListInfo();
+	const response = await get_list_info();
 
 	if (!response.ok) {
 		throw error(500, 'Failed to fetch list info.');

@@ -17,17 +17,11 @@
 
 	// Posts.
 
-	/** @type {string[]} */
-	export let topics = [];
-
-	/** @type {string[]} */
-	export let tags = [];
-
 	/** @type {string | undefined} */
 	export let published = undefined;
 
 	/** @type {string | undefined} */
-	export let modified = undefined;
+	export let lastmod = undefined;
 
 	let decoratedTitle = title;
 	if ($page.url.pathname !== `${base}/`) {
@@ -46,8 +40,7 @@
 		url,
 		article: {
 			publishedTime: published,
-			modifiedTime: modified,
-			tags: [...topics, ...tags]
+			modifiedTime: lastmod
 		}
 	}}
 	twitter={{ title, description }}

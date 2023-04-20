@@ -10,9 +10,9 @@
 <h1 class="text-gradient">{title}</h1>
 
 <ul>
-	{#each posts as post (post.id)}
+	{#each posts as post (post.path)}
 		<li>
-			<a href={`/posts/${post.slug}`}>{post.title}</a>
+			<a href={post.path}>{post.title}</a>
 		</li>
 	{/each}
 </ul>
