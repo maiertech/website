@@ -11,13 +11,13 @@
 	 * ISO 8601 date string (YYYY-MM-DDTHH:MM:SS.SSSZ).
 	 * @type {string}
 	 */
-	export let published;
+	export let published_date;
 
 	/**
 	 * IS0 8601 date string (YYYY-MM-DDTHH:MM:SS.SSSZ).
 	 * @type {string | undefined}
 	 */
-	export let lastmod;
+	export let lastmod_date;
 
 	/** @type {import('$lib/types').Tag[] | undefined} */
 	export let tags = undefined;
@@ -28,22 +28,22 @@
 	<div>
 		<span class="published">
 			{author} •
-			<time dateTime={published}>
+			<time dateTime={published_date}>
 				{new Intl.DateTimeFormat('en-US', {
 					dateStyle: 'medium',
 					timeZone: 'UTC'
-				}).format(new Date(published))}
+				}).format(new Date(published_date))}
 			</time>
 		</span>
-		{#if lastmod}
+		{#if lastmod_date}
 			<br />
 			<span class="modified">
 				Last modified:
-				<time dateTime={lastmod}>
+				<time dateTime={lastmod_date}>
 					{new Intl.DateTimeFormat('en-US', {
 						dateStyle: 'medium',
 						timeZone: 'UTC'
-					}).format(new Date(lastmod))}
+					}).format(new Date(lastmod_date))}
 				</time>
 			</span>
 		{/if}

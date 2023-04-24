@@ -1,11 +1,7 @@
 <script>
-	import SEO from '$lib/components/seo.svelte';
-
 	export let data;
 	const { title, posts } = data;
 </script>
-
-<SEO {title} description={`Posts about ${title}.`} />
 
 <h1 class="text-gradient">{title}</h1>
 

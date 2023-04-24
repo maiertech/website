@@ -1,12 +1,9 @@
 <script>
-	import SEO from '$lib/components/seo.svelte';
 	import { Button } from 'ui';
 
 	export let data;
-	const { title, description, posts } = data;
+	const { title, posts } = data;
 </script>
-
-<SEO {title} {description} />
 
 <h1 class="text-gradient">{title}</h1>
 
@@ -15,11 +12,11 @@
 		<article>
 			<h2>{post.title}</h2>
 			<p class="date">
-				<time dateTime={post.published}>
+				<time dateTime={post.published_date}>
 					{new Intl.DateTimeFormat('en-US', {
 						dateStyle: 'medium',
 						timeZone: 'UTC'
-					}).format(new Date(post.published))}
+					}).format(new Date(post.published_date))}
 				</time>
 			</p>
 			<p class="description">{post.description}</p>

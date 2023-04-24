@@ -64,7 +64,7 @@ export async function load({ url }) {
 	}
 
 	const [data] = result.data;
-	const lastmod = data ? data.commit.author.date : undefined;
+	const lastmod_date = data ? data.commit.author.date : undefined;
 
-	return { ...post, author, topics, tags, lastmod };
+	return { ...post, author, topics, tags, lastmod_date };
 }

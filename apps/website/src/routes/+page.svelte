@@ -1,19 +1,15 @@
 <script>
-	import SEO from '$lib/components/seo.svelte';
 	import { Button } from 'ui';
 
 	export let data;
-	const { title, description, topics } = data;
 </script>
 
-<SEO {title} {description} />
-
 <section class="about">
-	<p>{description}</p>
+	<p>{data.description}</p>
 </section>
 
 <section class="topics">
-	{#each topics as topic (topic.id)}
+	{#each data.topics as topic (topic.id)}
 		<article>
 			<h2>{topic.label}</h2>
 			<p>{topic.description}</p>
