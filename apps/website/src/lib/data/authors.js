@@ -3,6 +3,6 @@ export default [
 	{
 		id: 'thilo',
 		name: 'Thilo Maier',
-		mastodonUrl: 'https://maier.social/@thilo'
+		url: 'https://maier.social/@thilo'
 	}
 ];

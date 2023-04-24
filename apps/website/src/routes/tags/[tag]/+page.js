@@ -15,5 +15,5 @@ export async function load({ params }) {
 		throw error(404, 'Not found.');
 	}
 
-	return { title: tag.label, posts };
+	return { title: tag.label, description: `Posts about ${tag.label}.`, posts };
 }

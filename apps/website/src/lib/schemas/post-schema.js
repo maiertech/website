@@ -8,7 +8,7 @@ export default z.object({
 	/** SEO description. */
 	description: z.string(),
 	/** Published date in local system time. */
-	published: z.string().datetime(),
+	published_date: z.string().datetime(),
 	topics: z.array(z.string()).optional(),
 	tags: z.array(z.string()).optional(),
 	path: z.string()

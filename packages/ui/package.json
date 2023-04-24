@@ -24,12 +24,13 @@
 		"dist"
 	],
 	"peerDependencies": {
+		"@sveltejs/kit": "^1.15.8",
 		"open-props": "^1.5.7",
 		"svelte": "^3.58.0"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.15.0",
+		"@sveltejs/adapter-auto": "^2.0.1",
+		"@sveltejs/kit": "^1.15.8",
 		"@sveltejs/package": "^2.0.0",
 		"autoprefixer": "^10.4.14",
 		"open-props": "^1.5.7",
