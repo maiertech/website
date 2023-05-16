@@ -13,7 +13,7 @@ import sdk from '@stackblitz/sdk';
  * @typedef {object} Params
  * @prop {import('@stackblitz/sdk').Project | string} project
  * @prop {import('@stackblitz/sdk').EmbedOptions} options
- * @prop {Callback} cb
+ * @prop {Callback} [cb]
  */
 
 /**
@@ -30,7 +30,9 @@ export default function (node, { project, options, cb }) {
 		promise_vm = sdk.embedProject(node, project, options);
 	}
 
-	cb(promise_vm);
+	if (cb) {
+		cb(promise_vm);
+	}
 
 	return {
 		/** @param {Params} params */

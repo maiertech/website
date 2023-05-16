@@ -1,18 +1,15 @@
 {
+	"private": true,
 	"name": "eslint-config-custom",
 	"version": "0.0.0",
 	"main": "index.js",
-	"license": "MIT",
 	"peerDependencies": {
-		"eslint": "^8.37.0"
+		"eslint": "^8.40.0"
 	},
 	"dependencies": {
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-config-turbo": "^1.8.6",
-		"eslint-plugin-jsdoc": "^43.2.0",
-		"eslint-plugin-svelte3": "^4.0.0"
-	},
-	"publishConfig": {
-		"access": "public"
+		"eslint-plugin-jsdoc": "^44.2.4",
+		"eslint-plugin-svelte": "^2.28.0"
 	}
 }

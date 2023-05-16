@@ -15,16 +15,16 @@
 	export let options = {};
 
 	/** @type {VM} */
-	let vm;
+	// let vm;
 
-	/** @param {Promise<VM>} promise_vm */
-	async function cb(promise_vm) {
-		vm = await promise_vm;
-	}
+	/** @param {Promise<VM>} promised_vm */
+	// async function cb(promised_vm) {
+	// 	vm = await promised_vm;
+	// }
 </script>
 
 <div class="stackblitz">
-	<iframe use:stackblitz={{ project, options, cb }} title="This iframe will be swapped out." />
+	<iframe use:stackblitz={{ project, options }} title="This iframe will be swapped out." />
 </div>
 
 <style>
