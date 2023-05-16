@@ -1,11 +1,12 @@
 module.exports = {
 	root: true,
-	extends: ['eslint:recommended', 'prettier', 'turbo'],
-	plugins: ['svelte3', 'jsdoc'],
-	overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
+	extends: ['eslint:recommended', 'plugin:svelte/recommended', 'prettier', 'turbo'],
+	rules: { 'svelte/no-at-html-tags': 'off' },
+	plugins: ['jsdoc'],
 	parserOptions: {
 		sourceType: 'module',
-		ecmaVersion: 2020
+		ecmaVersion: 2020,
+		extraFileExtensions: ['.svelte']
 	},
 	env: {
 		browser: true,
