@@ -19,14 +19,14 @@ const examples = {
 		Fathom.load(PUBLIC_FATHOM_SITE_ID);
 	});
 </script>`,
-	'custom-domain': `<script>
+	'extreme-eu-isolation': `<script>
 	import { onMount } from 'svelte';
 	import * as Fathom from 'fathom-client';
 	import { PUBLIC_FATHOM_SITE_ID } from '$env/static/public';
 
 	onMount(() => {
 		Fathom.load(PUBLIC_FATHOM_SITE_ID, {
-			url: 'https://refreshing-golden-years.maier.tech/script.js'
+			url: 'https://cdn-eu.usefathom.com/script.js'
 		});
 	});
 </script>`,

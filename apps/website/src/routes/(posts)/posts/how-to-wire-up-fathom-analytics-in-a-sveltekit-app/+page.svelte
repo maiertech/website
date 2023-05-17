@@ -17,23 +17,23 @@
 	>.
 </p>
 
-<h2>Tracking pageviews and goals</h2>
+<h2>Tracking page views and goals</h2>
 
 <p>
-	There are usually two things you want to track with web analytics: <em>pageviews</em> and
-	<em>goals</em>. Tracking pageviews helps you understand how visitors navigate through your
-	website, how long they spend on each page, and which pages are more popular than others. Tracking
-	goals helps you track specific actions you would like your visitors to do, e.g., subscribe to your
-	newsletter or click through to your Twitter profile. Actions typically involve clicking a link or
-	a button. When such a click happens, a visitor has done what you wanted them to do, and you can
-	track that you have accomplished your goal for this visitor.
+	There are usually two things you want to track with web analytics: <em>page views</em> and
+	<em>goals</em>. Tracking page views helps you see how visitors move through your website, how long
+	they spend on each page, and which pages are more popular than others. Tracking goals helps you
+	track specific actions you would like your visitors to do, e.g., subscribe to your newsletter or
+	click through to your Twitter profile. Actions typically involve clicking a link or a button. When
+	such a click happens, a visitor has done what you wanted them to do, and you can track that you
+	have accomplished your goal for this visitor.
 </p>
 
 <p>
-	Like with any other analytics tool, Fathom requires a
+	Like any other analytics platform, Fathom requires a
 	<a href="https://usefathom.com/docs/script/script">custom tracking script</a> to be included in
-	your website. This is straightforward for multi-page applications: a visitor loads a page, and the
-	script runs and records the pageview. For single-page applications (SPAs), you need to put in
+	your website. This is straightforward for multipage applications: a visitor loads a page, and the
+	script runs and records the page view. For single-page applications (SPAs), you need to put in
 	additional work to ensure that client-side route changes are also tracked. Fathom
 	<a href="https://usefathom.com/docs/integrations">lists common integrations in their docs</a>,
 	e.g., for Next.js or Gatsby, but not for SvelteKit.
@@ -57,7 +57,7 @@
 	This code snippet uses Svelte's
 	<a href="https://svelte.dev/docs#onMount"><code>onMount</code> callback</a> to load the tracking script
 	as soon as the layout component has been mounted. Whenever that is the case, the tracking script records
-	a pageview.
+	a page view.
 </p>
 
 <h2>Environment variables in SvelteKit</h2>
@@ -78,43 +78,74 @@
 	<a href="https://kit.svelte.dev/docs/modules#$env-static-public"
 		><code>$env/static/public</code></a
 	>
-	to expose variable <code>PUBLIC_FATHOM_SITE_ID</code> to the client. Note that the environment
+	to expose the variable <code>PUBLIC_FATHOM_SITE_ID</code> to the client. Note that the environment
 	variable needs to be prefixed with <code>PUBLIC_</code> to be exposed to the client.
 </p>
 
-<h2>Serving the tracking script from a custom domain</h2>
+<h2>Dealing with ad-blockers</h2>
 
 <p>
-	The tracking script is served from Fathom's domain in the previous code snippets. This means that
-	ad-blockers will block the tracking script sooner than later. Fathom offers a way to serve the
-	tracking script from a custom domain using a CNAME record. Serving the tracking script from the
-	same domain as the tracked website increases the chances that ad-blockers or other browser
-	security mechanisms do not block the tracking script. I will not go into the details of how this
-	is done because you can read up on it
-	<a href="https://usefathom.com/docs/script/custom-domains">here in the Fathom docs</a>.
+	The tracking script is served from Fathom's domain in the previous code snippets. Since this is a
+	predictable URL, ad-blockers block the tracking script. Fathom used to offer a way
+	<a href="https://usefathom.com/docs/script/custom-domains"
+		>to serve the tracking script from a custom domain</a
+	> using a CNAME record. But in May 2023, they advised their customers to stop using custom domains:
+</p>
+
+<blockquote>
+	<p>
+		You're getting this email because you created a custom domain at some point using Fathom
+		Analytics.
+	</p>
+	<p>
+		We've had a few reports of custom domains not collecting data due to expired SSL certificates
+		that our vendor isn't renewing automatically, which is unacceptable to us, and we take full
+		responsibility for this.
+	</p>
+	<p>
+		We've tried to fix this issue with our vendor but aren't getting anywhere, so you need to stop
+		using your Fathom custom domains right now.
+	</p>
+</blockquote>
+
+<p>
+	The custom domain approach has always been a double-edged sword. On the one hand, as the website
+	owner, you are interested in accurately tracking your visitors. On the other hand, by creating a
+	CNAME record to serve a third-party tracking script, you delegate the reputation of your domain to
+	that third party. If Fathom had gone rogue, they could have served a malicious tracking script
+	from your domain, get access to secrets such as authentication cookies, and destroy trust in your
+	domain. Fathom <a href="https://usefathom.com/blog/bypass-adblockers"
+		>has always been upfront about this potential issue</a
+	>.
+</p>
+
+<h2>EU isolation</h2>
+
+<p>
+	When you use Fathom's default tracking script <code>cdn.usefathom.com/script.js</code>, any visits
+	to your website from within the EU will be processed and anonymized within the EU. This is called
+	<em>EU</em> isolation and
+	<a href="https://usefathom.com/features/eu-isolation"
+		>works out of the box with zero configuration</a
+	>.
 </p>
 
 <p>
-	This approach is a double-edged sword. On the one hand, as the website owner, you are interested
-	in accurately tracking your visitors to improve your site and serve them better. On the other
-	hand, by creating that CNAME record, you delegate the reputation of your domain to a third party.
-	If Fathom went rogue, they could serve a malicious tracking script from your domain, get access to
-	secrets such as authentication cookies, and destroy trust in your domain. Fathom is upfront about
-	this potential issue. They make a strong case for why you should trust them in
-	<a href="https://usefathom.com/blog/bypass-adblockers">this post</a>.
+	Fathom also offers <em>extreme EU isolation</em>, where all global traffic is routed through the
+	EU. All you need to do is use <code>cdn-eu.usefathom.com/script.js</code> as tracking script instead
+	of the default one.
 </p>
 
 <p>
 	You can provide an options object to <code>Fathom.load</code> as the second argument. It has a
 	property
-	<coce>url</coce>, which defaults to Fathom's tracking script
-	<a href="https://cdn.usefathom.com/script.js">https://cdn.usefathom.com/script.js</a>. If you
-	choose to serve your tracking script from a custom domain, you need to set the
-	<code>url</code> option to the custom tracking script URL provided by Fathom in your dashboard:
+	<code>url</code>, which defaults to Fathom's default tracking script. If you want extreme EU
+	isolation, you need to set the
+	<code>url</code> option to the alternative tracking script:
 </p>
 
 <figure>
-	<HighlightSvelte code={examples['custom-domain']} />
+	<HighlightSvelte code={examples['extreme-eu-isolation']} />
 	<figcaption>src/routes/+layout.svelte</figcaption>
 </figure>
 
@@ -171,4 +202,4 @@
 	/>
 </figure>
 
-<p>You have to generate the goal-tracking ID in your Fathom dashbaord.</p>
+<p>You have to generate the goal-tracking ID in your Fathom dashboard.</p>
