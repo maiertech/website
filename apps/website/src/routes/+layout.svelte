@@ -13,9 +13,7 @@
 
 	// onMount runs client-side only.
 	onMount(() => {
-		Fathom.load(PUBLIC_FATHOM_SITE_ID, {
-			url: 'https://refreshing-golden-years.maier.tech/script.js'
-		});
+		Fathom.load(PUBLIC_FATHOM_SITE_ID);
 	});
 
 	// Default OpenGraph type: website.
