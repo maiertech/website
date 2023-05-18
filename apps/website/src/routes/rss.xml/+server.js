@@ -1,20 +1,21 @@
+import { PUBLIC_CANONICAL_ORIGIN } from '$env/static/public';
 import { top_posts } from '$lib/utils/posts';
 import RSS from 'rss';
 
 export const prerender = true;
 
-export async function GET({ url }) {
+export async function GET() {
 	const feed = new RSS({
 		title: 'Thilo Maier',
-		feed_url: `${url.origin}/rss.xml`,
-		site_url: `${url.origin}`
+		feed_url: `${PUBLIC_CANONICAL_ORIGIN}/rss.xml`,
+		site_url: `${PUBLIC_CANONICAL_ORIGIN}`
 	});
 
 	top_posts(10).forEach((post) => {
 		feed.item({
 			title: post.title,
 			description: post.description,
-			url: `${url.origin}${post.path}`,
+			url: `${PUBLIC_CANONICAL_ORIGIN}${post.path}`,
 			date: post.published_date
 		});
 	});

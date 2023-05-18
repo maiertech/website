@@ -1,3 +1,4 @@
+import { PUBLIC_CANONICAL_ORIGIN } from '$env/static/public';
 import all_posts from '$lib/data/posts';
 import { GHCommitSchema } from '$lib/schemas/index.js';
 import { get_latest_commit } from '$lib/utils/gh-api';
@@ -9,7 +10,7 @@ export const prerender = true;
 // Array returned from GitHub API can be empty.
 const Schema = z.array(GHCommitSchema.optional());
 
-export async function GET({ url }) {
+export async function GET() {
 	// Lookup lastmod for each post.
 	const posts_with_lastmod = await Promise.all(
 		all_posts.map(async (post) => {
@@ -36,7 +37,7 @@ export async function GET({ url }) {
 	// Create sitemap entries for posts.
 	const posts = posts_with_lastmod.map(
 		(post) => `\t<url>
-		<loc>${new URL(post.path, url.origin).href}</loc>
+		<loc>${new URL(post.path, PUBLIC_CANONICAL_ORIGIN).href}</loc>
 		<lastmod>${post.lastmod_date ? post.lastmod_date : post.published_date}</lastmod>
 	</url>`
 	);
