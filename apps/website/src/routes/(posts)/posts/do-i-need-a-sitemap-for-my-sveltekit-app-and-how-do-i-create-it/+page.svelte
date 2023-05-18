@@ -8,7 +8,7 @@
 </script>
 
 <p>
-	Last week I refactored parts of this website and broke the endpoint that creates
+	Last week, I refactored parts of this website and broke the endpoint that creates
 	<a data-sveltekit-reload href="/sitemap.xml">this sitemap</a>. I decided to read up on sitemaps
 	before fixing the route. Here is what I learned.
 </p>
@@ -21,8 +21,8 @@
 	<a
 		href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview#do-i-need-a-sitemap"
 		>Google Search Console docs</a
-	>, Google answers the question "Do I need a sitemap?" with it depends. Google recommends a sitemap
-	when
+	>, Google answers the question "Do I need a sitemap?" with "it depends". Google recommends a
+	sitemap when
 </p>
 
 <ul>
@@ -38,9 +38,9 @@
 </ul>
 
 <p>
-	My website <a href="/">maier.tech</a> is small, and all pages are discoverable by a crawler. As recommended
-	by Google, I submitted a sitemap in May 2021 as an initial SEO boost. You can see when Google last
-	read a sitemap in the Google Search Console. For my site maier.tech it was almost two years ago:
+	My website <a href="/">maier.tech</a> is small, and all pages are discoverable by a crawler, so I would
+	not need a sitemap. Yet, I submitted a sitemap in May 2021 as an initial SEO boost. You can see when
+	Google last read a sitemap in the Google Search Console. For my site, it was almost two years ago:
 </p>
 
 <figure>
@@ -92,7 +92,8 @@
 	The <code>GET</code> handler assembles an XML string to which you add relevant routes. There is no
 	need to add all routes, only those you want to be indexed by Google. The catch is that you need to
 	figure out how to retrieve the entries for your sitemap. There is no copy-paste blueprint for how to
-	create a sitemap with SvelteKit. But I will walk you through the steps.
+	create a sitemap with SvelteKit because a sitemap depends on how you manage the content of your site.
+	But I will walk you through the steps.
 </p>
 
 <h3>Create endpoints to retrieve relevant pages</h3>
@@ -101,16 +102,16 @@
 	I created an endpoint
 	<a href="https://github.com/maiertech/maier.tech/blob/main/src/routes/api/posts/%2Bserver.js"
 		><code>src/api/posts/+server.js</code></a
-	> that returns a list of all posts. I manage my posts in Markdown files; the endpoint reads the frontmatters
-	and returns them. If I managed my posts in a CMS, the endpoint would retrieve them via an API call
-	to the CMS. Add an endpoint for each type of content you want to include in your sitemap.
+	> that returns a list of all posts, which it obtains from a file that contains an array with metadata
+	for all posts. If I managed my posts in a CMS, the endpoint would retrieve them via an API call to
+	the CMS. Add an endpoint for each type of content you want to include in your sitemap.
 </p>
 
 <h3>Create a sitemap endpoint</h3>
 
 <p>
-	Create endpoint <code>src/routes/sitemap.xml/+server.js</code> and add an async <code>GET</code> handler
-	with the following structure:
+	Create an endpoint <code>src/routes/sitemap.xml/+server.js</code> and add an async
+	<code>GET</code> handler with the following structure:
 </p>
 
 <figure>
@@ -130,10 +131,12 @@ To make creating entries easier, I use this helper function:
 
 <p>
 	<code>path</code> is a relative path, and <code>lastmod</code> is a date string in ISO format. I
-	get both from my <code>/api/posts</code> endpoint. <code>ORIGIN</code> is an environment variable
-	containing my site's origin "https://maier.tech". Google expects absolute URLs in a sitemap. And
-	since a SvelteKit app cannot determine its public URL, I use the <code>ORIGIN</code> variable to assemble
-	absolute URLs.
+	get both from my <code>/api/posts</code> endpoint. Google expects absolute URLs in a sitemap.
+	Since I prerender the sitemap, I cannot obtain the origin of the URL from which the app is served
+	in production. Therefore, I created an environment variable <code>PUBLIC_CANONICAL_ORIGIN</code>,
+	which contains my site's canonical origin https://maier.tech. This variable could also be private
+	and named <code>CANONICAL_ORIGIN</code>. But I also need access to the canonical origin in my SEO
+	components client-side, which means that the variable has to be public.
 </p>
 
 <p>Let's add error handling to wrap up the handler:</p>
@@ -145,7 +148,7 @@ To make creating entries easier, I use this helper function:
 
 <p>
 	The above code is a simplified version of my <a
-		href="https://github.com/maiertech/maier.tech/blob/main/src/routes/sitemap.xml/%2Bserver.js"
+		href="https://github.com/maiertech/maier.tech/blob/main/apps/website/src/routes/sitemap.xml/%2Bserver.js"
 		>actual endpoint</a
 	>, which you can explore on GitHub. My actual endpoint adds caching, validation, and prerendering.
 </p>
@@ -159,6 +162,6 @@ To make creating entries easier, I use this helper function:
 	instead of implementing an endpoint for a sitemap, you can configure the <code>postbuild</code>
 	hook in
 	<code>package.json</code> to scan all routes in the <code>build</code> directory and create
-	<code>build/sitemap.xml</code>. This approach only works with adapter-static since svelte-sitemap
+	<code>build/sitemap.xml</code>. This approach only works with adapter-static, since svelte-sitemap
 	cannot determine all possible routes for other adapters.
 </p>

@@ -28,7 +28,7 @@ const examples = {
 }`,
 	'create_entry.js': `function create_entry(path, lastmod) {
 	return \`<url>
-    <loc>\${new URL(path, ORIGIN).href}</loc>
+    <loc>\${new URL(path, PUBLIC_CANONICAL_ORIGIN).href}</loc>
     \${lastmod ? \`<lastmod>\${lastmod}</lastmod>\` : ''}
   </url>\`;
 }`,
