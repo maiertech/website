@@ -1,19 +1,28 @@
 <script>
-	import { page } from '$app/stores';
 	import decorate from '$lib/utils/decorate';
 
-	/** @type {import('$lib/types').SeoPost} */
+	/** @type {import('$lib/types').SeoPostData} */
 	export let data;
+
+	/**
+	 * Current URL.
+	 * @type {URL}
+	 */
+	export let url;
+
+	/**
+	 * Canonical origin.
+	 * Can be different from `url.origin`, e.g., during prerendering.
+	 * @type {string}
+	 */
+	export let canonical_origin;
 </script>
 
 <svelte:head>
 	<meta property="og:type" content="article" />
-	<meta
-		property="og:title"
-		content={$page.url.pathname !== '/' ? decorate(data.title) : data.title}
-	/>
+	<meta property="og:title" content={url.pathname !== '/' ? decorate(data.title) : data.title} />
 	<meta property="og:description" content={data.description} />
-	<meta property="og:url" content={`${$page.url.origin}${$page.url.pathname}`} />
+	<meta property="og:url" content={`${canonical_origin}${url.pathname}`} />
 	{#if data.image_url}
 		<meta property="og:image" content={data.image_url} />
 	{/if}

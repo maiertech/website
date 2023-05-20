@@ -1,10 +1,10 @@
 <script>
 	import serialize_schema from '$lib/utils/serialize-schema';
 
-	/** @type {import('$lib/types').SeoAuthor | undefined} */
+	/** @type {import('$lib/types').SeoAuthorData | undefined} */
 	export let author = undefined;
 
-	/** @type {import('$lib/types').SeoPost} */
+	/** @type {import('$lib/types').SeoPostData} */
 	export let data;
 
 	/** @type {import('schema-dts').BlogPosting} */

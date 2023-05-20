@@ -1,7 +1,7 @@
 <script>
 	import { Badge } from 'ui';
 
-	/** @type {import('$lib/types').Type} */
+	/** @type {import('$lib/types').ElementType} */
 	export let type = 'brand';
 
 	/** @type {import('$lib/types').Tag[] | import('$lib/types').Topic[]} */

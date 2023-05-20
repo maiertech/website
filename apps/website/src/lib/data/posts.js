@@ -6,6 +6,16 @@
  */
 export default [
 	{
+		title: 'How to add a basic SEO component to SvelteKit',
+		author: 'thilo',
+		published_date: '2023-05-20T00:00:00.00Z',
+		description:
+			'Learn how to make a basic SEO component for a SvelteKit app and how to feed it with SEO data.',
+		topics: ['svelte'],
+		tags: ['sveltekit', 'seo'],
+		path: '/posts/how-to-add-a-basic-seo-component-to-sveltekit'
+	},
+	{
 		title: 'Five ways to customize a Gitpod workspace',
 		author: 'thilo',
 		published_date: '2023-03-23T00:00:00.00Z',

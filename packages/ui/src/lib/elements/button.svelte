@@ -1,5 +1,5 @@
 <script>
-	/** @type {import('$lib/types').Type} */
+	/** @type {import('$lib/types').ElementType} */
 	export let type = 'brand';
 
 	export let large = false;
