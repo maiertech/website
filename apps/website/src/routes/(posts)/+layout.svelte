@@ -1,8 +1,9 @@
 <script>
+	import { page } from '$app/stores';
 	import PostFooter from '$lib/components/post-footer.svelte';
 	import PostHeader from '$lib/components/post-header.svelte';
 	import { getContext, onDestroy } from 'svelte';
-	import { Container, OpenGraphArticle, PageLayout, JsonLdArticle } from 'ui';
+	import { Container, PageLayout, SeoJsonLdBlogPosting, SeoOpenGraphArticle } from 'ui';
 
 	export let data;
 
@@ -14,7 +15,9 @@
 	onDestroy(() => is_og_type_website.set(true));
 </script>
 
-<OpenGraphArticle
+<SeoOpenGraphArticle
+	url={$page.url}
+	canonical_origin={data.canonical_origin}
 	data={{
 		title: data.title,
 		description: data.description,
@@ -22,7 +25,7 @@
 		lastmod_date: data.lastmod_date
 	}}
 />
-<JsonLdArticle
+<SeoJsonLdBlogPosting
 	data={{
 		title: data.title,
 		description: data.description,

@@ -19,10 +19,10 @@ export { default as SeoAuthorSchema } from './schemas/seo-author-schema';
 export { default as SeoDefaultSchema } from './schemas/seo-default-schema';
 export { default as SeoPostSchema } from './schemas/seo-post-schema';
 export { default as SeoWebsiteSchema } from './schemas/seo-website-schema';
-export { default as TypeSchema } from './schemas/type-schema';
+export { default as ElementTypeSchema } from './schemas/element-type-schema';
 
 // SEO components.
-export { default as JsonLdArticle } from './seo/json-ld-article.svelte';
-export { default as OpenGraphWebsite } from './seo/og-website.svelte';
-export { default as OpenGraphArticle } from './seo/og-article.svelte';
-export { default as SeoData } from './seo/seo-data.svelte';
+export { default as SeoJsonLdBlogPosting } from './seo/seo-json-ld-blog-posting.svelte';
+export { default as SeoOpenGraphWebsite } from './seo/seo-og-website.svelte';
+export { default as SeoOpenGraphArticle } from './seo/seo-og-article.svelte';
+export { default as SeoDefaultData } from './seo/seo-default-data.svelte';

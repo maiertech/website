@@ -7,7 +7,7 @@ import {
 } from '$lib/schemas';
 import { EmbedOptions, Project } from '@stackblitz/sdk';
 import type { ComponentType } from 'svelte';
-import { TypeSchema } from 'ui';
+import { ElementTypeSchema } from 'ui';
 import { z } from 'zod';
 
 // Types inferred from local schemas.
@@ -21,7 +21,7 @@ export type Topic = z.infer<typeof TopicSchema>;
 
 // Types inferred from UI schemas.
 
-export type Type = z.infer<typeof TypeSchema>;
+export type ElementType = z.infer<typeof ElementTypeSchema>;
 
 // Other types.
 
