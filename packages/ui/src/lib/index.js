@@ -15,14 +15,15 @@ export { default as ContentLayout } from './layout/content-layout.svelte';
 export { default as PageLayout } from './layout/page-layout.svelte';
 
 // Schemas.
-export { default as SeoAuthorSchema } from './schemas/seo-author-schema';
-export { default as SeoDefaultSchema } from './schemas/seo-default-schema';
-export { default as SeoPostSchema } from './schemas/seo-post-schema';
-export { default as SeoWebsiteSchema } from './schemas/seo-website-schema';
-export { default as ElementTypeSchema } from './schemas/element-type-schema';
+export { default as AuthorSchema } from './schemas/author-schema';
+export { default as PostSchema } from './schemas/post-schema';
+export { default as ResolvedPostSchema } from './schemas/resolved-post-schema';
+export { default as SeoSchema } from './schemas/seo-schema';
+export { default as TagSchema } from './schemas/tag-schema';
+export { default as TopicSchema } from './schemas/topic-schema';
 
 // SEO components.
-export { default as SeoJsonLdBlogPosting } from './seo/seo-json-ld-blog-posting.svelte';
-export { default as SeoOpenGraphWebsite } from './seo/seo-og-website.svelte';
-export { default as SeoOpenGraphArticle } from './seo/seo-og-article.svelte';
-export { default as SeoDefaultData } from './seo/seo-default-data.svelte';
+export { default as Seo } from './seo/seo.svelte';
+export { default as SeoPostSupplement } from './seo/seo-post-supplement.svelte';
+export { default as SeoWebsiteSupplement } from './seo/seo-website-supplement.svelte';
+export { default as SeoHomepageSupplement } from './seo/seo-homepage-supplement.svelte';

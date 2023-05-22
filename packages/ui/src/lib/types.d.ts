@@ -1,17 +1,15 @@
-import {
-	SeoAuthorSchema,
-	SeoDefaultSchema,
-	SeoPostSchema,
-	SeoWebsiteSchema,
-	ElementTypeSchema
-} from '$lib';
-import { Thing, WithContext } from 'schema-dts';
-import type { z } from 'zod';
+import { AuthorSchema, PostSchema, ResolvedPostSchema, SeoSchema } from '$lib';
+import { BlogPosting, Thing, WithContext, WebSite } from 'schema-dts';
+import { z } from 'zod';
 
-export type SeoAuthorData = z.infer<typeof SeoAuthorSchema>;
-export type SeoDefaultData = z.infer<typeof SeoDefaultSchema>;
-export type SeoPostData = z.infer<typeof SeoPostSchema>;
-export type SeoWebsiteData = z.infer<typeof SeoWebsiteSchema>;
-export type ElementType = z.infer<typeof ElementTypeSchema>;
+export type Color = 'brand' | 'accent';
 
-export type Schema = Thing | WithContext<Type>;
+// Inferred from Zod schemas.
+export type Author = z.infer<typeof AuthorSchema>;
+export type Post = z.infer<typeof PostSchema>;
+export type ResolvedPost = z.infer<typeof ResolvedPostSchema>;
+export type SeoData = z.infer<typeof SeoSchema>;
+
+// Schema.org
+export type BlogPosting = WithContext<BlogPosting>;
+export type WebSite = WithContext<WebSite>;

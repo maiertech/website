@@ -1,6 +1,6 @@
 import { PUBLIC_CANONICAL_ORIGIN } from '$env/static/public';
 import all_posts from '$lib/data/posts';
-import { GHCommitSchema } from '$lib/schemas/index.js';
+import { GitHubCommitSchema } from '$lib/schemas/index.js';
 import { get_latest_commit } from '$lib/utils/gh-api';
 import { error } from '@sveltejs/kit';
 import { z } from 'zod';
@@ -8,7 +8,7 @@ import { z } from 'zod';
 export const prerender = true;
 
 // Array returned from GitHub API can be empty.
-const Schema = z.array(GHCommitSchema.optional());
+const Schema = z.array(GitHubCommitSchema.optional());
 
 export async function GET() {
 	// Lookup lastmod for each post.

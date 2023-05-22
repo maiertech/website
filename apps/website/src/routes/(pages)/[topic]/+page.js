@@ -15,5 +15,5 @@ export async function load({ params }) {
 		throw error(404, 'Not found.');
 	}
 
-	return { title: topic.label, description: topic.description, posts };
+	return { seo: { title: topic.label, description: topic.description }, posts };
 }

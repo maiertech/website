@@ -1,29 +1,33 @@
+import { SubscribeFormSchema } from '$lib/schemas';
+import { EmbedOptions, Project } from '@stackblitz/sdk';
+import type { ComponentType } from 'svelte';
 import {
 	AuthorSchema,
 	PostSchema,
-	SubscribeFormSchema,
+	ResolvedPostSchema,
+	SeoSchema,
 	TagSchema,
 	TopicSchema
-} from '$lib/schemas';
-import { EmbedOptions, Project } from '@stackblitz/sdk';
-import type { ComponentType } from 'svelte';
-import { ElementTypeSchema } from 'ui';
+} from 'ui';
 import { z } from 'zod';
 
-// Types inferred from local schemas.
+// Inferred from local schemas.
+
+export type Link = z.infer<typeof LinkSchema>;
+export type SubscribeForm = z.infer<typeof SubscribeFormSchema>;
+
+// Types inferred from schemas from UI.
 
 export type Author = z.infer<typeof AuthorSchema>;
-export type Link = z.infer<typeof LinkSchema>;
 export type Post = z.infer<typeof PostSchema>;
-export type SubscribeForm = z.infer<typeof SubscribeFormSchema>;
+export type ResolvedPost = z.infer<typeof ResolvedPostSchema>;
+export type SeoData = z.infer<typeof SeoSchema>;
 export type Tag = z.infer<typeof TagSchema>;
 export type Topic = z.infer<typeof TopicSchema>;
 
-// Types inferred from UI schemas.
-
-export type ElementType = z.infer<typeof ElementTypeSchema>;
-
 // Other types.
+
+export type Color = 'brand' | 'accent';
 
 export type SocialIcon = {
 	readonly id: string;

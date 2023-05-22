@@ -1,4 +1,4 @@
-import { TopicSchema } from '$lib/schemas';
+import { TopicSchema } from 'ui';
 import { error } from '@sveltejs/kit';
 import { z } from 'zod';
 
@@ -21,9 +21,11 @@ export async function load({ fetch }) {
 	const topics = result.data;
 
 	return {
-		title: 'Thilo Maier',
-		description:
-			"Hi, I'm Thilo. I am a developer based in Rotterdam, NL. I build web apps with SvelteKit and Svelte and keep improving my developer happiness.",
+		seo: {
+			title: 'Thilo Maier',
+			description:
+				"Hi, I'm Thilo. I am a developer based in Rotterdam, NL. I build web apps with SvelteKit and Svelte and keep improving my developer happiness."
+		},
 		topics
 	};
 }

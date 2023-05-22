@@ -1,11 +1,11 @@
 /// <reference types="@sveltejs/kit" />
+import { SeoData } from '$lib/types';
 
 declare namespace App {
 	// interface Error {}
 	// interface Locals {}
 	interface PageData {
-		title: string;
-		description: string;
+		seo: SeoData;
 	}
 	// interface Platform {}
 }

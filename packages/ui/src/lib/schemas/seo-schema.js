@@ -5,6 +5,8 @@ export default z.object({
 	title: z.string(),
 	/** SEO description. */
 	description: z.string(),
-	/** Image URL. */
-	image_url: z.string().url().optional()
+	/** OG image URL. */
+	og_image_url: z.string().url().optional(),
+	/** Canonical URL. */
+	canonical_url: z.string().url().optional()
 });
