@@ -1,55 +1,37 @@
 <script>
 	import Tags from '$lib/components/tags.svelte';
 
-	/** @type {string} */
-	export let title;
-
-	/** @type {string | undefined} */
-	export let author;
-
-	/**
-	 * ISO 8601 date string (YYYY-MM-DDTHH:MM:SS.SSSZ).
-	 * @type {string}
-	 */
-	export let published_date;
-
-	/**
-	 * IS0 8601 date string (YYYY-MM-DDTHH:MM:SS.SSSZ).
-	 * @type {string | undefined}
-	 */
-	export let lastmod_date;
-
-	/** @type {import('$lib/types').Tag[] | undefined} */
-	export let tags = undefined;
+	/** @type {import('$lib/types').ResolvedPost} */
+	export let data;
 </script>
 
 <header>
-	<h1>{title}</h1>
+	<h1>{data.title}</h1>
 	<div>
 		<span class="published">
-			{author} •
-			<time dateTime={published_date}>
+			{data.author?.name} •
+			<time dateTime={data.published_date}>
 				{new Intl.DateTimeFormat('en-US', {
 					dateStyle: 'medium',
 					timeZone: 'UTC'
-				}).format(new Date(published_date))}
+				}).format(new Date(data.published_date))}
 			</time>
 		</span>
-		{#if lastmod_date}
+		{#if data.lastmod_date}
 			<br />
 			<span class="modified">
 				Last modified:
-				<time dateTime={lastmod_date}>
+				<time dateTime={data.lastmod_date}>
 					{new Intl.DateTimeFormat('en-US', {
 						dateStyle: 'medium',
 						timeZone: 'UTC'
-					}).format(new Date(lastmod_date))}
+					}).format(new Date(data.lastmod_date))}
 				</time>
 			</span>
 		{/if}
 	</div>
-	{#if tags}
-		<Tags {tags} />
+	{#if data.tags}
+		<Tags tags={data.tags} />
 	{/if}
 </header>
 

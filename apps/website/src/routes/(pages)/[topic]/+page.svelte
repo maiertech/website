@@ -2,13 +2,12 @@
 	import { Button } from 'ui';
 
 	export let data;
-	const { title, posts } = data;
 </script>
 
-<h1 class="text-gradient">{title}</h1>
+<h1 class="text-gradient">{data.seo.title}</h1>
 
 <div>
-	{#each posts as post (post.path)}
+	{#each data.posts as post (post.path)}
 		<article>
 			<h2>{post.title}</h2>
 			<p class="date">

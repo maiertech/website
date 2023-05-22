@@ -1,12 +1,11 @@
 <script>
 	export let data;
-	const { title, posts } = data;
 </script>
 
-<h1 class="text-gradient">{title}</h1>
+<h1 class="text-gradient">{data.seo.title}</h1>
 
 <ul>
-	{#each posts as post (post.path)}
+	{#each data.posts as post (post.path)}
 		<li>
 			<a href={post.path}>{post.title}</a>
 		</li>

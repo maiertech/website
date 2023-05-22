@@ -2,7 +2,7 @@ import { filter_by_tag } from '$lib/utils/posts';
 import { resolve } from '$lib/utils/tags';
 import { error } from '@sveltejs/kit';
 
-export async function load({ params }) {
+export function load({ params }) {
 	const tag = resolve(params.tag);
 
 	if (!tag) {
@@ -15,5 +15,5 @@ export async function load({ params }) {
 		throw error(404, 'Not found.');
 	}
 
-	return { title: tag.label, description: `Posts about ${tag.label}.`, posts };
+	return { seo: { title: tag.label, description: `Posts about ${tag.label}.` }, posts };
 }

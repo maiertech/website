@@ -2,7 +2,7 @@
 	export let data;
 </script>
 
-<h1>{data.title}</h1>
+<h1>{data.seo.title}</h1>
 
 <ul>
 	{#each data.posts as post (post.path)}

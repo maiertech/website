@@ -1,4 +1,4 @@
-import { GHCommitSchema } from '$lib/schemas/index.js';
+import { GitHubCommitSchema } from '$lib/schemas/index.js';
 import { resolve as resolve_author } from '$lib/utils/authors';
 import { get_latest_commit } from '$lib/utils/gh-api';
 import { resolve as resolve_post } from '$lib/utils/posts';
@@ -10,7 +10,7 @@ import { z } from 'zod';
 export const prerender = true;
 
 // Array returned from GitHub API can be empty.
-const Schema = z.array(GHCommitSchema.optional());
+const Schema = z.array(GitHubCommitSchema.optional());
 
 export async function load({ url }) {
 	// Resolve post.
@@ -66,5 +66,10 @@ export async function load({ url }) {
 	const [data] = result.data;
 	const lastmod_date = data ? data.commit.author.date : undefined;
 
-	return { ...post, author, topics, tags, lastmod_date };
+	const resolved_post = { ...post, author, topics, tags, lastmod_date };
+
+	return {
+		resolved_post,
+		seo: resolved_post
+	};
 }

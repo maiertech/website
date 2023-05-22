@@ -6,9 +6,8 @@
 	import Footer from '$lib/components/footer.svelte';
 	import Header from '$lib/components/header.svelte';
 	import * as Fathom from 'fathom-client';
-	import { onMount, setContext } from 'svelte';
-	import { writable } from 'svelte/store';
-	import { Container, RootLayout, SeoDefaultData, SeoOpenGraphWebsite } from 'ui';
+	import { onMount } from 'svelte';
+	import { Container, RootLayout, Seo } from 'ui';
 	import '../app.css';
 
 	// onMount runs client-side only.
@@ -16,29 +15,13 @@
 		Fathom.load(PUBLIC_FATHOM_SITE_ID);
 	});
 
-	// Default OpenGraph type: website.
-	const is_og_type_website = writable(true);
-	setContext('is_og_type_website', is_og_type_website);
-
 	export let data;
 
 	// Track page view when path changes.
 	$: $page.url.pathname, browser && Fathom.trackPageview();
 </script>
 
-<SeoDefaultData
-	url={$page.url}
-	canonical_origin={data.canonical_origin}
-	data={{ title: $page.data.title, description: $page.data.description }}
-/>
-
-{#if $is_og_type_website}
-	<SeoOpenGraphWebsite
-		url={$page.url}
-		canonical_origin={data.canonical_origin}
-		data={{ title: $page.data.title, description: $page.data.description }}
-	/>
-{/if}
+<Seo url={$page.url} canonical_origin={data.canonical_origin} data={$page.data.seo} />
 
 <Favicon />
 

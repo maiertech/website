@@ -1,57 +1,23 @@
 <script>
-	import { page } from '$app/stores';
 	import PostFooter from '$lib/components/post-footer.svelte';
 	import PostHeader from '$lib/components/post-header.svelte';
-	import { getContext, onDestroy } from 'svelte';
-	import { Container, PageLayout, SeoJsonLdBlogPosting, SeoOpenGraphArticle } from 'ui';
+	import { Container, PageLayout, SeoPostSupplement } from 'ui';
 
 	export let data;
-
-	// When this component is mounted, set OpenGraph type to article.
-	const is_og_type_website = getContext('is_og_type_website');
-	is_og_type_website.set(false);
-
-	// Reset OpenGraph type website (onDestroy also runs during SSR)
-	onDestroy(() => is_og_type_website.set(true));
 </script>
 
-<SeoOpenGraphArticle
-	url={$page.url}
-	canonical_origin={data.canonical_origin}
-	data={{
-		title: data.title,
-		description: data.description,
-		published_date: data.published_date,
-		lastmod_date: data.lastmod_date
-	}}
-/>
-<SeoJsonLdBlogPosting
-	data={{
-		title: data.title,
-		description: data.description,
-		published_date: data.published_date,
-		lastmod_date: data.lastmod_date
-	}}
-	author={data.author ? { name: data.author.name, url: data.author.url } : undefined}
-/>
+<SeoPostSupplement data={data.resolved_post} />
 
 <PageLayout>
-	<PostHeader
-		title={data.title}
-		author={data.author?.name}
-		published_date={data.published_date}
-		lastmod_date={data.lastmod_date}
-		tags={data.tags}
-		slot="header"
-	/>
+	<PostHeader data={data.resolved_post} slot="header" />
 	<Container padding={false} max_width="60ch">
 		<article>
 			<slot />
 		</article>
 	</Container>
 	<div slot="footer">
-		{#if data.topics}
-			<PostFooter topics={data.topics} />
+		{#if data.resolved_post.topics}
+			<PostFooter topics={data.resolved_post.topics} />
 		{/if}
 	</div>
 </PageLayout>

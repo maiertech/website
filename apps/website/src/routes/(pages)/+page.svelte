@@ -1,11 +1,13 @@
 <script>
-	import { Button } from 'ui';
+	import { Button, SeoHomepageSupplement } from 'ui';
 
 	export let data;
 </script>
 
+<SeoHomepageSupplement name={data.seo.title} url={data.canonical_origin} />
+
 <section class="about">
-	<p>{data.description}</p>
+	<p>{data.seo.description}</p>
 </section>
 
 <section class="topics">

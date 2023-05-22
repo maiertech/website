@@ -4,11 +4,6 @@ import { EOApiErrorSchema, UnsubscribeFormSchema } from '$lib/schemas';
 
 const SUCCESS_MESSAGE = 'You have unsubscribed from my newsletter.';
 
-export function load({ url }) {
-	const email_address = url.searchParams.get('email');
-	return { email_address };
-}
-
 /** @type {import('./$types').Actions} */
 export const actions = {
 	default: async ({ request }) => {
