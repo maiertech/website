@@ -1,6 +1,5 @@
-@import 'open-props/normalize';
-
 :root {
+	/* Tailwind colors. */
 	--blue-300: #93c5fd;
 	--blue-400: #60a5fa;
 	--blue-700: #1d4ed8;
@@ -29,7 +28,7 @@
 	--link-light: var(--brand-light);
 	--link-visited-light: var(--link-light);
 
-	/* Colors for dark mode. */
+	/* Dark mode. */
 	--surface-1-dark: var(--neutral-900);
 	--surface-2-dark: var(--neutral-700);
 	--text-1-dark: var(--neutral-100);
@@ -43,6 +42,7 @@
 	--link-visited-dark: var(--link-dark);
 
 	/* Light mode is default. */
+	color-scheme: light;
 	--surface-1: var(--surface-1-light);
 	--surface-2: var(--surface-2-light);
 	--text-1: var(--text-1-light);
@@ -73,39 +73,17 @@
 	}
 }
 
-/* .global blockquote {
-	margin-block-end: var(--size-fluid-3);
+:where(html) {
+	accent-color: var(--brand);
+	caret-color: var(--brand);
+	color: var(--text-1);
+	background-color: var(--surface-1);
 }
 
-.global blockquote > p,
-.global blockquote > ol {
-	margin-block-end: 0;
-} */
-
-.table {
-	max-width: 100%;
-	overflow: hidden;
-	overflow-x: auto;
+:where(a[href]) {
+	color: var(--link);
 }
 
-table {
-	border: var(--border-size-2) solid var(--text-2);
-	border-collapse: collapse;
-}
-
-th {
-	border: var(--border-size-1) solid var(--text-2);
-	background-color: var(--surface-3);
-	font-weight: var(--font-weight-5);
-	text-align: start;
-	white-space: nowrap;
-	padding-inline: var(--size-3);
-	padding-block: var(--size-2);
-}
-
-td {
-	border: var(--border-size-1) solid var(--text-2);
-	white-space: nowrap;
-	padding-inline: var(--size-3);
-	padding-block: var(--size-2);
+:where(a[href]):visited {
+	color: var(--link-visited);
 }

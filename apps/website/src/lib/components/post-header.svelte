@@ -1,5 +1,6 @@
 <script>
 	import Tags from '$lib/components/tags.svelte';
+	import { format } from '$lib/utils/date';
 
 	/** @type {import('$lib/types').ResolvedPost} */
 	export let data;
@@ -11,10 +12,7 @@
 		<span class="published">
 			{data.author?.name} •
 			<time dateTime={data.published_date}>
-				{new Intl.DateTimeFormat('en-US', {
-					dateStyle: 'medium',
-					timeZone: 'UTC'
-				}).format(new Date(data.published_date))}
+				{format(data.published_date)}
 			</time>
 		</span>
 		{#if data.lastmod_date}
@@ -22,10 +20,7 @@
 			<span class="modified">
 				Last modified:
 				<time dateTime={data.lastmod_date}>
-					{new Intl.DateTimeFormat('en-US', {
-						dateStyle: 'medium',
-						timeZone: 'UTC'
-					}).format(new Date(data.lastmod_date))}
+					{format(data.lastmod_date)}
 				</time>
 			</span>
 		{/if}

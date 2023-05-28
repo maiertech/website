@@ -1,5 +1,6 @@
 <script>
 	import { Button, SeoHomepageSupplement } from 'ui';
+	import Posts from '$lib/components/posts.svelte';
 
 	export let data;
 </script>
@@ -8,6 +9,10 @@
 
 <section class="about">
 	<p>{data.seo.description}</p>
+</section>
+
+<section class="posts">
+	<Posts posts={data.posts} />
 </section>
 
 <section class="topics">
@@ -22,13 +27,26 @@
 
 <style>
 	.about p {
+		color: var(--text-2);
 		font-size: var(--size-4);
 		font-weight: var(--font-weight-5);
 		line-height: var(--font-lineheight-3);
-		padding-bottom: var(--size-fluid-4);
+		max-inline-size: var(--size-content-3);
+		margin-block-end: var(--size-8);
 	}
 
-	section.topics {
+	@media (min-width: 1024px) {
+		.about p {
+			font-size: var(--size-5);
+			line-height: var(--font-lineheight-2);
+		}
+	}
+
+	.posts {
+		margin-block-end: var(--size-8);
+	}
+
+	.topics {
 		display: grid;
 		grid-template-columns: repeat(1, minmax(0, 1fr));
 		gap: var(--size-fluid-3);
@@ -60,11 +78,6 @@
 	}
 
 	@media (min-width: 1024px) {
-		.about p {
-			font-size: var(--size-5);
-			line-height: var(--font-lineheight-2);
-		}
-
 		section.topics {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}

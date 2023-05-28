@@ -1,4 +1,5 @@
-@import 'ui/app.css';
+@import 'ui/normalize.css';
+@import 'ui/theme.css';
 
 /* Styles for syntax highlighting. */
 @import 'svelte-highlight/styles/a11y-light.css' (prefers-color-scheme: light);
