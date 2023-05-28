@@ -19,7 +19,8 @@
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js"
 		},
-		"./app.css": "./dist/app.css"
+		"./normalize.css": "./dist/styles/normalize.css",
+		"./theme.css": "./dist/styles/theme.css"
 	},
 	"files": [
 		"dist"

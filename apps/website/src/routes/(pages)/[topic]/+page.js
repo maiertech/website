@@ -1,9 +1,9 @@
 import { error } from '@sveltejs/kit';
-import { resolve } from '$lib/utils/topics';
+import { resolve_topic } from '$lib/utils/topics';
 import { filter_by_topic } from '$lib/utils/posts';
 
-export async function load({ params }) {
-	const topic = resolve(params.topic);
+export function load({ params }) {
+	const topic = resolve_topic(params.topic);
 
 	if (!topic) {
 		throw error(404, 'Not found.');

@@ -1,5 +1,6 @@
 <script>
-	import '$lib/app.css';
+	import '$lib/styles/normalize.css';
+	import '$lib/styles/theme.css';
 </script>
 
 <slot />

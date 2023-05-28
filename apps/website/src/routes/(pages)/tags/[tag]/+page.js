@@ -1,9 +1,9 @@
 import { filter_by_tag } from '$lib/utils/posts';
-import { resolve } from '$lib/utils/tags';
+import { resolve_tag } from '$lib/utils/tags';
 import { error } from '@sveltejs/kit';
 
 export function load({ params }) {
-	const tag = resolve(params.tag);
+	const tag = resolve_tag(params.tag);
 
 	if (!tag) {
 		throw error(404, 'Not found.');

@@ -34,9 +34,6 @@
 
 	a {
 		color: var(--text-1);
-	}
-
-	a:hover {
 		text-decoration: none;
 	}
 </style>

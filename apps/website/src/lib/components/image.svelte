@@ -14,6 +14,9 @@
 	/** @type {'eager' | 'lazy'} */
 	export let loading = 'eager';
 
+	/** @type {boolean} */
+	export let round = false;
+
 	/** @type {string} */
 	let src;
 
@@ -34,18 +37,22 @@
 </script>
 
 <div style:--ratio={ratio}>
-	<img {...$$restProps} {alt} {src} {srcset} {loading} style:--fit={fit} />
+	<img {...$$restProps} {alt} {src} {srcset} {loading} style:--fit={fit} class:round />
 </div>
 
 <style>
 	div {
 		width: 100%;
 		aspect-ratio: var(--ratio);
-		background-color: var(--surface-2);
 	}
 
 	img {
+		background-color: var(--surface-2);
 		width: 100%;
 		object-fit: var(--fit);
+	}
+
+	.round {
+		border-radius: var(--radius-round);
 	}
 </style>
