@@ -10,10 +10,12 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"lint": "prettier --check --ignore-path=../../.prettierignore . && eslint .",
-		"format": "prettier --write --ignore-path=../../.prettierignore ."
+		"format": "prettier --write --ignore-path=../../.prettierignore .",
+		"test": "playwright test"
 	},
 	"devDependencies": {
 		"@imgix/js-core": "^3.7.0",
+		"@playwright/test": "^1.28.1",
 		"@sindresorhus/slugify": "^2.1.1",
 		"@stackblitz/sdk": "^1.8.2",
 		"@sveltejs/adapter-auto": "^2.0.1",

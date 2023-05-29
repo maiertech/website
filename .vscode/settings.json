@@ -16,11 +16,6 @@
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
 
-	"markyMarkdown.statsShowReadingTime": false,
-	"markyMarkdown.statsShowWords": true,
-	"markyMarkdown.statsShowLines": false,
-	"markyMarkdown.statsShowCharacters": false,
-
 	"svelte.enable-ts-plugin": true,
 
 	"thunder-client.saveToWorkspace": true
