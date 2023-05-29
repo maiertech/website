@@ -15,6 +15,7 @@ vscode:
   extensions:
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
+    - ms-playwright.playwright
     - phoenisx.cssvar
     - rangav.vscode-thunder-client
     - svelte.svelte-vscode
