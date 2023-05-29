@@ -14,9 +14,5 @@ export default {
 		}
 	},
 
-	vitePlugin: {
-		experimental: {
-			inspector: true
-		}
-	}
+	vitePlugin: { inspector: true }
 };
