@@ -21,7 +21,9 @@
 	$: $page.url.pathname, browser && Fathom.trackPageview();
 </script>
 
-<Seo url={$page.url} canonical_origin={data.canonical_origin} data={$page.data.seo} />
+{#if !$page.error}
+	<Seo url={$page.url} canonical_origin={data.canonical_origin} data={$page.data.seo} />
+{/if}
 
 <Favicon />
 
