@@ -2,10 +2,11 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "SvelteKit: debug server-side",
+			"name": "website (server-side)",
 			"type": "node-terminal",
 			"request": "launch",
 			"command": "npm run dev",
+			"cwd": "${workspaceFolder}/apps/website",
 			"skipFiles": ["<node_internals>/**"]
 		},
 		{
