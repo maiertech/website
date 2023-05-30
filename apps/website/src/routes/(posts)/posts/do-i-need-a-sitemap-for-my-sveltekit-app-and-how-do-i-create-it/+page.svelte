@@ -4,7 +4,6 @@
 	import { javascript, xml } from 'svelte-highlight/languages';
 
 	export let data;
-	const { examples } = data;
 </script>
 
 <p>
@@ -45,9 +44,9 @@
 
 <figure>
 	<Image
-		ratio={1868 / 544}
+		src="https://share.mailbox.org/ajax/share/059cb3a003a6d60851f7ccb3a6d6403c84328f7c08a553af/1/8/MjQz/MjQzLzM1OQ?dl=true"
 		alt="Screenshot of submitted sitemaps in the Google Search Console. Sitemap submission date: May 21, 2021. Sitemap last read: June 28, 2021."
-		url="https://share.mailbox.org/ajax/share/059cb3a003a6d60851f7ccb3a6d6403c84328f7c08a553af/1/8/MjQz/MjQzLzM1OQ?dl=true"
+		ratio={1868 / 544}
 		loading="lazy"
 	/>
 	<figcaption>For small sites, a sitemap is only initially relevant.</figcaption>
@@ -65,7 +64,7 @@
 </p>
 
 <figure>
-	<Highlight language={xml} code={examples['sitemap.xml']} />
+	<Highlight language={xml} code={data.examples['sitemap.xml']} />
 	<figcaption>sitemap.xml</figcaption>
 </figure>
 
@@ -115,7 +114,10 @@
 </p>
 
 <figure>
-	<Highlight language={javascript} code={examples['src/routes/sitemap.xml/+server.js structure']} />
+	<Highlight
+		language={javascript}
+		code={data.examples['src/routes/sitemap.xml/+server.js structure']}
+	/>
 	<figcaption>Structure of src/routes/sitemap.xml/+server.js.</figcaption>
 </figure>
 
@@ -127,7 +129,7 @@
 
 To make creating entries easier, I use this helper function:
 
-<Highlight language={javascript} code={examples['create_entry.js']} />
+<Highlight language={javascript} code={data.examples['create_entry.js']} />
 
 <p>
 	<code>path</code> is a relative path, and <code>lastmod</code> is a date string in ISO format. I
@@ -142,7 +144,10 @@ To make creating entries easier, I use this helper function:
 <p>Let's add error handling to wrap up the handler:</p>
 
 <figure>
-	<Highlight language={javascript} code={examples['src/routes/sitemap.xml/+server.js final']} />
+	<Highlight
+		language={javascript}
+		code={data.examples['src/routes/sitemap.xml/+server.js final']}
+	/>
 	<figcaption>src/routes/sitemap.xml/+server.js with error handling.</figcaption>
 </figure>
 

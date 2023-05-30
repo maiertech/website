@@ -4,7 +4,6 @@
 	import { dockerfile, yaml } from 'svelte-highlight/languages';
 
 	export let data;
-	const { examples } = data;
 </script>
 
 <p>
@@ -41,7 +40,7 @@
 </p>
 
 <figure>
-	<Highlight language={yaml} code={examples['.gitpod.yml-github']} />
+	<Highlight language={yaml} code={data.examples['.gitpod.yml-github']} />
 	<figcaption>.gitpod.yml</figcaption>
 </figure>
 
@@ -59,7 +58,7 @@
 </p>
 
 <figure>
-	<Highlight language={yaml} code={examples['.gitpod.yml-tasks']} />
+	<Highlight language={yaml} code={data.examples['.gitpod.yml-tasks']} />
 	<figcaption>.gitpod.yml</figcaption>
 </figure>
 
@@ -78,7 +77,7 @@
 </p>
 
 <figure>
-	<Highlight language={yaml} code={examples['.gitpod.yml-ports']} />
+	<Highlight language={yaml} code={data.examples['.gitpod.yml-ports']} />
 	<figcaption>.gitpod.yml</figcaption>
 </figure>
 
@@ -107,7 +106,7 @@
 </p>
 
 <figure>
-	<Highlight language={yaml} code={examples['.gitpod.yml-custom-image']} />
+	<Highlight language={yaml} code={data.examples['.gitpod.yml-custom-image']} />
 	<figcaption>.gitpod.yml</figcaption>
 </figure>
 
@@ -127,7 +126,7 @@
 <p>You first have to declare the custom image using the <code>image</code> key:</p>
 
 <figure>
-	<Highlight language={yaml} code={examples['.gitpod.yml-customized-image']} />
+	<Highlight language={yaml} code={data.examples['.gitpod.yml-customized-image']} />
 	<figcaption>.gitpod.yml</figcaption>
 </figure>
 
@@ -137,7 +136,7 @@
 </p>
 
 <figure>
-	<Highlight language={dockerfile} code={examples['.gitpod.Dockerfile']} />
+	<Highlight language={dockerfile} code={data.examples['.gitpod.Dockerfile']} />
 	<figcaption>.gitpod.Dockerfile</figcaption>
 </figure>
 
@@ -199,7 +198,7 @@
 </p>
 
 <figure>
-	<Highlight language={yaml} code={examples['.gitpod.yml-vscode-extensions']} />
+	<Highlight language={yaml} code={data.examples['.gitpod.yml-vscode-extensions']} />
 	<figcaption>.gitpod.yml</figcaption>
 </figure>
 
@@ -224,9 +223,9 @@
 
 <figure>
 	<Image
-		ratio={1686 / 1210}
+		src="https://share.mailbox.org/ajax/share/096a1e0e00fff50a9e9d1650fff5468589b662b30ca5f278/1/8/MjQ2/MjQ2LzM2Mw?dl=true"
 		alt="Screenshot of user settings in the Gitpod dashboard. There are ten cards with ten editor options, VS Code desktop and browser, and several IDEs by JetBrains."
-		url="https://share.mailbox.org/ajax/share/096a1e0e00fff50a9e9d1650fff5468589b662b30ca5f278/1/8/MjQ2/MjQ2LzM2Mw?dl=true"
+		ratio={1686 / 1210}
 		loading="lazy"
 	/>
 	<figcaption>Gitpod supports VS Code and various JetBrains IDEs as editors.</figcaption>

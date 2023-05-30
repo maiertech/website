@@ -30,9 +30,9 @@
 
 <figure>
 	<Image
-		ratio={1672 / 736}
+		src="https://share.mailbox.org/ajax/share/01028db20d4f100618142d9d4f104349a5bd8f225863157c/1/8/MjQy/MjQyLzM1Mg?dl=true"
 		alt="Screenshot of an embedded StackBlitz WebContainer with warning message 'Enable third-party cookies'."
-		url="https://share.mailbox.org/ajax/share/01028db20d4f100618142d9d4f104349a5bd8f225863157c/1/8/MjQy/MjQyLzM1Mg?dl=true"
+		ratio={1672 / 736}
 		loading="lazy"
 	/>
 	<figcaption>
@@ -49,9 +49,9 @@
 
 <figure>
 	<Image
-		ratio={1372 / 426}
+		src="https://share.mailbox.org/ajax/share/00be9d910b34770803d52fab34774f318badc952ab2cb1c2/1/8/MjQy/MjQyLzM1OA?dl=true"
 		alt="Screenshot of the cookies settings in a Chromium-based browser. Section 'Sites that can always use cookies' lists [*.]stackblitz.io and [*.]webcontainer.io."
-		url="https://share.mailbox.org/ajax/share/00be9d910b34770803d52fab34774f318badc952ab2cb1c2/1/8/MjQy/MjQyLzM1OA?dl=true"
+		ratio={1372 / 426}
 		loading="lazy"
 	/>
 	<figcaption>

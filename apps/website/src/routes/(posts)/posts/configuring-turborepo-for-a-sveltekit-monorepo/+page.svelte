@@ -4,7 +4,6 @@
 	import Image from '$lib/components/image.svelte';
 
 	export let data;
-	const { examples } = data;
 </script>
 
 <p>
@@ -32,7 +31,7 @@
 </p>
 
 <figure>
-	<Highlight language={bash} code={examples['file-tree.txt']} />
+	<Highlight language={bash} code={data.examples['file-tree.txt']} />
 	<figcaption>File tree for the maier.tech monorepo.</figcaption>
 </figure>
 
@@ -42,7 +41,7 @@
 </p>
 
 <figure>
-	<Highlight language={json} code={examples['package.json']} />
+	<Highlight language={json} code={data.examples['package.json']} />
 	<figcaption>package.json</figcaption>
 </figure>
 
@@ -62,7 +61,7 @@
 </p>
 
 <figure>
-	<Highlight language={json} code={examples['turbo.json']} />
+	<Highlight language={json} code={data.examples['turbo.json']} />
 	<figcaption>turbo.json</figcaption>
 </figure>
 
@@ -112,7 +111,7 @@
 </p>
 
 <figure>
-	<Highlight language={json} code={examples['packages/ui/turbo.json']} />
+	<Highlight language={json} code={data.examples['packages/ui/turbo.json']} />
 	<figcaption>packages/ui/turbo.json</figcaption>
 </figure>
 
@@ -133,9 +132,9 @@
 
 <figure>
 	<Image
-		ratio={1336 / 826}
+		src="https://share.mailbox.org/ajax/share/044946dc0feec1034ca89b7feec14830b07f10ca02e640f3/1/8/MjQ1/MjQ1LzM2Mg?dl=true"
 		alt="Screenshot of the error log of a Vercel deploy. The error message reads: No output directory named 'public' found after the build completed."
-		url="https://share.mailbox.org/ajax/share/044946dc0feec1034ca89b7feec14830b07f10ca02e640f3/1/8/MjQ1/MjQ1LzM2Mg?dl=true"
+		ratio={1336 / 826}
 		loading="lazy"
 	/>
 	<figcaption>Vercel build error after migrating my repository to a Turborepo.</figcaption>
@@ -160,7 +159,7 @@
 </p>
 
 <figure>
-	<Highlight language={json} code={examples['apps/website/turbo.json']} />
+	<Highlight language={json} code={data.examples['apps/website/turbo.json']} />
 	<figcaption>apps/website/turbo.json</figcaption>
 </figure>
 
@@ -172,7 +171,7 @@
 </p>
 
 <figure>
-	<Highlight language={json} code={examples['apps/website/package.json']} />
+	<Highlight language={json} code={data.examples['apps/website/package.json']} />
 	<figcaption>apps/website/package.json</figcaption>
 </figure>
 
