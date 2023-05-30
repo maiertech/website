@@ -37,9 +37,9 @@
 
 <figure>
 	<Image
-		ratio={16 / 9}
+		src="https://share.mailbox.org/ajax/share/04bf90490592c90c43c5f22592c94c7d96c0c59a2ed2f870/1/8/MjQw/MjQwLzM0Nw?dl=true"
 		alt="Screenshot of a project running in the Svelte REPL. A blue arrow points at the download button."
-		url="https://share.mailbox.org/ajax/share/04bf90490592c90c43c5f22592c94c7d96c0c59a2ed2f870/1/8/MjQw/MjQwLzM0Nw?dl=true"
+		ratio={2522 / 1419}
 		loading="lazy"
 	/>
 	<figcaption>
@@ -54,9 +54,9 @@
 
 <figure>
 	<Image
-		ratio={1516 / 1030}
+		src="https://share.mailbox.org/ajax/share/08890af2007d3d0d80ac59907d3d4cb3b0353269b50e4739/1/8/MjQw/MjQwLzM0OA?dl=true"
 		alt="Screenshot of VS Code with the code downloaded from the from the Svelte REPL. File package.json is open, and you can see the dependencies of the deprecated Svelte template."
-		url="https://share.mailbox.org/ajax/share/08890af2007d3d0d80ac59907d3d4cb3b0353269b50e4739/1/8/MjQw/MjQwLzM0OA?dl=true"
+		ratio={1516 / 1030}
 		loading="lazy"
 	/>
 	<figcaption>
@@ -87,9 +87,9 @@
 
 <figure>
 	<Image
-		ratio={1866 / 870}
+		src="https://share.mailbox.org/ajax/share/03c415a502af0507347dace2af05456bb76c21419f531d0e/1/8/MjQw/MjQwLzM0OQ?dl=true"
 		alt="Screenshot of the CodeSandbox dialog to select a template for a new sandbox. The Svelte template is highlighted."
-		url="https://share.mailbox.org/ajax/share/03c415a502af0507347dace2af05456bb76c21419f531d0e/1/8/MjQw/MjQwLzM0OQ?dl=true"
+		ratio={1866 / 870}
 		loading="lazy"
 	/>
 	<figcaption>CodeSandbox has a sandbox template for Svelte.</figcaption>
@@ -102,9 +102,9 @@
 
 <figure>
 	<Image
-		ratio={16 / 9}
+		src="https://share.mailbox.org/ajax/share/0fb236b60a811a04f31f9dda811a47c28902a8c258e16099/1/8/MjQw/MjQwLzM1MA?dl=true"
 		alt="Screenshot of CodeSandbox's Svelte template running in-browser. File package.json is open, and you can see the dependencies of the deprecated Svelte template."
-		url="https://share.mailbox.org/ajax/share/0fb236b60a811a04f31f9dda811a47c28902a8c258e16099/1/8/MjQw/MjQwLzM1MA?dl=true"
+		ratio={16 / 9}
 		loading="lazy"
 	/>
 	<figcaption>
@@ -138,9 +138,9 @@
 
 <figure>
 	<Image
-		ratio={16 / 9}
+		src="https://share.mailbox.org/ajax/share/0cd09a8002295f05c5355eb2295f4123bfcd170959185de2/1/8/MjQw/MjQwLzM1MQ?dl=true"
 		alt="Screenshot of StackBlitz's dashboard. The two Svelte templates, one for vanilla JavaScript and one for TypeScript, are highlighted."
-		url="https://share.mailbox.org/ajax/share/0cd09a8002295f05c5355eb2295f4123bfcd170959185de2/1/8/MjQw/MjQwLzM1MQ?dl=true"
+		ratio={16 / 9}
 		loading="lazy"
 	/>
 	<figcaption>StackBlitz supports the official Vite Svelte templates.</figcaption>

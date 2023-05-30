@@ -5,7 +5,6 @@
 	import StackblitzEmbed from '$lib/components/stackblitz-embed.svelte';
 
 	export let data;
-	const { example } = data;
 </script>
 
 <p>
@@ -30,7 +29,7 @@
 	different. There are subtle cross-browser differences for the pseudo-classes covered in this post.
 </p>
 
-<StackblitzEmbed project={example.project} options={example.options} />
+<StackblitzEmbed project={data.example.project} options={data.example.options} />
 
 <h2>Pseudo-class :active</h2>
 
@@ -65,9 +64,9 @@ button:active {
 
 <figure>
 	<Image
-		ratio={630 / 198}
+		src="https://share.mailbox.org/ajax/share/09141b65090a757c997d40e90a754b5b825a2db2af774b90/1/8/MjM4/MjM4LzMzNw?dl=true"
 		alt="A simple web form with a name input field and a submit button. The name input field is active and highlighted with a red dashed outline."
-		url="https://share.mailbox.org/ajax/share/09141b65090a757c997d40e90a754b5b825a2db2af774b90/1/8/MjM4/MjM4LzMzNw?dl=true"
+		ratio={630 / 198}
 		loading="lazy"
 	/>
 </figure>
@@ -79,9 +78,9 @@ button:active {
 
 <figure>
 	<Image
-		ratio={630 / 198}
+		src="https://share.mailbox.org/ajax/share/09ad53d00507a07692e9cbb507a04e1d9be3e0d320665945/1/8/MjM4/MjM4LzMzOA?dl=true"
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applies a blue outline to it."
-		url="https://share.mailbox.org/ajax/share/09ad53d00507a07692e9cbb507a04e1d9be3e0d320665945/1/8/MjM4/MjM4LzMzOA?dl=true"
+		ratio={630 / 198}
 		loading="lazy"
 	/>
 </figure>
@@ -90,9 +89,9 @@ button:active {
 
 <figure>
 	<Image
-		ratio={630 / 198}
+		src="https://share.mailbox.org/ajax/share/04327226046abf784b1bd4d46abf41df8f90493021f9d70b/1/8/MjM4/MjM4LzMzOQ?dl=true"
 		alt="A simple web form with a name input field and a submit button. The submit button is highlighted with a dashed red outline."
-		url="https://share.mailbox.org/ajax/share/04327226046abf784b1bd4d46abf41df8f90493021f9d70b/1/8/MjM4/MjM4LzMzOQ?dl=true"
+		ratio={630 / 198}
 		loading="lazy"
 	/>
 </figure>
@@ -133,9 +132,9 @@ button:focus {
 
 <figure>
 	<Image
-		ratio={630 / 198}
+		src="https://share.mailbox.org/ajax/share/0f780aee0520997dffbc585520994753b9e4a40d907f753d/1/8/MjM4/MjM4LzM0MA?dl=true"
 		alt="A simple web form with a name input field and a submit button. The input field is focused and highlighted with a dashed red outline."
-		url="https://share.mailbox.org/ajax/share/0f780aee0520997dffbc585520994753b9e4a40d907f753d/1/8/MjM4/MjM4LzM0MA?dl=true"
+		ratio={630 / 198}
 		loading="lazy"
 	/>
 </figure>
@@ -146,9 +145,9 @@ button:focus {
 
 <figure>
 	<Image
-		ratio={630 / 198}
+		src="https://share.mailbox.org/ajax/share/0329528d0b95d7783aa9de6b95d7437189849fbb9d927b82/1/8/MjM4/MjM4LzM0MQ?dl=true"
 		alt="A simple web form with a name input field and a submit button. The submit button has focus and the browser applied a dashed red outline to it."
-		url="https://share.mailbox.org/ajax/share/0329528d0b95d7783aa9de6b95d7437189849fbb9d927b82/1/8/MjM4/MjM4LzM0MQ?dl=true"
+		ratio={630 / 198}
 		loading="lazy"
 	/>
 </figure>
@@ -195,9 +194,9 @@ button:focus-visible {
 
 <figure>
 	<Image
-		ratio={762 / 202}
+		src="https://share.mailbox.org/ajax/share/06442a2a042a33716c7e54142a334dadbcffe26d19746c53/1/8/MjM4/MjM4LzM0Mg?dl=true"
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applied :focus-visible and a dashed red outline."
-		url="https://share.mailbox.org/ajax/share/06442a2a042a33716c7e54142a334dadbcffe26d19746c53/1/8/MjM4/MjM4LzM0Mg?dl=true"
+		ratio={762 / 202}
 		loading="lazy"
 	/>
 </figure>
@@ -210,9 +209,9 @@ button:focus-visible {
 
 <figure>
 	<Image
-		ratio={762 / 202}
+		src="https://share.mailbox.org/ajax/share/0d0478eb020b7d70d87b78020b7d4d4e871ece793c761f74/1/8/MjM4/MjM4LzM0Mw?dl=true"
 		alt="A simple web form with a name input field and a submit button. Even though the submit has focus, the browser did not apply :focus-visible and the corresponding styling."
-		url="https://share.mailbox.org/ajax/share/0d0478eb020b7d70d87b78020b7d4d4e871ece793c761f74/1/8/MjM4/MjM4LzM0Mw?dl=true"
+		ratio={762 / 202}
 		loading="lazy"
 	/>
 </figure>
@@ -223,9 +222,9 @@ button:focus-visible {
 
 <figure>
 	<Image
-		ratio={762 / 202}
+		src="https://share.mailbox.org/ajax/share/040e46f1095f017c48d899a95f0142ffa27211e56c0128fd/1/8/MjM4/MjM4LzM0NA?dl=true"
 		alt="A simple web form with a name input field and a submit button. This time, the browser applied :focus-visible and a dashed red outline to the submit button."
-		url="https://share.mailbox.org/ajax/share/040e46f1095f017c48d899a95f0142ffa27211e56c0128fd/1/8/MjM4/MjM4LzM0NA?dl=true"
+		ratio={762 / 202}
 		loading="lazy"
 	/>
 </figure>

@@ -97,9 +97,9 @@
 
 <figure>
 	<Image
-		ratio={1304 / 597}
+		src="https://share.mailbox.org/ajax/share/0fc919770d43c502f4ad61cd43c54b6eba59b989df892f93/1/8/MjQ0/MjQ0LzM2MA?dl=true"
 		alt="Screenshot of the code snippet from above in Visual Studio Code. The mouse hovers over `frontmatter.title`, and a pop-up shows the type `string` and the description from the `PostSchema` Zod schema."
-		url="https://share.mailbox.org/ajax/share/0fc919770d43c502f4ad61cd43c54b6eba59b989df892f93/1/8/MjQ0/MjQ0LzM2MA?dl=true"
+		ratio={1304 / 597}
 		loading="lazy"
 	/>
 	<figcaption>Zod infers the type of validated data from the schema.</figcaption>
@@ -136,9 +136,9 @@
 
 <figure>
 	<Image
-		ratio={1225 / 799}
+		src="https://share.mailbox.org/ajax/share/0cb3999b00493501c3056f0049354b9bad6086629024f883/1/8/MjQ0/MjQ0LzM2MQ?dl=true"
 		alt="Screenshot of the code snippet from above in Visual Studio Code. The mouse hovers over the validated `subscriber` variable, and a pop-up shows the object type inferred from the `EOSubscriber` Zod schema."
-		url="https://share.mailbox.org/ajax/share/0cb3999b00493501c3056f0049354b9bad6086629024f883/1/8/MjQ0/MjQ0LzM2MQ?dl=true"
+		ratio={1225 / 799}
 		loading="lazy"
 	/>
 	<figcaption>

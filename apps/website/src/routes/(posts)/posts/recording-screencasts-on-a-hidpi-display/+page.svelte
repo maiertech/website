@@ -89,9 +89,9 @@
 
 <figure>
 	<Image
-		ratio={1336 / 708}
+		src="https://share.mailbox.org/ajax/share/045bf93d0f6241774d83656f624148f4a6055a27411ebd19/1/8/MjM5/MjM5LzM0Ng?dl=true"
 		alt="Screenshot of display preferences on macOS."
-		url="https://share.mailbox.org/ajax/share/045bf93d0f6241774d83656f624148f4a6055a27411ebd19/1/8/MjM5/MjM5LzM0Ng?dl=true"
+		ratio={1336 / 708}
 		loading="lazy"
 	/>
 	<figcaption>MacOS lets you choose your preferred scaled resolution.</figcaption>

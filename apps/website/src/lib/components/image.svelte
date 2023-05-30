@@ -2,14 +2,14 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 
-	/** @type {number} */
-	export let ratio = 16 / 9;
-
 	/** @type {string} */
 	export let alt;
 
 	/** @type {string} */
-	export let url;
+	export let src;
+
+	/** @type {number} */
+	export let ratio = 16 / 9;
 
 	/** @type {'eager' | 'lazy'} */
 	export let loading = 'eager';
@@ -17,11 +17,15 @@
 	/** @type {boolean} */
 	export let round = false;
 
-	/** @type {string} */
-	let src;
+	/**
+	 * Set to base64 encoded fallback image (1x1, light surface-2).
+	 * Encoded with https://png-pixel.com/.
+	 * @type {string} */
+	let imgix_src =
+		'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO88h8AAq0B1REmZuEAAAAASUVORK5CYII=';
 
 	/** @type {string} */
-	let srcset;
+	let imgix_srcset;
 
 	/**
 	 * Cover is probably all we need:
@@ -31,24 +35,35 @@
 	let fit = 'cover';
 
 	onMount(async () => {
-		const response = await fetch(`${$page.url.origin}/api/image?${new URLSearchParams({ url })}`);
-		({ src, srcset } = await response.json());
+		const response = await fetch(
+			`${$page.url.origin}/api/image?${new URLSearchParams({ url: src })}`
+		);
+		({ src: imgix_src, srcset: imgix_srcset } = await response.json());
 	});
 </script>
 
 <div style:--ratio={ratio}>
-	<img {...$$restProps} {alt} {src} {srcset} {loading} style:--fit={fit} class:round />
+	<img
+		{...$$restProps}
+		{alt}
+		src={imgix_src}
+		srcset={imgix_srcset}
+		{loading}
+		style:--fit={fit}
+		class:round
+	/>
 </div>
 
 <style>
 	div {
-		width: 100%;
 		aspect-ratio: var(--ratio);
+		inline-size: 100%;
 	}
 
 	img {
 		background-color: var(--surface-2);
-		width: 100%;
+		block-size: 100%;
+		inline-size: 100%;
 		object-fit: var(--fit);
 	}
 

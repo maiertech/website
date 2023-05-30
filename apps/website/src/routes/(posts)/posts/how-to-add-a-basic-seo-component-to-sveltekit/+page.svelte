@@ -4,7 +4,6 @@
 	import { javascript, xml } from 'svelte-highlight/languages';
 
 	export let data;
-	const { examples } = data;
 </script>
 
 <p>
@@ -24,7 +23,7 @@
 </p>
 
 <figure>
-	<Highlight language={xml} code={examples['src/app.html']} />
+	<Highlight language={xml} code={data.examples['src/app.html']} />
 	<figcaption>src/app.html</figcaption>
 </figure>
 
@@ -103,7 +102,7 @@
 <p>So, here is my basic SEO component:</p>
 
 <figure>
-	<HighlightSvelte code={examples['seo-default-data.svelte']} />
+	<HighlightSvelte code={data.examples['seo-default-data.svelte']} />
 	<figcaption>Basic SEO component for a SvelteKit app.</figcaption>
 </figure>
 
@@ -117,7 +116,7 @@
 </p>
 
 <figure>
-	<Highlight language={javascript} code={examples['src/lib/utils/decorate.js']} />
+	<Highlight language={javascript} code={data.examples['src/lib/utils/decorate.js']} />
 	<figcaption>src/lib/utils/decorate.js</figcaption>
 </figure>
 
@@ -181,9 +180,9 @@
 
 <figure>
 	<Image
-		ratio={1394 / 1033}
+		src="https://share.mailbox.org/ajax/share/0c1785730d7a330ac944a18d7a334705b9cb20d2d9613942/1/8/MjU2/MjU2LzM3NA?dl=true"
 		alt="Diagram of how data from load functions can be shared between a page and a layout top down or bottom up."
-		url="https://share.mailbox.org/ajax/share/0c1785730d7a330ac944a18d7a334705b9cb20d2d9613942/1/8/MjU2/MjU2LzM3NA?dl=true"
+		ratio={1394 / 1033}
 		loading="lazy"
 	/>
 	<figcaption>How SvelteKit's load functions share data.</figcaption>
@@ -215,7 +214,7 @@
 </p>
 
 <figure>
-	<Highlight language={javascript} code={examples['src/routes/+page.js']} />
+	<Highlight language={javascript} code={data.examples['src/routes/+page.js']} />
 	<figcaption>src/routes/+page.js</figcaption>
 </figure>
 
@@ -226,6 +225,6 @@
 </p>
 
 <figure>
-	<HighlightSvelte code={examples['src/routes/+layout.svelte']} />
+	<HighlightSvelte code={data.examples['src/routes/+layout.svelte']} />
 	<figcaption>src/routes/+layout.svelte</figcaption>
 </figure>

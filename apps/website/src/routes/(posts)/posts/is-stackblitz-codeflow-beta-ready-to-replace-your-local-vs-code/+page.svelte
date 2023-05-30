@@ -94,9 +94,9 @@
 
 <figure>
 	<Image
-		ratio={1908 / 1074}
+		src="https://share.mailbox.org/ajax/share/00346b490b3326750b7a422b332644588c7b6816fdcc8780/1/8/MjM2/MjM2LzMzMA?dl=true"
 		alt="The screenshot shows codeflowapp's comment and the button to launch a Codeflow workspace."
-		url="https://share.mailbox.org/ajax/share/00346b490b3326750b7a422b332644588c7b6816fdcc8780/1/8/MjM2/MjM2LzMzMA?dl=true"
+		ratio={1908 / 1074}
 		loading="lazy"
 	/>
 	<figcaption>
@@ -143,9 +143,9 @@
 
 <figure>
 	<Image
-		ratio={890 / 192}
+		src="https://share.mailbox.org/ajax/share/0dfaa6450b87ae73d79692eb87ae459b8043f6a5943d4c7a/1/8/MjM2/MjM2LzMzNQ?dl=true"
 		alt="Screenshot from Codeflow showing a warning message that says that the Thunder Client and Grammarly extensions are not supported."
-		url="https://share.mailbox.org/ajax/share/0dfaa6450b87ae73d79692eb87ae459b8043f6a5943d4c7a/1/8/MjM2/MjM2LzMzNQ?dl=true"
+		ratio={890 / 192}
 		loading="lazy"
 	/>
 	<figcaption>

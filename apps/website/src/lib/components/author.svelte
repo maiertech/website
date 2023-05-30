@@ -11,7 +11,7 @@
 <div class:large>
 	{#if data.image_url}
 		<div class="portrait">
-			<Image alt={data.name} url={data.image_url} ratio={1} loading="lazy" round />
+			<Image alt={data.name} src={data.image_url} ratio={1 / 1} loading="lazy" round />
 		</div>
 	{/if}
 	<p>{data.name}</p>
@@ -47,10 +47,12 @@
 	}
 
 	.portrait {
-		max-inline-size: var(--size-6);
+		inline-size: var(--size-6);
+		block-size: var(--size-6);
 	}
 
 	.large .portrait {
-		max-inline-size: var(--size-7);
+		inline-size: var(--size-7);
+		block-size: var(--size-7);
 	}
 </style>
