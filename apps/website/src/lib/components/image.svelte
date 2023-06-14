@@ -20,7 +20,8 @@
 	/**
 	 * Set to base64 encoded fallback image (1x1, light surface-2).
 	 * Encoded with https://png-pixel.com/.
-	 * @type {string} */
+	 * @type {string}
+	 */
 	let imgix_src =
 		'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO88h8AAq0B1REmZuEAAAAASUVORK5CYII=';
 

@@ -1,6 +1,6 @@
 /**
- * @param {HTMLElement} element
- * @param {number} delay
+ * @param {HTMLElement} element - Element to which action is applied.
+ * @param {number} delay - Delay in milliseconds.
  */
 export default function (element, delay) {
 	setTimeout(() => {

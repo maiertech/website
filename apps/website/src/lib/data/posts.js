@@ -1,7 +1,6 @@
 /**
  * Posts sorted by published date in descending order.
  * Access via endpoint /api/posts.
- *
  * @type {import('$lib/types').Post[]}
  */
 export default [

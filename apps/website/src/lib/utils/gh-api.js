@@ -2,8 +2,8 @@ import { GITHUB_TOKEN } from '$env/static/private';
 
 /**
  * Get latest commit for path in repository maiertech/maier.tech.
- *
- * @param {string} path
+ * @param {string} path - File path.
+ * @returns {Promise<Response>} Promise with Response from GitHub API.
  */
 export function get_latest_commit(path) {
 	return fetch(

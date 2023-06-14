@@ -6,6 +6,7 @@ import { resolve_topics } from '$lib/utils/topics';
 
 export const prerender = true;
 
+/** @type {import('./$types').PageLoad} */
 export function load() {
 	const posts = top_posts(3).map((post) => {
 		return {

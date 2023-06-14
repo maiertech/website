@@ -1,7 +1,6 @@
 /**
  * Valid tags, sorted by id.
  * Access via endpoint /api/tags.
- *
  * @type {import('$lib/types').Tag[]}
  */
 export default [

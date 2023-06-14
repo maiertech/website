@@ -4,6 +4,7 @@ import RSS from 'rss';
 
 export const prerender = true;
 
+/** @type {import('./$types').RequestHandler} */
 export async function GET() {
 	const feed = new RSS({
 		title: 'Thilo Maier',

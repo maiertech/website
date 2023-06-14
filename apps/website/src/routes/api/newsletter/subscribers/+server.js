@@ -2,6 +2,7 @@ import { error } from '@sveltejs/kit';
 import { get_list_info } from '$lib/utils/eo-api';
 import { EOListSchema } from '$lib/schemas';
 
+/** @type {import('./$types').RequestHandler} */
 export async function GET() {
 	const response = await get_list_info();
 

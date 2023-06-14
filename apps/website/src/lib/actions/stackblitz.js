@@ -11,14 +11,15 @@ import sdk from '@stackblitz/sdk';
 
 /**
  * @typedef {object} Params
- * @prop {import('@stackblitz/sdk').Project | string} project
- * @prop {import('@stackblitz/sdk').EmbedOptions} options
- * @prop {Callback} [cb]
+ * @property {import('@stackblitz/sdk').Project | string} project - StackBlitz project.
+ * @property {import('@stackblitz/sdk').EmbedOptions} options - Embed options for StackBlitz project.
+ * @property {Callback} [cb] - Callback to run when project has been launched.
  */
 
 /**
- * @param {HTMLElement} node
- * @param {Params} params
+ * @param {HTMLElement} node - Node to which action is applied.
+ * @param {Params} params - Parameters for StackBlitz embed.
+ * @returns {import('svelte/action').ActionReturn} Action return object with update method.
  */
 export default function (node, { project, options, cb }) {
 	/** @type {Promise<VM>} */
@@ -35,7 +36,7 @@ export default function (node, { project, options, cb }) {
 	}
 
 	return {
-		/** @param {Params} params */
+		/** @param {Params} params - Updated parameters for StackBlitz embed. */
 		update(params) {
 			({ project, options, cb } = params);
 		}

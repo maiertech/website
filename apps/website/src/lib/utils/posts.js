@@ -1,16 +1,20 @@
 import all_posts from '$lib/data/posts';
 
 /**
- * @param {string} path
- * @param {import('$lib/types').Post[]} [posts]
+ * Resolve a post by its path.
+ * @param {string} path - Path to be resolved.
+ * @param {import('$lib/types').Post[]} [posts] - Posts in which path gets resolved.
+ * @returns {import('$lib/types').Post | undefined} Resolved post.
  */
 export function resolve(path, posts = all_posts) {
 	return posts.find((p) => p.path === path);
 }
 
 /**
- * @param {string} topic
- * @param {import('$lib/types').Post[]} [posts]
+ * Filter posts by topic.
+ * @param {string} topic - Topic ID to filter posts.
+ * @param {import('$lib/types').Post[]} [posts] - Posts to be filtered.
+ * @returns {import('$lib/types').Post[]} Filtered posts.
  */
 export function filter_by_topic(topic, posts = all_posts) {
 	return posts.filter((post) => {
@@ -20,8 +24,10 @@ export function filter_by_topic(topic, posts = all_posts) {
 }
 
 /**
- * @param {string} tag
- * @param {import('$lib/types').Post[]} [posts]
+ * Filter posts by tag.
+ * @param {string} tag - Tag ID to filter posts.
+ * @param {import('$lib/types').Post[]} [posts] - Posts to be filtered.
+ * @returns {import('$lib/types').Post[]} Filtered posts.
  */
 export function filter_by_tag(tag, posts = all_posts) {
 	return posts.filter((post) => {
@@ -31,9 +37,11 @@ export function filter_by_tag(tag, posts = all_posts) {
 }
 
 /**
- * @param {number} limit
- * @param {import('$lib/types').Post[]} [posts]
+ * Select first n posts.
+ * @param {number} n - Number of posts to be selected.
+ * @param {import('$lib/types').Post[]} [posts] - Array from which posts are selected.
+ * @returns {import('$lib/types').Post[]} Selected posts.
  */
-export function top_posts(limit, posts = all_posts) {
-	return posts.slice(0, limit);
+export function top_posts(n, posts = all_posts) {
+	return posts.slice(0, n);
 }

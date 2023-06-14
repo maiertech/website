@@ -10,22 +10,24 @@
 
 	let isVisible = false;
 
-	function copiedHandler() {
+	/** Handler for when you click copy. */
+	function copied_handler() {
 		message = 'Copied!';
 		isVisible = true;
 	}
 
-	function timeoutHandler() {
+	/** Handler for when the timer runs out. */
+	function timeout_handler() {
 		isVisible = !isVisible;
 	}
 </script>
 
 <label>
-	<button use:copy={copyText} on:custom:copied={copiedHandler}>
+	<button use:copy={copyText} on:custom:copied={copied_handler}>
 		<slot />
 	</button>
 	{#if isVisible}
-		<span use:timer={2000} on:custom:timeout={timeoutHandler}>{message}</span>
+		<span use:timer={2000} on:custom:timeout={timeout_handler}>{message}</span>
 	{/if}
 </label>
 
