@@ -14,22 +14,22 @@ const widths = [240, 360, 480, 768, 1024, 1440, 1920];
 const params = { auto: 'format' };
 
 /**
- * Create `src` attribute for `<img />`.
- * Normally just uyse path to origin image.
- *
- * @param {string} path
+ * Get `src` attribute for `<img >` tag.
+ * Normally just use path to origin image.
+ * @param {string} path - Path to origin image.
+ * @returns {string} - `src` with URL to imgix CDN.
  */
-export const createSrc = function (path) {
+export function get_src(path) {
 	return client.buildURL(path, params);
-};
+}
 
 /**
- * Create `srcset` attribute for `<img />`.
+ * Get `srcset` attribute for `<img>` tag.
  * This is the cartesian product of widths and DPRs.
- *
- * @param {string} path
+ * @param {string} path - Path to origin image.
+ * @returns {string} - `srcset` with URLs to imgix CDN.
  */
-export const createSrcset = function (path) {
+export const get_srcset = function (path) {
 	return client.buildSrcSet(path, params, {
 		devicePixelRatios: [1, 2, 3],
 		widths

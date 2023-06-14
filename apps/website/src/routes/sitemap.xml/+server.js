@@ -10,6 +10,7 @@ export const prerender = true;
 // Array returned from GitHub API can be empty.
 const Schema = z.array(GitHubCommitSchema.optional());
 
+/** @type {import('./$types').RequestHandler} */
 export async function GET() {
 	// Lookup lastmod for each post.
 	const posts_with_lastmod = await Promise.all(

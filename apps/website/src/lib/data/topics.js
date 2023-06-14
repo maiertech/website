@@ -1,7 +1,6 @@
 /**
  * Permitted topics, sorted by relevance.
  * Access via endpoint /api/topics.
- *
  * @type {import('$lib/types').Topic[]}
  */
 export default [

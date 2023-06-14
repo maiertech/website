@@ -2,6 +2,7 @@ import { error } from '@sveltejs/kit';
 import { resolve_topic } from '$lib/utils/topics';
 import { filter_by_topic } from '$lib/utils/posts';
 
+/** @type {import('./$types').PageLoad} */
 export function load({ params }) {
 	const topic = resolve_topic(params.topic);
 

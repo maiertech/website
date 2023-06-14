@@ -5,10 +5,10 @@ const base = 'https://emailoctopus.com/api/1.6/';
 const querystring = new URLSearchParams({ api_key: EO_API_KEY });
 
 /**
- * Subscribe (add contact to list):
- * https://emailoctopus.com/api-documentation/lists/create-contact
- *
- * @param {import('$lib/types').SubscribeForm} data
+ * Subscribe (add contact to list).
+ * See https://emailoctopus.com/api-documentation/lists/create-contact.
+ * @param {import('$lib/types').SubscribeForm} data - Form data.
+ * @returns {Promise<Response>} Promise with response from API.
  */
 export function subscribe(data) {
 	const contact = {
@@ -27,8 +27,9 @@ export function subscribe(data) {
 }
 
 /**
- * Get list info:
- * https://emailoctopus.com/api-documentation/lists/get
+ * Get list info.
+ * See https://emailoctopus.com/api-documentation/lists/get.
+ * @returns {Promise<Response>} Promise with response from API.
  */
 export function get_list_info() {
 	const url = `${base}lists/${EO_LIST_ID}?${querystring}`;
@@ -36,10 +37,10 @@ export function get_list_info() {
 }
 
 /**
- * Lookup subscriber:
- * https://emailoctopus.com/api-documentation/lists/get-contact
- *
- * @param {string} email_address
+ * Lookup subscriber.
+ * See https://emailoctopus.com/api-documentation/lists/get-contact.
+ * @param {string} email_address - Subscriber's email
+ * @returns {Promise<Response>} Promise with response from API.
  */
 export function get_subscriber(email_address) {
 	// EO expects lower case email address to be hashed with MD5.
@@ -49,10 +50,10 @@ export function get_subscriber(email_address) {
 }
 
 /**
- * Unsubscribe (set status to UNSUBSCRIBED):
- * https://emailoctopus.com/api-documentation/lists/update-contact
- *
- * @param {string} email_address
+ * Unsubscribe (set status to UNSUBSCRIBED).
+ * See https://emailoctopus.com/api-documentation/lists/update-contact.
+ * @param {string} email_address Subscriber's email address.
+ * @returns {Promise<Response>} Promise with response from API.
  */
 export function unsubscribe(email_address) {
 	// EO expects lower case email address hashed with MD5.

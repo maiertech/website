@@ -1,9 +1,11 @@
 /**
- * @param {HTMLElement} element
- * @param {string} text
+ * @param {HTMLElement} element - Element to which action is applied.
+ * @param {string} text - Text to be copied.
+ * @returns {import('svelte/action').ActionReturn} Action return object with update and destroy methods.
  */
 export default function (element, text) {
-	async function clickHandler() {
+	/** Write text to clipboard. */
+	async function click_handler() {
 		if (text) {
 			try {
 				await navigator.clipboard.writeText(text);
@@ -14,15 +16,15 @@ export default function (element, text) {
 		}
 	}
 
-	element.addEventListener('click', clickHandler);
+	element.addEventListener('click', click_handler);
 
 	return {
-		/** @param {string} t */
+		/** @param {string} t - Updated text. */
 		update(t) {
 			text = t;
 		},
 		destroy() {
-			element.removeEventListener('click', clickHandler);
+			element.removeEventListener('click', click_handler);
 		}
 	};
 }

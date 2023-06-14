@@ -12,6 +12,7 @@ export const prerender = true;
 // Array returned from GitHub API can be empty.
 const Schema = z.array(GitHubCommitSchema.optional());
 
+/** @type {import('./$types').LayoutServerLoad} */
 export async function load({ url }) {
 	// Resolve post.
 	const post = resolve_post(url.pathname);

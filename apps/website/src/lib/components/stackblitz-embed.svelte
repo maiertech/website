@@ -8,7 +8,8 @@
 	/**
 	 * You can either provide an object with a StackBlitz project config
 	 * or a string that represents a GitHub repository.
-	 * @type {import('@stackblitz/sdk').Project | string} */
+	 * @type {import('@stackblitz/sdk').Project | string}
+	 */
 	export let project;
 
 	/** @type {import('@stackblitz/sdk').EmbedOptions} */

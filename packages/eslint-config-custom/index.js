@@ -1,6 +1,12 @@
 module.exports = {
 	root: true,
-	extends: ['eslint:recommended', 'plugin:svelte/recommended', 'prettier', 'turbo'],
+	extends: [
+		'eslint:recommended',
+		'plugin:svelte/recommended',
+		'prettier',
+		'plugin:jsdoc/recommended',
+		'turbo'
+	],
 	rules: { 'svelte/no-at-html-tags': 'off' },
 	plugins: ['jsdoc'],
 	parserOptions: {

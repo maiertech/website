@@ -6,18 +6,21 @@
 
 	const QUERY = '(prefers-color-scheme: dark)';
 
-	/** @param {MediaQueryListEvent} e */
-	const handleChange = (e) => (theme = e.matches ? 'dark' : 'light');
+	/**
+	 * @param {MediaQueryListEvent} e Event that is fired when the mode changes.
+	 * @returns {'dark' | 'light'} Mode (light or dark).
+	 */
+	const handle_change = (e) => (theme = e.matches ? 'dark' : 'light');
 
 	onMount(() => {
-		const darkMode = matchMedia(QUERY);
+		const dark_mode = matchMedia(QUERY);
 		// Figure out initial theme.
-		theme = darkMode.matches ? 'dark' : 'light';
+		theme = dark_mode.matches ? 'dark' : 'light';
 
-		darkMode.addEventListener('change', handleChange);
+		dark_mode.addEventListener('change', handle_change);
 
 		// Clean up event listener when component unmounts.
-		return () => darkMode.removeEventListener('change', handleChange);
+		return () => dark_mode.removeEventListener('change', handle_change);
 	});
 </script>
 

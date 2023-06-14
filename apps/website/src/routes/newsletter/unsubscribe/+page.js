@@ -1,3 +1,4 @@
+/** @type {import('./$types').PageLoad} */
 export function load({ url }) {
 	const email_address = url.searchParams.get('email');
 	return {
