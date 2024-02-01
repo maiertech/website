@@ -21,7 +21,7 @@
 		"@sveltejs/adapter-auto": "^2.0.1",
 		"@sveltejs/kit": "^1.16.2",
 		"@types/rss": "^0.0.30",
-		"autoprefixer": "^10.4.7",
+		"autoprefixer": "^10.4.17",
 		"fathom-client": "^3.5.0",
 		"open-props": "^1.5.8",
 		"postcss": "^8.4.14",
