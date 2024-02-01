@@ -37,7 +37,7 @@
 		"@sveltejs/package": "^2.0.0",
 		"autoprefixer": "^10.4.14",
 		"open-props": "^1.5.8",
-		"postcss": "^8.4.14",
+		"postcss": "^8.4.33",
 		"postcss-jit-props": "^1.0.13",
 		"publint": "^0.1.9",
 		"schema-dts": "^1.1.2",
