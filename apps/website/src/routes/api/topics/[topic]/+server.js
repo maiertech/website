@@ -6,7 +6,7 @@ export function GET({ params }) {
 	const topic = resolve_topic(params.topic);
 
 	if (!topic) {
-		throw error(404, 'Topic not found.');
+		error(404, 'Topic not found.');
 	}
 
 	return json(topic);

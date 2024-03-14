@@ -27,7 +27,7 @@ export const actions = {
 			const result = EOApiErrorSchema.safeParse(await response.json());
 
 			if (!result.success) {
-				throw error(500, 'Unsubscription failed.');
+				error(500, 'Unsubscription failed.');
 			}
 
 			// No explicit fail to avoid disclosing subscription status.

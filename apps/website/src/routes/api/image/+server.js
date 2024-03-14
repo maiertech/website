@@ -9,7 +9,7 @@ export async function GET({ url }) {
 	const result = Schema.safeParse(url.searchParams.get('url'));
 
 	if (!result.success) {
-		throw error(400, 'Invalid URL.');
+		error(400, 'Invalid URL.');
 	}
 
 	const img_url = result.data;
