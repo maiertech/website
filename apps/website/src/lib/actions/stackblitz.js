@@ -22,7 +22,6 @@ import sdk from '@stackblitz/sdk';
  * @returns {import('svelte/action').ActionReturn<any>} Action return object with update method.
  */
 
-
 /** @type {import('svelte/action').Action<HTMLElement, Params>} */
 export default function (node, { project, options, cb }) {
 	/** @type {Promise<VM>} */
