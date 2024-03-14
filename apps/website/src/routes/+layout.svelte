@@ -2,12 +2,14 @@
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import { PUBLIC_FATHOM_SITE_ID } from '$env/static/public';
+	import Container from '$lib/components/container.svelte';
 	import Favicon from '$lib/components/favicon.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Header from '$lib/components/header.svelte';
+	import RootLayout from '$lib/components/root-layout.svelte';
+	import Seo from '$lib/components/seo.svelte';
 	import * as Fathom from 'fathom-client';
 	import { onMount } from 'svelte';
-	import { Container, RootLayout, Seo } from 'ui';
 	import '../app.css';
 
 	// onMount runs client-side only.

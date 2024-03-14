@@ -8,9 +8,11 @@
 </script>
 
 <script>
+	import GitHubIcon from '$lib/components/github.svelte';
+	import MastodonIcon from '$lib/components/mastodon.svelte';
+	import RSSIcon from '$lib/components/rss.svelte';
 	import SocialIcons from '$lib/components/social-icons.svelte';
 	import * as Fathom from 'fathom-client';
-	import { GitHubIcon, MastodonIcon, RSSIcon } from 'ui';
 
 	/** @type {import('$lib/types').SocialIcon[] } */
 	const icons = [

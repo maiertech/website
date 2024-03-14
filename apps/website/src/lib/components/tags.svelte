@@ -1,5 +1,5 @@
 <script>
-	import { Badge } from 'ui';
+	import Badge from '$lib/components/badge.svelte';
 
 	/** @type {import('$lib/types').Color} */
 	export let type = 'brand';

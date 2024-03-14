@@ -1,7 +1,9 @@
 <script>
+	import Container from '$lib/components/container.svelte';
+	import PageLayout from '$lib/components/page-layout.svelte';
 	import PostFooter from '$lib/components/post-footer.svelte';
 	import PostHeader from '$lib/components/post-header.svelte';
-	import { Container, PageLayout, SeoPostSupplement } from 'ui';
+	import SeoPostSupplement from '$lib/components/seo-post-supplement.svelte';
 
 	export let data;
 </script>
