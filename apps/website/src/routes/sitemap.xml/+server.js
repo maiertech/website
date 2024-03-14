@@ -20,12 +20,12 @@ export async function GET() {
 			);
 
 			if (!response.ok) {
-				throw error(500, `Failed to fetch lastest commit for post ${post.path}.`);
+				error(500, `Failed to fetch lastest commit for post ${post.path}.`);
 			}
 
 			const result = Schema.safeParse(await response.json());
 			if (!result.success) {
-				throw error(500, `Latest commit for post ${post.path} failed validation.`);
+				error(500, `Latest commit for post ${post.path} failed validation.`);
 			}
 
 			const [data] = result.data;

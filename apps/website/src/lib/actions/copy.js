@@ -1,8 +1,4 @@
-/**
- * @param {HTMLElement} element - Element to which action is applied.
- * @param {string} text - Text to be copied.
- * @returns {import('svelte/action').ActionReturn} Action return object with update and destroy methods.
- */
+/** @type {import('svelte/action').Action<HTMLElement, string>}  */
 export default function (element, text) {
 	/** Write text to clipboard. */
 	async function click_handler() {
@@ -19,7 +15,6 @@ export default function (element, text) {
 	element.addEventListener('click', click_handler);
 
 	return {
-		/** @param {string} t - Updated text. */
 		update(t) {
 			text = t;
 		},

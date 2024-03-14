@@ -6,7 +6,7 @@ export async function GET({ params }) {
 	const tag = resolve_tag(params.tag);
 
 	if (!tag) {
-		throw error(404, 'Tag not found.');
+		error(404, 'Tag not found.');
 	}
 
 	return json(tag);

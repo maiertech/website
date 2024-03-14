@@ -7,14 +7,14 @@ export async function GET() {
 	const response = await get_list_info();
 
 	if (!response.ok) {
-		throw error(500, 'Failed to fetch list info.');
+		error(500, 'Failed to fetch list info.');
 	}
 
 	// Validate list info.
 	const result = EOListSchema.safeParse(await response.json());
 
 	if (!result.success) {
-		throw error(500, 'List info failed validation.');
+		error(500, 'List info failed validation.');
 	}
 
 	const list = result.data;

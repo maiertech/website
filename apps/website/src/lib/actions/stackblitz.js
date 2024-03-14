@@ -19,8 +19,10 @@ import sdk from '@stackblitz/sdk';
 /**
  * @param {HTMLElement} node - Node to which action is applied.
  * @param {Params} params - Parameters for StackBlitz embed.
- * @returns {import('svelte/action').ActionReturn} Action return object with update method.
+ * @returns {import('svelte/action').ActionReturn<any>} Action return object with update method.
  */
+
+/** @type {import('svelte/action').Action<HTMLElement, Params>} */
 export default function (node, { project, options, cb }) {
 	/** @type {Promise<VM>} */
 	let promise_vm;
