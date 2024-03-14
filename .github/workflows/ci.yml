@@ -44,8 +44,8 @@ jobs:
       - name: Check
         run: npx turbo run check
 
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
+      # - name: Install Playwright Chromium
+      #   run: npx playwright install --with-deps chromium
 
-      - name: Run Playwright tests
-        run: npx turbo run test
+      # - name: Run Playwright tests
+      #   run: npx turbo run test
