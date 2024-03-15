@@ -17,7 +17,7 @@
 					'@type': 'Person',
 					name: data.author.name,
 					url: data.author.url
-			  }
+				}
 			: undefined
 	};
 </script>
