@@ -1,13 +1,12 @@
+/** @type { import("eslint").Linter.Config } */
 module.exports = {
 	root: true,
 	extends: [
 		'eslint:recommended',
 		'plugin:svelte/recommended',
 		'prettier',
-		'plugin:jsdoc/recommended',
-		'turbo'
+		'plugin:jsdoc/recommended'
 	],
-	rules: { 'svelte/no-at-html-tags': 'off' },
 	plugins: ['jsdoc'],
 	parserOptions: {
 		sourceType: 'module',
