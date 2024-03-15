@@ -17,5 +17,6 @@
 </script>
 
 <svelte:head>
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html serialize(structured_data)}
 </svelte:head>

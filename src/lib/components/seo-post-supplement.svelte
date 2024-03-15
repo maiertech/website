@@ -28,5 +28,6 @@
 	{#if data.lastmod_date}
 		<meta property="article:modified_time" content={data.lastmod_date} />
 	{/if}
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html serialize(structured_data)}
 </svelte:head>
