@@ -48,7 +48,7 @@
 	</nav>
 	<div class="center">
 		<SocialIcons {icons} />
-		<p>&copy; 2023 Thilo Maier</p>
+		<p>&copy; {new Date().getFullYear()} Thilo Maier</p>
 	</div>
 </div>
 
