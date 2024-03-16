@@ -26,21 +26,22 @@ export async function load({ url }) {
 	const topics = post.topics ? resolve_topics(post.topics) : undefined;
 	const tags = post.tags ? resolve_tags(post.tags) : undefined;
 
+	let lastmod_date = undefined;
+
 	const response = await get_latest_commit(
 		`apps/website/src/routes/(posts)${url.pathname}/+page.svelte`
 	);
 
-	if (!response.ok) {
-		error(500, `Failed to fetch lastest commit for post ${post.path}.`);
-	}
+	// `lastmod_date` is an enhancement.
+	// Don't throw errors when it cannot be retrieved to not break posts.
 
-	const result = Schema.safeParse(await response.json());
-	if (!result.success) {
-		error(500, `Latest commit for post ${post.path} failed validation.`);
+	if (response.ok) {
+		const result = Schema.safeParse(await response.json());
+		if (result.success) {
+			const [data] = result.data;
+			lastmod_date = data ? data.commit.author.date : undefined;
+		}
 	}
-
-	const [data] = result.data;
-	const lastmod_date = data ? data.commit.author.date : undefined;
 
 	const resolved_post = { ...post, author, topics, tags, lastmod_date };
 
