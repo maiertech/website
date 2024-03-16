@@ -6,9 +6,9 @@ declare global {
 	namespace App {
 		// interface Error {}
 		// interface Locals {}
-		interface PageData {
-			seo: SeoData;
-		}
+		// interface PageData {
+		// 	seo: SeoData;
+		// }
 		// interface PageState {}
 		// interface Platform {}
 	}

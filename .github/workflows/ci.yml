@@ -16,9 +16,6 @@ env:
   IMGIX_TOKEN: ${{ secrets.IMGIX_TOKEN }}
   PUBLIC_CANONICAL_ORIGIN: ${{ secrets.PUBLIC_CANONICAL_ORIGIN }}
   PUBLIC_FATHOM_SITE_ID: ${{ secrets.PUBLIC_FATHOM_SITE_ID }}
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-  TURBO_REMOTE_ONLY: true
 
 jobs:
   checks:
