@@ -1,20 +1,47 @@
 {
+	"name": "website",
+	"version": "0.0.0",
 	"private": true,
-	"workspaces": [
-		"apps/*",
-		"packages/*"
-	],
 	"scripts": {
-		"build": "turbo run build",
-		"check": "turbo run check",
-		"lint": "turbo run lint",
-		"format": "turbo run format"
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@imgix/js-core": "^3.7.0",
+		"@playwright/test": "^1.28.1",
+		"@sindresorhus/slugify": "^2.1.1",
+		"@stackblitz/sdk": "^1.8.2",
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/eslint": "^8.56.0",
+		"@types/node": "^20.11.28",
+		"@types/rss": "^0.0.32",
+		"autoprefixer": "^10.4.7",
 		"eslint": "^8.56.0",
-		"eslint-config-custom": "*",
-		"prettier": "^2.7.1",
-		"prettier-plugin-svelte": "^2.7.0",
-		"turbo": "^1.11.3"
-	}
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-jsdoc": "^48.2.1",
+		"eslint-plugin-svelte": "^2.35.1",
+		"fathom-client": "^3.5.0",
+		"open-props": "^1.5.8",
+		"postcss": "^8.4.14",
+		"postcss-jit-props": "^1.0.13",
+		"prettier": "^3.1.1",
+		"prettier-plugin-svelte": "^3.1.2",
+		"rss": "^1.2.2",
+		"schema-dts": "^1.1.2",
+		"svelte": "^4.2.7",
+		"svelte-check": "^3.6.0",
+		"svelte-highlight": "^7.2.1",
+		"sveltekit-embed": "^0.0.12",
+		"typescript": "^5.0.0",
+		"vite": "^5.0.3",
+		"zod": "^3.19.1"
+	},
+	"type": "module"
 }

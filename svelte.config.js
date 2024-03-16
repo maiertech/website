@@ -12,7 +12,5 @@ export default {
 			// https://github.com/sveltejs/kit/issues/8314
 			checkOrigin: process.env.NO_CHECK_ORIGIN ? false : true
 		}
-	},
-
-	vitePlugin: { inspector: true }
+	}
 };
