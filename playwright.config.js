@@ -1,7 +1,7 @@
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
 	webServer: {
-		command: 'turbo run build --filter=website && turbo run preview --filter=website',
+		command: 'npm run build && npm run preview',
 		port: 4173,
 		reuseExistingServer: true
 	},

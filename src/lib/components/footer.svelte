@@ -12,7 +12,7 @@
 	import MastodonIcon from '$lib/components/mastodon.svelte';
 	import RSSIcon from '$lib/components/rss.svelte';
 	import SocialIcons from '$lib/components/social-icons.svelte';
-	import * as Fathom from 'fathom-client';
+	import { track } from '@vercel/analytics';
 
 	/** @type {import('$lib/types').SocialIcon[] } */
 	const icons = [
@@ -22,7 +22,7 @@
 			href: 'https://maier.social/@thilo',
 			component: MastodonIcon,
 			onclick: () => {
-				Fathom.trackGoal('0R92Q3LP', 0);
+				track('Mastodon icon clicked');
 			}
 		},
 		{
