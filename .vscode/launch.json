@@ -5,7 +5,7 @@
 			"name": "website (server-side)",
 			"type": "node-terminal",
 			"request": "launch",
-			"command": "npm run dev",
+			"command": "pnpm run dev",
 			"cwd": "${workspaceFolder}/apps/website",
 			"skipFiles": ["<node_internals>/**"]
 		},
