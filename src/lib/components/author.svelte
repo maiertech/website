@@ -11,7 +11,7 @@
 <div class:large>
 	{#if data.image_url}
 		<div class="portrait">
-			<Image alt={data.name} src={data.image_url} ratio={1 / 1} loading="lazy" round />
+			<Image alt={data.name} src={data.image_url} width={966} height={966} />
 		</div>
 	{/if}
 	<p>{data.name}</p>

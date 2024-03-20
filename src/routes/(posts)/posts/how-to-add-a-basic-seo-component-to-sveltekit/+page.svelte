@@ -1,5 +1,5 @@
 <script>
-	import Image from '$lib/components/unpic.svelte';
+	import Image from '$lib/components/image.svelte';
 	import Highlight, { HighlightSvelte } from 'svelte-highlight';
 	import { javascript, xml } from 'svelte-highlight/languages';
 	import seo_data_flow_origin_image from './seo-data-flow.png';

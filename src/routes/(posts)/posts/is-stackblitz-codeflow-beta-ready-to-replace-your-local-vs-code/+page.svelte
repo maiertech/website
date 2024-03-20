@@ -2,6 +2,8 @@
 	import Image from '$lib/components/image.svelte';
 	import Highlight from 'svelte-highlight';
 	import { http } from 'svelte-highlight/languages';
+	import codeflow_bot_light_origin_image from './codeflow-bot-light.png';
+	import unsupported_extensions from './unsupported-extensions.png';
 </script>
 
 <p>
@@ -94,10 +96,10 @@
 
 <figure>
 	<Image
-		src="https://share.mailbox.org/ajax/share/00346b490b3326750b7a422b332644588c7b6816fdcc8780/1/8/MjM2/MjM2LzMzMA?dl=true"
+		src={codeflow_bot_light_origin_image}
 		alt="The screenshot shows codeflowapp's comment and the button to launch a Codeflow workspace."
-		ratio={1908 / 1074}
-		loading="lazy"
+		width={1908}
+		height={1074}
 	/>
 	<figcaption>
 		In this screenshot, codeflowapp commented on a pull request on GitHub and added a button to
@@ -143,10 +145,10 @@
 
 <figure>
 	<Image
-		src="https://share.mailbox.org/ajax/share/0dfaa6450b87ae73d79692eb87ae459b8043f6a5943d4c7a/1/8/MjM2/MjM2LzMzNQ?dl=true"
+		src={unsupported_extensions}
 		alt="Screenshot from Codeflow showing a warning message that says that the Thunder Client and Grammarly extensions are not supported."
-		ratio={890 / 192}
-		loading="lazy"
+		width={890}
+		height={192}
 	/>
 	<figcaption>
 		You are out of luck when a project requires extensions not pre-installed in Codeflow.
