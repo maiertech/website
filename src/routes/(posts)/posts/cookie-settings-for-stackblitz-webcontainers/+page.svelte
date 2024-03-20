@@ -1,5 +1,7 @@
 <script>
 	import Image from '$lib/components/image.svelte';
+	import always_allow_cookies_origin_image from './always-allow-cookies-light.png';
+	import cookies_not_enabled_origin_image from './cookies-not-enabled.png';
 </script>
 
 <p>
@@ -30,10 +32,10 @@
 
 <figure>
 	<Image
-		src="https://share.mailbox.org/ajax/share/01028db20d4f100618142d9d4f104349a5bd8f225863157c/1/8/MjQy/MjQyLzM1Mg?dl=true"
+		src={cookies_not_enabled_origin_image}
 		alt="Screenshot of an embedded StackBlitz WebContainer with warning message 'Enable third-party cookies'."
-		ratio={1672 / 736}
-		loading="lazy"
+		width={1672}
+		height={736}
 	/>
 	<figcaption>
 		A StackBlitz WebContainer rendered in a Chromium-based browser with third-party cookies
@@ -49,10 +51,10 @@
 
 <figure>
 	<Image
-		src="https://share.mailbox.org/ajax/share/00be9d910b34770803d52fab34774f318badc952ab2cb1c2/1/8/MjQy/MjQyLzM1OA?dl=true"
+		src={always_allow_cookies_origin_image}
 		alt="Screenshot of the cookies settings in a Chromium-based browser. Section 'Sites that can always use cookies' lists [*.]stackblitz.io and [*.]webcontainer.io."
-		ratio={1372 / 426}
-		loading="lazy"
+		width={1372}
+		height={426}
 	/>
 	<figcaption>
 		To make embedding WebContainers work without allowing third-party cookies for all sites, you

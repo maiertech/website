@@ -1,7 +1,8 @@
 <script>
+	import Image from '$lib/components/image.svelte';
 	import Highlight from 'svelte-highlight';
 	import { bash, json } from 'svelte-highlight/languages';
-	import Image from '$lib/components/image.svelte';
+	import vercel_build_error_origin_image from './vercel-build-error.png';
 
 	export let data;
 </script>
@@ -132,10 +133,10 @@
 
 <figure>
 	<Image
-		src="https://share.mailbox.org/ajax/share/044946dc0feec1034ca89b7feec14830b07f10ca02e640f3/1/8/MjQ1/MjQ1LzM2Mg?dl=true"
+		src={vercel_build_error_origin_image}
 		alt="Screenshot of the error log of a Vercel deploy. The error message reads: No output directory named 'public' found after the build completed."
-		ratio={1336 / 826}
-		loading="lazy"
+		width={1336}
+		height={826}
 	/>
 	<figcaption>Vercel build error after migrating my repository to a Turborepo.</figcaption>
 </figure>

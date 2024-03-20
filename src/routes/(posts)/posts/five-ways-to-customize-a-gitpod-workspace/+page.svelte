@@ -2,6 +2,7 @@
 	import Image from '$lib/components/image.svelte';
 	import Highlight from 'svelte-highlight';
 	import { dockerfile, yaml } from 'svelte-highlight/languages';
+	import gitpod_editors_origin_image from './gitpod-editors.png';
 
 	export let data;
 </script>
@@ -223,10 +224,10 @@
 
 <figure>
 	<Image
-		src="https://share.mailbox.org/ajax/share/096a1e0e00fff50a9e9d1650fff5468589b662b30ca5f278/1/8/MjQ2/MjQ2LzM2Mw?dl=true"
+		src={gitpod_editors_origin_image}
 		alt="Screenshot of user settings in the Gitpod dashboard. There are ten cards with ten editor options, VS Code desktop and browser, and several IDEs by JetBrains."
-		ratio={1686 / 1210}
-		loading="lazy"
+		width={1686}
+		height={1210}
 	/>
 	<figcaption>Gitpod supports VS Code and various JetBrains IDEs as editors.</figcaption>
 </figure>

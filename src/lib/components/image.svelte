@@ -1,74 +1,47 @@
 <script>
-	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
+	import { Image } from '@unpic/svelte';
+	import { dev } from '$app/environment';
 
-	/** @type {string} */
-	export let alt;
-
-	/** @type {string} */
+	/**
+	 * Absolute path or URL to origin image.
+	 * @type {string}
+	 */
 	export let src;
 
-	/** @type {number} */
-	export let ratio = 16 / 9;
-
-	/** @type {'eager' | 'lazy'} */
-	export let loading = 'eager';
-
-	/** @type {boolean} */
-	export let round = false;
-
 	/**
-	 * Set to base64 encoded fallback image (1x1, light surface-2).
-	 * Encoded with https://png-pixel.com/.
+	 * Alt text (not caption).
 	 * @type {string}
 	 */
-	let imgix_src =
-		'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO88h8AAq0B1REmZuEAAAAASUVORK5CYII=';
-
-	/** @type {string} */
-	let imgix_srcset;
+	export let alt;
 
 	/**
-	 * Cover is probably all we need:
-	 * https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
-	 * @type {string}
+	 * Intrinsic width.
+	 * @type {number}
 	 */
-	let fit = 'cover';
+	export let width;
 
-	onMount(async () => {
-		const response = await fetch(
-			`${$page.url.origin}/api/image?${new URLSearchParams({ url: src })}`
-		);
-		({ src: imgix_src, srcset: imgix_srcset } = await response.json());
-	});
+	/**
+	 * Intrinsic height.
+	 * @type {number}
+	 */
+	export let height;
+
+	/**
+	 * Image quality in %.
+	 * @type {number}
+	 */
+	export let quality = 80;
+
+	// Open Props breakpoints.
+	// Match widths configured in adapter-vercel.
+	const breakpoints = [240, 360, 480, 768, 1024, 1440, 1920];
 </script>
 
-<div style:--ratio={ratio}>
-	<img
-		{...$$restProps}
-		{alt}
-		src={imgix_src}
-		srcset={imgix_srcset}
-		{loading}
-		style:--fit={fit}
-		class:round
-	/>
-</div>
-
-<style>
-	div {
-		aspect-ratio: var(--ratio);
-		inline-size: 100%;
-	}
-
-	img {
-		background-color: var(--surface-2);
-		block-size: 100%;
-		inline-size: 100%;
-		object-fit: var(--fit);
-	}
-
-	.round {
-		border-radius: var(--radius-round);
-	}
-</style>
+<Image
+	src={dev ? src : `/_vercel/image?url=${src}&q=${quality}`}
+	{alt}
+	{width}
+	{height}
+	layout="constrained"
+	{breakpoints}
+/>

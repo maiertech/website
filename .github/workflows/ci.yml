@@ -12,8 +12,6 @@ env:
   EO_API_KEY: ${{ secrets.EO_API_KEY }}
   EO_LIST_ID: ${{ secrets.EO_LIST_ID }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  IMGIX_DOMAIN: ${{ secrets.IMGIX_DOMAIN }}
-  IMGIX_TOKEN: ${{ secrets.IMGIX_TOKEN }}
   PUBLIC_CANONICAL_ORIGIN: ${{ secrets.PUBLIC_CANONICAL_ORIGIN }}
 
 jobs:

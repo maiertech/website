@@ -1,5 +1,6 @@
 <script>
 	import Image from '$lib/components/image.svelte';
+	import display_preferences_origin_image from './display-preferences-light.png';
 	import ScaledPixelSVG from './scaled-pixel.svelte';
 </script>
 
@@ -89,10 +90,10 @@
 
 <figure>
 	<Image
-		src="https://share.mailbox.org/ajax/share/045bf93d0f6241774d83656f624148f4a6055a27411ebd19/1/8/MjM5/MjM5LzM0Ng?dl=true"
+		src={display_preferences_origin_image}
 		alt="Screenshot of display preferences on macOS."
-		ratio={1336 / 708}
-		loading="lazy"
+		width={1336}
+		height={708}
 	/>
 	<figcaption>MacOS lets you choose your preferred scaled resolution.</figcaption>
 </figure>

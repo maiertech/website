@@ -2,6 +2,7 @@
 	import Image from '$lib/components/image.svelte';
 	import Highlight from 'svelte-highlight';
 	import { javascript, xml } from 'svelte-highlight/languages';
+	import submitted_sitemap_origin_image from './submitted-sitemap.png';
 
 	export let data;
 </script>
@@ -44,10 +45,10 @@
 
 <figure>
 	<Image
-		src="https://share.mailbox.org/ajax/share/059cb3a003a6d60851f7ccb3a6d6403c84328f7c08a553af/1/8/MjQz/MjQzLzM1OQ?dl=true"
+		src={submitted_sitemap_origin_image}
 		alt="Screenshot of submitted sitemaps in the Google Search Console. Sitemap submission date: May 21, 2021. Sitemap last read: June 28, 2021."
-		ratio={1868 / 544}
-		loading="lazy"
+		width={1868}
+		height={544}
 	/>
 	<figcaption>For small sites, a sitemap is only initially relevant.</figcaption>
 </figure>
