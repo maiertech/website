@@ -12,7 +12,7 @@ export default {
 				sizes: [240, 360, 480, 768, 1024, 1440, 1920],
 				formats: ['image/avif', 'image/webp'],
 				minimumCacheTTL: 300,
-				domains: ['maier.tech'],
+				domains: ['www.maier.tech'],
 				remotePatterns: [
 					{
 						protocol: 'https',
