@@ -1,4 +1,7 @@
-/** @type {import('$lib/types').Author[]} */
+import { AuthorSchema } from '@maiertech/sveltekit-helpers';
+import { z } from 'zod';
+
+/** @type {z.infer<typeof AuthorSchema>[]} */
 export default [
 	{
 		id: 'thilo',

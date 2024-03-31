@@ -1,13 +1,20 @@
+import { TagSchema } from '@maiertech/sveltekit-helpers';
+import { z } from 'zod';
+
 /**
  * Valid tags, sorted by id.
- * Access via endpoint /api/tags.
- * @type {import('$lib/types').Tag[]}
+ * @type {z.infer<typeof TagSchema>[]}
  */
 export default [
 	{
 		id: 'codesandbox',
 		label: 'CodeSandbox',
 		path: '/tags/codesandbox'
+	},
+	{
+		id: 'content-creation',
+		label: 'Content creation',
+		path: '/tags/content-creation'
 	},
 	{
 		id: 'css',
@@ -18,6 +25,16 @@ export default [
 		id: 'd3',
 		label: 'D3',
 		path: '/tags/d3'
+	},
+	{
+		id: 'data-visualization',
+		label: 'Data visualization',
+		path: '/tags/data-visualization'
+	},
+	{
+		id: 'dx',
+		label: 'Developer happiness',
+		path: '/tags/dx'
 	},
 	{
 		id: 'github',
@@ -35,11 +52,6 @@ export default [
 		path: '/tags/screen-recording'
 	},
 	{
-		id: 'sveltekit',
-		label: 'SvelteKit',
-		path: '/tags/sveltekit'
-	},
-	{
 		id: 'seo',
 		label: 'SEO',
 		path: '/tags/seo'
@@ -50,34 +62,23 @@ export default [
 		path: '/tags/stackblitz'
 	},
 	{
+		id: 'svelte',
+		label: 'Svelte',
+		path: '/tags/svelte'
+	},
+	{
 		id: 'turborepo',
 		label: 'Turborepo',
 		path: '/tags/turborepo'
 	},
-	{
-		id: 'twitter',
-		label: 'Twitter',
-		path: '/tags/twitter'
-	},
-
 	{
 		id: 'typescript',
 		label: 'TypeScript',
 		path: '/tags/typescript'
 	},
 	{
-		id: 'vercel',
-		label: 'Vercel',
-		path: '/tags/vercel'
-	},
-	{
-		id: 'vite',
-		label: 'Vite',
-		path: '/tags/vite'
-	},
-	{
-		id: 'vscode',
-		label: 'VS Code',
-		path: '/tags/vscode'
+		id: 'web-fundamentals',
+		label: 'Web fundamentals',
+		path: '/tags/web-fundamentals'
 	}
 ];

@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@maiertech/sveltekit-helpers':
-    specifier: ^0.3.0
-    version: 0.3.0(@sveltejs/kit@2.5.5)(svelte@4.2.12)
+    specifier: ^0.4.0
+    version: 0.4.0(@sveltejs/kit@2.5.5)(svelte@4.2.12)
   '@playwright/test':
     specifier: ^1.42.1
     version: 1.42.1
@@ -624,8 +624,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@maiertech/sveltekit-helpers@0.3.0(@sveltejs/kit@2.5.5)(svelte@4.2.12):
-    resolution: {integrity: sha512-PsWfn/7L7cb1+lpRs+uIFRMOWMMCA8d8KifxwyHITt8ao9MFM3NK1Vd/fPbQExkdEF5mASKZfiLX3eg7pGolHA==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.3.0/4e297eb6db473aaf9594a47553361a887effcd8d}
+  /@maiertech/sveltekit-helpers@0.4.0(@sveltejs/kit@2.5.5)(svelte@4.2.12):
+    resolution: {integrity: sha512-TuZvySw/oEaCKoxvpANNsO8tAKuP1TaVWySXZMYBleqv8D/XwD40hdrAUxRsG/aVlDYbF3tb/D6HfinCHkIFhQ==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.4.0/555ffde1370bf554b8f304f6aa20360ad0741ae7}
     peerDependencies:
       '@sveltejs/kit': ^2.5.5
       svelte: ^4.0.0
