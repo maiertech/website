@@ -5,8 +5,8 @@
 	import Favicon from '$lib/components/favicon.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Header from '$lib/components/header.svelte';
-	import RootLayout from '$lib/components/root-layout.svelte';
 	import Seo from '$lib/components/seo.svelte';
+	import { RootLayout } from '@maiertech/sveltekit-helpers';
 	import { inject } from '@vercel/analytics';
 	import '../app.css';
 

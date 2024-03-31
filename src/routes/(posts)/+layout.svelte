@@ -1,9 +1,7 @@
 <script>
 	import Container from '$lib/components/container.svelte';
-	import PageLayout from '$lib/components/page-layout.svelte';
-	import PostFooter from '$lib/components/post-footer.svelte';
-	import PostHeader from '$lib/components/post-header.svelte';
 	import SeoPostSupplement from '$lib/components/seo-post-supplement.svelte';
+	import { PageLayout, PostHeader } from '@maiertech/sveltekit-helpers';
 
 	export let data;
 </script>
@@ -11,17 +9,12 @@
 <SeoPostSupplement data={data.resolved_post} />
 
 <PageLayout>
-	<PostHeader data={data.resolved_post} slot="header" />
+	<PostHeader post={data.resolved_post} slot="header" />
 	<Container padding={false} max_width="60ch">
 		<article>
 			<slot />
 		</article>
 	</Container>
-	<div slot="footer">
-		{#if data.resolved_post.topics}
-			<PostFooter topics={data.resolved_post.topics} />
-		{/if}
-	</div>
 </PageLayout>
 
 <style>

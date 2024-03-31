@@ -1,23 +1,21 @@
 <script>
 	import Image from '$lib/components/image.svelte';
+	import { AuthorSchema } from '@maiertech/sveltekit-helpers';
+	import { z } from 'zod';
 
-	/** @type {import('$lib/types').Author} */
-	export let data;
+	/** @type {z.infer<typeof AuthorSchema>} */
+	export let value;
 
 	/** @type {boolean} */
 	export let large = false;
 </script>
 
 <div class:large>
-	{#if data.image_url}
-		<div class="portrait">
-			<Image alt={data.name} src={data.image_url} width={966} height={966} />
-		</div>
-	{/if}
-	<p>{data.name}</p>
-	{#if data.url}
-		<a href={data.url}><span /></a>
-	{/if}
+	<div class="portrait">
+		<Image alt={value.name} src={value.image_url} width={966} height={966} />
+	</div>
+	<p>{value.name}</p>
+	<a href={value.url}><span /></a>
 </div>
 
 <style>

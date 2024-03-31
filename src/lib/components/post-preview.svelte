@@ -20,7 +20,7 @@
 	</div>
 	{#if post.author}
 		<div class="author">
-			<Author data={post.author} {large} />
+			<Author value={post.author} {large} />
 		</div>
 	{/if}
 </article>

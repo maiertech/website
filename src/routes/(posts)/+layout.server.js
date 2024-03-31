@@ -3,7 +3,6 @@ import { resolve as resolve_author } from '$lib/utils/authors';
 import { get_latest_commit } from '$lib/utils/gh-api';
 import { resolve as resolve_post } from '$lib/utils/posts';
 import { resolve_tags } from '$lib/utils/tags';
-import { resolve_topics } from '$lib/utils/topics';
 import { error } from '@sveltejs/kit';
 import { z } from 'zod';
 
@@ -21,9 +20,8 @@ export async function load({ url }) {
 		error(404, 'Not found.');
 	}
 
-	// Resolve author, topics, and tags.
-	const author = resolve_author(post.author);
-	const topics = post.topics ? resolve_topics(post.topics) : undefined;
+	// Resolve author and tags.
+	const author = post.author ? resolve_author(post.author) : undefined;
 	const tags = post.tags ? resolve_tags(post.tags) : undefined;
 
 	let lastmod_date = undefined;
@@ -43,7 +41,7 @@ export async function load({ url }) {
 		}
 	}
 
-	const resolved_post = { ...post, author, topics, tags, lastmod_date };
+	const resolved_post = { ...post, id: post.path, author, tags, lastmod_date };
 
 	return {
 		resolved_post,

@@ -17,7 +17,7 @@
 </section>
 
 <section class="topics">
-	{#each data.topics as topic (topic.id)}
+	{#each data.topics as topic (topic.label)}
 		<article>
 			<h2>{topic.label}</h2>
 			<p>{topic.description}</p>
