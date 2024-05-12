@@ -3,7 +3,7 @@
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
 		"ms-playwright.playwright",
-		"phoenisx.cssvar",
-		"svelte.svelte-vscode"
+		"svelte.svelte-vscode",
+		"vunguyentuan.vscode-css-variables"
 	]
 }
