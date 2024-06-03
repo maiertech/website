@@ -4,7 +4,7 @@ on:
   push:
     branches: ['main']
   pull_request:
-    types: [opened, synchronize]
+    branches: ['main']
 
 # With pre-rendering enabled, build loads modules, which triggers imports.
 # These variables are just dummies that need to exist while build and check run.
