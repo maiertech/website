@@ -1,4 +1,4 @@
-import { filter_by_tag } from '$lib/utils/posts';
+import { filterByTag } from '$lib/utils/posts';
 import { resolve_tag } from '$lib/utils/tags';
 import { error } from '@sveltejs/kit';
 
@@ -10,7 +10,7 @@ export function load({ params }) {
 		error(404, 'Not found.');
 	}
 
-	const posts = filter_by_tag(tag.id);
+	const posts = filterByTag(tag.id);
 
 	if (posts.length === 0) {
 		error(404, 'Not found.');

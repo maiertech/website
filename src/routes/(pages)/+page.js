@@ -1,12 +1,12 @@
 import { resolve as resolve_author } from '$lib/utils/authors';
-import { top_posts } from '$lib/utils/posts';
+import { topPosts } from '$lib/utils/posts';
 import { resolve_tags } from '$lib/utils/tags';
 
 export const prerender = true;
 
 /** @type {import('./$types').PageLoad} */
 export function load() {
-	const posts = top_posts(3).map((post) => {
+	const posts = topPosts(3).map((post) => {
 		return {
 			...post,
 			author: post.author ? resolve_author(post.author) : undefined,

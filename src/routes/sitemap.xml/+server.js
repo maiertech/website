@@ -39,7 +39,7 @@ export async function GET() {
 	const posts = posts_with_lastmod.map(
 		(post) => `\t<url>
 		<loc>${new URL(post.path, PUBLIC_CANONICAL_ORIGIN).href}</loc>
-		<lastmod>${post.lastmod_date ? post.lastmod_date : post.published_date}</lastmod>
+		<lastmod>${post.lastmod_date ? post.lastmod_date : post.publishedDate}</lastmod>
 	</url>`
 	);
 
