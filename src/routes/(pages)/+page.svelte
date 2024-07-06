@@ -1,7 +1,5 @@
 <script>
-	import Posts from '$lib/components/posts.svelte';
-	import Button from '$lib/components/button.svelte';
-	import SeoHomepageSupplement from '$lib/components/seo-homepage-supplement.svelte';
+	import { Button, Posts, SeoHomepageSupplement } from '$lib/components';
 
 	export let data;
 </script>

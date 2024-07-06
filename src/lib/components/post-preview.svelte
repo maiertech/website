@@ -1,8 +1,8 @@
 <script>
-	import Author from '$lib/components/author.svelte';
-	import { format } from '$lib/utils/date';
+	import { Author } from '$lib/components';
+	import { formatDate } from '@maiertech/sveltekit-helpers';
 
-	/** @type {import('$lib/types').ResolvedPost} */
+	/** @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').postSchema>} */
 	export let post;
 
 	/** @type {boolean} */
@@ -11,7 +11,7 @@
 
 <article class:large>
 	<div class="content">
-		<time datetime={post.published_date}>{format(post.published_date)}</time>
+		<time datetime={post.publishedDate}>{formatDate(post.publishedDate)}</time>
 		<h2>{post.title}</h2>
 		<p>{post.description}</p>
 		<a href={post.path}

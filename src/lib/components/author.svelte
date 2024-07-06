@@ -1,9 +1,7 @@
 <script>
 	import Image from '$lib/components/image.svelte';
-	import { AuthorSchema } from '@maiertech/sveltekit-helpers';
-	import { z } from 'zod';
 
-	/** @type {z.infer<typeof AuthorSchema>} */
+	/** @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').authorSchema>} */
 	export let value;
 
 	/** @type {boolean} */
@@ -12,7 +10,7 @@
 
 <div class:large>
 	<div class="portrait">
-		<Image alt={value.name} src={value.image_url} width={966} height={966} />
+		<Image alt={value.name} src={value.imageUrl} width={966} height={966} />
 	</div>
 	<p>{value.name}</p>
 	<a href={value.url}><span /></a>

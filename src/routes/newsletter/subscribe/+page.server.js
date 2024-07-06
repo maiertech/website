@@ -1,12 +1,12 @@
 import { error, fail } from '@sveltejs/kit';
 import { subscribe, get_subscriber } from '$lib/utils/eo-api';
-import { EOApiErrorSchema, EOSubscriberSchema, SubscribeFormSchema } from '$lib/schemas';
+import { eoApiErrorSchema, eoSubscriberSchema, subscribeFormSchema } from '$lib/schemas';
 
 /** @type {import('./$types').Actions} */
 export const actions = {
 	default: async ({ request }) => {
 		const data = Object.fromEntries(await request.formData());
-		const result = SubscribeFormSchema.safeParse(data);
+		const result = subscribeFormSchema.safeParse(data);
 
 		if (!result.success) {
 			const { fieldErrors: errors } = result.error.flatten();
@@ -22,7 +22,7 @@ export const actions = {
 		const response = await subscribe(validated_data);
 
 		if (!response.ok) {
-			const result = EOApiErrorSchema.safeParse(await response.json());
+			const result = eoApiErrorSchema.safeParse(await response.json());
 
 			if (!result.success) {
 				error(500, 'Subscription failed.');
@@ -42,7 +42,7 @@ export const actions = {
 				}
 
 				// Validate subscriber.
-				const result = EOSubscriberSchema.safeParse(await res.json());
+				const result = eoSubscriberSchema.safeParse(await res.json());
 
 				if (!result.success) {
 					error(500, 'Subscription failed.');

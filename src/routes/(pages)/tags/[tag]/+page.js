@@ -1,16 +1,17 @@
-import { filter_by_tag } from '$lib/utils/posts';
-import { resolve_tag } from '$lib/utils/tags';
+import { tags } from '$lib/data';
+import { filterByTag } from '$lib/utils/posts';
+import { resolve } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */
 export function load({ params }) {
-	const tag = resolve_tag(params.tag);
+	const tag = resolve(params.tag, tags);
 
 	if (!tag) {
 		error(404, 'Not found.');
 	}
 
-	const posts = filter_by_tag(tag.id);
+	const posts = filterByTag(tag.id);
 
 	if (posts.length === 0) {
 		error(404, 'Not found.');
