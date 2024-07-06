@@ -1,9 +1,6 @@
-import { TagSchema } from '@maiertech/sveltekit-helpers';
-import { z } from 'zod';
-
 /**
  * Valid tags, sorted by id.
- * @type {z.infer<typeof TagSchema>[]}
+ * @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').tagSchema>[]}
  */
 export default [
 	{

@@ -6,10 +6,10 @@
 	export let data;
 </script>
 
-<SeoPostSupplement data={data.resolved_post} />
+<SeoPostSupplement data={data.resolvedPost} />
 
 <PageLayout>
-	<PostHeader post={data.resolved_post} slot="header" />
+	<PostHeader post={data.resolvedPost} slot="header" />
 	<Container padding={false} max_width="60ch">
 		<article>
 			<slot />

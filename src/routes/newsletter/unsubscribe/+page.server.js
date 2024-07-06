@@ -1,6 +1,6 @@
 import { error, fail } from '@sveltejs/kit';
 import { unsubscribe } from '$lib/utils/eo-api';
-import { EOApiErrorSchema, UnsubscribeFormSchema } from '$lib/schemas';
+import { eoApiErrorSchema, unsubscribeFormSchema } from '$lib/schemas';
 
 const SUCCESS_MESSAGE = 'You have unsubscribed from my newsletter.';
 
@@ -8,7 +8,7 @@ const SUCCESS_MESSAGE = 'You have unsubscribed from my newsletter.';
 export const actions = {
 	default: async ({ request }) => {
 		const data = Object.fromEntries(await request.formData());
-		const result = UnsubscribeFormSchema.safeParse(data);
+		const result = unsubscribeFormSchema.safeParse(data);
 
 		if (!result.success) {
 			const { fieldErrors: errors } = result.error.flatten();
@@ -24,7 +24,7 @@ export const actions = {
 		const response = await unsubscribe(validated_data.email_address);
 
 		if (!response.ok) {
-			const result = EOApiErrorSchema.safeParse(await response.json());
+			const result = eoApiErrorSchema.safeParse(await response.json());
 
 			if (!result.success) {
 				error(500, 'Unsubscription failed.');

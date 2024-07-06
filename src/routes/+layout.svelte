@@ -6,7 +6,7 @@
 	import Footer from '$lib/components/footer.svelte';
 	import Header from '$lib/components/header.svelte';
 	import Seo from '$lib/components/seo.svelte';
-	import { RootLayout } from '@maiertech/sveltekit-helpers';
+	import { PageLayout } from '@maiertech/sveltekit-helpers';
 	import { inject } from '@vercel/analytics';
 	import '../app.css';
 
@@ -25,7 +25,7 @@
 	<link rel="alternate" type="application/rss+xml" title="Thilo Maier" href="/rss.xml" />
 </svelte:head>
 
-<RootLayout>
+<PageLayout>
 	<svelte:fragment slot="header">
 		<Container>
 			<Header />
@@ -39,4 +39,4 @@
 	<svelte:fragment slot="footer">
 		<Footer />
 	</svelte:fragment>
-</RootLayout>
+</PageLayout>

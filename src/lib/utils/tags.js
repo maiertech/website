@@ -1,24 +1,15 @@
-import tags from '$lib/data/tags';
-import { TagSchema } from '@maiertech/sveltekit-helpers';
-import { z } from 'zod';
-
-/**
- * @param {string} tag - A tag id.
- * @returns {z.infer<typeof TagSchema> | undefined} The resolved tag or undefined if tag not found.
- */
-export function resolve_tag(tag) {
-	return tags.find((t) => t.id === tag);
-}
+import { tags as allTags } from '$lib/data';
+import { resolve } from '@maiertech/sveltekit-helpers';
 
 /**
  * @param {string[]} tags - Array of tag ids.
- * @returns {z.infer<typeof TagSchema>[]} Array of resolved tags (no element is undefined).
+ * @returns {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').tagSchema>[]} Array of resolved tags (no element is undefined).
  */
 export function resolve_tags(tags) {
 	return tags
-		.map((tag) => resolve_tag(tag))
+		.map((tag) => resolve(tag, allTags))
 		.filter(
-			/** @type {(tag: z.infer<typeof TagSchema> | undefined) => tag is z.infer<typeof TagSchema>} */
+			/** @type {(tag: import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').tagSchema> | undefined) => tag is import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').tagSchema>} */
 			(tag) => tag !== undefined
 		);
 }

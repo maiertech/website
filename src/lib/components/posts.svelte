@@ -1,6 +1,7 @@
 <script>
-	import PostPreview from '$lib/components/post-preview.svelte';
-	/** @type {import('$lib/types').ResolvedPost[]} */
+	import { PostPreview } from '$lib/components';
+
+	/** @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').postSchema>[]} */
 	export let posts;
 </script>
 

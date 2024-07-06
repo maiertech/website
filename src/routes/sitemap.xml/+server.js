@@ -1,6 +1,6 @@
 import { PUBLIC_CANONICAL_ORIGIN } from '$env/static/public';
-import all_posts from '$lib/data/posts';
-import { GitHubCommitSchema } from '$lib/schemas/index.js';
+import { posts as allPosts } from '$lib/data';
+import { gitHubCommitSchema } from '$lib/schemas';
 import { get_latest_commit } from '$lib/utils/gh-api';
 import { error } from '@sveltejs/kit';
 import { z } from 'zod';
@@ -8,13 +8,13 @@ import { z } from 'zod';
 export const prerender = true;
 
 // Array returned from GitHub API can be empty.
-const Schema = z.array(GitHubCommitSchema.optional());
+const Schema = z.array(gitHubCommitSchema.optional());
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
 	// Lookup lastmod for each post.
-	const posts_with_lastmod = await Promise.all(
-		all_posts.map(async (post) => {
+	const postsWithLastmod = await Promise.all(
+		allPosts.map(async (post) => {
 			const response = await get_latest_commit(
 				`apps/website/src/routes/(posts)${post.path}/+page.svelte`
 			);
@@ -36,10 +36,10 @@ export async function GET() {
 	);
 
 	// Create sitemap entries for posts.
-	const posts = posts_with_lastmod.map(
+	const posts = postsWithLastmod.map(
 		(post) => `\t<url>
 		<loc>${new URL(post.path, PUBLIC_CANONICAL_ORIGIN).href}</loc>
-		<lastmod>${post.lastmod_date ? post.lastmod_date : post.published_date}</lastmod>
+		<lastmod>${post.lastmod_date ? post.lastmod_date : post.publishedDate}</lastmod>
 	</url>`
 	);
 

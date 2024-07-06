@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { get_list_info } from '$lib/utils/eo-api';
-import { EOListSchema } from '$lib/schemas';
+import { eoListSchema } from '$lib/schemas';
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
@@ -11,7 +11,7 @@ export async function GET() {
 	}
 
 	// Validate list info.
-	const result = EOListSchema.safeParse(await response.json());
+	const result = eoListSchema.safeParse(await response.json());
 
 	if (!result.success) {
 		error(500, 'List info failed validation.');
