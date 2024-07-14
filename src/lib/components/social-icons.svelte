@@ -25,6 +25,10 @@
 		gap: var(--size-fluid-2);
 	}
 
+	a {
+		color: var(--link);
+	}
+
 	.icon {
 		width: var(--size-fluid-4);
 	}

@@ -1,8 +1,8 @@
 <script>
-	import Image from '$lib/components/image.svelte';
+	import { Image } from '$lib/components';
 	import Highlight, { HighlightSvelte } from 'svelte-highlight';
 	import { javascript, xml } from 'svelte-highlight/languages';
-	import seo_data_flow_origin_image from './seo-data-flow.png';
+	import seoDataFlowImage from './seo-data-flow.png';
 
 	export let data;
 </script>
@@ -181,10 +181,8 @@
 
 <figure>
 	<Image
-		src={seo_data_flow_origin_image}
+		src={seoDataFlowImage}
 		alt="Diagram of how data from load functions can be shared between a page and a layout top down or bottom up."
-		width={1394}
-		height={1033}
 	/>
 	<figcaption>How SvelteKit's load functions share data.</figcaption>
 </figure>

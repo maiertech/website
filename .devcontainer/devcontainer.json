@@ -2,7 +2,8 @@
 // For config options, see the README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 {
 	"name": "Node.js",
-	"image": "mcr.microsoft.com/devcontainers/javascript-node",
+	// The Node version needs to correspons to the Node version used by Vercel.
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:20",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

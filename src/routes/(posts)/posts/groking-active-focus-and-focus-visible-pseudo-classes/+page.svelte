@@ -74,8 +74,6 @@ button:active {
 	<Image
 		src={active_example_input_active_origin_image}
 		alt="A simple web form with a name input field and a submit button. The name input field is active and highlighted with a red dashed outline."
-		width={630}
-		height={198}
 	/>
 </figure>
 
@@ -88,8 +86,6 @@ button:active {
 	<Image
 		src={active_example_input_focus_origin_image}
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applies a blue outline to it."
-		width={630}
-		height={198}
 	/>
 </figure>
 
@@ -99,8 +95,6 @@ button:active {
 	<Image
 		src={active_example_button_active_origin_image}
 		alt="A simple web form with a name input field and a submit button. The submit button is highlighted with a dashed red outline."
-		width={630}
-		height={198}
 	/>
 </figure>
 
@@ -142,8 +136,6 @@ button:focus {
 	<Image
 		src={focus_example_input_origin_image}
 		alt="A simple web form with a name input field and a submit button. The input field is focused and highlighted with a dashed red outline."
-		width={630}
-		height={198}
 	/>
 </figure>
 
@@ -155,8 +147,6 @@ button:focus {
 	<Image
 		src={focus_example_button_origin_image}
 		alt="A simple web form with a name input field and a submit button. The submit button has focus and the browser applied a dashed red outline to it."
-		width={630}
-		height={198}
 	/>
 </figure>
 
@@ -204,8 +194,6 @@ button:focus-visible {
 	<Image
 		src={focus_visible_example_input_origin_image}
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applied :focus-visible and a dashed red outline."
-		width={762}
-		height={202}
 	/>
 </figure>
 
@@ -219,8 +207,6 @@ button:focus-visible {
 	<Image
 		src={focus_visible_example_button_mouse_origin_image}
 		alt="A simple web form with a name input field and a submit button. Even though the submit has focus, the browser did not apply :focus-visible and the corresponding styling."
-		width={762}
-		height={202}
 	/>
 </figure>
 
@@ -232,8 +218,6 @@ button:focus-visible {
 	<Image
 		src={focus_visible_example_button_keyboard_origin_image}
 		alt="A simple web form with a name input field and a submit button. This time, the browser applied :focus-visible and a dashed red outline to the submit button."
-		width={762}
-		height={202}
 	/>
 </figure>
 

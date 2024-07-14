@@ -1,0 +1,23 @@
+/* Styles for svelte-highlight. */
+@import 'svelte-highlight/styles/a11y-light.css' (prefers-color-scheme: light);
+@import 'svelte-highlight/styles/a11y-dark.css' (prefers-color-scheme: dark);
+
+:root {
+	/* Colors for light mode. */
+	--surface-1-light: var(--stone-0);
+	--surface-2-light: var(--stone-2);
+	--text-1-light: var(--stone-11);
+	--text-2-light: var(--stone-9);
+	--brand-light: var(--indigo-11);
+	--link-light: var(--brand-light);
+	--link-visited-light: var(--link-light);
+
+	/* Colors for dark mode. */
+	--surface-1-dark: var(--stone-11);
+	--surface-2-dark: var(--stone-9);
+	--text-1-dark: var(--stone-0);
+	--text-2-dark: var(--stone-4);
+	--brand-dark: var(--indigo-2);
+	--link-dark: var(--brand-dark);
+	--link-visited-dark: var(--link-dark);
+}

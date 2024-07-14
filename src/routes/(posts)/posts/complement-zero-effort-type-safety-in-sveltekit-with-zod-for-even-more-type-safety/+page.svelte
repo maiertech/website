@@ -101,8 +101,6 @@
 	<Image
 		src={zod_type_inference_example_1_origin_image}
 		alt="Screenshot of the code snippet from above in Visual Studio Code. The mouse hovers over `frontmatter.title`, and a pop-up shows the type `string` and the description from the `PostSchema` Zod schema."
-		width={1304}
-		height={597}
 	/>
 	<figcaption>Zod infers the type of validated data from the schema.</figcaption>
 </figure>
@@ -140,8 +138,6 @@
 	<Image
 		src={zod_type_inference_example_2_origin_image}
 		alt="Screenshot of the code snippet from above in Visual Studio Code. The mouse hovers over the validated `subscriber` variable, and a pop-up shows the object type inferred from the `EOSubscriber` Zod schema."
-		width={1225}
-		height={799}
 	/>
 	<figcaption>
 		The <code>subscriber</code> variable is validated and typed, thanks to Zod's type inference.

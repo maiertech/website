@@ -1,21 +1,18 @@
 <script>
-	import Container from '$lib/components/container.svelte';
 	import SeoPostSupplement from '$lib/components/seo-post-supplement.svelte';
-	import { PageLayout, PostHeader } from '@maiertech/sveltekit-helpers';
+	import { ContentLayout, PostHeader } from '@maiertech/sveltekit-helpers';
 
 	export let data;
 </script>
 
 <SeoPostSupplement data={data.resolvedPost} />
 
-<PageLayout>
+<ContentLayout>
 	<PostHeader post={data.resolvedPost} slot="header" />
-	<Container padding={false} max_width="60ch">
-		<article>
-			<slot />
-		</article>
-	</Container>
-</PageLayout>
+	<article>
+		<slot />
+	</article>
+</ContentLayout>
 
 <style>
 	article {

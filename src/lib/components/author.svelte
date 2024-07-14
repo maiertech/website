@@ -1,5 +1,5 @@
 <script>
-	import Image from '$lib/components/image.svelte';
+	import { Image } from '$lib/components';
 
 	/** @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').authorSchema>} */
 	export let value;
@@ -8,47 +8,38 @@
 	export let large = false;
 </script>
 
-<div class:large>
-	<div class="portrait">
-		<Image alt={value.name} src={value.imageUrl} width={966} height={966} />
+<div class="author" class:large>
+	<div class="avatar">
+		<Image alt={value.name} src={value.imageUrl} aspectRatio={1 / 1} />
 	</div>
 	<p>{value.name}</p>
-	<a href={value.url}><span /></a>
 </div>
 
 <style>
-	div {
-		position: relative;
+	.author {
 		display: flex;
 		align-items: center;
 		gap: var(--size-2);
-	}
-
-	.large div {
-		gap: var(--size-3);
-	}
-
-	p {
 		font-size: var(--font-size-1);
+		font-family: var(--font-sans);
 		font-weight: var(--font-weight-6);
+
+		&.large {
+			font-size: var(--font-size-2);
+		}
 	}
 
-	.large p {
-		font-size: var(--font-size-2);
-	}
-
-	span {
-		position: absolute;
-		inset: 0;
-	}
-
-	.portrait {
+	.avatar {
 		inline-size: var(--size-6);
 		block-size: var(--size-6);
+		border-radius: var(--radius-round);
+		overflow: hidden;
 	}
 
-	.large .portrait {
-		inline-size: var(--size-7);
-		block-size: var(--size-7);
+	.large {
+		& .avatar {
+			inline-size: var(--size-7);
+			block-size: var(--size-7);
+		}
 	}
 </style>

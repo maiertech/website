@@ -135,8 +135,6 @@
 	<Image
 		src={vercel_build_error_origin_image}
 		alt="Screenshot of the error log of a Vercel deploy. The error message reads: No output directory named 'public' found after the build completed."
-		width={1336}
-		height={826}
 	/>
 	<figcaption>Vercel build error after migrating my repository to a Turborepo.</figcaption>
 </figure>

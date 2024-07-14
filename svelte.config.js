@@ -16,8 +16,8 @@ export default {
 				remotePatterns: [
 					{
 						protocol: 'https',
-						// Must match preview URLs, e.g., website-git-maiertech-issue818-maiertech.vercel.app.
-						hostname: '^website-.*-maiertech\\.vercel\\.app$'
+						// Must match preview URLs, e.g., website-git-835-eliminate-postcss-maierlabs.vercel.app.
+						hostname: '^website-.*-maierlabs\\.vercel\\.app$'
 					}
 				]
 			}
@@ -35,10 +35,5 @@ export default {
 				throw new Error(message);
 			}
 		}
-		// csrf: {
-		// 	// Set environment variable NO_CHECK_ORIGIN=1 on Gitpod or StackBlitz:
-		// 	// https://github.com/sveltejs/kit/issues/8314
-		// 	checkOrigin: process.env.NO_CHECK_ORIGIN ? false : true
-		// }
 	}
 };

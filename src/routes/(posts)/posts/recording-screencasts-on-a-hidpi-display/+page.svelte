@@ -89,12 +89,7 @@
 <p>MacOS always uses the default resolution unless you opt for a different scaled resolution:</p>
 
 <figure>
-	<Image
-		src={display_preferences_origin_image}
-		alt="Screenshot of display preferences on macOS."
-		width={1336}
-		height={708}
-	/>
+	<Image src={display_preferences_origin_image} alt="Screenshot of display preferences on macOS." />
 	<figcaption>MacOS lets you choose your preferred scaled resolution.</figcaption>
 </figure>
 

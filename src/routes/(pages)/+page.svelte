@@ -25,17 +25,16 @@
 </section>
 
 <style>
-	.about p {
+	.about {
 		color: var(--text-2);
 		font-size: var(--size-4);
 		font-weight: var(--font-weight-5);
+		font-family: var(--font-sans);
 		line-height: var(--font-lineheight-3);
-		max-inline-size: var(--size-content-3);
+		max-inline-size: var(--size-content-2);
 		margin-block-end: var(--size-8);
-	}
 
-	@media (min-width: 1024px) {
-		.about p {
+		@media (min-width: 1024px) {
 			font-size: var(--size-5);
 			line-height: var(--font-lineheight-2);
 		}
@@ -49,36 +48,29 @@
 		display: grid;
 		grid-template-columns: repeat(1, minmax(0, 1fr));
 		gap: var(--size-fluid-3);
-	}
+		font-family: var(--font-sans);
 
-	.topics article {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: var(--size-fluid-3);
-		background-color: var(--surface-2);
-		border-radius: var(--radius-2);
-		padding: var(--size-fluid-2);
-	}
-
-	.topics h2 {
-		font-size: var(--size-fluid-3);
-		font-weight: var(--font-weight-7);
-	}
-
-	.topics p {
-		flex: 1;
-	}
-
-	@media (min-width: 768px) {
-		section.topics {
+		@media (min-width: 768px) {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
-	}
 
-	@media (min-width: 1024px) {
-		section.topics {
+		@media (min-width: 1024px) {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		& article {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--size-fluid-3);
+			background-color: var(--surface-2);
+			border-radius: var(--radius-2);
+			padding: var(--size-fluid-2);
+		}
+
+		& p {
+			flex: 1;
+			line-height: var(--font-lineheight-2);
 		}
 	}
 </style>

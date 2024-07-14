@@ -15,16 +15,11 @@
 	export let alt;
 
 	/**
-	 * Intrinsic width.
-	 * @type {number}
+	 * Aspect ratio.
+	 * Use intrinsic aspect ratio if undefined.
+	 * @type {number | undefined}
 	 */
-	export let width;
-
-	/**
-	 * Intrinsic height.
-	 * @type {number}
-	 */
-	export let height;
+	export let aspectRatio = undefined;
 
 	/**
 	 * Image quality in %.
@@ -40,8 +35,7 @@
 <Image
 	src={dev ? src : `/_vercel/image?url=${src}&q=${quality}`}
 	{alt}
-	{width}
-	{height}
-	layout="constrained"
+	{aspectRatio}
+	layout="fullWidth"
 	{breakpoints}
 />
