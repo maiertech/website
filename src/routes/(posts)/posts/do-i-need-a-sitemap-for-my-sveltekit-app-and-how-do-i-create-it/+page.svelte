@@ -47,8 +47,6 @@
 	<Image
 		src={submitted_sitemap_origin_image}
 		alt="Screenshot of submitted sitemaps in the Google Search Console. Sitemap submission date: May 21, 2021. Sitemap last read: June 28, 2021."
-		width={1868}
-		height={544}
 	/>
 	<figcaption>For small sites, a sitemap is only initially relevant.</figcaption>
 </figure>

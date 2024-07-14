@@ -98,8 +98,6 @@
 	<Image
 		src={codeflow_bot_light_origin_image}
 		alt="The screenshot shows codeflowapp's comment and the button to launch a Codeflow workspace."
-		width={1908}
-		height={1074}
 	/>
 	<figcaption>
 		In this screenshot, codeflowapp commented on a pull request on GitHub and added a button to
@@ -147,8 +145,6 @@
 	<Image
 		src={unsupported_extensions}
 		alt="Screenshot from Codeflow showing a warning message that says that the Thunder Client and Grammarly extensions are not supported."
-		width={890}
-		height={192}
 	/>
 	<figcaption>
 		You are out of luck when a project requires extensions not pre-installed in Codeflow.

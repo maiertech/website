@@ -1,5 +1,5 @@
 <script context="module">
-	import navLinks from '$lib/data/navigation';
+	import { navLinks } from '$lib/data';
 
 	/** @type {import('@sveltejs/kit').Load}*/
 	export const load = function () {
@@ -40,7 +40,7 @@
 	];
 </script>
 
-<div class="wrapper">
+<div class="footer">
 	<nav aria-label="Footer">
 		{#each navLinks as link (link.title)}
 			<a href={link.href}>{link.title}</a>
@@ -53,9 +53,14 @@
 </div>
 
 <style>
-	.wrapper {
+	.footer {
+		font-family: var(--font-sans);
 		background: var(--surface-2);
 		padding-block: var(--size-fluid-3);
+	}
+
+	a {
+		color: var(--link);
 	}
 
 	nav {

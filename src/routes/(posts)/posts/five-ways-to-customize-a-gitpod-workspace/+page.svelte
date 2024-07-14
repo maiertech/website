@@ -226,8 +226,6 @@
 	<Image
 		src={gitpod_editors_origin_image}
 		alt="Screenshot of user settings in the Gitpod dashboard. There are ten cards with ten editor options, VS Code desktop and browser, and several IDEs by JetBrains."
-		width={1686}
-		height={1210}
 	/>
 	<figcaption>Gitpod supports VS Code and various JetBrains IDEs as editors.</figcaption>
 </figure>

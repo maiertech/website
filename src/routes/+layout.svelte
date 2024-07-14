@@ -1,14 +1,18 @@
 <script>
 	import { dev } from '$app/environment';
 	import { page } from '$app/stores';
-	import Container from '$lib/components/container.svelte';
-	import Favicon from '$lib/components/favicon.svelte';
-	import Footer from '$lib/components/footer.svelte';
-	import Header from '$lib/components/header.svelte';
-	import Seo from '$lib/components/seo.svelte';
-	import { PageLayout } from '@maiertech/sveltekit-helpers';
+	import { Favicon, Footer, Header, Seo } from '$lib/components';
+	import { Container, PageLayout } from '@maiertech/sveltekit-helpers';
 	import { inject } from '@vercel/analytics';
-	import '../app.css';
+
+	import 'open-props/borders';
+	import 'open-props/fonts';
+	import 'open-props/indigo';
+	import 'open-props/sizes';
+	import 'open-props/stone';
+
+	import '$lib/theme.css';
+	import '@maiertech/sveltekit-helpers/styles.css';
 
 	export let data;
 

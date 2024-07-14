@@ -1,23 +1,13 @@
-<script context="module">
-	import navLinks from '$lib/data/navigation';
-
-	/** @type {import('@sveltejs/kit').Load} */
-	export const load = function () {
-		return { props: { navLinks } };
-	};
-</script>
-
 <script>
 	import Logo from '$lib/components/logo.svelte';
+	import { navLinks } from '$lib/data';
 </script>
 
-<div class="wrapper">
-	<a href="/">
-		<div class="logo"><Logo /></div>
-		<div class="title">Thilo Maier</div>
-	</a>
+<div class="header">
+	<div class="logo"><Logo /></div>
+	<div class="title">Thilo Maier</div>
 	<nav>
-		{#each navLinks as link (link.title)}
+		{#each navLinks.slice(1) as link (link.title)}
 			<a href={link.href}>
 				{link.title}
 			</a>
@@ -26,19 +16,14 @@
 </div>
 
 <style>
-	.wrapper {
+	.header {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
 		gap: var(--size-fluid-1);
+		font-family: var(--font-sans);
+		color: var(--brand);
 		padding: var(--size-5) 0;
-	}
-
-	.wrapper > a {
-		display: flex;
-		align-items: center;
-		gap: var(--size-fluid-1);
-		text-decoration: none;
 	}
 
 	.logo {
@@ -47,7 +32,7 @@
 
 	.title {
 		font-size: var(--font-size-fluid-2);
-		font-weight: 600;
+		font-weight: var(--font-weight-6);
 	}
 
 	nav {
@@ -55,12 +40,11 @@
 		display: flex;
 		justify-content: flex-end;
 		gap: var(--size-fluid-1);
-	}
 
-	nav > a {
-		font-size: var(--font-size-fluid-1);
-	}
-	nav > a:hover {
-		text-decoration: underline var(--link);
+		& > a {
+			font-size: var(--font-size-fluid-1);
+			font-weight: var(--font-weight-5);
+			color: var(--link);
+		}
 	}
 </style>

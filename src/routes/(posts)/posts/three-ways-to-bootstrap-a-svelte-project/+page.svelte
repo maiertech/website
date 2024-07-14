@@ -44,8 +44,6 @@
 	<Image
 		src={svelte_repl_origin_image}
 		alt="Screenshot of a project running in the Svelte REPL. A blue arrow points at the download button."
-		width={2522}
-		height={1419}
 	/>
 	<figcaption>
 		Click the download button in the Svelte REPL to download the source code of an example.
@@ -61,8 +59,6 @@
 	<Image
 		src={svelte_template_origin_image}
 		alt="Screenshot of VS Code with the code downloaded from the from the Svelte REPL. File package.json is open, and you can see the dependencies of the deprecated Svelte template."
-		width={1516}
-		height={1030}
 	/>
 	<figcaption>
 		Code examples in the Svelte REPL use the legacy Svelte template, which uses
@@ -94,8 +90,6 @@
 	<Image
 		src={csb_new_sandbox_dialog_origin_image}
 		alt="Screenshot of the CodeSandbox dialog to select a template for a new sandbox. The Svelte template is highlighted."
-		width={1866}
-		height={870}
 	/>
 	<figcaption>CodeSandbox has a sandbox template for Svelte.</figcaption>
 </figure>
@@ -109,8 +103,6 @@
 	<Image
 		src={csb_svelte_template_origin_image}
 		alt="Screenshot of CodeSandbox's Svelte template running in-browser. File package.json is open, and you can see the dependencies of the deprecated Svelte template."
-		width={2548}
-		height={1432}
 	/>
 	<figcaption>
 		CodeSandbox's Svelte template is a variation of the deprecated Svelte template.
@@ -145,8 +137,6 @@
 	<Image
 		src={stackblitz_dashboard_origin_image}
 		alt="Screenshot of StackBlitz's dashboard. The two Svelte templates, one for vanilla JavaScript and one for TypeScript, are highlighted."
-		width={1288}
-		height={724}
 	/>
 	<figcaption>StackBlitz supports the official Vite Svelte templates.</figcaption>
 </figure>

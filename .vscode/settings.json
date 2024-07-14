@@ -1,16 +1,17 @@
 {
-	"cssVariables.lookupFiles": ["**/*.css", "node_modules/open-props/open-props.min.css"],
+	"cssVariables.lookupFiles": [
+		"**/*.css",
+		"node_modules/@maiertech/sveltekit-helpers/dist/styles.css",
+		"node_modules/open-props/borders.min.css",
+		"node_modules/open-props/fonts.min.css",
+		"node_modules/open-props/sizes.min.css"
+	],
 
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
-	"editor.tabSize": 2,
-
-	"files.eol": "\n",
-	"files.insertFinalNewline": true,
-	"files.trimTrailingWhitespace": true,
 
 	"svelte.enable-ts-plugin": true
 }

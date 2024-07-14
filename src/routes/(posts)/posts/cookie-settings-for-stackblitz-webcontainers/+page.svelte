@@ -34,8 +34,6 @@
 	<Image
 		src={cookies_not_enabled_origin_image}
 		alt="Screenshot of an embedded StackBlitz WebContainer with warning message 'Enable third-party cookies'."
-		width={1672}
-		height={736}
 	/>
 	<figcaption>
 		A StackBlitz WebContainer rendered in a Chromium-based browser with third-party cookies
@@ -53,8 +51,6 @@
 	<Image
 		src={always_allow_cookies_origin_image}
 		alt="Screenshot of the cookies settings in a Chromium-based browser. Section 'Sites that can always use cookies' lists [*.]stackblitz.io and [*.]webcontainer.io."
-		width={1372}
-		height={426}
 	/>
 	<figcaption>
 		To make embedding WebContainers work without allowing third-party cookies for all sites, you
