@@ -1,43 +1,8 @@
-<script context="module">
-	import { navLinks } from '$lib/data';
-
-	/** @type {import('@sveltejs/kit').Load}*/
-	export const load = function () {
-		return { props: { navLinks } };
-	};
-</script>
-
 <script>
-	import GitHubIcon from '$lib/components/github.svelte';
-	import MastodonIcon from '$lib/components/mastodon.svelte';
-	import RSSIcon from '$lib/components/rss.svelte';
-	import SocialIcons from '$lib/components/social-icons.svelte';
+	import { navLinks } from '$lib/data';
 	import { track } from '@vercel/analytics';
-
-	/** @type {import('$lib/types').SocialIcon[] } */
-	const icons = [
-		{
-			id: 'mastodon',
-			title: 'Mastodon',
-			href: 'https://maier.social/@thilo',
-			component: MastodonIcon,
-			onclick: () => {
-				track('Mastodon icon clicked');
-			}
-		},
-		{
-			id: 'github',
-			title: 'GitHub',
-			href: 'https://github.com/maiertech',
-			component: GitHubIcon
-		},
-		{
-			id: 'rss',
-			title: 'RSS',
-			href: '/rss.xml',
-			component: RSSIcon
-		}
-	];
+	import { SocialIcon } from '@maiertech/sveltekit-helpers';
+	import 'iconify-icon';
 </script>
 
 <div class="footer">
@@ -46,21 +11,35 @@
 			<a href={link.href}>{link.title}</a>
 		{/each}
 	</nav>
-	<div class="center">
-		<SocialIcons {icons} />
-		<p>&copy; {new Date().getFullYear()} Thilo Maier</p>
+	<div class="social-icons">
+		<SocialIcon
+			on:click={() => {
+				track('Mastodon icon clicked');
+			}}
+			href="https://maier.social/@thilo"
+			decorator="mastodon"
+		>
+			<iconify-icon icon="simple-icons:mastodon" height="100%"></iconify-icon>
+		</SocialIcon>
+		<SocialIcon href="https://github.com/maiertech">
+			<iconify-icon icon="simple-icons:github" height="100%"></iconify-icon>
+		</SocialIcon>
+		<SocialIcon href="/rss.xml">
+			<iconify-icon icon="simple-icons:rss" height="100%"></iconify-icon>
+		</SocialIcon>
 	</div>
+	<p>&copy; {new Date().getFullYear()} Thilo Maier</p>
 </div>
 
 <style>
 	.footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--size-5);
 		font-family: var(--font-sans);
 		background: var(--surface-2);
 		padding-block: var(--size-fluid-3);
-	}
-
-	a {
-		color: var(--link);
 	}
 
 	nav {
@@ -68,13 +47,21 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: var(--size-fluid-2);
-		padding-bottom: var(--size-fluid-3);
+
+		& a {
+			color: var(--link);
+		}
 	}
 
-	.center {
+	.social-icons {
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: var(--size-fluid-2);
+		gap: var(--size-4);
+		color: var(--link);
+
+		& iconify-icon {
+			display: block; /* Prevent inline gap below icon. */
+			inline-size: var(--size-7);
+			block-size: var(--size-7);
+		}
 	}
 </style>

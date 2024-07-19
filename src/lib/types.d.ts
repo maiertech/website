@@ -18,12 +18,4 @@ export type WebSite = WithContext<WebSite>;
 
 export type Color = 'brand' | 'accent';
 
-export type SocialIcon = {
-	readonly id: string;
-	title: string;
-	href: string;
-	component: ComponentType;
-	onclick?: () => void;
-};
-
 export type StackBlitzExample = { project: Project; options: EmbedOptions };
