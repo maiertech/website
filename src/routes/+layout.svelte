@@ -1,9 +1,16 @@
 <script>
 	import { dev } from '$app/environment';
 	import { page } from '$app/stores';
-	import { Favicon, Footer, Header, Seo } from '$lib/components';
-	import { Container, PageLayout } from '@maiertech/sveltekit-helpers';
+	import { Favicon, Footer, Header } from '$lib/components';
+	import {
+		Container,
+		PageLayout,
+		SeoBasic,
+		SeoCanonicalUrl,
+		SeoOgImage
+	} from '@maiertech/sveltekit-helpers';
 	import { inject } from '@vercel/analytics';
+	import { PUBLIC_CANONICAL_ORIGIN } from '$env/static/public';
 
 	import 'open-props/borders';
 	import 'open-props/fonts';
@@ -14,13 +21,13 @@
 	import '$lib/theme.css';
 	import '@maiertech/sveltekit-helpers/styles.css';
 
-	export let data;
-
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
-{#if !$page.error}
-	<Seo url={$page.url} canonical_origin={data.canonical_origin} data={$page.data.seo} />
+<SeoBasic title={$page.data.seo.title} description={$page.data.seo.description} />
+<SeoCanonicalUrl origin={PUBLIC_CANONICAL_ORIGIN} canonicalUrl={$page.data.seo.canonical_url} />
+{#if $page.data.seo.og_image_url}
+	<SeoOgImage ogImageUrl={$page.data.seo.og_image_url} />
 {/if}
 
 <Favicon />

@@ -12,8 +12,8 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@maiertech/sveltekit-helpers": "^0.7.0",
-		"@playwright/test": "^1.45.2",
+		"@maiertech/sveltekit-helpers": "^0.9.0",
+		"@playwright/test": "^1.45.3",
 		"@sindresorhus/slugify": "^2.2.1",
 		"@stackblitz/sdk": "^1.11.0",
 		"@sveltejs/adapter-vercel": "^5.4.1",
@@ -22,9 +22,9 @@
 		"@types/rss": "^0.0.32",
 		"@unpic/svelte": "^0.0.53",
 		"@vercel/analytics": "^1.3.1",
-		"eslint": "^9.7.0",
+		"eslint": "^9.8.0",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-jsdoc": "^48.8.0",
+		"eslint-plugin-jsdoc": "^48.8.3",
 		"eslint-plugin-svelte": "^2.43.0",
 		"globals": "^15.8.0",
 		"iconify-icon": "^2.1.0",
@@ -32,13 +32,12 @@
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.6",
 		"rss": "^1.2.2",
-		"schema-dts": "^1.1.2",
 		"svelte": "^4.2.18",
 		"svelte-check": "^3.8.4",
 		"svelte-highlight": "^7.7.0",
 		"sveltekit-embed": "^0.0.12",
-		"typescript": "^5.5.3",
-		"vite": "^5.3.4",
+		"typescript": "^5.5.4",
+		"vite": "^5.3.5",
 		"zod": "^3.23.8"
 	},
 	"type": "module"

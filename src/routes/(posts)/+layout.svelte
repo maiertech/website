@@ -1,11 +1,12 @@
 <script>
-	import SeoPostSupplement from '$lib/components/seo-post-supplement.svelte';
+	import { SeoLdPost, SeoFediverseCreator } from '@maiertech/sveltekit-helpers';
 	import { ContentLayout, PostHeader } from '@maiertech/sveltekit-helpers';
 
 	export let data;
 </script>
 
-<SeoPostSupplement data={data.resolvedPost} />
+<SeoLdPost post={data.resolvedPost} />
+<SeoFediverseCreator username="@thilo@maier.social" />
 
 <ContentLayout>
 	<PostHeader post={data.resolvedPost} slot="header" />

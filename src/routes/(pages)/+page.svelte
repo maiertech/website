@@ -1,10 +1,8 @@
 <script>
-	import { Button, Posts, SeoHomepageSupplement } from '$lib/components';
+	import { Button, Posts } from '$lib/components';
 
 	export let data;
 </script>
-
-<SeoHomepageSupplement name={data.seo.title} url={data.canonical_origin} />
 
 <section class="about">
 	<p>{data.seo.description}</p>
