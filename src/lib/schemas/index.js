@@ -3,6 +3,5 @@ export { default as eoListSchema } from './eo-list-schema';
 export { default as eoSubscriberSchema } from './eo-subscriber-schema';
 export { default as gitHubCommitSchema } from './gh-commit-schema';
 export { default as linkSchema } from './link-schema';
-export { default as seoSchema } from './seo-schema';
 export { default as subscribeFormSchema } from './subscribe-form-schema';
 export { default as unsubscribeFormSchema } from './unsubscribe-form-schema';

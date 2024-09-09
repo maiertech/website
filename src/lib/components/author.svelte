@@ -1,5 +1,5 @@
 <script>
-	import { Image } from '$lib/components';
+	import { Image } from '@maiertech/sveltekit-helpers';
 
 	/** @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').authorSchema>} */
 	export let value;

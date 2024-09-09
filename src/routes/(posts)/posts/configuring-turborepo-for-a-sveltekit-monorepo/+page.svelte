@@ -1,5 +1,5 @@
 <script>
-	import Image from '$lib/components/image.svelte';
+	import { Image } from '@maiertech/sveltekit-helpers';
 	import Highlight from 'svelte-highlight';
 	import { bash, json } from 'svelte-highlight/languages';
 	import vercel_build_error_origin_image from './vercel-build-error.png';

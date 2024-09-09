@@ -1,0 +1,12 @@
+[
+	{
+		"id": "@maiertech/website",
+		"path": "src/routes",
+		"schema": {
+			"path": ".svelte-kit/markdoc_schema.js",
+			"type": "esm",
+			"property": "default",
+			"watch": true
+		}
+	}
+]

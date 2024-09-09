@@ -1,5 +1,3 @@
-import { SeoData } from '$lib/types';
-
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare global {
@@ -7,7 +5,10 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		interface PageData {
-			seo: SeoData;
+			seo: {
+				title?: string;
+				description?: string;
+			};
 		}
 		// interface PageState {}
 		// interface Platform {}

@@ -20,4 +20,8 @@
 	--brand-dark: var(--indigo-2);
 	--link-dark: var(--brand-dark);
 	--link-visited-dark: var(--link-dark);
+
+	/* Set fonts. */
+	--font-serif: var(--font-transitional);
+	--font-sans: var(--font-system-ui);
 }

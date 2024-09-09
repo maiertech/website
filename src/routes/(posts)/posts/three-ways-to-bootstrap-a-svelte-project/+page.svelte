@@ -1,5 +1,5 @@
 <script>
-	import Image from '$lib/components/image.svelte';
+	import { Image } from '@maiertech/sveltekit-helpers';
 	import StackBlitzEmbed from '$lib/components/stackblitz-embed.svelte';
 	import Highlight from 'svelte-highlight';
 	import { bash } from 'svelte-highlight/languages';

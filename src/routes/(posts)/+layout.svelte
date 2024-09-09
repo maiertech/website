@@ -1,6 +1,10 @@
 <script>
-	import { SeoLdPost, SeoFediverseCreator } from '@maiertech/sveltekit-helpers';
-	import { ContentLayout, PostHeader } from '@maiertech/sveltekit-helpers';
+	import {
+		ContentLayout,
+		PostHeader,
+		SeoFediverseCreator,
+		SeoLdPost
+	} from '@maiertech/sveltekit-helpers';
 
 	export let data;
 </script>

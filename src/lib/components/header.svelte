@@ -1,5 +1,5 @@
 <script>
-	import Logo from '$lib/components/logo.svelte';
+	import { Logo } from '$lib/components';
 	import { navLinks } from '$lib/data';
 </script>
 
