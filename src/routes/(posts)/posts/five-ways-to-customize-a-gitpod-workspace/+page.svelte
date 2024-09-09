@@ -1,5 +1,5 @@
 <script>
-	import Image from '$lib/components/image.svelte';
+	import { Image } from '@maiertech/sveltekit-helpers';
 	import Highlight from 'svelte-highlight';
 	import { dockerfile, yaml } from 'svelte-highlight/languages';
 	import gitpod_editors_origin_image from './gitpod-editors.png';

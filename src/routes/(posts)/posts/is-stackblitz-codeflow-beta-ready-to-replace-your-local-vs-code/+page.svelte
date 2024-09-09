@@ -1,5 +1,5 @@
 <script>
-	import Image from '$lib/components/image.svelte';
+	import { Image } from '@maiertech/sveltekit-helpers';
 	import Highlight from 'svelte-highlight';
 	import { http } from 'svelte-highlight/languages';
 	import codeflow_bot_light_origin_image from './codeflow-bot-light.png';

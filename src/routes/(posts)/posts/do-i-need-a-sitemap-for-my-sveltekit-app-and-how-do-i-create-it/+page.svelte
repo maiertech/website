@@ -1,5 +1,5 @@
 <script>
-	import Image from '$lib/components/image.svelte';
+	import { Image } from '@maiertech/sveltekit-helpers';
 	import Highlight from 'svelte-highlight';
 	import { javascript, xml } from 'svelte-highlight/languages';
 	import submitted_sitemap_origin_image from './submitted-sitemap.png';

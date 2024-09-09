@@ -1,5 +1,5 @@
 <script>
-	import Image from '$lib/components/image.svelte';
+	import { Image } from '@maiertech/sveltekit-helpers';
 	import Highlight, { HighlightSvelte } from 'svelte-highlight';
 	import { javascript } from 'svelte-highlight/languages';
 	import zod_type_inference_example_1_origin_image from './zod-type-inference-example-1.png';

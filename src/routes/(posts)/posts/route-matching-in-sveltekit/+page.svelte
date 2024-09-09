@@ -1,5 +1,5 @@
 <script>
-	import Card from '$lib/components/card.svelte';
+	import { Card } from '$lib/components';
 	import StackBlitzEmbed from '$lib/components/stackblitz-embed.svelte';
 	import Highlight from 'svelte-highlight';
 	import { bash } from 'svelte-highlight/languages';

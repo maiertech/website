@@ -3,6 +3,16 @@
 	"singleQuote": true,
 	"trailingComma": "none",
 	"printWidth": 100,
+	"proseWrap": "always",
 	"plugins": ["prettier-plugin-svelte"],
-	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
+	"overrides": [
+		{
+			"files": "*.svelte",
+			"options": { "parser": "svelte" }
+		},
+		{
+			"files": "*.markdoc",
+			"options": { "parser": "markdown" }
+		}
+	]
 }

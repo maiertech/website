@@ -1,5 +1,5 @@
 <script>
-	import Image from '$lib/components/image.svelte';
+	import { Image } from '@maiertech/sveltekit-helpers';
 	import display_preferences_origin_image from './display-preferences-light.png';
 	import ScaledPixelSVG from './scaled-pixel.svelte';
 </script>

@@ -1,6 +1,6 @@
 <script>
-	import Image from '$lib/components/image.svelte';
 	import StackblitzEmbed from '$lib/components/stackblitz-embed.svelte';
+	import { Image } from '@maiertech/sveltekit-helpers';
 	import Highlight from 'svelte-highlight';
 	import { css } from 'svelte-highlight/languages';
 	import active_example_button_active_origin_image from './active-example-button-active.png';
