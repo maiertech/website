@@ -9,10 +9,6 @@
 		{
 			"files": "*.svelte",
 			"options": { "parser": "svelte" }
-		},
-		{
-			"files": "*.markdoc",
-			"options": { "parser": "markdown" }
 		}
 	]
 }

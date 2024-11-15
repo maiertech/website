@@ -9,9 +9,14 @@
 
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[markdoc]": {
+		"editor.defaultFormatter": "stripe.markdoc-language-support"
+	},
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
+
+	"git-worktree-menu.copyPaths": [".env"],
 
 	"svelte.enable-ts-plugin": true
 }

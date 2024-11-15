@@ -3,6 +3,7 @@
  * @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').tagSchema>[]}
  */
 export default [
+	{ id: 'ai', label: 'AI', path: '/tags/ai' },
 	{
 		id: 'codesandbox',
 		label: 'CodeSandbox',
@@ -30,7 +31,7 @@ export default [
 	},
 	{
 		id: 'dx',
-		label: 'Developer happiness',
+		label: 'DX',
 		path: '/tags/dx'
 	},
 	{
@@ -72,6 +73,11 @@ export default [
 		id: 'typescript',
 		label: 'TypeScript',
 		path: '/tags/typescript'
+	},
+	{
+		id: 'vscode',
+		label: 'VS Code',
+		path: '/tags/vscode'
 	},
 	{
 		id: 'web-fundamentals',
