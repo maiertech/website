@@ -4,6 +4,15 @@
  */
 export default [
 	{
+		title: 'How to provide better context in GitHub Copilot prompts',
+		author: 'thilo',
+		publishedDate: '2024-11-15T00:00:00.00Z',
+		description:
+			'Learn how to improve GitHub Copilot suggestions by providing better context in your prompts.',
+		tags: ['dx', 'ai', 'vscode'],
+		path: '/posts/github-copilot-context'
+	},
+	{
 		title: 'How to add a basic SEO component to SvelteKit',
 		author: 'thilo',
 		publishedDate: '2023-05-20T00:00:00.00Z',
