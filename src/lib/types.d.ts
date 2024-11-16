@@ -1,6 +1,5 @@
-import type { linkSchema, subscribeFormSchema } from '$lib/schemas';
+import type { subscribeFormSchema } from '$lib/schemas';
 import type { EmbedOptions, Project } from '@stackblitz/sdk';
-import type { ComponentType } from 'svelte';
 import type { z } from 'zod';
 
 // Inferred from local schemas.
