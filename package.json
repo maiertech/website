@@ -16,6 +16,7 @@
 	},
 	"devDependencies": {
 		"@maiertech/sveltekit-helpers": "^0.11.1",
+		"@octokit/rest": "^21.0.2",
 		"@playwright/test": "^1.45.3",
 		"@sindresorhus/slugify": "^2.2.1",
 		"@stackblitz/sdk": "^1.11.0",
