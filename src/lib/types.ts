@@ -1,4 +1,4 @@
-import type { subscribeFormSchema } from '$lib/schemas';
+import { subscribeFormSchema } from '$lib/schemas';
 import type { EmbedOptions, Project } from '@stackblitz/sdk';
 import type { z } from 'zod';
 
