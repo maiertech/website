@@ -1,8 +1,7 @@
-/**
- * Valid tags, sorted by id.
- * @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').tagSchema>[]}
- */
-export default [
+import type { Tag } from '@maiertech/sveltekit-helpers';
+
+/** Valid tags, sorted by `id`. */
+const tags: Tag[] = [
 	{ id: 'ai', label: 'AI', path: '/tags/ai' },
 	{
 		id: 'codesandbox',
@@ -85,3 +84,5 @@ export default [
 		path: '/tags/web-fundamentals'
 	}
 ];
+
+export default tags;

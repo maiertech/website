@@ -1,5 +1,6 @@
-/** @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').authorSchema>[]} */
-export default [
+import type { Author } from '@maiertech/sveltekit-helpers';
+
+const authors: Author[] = [
 	{
 		id: 'thilo',
 		name: 'Thilo Maier',
@@ -7,3 +8,5 @@ export default [
 		imageUrl: '/assets/portrait-thilo-maier.jpg'
 	}
 ];
+
+export default authors;
