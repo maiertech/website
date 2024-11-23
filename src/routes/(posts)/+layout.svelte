@@ -5,15 +5,16 @@
 		SeoFediverseCreator,
 		SeoLdPost
 	} from '@maiertech/sveltekit-helpers';
+	import type { LayoutData } from './$types';
 
-	export let data;
+	export let data: LayoutData;
 </script>
 
-<SeoLdPost post={data.resolvedPost} />
+<SeoLdPost post={data.post} />
 <SeoFediverseCreator username="@thilo@maier.social" />
 
 <ContentLayout>
-	<PostHeader post={data.resolvedPost} slot="header" />
+	<PostHeader post={data.post} slot="header" />
 	<article>
 		<slot />
 	</article>

@@ -5,9 +5,9 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		interface PageData {
-			seo: {
-				title?: string;
-				description?: string;
+			seo?: {
+				title: string;
+				description: string;
 			};
 		}
 		// interface PageState {}

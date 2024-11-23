@@ -13,7 +13,14 @@ describe('getPosts', () => {
 		expect(post).toBeDefined();
 		expect(post?.title).toBe('How to provide better context in GitHub Copilot prompts');
 		expect(post?.publishedDate).toBe('2024-11-15T00:00:00.00Z');
-		expect(post?.author).toBe('thilo');
+		// `lastmodDate` may change, so we cannot assert a specific value.
+		expect(post?.lastmodDate).toBeDefined();
+		expect(post?.author).toEqual({
+			id: 'thilo',
+			imageUrl: '/assets/portrait-thilo-maier.jpg',
+			name: 'Thilo Maier',
+			url: 'https://maier.social/@thilo'
+		});
 	});
 
 	test('posts are sorted by published date in descending order', () => {

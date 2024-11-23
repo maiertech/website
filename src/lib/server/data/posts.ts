@@ -1,9 +1,15 @@
-import type { PostFrontmatter } from '@maiertech/sveltekit-helpers';
-import { postFrontmatterSchema } from '@maiertech/sveltekit-helpers';
+import { getAuthors } from './authors';
+import { getTags } from './tags';
+import type { Author, Post, PostFrontmatter, Tag } from '@maiertech/sveltekit-helpers';
+import { postFrontmatterSchema, resolve } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
+import { getLatestCommit } from '../github-api';
+
+// Conscious choice: `posts` is shared backend state.
+let posts: Post[];
 
 // TODO Remove one by one after converting to Markdoc.
-const legacyPosts = [
+const legacyMetadata = [
 	{
 		title: 'Five ways to customize a Gitpod workspace',
 		author: 'thilo',
@@ -186,13 +192,16 @@ const legacyPosts = [
 	}
 ];
 
-export function getPosts(): (PostFrontmatter & { id: string; path: string })[] {
+// Initialize `posts` synchronously with module level `await`.
+await initialize();
+
+async function initialize() {
 	// Escape `(` and `)`. Otherwise they define a capture group that matches `posts` instead of `(posts)`.
 	const globs = import.meta.glob('/src/routes/\\(posts\\)/posts/**/*.markdoc', {
 		eager: true
 	});
 
-	const posts = Object.entries(globs).map(([filepath, post]) => {
+	const frontmatters = Object.entries(globs).map(([filepath, post]) => {
 		const { frontmatter } = post as { frontmatter: PostFrontmatter };
 
 		// Validate.
@@ -203,8 +212,6 @@ export function getPosts(): (PostFrontmatter & { id: string; path: string })[] {
 
 		const path = filepath.replace('/src/routes/(posts)', '').replace('/+page.markdoc', '');
 
-		// TODO Resolve author and tags. This can be done here as soon as all posts have been converted to Markdoc.
-		// Add `id` to each post so `resolve` can find the post.
 		return {
 			...frontmatter,
 			id: path,
@@ -212,9 +219,28 @@ export function getPosts(): (PostFrontmatter & { id: string; path: string })[] {
 		};
 	});
 
-	const allPosts = [...posts, ...legacyPosts];
+	const metadata = [...legacyMetadata, ...frontmatters];
 
-	return allPosts.sort(
+	const resolvedPosts = await Promise.all(
+		metadata.map(async (post) => {
+			// Resolve author and tags.
+			const author = post.author ? resolve<Author>(post.author, getAuthors()) : undefined;
+			const tags = post.tags
+				? post.tags.map((tag) => resolve<Tag>(tag, getTags())).filter((tag) => tag !== undefined) // Drop tag if it cannot be resolved.
+				: undefined;
+			// Add `lastmodDate` (for Markdoc posts only).
+			const filepath = `src/routes/(posts)${post.path}/+page.markdoc`;
+			const latestCommit = await getLatestCommit(filepath);
+			return { ...post, author, tags, lastmodDate: latestCommit?.commit.author?.date };
+		})
+	);
+
+	// Init global variable.
+	posts = resolvedPosts.sort(
 		(a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
 	);
+}
+
+export function getPosts(): Post[] {
+	return posts;
 }

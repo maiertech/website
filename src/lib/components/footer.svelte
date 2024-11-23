@@ -1,5 +1,5 @@
-<script>
-	import { navLinks } from '$lib/data';
+<script lang="ts">
+	import navLinks from '$lib/nav-links';
 	import { track } from '@vercel/analytics';
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
 	import 'iconify-icon';

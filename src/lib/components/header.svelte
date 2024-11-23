@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 	import { Logo } from '$lib/components';
-	import { navLinks } from '$lib/data';
+	import navLinks from '$lib/nav-links';
 </script>
 
 <div class="header">

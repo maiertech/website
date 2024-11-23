@@ -9,4 +9,6 @@ const authors: Author[] = [
 	}
 ];
 
-export default authors;
+export function getAuthors(): Author[] {
+	return authors;
+}

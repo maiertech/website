@@ -85,4 +85,6 @@ const tags: Tag[] = [
 	}
 ];
 
-export default tags;
+export function getTags(): Tag[] {
+	return tags;
+}
