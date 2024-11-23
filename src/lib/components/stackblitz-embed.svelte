@@ -25,7 +25,7 @@
 </script>
 
 <div class="stackblitz">
-	<iframe use:stackblitz={{ project, options }} title="This iframe will be swapped out." />
+	<iframe use:stackblitz={{ project, options }} title="This iframe will be swapped out."></iframe>
 </div>
 
 <style>
