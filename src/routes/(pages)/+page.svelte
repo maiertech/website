@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
 	import { Button, Posts } from '$lib/components';
+	import type { PageData } from './$types';
 
-	export let data;
+	export let data: PageData;
 </script>
 
 <section class="about">

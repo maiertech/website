@@ -1,21 +1,11 @@
-import { authors } from '$lib/data';
+import { getPosts } from '$lib/server/data';
 import { topPosts } from '$lib/utils/posts';
-import { resolve_tags } from '$lib/utils/tags';
-import { resolve } from '@maiertech/sveltekit-helpers';
+import type { PageServerLoad } from './$types';
 
 export const prerender = true;
 
-/** @type {import('./$types').PageLoad} */
-export function load() {
-	const posts = topPosts(3).map((post) => {
-		return {
-			...post,
-			// Add path as ID to conform to `postSchema`.
-			id: post.path,
-			author: post.author ? resolve(post.author, authors) : undefined,
-			tags: post.tags ? resolve_tags(post.tags) : undefined
-		};
-	});
+export const load = function () {
+	const posts = topPosts(3, getPosts());
 	return {
 		seo: {
 			title: 'Thilo Maier',
@@ -54,4 +44,4 @@ export function load() {
 		],
 		posts
 	};
-}
+} satisfies PageServerLoad;

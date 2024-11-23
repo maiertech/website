@@ -36,7 +36,6 @@ jobs:
       - run: pnpm run check
 
       # - name: Install Playwright Chromium
-      #   run: npx playwright install --with-deps chromium
+      #   run: pnpm exec playwright install --with-deps chromium
 
-      # - name: Run Playwright tests
-      #   run: npx turbo run test
+      - run: pnpm test:unit
