@@ -58,7 +58,6 @@
 
 <figure>
 	<Highlight language={plaintext} code={examples['gh-auth-login']} />
-	<figcaption />
 </figure>
 
 <p>

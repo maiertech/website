@@ -75,12 +75,6 @@
 			margin-block-end: var(--size-4);
 		}
 
-		& > p {
-			font-size: var(--font-size-3);
-			max-inline-size: var(--size-content-3);
-			margin-block-end: var(--size-4);
-		}
-
 		& a {
 			font-size: var(--font-size-3);
 		}
