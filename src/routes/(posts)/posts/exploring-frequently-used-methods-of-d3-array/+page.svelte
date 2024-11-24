@@ -1,11 +1,17 @@
-<script>
+<script lang="ts">
 	import StackblitzEmbed from '$lib/components/stackblitz-embed.svelte';
 	import Highlight from 'svelte-highlight';
 	import { javascript } from 'svelte-highlight/languages';
 	import { Tweet } from 'sveltekit-embed';
+	import type { PageData } from './$types';
 
-	export let data;
-	const { examples } = data;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
+
+	let { examples } = $derived(data);
 </script>
 
 <p>
