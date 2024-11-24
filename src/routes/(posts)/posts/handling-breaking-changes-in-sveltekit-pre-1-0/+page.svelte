@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { Tweet } from 'sveltekit-embed';
 	import Highlight from 'svelte-highlight';
 	import { bash, json } from 'svelte-highlight/languages';

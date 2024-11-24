@@ -81,8 +81,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       sveltekit-embed:
-        specifier: ^0.0.12
-        version: 0.0.12
+        specifier: ^0.0.18
+        version: 0.0.18(svelte@5.2.7)
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -1551,8 +1551,10 @@ packages:
     resolution: {integrity: sha512-cEhPGuLHiH2+Z8B1FwQgiZJgA39uUmJR4516TKrM5zrp0/cuwJkfhUfcTxhAkznanAF5fXUKzvYR4o+Ksx3ZCQ==}
     engines: {node: '>=18'}
 
-  sveltekit-embed@0.0.12:
-    resolution: {integrity: sha512-77GiPxkn4ZyF5tcq+YuosYjiFTrjYwA+sOMUiWoN+8sTCM0vJVi9sxHpIHWK6Cvmn0fAeaHagV//2i+tFmELkA==}
+  sveltekit-embed@0.0.18:
+    resolution: {integrity: sha512-/uj5pjQPH22G99x+adgD2EydXjkkdQNg84aByPmxeZ7HE3cjk5IXUYF8CJqV5IQWBGVKSNta4k8KOqjtlig8/g==}
+    peerDependencies:
+      svelte: ^4.0.0 || ^5.0.0
 
   tar@6.2.1:
     resolution: {integrity: sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==}
@@ -3139,7 +3141,9 @@ snapshots:
       magic-string: 0.30.13
       zimmerframe: 1.1.2
 
-  sveltekit-embed@0.0.12: {}
+  sveltekit-embed@0.0.18(svelte@5.2.7):
+    dependencies:
+      svelte: 5.2.7
 
   tar@6.2.1:
     dependencies:
