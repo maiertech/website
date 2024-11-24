@@ -17,6 +17,7 @@
 	},
 
 	"git-worktree-menu.copyPaths": [".env"],
+	"git-worktree-menu.worktreeDir": "/Users/thilo/Projects/maiertech/website",
 
 	"svelte.enable-ts-plugin": true
 }
