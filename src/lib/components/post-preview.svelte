@@ -1,86 +1,38 @@
-<script>
+<script lang="ts">
 	import { Author } from '$lib/components';
 	import { formatDate } from '@maiertech/sveltekit-helpers';
+	import type { Post } from '@maiertech/sveltekit-helpers';
 
-	/** @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').postSchema>} */
-	export let post;
+	interface Props {
+		post: Post;
+		large?: boolean;
+	}
 
-	/** @type {boolean} */
-	export let large = false;
+	let { post, large = false }: Props = $props();
 </script>
 
-<article class:large>
-	<div class="content">
-		<time datetime={post.publishedDate}>{formatDate(post.publishedDate)}</time>
-		<h2>{post.title}</h2>
-		<p>{post.description}</p>
-		<a href={post.path}>
+<article data-component="PostPreview" class:large>
+	<div class="relative">
+		<time
+			datetime={post.publishedDate}
+			class="block text-secondary {large ? 'mb-4 text-lg' : 'mb-2 text-base'}"
+		>
+			{formatDate(post.publishedDate)}
+		</time>
+		<h2 class="font-semibold {large ? 'mb-5 max-w-[25ch] text-3xl' : 'mb-4 max-w-[20ch] text-2xl'}">
+			{post.title}
+		</h2>
+		<p class="mb-4 max-w-[45ch] font-serif">{post.description}</p>
+		<a
+			href={post.path}
+			class="font-semibold text-primary no-underline {large ? 'text-lg' : 'text-base'}"
+		>
 			Continue reading <span aria-hidden="true">&rarr;</span>
 		</a>
 	</div>
 	{#if post.author}
-		<div class="author">
+		<div class={large ? 'mt-5' : 'mt-4'}>
 			<Author value={post.author} {large} />
 		</div>
 	{/if}
 </article>
-
-<style>
-	.content {
-		position: relative;
-	}
-
-	time {
-		display: block;
-		font-family: var(--font-sans);
-		font-size: var(--font-size-1);
-		color: var(--text-2);
-		margin-block-end: var(--size-2);
-	}
-
-	h2 {
-		font-size: var(--font-size-4);
-		font-weight: var(--font-weight-6);
-		font-family: var(--font-sans);
-		max-inline-size: var(--size-header-1);
-		margin-block-end: var(--size-3);
-	}
-
-	p {
-		line-height: var(--font-lineheight-2);
-		max-inline-size: var(--size-content-2);
-		margin-block-end: var(--size-3);
-	}
-
-	a {
-		font-family: var(--font-sans);
-		font-weight: var(--font-weight-6);
-		text-decoration: none;
-		color: var(--link);
-	}
-
-	.author {
-		margin-block-start: var(--size-3);
-	}
-	.large {
-		& time {
-			font-size: var(--font-size-2);
-			margin-block-end: var(--size-3);
-		}
-
-		& h2 {
-			font-size: var(--font-size-5);
-			font-weight: var(--font-weight-7);
-			max-inline-size: var(--size-header-2);
-			margin-block-end: var(--size-4);
-		}
-
-		& a {
-			font-size: var(--font-size-3);
-		}
-
-		& .author {
-			margin-block-start: var(--size-4);
-		}
-	}
-</style>
