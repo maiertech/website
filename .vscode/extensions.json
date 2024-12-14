@@ -1,10 +1,10 @@
 {
 	"recommendations": [
+		"bradlc.vscode-tailwindcss",
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
 		"ms-playwright.playwright",
-		"Stripe.markdoc-language-support",
 		"svelte.svelte-vscode",
-		"vunguyentuan.vscode-css-variables"
+		"vitest.explorer"
 	]
 }
