@@ -1,10 +1,14 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 </script>
 
-<h1>{data.seo.title}</h1>
+<h1 class="mb-[clamp(1rem,2vw,1.5rem)] text-4xl font-bold">{data.seo.title}</h1>
 
 <ul>
 	{#each data.posts as post (post.path)}
@@ -13,9 +17,3 @@
 		</li>
 	{/each}
 </ul>
-
-<style>
-	h1 {
-		margin-bottom: var(--size-fluid-2);
-	}
-</style>
