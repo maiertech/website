@@ -16,6 +16,11 @@
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
 
+	"files.associations": {
+		"*.css": "tailwindcss",
+		"*.svx": "markdown"
+	},
+
 	"git-worktree-menu.copyPaths": [".env"],
 	"git-worktree-menu.worktreeDir": "/Users/thilo/Projects/maiertech/website",
 
