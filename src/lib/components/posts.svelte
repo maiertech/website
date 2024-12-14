@@ -1,33 +1,19 @@
-<script>
+<script lang="ts">
 	import { PostPreview } from '$lib/components';
+	import type { Post } from '@maiertech/sveltekit-helpers';
 
-	/** @type {import('zod').z.infer<typeof import('@maiertech/sveltekit-helpers').postSchema>[]} */
-	export let posts;
+	interface Props {
+		posts: Post[];
+	}
+
+	let { posts }: Props = $props();
 </script>
 
-<div class="posts">
+<div data-component="Posts" class="flex flex-col gap-10">
 	<PostPreview post={posts[0]} large />
-	<div class="more">
+	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
 		{#each posts.slice(1) as post (post.path)}
 			<PostPreview {post} />
 		{/each}
 	</div>
 </div>
-
-<style>
-	.posts {
-		display: grid;
-		grid-template-columns: repeat(1, minmax(0, 1fr));
-		gap: var(--size-9);
-
-		@media (min-width: 1024px) {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
-
-	.more {
-		display: flex;
-		flex-direction: column;
-		gap: var(--size-8);
-	}
-</style>
