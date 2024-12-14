@@ -1,31 +1,9 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { markdoc } from 'svelte-markdoc-preprocess';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-/**
- * @param {string} path Relative path to a file.
- * @returns {string} Absolute path to that file.
- */
-function absolute(path) {
-	return join(dirname(fileURLToPath(import.meta.url)), path);
-}
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
-	preprocess: [
-		vitePreprocess(),
-		markdoc({
-			generateSchema: true,
-			// layouts: {
-			// 	default: absolute('./src/lib/markdoc/layouts/default.svelte'),
-			// 	docs: absolute('./src/lib/markdoc/layouts/docs.svelte')
-			// }
-			nodes: absolute('./src/lib/markdoc/nodes.svelte'),
-			tags: absolute('./src/lib/markdoc/tags.svelte')
-		})
-	],
+	preprocess: [vitePreprocess()],
 
 	extensions: ['.markdoc', '.svelte'],
 

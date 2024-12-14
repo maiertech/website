@@ -1,0 +1,36 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+	/* Default colors and typography. */
+	:root {
+		@apply bg-surface text-ink text-pretty text-xl;
+	}
+
+	/* Restore default behavior. */
+	a {
+		@apply underline;
+	}
+
+	/* Restore default behavior. */
+	ul {
+		@apply list-inside list-disc;
+	}
+
+	pre.shiki {
+		@apply mb-4 overflow-x-auto p-3;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.shiki,
+		.shiki span {
+			color: var(--shiki-dark) !important;
+			background-color: var(--shiki-dark-bg) !important;
+			/* Optional, if you also want font styles */
+			font-style: var(--shiki-dark-font-style) !important;
+			font-weight: var(--shiki-dark-font-weight) !important;
+			text-decoration: var(--shiki-dark-text-decoration) !important;
+		}
+	}
+}
