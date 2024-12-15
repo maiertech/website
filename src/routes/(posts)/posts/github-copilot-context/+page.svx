@@ -2,111 +2,144 @@
 title: 'How to provide better context in GitHub Copilot prompts'
 author: 'thilo'
 publishedDate: '2024-11-15T00:00:00.00Z'
-description: 'Learn how to improve GitHub Copilot suggestions by providing better context in your prompts.'
+description:
+  'Learn how to improve GitHub Copilot suggestions by providing better context in your prompts.'
 tags: ['dx', 'ai', 'vscode']
 ---
 
-GitHub Copilot is an AI-powered coding assistant for VS Code that was released in October 2021. I've been using it for a while but couldn't really warm up to it. While I had occasional wow moments, I often found myself wrestling with Copilot. But I have to admit, I was using Copilot without ever reading the docs. After all, it's AI and shouldn't need a manual, right? Big mistake!
+GitHub Copilot is an AI-powered coding assistant for VS Code that was released in October 2021. I've
+been using it for a while but couldn't really warm up to it. While I had occasional wow moments, I
+often found myself wrestling with Copilot. But I have to admit, I was using Copilot without ever
+reading the docs. After all, it's AI and shouldn't need a manual, right? Big mistake!
 
-In this post, I will share how to provide better context in Copilot prompts, which dramatically increased my perceived quality of the suggestions Copilot makes.
+In this post, I will share how to provide better context in Copilot prompts, which dramatically
+increased my perceived quality of the suggestions Copilot makes.
 
 ## Why context matters for AI models
 
-When an AI model delivers poor results, it's often because it lacks context. For any AI model, when you are not happy with a response, ask yourself whether you provided enough context.
+When an AI model delivers poor results, it's often because it lacks context. For any AI model, when
+you are not happy with a response, ask yourself whether you provided enough context.
 
-At the same time, providing good context is easier said than done. That's because there are no clear rules on how to write good prompts. It's mostly trial and error. However, the tooling around an AI model should make it easy to provide better context. That's why Copilot offers you several ways to provide better context.
+At the same time, providing good context is easier said than done. That's because there are no clear
+rules on how to write good prompts. It's mostly trial and error. However, the tooling around an AI
+model should make it easy to provide better context. That's why Copilot offers you several ways to
+provide better context.
 
 ## GitHub Copilot four ways
 
-GitHub Copilot offers four modes of interacting with it and providing context. In the following sections, I will dive into how to provide context effectively in each mode.
+GitHub Copilot offers four modes of interacting with it and providing context. In the following
+sections, I will dive into how to provide context effectively in each mode.
 
 ### Code completion
 
-While you type, Copilot makes suggestions in the form of ghost text. You can respond to these suggestions with the following keyboard shortcuts:
+While you type, Copilot makes suggestions in the form of ghost text. You can respond to these
+suggestions with the following keyboard shortcuts:
 
-| Shortcut                                     | Description                                  |
-| -------------------------------------------- | -------------------------------------------- |
-| ⇥                                            | Accept ghost text.                           |
-| ⌘→                                           | Accept ghost text bit by bit.                |
-| ␛                                            | Cancel suggestion.                           |
-| ⌘⏎                                           | Show alternative suggestions (if available). |
+| Shortcut | Description                                  |
+| :------- | :------------------------------------------- |
+| ⇥        | Accept ghost text.                           |
+| ⌘→       | Accept ghost text bit by bit.                |
+| ␛        | Cancel suggestion.                           |
+| ⌘⏎       | Show alternative suggestions (if available). |
 
-The default context is always the current file. Other than that, you can't add additional context in this mode. But you can always add Copilot instructions to your project, which I will discuss further down.
+The default context is always the current file. Other than that, you can't add additional context in
+this mode. But you can always add Copilot instructions to your project, which I will discuss further
+down.
 
 ### Inline Chat
 
-Hit `⌘I` at your current cursor position, or after making a selection, and write a prompt. Inline chat is useful for small code additions or refactorings. You can use Copilot's most powerful shortcut to add context: `⌘/`. You can add any workspace file to the context. You can also add the entire codebase to the context, but chances are that this is not specific enough and will not improve Copilot suggestions.
+Hit `⌘I` at your current cursor position, or after making a selection, and write a prompt. Inline
+chat is useful for small code additions or refactorings. You can use Copilot's most powerful
+shortcut to add context: `⌘/`. You can add any workspace file to the context. You can also add the
+entire codebase to the context, but chances are that this is not specific enough and will not
+improve Copilot suggestions.
 
-You can also use one of the following commands at the beginning of your prompt. These commands work best on a selection. Think of a command as prompt shortcut. The commands are:
+You can also use one of the following commands at the beginning of your prompt. These commands work
+best on a selection. Think of a command as prompt shortcut. The commands are:
 
-| Command                                   | Description                               |
-| ----------------------------------------- | ----------------------------------------- |
-| `/explain`                                | Explain the code.                         |
-| `/fix`                                    | Fix the selected code.                    |
-| `/tests`                                  | Write unit tests for the selected code.   |
-| `/docs`                                   | Add a code comment to the current symbol. |
+| Command    | Description                               |
+| :--------- | :---------------------------------------- |
+| `/explain` | Explain the code.                         |
+| `/fix`     | Fix the selected code.                    |
+| `/tests`   | Write unit tests for the selected code.   |
+| `/docs`    | Add a code comment to the current symbol. |
 
 ### Ask Copilot chat
 
-This is the original Copilot chat without the ability to edit code. You should be aware of the following shortcuts:
+This is the original Copilot chat without the ability to edit code. You should be aware of the
+following shortcuts:
 
-| Shortcut                       | Description                    |
-| ------------------------------ | ------------------------------ |
-| ^⌘I                            | Open and close the chat.       |
-| ^L                             | Clear the chat.                |
-| ⌥⌘B                            | Toggle the secondary side bar. |
+| Shortcut | Description                    |
+| :------- | :----------------------------- |
+| ^⌘I      | Open and close the chat.       |
+| ^L       | Clear the chat.                |
+| ⌥⌘B      | Toggle the secondary side bar. |
 
-The default context in Ask Copilot is always the current file and the current selection. You can augment the context by adding these variables to your prompt:
+The default context in Ask Copilot is always the current file and the current selection. You can
+augment the context by adding these variables to your prompt:
 
-| Context                | Description            |
-| ---------------------- | ---------------------- |
-| `#selection`           | Add current selection. |
-| `#editor`              | Add current editor.    |
-| `#file`                | Add a file.            |
-| `#codebase`            | Add entire codebase.   |
+| Context      | Description            |
+| :----------- | :--------------------- |
+| `#selection` | Add current selection. |
+| `#editor`    | Add current editor.    |
+| `#file`      | Add a file.            |
+| `#codebase`  | Add entire codebase.   |
 
 Of course, you can also just use `⌘/` instead, just like in the inline chat.
 
-Ask Copilot comes with four experts (referred to as chat participants in the docs). You can tag one of them with `@` at the beginning of your prompt. The experts are:
+Ask Copilot comes with four experts (referred to as chat participants in the docs). You can tag one
+of them with `@` at the beginning of your prompt. The experts are:
 
-| Participant                                               | Expertise                                                 |
-| --------------------------------------------------------- | --------------------------------------------------------- |
-| `@workspace`                                              | Answers questions about the workspace.                    |
-| `@vscode`                                                 | Answers questions about VS Code.                          |
-| `@github`                                                 | Answers questions about the repo and can do a web search. |
-| `@terminal`                                               | Answers questions about the terminal.                     |
+| Participant  | Expertise                                                 |
+| :----------- | :-------------------------------------------------------- |
+| `@workspace` | Answers questions about the workspace.                    |
+| `@vscode`    | Answers questions about VS Code.                          |
+| `@github`    | Answers questions about the repo and can do a web search. |
+| `@terminal`  | Answers questions about the terminal.                     |
 
-Tagging a chat participant also gives Copilot more context about your prompt. Some participants can be combined with commands.  Here are some examples:
+Tagging a chat participant also gives Copilot more context about your prompt. Some participants can
+be combined with commands. Here are some examples:
 
-| Command                                   | Description                               |
-| ----------------------------------------- | ----------------------------------------- |
-| `@workspace /explain`                     | Explain the current editor or selections. |
-| `@workspace /fix`                         | Fix the selected code.                    |
-| `@workspace /new`                         | Scaffold a new file or project.           |
-| `@vscode /search`                         | Search within workspace.                  |
-| `@vscode /startDebugging`                 | Create a debug config.                    |
-| `@terminal /explain`                      | Explain something in the terminal.        |
+| Command                   | Description                               |
+| :------------------------ | :---------------------------------------- |
+| `@workspace /explain`     | Explain the current editor or selections. |
+| `@workspace /fix`         | Fix the selected code.                    |
+| `@workspace /new`         | Scaffold a new file or project.           |
+| `@vscode /search`         | Search within workspace.                  |
+| `@vscode /startDebugging` | Create a debug config.                    |
+| `@terminal /explain`      | Explain something in the terminal.        |
 
-You can display available commands by typing the participant, e.g. `@workspace`. You can also use these commands without tagging a participant. VS Code will infer the participant whenever possible.
+You can display available commands by typing the participant, e.g. `@workspace`. You can also use
+these commands without tagging a participant. VS Code will infer the participant whenever possible.
 
-Lastly, there are two more commands that do not add context but are useful: `/clear` clears the chat and `/help` shows participants and commands.
+Lastly, there are two more commands that do not add context but are useful: `/clear` clears the chat
+and `/help` shows participants and commands.
 
 ### Copilot Edits chat
 
-Copilot Edits is the latest addition to Copilot. It adds the ability to let Copilot make edit suggestions for one or more files. While this is super powerful, a second chat also adds confusion. Not everything discussed in the previous section for Ask Copilot works in Copilot Edits. Shortcut `⌘/` works as you would expect.
+Copilot Edits is the latest addition to Copilot. It adds the ability to let Copilot make edit
+suggestions for one or more files. While this is super powerful, a second chat also adds confusion.
+Not everything discussed in the previous section for Ask Copilot works in Copilot Edits. Shortcut
+`⌘/` works as you would expect.
 
-At this point, it is not really clear to me how Ask Copilot and Copilot Edits will be consolidated in the future. In any case, you should remember the following shortcuts:
+At this point, it is not really clear to me how Ask Copilot and Copilot Edits will be consolidated
+in the future. In any case, you should remember the following shortcuts:
 
-| Shortcut                       | Description                    |
-| ------------------------------ | ------------------------------ |
-| ⇧⌘I                            | Open Copilot Edits.            |
-| ⌥⌘B                            | Toggle the secondary side bar. |
+| Shortcut | Description                    |
+| :------- | :----------------------------- |
+| ⇧⌘I      | Open Copilot Edits.            |
+| ⌥⌘B      | Toggle the secondary side bar. |
 
-Weirdly, there is no shortcut to start a new Copilot Edits session. You need to click on `+` to start a new session.
+Weirdly, there is no shortcut to start a new Copilot Edits session. You need to click on `+` to
+start a new session.
 
 ### Copilot instructions
 
-Last, but not least, you can add global context by adding a project-specific `.github/copilot-instructions.md` with information about your project. There is no right or wrong of what to put in this file. But I recommend adding a few points about the tech stack and the non-technical context. Copilot will add the content of this file to every prompt as context. Here is an example of what I put in my `copilot-instructions.md` for the repository for this website:
+Last, but not least, you can add global context by adding a project-specific
+`.github/copilot-instructions.md` with information about your project. There is no right or wrong of
+what to put in this file. But I recommend adding a few points about the tech stack and the
+non-technical context. Copilot will add the content of this file to every prompt as context. Here is
+an example of what I put in my `copilot-instructions.md` for the repository for this website:
 
 ```markdown
 - This website is a personal blog.

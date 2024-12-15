@@ -50,8 +50,11 @@ _description_ meta tags. But I recommend adding a third one: _canonical URL_.
 
 A canonical URL is a `<link>` tag added to the `<head>` of an HTML page. It looks like this:
 
-```xml
-<link rel="canonical" href="https://maier.tech/posts/how-to-add-a-basic-seo-component-to-sveltekit" />
+```html
+<link
+	rel="canonical"
+	href="https://maier.tech/posts/how-to-add-a-basic-seo-component-to-sveltekit"
+/>
 ```
 
 When a search engine detects duplicate content, be it within a website or across websites, it has to
