@@ -1,79 +1,89 @@
-<script>
+<script lang="ts">
 	import { Image } from '@maiertech/sveltekit-helpers';
-	import Highlight from 'svelte-highlight';
-	import { bash, json } from 'svelte-highlight/languages';
 	import vercel_build_error_origin_image from './vercel-build-error.png';
+	import {
+		Shiki,
+		p as P,
+		h2 as H2,
+		figure as Figure,
+		figcaption as Figcaption
+	} from '@maiertech/sveltekit-helpers';
+	import type { PageData } from './$types';
 
-	export let data;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 </script>
 
-<p>
+<P>
 	Recently, I converted the repository for my website to a
 	<a href="https://turbo.build/repo">Turborepo</a>. Turborepo is a task dependency management layer
 	on top of a package manager, and it works for normal repositories and monorepos. The underlying
 	package manager has to be one of <a href="https://docs.npmjs.com/">NPM</a>,
 	<a href="https://pnpm.io/">pnpm</a>, or <a href="https://classic.yarnpkg.com/">Yarn</a>, all of
 	which come with workspaces support.
-</p>
+</P>
 
-<p>
+<P>
 	The central pitch of Turborepo is to speed up workspace tasks, primarily builds. After configuring
 	task dependencies in one or more <code>turbo.json</code>, Turborepo uses this information to run
 	tasks in parallel with an aggressive caching strategy. Turborepo can complement local caching with
 	shared remote caching. Often this will significantly reduce the duration of deployment builds
 	because local builds are cached remotely and can be reused for deployment builds.
-</p>
+</P>
 
-<h2>Workspaces configuration</h2>
+<H2>Workspaces configuration</H2>
 
-<p>
+<P>
 	Let's look at how I configured the repository for my website with the following monorepo directory
 	structure:
-</p>
+</P>
 
-<figure>
-	<Highlight language={bash} code={data.examples['file-tree.txt']} />
-	<figcaption>File tree for the maier.tech monorepo.</figcaption>
-</figure>
+<Figure>
+	<Shiki lang="bash" code={data.examples['file-tree.txt']} />
+	<Figcaption>File tree for the maier.tech monorepo.</Figcaption>
+</Figure>
 
-<p>
+<P>
 	I use NPM as a package manager. Therefore, I defined my workspaces with the
 	<code>workspaces</code> property:
-</p>
+</P>
 
-<figure>
-	<Highlight language={json} code={data.examples['package.json']} />
-	<figcaption>package.json</figcaption>
-</figure>
+<Figure>
+	<Shiki lang="json" code={data.examples['package.json']} />
+	<Figcaption>package.json</Figcaption>
+</Figure>
 
-<p>
+<P>
 	I recommended adding package <code>turbo</code> to <code>devDependencies</code>, which gives you
 	control over which version to use. You should also install the <code>turbo</code> package globally
 	to make the <code>turbo</code> command available in your terminal. A globally installed
 	<code>turbo</code>
 	command will use the Turborepo version declared in <code>devDependencies</code>.
-</p>
+</P>
 
-<h2>Turborepo configuration</h2>
+<H2>Turborepo configuration</H2>
 
-<p>
+<P>
 	The Turborepo configuration is in <code>turbo.json</code> at the project root level. For my monorepo,
 	it looks like this:
-</p>
+</P>
 
-<figure>
-	<Highlight language={json} code={data.examples['turbo.json']} />
-	<figcaption>turbo.json</figcaption>
-</figure>
+<Figure>
+	<Shiki lang="json" code={data.examples['turbo.json']} />
+	<Figcaption>turbo.json</Figcaption>
+</Figure>
 
-<p>
+<P>
 	The <code>pipeline</code> property describes dependencies between NPM tasks (defined in the
 	<code>scripts</code> tags of workspace <code>package.json</code> files). Each task can have
 	additional properties, which you can look up in the
 	<a href="https://turbo.build/repo/docs/reference/configuration">
 		Turborepo docs (configuration options)
 	</a>. I will highlight two of them:
-</p>
+</P>
 
 <ol>
 	<li>
@@ -91,9 +101,9 @@
 	</li>
 </ol>
 
-<h2>Nested configuration</h2>
+<H2>Nested configuration</H2>
 
-<p>
+<P>
 	Starting with Turborepo v1.8, you can nest configurations and complement a project-level
 	configuration with workspace-specific configurations. E.g., in my monorepo,
 	<code>packages/ui</code>
@@ -103,85 +113,84 @@
 	could add <code>dist</code> to the <code>outputs</code> property of the <code>build</code> task in
 	the project root <code>turbo.json</code>. Then they would be applied to every build task in every
 	workspace.
-</p>
+</P>
 
-<p>
+<P>
 	As an alternative, I created the file <code>packages/ui/turbo.json</code>, which extends the
-	project root
-	<code>turbo.json</code>:
-</p>
+	project root<code>turbo.json</code>:
+</P>
 
-<figure>
-	<Highlight language={json} code={data.examples['packages/ui/turbo.json']} />
-	<figcaption>packages/ui/turbo.json</figcaption>
-</figure>
+<Figure>
+	<Shiki lang="json" code={data.examples['packages/ui/turbo.json']} />
+	<Figcaption>packages/ui/turbo.json</Figcaption>
+</Figure>
 
-<p>
+<P>
 	Turborepo permits overrides only for anything under the<code>pipeline</code> property. The above
 	<code>turbo.json</code>
 	build task inherits all properties from the project root <code>turbo.json</code> and overrides
 	only the <code>outputs</code>
 	property.
-</p>
+</P>
 
-<h2>Pitfall: Getting the outputs wrong</h2>
+<H2>Pitfall: Getting the outputs wrong</H2>
 
-<p>
+<P>
 	Getting the outputs wrong can have unintended side effects. After refactoring my repository to a
 	monorepo, I got the following error for every Vercel deployment:
-</p>
+</P>
 
-<figure>
+<Figure>
 	<Image
 		src={vercel_build_error_origin_image}
 		alt="Screenshot of the error log of a Vercel deploy. The error message reads: No output directory named 'public' found after the build completed."
 	/>
-	<figcaption>Vercel build error after migrating my repository to a Turborepo.</figcaption>
-</figure>
+	<Figcaption>Vercel build error after migrating my repository to a Turborepo.</Figcaption>
+</Figure>
 
-<p>
+<P>
 	By default, Vercel expects the deployment files in the <code>public</code> directory or another
 	special directory, e.g., <code>.vercel</code>. I had forgotten to add <code>.vercel/**</code> to
 	<code>outputs</code> in <code>turbo.json</code>. Whenever Turborepo determined that it could reuse
 	a cached build, it did not run the build task and instead fetched all outputs it was aware of from
 	the cache. Since it did not know about <code>.vercel</code>, it could not fetch it from the cache,
 	and the build ended without a valid build directory.
-</p>
+</P>
 
-<h2>Pitfall: Persistent tasks</h2>
+<H2>Pitfall: Persistent tasks</H2>
 
-<p>
+<P>
 	Persistent tasks are long-running, e.g., the <code>dev</code> task is persistent. Turborepo does
 	not allow any task to depend on a persistent task because it blocks subsequent tasks. Imagine
 	<code>ui/package.json</code> defines a <code>watch</code> task that builds the library whenever a
 	file changes. I want to add this configuration to <code>apps/website/turbo.json</code>:
-</p>
+</P>
 
-<figure>
-	<Highlight language={json} code={data.examples['apps/website/turbo.json']} />
-	<figcaption>apps/website/turbo.json</figcaption>
-</figure>
+<Figure>
+	<Shiki lang="json" code={data.examples['apps/website/turbo.json']} />
+	<Figcaption>apps/website/turbo.json</Figcaption>
+</Figure>
 
-<p>
+<P>
 	But this is not permitted since Turorepo does not allow the <code>dev</code> task to depend on
 	<code>watch</code>, which is a persistent task. Instead of defining the <code>watch</code> task as
 	a dependency of the <code>dev</code> task in <code>turbo.json</code>, you need to launch the watch
 	task at the NPM level:
-</p>
+</P>
 
-<figure>
-	<Highlight language={json} code={data.examples['apps/website/package.json']} />
-	<figcaption>apps/website/package.json</figcaption>
-</figure>
+<Figure>
+	<Shiki lang="json" code={data.examples['apps/website/package.json']} />
+	<Figcaption>apps/website/package.json</Figcaption>
+</Figure>
 
-<p>
+<P>
 	This script simultaneously launches the <code>watch</code> task for <code>packages/ui</code> and
 	the <cocde>dev</cocde> task for <code>apps/website</code>.
-</p>
+</P>
 
-<h2>Conclusion</h2>
+<H2>Conclusion</H2>
 
-<p>
+<P>
 	Configuring Turborepo for a monorepo with one or more SvelteKit apps is relatively easy. But you
 	must get the <code>outputs</code> right, including any directories specific to your hosting
 	provider. As a layer on top of a package manager, Turborepo does not replace NPM, pnpm, or Yarn.
@@ -190,4 +199,4 @@
 	<code>package.json</code>. Knowing where configurations go can be challenging in the beginning.
 	Expect Turborepo to support more configurations over time and perhaps even merge with a package
 	manager or another build tool.
-</p>
+</P>
