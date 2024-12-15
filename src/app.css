@@ -5,7 +5,7 @@
 @layer base {
 	/* Default colors and typography. */
 	:root {
-		@apply bg-surface text-ink text-pretty text-xl;
+		@apply text-pretty bg-surface text-xl text-ink;
 	}
 
 	a {
