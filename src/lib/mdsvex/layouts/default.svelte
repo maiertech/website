@@ -14,6 +14,7 @@
 		th,
 		thead
 	} from '@maiertech/sveltekit-helpers';
+	// eslint-disable-next-line no-import-assign
 	export { h1, h2, h3, h4, h5, h6, img, p, table, td, th, thead };
 </script>
 
