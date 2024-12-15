@@ -11,16 +11,6 @@ let posts: Post[];
 // TODO Remove one by one after converting to Markdoc.
 const legacyMetadata = [
 	{
-		title: 'Five ways to customize a Gitpod workspace',
-		author: 'thilo',
-		publishedDate: '2023-03-23T00:00:00.00Z',
-		description:
-			'Gitpod offers unique ways to customize a workspace, which sets it apart from its competitors. This post will show five ways to customize a Gitpod workspace and how they result in one of the best cloud workspace offerings.',
-		tags: ['dx', 'gitpod'],
-		path: '/posts/five-ways-to-customize-a-gitpod-workspace',
-		id: '/posts/five-ways-to-customize-a-gitpod-workspace'
-	},
-	{
 		title: 'Configuring Turborepo for a SvelteKit monorepo',
 		author: 'thilo',
 		publishedDate: '2023-03-16T00:00:00.00Z',
