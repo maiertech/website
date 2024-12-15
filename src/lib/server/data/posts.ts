@@ -197,12 +197,12 @@ await initialize();
 
 async function initialize() {
 	// Escape `(` and `)`. Otherwise they define a capture group that matches `posts` instead of `(posts)`.
-	const globs = import.meta.glob('/src/routes/\\(posts\\)/posts/**/*.markdoc', {
+	const globs = import.meta.glob('/src/routes/\\(posts\\)/posts/**/*.svx', {
 		eager: true
 	});
 
 	const frontmatters = Object.entries(globs).map(([filepath, post]) => {
-		const { frontmatter } = post as { frontmatter: PostFrontmatter };
+		const { metadata: frontmatter } = post as { metadata: PostFrontmatter };
 
 		// Validate.
 		const result = postFrontmatterSchema.safeParse(frontmatter);
@@ -210,7 +210,7 @@ async function initialize() {
 			error(500, `Invalid frontmatter in ${filepath}: ${result.error.message}`);
 		}
 
-		const path = filepath.replace('/src/routes/(posts)', '').replace('/+page.markdoc', '');
+		const path = filepath.replace('/src/routes/(posts)', '').replace('/+page.svx', '');
 
 		return {
 			...frontmatter,

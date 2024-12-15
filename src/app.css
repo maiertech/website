@@ -8,14 +8,16 @@
 		@apply bg-surface text-ink text-pretty text-xl;
 	}
 
-	/* Restore default behavior. */
 	a {
 		@apply underline;
 	}
 
-	/* Restore default behavior. */
 	ul {
 		@apply list-inside list-disc;
+	}
+
+	ol {
+		@apply list-outside list-decimal pl-4;
 	}
 
 	pre.shiki {
