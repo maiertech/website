@@ -1,12 +1,17 @@
 import { getAuthors } from './authors';
 import { getTags } from './tags';
-import type { Author, Post, PostFrontmatter, Tag } from '@maiertech/sveltekit-helpers';
+import type {
+	AvatarType,
+	PostType,
+	PostFrontmatterType,
+	TagType
+} from '@maiertech/sveltekit-helpers';
 import { postFrontmatterSchema, resolve } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
 import { getLatestCommit } from '../github-api';
 
 // Conscious choice: `posts` is shared backend state.
-let posts: Post[];
+let posts: PostType[];
 
 // TODO Remove one by one after converting to Markdoc.
 const legacyMetadata = [
@@ -192,7 +197,7 @@ async function initialize() {
 	});
 
 	const frontmatters = Object.entries(globs).map(([filepath, post]) => {
-		const { metadata: frontmatter } = post as { metadata: PostFrontmatter };
+		const { metadata: frontmatter } = post as { metadata: PostFrontmatterType };
 
 		// Validate.
 		const result = postFrontmatterSchema.safeParse(frontmatter);
@@ -214,9 +219,11 @@ async function initialize() {
 	const resolvedPosts = await Promise.all(
 		metadata.map(async (post) => {
 			// Resolve author and tags.
-			const author = post.author ? resolve<Author>(post.author, getAuthors()) : undefined;
+			const author = post.author ? resolve<AvatarType>(post.author, getAuthors()) : undefined;
 			const tags = post.tags
-				? post.tags.map((tag) => resolve<Tag>(tag, getTags())).filter((tag) => tag !== undefined) // Drop tag if it cannot be resolved.
+				? post.tags
+						.map((tag) => resolve<TagType>(tag, getTags()))
+						.filter((tag) => tag !== undefined) // Drop tag if it cannot be resolved.
 				: undefined;
 			// Add `lastmodDate` (for Markdoc posts only).
 			const filepath = `src/routes/(posts)${post.path}/+page.markdoc`;
@@ -231,6 +238,6 @@ async function initialize() {
 	);
 }
 
-export function getPosts(): Post[] {
+export function getPosts(): PostType[] {
 	return posts;
 }

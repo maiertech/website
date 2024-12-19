@@ -1,6 +1,6 @@
-import type { Author } from '@maiertech/sveltekit-helpers';
+import type { AvatarType } from '@maiertech/sveltekit-helpers';
 
-const authors: Author[] = [
+const authors: AvatarType[] = [
 	{
 		id: 'thilo',
 		name: 'Thilo Maier',
@@ -9,6 +9,6 @@ const authors: Author[] = [
 	}
 ];
 
-export function getAuthors(): Author[] {
+export function getAuthors(): AvatarType[] {
 	return authors;
 }

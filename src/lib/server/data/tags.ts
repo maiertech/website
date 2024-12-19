@@ -1,7 +1,7 @@
-import type { Tag } from '@maiertech/sveltekit-helpers';
+import type { TagType } from '@maiertech/sveltekit-helpers';
 
 /** Valid tags, sorted by `id`. */
-const tags: Tag[] = [
+const tags: TagType[] = [
 	{ id: 'ai', label: 'AI', path: '/tags/ai' },
 	{
 		id: 'codesandbox',
@@ -85,6 +85,6 @@ const tags: Tag[] = [
 	}
 ];
 
-export function getTags(): Tag[] {
+export function getTags(): TagType[] {
 	return tags;
 }
