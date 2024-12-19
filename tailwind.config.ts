@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
 export default {
 	content: [
@@ -7,7 +8,12 @@ export default {
 	],
 
 	theme: {
+		fontFamily: {
+			sans: ['Roboto', ...fontFamily.sans],
+			serif: ['Spectral', ...fontFamily.serif]
+		},
 		extend: {
+			// Extend colors, not override them.
 			colors: {
 				ink: 'var(--ink)',
 				surface: 'var(--surface)',
