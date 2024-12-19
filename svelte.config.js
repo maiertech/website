@@ -4,8 +4,21 @@ import { mdsvex, escapeSvelte } from 'mdsvex';
 import { createHighlighter } from 'shiki';
 
 /** @type {import('shiki').Highlighter | null} */
-let cachedHighlighter = null;
-
+const highlighter = await createHighlighter({
+	themes: ['min-light', 'min-dark'],
+	langs: [
+		'bash',
+		'html',
+		'javascript',
+		'json',
+		'markdown',
+		'svelte',
+		'text',
+		'typescript',
+		'yaml',
+		'xml'
+	]
+});
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.svx'],
@@ -14,16 +27,8 @@ const mdsvexOptions = {
 	},
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
-			// Create only one highlighter instance.
-			if (!cachedHighlighter) {
-				cachedHighlighter = await createHighlighter({
-					themes: ['min-light', 'min-dark'],
-					langs: ['bash', 'html', 'javascript', 'json', 'markdown', 'svelte', 'text', 'typescript']
-				});
-			}
-			await cachedHighlighter.loadLanguage(lang);
 			const html = escapeSvelte(
-				cachedHighlighter.codeToHtml(code, {
+				highlighter.codeToHtml(code, {
 					lang,
 					themes: { light: 'min-light', dark: 'min-dark' }
 				})
