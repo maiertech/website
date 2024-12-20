@@ -36,16 +36,6 @@ const legacyMetadata = [
 		id: '/posts/complement-zero-effort-type-safety-in-sveltekit-with-zod-for-even-more-type-safety'
 	},
 	{
-		title: 'Do I need a sitemap for my SvelteKit app, and how do I create it?',
-		author: 'thilo',
-		publishedDate: '2023-03-01T00:00:00.00Z',
-		description:
-			'In this post, I provide an overview of when you need a sitemap, what format it should have, and explain how to create an endpoint for a sitemap in SveltKit.',
-		tags: ['svelte', 'seo', 'web-fundamentals'],
-		path: '/posts/do-i-need-a-sitemap-for-my-sveltekit-app-and-how-do-i-create-it',
-		id: '/posts/do-i-need-a-sitemap-for-my-sveltekit-app-and-how-do-i-create-it'
-	},
-	{
 		title: 'Cookie settings for StackBlitz WebContainers',
 		author: 'thilo',
 		publishedDate: '2023-02-10T00:00:00.00Z',
