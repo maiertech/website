@@ -1,6 +1,7 @@
 <script lang="ts" module>
 	// Custom components for Markdown rendering
 	import {
+		code,
 		h1,
 		h2,
 		h3,
@@ -8,14 +9,16 @@
 		h5,
 		h6,
 		img,
+		ol,
 		p,
 		table,
 		td,
 		th,
-		thead
+		thead,
+		ul
 	} from '@maiertech/sveltekit-helpers';
 	// eslint-disable-next-line no-import-assign
-	export { h1, h2, h3, h4, h5, h6, img, p, table, td, th, thead };
+	export { code, h1, h2, h3, h4, h5, h6, img, ol, p, table, td, th, thead, ul };
 </script>
 
 <script lang="ts">

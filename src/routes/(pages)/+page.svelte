@@ -9,7 +9,7 @@
 	let { data }: Props = $props();
 </script>
 
-<section class="mb-12 max-w-[45ch] text-xl font-medium lg:text-2xl">
+<section class="mb-12 max-w-[45ch] text-xl lg:text-2xl">
 	<p>{data.seo.description}</p>
 </section>
 

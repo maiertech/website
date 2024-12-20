@@ -36,12 +36,12 @@
 
 <PageLayout>
 	{#snippet header()}
-		<Container>
+		<Container width="lg">
 			<Header></Header>
 		</Container>
 	{/snippet}
 
-	<Container>
+	<Container width="lg">
 		{@render children()}
 	</Container>
 

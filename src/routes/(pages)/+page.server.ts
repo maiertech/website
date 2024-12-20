@@ -10,7 +10,7 @@ export const load = function () {
 		seo: {
 			title: 'Thilo Maier',
 			description:
-				"Hi, I'm Thilo. I am a developer based in Rotterdam, NL. I build web apps with SvelteKit and Svelte and keep improving my developer happiness."
+				"Hi, I'm Thilo. I am a Software Engineer based in The Netherlands. I build web apps with SvelteKit and Svelte and help people take control of their digital identity."
 		},
 		topics: [
 			{

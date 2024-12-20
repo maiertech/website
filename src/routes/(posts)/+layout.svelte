@@ -21,19 +21,8 @@
 
 <ContentLayout>
 	{#snippet header()}
-		<PostHeader post={data.post} />
+		<PostHeader post={data.post} class="mb-12" />
 	{/snippet}
-	<article>
-		{@render children()}
-	</article>
-</ContentLayout>
 
-<style>
-	article {
-		display: grid;
-		/* Prevent grid blowout: https://courses.joshwcomeau.com/css-for-js/07-css-grid/16-managing-overflow. */
-		grid-template-columns: repeat(1, minmax(0, 1fr));
-		gap: var(--size-fluid-3);
-		margin-bottom: var(--size-fluid-4);
-	}
-</style>
+	{@render children()}
+</ContentLayout>

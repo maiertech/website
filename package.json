@@ -15,7 +15,7 @@
 		"test": "pnpm test:unit && pnpm run test:e2e"
 	},
 	"devDependencies": {
-		"@maiertech/sveltekit-helpers": "^0.14.1",
+		"@maiertech/sveltekit-helpers": "^0.15.0",
 		"@octokit/rest": "^21.0.2",
 		"@playwright/test": "^1.49.1",
 		"@sindresorhus/slugify": "^2.2.1",
@@ -39,7 +39,7 @@
 		"prettier-plugin-tailwindcss": "^0.6.9",
 		"rss": "^1.2.2",
 		"shiki": "^1.24.3",
-		"svelte": "^5.14.6",
+		"svelte": "^5.15.0",
 		"svelte-check": "^4.1.1",
 		"sveltekit-embed": "^0.0.12",
 		"tailwindcss": "^3.4.17",
