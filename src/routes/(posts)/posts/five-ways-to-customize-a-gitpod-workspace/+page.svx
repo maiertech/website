@@ -12,7 +12,7 @@ tags:
 ---
 
 <script>
-	import { Shiki, figure as Figure, figcaption as Figcaption } from '@maiertech/sveltekit-helpers';
+	import { Shiki, Figure } from '@maiertech/sveltekit-helpers';
 	import gitpod_editors_png from './gitpod-editors.png';
 </script>
 
@@ -38,7 +38,7 @@ prebuilds, you can accelerate the launch of a new workspace. Prebuilds trigger w
 code to certain repository branches. If possible, Gitpod launches a prebuild instead of creating a
 workspace from scratch, which feels instantaneous. Use the `github` key to configure prebuilds:
 
-<Figure>
+<Figure caption=".gitpod.yml" class="mb-6">
 
 ```yaml
 # ...
@@ -55,7 +55,6 @@ github:
 # ...
 ```
 
-  <Figcaption>.gitpod.yml</Figcaption>
 </Figure>
 
 For prebuilds to work, you must create a project linked to your GitHub repository in the Gitpod
@@ -66,7 +65,7 @@ dashboard [as explained in the docs](https://www.gitpod.io/docs/configure/projec
 The next step is to create tasks that run when you launch a workspace. Here is an example of a task
 that installs NPM dependencies and launches the development server:
 
-<Figure>
+<Figure caption=".gitpod.yml" class="mb-6">
 
 ```yaml
 # ...
@@ -77,7 +76,6 @@ tasks:
 # ...
 ```
 
-  <Figcaption>.gitpod.yml</Figcaption>
 </Figure>
 
 With prebuilds enabled, the `init` portion of the task will run during the prebuild, and the
@@ -88,7 +86,7 @@ With prebuilds enabled, the `init` portion of the task will run during the prebu
 When you run a development server, you need to let Gitpod know the port of your server and whether a
 preview should be publicly accessible. For a SvelteKit app, e.g., Gitpod needs to expose port 5173:
 
-<Figure>
+<Figure caption=".gitpod.yml" class="mb-6">
 
 ```yaml
 # ...
@@ -98,7 +96,6 @@ ports:
 # ...
 ```
 
-   <Figcaption>.gitpod.yml</Figcaption>
 </Figure>
 
 Typically, you should set visibility to `private`. Then you have to be authenticated to Gitpod to
@@ -118,14 +115,13 @@ images.
 
 To replace the default workspace image with a custom image, set the `image` key in `.gitpod.yml`:
 
-<Figure>
+<Figure caption=".gitpod.yml" class="mb-6">
 
 ```yaml
 image: gitpod/workspace-node-lts
 # ...
 ```
 
-  <Figcaption>.gitpod.yml</Figcaption>
 </Figure>
 
 While you can use a custom Docker image with Gitpod, I recommend customizing an official image
@@ -139,7 +135,7 @@ workspace. The solution: customize a workspace image.
 
 You first have to declare the custom image using the `image` key:
 
-<Figure>
+<Figure caption=".gitpod.yml" class="mb-6">
 
 ```yaml
 image:
@@ -147,21 +143,19 @@ image:
 # ...
 ```
 
-  <Figcaption>.gitpod.yml</Figcaption>
 </Figure>
 
 Gitpod will then look for the Docker image file `.gitpod.Dockerfile` when launching the workspace. I
 customized the Docker image like this:
 
-<Figure>
+<Figure caption=".gitpod.Dockerfile" class="mb-6">
 
-```dockerfile
+```bash
 FROM gitpod/workspace-node-lts
 
 RUN npm i -g turbo
 ```
 
-  <Figcaption>.gitpod.Dockerfile</Figcaption>
 </Figure>
 
 `FROM` indicates the image to be customized, and `RUN` runs the NPM command to install the turbo
@@ -203,7 +197,7 @@ available. But you cannot access proprietary extensions such as
 If you list project-specific extensions in `.gitpod.yml`, they will be automatically installed into
 every workspace launched with this configuration:
 
-<Figure>
+<Figure caption=".gitpod.yml" class="mb-6">
 
 ```yaml
 # ...
@@ -216,7 +210,6 @@ vscode:
 # ...
 ```
 
-  <Figcaption>.gitpod.yml</Figcaption>
 </Figure>
 
 When you access a Gitpod workspace with VS Code desktop, extensions will be installed from the VS
@@ -232,11 +225,10 @@ and VS Code are popular choices, alternative Git providers and editors are avail
 only cloud workspace that supports GitHub, GitLab, and Bitbucket as Git providers and various
 JetBrains IDEs:
 
-<Figure>
+<Figure caption="Gitpod supports VS Code and various JetBrains IDEs as editors." class="mb-6">
 
 ![Screenshot of user settings in the Gitpod dashboard. There are ten cards with ten editor options, VS Code desktop and browser, and several IDEs by JetBrains.]({gitpod_editors_png})
 
-  <Figcaption>Gitpod supports VS Code and various JetBrains IDEs as editors.</Figcaption>
 </Figure>
 
 Not all customizations covered in this post make sense with all combinations of Git providers and

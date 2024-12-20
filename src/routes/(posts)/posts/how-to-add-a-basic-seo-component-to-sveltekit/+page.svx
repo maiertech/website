@@ -19,7 +19,7 @@ links:
 ---
 
 <script>
-	import { figure as Figure, figcaption as Figcaption, Shiki } from '@maiertech/sveltekit-helpers';
+	import { Figure, Shiki } from '@maiertech/sveltekit-helpers';
 	import app_html from './examples/app.html?raw';
 	import seo_data_flow_png from './seo-data-flow.png';
 </script>
@@ -35,9 +35,8 @@ You need to put SEO data into the `<head>` element of each page as
 [meta tags](https://ahrefs.com/blog/seo-meta-tags/). Some meta tags are the same for each page and
 SvelteKit adds them for you in `src/app.html`, e.g., meta charset and meta viewport:
 
-<Figure>
-	<Shiki code={app_html} language="html" />
-	<Figcaption>src/app.html</Figcaption>
+<Figure caption="src/app.html" class="mb-6">
+	<Shiki code={app_html} lang="html" />
 </Figure>
 
 Other meta tags are page-specific, and you need to figure out a way to set them for each page.
@@ -92,7 +91,7 @@ and add more SEO data on the fly when you need it.
 
 So, here is my basic SEO component:
 
-<Figure>
+<Figure caption="Basic SEO component for a SvelteKit app." class="mb-6">
 
 ```svelte
 <script>
@@ -114,7 +113,6 @@ So, here is my basic SEO component:
 </svelte:head>
 ```
 
-<Figcaption>Basic SEO component for a SvelteKit app.</Figcaption>
 </Figure>
 
 The component is also just a `<svelte:head>` with props: `title` (required), `description`
@@ -123,7 +121,7 @@ with SvelteKit only because it imports SvelteKit's `page` store, which provides 
 current path. I decorate the SEO title on all pages, except the root page, with a `decorate`
 function. E.g., I could append my name:
 
-<Figure>
+<Figure caption="src/lib/utils/decorate.js" class="mb-6">
 
 ```javascript
 /**
@@ -135,7 +133,6 @@ export default function (title) {
 }
 ```
 
-<Figcaption>src/lib/utils/decorate.js</Figcaption>
 </Figure>
 
 Decorating the SEO title is an opportunity to add a lightweight branding when you appear in search
@@ -173,11 +170,10 @@ SEO data is page-specific and needs to be retrieved at the page level in `+page.
 `+page.server.js`. But the SEO component is rendered as part of the layout. So, how can we get
 page-specific SEO data into a layout? Let's look at the following diagram:
 
-<Figure>
+<Figure caption="How SvelteKit's load functions share data." class="mb-6">
 
 ![Diagram of how data from load functions can be shared between a page and a layout top down or bottom up.]({seo_data_flow_png})
 
-<Figcaption>How SvelteKit's load functions share data.</Figcaption>
 </Figure>
 
 The diagram shows a `+page.svelte` and its corresponding `+page.js`, which contains the load
@@ -195,7 +191,7 @@ returned from `+page.js` with `$page.data` inside `+layout.svelte`.
 To wrap up this post, let's look at two code examples. The first one shows a minimal load function
 for a page:
 
-<Figure>
+<Figure caption="src/routes/+page.js" class="mb-6">
 
 ```javascript
 export function load() {
@@ -207,14 +203,13 @@ export function load() {
 }
 ```
 
-<Figcaption>src/routes/+page.js</Figcaption>
 </Figure>
 
 This load function returns only a title and description. The second code example shows how to
 retrieve the title and description from <code>$page.data</code> in a layout further up in the
 component hierarchy:
 
-<Figure>
+<Figure caption="src/routes/+layout.svelte" class="mb-6">
 
 ```svelte
 <script>
@@ -233,5 +228,4 @@ component hierarchy:
 <div>Homepage</div>
 ```
 
-<Figcaption>src/routes/+layout.svelte</Figcaption>
 </Figure>

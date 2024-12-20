@@ -1,13 +1,7 @@
 <script lang="ts">
 	import { Image } from '@maiertech/sveltekit-helpers';
 	import vercel_build_error_origin_image from './vercel-build-error.png';
-	import {
-		Shiki,
-		p as P,
-		h2 as H2,
-		figure as Figure,
-		figcaption as Figcaption
-	} from '@maiertech/sveltekit-helpers';
+	import { Figure, Shiki, h2 as H2, ol as Ol, p as P } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -41,9 +35,8 @@
 	structure:
 </P>
 
-<Figure>
+<Figure caption="File tree for the maier.tech monorepo." class="mb-6">
 	<Shiki lang="bash" code={data.examples['file-tree.txt']} />
-	<Figcaption>File tree for the maier.tech monorepo.</Figcaption>
 </Figure>
 
 <P>
@@ -51,9 +44,8 @@
 	<code>workspaces</code> property:
 </P>
 
-<Figure>
+<Figure caption="package.json" class="mb-6">
 	<Shiki lang="json" code={data.examples['package.json']} />
-	<Figcaption>package.json</Figcaption>
 </Figure>
 
 <P>
@@ -71,9 +63,8 @@
 	it looks like this:
 </P>
 
-<Figure>
+<Figure caption="turbo.json" class="mb-6">
 	<Shiki lang="json" code={data.examples['turbo.json']} />
-	<Figcaption>turbo.json</Figcaption>
 </Figure>
 
 <P>
@@ -85,7 +76,7 @@
 	</a>. I will highlight two of them:
 </P>
 
-<ol>
+<Ol>
 	<li>
 		<code>"dependsOn"</code>: Value <code>["^build"]</code> means that every build task should run the
 		build tasks of dependencies that reside inside the monorepo in other workspaces.
@@ -99,7 +90,7 @@
 		goes into the <code>.vercel</code> directory and needs to be cached. The best case for a build
 		is that Turborepo can fetch both <code>.svelte-kit</code> and <code>.vercel</code> from the cache.
 	</li>
-</ol>
+</Ol>
 
 <H2>Nested configuration</H2>
 
@@ -120,9 +111,8 @@
 	project root<code>turbo.json</code>:
 </P>
 
-<Figure>
+<Figure caption="packages/ui/turbo.json" class="mb-6">
 	<Shiki lang="json" code={data.examples['packages/ui/turbo.json']} />
-	<Figcaption>packages/ui/turbo.json</Figcaption>
 </Figure>
 
 <P>
@@ -140,12 +130,11 @@
 	monorepo, I got the following error for every Vercel deployment:
 </P>
 
-<Figure>
+<Figure caption="Vercel build error after migrating my repository to a Turborepo." class="mb-6">
 	<Image
 		src={vercel_build_error_origin_image}
 		alt="Screenshot of the error log of a Vercel deploy. The error message reads: No output directory named 'public' found after the build completed."
 	/>
-	<Figcaption>Vercel build error after migrating my repository to a Turborepo.</Figcaption>
 </Figure>
 
 <P>
@@ -166,9 +155,8 @@
 	file changes. I want to add this configuration to <code>apps/website/turbo.json</code>:
 </P>
 
-<Figure>
+<Figure caption="apps/website/turbo.json" class="mb-6">
 	<Shiki lang="json" code={data.examples['apps/website/turbo.json']} />
-	<Figcaption>apps/website/turbo.json</Figcaption>
 </Figure>
 
 <P>
@@ -178,9 +166,8 @@
 	task at the NPM level:
 </P>
 
-<Figure>
+<Figure caption="apps/website/package.json" class="mb-6">
 	<Shiki lang="json" code={data.examples['apps/website/package.json']} />
-	<Figcaption>apps/website/package.json</Figcaption>
 </Figure>
 
 <P>
