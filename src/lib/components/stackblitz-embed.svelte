@@ -1,43 +1,21 @@
-<script>
+<script lang="ts">
 	import stackblitz from '$lib/actions/stackblitz';
+	import type { EmbedOptions, Project } from '@stackblitz/sdk';
+	import { twMerge } from 'tailwind-merge';
 
-	/**
-	 * @typedef {import('@stackblitz/sdk').VM} VM
-	 */
+	interface Props {
+		project: Project | string;
+		options: EmbedOptions;
+		class?: string;
+	}
 
-	/**
-	 * You can either provide an object with a StackBlitz project config
-	 * or a string that represents a GitHub repository.
-	 * @type {import('@stackblitz/sdk').Project | string}
-	 */
-	export let project;
-
-	/** @type {import('@stackblitz/sdk').EmbedOptions} */
-	export let options = {};
-
-	/** @type {VM} */
-	// let vm;
-
-	/** @param {Promise<VM>} promised_vm */
-	// async function cb(promised_vm) {
-	// 	vm = await promised_vm;
-	// }
+	let { project, options = {}, class: className }: Props = $props();
 </script>
 
-<div class="stackblitz">
-	<iframe use:stackblitz={{ project, options }} title="This iframe will be swapped out."></iframe>
+<div class="h-[clamp(20rem,40vw,30rem)] rounded-lg bg-secondary">
+	<iframe
+		use:stackblitz={{ project, options }}
+		title="This iframe will be swapped out."
+		class={twMerge(className, 'h-full w-full rounded-lg')}
+	></iframe>
 </div>
-
-<style>
-	.stackblitz {
-		height: var(--size-fluid-10);
-		background-color: var(--surface-2);
-		border-radius: var(--radius-3);
-	}
-
-	iframe {
-		width: 100%;
-		height: 100%;
-		border-radius: var(--radius-3);
-	}
-</style>

@@ -1,7 +1,14 @@
 <script lang="ts">
 	import { Image } from '@maiertech/sveltekit-helpers';
 	import vercel_build_error_origin_image from './vercel-build-error.png';
-	import { Figure, Shiki, h2 as H2, ol as Ol, p as P } from '@maiertech/sveltekit-helpers';
+	import {
+		Figure,
+		Shiki,
+		code as Code,
+		h2 as H2,
+		ol as Ol,
+		p as P
+	} from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -22,7 +29,7 @@
 
 <P>
 	The central pitch of Turborepo is to speed up workspace tasks, primarily builds. After configuring
-	task dependencies in one or more <code>turbo.json</code>, Turborepo uses this information to run
+	task dependencies in one or more <Code>turbo.json</Code>, Turborepo uses this information to run
 	tasks in parallel with an aggressive caching strategy. Turborepo can complement local caching with
 	shared remote caching. Often this will significantly reduce the duration of deployment builds
 	because local builds are cached remotely and can be reused for deployment builds.
@@ -49,17 +56,17 @@
 </Figure>
 
 <P>
-	I recommended adding package <code>turbo</code> to <code>devDependencies</code>, which gives you
-	control over which version to use. You should also install the <code>turbo</code> package globally
-	to make the <code>turbo</code> command available in your terminal. A globally installed
-	<code>turbo</code>
-	command will use the Turborepo version declared in <code>devDependencies</code>.
+	I recommended adding package <Code>turbo</Code> to <Code>devDependencies</Code>, which gives you
+	control over which version to use. You should also install the <Code>turbo</Code> package globally
+	to make the <Code>turbo</Code> command available in your terminal. A globally installed
+	<Code>turbo</Code>
+	command will use the Turborepo version declared in <Code>devDependencies</Code>.
 </P>
 
 <H2>Turborepo configuration</H2>
 
 <P>
-	The Turborepo configuration is in <code>turbo.json</code> at the project root level. For my monorepo,
+	The Turborepo configuration is in <Code>turbo.json</Code> at the project root level. For my monorepo,
 	it looks like this:
 </P>
 
@@ -68,9 +75,9 @@
 </Figure>
 
 <P>
-	The <code>pipeline</code> property describes dependencies between NPM tasks (defined in the
-	<code>scripts</code> tags of workspace <code>package.json</code> files). Each task can have
-	additional properties, which you can look up in the
+	The <Code>pipeline</Code> property describes dependencies between NPM tasks (defined in the
+	<Code>scripts</Code> tags of workspace <Code>package.json</Code> files). Each task can have additional
+	properties, which you can look up in the
 	<a href="https://turbo.build/repo/docs/reference/configuration">
 		Turborepo docs (configuration options)
 	</a>. I will highlight two of them:
@@ -78,17 +85,17 @@
 
 <Ol>
 	<li>
-		<code>"dependsOn"</code>: Value <code>["^build"]</code> means that every build task should run the
+		<Code>"dependsOn"</Code>: Value <Code>["^build"]</Code> means that every build task should run the
 		build tasks of dependencies that reside inside the monorepo in other workspaces.
 	</li>
 	<li>
-		<code>"outputs"</code>: Describes build artifacts that Turborepo should cache. E.g., the build
-		of a SvelteKit app goes into directory <code>.svelte-kit</code>. If Turborepo figures out
-		nothing has changed during a build, it will retrieve <code>.svelte-kit</code> from its cache
-		instead of running the task. Similarly, the output of
+		<Code>"outputs"</Code>: Describes build artifacts that Turborepo should cache. E.g., the build
+		of a SvelteKit app goes into directory <Code>.svelte-kit</Code>. If Turborepo figures out
+		nothing has changed during a build, it will retrieve <Code>.svelte-kit</Code> from its cache instead
+		of running the task. Similarly, the output of
 		<a href="https://kit.svelte.dev/docs/adapter-vercel">adapter-vercel</a>
-		goes into the <code>.vercel</code> directory and needs to be cached. The best case for a build
-		is that Turborepo can fetch both <code>.svelte-kit</code> and <code>.vercel</code> from the cache.
+		goes into the <Code>.vercel</Code> directory and needs to be cached. The best case for a build is
+		that Turborepo can fetch both <Code>.svelte-kit</Code> and <Code>.vercel</Code> from the cache.
 	</li>
 </Ol>
 
@@ -97,18 +104,17 @@
 <P>
 	Starting with Turborepo v1.8, you can nest configurations and complement a project-level
 	configuration with workspace-specific configurations. E.g., in my monorepo,
-	<code>packages/ui</code>
+	<Code>packages/ui</Code>
 	contains a UI package that is managed with SvelteKit's package tooling. When you run the
-	<code>build</code>
-	command for <code>ui</code>, the build artifacts go into <code>dist</code> and must be cached. I
-	could add <code>dist</code> to the <code>outputs</code> property of the <code>build</code> task in
-	the project root <code>turbo.json</code>. Then they would be applied to every build task in every
-	workspace.
+	<Code>build</Code>
+	command for <Code>ui</Code>, the build artifacts go into <Code>dist</Code> and must be cached. I could
+	add <Code>dist</Code> to the <Code>outputs</Code> property of the <Code>build</Code> task in the project
+	root <Code>turbo.json</Code>. Then they would be applied to every build task in every workspace.
 </P>
 
 <P>
-	As an alternative, I created the file <code>packages/ui/turbo.json</code>, which extends the
-	project root<code>turbo.json</code>:
+	As an alternative, I created the file <Code>packages/ui/turbo.json</Code>, which extends the
+	project root <Code>turbo.json</Code>:
 </P>
 
 <Figure caption="packages/ui/turbo.json" class="mb-6">
@@ -116,11 +122,9 @@
 </Figure>
 
 <P>
-	Turborepo permits overrides only for anything under the<code>pipeline</code> property. The above
-	<code>turbo.json</code>
-	build task inherits all properties from the project root <code>turbo.json</code> and overrides
-	only the <code>outputs</code>
-	property.
+	Turborepo permits overrides only for anything under the <Code>pipeline</Code> property. The above
+	<Code>turbo.json</Code> build task inherits all properties from the project root
+	<Code>turbo.json</Code> and overrides only the <Code>outputs</Code> property.
 </P>
 
 <H2>Pitfall: Getting the outputs wrong</H2>
@@ -138,21 +142,21 @@
 </Figure>
 
 <P>
-	By default, Vercel expects the deployment files in the <code>public</code> directory or another
-	special directory, e.g., <code>.vercel</code>. I had forgotten to add <code>.vercel/**</code> to
-	<code>outputs</code> in <code>turbo.json</code>. Whenever Turborepo determined that it could reuse
+	By default, Vercel expects the deployment files in the <Code>public</Code> directory or another special
+	directory, e.g., <Code>.vercel</Code>. I had forgotten to add <Code>.vercel/**</Code> to
+	<Code>outputs</Code> in <Code>turbo.json</Code>. Whenever Turborepo determined that it could reuse
 	a cached build, it did not run the build task and instead fetched all outputs it was aware of from
-	the cache. Since it did not know about <code>.vercel</code>, it could not fetch it from the cache,
+	the cache. Since it did not know about <Code>.vercel</Code>, it could not fetch it from the cache,
 	and the build ended without a valid build directory.
 </P>
 
 <H2>Pitfall: Persistent tasks</H2>
 
 <P>
-	Persistent tasks are long-running, e.g., the <code>dev</code> task is persistent. Turborepo does
-	not allow any task to depend on a persistent task because it blocks subsequent tasks. Imagine
-	<code>ui/package.json</code> defines a <code>watch</code> task that builds the library whenever a
-	file changes. I want to add this configuration to <code>apps/website/turbo.json</code>:
+	Persistent tasks are long-running, e.g., the <Code>dev</Code> task is persistent. Turborepo does not
+	allow any task to depend on a persistent task because it blocks subsequent tasks. Imagine
+	<Code>ui/package.json</Code> defines a <Code>watch</Code> task that builds the library whenever a file
+	changes. I want to add this configuration to <Code>apps/website/turbo.json</Code>:
 </P>
 
 <Figure caption="apps/website/turbo.json" class="mb-6">
@@ -160,9 +164,9 @@
 </Figure>
 
 <P>
-	But this is not permitted since Turorepo does not allow the <code>dev</code> task to depend on
-	<code>watch</code>, which is a persistent task. Instead of defining the <code>watch</code> task as
-	a dependency of the <code>dev</code> task in <code>turbo.json</code>, you need to launch the watch
+	But this is not permitted since Turorepo does not allow the <Code>dev</Code> task to depend on
+	<Code>watch</Code>, which is a persistent task. Instead of defining the <Code>watch</Code> task as
+	a dependency of the <Code>dev</Code> task in <Code>turbo.json</Code>, you need to launch the watch
 	task at the NPM level:
 </P>
 
@@ -171,19 +175,18 @@
 </Figure>
 
 <P>
-	This script simultaneously launches the <code>watch</code> task for <code>packages/ui</code> and
-	the <cocde>dev</cocde> task for <code>apps/website</code>.
+	This script simultaneously launches the <Code>watch</Code> task for <Code>packages/ui</Code> and the
+	<Code>dev</Code> task for <Code>apps/website</Code>.
 </P>
 
 <H2>Conclusion</H2>
 
 <P>
 	Configuring Turborepo for a monorepo with one or more SvelteKit apps is relatively easy. But you
-	must get the <code>outputs</code> right, including any directories specific to your hosting
-	provider. As a layer on top of a package manager, Turborepo does not replace NPM, pnpm, or Yarn.
-	As you have seen in the above examples, some configurations go in a <code>turbo.json</code>, and
-	others go in a
-	<code>package.json</code>. Knowing where configurations go can be challenging in the beginning.
+	must get the <Code>outputs</Code> right, including any directories specific to your hosting provider.
+	As a layer on top of a package manager, Turborepo does not replace NPM, pnpm, or Yarn. As you have
+	seen in the above examples, some configurations go in a <Code>turbo.json</Code>, and others go in
+	a <Code>package.json</Code>. Knowing where configurations go can be challenging in the beginning.
 	Expect Turborepo to support more configurations over time and perhaps even merge with a package
 	manager or another build tool.
 </P>

@@ -1,33 +1,42 @@
-<script>
-	import { Image } from '@maiertech/sveltekit-helpers';
-	import Highlight, { HighlightSvelte } from 'svelte-highlight';
-	import { javascript } from 'svelte-highlight/languages';
+<script lang="ts">
+	import {
+		Figure,
+		Image,
+		Shiki,
+		code as Code,
+		h2 as H2,
+		ol as Ol,
+		p as P
+	} from '@maiertech/sveltekit-helpers';
 	import zod_type_inference_example_1_origin_image from './zod-type-inference-example-1.png';
 	import zod_type_inference_example_2_origin_image from './zod-type-inference-example-2.png';
 
-	export let data;
-	const { examples } = data;
+	import type { PageData } from './$types';
+
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 </script>
 
-<p>
+<P>
 	SvelteKit introduced
 	<a href="https://kit.svelte.dev/docs/types#generated-types">generated types</a> a while ago.
-	SvelteKit would automatically generate types for <code>data</code> and <code>form</code> in +page.svelte/+layout.svelte
+	SvelteKit would automatically generate types for <Code>data</Code> and <Code>form</Code> in +page.svelte/+layout.svelte
 	files and load functions and request handlers in +page.js/+layout.js, +page.server.js/+layout.server.js
 	and +server.js files. But you had to annotate the types yourself, which felt like a repetitive chore:
-</p>
+</P>
 
-<figure>
-	<Highlight language={javascript} code={examples['+page.js']} />
-	<figcaption>JSDoc type annotation in +page.js.</figcaption>
-</figure>
+<Figure caption="JSDoc type annotation in +page.js." class="mb-6">
+	<Shiki lang="javascript" code={data.examples['+page.js']} />
+</Figure>
 
-<figure>
-	<HighlightSvelte code={examples['+page.svelte']} />
-	<figcaption>Another JSDoc type annotation in +page.svelte.</figcaption>
-</figure>
+<Figure caption="Another JSDoc type annotation in +page.svelte." class="mb-6">
+	<Shiki lang="svelte" code={data.examples['+page.svelte']} />
+</Figure>
 
-<p>
+<P>
 	Yesterday, the SvelteKit team went one step further and introduced zero-effort type safety for
 	crucial parts of a SvelteKit app. This improvement makes manual annotations of generated types
 	obsolete. You get type safety for data flowing through your SvelteKit app without TypeScript
@@ -37,117 +46,113 @@
 	<a href="https://github.com/maiertech/maier.tech/pull/660">this pull request</a> without losing
 	any type safety. You can read more about zero-effort type safety in the
 	<a href="https://svelte.dev/blog/zero-config-type-safety">announcement post</a>.
-</p>
+</P>
 
-<p>
+<P>
 	Zero-effort type safety is a massive improvement for developer happiness. However, it would be
 	best to put in additional effort to achieve complete type safety for your SvelteKit app. Besides
 	data <em>flowing through</em> your SvelteKit app, you also need to keep an eye on all the points
 	where data <em>enters</em> your SvelteKit app.
-</p>
+</P>
 
-<h2>Validation with Zod</h2>
+<H2>Validation with Zod</H2>
 
-<p>There are three ways for data to enter your SvelteKit app:</p>
+<P>There are three ways for data to enter your SvelteKit app:</P>
 
-<ol>
+<Ol>
 	<li>
 		By fetching data from the local file system, e.g., reading a Markdown file with a blog post or
 		reading a JSON file with permitted tags.
 	</li>
 	<li>By fetching data from an external API, e.g., a headless CMS or a third-party API.</li>
 	<li>By processing data submitted through a web form.</li>
-</ol>
+</Ol>
 
-<p>
+<P>
 	All three scenarios have in common that type annotations of incoming data are moot when the data
 	you get is not what you expected. What you need is proper validation.
-</p>
+</P>
 
-<p>
+<P>
 	<a href="https://zod.dev/">Zod</a> is a schema validation library with first-class TypeScript support.
 	The first thing to note is that most data coming into your app is structured, i.e., a combination of
 	objects and arrays that contain strings. E.g., on my website, every post is in a Markdown file. Its
 	frontmatter has a structure that can be described with a Zod schema:
-</p>
+</P>
 
-<figure>
-	<Highlight language={javascript} code={examples['src/lib/schemas/post-schema.js']} />
-	<figcaption>src/lib/schemas/post-schema.js</figcaption>
-</figure>
+<Figure caption="src/lib/schemas/post-schema.js" class="mb-6">
+	<Shiki lang="javascript" code={data.examples['src/lib/schemas/post-schema.js']} />
+</Figure>
 
-<p>
+<P>
 	Every property is required by default, and you can nest schemes and add additional constraints.
-	E.g., <code>z.array(z.string()).optional()</code> means that the schema expects an optional array of
+	E.g., <Code>z.array(z.string()).optional()</Code> means that the schema expects an optional array of
 	strings.
-</p>
+</P>
 
-<p>
+<P>
 	Once you have a schema, you can validate incoming data against it. In this example, I validate the
 	frontmatter of a post against the Zod schema in a helper function:
-</p>
+</P>
 
-<figure>
-	<Highlight language={javascript} code={examples['src/lib/posts.js']} />
-	<figcaption>Frontmatter validation in src/lib/posts.js.</figcaption>
-</figure>
+<Figure caption="Frontmatter validation in src/lib/posts.js." class="mb-6">
+	<Shiki lang="javascript" code={data.examples['src/lib/posts.js']} />
+</Figure>
 
-<p>
-	Nothing spectacular except that <code>frontmatter</code>, which is the validated data, is now
+<P>
+	Nothing spectacular except that <Code>frontmatter</Code>, which is the validated data, is now
 	typed:
-</p>
+</P>
 
-<figure>
+<Figure caption="Zod infers the type of validated data from the schema." class="mb-6">
 	<Image
 		src={zod_type_inference_example_1_origin_image}
 		alt="Screenshot of the code snippet from above in Visual Studio Code. The mouse hovers over `frontmatter.title`, and a pop-up shows the type `string` and the description from the `PostSchema` Zod schema."
 	/>
-	<figcaption>Zod infers the type of validated data from the schema.</figcaption>
-</figure>
+</Figure>
 
-<p>
+<P>
 	Not only does Zod validate the data, but it also types it and gives you full type safety for
 	whatever you do with the validated data.
-</p>
+</P>
 
-<h2>Validating and typing data from an API with Zod</h2>
+<H2>Validating and typing data from an API with Zod</H2>
 
-<p>
+<P>
 	To drive this point home, let's look at another example in a
 	<a href="https://kit.svelte.dev/docs/form-actions">form action</a>:
-</p>
+</P>
 
-<figure>
-	<Highlight language={javascript} code={examples['+page.server.js']} />
-	<figcaption>Validating data retrieved from an API in +page.server.js.</figcaption>
-</figure>
+<Figure caption="Validating data retrieved from an API in +page.server.js." class="mb-6">
+	<Shiki lang="javascript" code={data.examples['+page.server.js']} />
+</Figure>
 
-<p>
+<P>
 	This form action handles data from a newsletter subscription form. At this point in the handler, I
 	know that the subscriber already exists, and I try to look up their status with API helper
-	<code>get_subscriber</code>. I validate the API response against Zod schema
-	<code>EOSubscriberSchema</code>.
-</p>
+	<Code>get_subscriber</Code>. I validate the API response against Zod schema
+	<Code>EOSubscriberSchema</Code>.
+</P>
 
-<p>
+<P>
 	If the validation fails, the external API did not return subscriber info in the expected format,
-	and I throw a server error. If the validation succeeds, the <code>subscriber</code> variable is typed:
-</p>
+	and I throw a server error. If the validation succeeds, the <Code>subscriber</Code> variable is typed:
+</P>
 
-<figure>
+<Figure
+	caption="The subscriber variable is validated and typed, thanks to Zod's type inference."
+	class="mb-6"
+>
 	<Image
 		src={zod_type_inference_example_2_origin_image}
 		alt="Screenshot of the code snippet from above in Visual Studio Code. The mouse hovers over the validated `subscriber` variable, and a pop-up shows the object type inferred from the `EOSubscriber` Zod schema."
 	/>
-	<figcaption>
-		The <code>subscriber</code> variable is validated and typed, thanks to Zod's type inference.
-	</figcaption>
-</figure>
+</Figure>
 
-<h2>Conclusion</h2>
+<H2>Conclusion</H2>
 
-<p>
+<P>
 	SvelteKit's zero-effort types provide type safety when data <em>flows through</em> your app. You
 	should complement zero-effort type safety with Zod schemas and validate data whenever it
 	<em>enters</em> your app. Zod's type inference gives you complete type safety for validated data.
-</p>
+</P>
