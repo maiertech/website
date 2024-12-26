@@ -3,12 +3,13 @@ title: 'How to provide better context in GitHub Copilot prompts'
 author: 'thilo'
 publishedDate: '2024-11-15T00:00:00.00Z'
 description:
-  'Learn how to improve GitHub Copilot suggestions by providing better context in your prompts.'
+  'In this post, you will learn different ways to provide more context to your GitHub Copilot
+  prompts to improve its suggestions and enhance your developer experience.'
 tags: ['dx', 'ai', 'vscode']
 ---
 
 GitHub Copilot is an AI-powered coding assistant for VS Code that was released in October 2021. I've
-been using it for a while but couldn't really warm up to it. While I had occasional wow moments, I
+been using it for a while but couldn't really warm up to it. While I had occasional "wow" moments, I
 often found myself wrestling with Copilot. But I have to admit, I was using Copilot without ever
 reading the docs. After all, it's AI and shouldn't need a manual, right? Big mistake!
 
@@ -55,7 +56,7 @@ entire codebase to the context, but chances are that this is not specific enough
 improve Copilot suggestions.
 
 You can also use one of the following commands at the beginning of your prompt. These commands work
-best on a selection. Think of a command as prompt shortcut. The commands are:
+best on a selection. Think of a command as a prompt shortcut. The commands are:
 
 | Command    | Description                               |
 | :--------- | :---------------------------------------- |
@@ -69,11 +70,11 @@ best on a selection. Think of a command as prompt shortcut. The commands are:
 This is the original Copilot chat without the ability to edit code. You should be aware of the
 following shortcuts:
 
-| Shortcut | Description                    |
-| :------- | :----------------------------- |
-| ^⌘I      | Open and close the chat.       |
-| ^L       | Clear the chat.                |
-| ⌥⌘B      | Toggle the secondary side bar. |
+| Shortcut | Description                   |
+| :------- | :---------------------------- |
+| ^⌘I      | Open and close the chat.      |
+| ^L       | Clear the chat.               |
+| ⌥⌘B      | Toggle the secondary sidebar. |
 
 The default context in Ask Copilot is always the current file and the current selection. You can
 augment the context by adding these variables to your prompt:
@@ -109,7 +110,7 @@ be combined with commands. Here are some examples:
 | `@vscode /startDebugging` | Create a debug config.                    |
 | `@terminal /explain`      | Explain something in the terminal.        |
 
-You can display available commands by typing the participant, e.g. `@workspace`. You can also use
+You can display available commands by typing the participant, e.g., `@workspace`. You can also use
 these commands without tagging a participant. VS Code will infer the participant whenever possible.
 
 Lastly, there are two more commands that do not add context but are useful: `/clear` clears the chat
@@ -125,10 +126,10 @@ Not everything discussed in the previous section for Ask Copilot works in Copilo
 At this point, it is not really clear to me how Ask Copilot and Copilot Edits will be consolidated
 in the future. In any case, you should remember the following shortcuts:
 
-| Shortcut | Description                    |
-| :------- | :----------------------------- |
-| ⇧⌘I      | Open Copilot Edits.            |
-| ⌥⌘B      | Toggle the secondary side bar. |
+| Shortcut | Description                   |
+| :------- | :---------------------------- |
+| ⇧⌘I      | Open Copilot Edits.           |
+| ⌥⌘B      | Toggle the secondary sidebar. |
 
 Weirdly, there is no shortcut to start a new Copilot Edits session. You need to click on `+` to
 start a new session.
@@ -143,10 +144,10 @@ an example of what I put in my `copilot-instructions.md` for the repository for 
 
 ```markdown
 - This website is a personal blog.
-- The writing style for posts is concise, to the point and not too formal.
+- The writing style for posts is concise, to the point, and not too formal.
 - The website is built with Svelte v4 and SvelteKit v2.
-- It uses Markdoc to author posts.
-- It uses Open Props for styling.
+- It uses Mdsvex to author posts.
+- It uses Tailwind for styling.
 - It uses pnpm.
 ```
 
