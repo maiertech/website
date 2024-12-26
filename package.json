@@ -17,7 +17,7 @@
 	"devDependencies": {
 		"@atproto/api": "^0.13.23",
 		"@eslint/compat": "^1.2.3",
-		"@maiertech/sveltekit-helpers": "^0.17.0",
+		"@maiertech/sveltekit-helpers": "^0.17.1",
 		"@octokit/rest": "^21.0.2",
 		"@playwright/test": "^1.49.1",
 		"@sindresorhus/slugify": "^2.2.1",
