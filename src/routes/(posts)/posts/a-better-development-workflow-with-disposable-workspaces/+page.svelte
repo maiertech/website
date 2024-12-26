@@ -1,12 +1,5 @@
 <script lang="ts">
-	import {
-		Figure,
-		Shiki,
-		code as Code,
-		h2 as H2,
-		p as P,
-		ul as Ul
-	} from '@maiertech/sveltekit-helpers';
+	import { code as Code, h2 as H2, p as P, ul as Ul } from '@maiertech/sveltekit-helpers';
 </script>
 
 <P>

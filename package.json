@@ -33,7 +33,6 @@
 		"globals": "^15.14.0",
 		"iconify-icon": "^2.2.0",
 		"mdsvex": "^0.12.3",
-		"open-props": "^1.7.9",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.2",
 		"prettier-plugin-tailwindcss": "^0.6.9",

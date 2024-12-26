@@ -9,12 +9,6 @@
 	import '@maiertech/sveltekit-helpers/themes/default.css'; // First import the theme, then the styles.
 	import '../app.css';
 
-	import 'open-props/borders';
-	import 'open-props/fonts';
-	import 'open-props/indigo';
-	import 'open-props/sizes';
-	import 'open-props/stone';
-
 	inject({ mode: dev ? 'development' : 'production' });
 
 	interface Props {
