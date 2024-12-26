@@ -62,9 +62,6 @@ importers:
       mdsvex:
         specifier: ^0.12.3
         version: 0.12.3(svelte@5.16.0)
-      open-props:
-        specifier: ^1.7.9
-        version: 1.7.9
       prettier:
         specifier: ^3.4.2
         version: 3.4.2
@@ -1612,9 +1609,6 @@ packages:
 
   oniguruma-to-es@0.8.1:
     resolution: {integrity: sha512-dekySTEvCxCj0IgKcA2uUCO/e4ArsqpucDPcX26w9ajx+DvMWLc5eZeJaRQkd7oC/+rwif5gnT900tA34uN9Zw==}
-
-  open-props@1.7.9:
-    resolution: {integrity: sha512-WYyrh7UaXRQjHwQTM0a3oLmmjNVE22Zi59isi5S8Pu0wcdIOK57guFnXvT37Q3iOXy2PUPfv4uKE8ib/yVC9Cg==}
 
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
@@ -3653,8 +3647,6 @@ snapshots:
       emoji-regex-xs: 1.0.0
       regex: 5.0.2
       regex-recursion: 5.0.0
-
-  open-props@1.7.9: {}
 
   optionator@0.9.4:
     dependencies:
