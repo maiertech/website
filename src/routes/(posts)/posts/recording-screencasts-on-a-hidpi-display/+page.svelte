@@ -1,15 +1,5 @@
 <script lang="ts">
-	import {
-		Figure,
-		Image,
-		h2 as H2,
-		p as P,
-		table as Table,
-		td as Td,
-		th as Th,
-		thead as Thead,
-		ol as Ol
-	} from '@maiertech/sveltekit-helpers';
+	import { Figure, Image, H2, P, Table, Td, Th, Thead, Ol } from '@maiertech/sveltekit-helpers';
 	import display_preferences_origin_image from './display-preferences-light.png';
 	import ScaledPixelSVG from './scaled-pixel.svelte';
 </script>

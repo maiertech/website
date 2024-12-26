@@ -8,9 +8,12 @@ importers:
 
   .:
     devDependencies:
+      '@eslint/compat':
+        specifier: ^1.2.3
+        version: 1.2.4(eslint@9.17.0(jiti@1.21.7))
       '@maiertech/sveltekit-helpers':
-        specifier: ^0.16.0
-        version: 0.16.0(@sveltejs/kit@2.15.0(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11)))(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11)))(svelte@5.16.0)(tailwindcss@3.4.17)(zod@3.24.1)
+        specifier: ^0.17.0
+        version: 0.17.0(@sveltejs/kit@2.15.0(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11)))(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11)))(svelte@5.16.0)(tailwindcss@3.4.17)(zod@3.24.1)
       '@octokit/rest':
         specifier: ^21.0.2
         version: 21.0.2
@@ -32,9 +35,6 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^4.0.4
         version: 4.0.4(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11))
-      '@types/eslint':
-        specifier: ^9.6.1
-        version: 9.6.1
       '@types/rss':
         specifier: ^0.0.32
         version: 0.0.32
@@ -416,6 +416,15 @@ packages:
     resolution: {integrity: sha512-CCZCDJuduB9OUkFkY2IgppNZMi2lBQgD2qzwXkEia16cge2pijY/aXi96CJMquDMn3nJdlPV1A5KrJEXwfLNzQ==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
+  '@eslint/compat@1.2.4':
+    resolution: {integrity: sha512-S8ZdQj/N69YAtuqFt7653jwcvuUj131+6qGLUyDqfDg1OIoBQ66OCuXC473YQfO2AaxITTutiRQiDwoo7ZLYyg==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: ^9.10.0
+    peerDependenciesMeta:
+      eslint:
+        optional: true
+
   '@eslint/config-array@0.19.1':
     resolution: {integrity: sha512-fo6Mtm5mWyKjA/Chy1BYTdn5mGJoDNjC7C64ug20ADsRDGrA85bN3uK3MaKbeRkRuuIEAR5N33Jr1pbm411/PA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -489,8 +498,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@maiertech/sveltekit-helpers@0.16.0':
-    resolution: {integrity: sha512-gJmLYb1bTvqH4PVGc6zGb7Bzl1d8OZstUZMDGDu7V01rAIraQp7XlQpyezLhjo0mmtFuev2s/rrsXd7WO4xy1A==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.16.0/eaebfe193f283c52ec141f5dcaec7d6da0b13017}
+  '@maiertech/sveltekit-helpers@0.17.0':
+    resolution: {integrity: sha512-OcK5sbUZSYUsGy4fUT0k5WX7rm6DPvOWJ+GRQnW+LgSJ/MFsMPx2lJQbrB22tVdg7FuUyclq91ZOFex9bgeKgQ==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.17.0/ebc48315fb6c3ba5cc32f502248d92cccfcb6266}
     peerDependencies:
       '@sveltejs/kit': ^2.15.0
       svelte: ^5.15.0
@@ -739,9 +748,6 @@ packages:
 
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
-
-  '@types/eslint@9.6.1':
-    resolution: {integrity: sha512-FXx2pKgId/WyYo2jXw63kk7/+TY7u7AziEJxJAnSFzHlqTAS3Ync6SvgYAN/k4/PQpnnVuzoMuVnByKK2qp0ag==}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
@@ -2410,6 +2416,10 @@ snapshots:
 
   '@eslint-community/regexpp@4.12.1': {}
 
+  '@eslint/compat@1.2.4(eslint@9.17.0(jiti@1.21.7))':
+    optionalDependencies:
+      eslint: 9.17.0(jiti@1.21.7)
+
   '@eslint/config-array@0.19.1':
     dependencies:
       '@eslint/object-schema': 2.1.5
@@ -2489,7 +2499,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@maiertech/sveltekit-helpers@0.16.0(@sveltejs/kit@2.15.0(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11)))(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11)))(svelte@5.16.0)(tailwindcss@3.4.17)(zod@3.24.1)':
+  '@maiertech/sveltekit-helpers@0.17.0(@sveltejs/kit@2.15.0(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11)))(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11)))(svelte@5.16.0)(tailwindcss@3.4.17)(zod@3.24.1)':
     dependencies:
       '@octokit/rest': 21.0.2
       '@sveltejs/kit': 2.15.0(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11)))(svelte@5.16.0)(vite@5.4.11(@types/node@20.14.11))
@@ -2748,11 +2758,6 @@ snapshots:
       - supports-color
 
   '@types/cookie@0.6.0': {}
-
-  '@types/eslint@9.6.1':
-    dependencies:
-      '@types/estree': 1.0.6
-      '@types/json-schema': 7.0.15
 
   '@types/estree@1.0.6': {}
 

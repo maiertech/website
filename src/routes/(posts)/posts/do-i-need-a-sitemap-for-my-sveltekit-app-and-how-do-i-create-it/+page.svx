@@ -12,7 +12,7 @@ tags:
 ---
 
 <script>
-	import { Figure,Image, p as P } from '@maiertech/sveltekit-helpers';
+	import { Figure, Image, P } from '@maiertech/sveltekit-helpers';
 	import submittedSitemap from './submitted-sitemap.png';
 </script>
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Figure, Image, code as Code, p as P } from '@maiertech/sveltekit-helpers';
+	import { Code, Figure, Image, P } from '@maiertech/sveltekit-helpers';
 	import always_allow_cookies_origin_image from './always-allow-cookies-light.png';
 	import cookies_not_enabled_origin_image from './cookies-not-enabled.png';
 </script>

@@ -1,13 +1,5 @@
 <script lang="ts">
-	import {
-		Figure,
-		Shiki,
-		code as Code,
-		h2 as H2,
-		ol as Ol,
-		p as P,
-		ul as Ul
-	} from '@maiertech/sveltekit-helpers';
+	import { Code, Figure, H2, Ol, P, Shiki, Ul } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 
 	interface Props {

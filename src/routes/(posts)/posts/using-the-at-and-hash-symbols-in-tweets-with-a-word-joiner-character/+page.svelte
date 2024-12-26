@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { Code, Figure, P, Shiki } from '@maiertech/sveltekit-helpers';
 	import { Tweet } from 'sveltekit-embed';
 	import CopyButton from './copy-button.svelte';
-	import { Figure, Shiki, code as Code, p as P } from '@maiertech/sveltekit-helpers';
 </script>
 
 <P>

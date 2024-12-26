@@ -1,15 +1,7 @@
 <script lang="ts">
-	import { Image } from '@maiertech/sveltekit-helpers';
-	import vercel_build_error_origin_image from './vercel-build-error.png';
-	import {
-		Figure,
-		Shiki,
-		code as Code,
-		h2 as H2,
-		ol as Ol,
-		p as P
-	} from '@maiertech/sveltekit-helpers';
+	import { Code, Figure, H2, Image, Ol, P, Shiki } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
+	import vercel_build_error_origin_image from './vercel-build-error.png';
 
 	interface Props {
 		data: PageData;

@@ -15,7 +15,8 @@
 		"test": "pnpm test:unit && pnpm run test:e2e"
 	},
 	"devDependencies": {
-		"@maiertech/sveltekit-helpers": "^0.16.0",
+		"@eslint/compat": "^1.2.3",
+		"@maiertech/sveltekit-helpers": "^0.17.0",
 		"@octokit/rest": "^21.0.2",
 		"@playwright/test": "^1.49.1",
 		"@sindresorhus/slugify": "^2.2.1",
@@ -23,7 +24,6 @@
 		"@sveltejs/adapter-vercel": "^5.5.2",
 		"@sveltejs/kit": "^2.15.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.4",
-		"@types/eslint": "^9.6.1",
 		"@types/rss": "^0.0.32",
 		"@vercel/analytics": "^1.4.1",
 		"autoprefixer": "^10.4.20",

@@ -1,13 +1,6 @@
-<script>
+<script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
-	import {
-		Figure,
-		Shiki,
-		code as Code,
-		h2 as H2,
-		p as P,
-		ul as Ul
-	} from '@maiertech/sveltekit-helpers';
+	import { Code, Figure, H2, P, Shiki, Ul } from '@maiertech/sveltekit-helpers';
 </script>
 
 <P>
