@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Button, Posts } from '$lib/components';
+	import { Button } from '@maiertech/sveltekit-helpers';
+	import { Posts } from '$lib/components';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -22,7 +23,7 @@
 		<article
 			class="flex flex-col items-start gap-[clamp(1.5rem,3vw,2rem)] rounded-md bg-secondary p-[clamp(1rem,2vw,1.5rem)]"
 		>
-			<h2>{topic.label}</h2>
+			<h2 class="text-2xl font-semibold">{topic.label}</h2>
 			<p class="flex-1 leading-6">{topic.description}</p>
 			<a href={topic.path}><Button large>Check out posts</Button></a>
 		</article>
