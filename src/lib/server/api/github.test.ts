@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { getLatestCommit } from './github-api';
+import { getLatestCommit } from './github';
 
 describe('getLatestCommit', () => {
 	test('fetch last commit for file that exists', async () => {

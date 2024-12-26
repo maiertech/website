@@ -15,6 +15,7 @@
 		"test": "pnpm test:unit && pnpm run test:e2e"
 	},
 	"devDependencies": {
+		"@atproto/api": "^0.13.23",
 		"@eslint/compat": "^1.2.3",
 		"@maiertech/sveltekit-helpers": "^0.17.0",
 		"@octokit/rest": "^21.0.2",
