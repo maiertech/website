@@ -8,7 +8,7 @@ import type {
 } from '@maiertech/sveltekit-helpers';
 import { postFrontmatterSchema, resolve } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
-import { getLatestCommit } from '../github-api';
+import { getLatestCommit } from '$lib/server/api/github';
 
 // Conscious choice: `posts` is shared backend state.
 let posts: PostType[];

@@ -11,10 +11,13 @@
 >
 	<nav aria-label="Footer" class="flex flex-wrap justify-center gap-[clamp(1rem,2vw,1.5rem)]">
 		{#each navLinks as link (link.title)}
-			<a href={link.href} class="text-primary">{link.title}</a>
+			<a href={link.href}>{link.title}</a>
 		{/each}
 	</nav>
-	<div class="flex gap-5 text-primary">
+	<div class="flex gap-5">
+		<SocialIcon href="https://bsky.app/profile/maier.tech">
+			<iconify-icon icon="simple-icons:bluesky" height="100%" class="block h-8 w-8"></iconify-icon>
+		</SocialIcon>
 		<SocialIcon
 			onclick={() => {
 				track('Mastodon icon clicked');
