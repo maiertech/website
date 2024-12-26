@@ -1,4 +1,4 @@
-import type { Post } from '@maiertech/sveltekit-helpers';
+import type { PostType } from '@maiertech/sveltekit-helpers';
 
 /**
  * Filter posts by tag.
@@ -6,7 +6,7 @@ import type { Post } from '@maiertech/sveltekit-helpers';
  * @param posts - Posts to be filtered.
  * @returns Filtered posts.
  */
-export function filterByTag(tag: string, posts: Post[]): Post[] {
+export function filterByTag(tag: string, posts: PostType[]): PostType[] {
 	return posts.filter((post) => {
 		if (!post.tags) return false;
 		return post.tags.find((t) => t.id === tag);
@@ -19,6 +19,6 @@ export function filterByTag(tag: string, posts: Post[]): Post[] {
  * @param posts - Array from which posts are selected.
  * @returns Selected posts.
  */
-export function topPosts(n: number, posts: Post[]): Post[] {
+export function topPosts(n: number, posts: PostType[]): PostType[] {
 	return posts.slice(0, n);
 }

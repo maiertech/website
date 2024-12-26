@@ -5,63 +5,31 @@
 	import 'iconify-icon';
 </script>
 
-<div class="footer">
-	<nav aria-label="Footer">
+<div
+	data-component="Footer"
+	class="flex flex-col items-center gap-6 bg-secondary py-[clamp(1.5rem,3vw,2rem)]"
+>
+	<nav aria-label="Footer" class="flex flex-wrap justify-center gap-[clamp(1rem,2vw,1.5rem)]">
 		{#each navLinks as link (link.title)}
-			<a href={link.href}>{link.title}</a>
+			<a href={link.href} class="text-primary">{link.title}</a>
 		{/each}
 	</nav>
-	<div class="social-icons">
+	<div class="flex gap-5 text-primary">
 		<SocialIcon
-			on:click={() => {
+			onclick={() => {
 				track('Mastodon icon clicked');
 			}}
 			href="https://maier.social/@thilo"
 			decorator="mastodon"
 		>
-			<iconify-icon icon="simple-icons:mastodon" height="100%"></iconify-icon>
+			<iconify-icon icon="simple-icons:mastodon" height="100%" class="block h-8 w-8"></iconify-icon>
 		</SocialIcon>
 		<SocialIcon href="https://github.com/maiertech">
-			<iconify-icon icon="simple-icons:github" height="100%"></iconify-icon>
+			<iconify-icon icon="simple-icons:github" height="100%" class="block h-8 w-8"></iconify-icon>
 		</SocialIcon>
 		<SocialIcon href="/rss.xml">
-			<iconify-icon icon="simple-icons:rss" height="100%"></iconify-icon>
+			<iconify-icon icon="simple-icons:rss" height="100%" class="block h-8 w-8"></iconify-icon>
 		</SocialIcon>
 	</div>
 	<p>&copy; {new Date().getFullYear()} Thilo Maier</p>
 </div>
-
-<style>
-	.footer {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: var(--size-5);
-		font-family: var(--font-sans);
-		background: var(--surface-2);
-		padding-block: var(--size-fluid-3);
-	}
-
-	nav {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: var(--size-fluid-2);
-
-		& a {
-			color: var(--link);
-		}
-	}
-
-	.social-icons {
-		display: flex;
-		gap: var(--size-4);
-		color: var(--link);
-
-		& iconify-icon {
-			display: block; /* Prevent inline gap below icon. */
-			inline-size: var(--size-7);
-			block-size: var(--size-7);
-		}
-	}
-</style>

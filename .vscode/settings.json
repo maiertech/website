@@ -9,11 +9,13 @@
 
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"[markdoc]": {
-		"editor.defaultFormatter": "stripe.markdoc-language-support"
-	},
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+
+	"files.associations": {
+		"*.css": "tailwindcss",
+		"*.svx": "markdown"
 	},
 
 	"git-worktree-menu.copyPaths": [".env"],

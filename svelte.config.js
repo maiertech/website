@@ -1,39 +1,52 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { markdoc } from 'svelte-markdoc-preprocess';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { mdsvex, escapeSvelte } from 'mdsvex';
+import { createHighlighter } from 'shiki';
 
-/**
- * @param {string} path Relative path to a file.
- * @returns {string} Absolute path to that file.
- */
-function absolute(path) {
-	return join(dirname(fileURLToPath(import.meta.url)), path);
-}
+/** @type {import('shiki').Highlighter | null} */
+const highlighter = await createHighlighter({
+	themes: ['min-light', 'min-dark'],
+	langs: [
+		'bash',
+		'html',
+		'javascript',
+		'json',
+		'markdown',
+		'svelte',
+		'text',
+		'typescript',
+		'yaml',
+		'xml'
+	]
+});
+/** @type {import('mdsvex').MdsvexOptions} */
+const mdsvexOptions = {
+	extensions: ['.svx'],
+	layout: {
+		_: './src/lib/mdsvex/layouts/default.svelte'
+	},
+	highlight: {
+		highlighter: async (code, lang = 'text') => {
+			const html = escapeSvelte(
+				highlighter.codeToHtml(code, {
+					lang,
+					themes: { light: 'min-light', dark: 'min-dark' }
+				})
+			);
+			return `{@html \`${html}\` }`;
+		}
+	}
+};
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
-	preprocess: [
-		vitePreprocess(),
-		markdoc({
-			generateSchema: true,
-			// layouts: {
-			// 	default: absolute('./src/lib/markdoc/layouts/default.svelte'),
-			// 	docs: absolute('./src/lib/markdoc/layouts/docs.svelte')
-			// }
-			nodes: absolute('./src/lib/markdoc/nodes.svelte'),
-			tags: absolute('./src/lib/markdoc/tags.svelte')
-		})
-	],
-
-	extensions: ['.markdoc', '.svelte'],
-
+	extensions: ['.svelte', '.svx'],
+	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 	kit: {
 		adapter: adapter({
 			images: {
-				// Restrict image generation to specific widths (Open Props breakpoints).
-				sizes: [240, 360, 480, 768, 1024, 1440, 1920],
+				// Restrict image generation to specific widths (Tailwind CSS breakpoints).
+				sizes: [640, 768, 1024, 1280, 1536],
 				formats: ['image/avif', 'image/webp'],
 				minimumCacheTTL: 300,
 				domains: ['www.maier.tech'],
@@ -46,9 +59,10 @@ export default {
 				]
 			}
 		}),
+
 		prerender: {
 			handleHttpError: ({ path, message }) => {
-				// Seems like SvelteKit crawler checks image URLs during prerendering.
+				// Seems like the SvelteKit crawler checks image URLs during prerendering.
 				// But the Vercel image optimization API is not availalbe during a build.
 				// Ignore image URLs starting with `/_vercel/image`.
 				if (path == '/_vercel/image') {

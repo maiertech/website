@@ -4,11 +4,21 @@
 	"trailingComma": "none",
 	"printWidth": 100,
 	"proseWrap": "always",
-	"plugins": ["prettier-plugin-svelte"],
+	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
 	"overrides": [
 		{
 			"files": "*.svelte",
-			"options": { "parser": "svelte" }
+			"options": {
+				"parser": "svelte"
+			}
+		},
+		{
+			"files": "*.svx",
+			"options": {
+				"parser": "markdown",
+				"proseWrap": "always",
+				"printWidth": 100
+			}
 		}
 	]
 }

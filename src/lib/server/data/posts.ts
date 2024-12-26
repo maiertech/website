@@ -1,25 +1,20 @@
 import { getAuthors } from './authors';
 import { getTags } from './tags';
-import type { Author, Post, PostFrontmatter, Tag } from '@maiertech/sveltekit-helpers';
+import type {
+	AvatarType,
+	PostType,
+	PostFrontmatterType,
+	TagType
+} from '@maiertech/sveltekit-helpers';
 import { postFrontmatterSchema, resolve } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
 import { getLatestCommit } from '../github-api';
 
 // Conscious choice: `posts` is shared backend state.
-let posts: Post[];
+let posts: PostType[];
 
 // TODO Remove one by one after converting to Markdoc.
 const legacyMetadata = [
-	{
-		title: 'Five ways to customize a Gitpod workspace',
-		author: 'thilo',
-		publishedDate: '2023-03-23T00:00:00.00Z',
-		description:
-			'Gitpod offers unique ways to customize a workspace, which sets it apart from its competitors. This post will show five ways to customize a Gitpod workspace and how they result in one of the best cloud workspace offerings.',
-		tags: ['dx', 'gitpod'],
-		path: '/posts/five-ways-to-customize-a-gitpod-workspace',
-		id: '/posts/five-ways-to-customize-a-gitpod-workspace'
-	},
 	{
 		title: 'Configuring Turborepo for a SvelteKit monorepo',
 		author: 'thilo',
@@ -39,16 +34,6 @@ const legacyMetadata = [
 		tags: ['svelte', 'typescript'],
 		path: '/posts/complement-zero-effort-type-safety-in-sveltekit-with-zod-for-even-more-type-safety',
 		id: '/posts/complement-zero-effort-type-safety-in-sveltekit-with-zod-for-even-more-type-safety'
-	},
-	{
-		title: 'Do I need a sitemap for my SvelteKit app, and how do I create it?',
-		author: 'thilo',
-		publishedDate: '2023-03-01T00:00:00.00Z',
-		description:
-			'In this post, I provide an overview of when you need a sitemap, what format it should have, and explain how to create an endpoint for a sitemap in SveltKit.',
-		tags: ['svelte', 'seo', 'web-fundamentals'],
-		path: '/posts/do-i-need-a-sitemap-for-my-sveltekit-app-and-how-do-i-create-it',
-		id: '/posts/do-i-need-a-sitemap-for-my-sveltekit-app-and-how-do-i-create-it'
 	},
 	{
 		title: 'Cookie settings for StackBlitz WebContainers',
@@ -197,12 +182,12 @@ await initialize();
 
 async function initialize() {
 	// Escape `(` and `)`. Otherwise they define a capture group that matches `posts` instead of `(posts)`.
-	const globs = import.meta.glob('/src/routes/\\(posts\\)/posts/**/*.markdoc', {
+	const globs = import.meta.glob('/src/routes/\\(posts\\)/posts/**/*.svx', {
 		eager: true
 	});
 
 	const frontmatters = Object.entries(globs).map(([filepath, post]) => {
-		const { frontmatter } = post as { frontmatter: PostFrontmatter };
+		const { metadata: frontmatter } = post as { metadata: PostFrontmatterType };
 
 		// Validate.
 		const result = postFrontmatterSchema.safeParse(frontmatter);
@@ -210,7 +195,7 @@ async function initialize() {
 			error(500, `Invalid frontmatter in ${filepath}: ${result.error.message}`);
 		}
 
-		const path = filepath.replace('/src/routes/(posts)', '').replace('/+page.markdoc', '');
+		const path = filepath.replace('/src/routes/(posts)', '').replace('/+page.svx', '');
 
 		return {
 			...frontmatter,
@@ -224,9 +209,11 @@ async function initialize() {
 	const resolvedPosts = await Promise.all(
 		metadata.map(async (post) => {
 			// Resolve author and tags.
-			const author = post.author ? resolve<Author>(post.author, getAuthors()) : undefined;
+			const author = post.author ? resolve<AvatarType>(post.author, getAuthors()) : undefined;
 			const tags = post.tags
-				? post.tags.map((tag) => resolve<Tag>(tag, getTags())).filter((tag) => tag !== undefined) // Drop tag if it cannot be resolved.
+				? post.tags
+						.map((tag) => resolve<TagType>(tag, getTags()))
+						.filter((tag) => tag !== undefined) // Drop tag if it cannot be resolved.
 				: undefined;
 			// Add `lastmodDate` (for Markdoc posts only).
 			const filepath = `src/routes/(posts)${post.path}/+page.markdoc`;
@@ -241,6 +228,6 @@ async function initialize() {
 	);
 }
 
-export function getPosts(): Post[] {
+export function getPosts(): PostType[] {
 	return posts;
 }

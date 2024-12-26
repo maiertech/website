@@ -2,18 +2,20 @@
 	import { dev } from '$app/environment';
 	import { page } from '$app/stores';
 	import { Favicon, Footer, Header } from '$lib/components';
-	import '$lib/theme.css';
 	import { Container, PageLayout, SeoBasic } from '@maiertech/sveltekit-helpers';
-	import '@maiertech/sveltekit-helpers/styles.css';
 	import { inject } from '@vercel/analytics';
+	import type { Snippet } from 'svelte';
 
-	import 'open-props/borders';
-	import 'open-props/fonts';
-	import 'open-props/indigo';
-	import 'open-props/sizes';
-	import 'open-props/stone';
+	import '@maiertech/sveltekit-helpers/themes/default.css'; // First import the theme, then the styles.
+	import '../app.css';
 
 	inject({ mode: dev ? 'development' : 'production' });
+
+	interface Props {
+		children: Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 {#if $page.data.seo}
@@ -27,17 +29,17 @@
 </svelte:head>
 
 <PageLayout>
-	<svelte:fragment slot="header">
-		<Container>
-			<Header />
+	{#snippet header()}
+		<Container width="lg">
+			<Header></Header>
 		</Container>
-	</svelte:fragment>
+	{/snippet}
 
-	<Container>
-		<slot />
+	<Container width="lg">
+		{@render children()}
 	</Container>
 
-	<svelte:fragment slot="footer">
-		<Footer />
-	</svelte:fragment>
+	{#snippet footer()}
+		<Footer></Footer>
+	{/snippet}
 </PageLayout>

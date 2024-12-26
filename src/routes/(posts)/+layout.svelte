@@ -6,26 +6,23 @@
 		SeoLdPost
 	} from '@maiertech/sveltekit-helpers';
 	import type { LayoutData } from './$types';
+	import type { Snippet } from 'svelte';
 
-	export let data: LayoutData;
+	interface Props {
+		data: LayoutData;
+		children: Snippet;
+	}
+
+	let { data, children }: Props = $props();
 </script>
 
 <SeoLdPost post={data.post} />
 <SeoFediverseCreator username="@thilo@maier.social" />
 
 <ContentLayout>
-	<PostHeader post={data.post} slot="header" />
-	<article>
-		<slot />
-	</article>
-</ContentLayout>
+	{#snippet header()}
+		<PostHeader post={data.post} class="mb-12" />
+	{/snippet}
 
-<style>
-	article {
-		display: grid;
-		/* Prevent grid blowout: https://courses.joshwcomeau.com/css-for-js/07-css-grid/16-managing-overflow. */
-		grid-template-columns: repeat(1, minmax(0, 1fr));
-		gap: var(--size-fluid-3);
-		margin-bottom: var(--size-fluid-4);
-	}
-</style>
+	{@render children()}
+</ContentLayout>

@@ -3,48 +3,17 @@
 	import navLinks from '$lib/nav-links';
 </script>
 
-<div class="header">
-	<div class="logo"><Logo /></div>
-	<div class="title">Thilo Maier</div>
-	<nav>
+<div
+	data-component="Header"
+	class="flex items-center justify-start gap-[clamp(.5rem,1vw,1rem)] py-6 text-primary"
+>
+	<div class="w-[clamp(2rem,4vw,3rem)]"><Logo /></div>
+	<div class="text-[clamp(1.5rem,6vw,2.5rem)] font-semibold">Thilo Maier</div>
+	<nav class="flex flex-1 justify-end gap-[clamp(.5rem,1vw,1rem)]">
 		{#each navLinks.slice(1) as link (link.title)}
-			<a href={link.href}>
+			<a href={link.href} class="text-[clamp(1rem,4vw,1.5rem)] font-medium">
 				{link.title}
 			</a>
 		{/each}
 	</nav>
 </div>
-
-<style>
-	.header {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		gap: var(--size-fluid-1);
-		font-family: var(--font-sans);
-		color: var(--brand);
-		padding: var(--size-5) 0;
-	}
-
-	.logo {
-		width: var(--size-fluid-4);
-	}
-
-	.title {
-		font-size: var(--font-size-fluid-2);
-		font-weight: var(--font-weight-6);
-	}
-
-	nav {
-		flex: 1;
-		display: flex;
-		justify-content: flex-end;
-		gap: var(--size-fluid-1);
-
-		& > a {
-			font-size: var(--font-size-fluid-1);
-			font-weight: var(--font-weight-5);
-			color: var(--link);
-		}
-	}
-</style>
