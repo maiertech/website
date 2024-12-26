@@ -1,6 +1,6 @@
-<script>
-	import { Figure, Image, Shiki, h2 as H2, p as P } from '@maiertech/sveltekit-helpers';
-	import StackBlitzEmbed from '$lib/components/stackblitz-embed.svelte';
+<script lang="ts">
+	import { StackblitzEmbed } from '$lib/components';
+	import { Figure, H2, Image, P, Shiki } from '@maiertech/sveltekit-helpers';
 	import csb_new_sandbox_dialog_origin_image from './csb-new-sandbox-dialog.png';
 	import csb_svelte_template_origin_image from './csb-svelte-template.png';
 	import stackblitz_dashboard_origin_image from './stackblitz-dashboard.png';
@@ -153,7 +153,7 @@
 </P>
 
 <Figure class="mb-6">
-	<StackBlitzEmbed
+	<StackblitzEmbed
 		project="vitejs/vite/tree/main/packages/create-vite/template-svelte"
 		options={{ openFile: 'src/App.svelte' }}
 	/>
@@ -173,7 +173,7 @@
 </P>
 
 <Figure class="mb-6">
-	<StackBlitzEmbed
+	<StackblitzEmbed
 		project="vitejs/vite/tree/main/packages/create-vite/template-svelte-ts"
 		options={{ openFile: 'src/App.svelte' }}
 	/>

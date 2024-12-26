@@ -1,13 +1,6 @@
 <script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
-	import {
-		code as Code,
-		Figure,
-		h2 as H2,
-		Image,
-		p as P,
-		Shiki
-	} from '@maiertech/sveltekit-helpers';
+	import { Code, Figure, H2, Image, P, Shiki } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 	import active_example_button_active_origin_image from './active-example-button-active.png';
 	import active_example_input_active_origin_image from './active-example-input-active.png';

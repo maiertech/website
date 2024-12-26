@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { code as Code, h2 as H2, p as P, ul as Ul } from '@maiertech/sveltekit-helpers';
+	import { Code, H2, P, Ul } from '@maiertech/sveltekit-helpers';
 </script>
 
 <P>

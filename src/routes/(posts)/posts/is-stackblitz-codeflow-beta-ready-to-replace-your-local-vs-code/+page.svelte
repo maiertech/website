@@ -1,14 +1,5 @@
 <script lang="ts">
-	import {
-		Figure,
-		Image,
-		Shiki,
-		code as Code,
-		h2 as H2,
-		ol as Ol,
-		p as P,
-		ul as Ul
-	} from '@maiertech/sveltekit-helpers';
+	import { Code, Figure, H2, Image, Ol, P, Shiki, Ul } from '@maiertech/sveltekit-helpers';
 	import codeflow_bot_light_origin_image from './codeflow-bot-light.png';
 	import unsupported_extensions from './unsupported-extensions.png';
 </script>

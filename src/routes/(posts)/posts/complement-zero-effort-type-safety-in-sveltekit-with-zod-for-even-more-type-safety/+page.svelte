@@ -1,13 +1,5 @@
 <script lang="ts">
-	import {
-		Figure,
-		Image,
-		Shiki,
-		code as Code,
-		h2 as H2,
-		ol as Ol,
-		p as P
-	} from '@maiertech/sveltekit-helpers';
+	import { Code, Figure, H2, Image, Ol, P, Shiki } from '@maiertech/sveltekit-helpers';
 	import zod_type_inference_example_1_origin_image from './zod-type-inference-example-1.png';
 	import zod_type_inference_example_2_origin_image from './zod-type-inference-example-2.png';
 
