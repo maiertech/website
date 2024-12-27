@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { Ul } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
-	import { H1, Ul } from '@maiertech/sveltekit-helpers';
 
 	interface Props {
 		data: PageData;
