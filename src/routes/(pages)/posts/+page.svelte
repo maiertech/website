@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Ul } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -10,10 +11,10 @@
 
 <h1 class="mb-[clamp(1rem,2vw,1.5rem)] text-4xl font-bold">{data.seo.title}</h1>
 
-<ul>
+<Ul>
 	{#each data.posts as post (post.path)}
 		<li>
 			<a href={post.path}>{post.title}</a>
 		</li>
 	{/each}
-</ul>
+</Ul>
