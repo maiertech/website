@@ -1,0 +1,11 @@
+Instead of setting environment variables in your terminal, you can also set them in your user
+`settings.json` in VS Code. Here is an example for a `GITHUB_TOKEN`:
+
+```json
+"terminal.integrated.env.osx": {
+  "GITHUB_TOKEN": "ghp_aBc1dEfGhIjKlMnOpQrStUvWxYz0123456789"
+}
+```
+
+With settings sync active in VS Code, you can take your environment variables with you when working
+on another machine.
