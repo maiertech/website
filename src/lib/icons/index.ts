@@ -1,1 +1,1 @@
-export { default as LinkIcon } from 'lucide-svelte/icons/Link';
+export { default as LinkIcon } from 'lucide-svelte/icons/link';
