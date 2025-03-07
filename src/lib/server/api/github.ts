@@ -1,5 +1,5 @@
-import { Octokit } from '@octokit/rest';
 import { GITHUB_TOKEN } from '$env/static/private';
+import { Octokit } from '@octokit/rest';
 
 const octokit = new Octokit({
 	auth: GITHUB_TOKEN
@@ -7,12 +7,13 @@ const octokit = new Octokit({
 
 /**
  * Get latest commit for path in repository maiertech/website.
+ *
  * @returns Promise with the latest commit data.
  */
 export async function getLatestCommit(path: string) {
 	const {
 		data: [latestCommit]
-	} = await octokit.repos.listCommits({
+	} = await octokit.rest.repos.listCommits({
 		owner: 'maiertech',
 		repo: 'website',
 		path,

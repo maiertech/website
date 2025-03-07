@@ -1,9 +1,9 @@
-import { subscribeFormSchema } from '$lib/schemas';
+import { subscribeFormSchema, noteMetadataSchema } from '$lib/schemas';
 import type { EmbedOptions, Project } from '@stackblitz/sdk';
 import type { z } from 'zod';
 
-// Inferred from local schemas.
-
+// Inferred from schemas.
+export type NoteMetadata = z.infer<typeof noteMetadataSchema>;
 export type SubscribeForm = z.infer<typeof subscribeFormSchema>;
 
 // Other types.
