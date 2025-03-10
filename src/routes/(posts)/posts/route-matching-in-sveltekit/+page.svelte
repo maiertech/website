@@ -70,7 +70,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="bash" code={`$ svelte-kit dev > Duplicate route files: src/routes/red`} />
+	<Shiki lang="bash" code="$ svelte-kit dev > Duplicate route files: src/routes/red" />
 </Figure>
 
 <P>
@@ -85,7 +85,7 @@
 <P>Delete <Code>src/routes/red.svelte</Code> and run</P>
 
 <Figure class="mb-6">
-	<Shiki lang="bash" code={`npm run dev`} />
+	<Shiki lang="bash" code="npm run dev" />
 </Figure>
 
 <P>to restart the development server.</P>

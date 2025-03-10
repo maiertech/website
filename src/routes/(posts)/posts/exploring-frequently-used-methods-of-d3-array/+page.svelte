@@ -48,7 +48,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="javascript" code={`(d) => new Date(d.date);`} />
+	<Shiki lang="javascript" code="(d) => new Date(d.date);" />
 </Figure>
 
 <P>
@@ -117,7 +117,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="javascript" code={`range(0, 1, 0.2).map((n) => n.toFixed(1));`} />
+	<Shiki lang="javascript" code="range(0, 1, 0.2).map((n) => n.toFixed(1));" />
 </Figure>
 
 <P>
@@ -133,7 +133,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="javascript" code={`ticks(start, stop, count);`} />
+	<Shiki lang="javascript" code="ticks(start, stop, count);" />
 </Figure>
 
 <P>

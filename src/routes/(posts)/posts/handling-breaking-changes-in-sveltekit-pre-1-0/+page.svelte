@@ -110,7 +110,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="bash" code={`npx svelte-migrate routes`} />
+	<Shiki lang="bash" code="npx svelte-migrate routes" />
 </Figure>
 
 <P>
@@ -156,17 +156,17 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="json" code={`"vite": "^3.1.0-beta.1"`} />
+	<!-- eslint-disable-next-line svelte/no-useless-mustaches -->
+	<Shiki lang="json" code={'"vite": "^3.1.0-beta.1"'} />
 </Figure>
 
-<p>
-	And
+<P>
 	<a href="https://github.com/sveltejs/kit/blob/master/packages/kit/CHANGELOG.md#100-next455"
 		>1.0.0-next.455</a
 	>
 	overhauls prerendering. Read the docs on
 	<a href="https://kit.svelte.dev/docs/page-options">page options</a> to find out what has changed.
-</p>
+</P>
 
 <H3>SvelteKit 1.0.0-next.463</H3>
 
