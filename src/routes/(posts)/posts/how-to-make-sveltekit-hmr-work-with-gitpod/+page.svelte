@@ -76,7 +76,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code={`<uuid>.<region>.gitpod.io`} />
+	<Shiki lang="text" code="<uuid>.<region>.gitpod.io" />
 </Figure>
 
 <P>
@@ -113,13 +113,13 @@ tasks:
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code={`<port>-<workspace-id>.<region>.gitpod.io`} />
+	<Shiki lang="text" code="<port>-<workspace-id>.<region>.gitpod.io" />
 </Figure>
 
 <P>E.g., I wrote this post on a Gitpod workspace running at</P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code={`https://maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/`} />
+	<Shiki lang="text" code="https://maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/" />
 </Figure>
 
 <P>
@@ -130,7 +130,7 @@ tasks:
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code={`https://5173-maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/`} />
+	<Shiki lang="text" code="https://5173-maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/" />
 </Figure>
 
 <P>You can access the development server only when authenticated to Gitpod.</P>

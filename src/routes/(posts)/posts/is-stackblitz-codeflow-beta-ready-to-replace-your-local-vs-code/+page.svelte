@@ -58,7 +58,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code={`https://github.com/maiertech/maier.tech/issues/589`} />
+	<Shiki lang="text" code="https://github.com/maiertech/maier.tech/issues/589" />
 </Figure>
 
 <P>
@@ -67,7 +67,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code={`https://pr.new/github.com/maiertech/maier.tech/issues/589`} />
+	<Shiki lang="text" code="https://pr.new/github.com/maiertech/maier.tech/issues/589" />
 </Figure>
 
 <P>

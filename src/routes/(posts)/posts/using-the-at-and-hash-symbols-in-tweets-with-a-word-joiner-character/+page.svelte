@@ -49,4 +49,4 @@
 	below to copy a word joiner and paste it into your tweet draft.
 </P>
 
-<CopyButton text={'\u2060'}>Copy U+2060 WORD JOINER</CopyButton>
+<CopyButton text="\u2060">Copy U+2060 WORD JOINER</CopyButton>

@@ -99,7 +99,7 @@
 <Figure class="mb-6">
 	<Shiki
 		lang="text"
-		code={`[[ "fingerprint1" == "fingerprint2" ]] && echo "Equal" || echo "Not equal"`}
+		code="[[ 'fingerprint1' == 'fingerprint2' ]] && echo 'Equal' || echo 'Not equal'"
 	/>
 </Figure>
 
@@ -118,7 +118,7 @@
 <Figure class="mb-6">
 	<Shiki
 		lang="text"
-		code={`Warning: Permanently added 'github.com,140.82.114.3' (RSA) to the list of known hosts.`}
+		code="Warning: Permanently added 'github.com,140.82.114.3' (RSA) to the list of known hosts."
 	/>
 </Figure>
 
