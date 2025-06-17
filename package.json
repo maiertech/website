@@ -38,7 +38,7 @@
 		"eslint-plugin-svelte": "^3.9.2",
 		"globals": "^16.2.0",
 		"iconify-icon": "^2.3.0",
-		"mdsvex": "0.12.3",
+		"mdsvex": "^0.12.6",
 		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.4.0",
 		"prettier-plugin-tailwindcss": "^0.6.12",
