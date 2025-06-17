@@ -2,7 +2,7 @@
 	import navLinks from '$lib/nav-links';
 	import { track } from '@vercel/analytics';
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
-	import 'iconify-icon';
+	import Icon from '@iconify/svelte';
 </script>
 
 <div
@@ -16,7 +16,7 @@
 	</nav>
 	<div class="flex gap-5">
 		<SocialIcon href="https://bsky.app/profile/maier.tech" ariaLabel="Follow me on BlueSky">
-			<iconify-icon icon="simple-icons:bluesky" height="100%" class="block h-8 w-8"></iconify-icon>
+			<Icon icon="simple-icons:bluesky" height="100%" class="block h-8 w-8"></Icon>
 		</SocialIcon>
 		<SocialIcon
 			onclick={() => {
@@ -26,13 +26,13 @@
 			decorator="mastodon"
 			ariaLabel="Follow me on Mastodon"
 		>
-			<iconify-icon icon="simple-icons:mastodon" height="100%" class="block h-8 w-8"></iconify-icon>
+			<Icon icon="simple-icons:mastodon" height="100%" class="block h-8 w-8"></Icon>
 		</SocialIcon>
 		<SocialIcon href="https://github.com/maiertech" ariaLabel="Follow me on GitHub">
-			<iconify-icon icon="simple-icons:github" height="100%" class="block h-8 w-8"></iconify-icon>
+			<Icon icon="simple-icons:github" height="100%" class="block h-8 w-8"></Icon>
 		</SocialIcon>
 		<SocialIcon href="/rss.xml" ariaLabel="Subscribe to my RSS feed">
-			<iconify-icon icon="simple-icons:rss" height="100%" class="block h-8 w-8"></iconify-icon>
+			<Icon icon="simple-icons:rss" height="100%" class="block h-8 w-8"></Icon>
 		</SocialIcon>
 	</div>
 	<p>&copy; {new Date().getFullYear()} Thilo Maier</p>

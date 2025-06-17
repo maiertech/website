@@ -17,6 +17,9 @@ importers:
       '@eslint/js':
         specifier: ^9.29.0
         version: 9.29.0
+      '@iconify/svelte':
+        specifier: ^5.0.0
+        version: 5.0.0(svelte@5.34.4)
       '@lucide/svelte':
         specifier: ^0.516.0
         version: 0.516.0(svelte@5.34.4)
@@ -68,9 +71,6 @@ importers:
       globals:
         specifier: ^16.2.0
         version: 16.2.0
-      iconify-icon:
-        specifier: ^2.3.0
-        version: 2.3.0
       mdsvex:
         specifier: ^0.12.6
         version: 0.12.6(svelte@5.34.4)
@@ -364,6 +364,11 @@ packages:
   '@humanwhocodes/retry@0.4.3':
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
+
+  '@iconify/svelte@5.0.0':
+    resolution: {integrity: sha512-Bm5iKnNpIWHuUlWaaf16QgVL1tcbQUUSdPdkvDlpmYXg3nFJSA1SLY9V4rRTd+K4h3QT12ZS7JHFLkf8khQd8Q==}
+    peerDependencies:
+      svelte: '>4.0.0'
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -1333,9 +1338,6 @@ packages:
   https-proxy-agent@7.0.6:
     resolution: {integrity: sha512-vK9P5/iUfdl95AI+JVyUuIcVtd4ofvtrOr3HNtM2yxC9bnMbEdp3x01OhQNnjb8IJYi38VlTE3mBXwcfvywuSw==}
     engines: {node: '>= 14'}
-
-  iconify-icon@2.3.0:
-    resolution: {integrity: sha512-C0beI9oTDxQz6voI5CKl7MiJf0Lw4UU8K4G4t6pcUDClLmCvuMOpcvd8MAztQ2SfoH0iv7WHdxBFjekKPFKH2Q==}
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
@@ -2383,6 +2385,11 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
+  '@iconify/svelte@5.0.0(svelte@5.34.4)':
+    dependencies:
+      '@iconify/types': 2.0.0
+      svelte: 5.34.4
+
   '@iconify/types@2.0.0': {}
 
   '@isaacs/cliui@8.0.2':
@@ -3396,10 +3403,6 @@ snapshots:
       debug: 4.4.1
     transitivePeerDependencies:
       - supports-color
-
-  iconify-icon@2.3.0:
-    dependencies:
-      '@iconify/types': 2.0.0
 
   ignore@5.3.2: {}
 
