@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { NoteMetadata } from '$lib/types';
 	import type { Snippet } from 'svelte';
-	import { LinkIcon } from '$lib/icons';
+	import { LinkIcon } from '@lucide/svelte';
 	import { Badge, formatDate } from '@maiertech/sveltekit-helpers';
 
 	interface Props {
