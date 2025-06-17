@@ -1,13 +1,27 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
 
-@import './fonts/roboto/font.css';
-@import './fonts/spectral/font.css';
+@import './fonts/roboto/font.css' layer(utilities);
+@import './fonts/spectral/font.css' layer(utilities);
+
+@source '../node_modules/@maiertech/sveltekit-helpers/**/*.{js,svelte}';
+
+@theme {
+	--font-*: initial;
+	--font-sans:
+		Roboto, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol', 'Noto Color Emoji';
+	--font-serif: Spectral, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+	--color-ink: var(--ink);
+	--color-surface: var(--surface);
+	--color-primary: var(--primary);
+	--color-secondary: var(--secondary);
+	--color-accent: var(--accent);
+}
 
 @layer base {
 	:root {
-		@apply text-pretty bg-surface text-ink;
+		@apply bg-surface text-pretty text-ink;
 	}
 
 	a {
