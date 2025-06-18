@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code, Figure, H2, P, Shiki, Ul } from '@maiertech/sveltekit-helpers';
+	import { Code, CodeSnippet, Figure, H2, P, Ul } from '@maiertech/sveltekit-helpers';
 </script>
 
 <P>
@@ -76,7 +76,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code="<uuid>.<region>.gitpod.io" />
+	<CodeSnippet lang="text" src="<uuid>.<region>.gitpod.io" />
 </Figure>
 
 <P>
@@ -93,9 +93,9 @@
 </P>
 
 <Figure caption=".gitpod.yml" class="mb-6">
-	<Shiki
+	<CodeSnippet
 		lang="yaml"
-		code={`ports:
+		src={`ports:
     # Expose port 5173.
   - port: 5173
 
@@ -113,13 +113,13 @@ tasks:
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code="<port>-<workspace-id>.<region>.gitpod.io" />
+	<CodeSnippet lang="text" src="<port>-<workspace-id>.<region>.gitpod.io" />
 </Figure>
 
 <P>E.g., I wrote this post on a Gitpod workspace running at</P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code="https://maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/" />
+	<CodeSnippet lang="text" src="https://maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/" />
 </Figure>
 
 <P>
@@ -130,7 +130,7 @@ tasks:
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code="https://5173-maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/" />
+	<CodeSnippet lang="text" src="https://5173-maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/" />
 </Figure>
 
 <P>You can access the development server only when authenticated to Gitpod.</P>
@@ -140,9 +140,9 @@ tasks:
 <P>Next, we override a the HMR configuration in <Code>vite.config.js</Code>:</P>
 
 <Figure caption="vite.config.js" class="mb-6">
-	<Shiki
+	<CodeSnippet
 		lang="javascript"
-		code={`// ...
+		src={`// ...
 server: {
   hmr: {
     clientPort: process.env.GITPOD_WORKSPACE_URL ? 443 : 5173,

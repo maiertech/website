@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code, Figure, H2, H3, P, Shiki, Ul } from '@maiertech/sveltekit-helpers';
+	import { Code, CodeSnippet, Figure, H2, H3, P, Ul } from '@maiertech/sveltekit-helpers';
 </script>
 
 <P>
@@ -110,7 +110,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="bash" code="npx svelte-migrate routes" />
+	<CodeSnippet lang="bash" src="npx svelte-migrate routes" />
 </Figure>
 
 <P>
@@ -157,7 +157,7 @@
 
 <Figure class="mb-6">
 	<!-- eslint-disable-next-line svelte/no-useless-mustaches -->
-	<Shiki lang="json" code={'"vite": "^3.1.0-beta.1"'} />
+	<CodeSnippet lang="json" src={'"vite": "^3.1.0-beta.1"'} />
 </Figure>
 
 <P>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
-	import { Figure, H2, Image, P, Shiki } from '@maiertech/sveltekit-helpers';
+	import { CodeSnippet, Figure, H2, P, VercelImage } from '@maiertech/sveltekit-helpers';
 	import csb_new_sandbox_dialog_origin_image from './csb-new-sandbox-dialog.png';
 	import csb_svelte_template_origin_image from './csb-svelte-template.png';
 	import stackblitz_dashboard_origin_image from './stackblitz-dashboard.png';
@@ -42,7 +42,7 @@
 	caption="Click the download button in the Svelte REPL to download the source code of an example."
 	class="mb-6"
 >
-	<Image
+	<VercelImage
 		src={svelte_repl_origin_image}
 		alt="Screenshot of a project running in the Svelte REPL. A blue arrow points at the download button."
 	/>
@@ -57,7 +57,7 @@
 	caption="Code examples in the Svelte REPL use the legacy Svelte template, which uses Rollup as a bundler."
 	class="mb-6"
 >
-	<Image
+	<VercelImage
 		src={svelte_template_origin_image}
 		alt="Screenshot of VS Code with the code downloaded from the from the Svelte REPL. File package.json is open, and you can see the dependencies of the deprecated Svelte template."
 	/>
@@ -85,7 +85,7 @@
 </P>
 
 <Figure caption="CodeSandbox has a sandbox template for Svelte." class="mb-6">
-	<Image
+	<VercelImage
 		src={csb_new_sandbox_dialog_origin_image}
 		alt="Screenshot of the CodeSandbox dialog to select a template for a new sandbox. The Svelte template is highlighted."
 	/>
@@ -100,7 +100,7 @@
 	caption="CodeSandbox's Svelte template is a variation of the deprecated Svelte template."
 	class="mb-6"
 >
-	<Image
+	<VercelImage
 		src={csb_svelte_template_origin_image}
 		alt="Screenshot of CodeSandbox's Svelte template running in-browser. File package.json is open, and you can see the dependencies of the deprecated Svelte template."
 	/>
@@ -131,7 +131,7 @@
 </P>
 
 <Figure caption="StackBlitz supports the official Vite Svelte templates." class="mb-6">
-	<Image
+	<VercelImage
 		src={stackblitz_dashboard_origin_image}
 		alt="Screenshot of StackBlitz's dashboard. The two Svelte templates, one for vanilla JavaScript and one for TypeScript, are highlighted."
 	/>
@@ -144,7 +144,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="bash" code="npm create vite@latest my-svelte-app -- --template svelte" />
+	<CodeSnippet lang="bash" src="npm create vite@latest my-svelte-app -- --template svelte" />
 </Figure>
 
 <P>
@@ -165,7 +165,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="bash" code="npm create vite@latest my-svelte-ts-app -- --template svelte-ts" />
+	<CodeSnippet lang="bash" src="npm create vite@latest my-svelte-ts-app -- --template svelte-ts" />
 </Figure>
 
 <P>

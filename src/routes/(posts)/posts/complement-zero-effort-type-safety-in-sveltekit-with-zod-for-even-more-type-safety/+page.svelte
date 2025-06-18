@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code, Figure, H2, Image, Ol, P, Shiki } from '@maiertech/sveltekit-helpers';
+	import { Code, CodeSnippet, Figure, H2, Ol, P, VercelImage } from '@maiertech/sveltekit-helpers';
 	import zod_type_inference_example_1_origin_image from './zod-type-inference-example-1.png';
 	import zod_type_inference_example_2_origin_image from './zod-type-inference-example-2.png';
 
@@ -21,11 +21,11 @@
 </P>
 
 <Figure caption="JSDoc type annotation in +page.js." class="mb-6">
-	<Shiki lang="javascript" code={data.examples['+page.js']} />
+	<CodeSnippet lang="javascript" src={data.examples['+page.js']} />
 </Figure>
 
 <Figure caption="Another JSDoc type annotation in +page.svelte." class="mb-6">
-	<Shiki lang="svelte" code={data.examples['+page.svelte']} />
+	<CodeSnippet lang="svelte" src={data.examples['+page.svelte']} />
 </Figure>
 
 <P>
@@ -73,7 +73,7 @@
 </P>
 
 <Figure caption="src/lib/schemas/post-schema.js" class="mb-6">
-	<Shiki lang="javascript" code={data.examples['src/lib/schemas/post-schema.js']} />
+	<CodeSnippet lang="javascript" src={data.examples['src/lib/schemas/post-schema.js']} />
 </Figure>
 
 <P>
@@ -88,7 +88,7 @@
 </P>
 
 <Figure caption="Frontmatter validation in src/lib/posts.js." class="mb-6">
-	<Shiki lang="javascript" code={data.examples['src/lib/posts.js']} />
+	<CodeSnippet lang="javascript" src={data.examples['src/lib/posts.js']} />
 </Figure>
 
 <P>
@@ -97,7 +97,7 @@
 </P>
 
 <Figure caption="Zod infers the type of validated data from the schema." class="mb-6">
-	<Image
+	<VercelImage
 		src={zod_type_inference_example_1_origin_image}
 		alt="Screenshot of the code snippet from above in Visual Studio Code. The mouse hovers over `frontmatter.title`, and a pop-up shows the type `string` and the description from the `PostSchema` Zod schema."
 	/>
@@ -116,7 +116,7 @@
 </P>
 
 <Figure caption="Validating data retrieved from an API in +page.server.js." class="mb-6">
-	<Shiki lang="javascript" code={data.examples['+page.server.js']} />
+	<CodeSnippet lang="javascript" src={data.examples['+page.server.js']} />
 </Figure>
 
 <P>
@@ -135,7 +135,7 @@
 	caption="The subscriber variable is validated and typed, thanks to Zod's type inference."
 	class="mb-6"
 >
-	<Image
+	<VercelImage
 		src={zod_type_inference_example_2_origin_image}
 		alt="Screenshot of the code snippet from above in Visual Studio Code. The mouse hovers over the validated `subscriber` variable, and a pop-up shows the object type inferred from the `EOSubscriber` Zod schema."
 	/>

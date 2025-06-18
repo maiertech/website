@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code, Figure, H2, P, Shiki, Ul } from '@maiertech/sveltekit-helpers';
+	import { Code, CodeSnippet, Figure, H2, P, Ul } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -61,7 +61,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code={data.examples['gh-auth-login']} />
+	<CodeSnippet lang="text" src={data.examples['gh-auth-login']} />
 </Figure>
 
 <P>
@@ -72,9 +72,9 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki
+	<CodeSnippet
 		lang="text"
-		code={`✓ Configured git protocol
+		src={`✓ Configured git protocol
 ✓ Uploaded the SSH key to your GitHub account: /Users/thilo/.ssh/id_ed25519.pub
 ✓ Logged in as maiertech`}
 	/>
@@ -88,7 +88,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code={data.examples['verify-ssh-key']} />
+	<CodeSnippet lang="text" src={data.examples['verify-ssh-key']} />
 </Figure>
 
 <P>
@@ -97,9 +97,9 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki
+	<CodeSnippet
 		lang="text"
-		code="[[ 'fingerprint1' == 'fingerprint2' ]] && echo 'Equal' || echo 'Not equal'"
+		src="[[ 'fingerprint1' == 'fingerprint2' ]] && echo 'Equal' || echo 'Not equal'"
 	/>
 </Figure>
 
@@ -116,9 +116,9 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki
+	<CodeSnippet
 		lang="text"
-		code="Warning: Permanently added 'github.com,140.82.114.3' (RSA) to the list of known hosts."
+		src="Warning: Permanently added 'github.com,140.82.114.3' (RSA) to the list of known hosts."
 	/>
 </Figure>
 

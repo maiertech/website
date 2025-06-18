@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code, Figure, P, Shiki } from '@maiertech/sveltekit-helpers';
+	import { Code, CodeSnippet, Figure, P } from '@maiertech/sveltekit-helpers';
 	import { Tweet } from 'sveltekit-embed';
 	import CopyButton from './copy-button.svelte';
 </script>
@@ -33,7 +33,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="javascript" code={`const string = '@const';\n` + `string.charCodeAt(1);`} />
+	<CodeSnippet lang="javascript" src={`const string = '@const';\n` + `string.charCodeAt(1);`} />
 </Figure>
 
 <P>

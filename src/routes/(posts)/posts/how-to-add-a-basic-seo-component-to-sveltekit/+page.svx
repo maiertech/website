@@ -19,7 +19,7 @@ links:
 ---
 
 <script>
-	import { Figure, Shiki } from '@maiertech/sveltekit-helpers';
+	import { CodeSnippet, Figure } from '@maiertech/sveltekit-helpers';
 	import app_html from './examples/app.html?raw';
 	import seo_data_flow_png from './seo-data-flow.png';
 </script>
@@ -36,7 +36,7 @@ You need to put SEO data into the `<head>` element of each page as
 SvelteKit adds them for you in `src/app.html`, e.g., meta charset and meta viewport:
 
 <Figure caption="src/app.html" class="mb-6">
-	<Shiki code={app_html} lang="html" />
+	<CodeSnippet lang="html" src={app_html} />
 </Figure>
 
 Other meta tags are page-specific, and you need to figure out a way to set them for each page.

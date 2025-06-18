@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
-	import { Code, Figure, H2, P, Shiki } from '@maiertech/sveltekit-helpers';
+	import { Code, CodeSnippet, Figure, H2, P } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -48,7 +48,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="javascript" code="(d) => new Date(d.date);" />
+	<CodeSnippet lang="javascript" src="(d) => new Date(d.date);" />
 </Figure>
 
 <P>
@@ -117,7 +117,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="javascript" code="range(0, 1, 0.2).map((n) => n.toFixed(1));" />
+	<CodeSnippet lang="javascript" src="range(0, 1, 0.2).map((n) => n.toFixed(1));" />
 </Figure>
 
 <P>
@@ -133,7 +133,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="javascript" code="ticks(start, stop, count);" />
+	<CodeSnippet lang="javascript" src="ticks(start, stop, count);" />
 </Figure>
 
 <P>
