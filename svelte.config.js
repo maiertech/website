@@ -53,8 +53,8 @@ export default {
 	kit: {
 		adapter: adapter({
 			images: {
-				// Restrict image generation to specific widths (Tailwind CSS breakpoints).
-				sizes: [640, 768, 1024, 1280, 1536],
+				// Restrict image generation to specific widths (defaults used by `VercelImage`).
+				sizes: [160, 320, 480, 640, 768, 1024, 1280, 1536, 1920, 2560],
 				formats: ['image/avif', 'image/webp'],
 				minimumCacheTTL: 300,
 				domains: ['www.maier.tech'],
