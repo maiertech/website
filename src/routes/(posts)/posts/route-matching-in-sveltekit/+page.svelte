@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
-	import { Code, Figure, H2, P, Shiki, Ul } from '@maiertech/sveltekit-helpers';
+	import { Code, Figure, H2, P, CodeSnippet, Ul } from '@maiertech/sveltekit-helpers';
 </script>
 
 <P>
@@ -70,7 +70,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="bash" code="$ svelte-kit dev > Duplicate route files: src/routes/red" />
+	<CodeSnippet lang="bash" src="$ svelte-kit dev > Duplicate route files: src/routes/red" />
 </Figure>
 
 <P>
@@ -85,7 +85,7 @@
 <P>Delete <Code>src/routes/red.svelte</Code> and run</P>
 
 <Figure class="mb-6">
-	<Shiki lang="bash" code="npm run dev" />
+	<CodeSnippet lang="bash" src="npm run dev" />
 </Figure>
 
 <P>to restart the development server.</P>

@@ -1,5 +1,15 @@
 <script lang="ts">
-	import { Figure, Image, H2, P, Table, Td, Th, Thead, Ol } from '@maiertech/sveltekit-helpers';
+	import {
+		Figure,
+		H2,
+		Ol,
+		P,
+		Table,
+		Td,
+		Th,
+		Thead,
+		VercelImage
+	} from '@maiertech/sveltekit-helpers';
 	import display_preferences_origin_image from './display-preferences-light.png';
 	import ScaledPixelSVG from './scaled-pixel.svelte';
 </script>
@@ -87,7 +97,10 @@
 <P>MacOS always uses the default resolution unless you opt for a different scaled resolution:</P>
 
 <Figure caption="MacOS lets you choose your preferred scaled resolution." class="mb-6">
-	<Image src={display_preferences_origin_image} alt="Screenshot of display preferences on macOS." />
+	<VercelImage
+		src={display_preferences_origin_image}
+		alt="Screenshot of display preferences on macOS."
+	/>
 </Figure>
 
 <P>

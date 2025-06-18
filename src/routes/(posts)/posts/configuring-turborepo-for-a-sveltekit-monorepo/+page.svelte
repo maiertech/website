@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code, Figure, H2, Image, Ol, P, Shiki } from '@maiertech/sveltekit-helpers';
+	import { Code, CodeSnippet, Figure, H2, Ol, P, VercelImage } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 	import vercel_build_error_origin_image from './vercel-build-error.png';
 
@@ -35,7 +35,7 @@
 </P>
 
 <Figure caption="File tree for the maier.tech monorepo." class="mb-6">
-	<Shiki lang="bash" code={data.examples['file-tree.txt']} />
+	<CodeSnippet lang="bash" src={data.examples['file-tree.txt']} />
 </Figure>
 
 <P>
@@ -44,7 +44,7 @@
 </P>
 
 <Figure caption="package.json" class="mb-6">
-	<Shiki lang="json" code={data.examples['package.json']} />
+	<CodeSnippet lang="json" src={data.examples['package.json']} />
 </Figure>
 
 <P>
@@ -63,7 +63,7 @@
 </P>
 
 <Figure caption="turbo.json" class="mb-6">
-	<Shiki lang="json" code={data.examples['turbo.json']} />
+	<CodeSnippet lang="json" src={data.examples['turbo.json']} />
 </Figure>
 
 <P>
@@ -110,7 +110,7 @@
 </P>
 
 <Figure caption="packages/ui/turbo.json" class="mb-6">
-	<Shiki lang="json" code={data.examples['packages/ui/turbo.json']} />
+	<CodeSnippet lang="json" src={data.examples['packages/ui/turbo.json']} />
 </Figure>
 
 <P>
@@ -127,7 +127,7 @@
 </P>
 
 <Figure caption="Vercel build error after migrating my repository to a Turborepo." class="mb-6">
-	<Image
+	<VercelImage
 		src={vercel_build_error_origin_image}
 		alt="Screenshot of the error log of a Vercel deploy. The error message reads: No output directory named 'public' found after the build completed."
 	/>
@@ -152,7 +152,7 @@
 </P>
 
 <Figure caption="apps/website/turbo.json" class="mb-6">
-	<Shiki lang="json" code={data.examples['apps/website/turbo.json']} />
+	<CodeSnippet lang="json" src={data.examples['apps/website/turbo.json']} />
 </Figure>
 
 <P>
@@ -163,7 +163,7 @@
 </P>
 
 <Figure caption="apps/website/package.json" class="mb-6">
-	<Shiki lang="json" code={data.examples['apps/website/package.json']} />
+	<CodeSnippet lang="json" src={data.examples['apps/website/package.json']} />
 </Figure>
 
 <P>

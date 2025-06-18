@@ -1,5 +1,14 @@
 <script lang="ts">
-	import { Code, Figure, H2, Image, Ol, P, Shiki, Ul } from '@maiertech/sveltekit-helpers';
+	import {
+		Code,
+		CodeSnippet,
+		Figure,
+		H2,
+		Ol,
+		P,
+		Ul,
+		VercelImage
+	} from '@maiertech/sveltekit-helpers';
 	import codeflow_bot_light_origin_image from './codeflow-bot-light.png';
 	import unsupported_extensions from './unsupported-extensions.png';
 </script>
@@ -58,7 +67,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code="https://github.com/maiertech/maier.tech/issues/589" />
+	<CodeSnippet lang="text" src="https://github.com/maiertech/maier.tech/issues/589" />
 </Figure>
 
 <P>
@@ -67,7 +76,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="text" code="https://pr.new/github.com/maiertech/maier.tech/issues/589" />
+	<CodeSnippet lang="text" src="https://pr.new/github.com/maiertech/maier.tech/issues/589" />
 </Figure>
 
 <P>
@@ -96,7 +105,7 @@
 	caption="In this screenshot, codeflowapp commented on a pull request on GitHub and added a button to launch a Codeflow workspace for a pull request review."
 	class="mb-6"
 >
-	<Image
+	<VercelImage
 		src={codeflow_bot_light_origin_image}
 		alt="The screenshot shows codeflowapp's comment and the button to launch a Codeflow workspace."
 	/>
@@ -143,7 +152,7 @@
 	caption="You are out of luck when a project requires extensions not pre-installed in Codeflow."
 	class="mb-6"
 >
-	<Image
+	<VercelImage
 		src={unsupported_extensions}
 		alt="Screenshot from Codeflow showing a warning message that says that the Thunder Client and Grammarly extensions are not supported."
 	/>

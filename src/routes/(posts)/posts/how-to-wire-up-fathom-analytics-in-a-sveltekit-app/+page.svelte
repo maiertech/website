@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code, Figure, H2, P, Shiki } from '@maiertech/sveltekit-helpers';
+	import { Code, CodeSnippet, Figure, H2, P } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -52,7 +52,7 @@
 </P>
 
 <Figure caption="src/routes/+layout.svelte" class="mb-6">
-	<Shiki lang="svelte" code={data.examples['hard-wired-site-id']} />
+	<CodeSnippet lang="svelte" src={data.examples['hard-wired-site-id']} />
 </Figure>
 
 <P>
@@ -71,7 +71,7 @@
 </P>
 
 <Figure caption="src/routes/+layout.svelte" class="mb-6">
-	<Shiki lang="svelte" code={data.examples['site-id-in-env-variables']} />
+	<CodeSnippet lang="svelte" src={data.examples['site-id-in-env-variables']} />
 </Figure>
 
 <P>
@@ -145,7 +145,7 @@
 </P>
 
 <Figure caption="src/routes/+layout.svelte" class="mb-6">
-	<Shiki lang="svelte" code={data.examples['extreme-eu-isolation']} />
+	<CodeSnippet lang="svelte" src={data.examples['extreme-eu-isolation']} />
 </Figure>
 
 <H2>Tracking client-side route changes</H2>
@@ -157,7 +157,7 @@
 </P>
 
 <Figure caption="src/routes/+layout.svelte" class="mb-6">
-	<Shiki lang="svelte" code={data.examples['tracking-client-side-route-changes']} />
+	<CodeSnippet lang="svelte" src={data.examples['tracking-client-side-route-changes']} />
 </Figure>
 
 <P>
@@ -183,7 +183,7 @@
 </P>
 
 <Figure caption="social-icons.svelte" class="mb-6">
-	<Shiki lang="svelte" code={data.examples['social-icons']} />
+	<CodeSnippet lang="svelte" src={data.examples['social-icons']} />
 </Figure>
 
 <P>
@@ -192,7 +192,7 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki lang="javascript" code={`() => { Fathom.trackGoal('UVWXYZ', 0) }`} />
+	<CodeSnippet lang="javascript" src={`() => { Fathom.trackGoal('UVWXYZ', 0) }`} />
 </Figure>
 
 <P>You have to generate the goal-tracking ID in your Fathom dashboard.</P>

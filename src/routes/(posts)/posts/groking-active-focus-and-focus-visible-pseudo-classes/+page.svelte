@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
-	import { Code, Figure, H2, Image, P, Shiki } from '@maiertech/sveltekit-helpers';
+	import { Code, CodeSnippet, Figure, H2, P, VercelImage } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 	import active_example_button_active_origin_image from './active-example-button-active.png';
 	import active_example_input_active_origin_image from './active-example-input-active.png';
@@ -60,9 +60,9 @@
 </P>
 
 <Figure class="mb-6">
-	<Shiki
+	<CodeSnippet
 		lang="css"
-		code={`input:active,
+		src={`input:active,
 button:active {
   outline: dashed red;
   outline-offset: 1px;
@@ -76,7 +76,7 @@ button:active {
 </P>
 
 <Figure class="mb-6">
-	<Image
+	<VercelImage
 		src={active_example_input_active_origin_image}
 		alt="A simple web form with a name input field and a submit button. The name input field is active and highlighted with a red dashed outline."
 	/>
@@ -88,7 +88,7 @@ button:active {
 </P>
 
 <Figure class="mb-6">
-	<Image
+	<VercelImage
 		src={active_example_input_focus_origin_image}
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applies a blue outline to it."
 	/>
@@ -97,7 +97,7 @@ button:active {
 <P>While you click the submit button, you can see the dashed red outline until you release it:</P>
 
 <Figure class="mb-6">
-	<Image
+	<VercelImage
 		src={active_example_button_active_origin_image}
 		alt="A simple web form with a name input field and a submit button. The submit button is highlighted with a dashed red outline."
 	/>
@@ -122,9 +122,9 @@ button:active {
 </P>
 
 <Figure class="mb-6">
-	<Shiki
+	<CodeSnippet
 		lang="css"
-		code={`input:focus,
+		src={`input:focus,
 button:focus {
   outline: dashed red;
   outline-offset: 1px;
@@ -138,7 +138,7 @@ button:focus {
 </P>
 
 <Figure class="mb-6">
-	<Image
+	<VercelImage
 		src={focus_example_input_origin_image}
 		alt="A simple web form with a name input field and a submit button. The input field is focused and highlighted with a dashed red outline."
 	/>
@@ -149,7 +149,7 @@ button:focus {
 </P>
 
 <Figure class="mb-6">
-	<Image
+	<VercelImage
 		src={focus_example_button_origin_image}
 		alt="A simple web form with a name input field and a submit button. The submit button has focus and the browser applied a dashed red outline to it."
 	/>
@@ -180,9 +180,9 @@ button:focus {
 </P>
 
 <Figure class="mb-6">
-	<Shiki
+	<CodeSnippet
 		lang="css"
-		code={`input:focus-visible,
+		src={`input:focus-visible,
 button:focus-visible {
   outline: dashed red;
   outline-offset: 1px;
@@ -196,7 +196,7 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<Image
+	<VercelImage
 		src={focus_visible_example_input_origin_image}
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applied :focus-visible and a dashed red outline."
 	/>
@@ -209,7 +209,7 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<Image
+	<VercelImage
 		src={focus_visible_example_button_mouse_origin_image}
 		alt="A simple web form with a name input field and a submit button. Even though the submit has focus, the browser did not apply :focus-visible and the corresponding styling."
 	/>
@@ -220,7 +220,7 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<Image
+	<VercelImage
 		src={focus_visible_example_button_keyboard_origin_image}
 		alt="A simple web form with a name input field and a submit button. This time, the browser applied :focus-visible and a dashed red outline to the submit button."
 	/>

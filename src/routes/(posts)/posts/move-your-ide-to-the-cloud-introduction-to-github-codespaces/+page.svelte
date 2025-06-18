@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code, Figure, H2, Ol, P, Shiki, Ul } from '@maiertech/sveltekit-helpers';
+	import { Code, Figure, H2, Ol, P, CodeSnippet, Ul } from '@maiertech/sveltekit-helpers';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -87,7 +87,7 @@
 </P>
 
 <Figure caption=".devcontainer/devcontainer.json" class="mb-6">
-	<Shiki lang="json" code={data.examples['devcontainer.json']} />
+	<CodeSnippet lang="json" src={data.examples['devcontainer.json']} />
 </Figure>
 
 <P>
