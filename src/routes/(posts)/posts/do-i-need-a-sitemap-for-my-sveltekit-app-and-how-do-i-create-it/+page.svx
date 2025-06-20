@@ -131,7 +131,7 @@ To make creating entries easier, I use this helper function:
 ```javascript
 function create_entry(path, lastmod) {
 	return `<url>
-    <loc>${new URL(path, PUBLIC_CANONICAL_ORIGIN).href}</loc>
+    <loc>${new URL(path, PUBLIC_URL_ORIGIN).href}</loc>
     ${lastmod ? `<lastmod>\${lastmod}</lastmod>` : ''}
   </url>`;
 }
@@ -140,10 +140,10 @@ function create_entry(path, lastmod) {
 `path` is a relative path, and `lastmod` is a date string in ISO format. I get both from my
 `/api/posts` endpoint. Google expects absolute URLs in a sitemap. Since I prerender the sitemap, I
 cannot obtain the origin of the URL from which the app is served in production. Therefore, I created
-an environment variable `PUBLIC_CANONICAL_ORIGIN`, which contains my site's canonical origin
-https://www.maier.tech. This variable could also be private and named `CANONICAL_ORIGIN`. But I also
-need access to the canonical origin in my SEO components client-side, which means that the variable
-has to be public.
+an environment variable `PUBLIC_URL_ORIGIN`, which contains my site's canonical origin
+https://www.maier.tech. This variable could also be private and named `URL_ORIGIN`. But I also need
+access to the canonical origin in my SEO components client-side, which means that the variable has
+to be public.
 
 Let's add error handling to wrap up the handler:
 
