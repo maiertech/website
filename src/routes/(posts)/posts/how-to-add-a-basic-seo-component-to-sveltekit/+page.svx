@@ -95,7 +95,7 @@ So, here is my basic SEO component:
 
 ```svelte
 <script>
-	import { PUBLIC_CANONICAL_ORIGIN } from '$env/static/public';
+	import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 	import { page } from '$app/stores';
 	import decorate from '$lib/utils/decorate';
 
@@ -106,10 +106,7 @@ So, here is my basic SEO component:
 <svelte:head>
 	<title>{$page.url.pathname !== '/' ? decorate(data.title) : data.title}</title>
 	<meta name="description" content={data.description} />
-	<link
-		rel="canonical"
-		href={data.canonical_url ?? `${PUBLIC_CANONICAL_ORIGIN}${$page.url.pathname}`}
-	/>
+	<link rel="canonical" href={data.canonical_url ?? `${PUBLIC_URL_ORIGIN}${$page.url.pathname}`} />
 </svelte:head>
 ```
 
@@ -146,7 +143,7 @@ suggestions for search engines how to rank and display you in search results, no
 The canonical link tag of the SEO component covers the two scenarios mentioned before. First, it
 sets a default canonical URL as insurance against an SEO penalty caused by accidental duplicate
 content. The origin of the default canonical URL comes from the environment variable
-`PUBLIC_CANONICAL_ORIGIN`, e.g., https://www.maier.tech, and is intentionally hard-wired.
+`PUBLIC_URL_ORIGIN`, e.g., https://www.maier.tech, and is intentionally hard-wired.
 
 If you provide property `canonical_url`, it will override the default canonical URL. This is useful
 when you syndicate content from another website and that other website is the canonical website.
@@ -214,14 +211,14 @@ component hierarchy:
 ```svelte
 <script>
 	import { page } from '$app/stores';
-	import { PUBLIC_CANONICAL_ORIGIN } from '$env/static/public';
+	import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 	import { SeoComponent } from '$lib/seo';
 	import '../app.css';
 </script>
 
 <SeoComponent
 	url={$page.url}
-	canonical_origin={PUBLIC_CANONICAL_ORIGIN}
+	canonical_origin={PUBLIC_URL_ORIGIN}
 	data={{ title: $page.data.title, description: $page.data.description }}
 />
 

@@ -1,4 +1,4 @@
-import { PUBLIC_CANONICAL_ORIGIN } from '$env/static/public';
+import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 import { getPosts } from '$lib/server/data';
 import type { RequestHandler } from './$types';
 
@@ -8,7 +8,7 @@ export const GET: RequestHandler = async () => {
 	// Create sitemap entries for posts.
 	const posts = getPosts().map(
 		(post) => `\t<url>
-		<loc>${new URL(post.path, PUBLIC_CANONICAL_ORIGIN).href}</loc>
+		<loc>${new URL(post.path, PUBLIC_URL_ORIGIN).href}</loc>
 		<lastmod>${post.lastmodDate ? post.lastmodDate : post.publishedDate}</lastmod>
 	</url>`
 	);

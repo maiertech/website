@@ -14,7 +14,7 @@ env:
   EO_API_KEY: ${{ secrets.EO_API_KEY }}
   EO_LIST_ID: ${{ secrets.EO_LIST_ID }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  PUBLIC_CANONICAL_ORIGIN: ${{ vars.PUBLIC_CANONICAL_ORIGIN }}
+  PUBLIC_URL_ORIGIN: ${{ vars.PUBLIC_URL_ORIGIN }}
 
 jobs:
   checks:

@@ -12,7 +12,7 @@ tags:
 ---
 
 <script>
-	import { Shiki, Figure } from '@maiertech/sveltekit-helpers';
+	import { Figure } from '@maiertech/sveltekit-helpers';
 	import gitpod_editors_png from './gitpod-editors.png';
 </script>
 
