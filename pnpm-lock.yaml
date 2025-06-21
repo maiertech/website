@@ -21,11 +21,11 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(svelte@5.34.7)
       '@lucide/svelte':
-        specifier: ^0.518.0
-        version: 0.518.0(svelte@5.34.7)
+        specifier: ^0.519.0
+        version: 0.519.0(svelte@5.34.7)
       '@maiertech/sveltekit-helpers':
-        specifier: 0.21.0
-        version: 0.21.0(@sveltejs/kit@2.22.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.7)(vite@6.3.5(@types/node@20.14.11)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1)))(svelte@5.34.7)(vite@6.3.5(@types/node@20.14.11)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1)))(svelte@5.34.7)(tailwindcss@4.1.10)(zod@3.25.67)
+        specifier: ^0.22.0
+        version: 0.22.0(@sveltejs/kit@2.22.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.7)(vite@6.3.5(@types/node@20.14.11)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1)))(svelte@5.34.7)(vite@6.3.5(@types/node@20.14.11)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1)))(svelte@5.34.7)(tailwindcss@4.1.10)(zod@3.25.67)
       '@octokit/request-error':
         specifier: ^6.1.8
         version: 6.1.8
@@ -396,13 +396,13 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@lucide/svelte@0.518.0':
-    resolution: {integrity: sha512-vhSikVKVZnz7eVa70WsWh/ySqdcb7Mn2R/XhG16fCfqgpMKzdu5GCHPRLaHcGaUCaM9cPDMWG8FeBXk0QY1PEg==}
+  '@lucide/svelte@0.519.0':
+    resolution: {integrity: sha512-NMe66kJrIGyc5jpI3JhpGCysN9/eBn/5264bmDY7SjVFo7TbHQBOPBcycFfwuZIKhv9io7qSVJJtjG18nsBB7g==}
     peerDependencies:
       svelte: ^5
 
-  '@maiertech/sveltekit-helpers@0.21.0':
-    resolution: {integrity: sha512-cZ5T3drGHmkMPTiV9sPs2KFKvQFT6G47bfSZrdP/v/GMNJrMjprjpRpANpZ0CRR25PZAdhu8xrZ+p3odRJ+l/A==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.21.0/74ec72c0da4c7492412ac1a58a7e4d9c8ffb847e}
+  '@maiertech/sveltekit-helpers@0.22.0':
+    resolution: {integrity: sha512-4DFJQBJLSjtobHpi+XglQqefmJnQisiTdC9Bd+eh9S9Rs66CDxIRg2Akj650Abe+3je7rfbu9bN9Iahg7eQV4A==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.22.0/19cf4b6ba3f92773acaea53f7a28eec57efbd42f}
     peerDependencies:
       '@sveltejs/kit': ^2.21.1
       svelte: ^5.30.2
@@ -2382,11 +2382,11 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@lucide/svelte@0.518.0(svelte@5.34.7)':
+  '@lucide/svelte@0.519.0(svelte@5.34.7)':
     dependencies:
       svelte: 5.34.7
 
-  '@maiertech/sveltekit-helpers@0.21.0(@sveltejs/kit@2.22.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.7)(vite@6.3.5(@types/node@20.14.11)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1)))(svelte@5.34.7)(vite@6.3.5(@types/node@20.14.11)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1)))(svelte@5.34.7)(tailwindcss@4.1.10)(zod@3.25.67)':
+  '@maiertech/sveltekit-helpers@0.22.0(@sveltejs/kit@2.22.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.7)(vite@6.3.5(@types/node@20.14.11)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1)))(svelte@5.34.7)(vite@6.3.5(@types/node@20.14.11)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1)))(svelte@5.34.7)(tailwindcss@4.1.10)(zod@3.25.67)':
     dependencies:
       '@octokit/rest': 21.1.1
       '@sveltejs/kit': 2.22.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.7)(vite@6.3.5(@types/node@20.14.11)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1)))(svelte@5.34.7)(vite@6.3.5(@types/node@20.14.11)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1))
