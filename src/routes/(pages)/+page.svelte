@@ -25,7 +25,7 @@
 		>
 			<h2 class="text-2xl font-semibold">{topic.label}</h2>
 			<p class="flex-1 leading-6">{topic.description}</p>
-			<a href={topic.path}><Button large>Check out posts</Button></a>
+			<Button href={topic.path}>Check out posts</Button>
 		</article>
 	{/each}
 </section>
