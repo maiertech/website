@@ -1,17 +1,19 @@
 <script lang="ts">
-	import { Button } from '@maiertech/sveltekit-helpers';
+	import { Button, NotePreview } from '@maiertech/sveltekit-helpers';
 	import { Posts } from '$lib/components';
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 
-	interface Props {
-		data: PageData;
-	}
-
-	let { data }: Props = $props();
+	let { data }: PageProps = $props();
 </script>
 
 <section class="mb-12 max-w-[45ch] text-xl lg:text-2xl">
 	<p>{data.seo.description}</p>
+</section>
+
+<section class="mb-12 flex flex-wrap gap-4">
+	{#each data.notes as note (note.path)}
+		<NotePreview value={note}></NotePreview>
+	{/each}
 </section>
 
 <section class="mb-12">

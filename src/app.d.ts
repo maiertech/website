@@ -1,4 +1,4 @@
-import type { NoteMetadata } from '$lib/types';
+import type { NoteType } from '@maiertech/sveltekit-helpers';
 
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
@@ -7,7 +7,7 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		interface PageData {
-			metadata?: NoteMetadata;
+			note?: NoteType;
 			seo?: {
 				title: string;
 				description: string;

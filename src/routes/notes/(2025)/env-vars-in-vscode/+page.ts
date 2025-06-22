@@ -1,8 +1,8 @@
 import type { PageLoad } from './$types';
-import metadata from './meta.json';
+import note from './meta.json';
 
 export const load: PageLoad = async () => {
 	return {
-		metadata
+		note
 	};
 };

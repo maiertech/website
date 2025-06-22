@@ -1,17 +1,22 @@
 import { getPosts } from '$lib/server/data';
 import { topPosts } from '$lib/utils/posts';
 import type { PageServerLoad } from './$types';
+import type { NoteType } from '@maiertech/sveltekit-helpers';
 
 export const prerender = true;
 
-export const load = function () {
+export const load: PageServerLoad = async function ({ fetch }) {
+	const response = await fetch('/notes/api/latest');
+	const notes = (await response.json()) as NoteType[];
 	const posts = topPosts(3, getPosts());
+
 	return {
 		seo: {
 			title: 'Thilo Maier',
 			description:
 				"Hi, I'm Thilo. I am a Software Engineer based in The Netherlands. I build web apps with SvelteKit and Svelte and help people take control of their digital identity."
 		},
+		notes: notes.slice(0, 4),
 		topics: [
 			{
 				label: 'Svelte',
@@ -44,4 +49,4 @@ export const load = function () {
 		],
 		posts
 	};
-} satisfies PageServerLoad;
+};
