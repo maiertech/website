@@ -1,0 +1,10 @@
+I have watched quite a few interviews with [Rich Harris](https://bsky.app/profile/rich-harris.dev)
+over the years. Every single one has been either insightful or entertaining, or both. It's
+fascinating how he combines exceptional engineering talent with a personable and sympathetic way of
+talking about Svelte and its community:
+
+> "One of the nice things about the Svelte community is that it is largely populated with people who
+> have chosen to be there."
+
+Even though this is the umpteenth interview with Rich Harris, I found myself enjoying it
+nonetheless.
