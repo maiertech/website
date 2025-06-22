@@ -11,7 +11,3 @@ updates:
     schedule:
       interval: monthly
     rebase-strategy: 'disabled'
-  - package-ecosystem: 'devcontainers'
-    directory: '/'
-    schedule:
-      interval: monthly
