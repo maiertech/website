@@ -1,7 +1,11 @@
-/** @type {import('./$types').PageLoad} */
-export function load() {
-	return { examples };
-}
+import type { PageServerLoad } from './$types';
+import meta from './meta';
+import { postWithLastmodDate } from '$lib/transformations';
+
+export const load: PageServerLoad = async (event) => {
+	const post = await postWithLastmodDate(meta, event);
+	return { examples, post };
+};
 
 const examples = {
 	'file-tree.txt': `maier.tech
