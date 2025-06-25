@@ -1,4 +1,4 @@
-import type { NoteType } from '@maiertech/sveltekit-helpers';
+import type { NoteType, PostType } from '@maiertech/sveltekit-helpers';
 
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
@@ -8,6 +8,7 @@ declare global {
 		// interface Locals {}
 		interface PageData {
 			note?: NoteType;
+			post?: PostType;
 			seo?: {
 				title: string;
 				description: string;
