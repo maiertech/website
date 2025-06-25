@@ -4,9 +4,10 @@ import type { NoteType } from '@maiertech/sveltekit-helpers';
 
 export const prerender = true;
 
+// Return all notes.
 export const GET: RequestHandler = async ({ fetch }) => {
-	const response = await fetch('/notes/api/2025');
+	const response = await fetch('/api/notest/2025');
 	const notes = (await response.json()) as NoteType[];
 
-	return json(notes.slice(0, 10));
+	return json(notes);
 };
