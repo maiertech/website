@@ -4,10 +4,10 @@ import type { NoteType } from '@maiertech/sveltekit-helpers';
 
 export const prerender = true;
 
-// Return latest notes (up to 10).
+// Return latest notes (up to 20).
 export const GET: RequestHandler = async ({ fetch }) => {
 	const response = await fetch('/api/notest/2025');
 	const notes = (await response.json()) as NoteType[];
 
-	return json(notes.slice(0, 10));
+	return json(notes.slice(0, 20));
 };
