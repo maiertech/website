@@ -19,8 +19,8 @@
 	runs natively in modern browsers. They entered a crowded market for browser-based development
 	environments. <a href="https://www.gitpod.io/">Gitpod</a>,
 	<a href="https://codesandbox.io/">CodeSandbox</a>, and
-	<a href="https://github.com/features/codespaces">GitHub Codespaces</a> are the better-known players
-	in this space. They all have cloud-based products built with VS Code that aim to replace local development
+	<a href="https://github.com/features/codespaces">GitHub Codespaces</a> are the best-known players in
+	this space. They all have cloud-based products built with VS Code that aim to replace local development
 	environments.
 </P>
 
@@ -29,7 +29,7 @@
 	answers this question:
 	<a href="/posts/a-better-development-workflow-with-disposable-workspaces">
 		A better development workflow with disposable workspaces
-	</a>. In this post, I explained Gitpod's one-workspace-per-task philosophy.
+	</a>. In this post, I explain Gitpod's one-workspace-per-task philosophy.
 </P>
 
 <P>
@@ -46,10 +46,10 @@
 	<a href="https://developer.stackblitz.com/platform/webcontainers/browser-support"
 		>supported browsers</a
 	>, and its enabling technology is called
-	<a href="https://blog.stackblitz.com/posts/introducing-webcontainers/">Web Containers</a>. Think
-	of WebContainers as a small operating system that runs in a browser and can run Node.js version
-	16. Web Containers run on <a href="https://webassembly.org/">WebAssembly</a>, a cross-browser
-	virtual machine that many programming languages support as a compilation target.
+	<a href="https://blog.stackblitz.com/posts/introducing-webcontainers/">WebContainers</a>. Think of
+	WebContainers as a small operating system that runs in a browser and can run Node.js version 16.
+	WebContainers run on <a href="https://webassembly.org/">WebAssembly</a>, a cross-browser virtual
+	machine that many programming languages support as a compilation target.
 </P>
 
 <P>
@@ -97,7 +97,7 @@
 		GitHub integration
 	</a>
 	called codeflowapp, which comments on every pull request. It makes manually prepending GitHub URLs
-	with <strong>pr.new</strong> obsolete because it adds a link to launch a Codeflow workspace as pull
+	with <strong>pr.new</strong> obsolete because it adds a link to launch a Codeflow workspace as a pull
 	request comment:
 </P>
 
@@ -132,7 +132,7 @@
 
 <Ol>
 	<li>
-		Running a cloud workspace in a local VS Code provides access to Microsoft's extensions
+		Running a cloud workspace in a local VS Code provides access to Microsoft's extension
 		marketplace without a workaround.
 	</li>
 	<li>
