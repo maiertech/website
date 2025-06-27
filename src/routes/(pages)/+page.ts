@@ -1,14 +1,16 @@
-import { getPosts } from '$lib/server/data';
-import { topPosts } from '$lib/utils/posts';
-import type { PageServerLoad } from './$types';
-import type { NoteType } from '@maiertech/sveltekit-helpers';
+import type { PageLoad } from './$types';
+import type { NoteType, PostType } from '@maiertech/sveltekit-helpers';
 
 export const prerender = true;
 
-export const load: PageServerLoad = async function ({ fetch }) {
-	const response = await fetch('/notes/api/latest');
+export const load: PageLoad = async function ({ fetch }) {
+	// Fetch latest notes.
+	let response = await fetch('/api/notes/latest');
 	const notes = (await response.json()) as NoteType[];
-	const posts = topPosts(3, getPosts());
+
+	// Fetch latest posts.
+	response = await fetch('/api/posts/latest');
+	const posts = (await response.json()) as PostType[];
 
 	return {
 		seo: {
