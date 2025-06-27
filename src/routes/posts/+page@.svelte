@@ -1,12 +1,8 @@
 <script lang="ts">
 	import { Ul } from '@maiertech/sveltekit-helpers';
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 
-	interface Props {
-		data: PageData;
-	}
-
-	let { data }: Props = $props();
+	let { data }: PageProps = $props();
 </script>
 
 <h1 class="mb-[clamp(1rem,2vw,1.5rem)] text-4xl font-bold">{data.seo.title}</h1>

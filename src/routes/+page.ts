@@ -1,5 +1,5 @@
-import type { PageLoad } from './$types';
 import type { NoteType, PostType } from '@maiertech/sveltekit-helpers';
+import type { PageLoad } from './$types';
 
 export const prerender = true;
 

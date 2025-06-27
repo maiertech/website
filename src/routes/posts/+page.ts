@@ -1,5 +1,5 @@
-import type { PageLoad } from './$types';
 import type { PostType } from '@maiertech/sveltekit-helpers';
+import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ fetch }) => {
 	const response = await fetch('/api/posts');
