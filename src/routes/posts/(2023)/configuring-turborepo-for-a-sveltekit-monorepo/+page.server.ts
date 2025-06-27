@@ -1,12 +1,11 @@
+import { transformPostWithLastmodDate } from '$lib/server/transformations';
 import type { PageServerLoad } from './$types';
 import meta from './meta';
-import { post } from '$lib/server/transformations';
 
 export const load: PageServerLoad = async (event) => {
-	// const post = await postWithLastmodDate(meta, event);
-	const transformedPost = await post(meta, event);
+	const post = await transformPostWithLastmodDate(meta, event);
 
-	return { examples, post: transformedPost };
+	return { examples, post };
 };
 
 const examples = {

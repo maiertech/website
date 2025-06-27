@@ -13,17 +13,17 @@
 <P>
 	Recently, I converted the repository for my website to a
 	<a href="https://turbo.build/repo">Turborepo</a>. Turborepo is a task dependency management layer
-	on top of a package manager, and it works for normal repositories and monorepos. The underlying
-	package manager has to be one of <a href="https://docs.npmjs.com/">NPM</a>,
+	on top of a package manager, and it works for both normal repositories and monorepos. The underlying
+	package manager must be one of <a href="https://docs.npmjs.com/">NPM</a>,
 	<a href="https://pnpm.io/">pnpm</a>, or <a href="https://classic.yarnpkg.com/">Yarn</a>, all of
-	which come with workspaces support.
+	which come with workspace support.
 </P>
 
 <P>
 	The central pitch of Turborepo is to speed up workspace tasks, primarily builds. After configuring
-	task dependencies in one or more <Code>turbo.json</Code>, Turborepo uses this information to run
+	task dependencies in one or more <Code>turbo.json</Code> files, Turborepo uses this information to run
 	tasks in parallel with an aggressive caching strategy. Turborepo can complement local caching with
-	shared remote caching. Often this will significantly reduce the duration of deployment builds
+	shared remote caching. Often, this will significantly reduce the duration of deployment builds
 	because local builds are cached remotely and can be reused for deployment builds.
 </P>
 
@@ -48,11 +48,10 @@
 </Figure>
 
 <P>
-	I recommended adding package <Code>turbo</Code> to <Code>devDependencies</Code>, which gives you
+	I recommend adding the <Code>turbo</Code> package to <Code>devDependencies</Code>, which gives you
 	control over which version to use. You should also install the <Code>turbo</Code> package globally
 	to make the <Code>turbo</Code> command available in your terminal. A globally installed
-	<Code>turbo</Code>
-	command will use the Turborepo version declared in <Code>devDependencies</Code>.
+	<Code>turbo</Code> command will use the Turborepo version declared in <Code>devDependencies</Code>.
 </P>
 
 <H2>Turborepo configuration</H2>
@@ -77,12 +76,12 @@
 
 <Ol>
 	<li>
-		<Code>"dependsOn"</Code>: Value <Code>["^build"]</Code> means that every build task should run the
+		<Code>"dependsOn"</Code>: The value <Code>["^build"]</Code> means that every build task should run the
 		build tasks of dependencies that reside inside the monorepo in other workspaces.
 	</li>
 	<li>
-		<Code>"outputs"</Code>: Describes build artifacts that Turborepo should cache. E.g., the build
-		of a SvelteKit app goes into directory <Code>.svelte-kit</Code>. If Turborepo figures out
+		<Code>"outputs"</Code>: Describes build artifacts that Turborepo should cache. For example, the build
+		of a SvelteKit app goes into the <Code>.svelte-kit</Code> directory. If Turborepo determines that
 		nothing has changed during a build, it will retrieve <Code>.svelte-kit</Code> from its cache instead
 		of running the task. Similarly, the output of
 		<a href="https://kit.svelte.dev/docs/adapter-vercel">adapter-vercel</a>
@@ -95,13 +94,13 @@
 
 <P>
 	Starting with Turborepo v1.8, you can nest configurations and complement a project-level
-	configuration with workspace-specific configurations. E.g., in my monorepo,
+	configuration with workspace-specific configurations. For example, in my monorepo,
 	<Code>packages/ui</Code>
 	contains a UI package that is managed with SvelteKit's package tooling. When you run the
 	<Code>build</Code>
 	command for <Code>ui</Code>, the build artifacts go into <Code>dist</Code> and must be cached. I could
 	add <Code>dist</Code> to the <Code>outputs</Code> property of the <Code>build</Code> task in the project
-	root <Code>turbo.json</Code>. Then they would be applied to every build task in every workspace.
+	root <Code>turbo.json</Code>. Then it would be applied to every build task in every workspace.
 </P>
 
 <P>
@@ -145,7 +144,7 @@
 <H2>Pitfall: Persistent tasks</H2>
 
 <P>
-	Persistent tasks are long-running, e.g., the <Code>dev</Code> task is persistent. Turborepo does not
+	Persistent tasks are long-running; for example, the <Code>dev</Code> task is persistent. Turborepo does not
 	allow any task to depend on a persistent task because it blocks subsequent tasks. Imagine
 	<Code>ui/package.json</Code> defines a <Code>watch</Code> task that builds the library whenever a file
 	changes. I want to add this configuration to <Code>apps/website/turbo.json</Code>:
@@ -156,7 +155,7 @@
 </Figure>
 
 <P>
-	But this is not permitted since Turorepo does not allow the <Code>dev</Code> task to depend on
+	But this is not permitted since Turborepo does not allow the <Code>dev</Code> task to depend on
 	<Code>watch</Code>, which is a persistent task. Instead of defining the <Code>watch</Code> task as
 	a dependency of the <Code>dev</Code> task in <Code>turbo.json</Code>, you need to launch the watch
 	task at the NPM level:

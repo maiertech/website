@@ -1,2 +1,2 @@
-export { default as post } from './post';
-export { default as postWithLastmodDate } from './postWithLastmodDate';
+export { default as transformPost } from './transformPost';
+export { default as transformPostWithLastmodDate } from './transformPostWithLastmodDate';
