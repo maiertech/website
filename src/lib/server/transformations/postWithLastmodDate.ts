@@ -1,9 +1,10 @@
+import { env } from '$env/dynamic/private';
 import type { PostMetaType, PostType } from '@maiertech/sveltekit-helpers';
 import {
 	createAuthorTransformer,
+	createFilepathTransformer,
 	createPipeline,
-	createTagsTransformer,
-	createFilepathTransformer
+	createTagsTransformer
 } from '@maiertech/sveltekit-helpers';
 import type { RequestEvent } from '@sveltejs/kit';
 
@@ -11,7 +12,11 @@ export default async function (postMeta: PostMetaType, event: RequestEvent): Pro
 	const transform = createPipeline<PostMetaType, PostType>([
 		createAuthorTransformer(event),
 		createTagsTransformer(event),
-		createFilepathTransformer('maiertech', 'sveltekit-helpers')
+		createFilepathTransformer({
+			owner: 'maiertech',
+			repo: 'sveltekit-helpers',
+			token: env.GITHUB_TOKEN
+		})
 	]);
 	const post = await transform(postMeta, {
 		title: postMeta.title,
