@@ -1,7 +1,12 @@
-/** @type {import('./$types').PageLoad} */
-export function load() {
-	return { examples };
-}
+import type { PageServerLoad } from './$types';
+import { transformPostWithLastmodDate } from '$lib/server/transformations';
+import meta from './meta';
+
+export const load: PageServerLoad = async (event) => {
+	const post = await transformPostWithLastmodDate(meta, event);
+
+	return { examples, post };
+};
 
 const examples = {
 	'devcontainer.json': `{
