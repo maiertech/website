@@ -9,14 +9,14 @@
 </script>
 
 <P>
-	The <a href="https://github.com/sveltejs/template">Svelte template</a> has long been the official way
-	to bootstrap a Svelte project. But it is no longer maintained and deprecated. What should you choose
+	The <a href="https://github.com/sveltejs/template">Svelte template</a> was long the official way
+	to bootstrap a Svelte project, but it is no longer maintained and has been deprecated. What should you choose
 	instead to bootstrap a Svelte project?
 </P>
 
 <P>
 	With <a href="https://kit.svelte.dev/">SvelteKit</a> now stable at version 1.0, it is the obvious choice
-	to bootstrap a Svelte project. And there is nothing wrong with this approach. SvelteKit shines when
+	to bootstrap a Svelte project. There is nothing wrong with this approach. SvelteKit shines when
 	you need advanced features, e.g., a filesystem-based router, progressive enhancement, fast initial
 	page load, or SEO. For smaller projects, such as data visualization or a quick experiment, SvelteKit
 	comes with unnecessary overhead when all you need is Svelte.
@@ -34,7 +34,7 @@
 </P>
 
 <P>
-	An often overlooked feature of the Svelte REPL is the download button. You can download the source
+	An often-overlooked feature of the Svelte REPL is the download button. You can download the source
 	code of every example:
 </P>
 
@@ -49,7 +49,7 @@
 </Figure>
 
 <P>
-	You can start your Svelte experiments with the Svelte REPL. And once you decide that you want to
+	You can start your Svelte experiments with the Svelte REPL. Once you decide that you want to
 	continue your experiment on GitHub, download its source code and run it in your local VS Code:
 </P>
 
@@ -59,7 +59,7 @@
 >
 	<VercelImage
 		src={svelte_template_origin_image}
-		alt="Screenshot of VS Code with the code downloaded from the from the Svelte REPL. File package.json is open, and you can see the dependencies of the deprecated Svelte template."
+		alt="Screenshot of VS Code with the code downloaded from the Svelte REPL. File package.json is open, and you can see the dependencies of the deprecated Svelte template."
 	/>
 </Figure>
 
@@ -140,7 +140,7 @@
 <P>
 	The StackBlitz team has created shortcuts for two Vite Svelte templates. Clicking on
 	<a href="https://vite.new/svelte">https://vite.new/svelte</a> bootstraps the Vite Svelte template with
-	vanilla JavaScript and is equal to running
+	vanilla JavaScript and is equivalent to running
 </P>
 
 <Figure class="mb-6">
@@ -161,7 +161,7 @@
 
 <P>
 	Clicking <a href="https://vite.new/svelte-ts">https://vite.new/svelte-ts</a> bootstraps the Vite Svelte
-	template with TypeScript and is equal to running
+	template with TypeScript and is equivalent to running
 </P>
 
 <Figure class="mb-6">
@@ -188,8 +188,8 @@
 <H2>Conclusion</H2>
 
 <P>
-	The Svelte REPL and the CodeSandbox easily bootstrap a new Svelte project. But they use the
+	The Svelte REPL and CodeSandbox make it easy to bootstrap a new Svelte project, but they use the
 	deprecated Svelte template. With StackBlitz, on the other hand, you can run the official Vite
-	Svelte templates natively in-browser, and Stackblitz's URL shortcuts make bootstrapping a Svelte
+	Svelte templates natively in-browser, and StackBlitz's URL shortcuts make bootstrapping a Svelte
 	project a one-click effort.
 </P>

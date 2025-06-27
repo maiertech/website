@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Button, NotePreview } from '@maiertech/sveltekit-helpers';
 	import { Posts } from '$lib/components';
-	import type { PageProps } from './(pages)/$types';
+	import { Button, NotePreview } from '@maiertech/sveltekit-helpers';
+	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 </script>

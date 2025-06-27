@@ -5,18 +5,18 @@
 </script>
 
 <P>
-	When scrolling through Svelte tweets in my Twitter timeline, occasionally, I see tweets about the
+	When scrolling through Svelte tweets in my Twitter timeline, I occasionally see tweets about the
 	<a href="https://svelte.dev/docs#template-syntax-const">Svelte template syntax</a>
-	which contain strings like @const (referring to the
+	that contain strings like @const (referring to the
 	<a href="https://svelte.dev/docs#template-syntax-const"><Code>{`{@const ...}`}</Code> tag</a>) or
-	#if (referring to an
+	#if (referring to a
 	<a href="https://svelte.dev/docs#template-syntax-const"><Code>{`{#if ...}`}</Code> block</a>).
 </P>
 
 <P>
 	Since @ and # have special meanings in tweets, Twitter interprets the string @const as a mention
 	of Twitter user <a href="https://twitter.com/const">Konstantin Martynov</a> (whose Twitter username
-	happens to be @const). Likewise, Twitter interprets the string #if as a hashtag and links straight
+	happens to be @const). Likewise, Twitter interprets the string #if as a hashtag and links directly
 	to a dodgier part of Twitter.
 </P>
 
@@ -29,7 +29,7 @@
 
 <P>
 	How did Geoff pull this off? Copying the @const string from the original tweet and displaying its
-	second character like so
+	second character like so:
 </P>
 
 <Figure class="mb-6">
@@ -37,9 +37,9 @@
 </Figure>
 
 <P>
-	yields <Code>8203</Code> corresponding to <Code>0x200B</Code> (hexadecimal). This is the
+	This yields <Code>8203</Code>, corresponding to <Code>0x200B</Code> (hexadecimal). This is the
 	<strong>U+200B ZERO-WIDTH SPACE</strong> Unicode character. An invisible space between @ and const
-	keeps Twitter from displaying the string as a mention.
+	prevents Twitter from displaying the string as a mention.
 </P>
 
 <P>

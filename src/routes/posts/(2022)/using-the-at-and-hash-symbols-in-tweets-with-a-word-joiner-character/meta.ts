@@ -5,7 +5,7 @@ const meta: PostMetaType = {
 	author: 'thilo',
 	publishedDate: '2022-08-30',
 	description:
-		'Twitter interprets strings starting with @ and # as mention and hashtag. It misinterprets Svelte-related strings, e.g., @const and #if. In this post, you will learn how to fix this.',
+		'How to prevent @ and # in Svelte tweets from becoming mentions or hashtags by inserting a Unicode word joiner character for clean formatting.',
 	tags: ['content-creation'],
 	path: '/posts/using-the-at-and-hash-symbols-in-tweets-with-a-word-joiner-character',
 	filepath:
