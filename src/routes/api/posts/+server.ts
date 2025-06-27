@@ -8,10 +8,12 @@ export const prerender = true;
 export const GET: RequestHandler = async ({ fetch }) => {
 	let posts: PostType[] = [];
 
-	// TODO: Add more posts.
+	// Fetch 2022 posts.
+	let response = await fetch('/api/posts/2022');
+	posts = [...((await response.json()) as PostType[]), ...posts];
 
 	// Fetch 2023 posts.
-	const response = await fetch('/api/posts/2023');
+	response = await fetch('/api/posts/2023');
 	posts = [...((await response.json()) as PostType[]), ...posts];
 
 	return json(posts);

@@ -1,12 +1,15 @@
 import { PUBLIC_URL_ORIGIN } from '$env/static/public';
-import { getPosts } from '$lib/server/data';
+import type { PostType } from '@maiertech/sveltekit-helpers';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
 export const GET: RequestHandler = async () => {
+	const response = await fetch('/api/posts');
+	const posts = (await response.json()) as PostType[];
+
 	// Create sitemap entries for posts.
-	const posts = getPosts().map(
+	const postEntries = posts.map(
 		(post) => `\t<url>
 		<loc>${new URL(post.path, PUBLIC_URL_ORIGIN).href}</loc>
 		<lastmod>${post.lastmodDate ? post.lastmodDate : post.publishedDate}</lastmod>
@@ -14,7 +17,7 @@ export const GET: RequestHandler = async () => {
 	);
 
 	// Add additional entries to this array.
-	const pages = [...posts];
+	const pages = [...postEntries];
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
