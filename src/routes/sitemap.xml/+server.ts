@@ -4,8 +4,8 @@ import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-export const GET: RequestHandler = async () => {
-	const response = await fetch('/api/posts');
+export const GET: RequestHandler = async ({ fetch }) => {
+	const response = await fetch('/api/posts/all');
 	const posts = (await response.json()) as PostType[];
 
 	// Create sitemap entries for posts.

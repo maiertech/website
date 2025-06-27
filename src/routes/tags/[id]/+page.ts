@@ -13,7 +13,7 @@ export const load: PageLoad = async ({ params, fetch }) => {
 
 	const tag = (await response.json()) as TagType;
 
-	response = await fetch('/api/posts');
+	response = await fetch('/api/posts/all');
 	const posts = (await response.json()) as PostType[];
 
 	const taggedPosts = filterByTag(tag.id, posts);

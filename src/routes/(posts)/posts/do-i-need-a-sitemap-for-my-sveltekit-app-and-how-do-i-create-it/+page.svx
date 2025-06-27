@@ -107,7 +107,7 @@ export async function GET({ fetch, setHeaders }) {
 		'Content-Type': 'application/xml'
 	});
 
-	const response = await fetch('/api/posts');
+	const response = await fetch('/api/posts/all');
 
 	// ...
 
@@ -155,7 +155,7 @@ export async function GET({ fetch, setHeaders }) {
 		'Content-Type': 'application/xml'
 	});
 
-	const response = await fetch('/api/posts');
+	const response = await fetch('/api/posts/all');
 
 	if (!response.ok) {
 		throw error(500, 'Failed to fetch posts.');
