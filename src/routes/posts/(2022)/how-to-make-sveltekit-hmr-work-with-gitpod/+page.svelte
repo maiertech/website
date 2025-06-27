@@ -3,7 +3,7 @@
 </script>
 
 <P>
-	<strong>This post is outdated. HMR works fine with Gitpod since SvelteKit v1.0</strong>
+	<strong>This post is outdated. HMR has worked fine with Gitpod since SvelteKit v1.0.</strong>
 </P>
 
 <P>
@@ -22,7 +22,7 @@
 	out my post
 	<a href="/posts/a-better-development-workflow-with-disposable-workspaces">
 		A better development workflow with disposable workspaces
-	</a>. In a Gitpod workspace, the SvelteKit development server runs on port 5173, like in your
+	</a>. In a Gitpod workspace, the SvelteKit development server runs on port 5173, just like in your
 	local development environment. How you access the development server depends on how you access
 	your Gitpod workspace:
 </P>
@@ -35,14 +35,15 @@
 	</li>
 	<li>
 		When you access your Gitpod workspace <strong>from VS Code via SSH</strong>, VS Code proxies the
-		development server to 127.0.0.1. You work with your Gitpod workspace as if it was a local
+		development server to 127.0.0.1. You work with your Gitpod workspace as if it were a local
 		development environment.
 	</li>
 </Ul>
 
 <P>
 	While developing a SvelteKit app with Gitpod inside a browser, I noticed that HMR was broken. It
-	would trigger indefinite page reloads after firing up the SvelteKit development server. Like in
+	would trigger indefinite page reloads after starting the SvelteKit development server, as
+	described in
 	<a href="https://github.com/sveltejs/kit/issues/2519">this GitHub issue</a>. The
 	<a href="https://github.com/sveltejs/kit/issues/2519#issuecomment-947485636">
 		last issue comment
@@ -58,8 +59,8 @@
 	<P>
 		<em>
 			<Code>clientPort</Code> is an advanced option that overrides the port only on the client side,
-			allowing you to serve the websocket on a different port than the client code looks for it on. Useful
-			if you're using an SSL proxy in front of your dev server.
+			allowing you to serve the websocket on a different port than the client code looks for it on. This
+			is useful if you're using an SSL proxy in front of your dev server.
 		</em>
 	</P>
 </blockquote>
@@ -88,8 +89,8 @@
 
 <P>
 	By default, a development server is not accessible externally. You need to tell the workspace
-	which internal port it should expose. If e.g., your development server runs at 127.0.0.1:5173 you
-	need to add the following configuration to your <Code>.gitpod.yml</Code>:
+	which internal port it should expose. If, for example, your development server runs at
+	127.0.0.1:5173, you need to add the following configuration to your <Code>.gitpod.yml</Code>:
 </P>
 
 <Figure caption=".gitpod.yml" class="mb-6">
@@ -116,7 +117,7 @@ tasks:
 	<CodeSnippet lang="text" src="<port>-<workspace-id>.<region>.gitpod.io" />
 </Figure>
 
-<P>E.g., I wrote this post on a Gitpod workspace running at</P>
+<P>For example, I wrote this post on a Gitpod workspace running at</P>
 
 <Figure class="mb-6">
 	<CodeSnippet lang="text" src="https://maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/" />
@@ -124,9 +125,9 @@ tasks:
 
 <P>
 	The workspace ID <Code>maiertech-maiertech-ti2zaqimh33</Code> consists of my GitHub username
-	<Code>maiertech</Code>, an ID derived from the repository name <Code>maier.tech</Code> and a UUID.
-	With the above <Code>.gitpod.yml</Code> configuration, the SvelteKit development server of this workspace
-	can be reached at
+	<Code>maiertech</Code>, an ID derived from the repository name <Code>maier.tech</Code>, and a
+	UUID. With the above <Code>.gitpod.yml</Code> configuration, the SvelteKit development server of this
+	workspace can be reached at
 </P>
 
 <Figure class="mb-6">
@@ -137,7 +138,7 @@ tasks:
 
 <H2>Overriding HMR in vite.config.js</H2>
 
-<P>Next, we override a the HMR configuration in <Code>vite.config.js</Code>:</P>
+<P>Next, we override the HMR configuration in <Code>vite.config.js</Code>:</P>
 
 <Figure caption="vite.config.js" class="mb-6">
 	<CodeSnippet
@@ -158,7 +159,7 @@ server: {
 <P>
 	We set <Code>clientPort</Code> and <Code>host</Code> depending on whether
 	<Code>GITPOD_WORKSPACE_URL</Code> exists. This ensures that HMR works when running your Gitpod workspace
-	inside a browser. But also for anyone running the SvelteKit site in a local development environment.
+	inside a browser, but also for anyone running the SvelteKit site in a local development environment.
 </P>
 
 <P>

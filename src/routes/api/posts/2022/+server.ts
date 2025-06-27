@@ -1,4 +1,5 @@
 import { transformPost } from '$lib/server/transformations';
+import postSvelteKitHmrOnGitpod from '$posts/(2022)/how-to-make-sveltekit-hmr-work-with-gitpod/meta';
 import postRecordingScreencasts from '$posts/(2022)/recording-screencasts-on-a-hidpi-display/meta';
 import postRouteMatching from '$posts/(2022)/route-matching-in-sveltekit/meta';
 import postThreeWaysToBootstrapSvelteProject from '$posts/(2022)/three-ways-to-bootstrap-a-svelte-project/meta';
@@ -14,7 +15,8 @@ export const GET: RequestHandler = async (event) => {
 		postAtAndHashtagSymbols,
 		postThreeWaysToBootstrapSvelteProject,
 		postRecordingScreencasts,
-		postRouteMatching
+		postRouteMatching,
+		postSvelteKitHmrOnGitpod
 	];
 
 	const transformedPosts = await Promise.all(
