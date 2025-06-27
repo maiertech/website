@@ -1,7 +1,7 @@
 import { json } from '@sveltejs/kit';
 import postConfiguringTurborepo from '$posts/(2023)/configuring-turborepo-for-a-sveltekit-monorepo/meta';
 import type { RequestHandler } from './$types';
-import { post as transformPost } from '$lib/transformations';
+import { post as transformPost } from '$lib/server/transformations';
 
 export const prerender = true;
 
