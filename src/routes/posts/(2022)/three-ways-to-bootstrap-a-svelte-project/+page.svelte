@@ -9,17 +9,17 @@
 </script>
 
 <P>
-	The <a href="https://github.com/sveltejs/template">Svelte template</a> was long the official way
-	to bootstrap a Svelte project, but it is no longer maintained and has been deprecated. What should you choose
-	instead to bootstrap a Svelte project?
+	The <a href="https://github.com/sveltejs/template">Svelte template</a> was long the official way to
+	bootstrap a Svelte project, but it is no longer maintained and has been deprecated. What should you
+	choose instead to bootstrap a Svelte project?
 </P>
 
 <P>
 	With <a href="https://kit.svelte.dev/">SvelteKit</a> now stable at version 1.0, it is the obvious choice
-	to bootstrap a Svelte project. There is nothing wrong with this approach. SvelteKit shines when
-	you need advanced features, e.g., a filesystem-based router, progressive enhancement, fast initial
-	page load, or SEO. For smaller projects, such as data visualization or a quick experiment, SvelteKit
-	comes with unnecessary overhead when all you need is Svelte.
+	to bootstrap a Svelte project. There is nothing wrong with this approach. SvelteKit shines when you
+	need advanced features, e.g., a filesystem-based router, progressive enhancement, fast initial page
+	load, or SEO. For smaller projects, such as data visualization or a quick experiment, SvelteKit comes
+	with unnecessary overhead when all you need is Svelte.
 </P>
 
 <P>Let's look at three ways to bootstrap a Svelte project.</P>

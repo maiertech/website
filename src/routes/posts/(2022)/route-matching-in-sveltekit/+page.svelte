@@ -31,9 +31,9 @@
 
 <P>
 	A filesystem-based router makes route matching straightforward: the route can be interpreted as
-	the subpath in <Code>src/routes</Code>, and often there is only one matching route file. But what happens
-	when there are multiple matching route files? How does SvelteKit decide which route file it uses to
-	render a page or endpoint?
+	the subpath in <Code>src/routes</Code>, and often there is only one matching route file. But what
+	happens when there are multiple matching route files? How does SvelteKit decide which route file
+	it uses to render a page or endpoint?
 </P>
 
 <P>
@@ -53,8 +53,9 @@
 
 <P>
 	When you have the example up and running, click route <Code>/green</Code> in the preview. SvelteKit
-	matches this request to the page <Code>src/routes/green.svelte</Code>. This is the filesystem-based
-	router at work, which takes the route and looks for the corresponding route file in
+	matches this request to the page <Code>src/routes/green.svelte</Code>. This is the
+	filesystem-based router at work, which takes the route and looks for the corresponding route file
+	in
 	<Code>src/routes</Code>.
 </P>
 
@@ -227,8 +228,8 @@
 <H2>Error pages</H2>
 
 <P>
-	Last but not least, let's navigate to the route <Code>/blue/dark</Code> in the example. This time, there
-	are no candidate pages. What does the router do? It falls back to the default error page
+	Last but not least, let's navigate to the route <Code>/blue/dark</Code> in the example. This time,
+	there are no candidate pages. What does the router do? It falls back to the default error page
 	<a
 		href="https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/+error.svelte"
 	>
@@ -244,7 +245,7 @@
 </P>
 
 <P>
-	SvelteKit allows you to configure error pages more granularly per directory, and you can read up on
-	how this works in the
+	SvelteKit allows you to configure error pages more granularly per directory, and you can read up
+	on how this works in the
 	<a href="https://kit.svelte.dev/docs/layouts#error-pages">SvelteKit docs</a>.
 </P>

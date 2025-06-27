@@ -15,8 +15,8 @@
 	</a>. Codespaces promises to lower the barrier to contributing to GitHub repositories. It would be
 	a huge win if contributors (or co-workers) could spin up an instance of VS Code in a browser with
 	all required plugins and configurations in place, fully ready for their first commit. What
-	previously might have taken several hours to several days is now reduced to just a few
-	minutes, which is the time it takes to spin up a development container.
+	previously might have taken several hours to several days is now reduced to just a few minutes,
+	which is the time it takes to spin up a development container.
 </P>
 
 <P>
@@ -149,8 +149,8 @@
 
 <P>
 	I must point out that running Docker Desktop is resource-intensive and not a good idea if your
-	machine is resource-constrained. But if you have a powerful enough machine, running containers locally
-	is a great alternative to setting up a local development environment.
+	machine is resource-constrained. But if you have a powerful enough machine, running containers
+	locally is a great alternative to setting up a local development environment.
 </P>
 
 <H2>Containers lower the barrier to contributing</H2>

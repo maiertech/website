@@ -17,7 +17,8 @@
 	<a href="https://kit.svelte.dev/docs/types#generated-types">generated types</a> a while ago.
 	SvelteKit would automatically generate types for <Code>data</Code> and <Code>form</Code> in +page.svelte/+layout.svelte
 	files and load functions and request handlers in +page.js/+layout.js, +page.server.js/+layout.server.js
-	and +server.js files. However, you had to annotate the types yourself, which felt like a repetitive chore:
+	and +server.js files. However, you had to annotate the types yourself, which felt like a repetitive
+	chore:
 </P>
 
 <Figure caption="JSDoc type annotation in +page.js." class="mb-6">
@@ -41,9 +42,12 @@
 </P>
 
 <P>
-	Zero-effort type safety is a massive improvement for developer happiness. However, it is important to put in additional effort to achieve complete type safety for your SvelteKit app. Besides
-	data <em>flowing through</em> your SvelteKit app, you also need to keep an eye on all points
-	where data <em>enters</em> your SvelteKit app.
+	Zero-effort type safety is a massive improvement for developer happiness. However, it is important
+	to put in additional effort to achieve complete type safety for your SvelteKit app. Besides data <em
+		>flowing through</em
+	>
+	your SvelteKit app, you also need to keep an eye on all points where data <em>enters</em> your SvelteKit
+	app.
 </P>
 
 <H2>Validation with Zod</H2>
@@ -67,8 +71,8 @@
 <P>
 	<a href="https://zod.dev/">Zod</a> is a schema validation library with first-class TypeScript support.
 	The first thing to note is that most data coming into your app is structured, i.e., a combination of
-	objects and arrays that contain strings. For example, on my website, every post is in a Markdown file. Its
-	frontmatter has a structure that can be described with a Zod schema:
+	objects and arrays that contain strings. For example, on my website, every post is in a Markdown file.
+	Its frontmatter has a structure that can be described with a Zod schema:
 </P>
 
 <Figure caption="src/lib/schemas/post-schema.js" class="mb-6">
@@ -77,8 +81,8 @@
 
 <P>
 	Every property is required by default, and you can nest schemas and add additional constraints.
-	For example, <Code>z.array(z.string()).optional()</Code> means that the schema expects an optional array of
-	strings.
+	For example, <Code>z.array(z.string()).optional()</Code> means that the schema expects an optional
+	array of strings.
 </P>
 
 <P>

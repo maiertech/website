@@ -165,8 +165,8 @@
 </P>
 
 <P>
-	To serve 4K videos, you must record at 1920 by 1080 scaled resolution. With DPR 2, actual pixels for
-	width and height double, resulting in 3840 by 2160 for the final video. On my LG Ultra HD, I
+	To serve 4K videos, you must record at 1920 by 1080 scaled resolution. With DPR 2, actual pixels
+	for width and height double, resulting in 3840 by 2160 for the final video. On my LG Ultra HD, I
 	have to record the entire screen.
 </P>
 
