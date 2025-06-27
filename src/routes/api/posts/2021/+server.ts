@@ -3,12 +3,13 @@ import postMoveYourIdeToTheCloud from '$posts/(2021)/move-your-ide-to-the-cloud-
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import postFathomAnalytics from '$posts/(2021)/how-to-wire-up-fathom-analytics-in-a-sveltekit-app/meta';
+import postGitHubCliSshConfig from '$posts/(2021)/how-to-use-github-cli-to-configure-ssh-authentication-to-github/meta';
 
 export const prerender = true;
 
 export const GET: RequestHandler = async (event) => {
 	// Sort order: latest first.
-	const posts = [postFathomAnalytics, postMoveYourIdeToTheCloud];
+	const posts = [postGitHubCliSshConfig, postFathomAnalytics, postMoveYourIdeToTheCloud];
 
 	const transformedPosts = await Promise.all(
 		posts.map((post) => {

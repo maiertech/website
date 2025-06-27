@@ -1,12 +1,8 @@
 <script lang="ts">
 	import { Code, CodeSnippet, Figure, H2, P, Ul } from '@maiertech/sveltekit-helpers';
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 
-	interface Props {
-		data: PageData;
-	}
-
-	let { data }: Props = $props();
+	let { data }: PageProps = $props();
 </script>
 
 <P>
@@ -26,27 +22,27 @@
 </P>
 
 <Ul>
-	<li><strong>Website:</strong> authenticate with username, password and 2FA.</li>
-	<li><strong>Command-line:</strong> authenticate with a personal access token or SSH key.</li>
+	<li><strong>Website:</strong> Authenticate with username, password, and 2FA.</li>
+	<li><strong>Command line:</strong> Authenticate with a personal access token or SSH key.</li>
 	<li>
-		<strong>VS Code:</strong> authenticate with OAuth token (which is automatically created upon the
+		<strong>VS Code:</strong> Authenticate with an OAuth token (which is automatically created upon the
 		first login with VS Code).
 	</li>
 	<li>
-		<strong>GitHub CLI:</strong> authenticate with OAuth token for commands using the GitHub API and
-		one of the command line authentication methods mentioned above for basic commands such as cloning,
-		fetching, pulling and pushing.
+		<strong>GitHub CLI:</strong> Authenticate with an OAuth token for commands using the GitHub API and
+		one of the command-line authentication methods mentioned above for basic commands such as cloning,
+		fetching, pulling, and pushing.
 	</li>
 </Ul>
 
 <P>
-	This post is about configuring SSH authentication for the command line. You can read up on the
+	This post is about configuring SSH authentication for the command line. You can read about the
 	<a
 		href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#authenticating-with-the-command-line"
 	>
-		two command line authentication options in the docs
-	</a>. There is no right or wrong choice between the two. Both, personal access token and SSH key,
-	have their pros and cons. I like the SSH key option because you set it up once and all
+		two command-line authentication options in the docs
+	</a>. There is no right or wrong choice between the two. Both personal access tokens and SSH keys
+	have their pros and cons. I prefer the SSH key option because you set it up once, and all
 	applications supporting SSH to interact with GitHub can piggyback on the generated SSH key. If you
 	need more fine-grained control over the permissions you grant to applications, personal access
 	tokens are a better choice.
@@ -65,10 +61,10 @@
 </Figure>
 
 <P>
-	The last question will redirect you to your GitHub account page where you need to paste the copied
-	code. Review and accept the permissions that you will grant to GitHub CLI. This creates an OAuth
-	token for GitHub CLI. After your SSH key has been generated and uploaded to GitHub, you will see
-	this confirmation:
+	The last question will redirect you to your GitHub account page, where you need to paste the
+	copied code. Review and accept the permissions that you will grant to GitHub CLI. This creates an
+	OAuth token for GitHub CLI. After your SSH key has been generated and uploaded to GitHub, you will
+	see this confirmation:
 </P>
 
 <Figure class="mb-6">
@@ -110,7 +106,7 @@
 		href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints"
 	>
 		GitHub's SSH key fingerprints page
-	</a>, copy the RSA fingerprint and paste it to replace <Code>fingerprint2</Code>. Run the
+	</a>, copy the RSA fingerprint, and paste it to replace <Code>fingerprint2</Code>. Run the
 	comparison command. If both fingerprints match, type yes to respond to the above prompt. You
 	should see the following confirmation message:
 </P>
@@ -123,7 +119,7 @@
 </Figure>
 
 <P>
-	The Github domain github.com has now been added to <Code>~/.ssh/known_hosts</Code> together with its
-	public key. Any SSH operation in any application now trust GitHub's server and public key and can authenticate
-	to GitHub.
+	The GitHub domain github.com has now been added to <Code>~/.ssh/known_hosts</Code> together with its
+	public key. Any SSH operation in any application now trusts GitHub's server and public key and can
+	authenticate to GitHub.
 </P>
