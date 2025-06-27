@@ -6,12 +6,14 @@ import postThreeWaysToBootstrapSvelteProject from '$posts/(2022)/three-ways-to-b
 import postAtAndHashtagSymbols from '$posts/(2022)/using-the-at-and-hash-symbols-in-tweets-with-a-word-joiner-character/meta';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import postSvelteKitBreakingChanges from '$posts/(2022)/handling-breaking-changes-in-sveltekit-pre-1-0/meta';
 
 export const prerender = true;
 
 export const GET: RequestHandler = async (event) => {
 	// Sort order: latest first.
 	const posts = [
+		postSvelteKitBreakingChanges,
 		postAtAndHashtagSymbols,
 		postThreeWaysToBootstrapSvelteProject,
 		postRecordingScreencasts,

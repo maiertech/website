@@ -4,14 +4,13 @@
 
 <P>
 	<strong>
-		This post is obsolete. To get started with SvelteKit, go to the <a
-			href="https://svelte.dev/docs/kit/creating-a-project">SvelteKit docs</a
-		>.
+		This post is obsolete. To get started with SvelteKit, go to the
+		<a href="https://svelte.dev/docs/kit/creating-a-project">SvelteKit docs</a>.
 	</strong>
 </P>
 
 <P>
-	In August 2022, the SvelteKit team around
+	In August 2022, the SvelteKit team led by
 	<a href="https://twitter.com/rich_harris">Rich Harris</a> released several refactorings in
 	preparation for the release of SvelteKit 1.0. The most significant changes were a complete
 	overhaul of SvelteKit's
@@ -44,8 +43,8 @@
 </P>
 
 <P>
-	Now that many devs run SvelteKit in production, what is the best way to deal with all the breaking
-	changes?
+	Now that many developers run SvelteKit in production, what is the best way to deal with all the
+	breaking changes?
 </P>
 
 <H2>Upgrading to recent SvelteKit versions with breaking changes</H2>
