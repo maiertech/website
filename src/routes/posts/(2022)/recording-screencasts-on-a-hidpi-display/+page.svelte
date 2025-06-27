@@ -86,7 +86,7 @@
 	One pixel of the scaled resolution corresponds to multiple physical pixels. On the LG Ultra HD
 	with 1920 by 1080 scaled resolution, every width or height pixel is replaced with two actual width
 	or height pixels. The ratio between scaled and actual width/height pixels is called the
-	<em>device pixel ratio</em> (DPR). In this example, DPR is 2. For DPR 2, one scaled pixel consists
+	<em>device pixel ratio</em> (DPR). In this example, the DPR is 2. For DPR 2, one scaled pixel consists
 	of four actual pixels, as shown in this graphic:
 </P>
 
@@ -94,9 +94,9 @@
 	<ScaledPixelSVG />
 </Figure>
 
-<P>MacOS always uses the default resolution unless you opt for a different scaled resolution:</P>
+<P>macOS always uses the default resolution unless you opt for a different scaled resolution:</P>
 
-<Figure caption="MacOS lets you choose your preferred scaled resolution." class="mb-6">
+<Figure caption="macOS lets you choose your preferred scaled resolution." class="mb-6">
 	<VercelImage
 		src={display_preferences_origin_image}
 		alt="Screenshot of display preferences on macOS."
@@ -165,8 +165,8 @@
 </P>
 
 <P>
-	To serve 4K videos, you must record 1920 by 1080 scaled resolution. With DPR 2, actual pixels for
-	width and height double, resulting in a 3840 by 2160 for the final video. On my LG Ultra HD, I
+	To serve 4K videos, you must record at 1920 by 1080 scaled resolution. With DPR 2, actual pixels for
+	width and height double, resulting in 3840 by 2160 for the final video. On my LG Ultra HD, I
 	have to record the entire screen.
 </P>
 
