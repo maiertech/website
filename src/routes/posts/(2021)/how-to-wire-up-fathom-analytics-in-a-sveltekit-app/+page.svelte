@@ -1,19 +1,15 @@
 <script lang="ts">
 	import { Code, CodeSnippet, Figure, H2, P } from '@maiertech/sveltekit-helpers';
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 
-	interface Props {
-		data: PageData;
-	}
-
-	let { data }: Props = $props();
+	let { data }: PageProps = $props();
 </script>
 
 <P>
 	When I migrated this website from <a href="https://nextjs.org/">Next.js</a> to
-	<a href="https://kit.svelte.dev/">SvelteKit</a>, I had to figure out how to wire up
+	<a href="https://kit.svelte.dev/">SvelteKit</a>, I had to figure out how to set up
 	<a href="https://usefathom.com/">Fathom Analytics</a>. Fathom Analytics is an alternative to
-	Google Analytics. It features a better user experience for website owners and is more
+	Google Analytics. It offers a better user experience for website owners and is more
 	privacy-friendly for visitors. This post expands on Matt Jennings's post
 	<a href="https://mattjennings.io/blog/how-to-use-fathom-analytics-with-sveltekit">
 		How to use Fathom Analytics with SvelteKit
@@ -26,7 +22,7 @@
 	There are usually two things you want to track with web analytics: <em>page views</em> and
 	<em>goals</em>. Tracking page views helps you see how visitors move through your website, how long
 	they spend on each page, and which pages are more popular than others. Tracking goals helps you
-	track specific actions you would like your visitors to do, e.g., subscribe to your newsletter or
+	monitor specific actions you would like your visitors to take, e.g., subscribe to your newsletter or
 	click through to your Twitter profile. Actions typically involve clicking a link or a button. When
 	such a click happens, a visitor has done what you wanted them to do, and you can track that you
 	have accomplished your goal for this visitor.
