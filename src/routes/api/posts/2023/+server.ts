@@ -4,12 +4,14 @@ import postConfiguringTurborepo from '$posts/(2023)/configuring-turborepo-for-a-
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import postStackBlitzCodeflowBeta from '$posts/(2023)/is-stackblitz-codeflow-beta-ready-to-replace-your-local-vs-code/meta';
+import postBasicSeoComponent from '$posts/(2023)/how-to-add-a-basic-seo-component-to-sveltekit/meta';
 
 export const prerender = true;
 
 export const GET: RequestHandler = async (event) => {
 	// Sort order: latest first.
 	const posts = [
+		postBasicSeoComponent,
 		postConfiguringTurborepo,
 		postComplementZeroEffortTypeSafety,
 		postStackBlitzCodeflowBeta
