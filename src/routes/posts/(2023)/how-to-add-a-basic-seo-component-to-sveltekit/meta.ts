@@ -8,7 +8,7 @@ const meta: PostMetaType = {
 		'How to build a basic SEO component in SvelteKit, add meta tags, and manage canonical URLs for better search engine optimization.',
 	tags: ['svelte', 'seo'],
 	path: '/posts/how-to-add-a-basic-seo-component-to-sveltekit',
-	filepath: 'src/routes/posts/(2023)/how-to-add-a-basic-seo-component-to-sveltekit/+page.svelte'
+	filepath: 'src/routes/posts/(2023)/how-to-add-a-basic-seo-component-to-sveltekit/+page.svx'
 };
 
 export default meta;
