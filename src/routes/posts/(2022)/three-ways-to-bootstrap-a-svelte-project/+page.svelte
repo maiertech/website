@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
-	import { CodeSnippet, Figure, H2, P, VercelImage } from '@maiertech/sveltekit-helpers';
-	import csb_new_sandbox_dialog_origin_image from './csb-new-sandbox-dialog.png';
-	import csb_svelte_template_origin_image from './csb-svelte-template.png';
-	import stackblitz_dashboard_origin_image from './stackblitz-dashboard.png';
-	import svelte_repl_origin_image from './svelte-repl.png';
-	import svelte_template_origin_image from './svelte-template.png';
+	import { CodeSnippet, Figure, H2, P, ResponsiveImage } from '@maiertech/sveltekit-helpers';
+	import srcCsbNewSandboxDialog from './csb-new-sandbox-dialog.png';
+	import srcCsbSvelteTemplate from './csb-svelte-template.png';
+	import srcStackblitzDashboard from './stackblitz-dashboard.png';
+	import srcSvelteRepl from './svelte-repl.png';
+	import srcSvelteTemplate from './svelte-template.png';
 </script>
 
 <P>
@@ -42,10 +42,10 @@
 	caption="Click the download button in the Svelte REPL to download the source code of an example."
 	class="mb-6"
 >
-	<VercelImage
-		src={svelte_repl_origin_image}
+	<ResponsiveImage
+		src={srcSvelteRepl}
 		alt="Screenshot of a project running in the Svelte REPL. A blue arrow points at the download button."
-	/>
+	></ResponsiveImage>
 </Figure>
 
 <P>
@@ -57,10 +57,10 @@
 	caption="Code examples in the Svelte REPL use the legacy Svelte template, which uses Rollup as a bundler."
 	class="mb-6"
 >
-	<VercelImage
-		src={svelte_template_origin_image}
+	<ResponsiveImage
+		src={srcSvelteTemplate}
 		alt="Screenshot of VS Code with the code downloaded from the Svelte REPL. File package.json is open, and you can see the dependencies of the deprecated Svelte template."
-	/>
+	></ResponsiveImage>
 </Figure>
 
 <P>
@@ -85,10 +85,10 @@
 </P>
 
 <Figure caption="CodeSandbox has a sandbox template for Svelte." class="mb-6">
-	<VercelImage
-		src={csb_new_sandbox_dialog_origin_image}
+	<ResponsiveImage
+		src={srcCsbNewSandboxDialog}
 		alt="Screenshot of the CodeSandbox dialog to select a template for a new sandbox. The Svelte template is highlighted."
-	/>
+	></ResponsiveImage>
 </Figure>
 
 <P>
@@ -100,10 +100,10 @@
 	caption="CodeSandbox's Svelte template is a variation of the deprecated Svelte template."
 	class="mb-6"
 >
-	<VercelImage
-		src={csb_svelte_template_origin_image}
+	<ResponsiveImage
+		src={srcCsbSvelteTemplate}
 		alt="Screenshot of CodeSandbox's Svelte template running in-browser. File package.json is open, and you can see the dependencies of the deprecated Svelte template."
-	/>
+	></ResponsiveImage>
 </Figure>
 
 <P>
@@ -131,10 +131,10 @@
 </P>
 
 <Figure caption="StackBlitz supports the official Vite Svelte templates." class="mb-6">
-	<VercelImage
-		src={stackblitz_dashboard_origin_image}
+	<ResponsiveImage
+		src={srcStackblitzDashboard}
 		alt="Screenshot of StackBlitz's dashboard. The two Svelte templates, one for vanilla JavaScript and one for TypeScript, are highlighted."
-	/>
+	></ResponsiveImage>
 </Figure>
 
 <P>

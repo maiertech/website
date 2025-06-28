@@ -1,15 +1,11 @@
 <script lang="ts">
-	import { dev } from '$app/environment';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { Favicon, Footer, Header } from '$lib/components';
 	import { Container, PageLayout, SeoBasic } from '@maiertech/sveltekit-helpers';
-	import { inject } from '@vercel/analytics';
 	import type { Snippet } from 'svelte';
 
 	import '@maiertech/sveltekit-helpers/themes/default.css'; // First import the theme, then the styles.
 	import '../app.css';
-
-	inject({ mode: dev ? 'development' : 'production' });
 
 	interface Props {
 		children: Snippet;
@@ -18,8 +14,8 @@
 	let { children }: Props = $props();
 </script>
 
-{#if $page.data.seo}
-	<SeoBasic title={$page.data.seo.title} description={$page.data.seo.description} />
+{#if page.data.seo}
+	<SeoBasic title={page.data.seo.title} description={page.data.seo.description} />
 {/if}
 
 <Favicon />

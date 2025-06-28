@@ -1,6 +1,6 @@
 <script>
-	import { Figure, P, VercelImage } from '@maiertech/sveltekit-helpers';
-	import submittedSitemap from './submitted-sitemap.png';
+	import { Figure, P, ResponsiveImage } from '@maiertech/sveltekit-helpers';
+	import srcSubmittedSitemap from './submitted-sitemap.png';
 </script>
 
 <P>
@@ -28,10 +28,10 @@ need a sitemap. Yet, I submitted a sitemap in May 2021 as an initial SEO boost. 
 Google last read a sitemap in the Google Search Console. For my site, it was almost two years ago:
 
 <Figure caption="For small sites, a sitemap is only initially relevant." class="mb-6">
-	<VercelImage
-		src={submittedSitemap}
+	<ResponsiveImage
+		src={srcSubmittedSitemap}
 		alt="Screenshot of submitted sitemaps in the Google Search Console. Sitemap submission date: May 21, 2021. Sitemap last read: June 28, 2021."
-	/>
+	></ResponsiveImage>
 </Figure>
 
 ## Different types of sitemaps

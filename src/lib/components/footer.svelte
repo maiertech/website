@@ -1,6 +1,5 @@
 <script lang="ts">
 	import navLinks from '$lib/nav-links';
-	import { track } from '@vercel/analytics';
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
 	import Icon from '@iconify/svelte';
 </script>
@@ -19,9 +18,6 @@
 			<Icon icon="simple-icons:bluesky" height="100%" class="block h-8 w-8"></Icon>
 		</SocialIcon>
 		<SocialIcon
-			onclick={() => {
-				track('Mastodon icon clicked');
-			}}
 			href="https://maier.social/@thilo"
 			decorator="mastodon"
 			ariaLabel="Follow me on Mastodon"
