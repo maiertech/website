@@ -1,35 +1,25 @@
----
-title: 'How to provide better context in GitHub Copilot prompts'
-author: 'thilo'
-publishedDate: '2024-11-15T00:00:00.00Z'
-description:
-  'In this post, you will learn different ways to provide more context to your GitHub Copilot
-  prompts to improve its suggestions and enhance your developer experience.'
-tags: ['dx', 'ai', 'vscode']
----
-
 GitHub Copilot is an AI-powered coding assistant for VS Code that was released in October 2021. I've
 been using it for a while but couldn't really warm up to it. While I had occasional "wow" moments, I
 often found myself wrestling with Copilot. But I have to admit, I was using Copilot without ever
 reading the docs. After all, it's AI and shouldn't need a manual, right? Big mistake!
 
 In this post, I will share how to provide better context in Copilot prompts, which dramatically
-increased my perceived quality of the suggestions Copilot makes.
+increased the perceived quality of the suggestions Copilot makes.
 
 ## Why context matters for AI models
 
-When an AI model delivers poor results, it's often because it lacks context. For any AI model, when
+When an AI model delivers poor results, it's often because it lacks context. For any AI model, if
 you are not happy with a response, ask yourself whether you provided enough context.
 
 At the same time, providing good context is easier said than done. That's because there are no clear
 rules on how to write good prompts. It's mostly trial and error. However, the tooling around an AI
-model should make it easy to provide better context. That's why Copilot offers you several ways to
+model should make it easy to provide better context. That's why Copilot offers several ways to
 provide better context.
 
-## GitHub Copilot four ways
+## GitHub Copilot's four ways
 
 GitHub Copilot offers four modes of interacting with it and providing context. In the following
-sections, I will dive into how to provide context effectively in each mode.
+sections, I will explain how to provide context effectively in each mode.
 
 ### Code completion
 
@@ -120,8 +110,8 @@ and `/help` shows participants and commands.
 
 Copilot Edits is the latest addition to Copilot. It adds the ability to let Copilot make edit
 suggestions for one or more files. While this is super powerful, a second chat also adds confusion.
-Not everything discussed in the previous section for Ask Copilot works in Copilot Edits. Shortcut
-`⌘/` works as you would expect.
+Not everything discussed in the previous section for Ask Copilot works in Copilot Edits. The
+shortcut `⌘/` works as you would expect.
 
 At this point, it is not really clear to me how Ask Copilot and Copilot Edits will be consolidated
 in the future. In any case, you should remember the following shortcuts:
@@ -136,9 +126,9 @@ start a new session.
 
 ### Copilot instructions
 
-Last, but not least, you can add global context by adding a project-specific
-`.github/copilot-instructions.md` with information about your project. There is no right or wrong of
-what to put in this file. But I recommend adding a few points about the tech stack and the
+Last but not least, you can add global context by adding a project-specific
+`.github/copilot-instructions.md` with information about your project. There is no right or wrong
+for what to put in this file. But I recommend adding a few points about the tech stack and the
 non-technical context. Copilot will add the content of this file to every prompt as context. Here is
 an example of what I put in my `copilot-instructions.md` for the repository for this website:
 

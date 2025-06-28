@@ -1,10 +1,10 @@
 import { transformPost } from '$lib/server/transformations';
 import postComplementZeroEffortTypeSafety from '$posts/(2023)/complement-zero-effort-type-safety-in-sveltekit-with-zod-for-even-more-type-safety/meta';
 import postConfiguringTurborepo from '$posts/(2023)/configuring-turborepo-for-a-sveltekit-monorepo/meta';
+import postBasicSeoComponent from '$posts/(2023)/how-to-add-a-basic-seo-component-to-sveltekit/meta';
+import postStackBlitzCodeflowBeta from '$posts/(2023)/is-stackblitz-codeflow-beta-ready-to-replace-your-local-vs-code/meta';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import postStackBlitzCodeflowBeta from '$posts/(2023)/is-stackblitz-codeflow-beta-ready-to-replace-your-local-vs-code/meta';
-import postBasicSeoComponent from '$posts/(2023)/how-to-add-a-basic-seo-component-to-sveltekit/meta';
 
 export const prerender = true;
 
