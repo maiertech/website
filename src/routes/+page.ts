@@ -10,7 +10,7 @@ export const load: PageLoad = async function ({ fetch }) {
 
 	// Fetch latest posts.
 	response = await fetch('/api/posts/latest');
-	const posts = (await response.json()) as PostType[];
+	const posts = ((await response.json()) as PostType[]).slice(0, 5);
 
 	return {
 		seo: {

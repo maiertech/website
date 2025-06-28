@@ -1,25 +1,12 @@
----
-title: Five ways to customize a Gitpod workspace
-author: thilo
-publishedDate: '2023-03-23T00:00:00.00Z'
-description:
-  Gitpod offers unique ways to customize a workspace, which sets it apart from its competitors. This
-  post will show five ways to customize a Gitpod workspace and how they result in one of the best
-  cloud workspace offerings.
-tags:
-  - dx
-  - gitpod
----
-
 <script>
 	import { Figure } from '@maiertech/sveltekit-helpers';
 	import gitpod_editors_png from './gitpod-editors.png';
 </script>
 
 A [Gitpod](https://gitpod.io/) workspace aims to be a no-compromise replacement for a local
-workspace, no matter whether you access it with a browser or via SSH with your desktop editor. Like
-a local workspace, a Gitpod workspace is fully customizable. This post will show you five ways to
-customize a Gitpod workspace.
+workspace, whether you access it with a browser or via SSH with your desktop editor. Like a local
+workspace, a Gitpod workspace is fully customizable. This post will show you five ways to customize
+a Gitpod workspace.
 
 If you are wondering why you should use Gitpod instead of your local development environment, read
 my post
@@ -34,9 +21,10 @@ covers three configuration options. You can find an overview of all configuratio
 ### Prebuilds
 
 Creating a workspace from `.gitpod.yml` may take several minutes, depending on your stack. With
-prebuilds, you can accelerate the launch of a new workspace. Prebuilds trigger whenever you push
-code to certain repository branches. If possible, Gitpod launches a prebuild instead of creating a
-workspace from scratch, which feels instantaneous. Use the `github` key to configure prebuilds:
+prebuilds, you can accelerate the launch of a new workspace. Prebuilds are triggered whenever you
+push code to certain repository branches. If possible, Gitpod launches a prebuild instead of
+creating a workspace from scratch, which feels instantaneous. Use the `github` key to configure
+prebuilds:
 
 <Figure caption=".gitpod.yml" class="mb-6">
 
@@ -84,7 +72,8 @@ With prebuilds enabled, the `init` portion of the task will run during the prebu
 ### Ports
 
 When you run a development server, you need to let Gitpod know the port of your server and whether a
-preview should be publicly accessible. For a SvelteKit app, e.g., Gitpod needs to expose port 5173:
+preview should be publicly accessible. For a SvelteKit app, for example, Gitpod needs to expose port
+5173:
 
 <Figure caption=".gitpod.yml" class="mb-6">
 
@@ -104,10 +93,10 @@ share a preview with someone else, set visibility to `public`.
 
 ## 2: Workspace images
 
-By default, new Gitpod workspaces launch with Docker image
+By default, new Gitpod workspaces launch with the Docker image
 [gitpod/workspace-full](https://hub.docker.com/r/gitpod/workspace-full), which is a universal image
 that comes with a variety of programming languages pre-installed. Gitpod also offers specialized
-images, e.g., for web development, you can use
+images. For web development, for example, you can use
 [gitpod/workspace-node](https://hub.docker.com/r/gitpod/workspace-node) or
 [gitpod/workspace-node-lts](https://hub.docker.com/r/gitpod/workspace-node-lts). Check out
 [this repository](https://github.com/gitpod-io/workspace-images) for a list of official workspace
@@ -127,7 +116,7 @@ image: gitpod/workspace-node-lts
 While you can use a custom Docker image with Gitpod, I recommend customizing an official image
 rather than trying to create a custom image from scratch.
 
-Gitpod makes simple customizations of workspace images easy. If, e.g., you need an additional
+Gitpod makes simple customizations of workspace images easy. If, for example, you need an additional
 package on a workspace image, you can add it without being a Docker expert. In one of my recent
 projects, I used [Turborepo](https://turbo.build/repo) to accelerate NPM tasks in a monorepo. I
 needed the NPM package [turbo](https://www.npmjs.com/package/turbo) installed globally in my
@@ -160,9 +149,9 @@ RUN npm i -g turbo
 
 `FROM` indicates the image to be customized, and `RUN` runs the NPM command to install the turbo
 package globally. Official workspace images also include
-[Homebrew for Linux](https://docs.brew.sh/Homebrew-on-Linux) to make customizations easier. E.g.,
-you could add `RUN brew install pandoc` to install document converter [Pandoc](https://pandoc.org/)
-into your Docker image with Homebrew.
+[Homebrew for Linux](https://docs.brew.sh/Homebrew-on-Linux) to make customizations easier. For
+example, you could add `RUN brew install pandoc` to install the document converter
+[Pandoc](https://pandoc.org/) into your Docker image with Homebrew.
 
 ## 3: Gitpod settings sync
 
@@ -190,7 +179,7 @@ co-created the [Open VSX Registry](https://open-vsx.org/), an alternative to the
 marketplace, and integrated it into browser-based workspaces.
 
 The Open VSX Registry contains a subset of the VS Code marketplace. Many extension authors
-cross-publish their extensions to the Open VSX Registry, i.e., the most popular extensions are all
+cross-publish their extensions to the Open VSX Registry, so the most popular extensions are all
 available. But you cannot access proprietary extensions such as
 [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 
@@ -213,12 +202,12 @@ vscode:
 </Figure>
 
 When you access a Gitpod workspace with VS Code desktop, extensions will be installed from the VS
-Code marketplace and for a browser-based Gitpod workspace from the Open VSX Registry.
+Code marketplace, and for a browser-based Gitpod workspace, from the Open VSX Registry.
 
 Install any non-project-specific extension in a Gitpod workspace with sync enabled, and it will
 synchronize into any new Gitpod workspace you launch.
 
-## 5: Editors and Git Providers
+## 5: Editors and Git providers
 
 Gitpod is more than combining a virtual machine in the cloud with GitHub and VS Code. While GitHub
 and VS Code are popular choices, alternative Git providers and editors are available. Gitpod is the
@@ -232,15 +221,15 @@ JetBrains IDEs:
 </Figure>
 
 Not all customizations covered in this post make sense with all combinations of Git providers and
-editors. E.g., settings sync between browser-based and desktop-based Gitpod workspaces is only
-relevant if you use VS Code as your editor.
+editors. For example, settings sync between browser-based and desktop-based Gitpod workspaces is
+only relevant if you use VS Code as your editor.
 
 ## Conclusion
 
-This post covered five ways to customize a Gitpod workspace focusing on GitHub as Git provider and
-VS Code as editor. I have used this combination with Gitpod as my primary development environment
-for web development for almost two years. I have yet to encounter a scenario where Gitpod cannot
-replace my local development environment.
+This post covered five ways to customize a Gitpod workspace, focusing on GitHub as the Git provider
+and VS Code as the editor. I have used this combination with Gitpod as my primary development
+environment for web development for almost two years. I have yet to encounter a scenario where
+Gitpod cannot replace my local development environment.
 
 Gitpod covers numerous stacks, three Git providers, and VS Code's main competitor JetBrains, which
 no other Gitpod alternative can support. With Gitpod, you can choose the development environment
