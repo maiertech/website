@@ -8,7 +8,7 @@ const meta: PostMetaType = {
 		'StackBlitz WebContainers require third-party cookies. Learn how to enable them or allow specific sites for embedded live code to function.',
 	tags: ['dx', 'stackblitz'],
 	path: '/posts/cookie-settings-for-stackblitz-webcontainers',
-	filepath: 'src/routes/posts/(2023)/cookie-settings-for-stackblitz-webcontainers/+page.svx'
+	filepath: 'src/routes/posts/(2023)/cookie-settings-for-stackblitz-webcontainers/+page.svelte'
 };
 
 export default meta;
