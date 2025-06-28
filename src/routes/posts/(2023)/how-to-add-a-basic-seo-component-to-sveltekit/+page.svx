@@ -36,18 +36,19 @@ A canonical URL is a `<link>` tag added to the `<head>` of an HTML page. It look
 />
 ```
 
-When a search engine detects duplicate content, whether within a website or across websites, it has to
-determine which instance it considers to be the original. Search engines rank what they consider to
-be the canonical version higher than duplicates. In other words, duplicate content gets an SEO
-penalty. The link tag provides search engines with a hint about what they should consider the canonical
-version.
+When a search engine detects duplicate content, whether within a website or across websites, it has
+to determine which instance it considers to be the original. Search engines rank what they consider
+to be the canonical version higher than duplicates. In other words, duplicate content gets an SEO
+penalty. The link tag provides search engines with a hint about what they should consider the
+canonical version.
 
 There are two common scenarios for duplicate content:
 
-1. When you syndicate content, i.e., you cross-publish it to other websites. For example, some developers
-   publish their posts on their personal website and cross-post to [Hashnode](https://hashnode.com/)
-   to reach a bigger audience. If they want SEO traffic to be directed to their personal website,
-   they have to ensure that search engines consider that URL the canonical version.
+1. When you syndicate content, i.e., you cross-publish it to other websites. For example, some
+   developers publish their posts on their personal website and cross-post to
+   [Hashnode](https://hashnode.com/) to reach a bigger audience. If they want SEO traffic to be
+   directed to their personal website, they have to ensure that search engines consider that URL the
+   canonical version.
 
 2. Accidental duplication, e.g., your website can be reached at `https://example.com` and
    `https://www.example.com`, or when deploy previews get indexed by search engines accidentally.
@@ -56,13 +57,14 @@ Adding a canonical link tag can help you manage these two scenarios.
 
 ## Building a basic SEO component
 
-Before I show you how to build a basic SEO component, let me address the question of whether you should use
-an SEO component package. There is [svelte-meta-tags](https://github.com/oekazuma/svelte-meta-tags)
-by Kazuma Oe and [Svead](https://github.com/spences10/svead) by Scott Spences. They are both viable
-options, but they are essentially just a `<svelte:head>` with props.
+Before I show you how to build a basic SEO component, let me address the question of whether you
+should use an SEO component package. There is
+[svelte-meta-tags](https://github.com/oekazuma/svelte-meta-tags) by Kazuma Oe and
+[Svead](https://github.com/spences10/svead) by Scott Spences. They are both viable options, but they
+are essentially just a `<svelte:head>` with props.
 
-SEO requirements vary based on your content and target audience. For example, for a blog, you may want to
-support [Open Graph metadata](https://ogp.me/) but also
+SEO requirements vary based on your content and target audience. For example, for a blog, you may
+want to support [Open Graph metadata](https://ogp.me/) but also
 [structured data with JSON-LD Article](https://developers.google.com/search/docs/appearance/structured-data/article).
 A one-size-fits-all SEO component like the one from svelte-meta-tags has a complicated API because
 it covers many use cases. I think it is better to start with a small custom SEO component, study
@@ -93,8 +95,8 @@ So, here is my basic SEO component:
 </Figure>
 
 The component is also just a `<svelte:head>` with props: `title` (required), `description`
-(required), and `canonical_url` (optional). They are passed in as a `data` object. This component works
-with SvelteKit only because it imports SvelteKit's `page` store, which provides access to the
+(required), and `canonical_url` (optional). They are passed in as a `data` object. This component
+works with SvelteKit only because it imports SvelteKit's `page` store, which provides access to the
 current path. I decorate the SEO title on all pages, except the root page, with a `decorate`
 function. For example, I could append my name:
 
@@ -113,8 +115,8 @@ export default function (title) {
 </Figure>
 
 Decorating the SEO title is an opportunity to add lightweight branding when you appear in search
-results, but there is no guarantee that search engines will use the decorated SEO title in their search
-results. They might also use the text of the `<h1>` element.
+results, but there is no guarantee that search engines will use the decorated SEO title in their
+search results. They might also use the text of the `<h1>` element.
 
 The _description_ meta tag is just text with a short description of the page. Keep it very short.
 There is no room for unnecessary words in search results. In general, consider SEO meta tags to be
@@ -125,14 +127,15 @@ sets a default canonical URL as insurance against an SEO penalty caused by accid
 content. The origin of the default canonical URL comes from the environment variable
 `PUBLIC_URL_ORIGIN`, e.g., https://www.maier.tech, and is intentionally hard-wired.
 
-If you provide the property `canonical_url`, it will override the default canonical URL. This is useful
-when you syndicate content from another website and that other website is the canonical website.
+If you provide the property `canonical_url`, it will override the default canonical URL. This is
+useful when you syndicate content from another website and that other website is the canonical
+website.
 
 ## How to retrieve SEO data
 
 Now that we have a basic SEO component, we need to figure out how to retrieve the title and
-description for each page and pass them into the SEO component. If your site has only a few pages, you
-can add the SEO component to each page and hard-wire the title and description.
+description for each page and pass them into the SEO component. If your site has only a few pages,
+you can add the SEO component to each page and hard-wire the title and description.
 
 But for more complex sites, the SEO component is placed in a layout. The layout is unaware of which
 page it wraps. Therefore, we have to find a way to get page data into a layout. Let's recap

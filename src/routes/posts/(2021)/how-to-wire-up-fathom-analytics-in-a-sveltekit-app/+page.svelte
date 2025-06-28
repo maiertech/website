@@ -22,10 +22,10 @@
 	There are usually two things you want to track with web analytics: <em>page views</em> and
 	<em>goals</em>. Tracking page views helps you see how visitors move through your website, how long
 	they spend on each page, and which pages are more popular than others. Tracking goals helps you
-	monitor specific actions you would like your visitors to take, e.g., subscribe to your newsletter or
-	click through to your Twitter profile. Actions typically involve clicking a link or a button. When
-	such a click happens, a visitor has done what you wanted them to do, and you can track that you
-	have accomplished your goal for this visitor.
+	monitor specific actions you would like your visitors to take, e.g., subscribe to your newsletter
+	or click through to your Twitter profile. Actions typically involve clicking a link or a button.
+	When such a click happens, a visitor has done what you wanted them to do, and you can track that
+	you have accomplished your goal for this visitor.
 </P>
 
 <P>

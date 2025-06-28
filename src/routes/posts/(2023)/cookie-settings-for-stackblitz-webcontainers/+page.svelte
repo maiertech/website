@@ -8,8 +8,9 @@
 	More and more websites use StackBlitz WebContainers to embed live code examples. The new Svelte
 	tutorial at <a href="https://learn.svelte.dev/">learn.svelte.dev</a> embeds StackBlitz
 	WebContainers to run Svelte and SvelteKit examples in supported browsers. Think of a WebContainer
-	as a small operating system that runs in your browser and can run Node.js version 16. Once you have
-	Node.js running in your browser, it takes little effort to run entire Node-based stacks, e.g.,
+	as a small operating system that runs in your browser and can run Node.js version 16. Once you
+	have Node.js running in your browser, it takes little effort to run entire Node-based stacks,
+	e.g.,
 	<a href="https://kit.svelte.dev/">SvelteKit</a>, natively in your browser.
 </P>
 
@@ -27,8 +28,8 @@
 <P>
 	The second catch is that embedded WebContainers need third-party cookies enabled to work. If your
 	audience is technical, there is a high chance that they are also security-conscious and have
-	third-party cookies disabled. When they see an embedded WebContainer in their browser, they see this
-	warning:
+	third-party cookies disabled. When they see an embedded WebContainer in their browser, they see
+	this warning:
 </P>
 
 <Figure
