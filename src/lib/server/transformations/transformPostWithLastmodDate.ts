@@ -17,7 +17,7 @@ export default async function (postMeta: PostMetaType, event: RequestEvent): Pro
 		createTagsTransformer(event),
 		createFilepathTransformer({
 			owner: 'maiertech',
-			repo: 'sveltekit-helpers',
+			repo: 'website',
 			token: GITHUB_TOKEN
 		})
 	]);
