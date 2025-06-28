@@ -68,6 +68,11 @@ export default {
 			}
 		}),
 
+		alias: {
+			$notes: 'src/routes/notes',
+			$posts: 'src/routes/posts'
+		},
+
 		prerender: {
 			handleHttpError: ({ path, message }) => {
 				// Seems like the SvelteKit crawler checks image URLs during prerendering.

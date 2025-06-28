@@ -10,10 +10,10 @@
 </script>
 
 <div data-component="Posts" class="flex flex-col gap-10">
-	<PostPreview post={posts[0]} />
+	<PostPreview value={posts[0]} />
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
 		{#each posts.slice(1) as post (post.path)}
-			<PostPreview {post} />
+			<PostPreview value={post} />
 		{/each}
 	</div>
 </div>
