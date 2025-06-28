@@ -1,4 +1,6 @@
 import { transformPost } from '$lib/server/transformations';
+import postGrokingFocusPseudoClasses from '$posts/(2022)/groking-active-focus-and-focus-visible-pseudo-classes/meta';
+import postSvelteKitBreakingChanges from '$posts/(2022)/handling-breaking-changes-in-sveltekit-pre-1-0/meta';
 import postSvelteKitHmrOnGitpod from '$posts/(2022)/how-to-make-sveltekit-hmr-work-with-gitpod/meta';
 import postRecordingScreencasts from '$posts/(2022)/recording-screencasts-on-a-hidpi-display/meta';
 import postRouteMatching from '$posts/(2022)/route-matching-in-sveltekit/meta';
@@ -6,7 +8,6 @@ import postThreeWaysToBootstrapSvelteProject from '$posts/(2022)/three-ways-to-b
 import postAtAndHashtagSymbols from '$posts/(2022)/using-the-at-and-hash-symbols-in-tweets-with-a-word-joiner-character/meta';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import postSvelteKitBreakingChanges from '$posts/(2022)/handling-breaking-changes-in-sveltekit-pre-1-0/meta';
 
 export const prerender = true;
 
@@ -16,6 +17,7 @@ export const GET: RequestHandler = async (event) => {
 		postSvelteKitBreakingChanges,
 		postAtAndHashtagSymbols,
 		postThreeWaysToBootstrapSvelteProject,
+		postGrokingFocusPseudoClasses,
 		postRecordingScreencasts,
 		postRouteMatching,
 		postSvelteKitHmrOnGitpod

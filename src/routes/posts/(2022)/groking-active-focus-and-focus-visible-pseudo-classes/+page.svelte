@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
 	import { Code, CodeSnippet, Figure, H2, P, VercelImage } from '@maiertech/sveltekit-helpers';
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 	import active_example_button_active_origin_image from './active-example-button-active.png';
 	import active_example_input_active_origin_image from './active-example-input-active.png';
 	import active_example_input_focus_origin_image from './active-example-input-focus.png';
@@ -11,27 +11,23 @@
 	import focus_visible_example_button_mouse_origin_image from './focus-visible-example-button-mouse.png';
 	import focus_visible_example_input_origin_image from './focus-visible-example-input.png';
 
-	interface Props {
-		data: PageData;
-	}
-
-	let { data }: Props = $props();
+	let { data }: PageProps = $props();
 </script>
 
 <P>
 	Recently, I worked on the newsletter sign-up form for this website. When I looked at examples, I
-	saw that other developers used pseudo-classes
+	noticed that other developers used the pseudo-classes
 	<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:active">:active</a>,
-	<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus">:focus</a>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus">:focus</a>, and
 	<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible</a> to style
 	form fields.
 </P>
 
 <P>
-	My handle on these pseudo-classes could have been better, and I decided to read up on their
+	My understanding of these pseudo-classes could have been better, so I decided to read up on their
 	specifications. In this post, I share my learnings. You can follow along with the StackBlitz
-	workspace below. It also runs on mobile devices, but you should run it in a desktop browser to get
-	the most out of this post. For instance, pseudo-class <Code>:active</Code> does not affect touch devices,
+	workspace below. It also runs on mobile devices, but you should use a desktop browser to get the
+	most out of this post. For instance, the pseudo-class <Code>:active</Code> does not affect touch devices,
 	and the first example will make no sense.
 </P>
 
@@ -50,13 +46,13 @@
 	A browser applies <Code>:active</Code> when a user activates an element. Activation refers to the timespan
 	between clicking an element and releasing the mouse button. <Code>:active</Code> can be applied to
 	elements with which users interact, e.g., <Code>&lt;a&gt;</Code>,
-	<Code>&lt;button&gt;</Code>, <Code>&lt;input&gt:</Code>, <Code>&lt;select&gt;</Code>, and
+	<Code>&lt;button&gt;</Code>, <Code>&lt;input&gt;</Code>, <Code>&lt;select&gt;</Code>, and
 	<Code>&lt;textarea&gt;</Code>.
 </P>
 
 <P>
-	In the first example we look at <Code>:active</Code>. I applied <Code>:active</Code> to the input element
-	and submit button with the following styles:
+	In the first example, we look at <Code>:active</Code>. I applied <Code>:active</Code> to the input
+	element and submit button with the following styles:
 </P>
 
 <Figure class="mb-6">
@@ -94,7 +90,7 @@ button:active {
 	/>
 </Figure>
 
-<P>While you click the submit button, you can see the dashed red outline until you release it:</P>
+<P>While you click the submit button, you can see the dashed red outline until you release it.</P>
 
 <Figure class="mb-6">
 	<VercelImage
@@ -105,15 +101,15 @@ button:active {
 
 <P>
 	The takeaway from this example is that <Code>:active</Code> styles are in effect while you press the
-	mouse button until you release it.
+	mouse button, until you release it.
 </P>
 
 <H2>Pseudo-class :focus</H2>
 
 <P>
-	A browser applies <Code>:focus</Code> when the activation is complete, and an element is ready for
-	user interaction. There are different ways of giving focus to an element. You can click or tap the
-	element or use keyboard navigation with the <key>Tab</key> key.
+	A browser applies <Code>:focus</Code> when the activation is complete and an element is ready for user
+	interaction. There are different ways of giving focus to an element. You can click or tap the element
+	or use keyboard navigation with the <key>Tab</key> key.
 </P>
 
 <P>
@@ -168,7 +164,7 @@ button:focus {
 <H2>Pseudo-class :focus-visible</H2>
 
 <P>
-	<Code>:focus-visible</Code> can only be applied when an element has focus. But a browser can decide
+	<Code>:focus-visible</Code> can only be applied when an element has focus. However, a browser can decide
 	whether or not to apply <Code>:focus-visible</Code> to an element with focus. Browsers use a heuristic
 	to determine whether they apply <Code>:focus-visible</Code> to a focused element.
 </P>
@@ -204,8 +200,8 @@ button:focus-visible {
 
 <P>
 	For the input field, there is no difference between <Code>:focus</Code> and
-	<Code>:focus-visible</Code>. But when you click the submit button, the dashed red outline is not
-	visible:
+	<Code>:focus-visible</Code>. However, when you click the submit button, the dashed red outline is
+	not visible:
 </P>
 
 <Figure class="mb-6">
