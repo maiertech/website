@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex, escapeSvelte } from 'mdsvex';
 import { createHighlighter } from 'shiki';
@@ -49,42 +49,12 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 export default {
 	extensions: ['.svelte', '.svx'],
-	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 	kit: {
-		adapter: adapter({
-			images: {
-				// Restrict image generation to specific widths (defaults used by `VercelImage`).
-				sizes: [160, 320, 480, 640, 768, 1024, 1280, 1536, 1920, 2560],
-				formats: ['image/avif', 'image/webp'],
-				minimumCacheTTL: 300,
-				domains: ['www.maier.tech'],
-				remotePatterns: [
-					{
-						protocol: 'https',
-						// Must match preview URLs, e.g., website-git-835-eliminate-postcss-maierlabs.vercel.app.
-						hostname: '^website-.*-maierlabs\\.vercel\\.app$'
-					}
-				]
-			}
-		}),
-
+		adapter: adapter(),
 		alias: {
 			$notes: 'src/routes/notes',
 			$posts: 'src/routes/posts'
-		},
-
-		prerender: {
-			handleHttpError: ({ path, message }) => {
-				// Seems like the SvelteKit crawler checks image URLs during prerendering.
-				// But the Vercel image optimization API is not availalbe during a build.
-				// Ignore image URLs starting with `/_vercel/image`.
-				if (path == '/_vercel/image') {
-					return;
-				}
-
-				// Throw an error in all other cases.
-				throw new Error(message);
-			}
 		}
-	}
+	},
+	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)]
 };

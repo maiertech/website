@@ -26,5 +26,6 @@ This is my personal website with posts and notes.
 ## Code style
 
 - Always use Svelte v5 syntax.
+- Do not use self-closing tags for Svelte components and HTML elements.
 - Use TailwindCSS for styling and tailwind-merge for class merging.
 - Comments use proper punctuation and end with a period.
