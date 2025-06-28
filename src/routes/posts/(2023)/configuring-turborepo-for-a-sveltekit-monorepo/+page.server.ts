@@ -4,8 +4,9 @@ import meta from './meta';
 
 export const load: PageServerLoad = async (event) => {
 	const post = await transformPostWithLastmodDate(meta, event);
+	const { title, description } = post;
 
-	return { examples, post };
+	return { examples, post, seo: { title, description } };
 };
 
 const examples = {
