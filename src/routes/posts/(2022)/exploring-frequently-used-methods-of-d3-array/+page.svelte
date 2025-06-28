@@ -1,24 +1,20 @@
 <script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
 	import { Code, CodeSnippet, Figure, H2, P } from '@maiertech/sveltekit-helpers';
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 
-	interface Props {
-		data: PageData;
-	}
-
-	let { data }: Props = $props();
+	let { data }: PageProps = $props();
 </script>
 
 <P>
-	In this post, I will introduce you to the methods from
-	<a href="https://github.com/d3/d3-array">d3-array</a>, which I use often for data visualization.
-	All examples run inside your browser using
-	<a href="https://stackblitz.com/">StackBlitz</a>. StackBlitz currently supports Chromium-based and
-	Firefox browsers only.
+	In this post, I will introduce you to methods from
+	<a href="https://github.com/d3/d3-array">d3-array</a> that I often use for data visualization. All
+	examples run inside your browser using
+	<a href="https://stackblitz.com/">StackBlitz</a>. StackBlitz currently supports only
+	Chromium-based and Firefox browsers.
 </P>
 
-<H2>d3.min, d3.max and d3.extent</H2>
+<H2>d3.min, d3.max, and d3.extent</H2>
 
 <P>
 	<a href="https://github.com/d3/d3-array#min">d3.min</a> returns the minimum of an array using the
@@ -41,10 +37,9 @@
 
 <P>
 	Likewise, <a href="https://github.com/d3/d3-array#max">d3.max</a> returns the maximum. But what
-	happens when the array, for which we would like to compute the maximum, contains objects? We can
-	use an
+	happens when the array for which we want to compute the maximum contains objects? We can use an
 	<em>accessor function</em> to retrieve a specific object property and transform it. In the following
-	example, accessor
+	example, the accessor
 </P>
 
 <Figure class="mb-6">
@@ -55,8 +50,8 @@
 	extracts the date property and converts it into a JavaScript
 	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">
 		Date
-	</a>, which is used for comparison. This returns the most recent date (maximum). But what we need
-	is the object with the most recent date, not just the most recent date. We can use
+	</a>, which is used for comparison. This returns the most recent date (maximum). However, what we
+	need is the object with the most recent date, not just the most recent date. We can use
 	<a href="https://github.com/d3/d3-array#maxIndex">d3.maxIndex</a> to retrieve the index of the object
 	with the most recent date.
 </P>
@@ -74,7 +69,7 @@
 	To create an axis for numeric values with D3, you need to know the extent of the data along that
 	axis. Extent means the minimum and maximum values.
 	<a href="https://github.com/d3/d3-array#extent">d3.extent</a> returns an array with these values. It
-	not only works with numeric values but with any values that have a natural sort order.
+	works not only with numeric values but with any values that have a natural sort order.
 </P>
 
 <P>Let's look at an example:</P>
@@ -90,8 +85,8 @@
 
 <P>
 	<a href="https://github.com/d3/d3-array#range">d3.range</a> returns an array of evenly spaced
-	numbers. It has three arguments: <em>start</em>, <em>stop</em> and <em>step</em>. The only
-	required attribute is <em>stop</em>. <em>start</em> defaults to 0 and <em>step</em> defaults to 1.
+	numbers. It has three arguments: <em>start</em>, <em>stop</em>, and <em>step</em>. The only
+	required argument is <em>stop</em>. <em>start</em> defaults to 0, and <em>step</em> defaults to 1.
 	<em>start</em> is inclusive, <em>stop</em> is exclusive.
 </P>
 
@@ -107,7 +102,7 @@
 <P>
 	As the <code>floating_point_range</code> example shows, with d3.range you can run into the
 	<a href="https://stackoverflow.com/questions/588004/is-floating-point-math-broken">
-		pitfalls of binary floating point math
+		pitfalls of binary floating-point math
 	</a>. You can fix this issue with
 	<a
 		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed"
@@ -121,14 +116,14 @@
 </Figure>
 
 <P>
-	And finally, if you try to create a range that causes an infinite loop, like the
+	Finally, if you try to create a range that would cause an infinite loop, like the
 	<Code>infinite_loop_range</Code>, d3.range returns an empty array.
 </P>
 
 <H2>d3.ticks</H2>
 
 <P>
-	<a href="https://github.com/d3/d3-array#ticks">d3.ticks</a> generates an array of nicely-rounded
+	<a href="https://github.com/d3/d3-array#ticks">d3.ticks</a> generates an array of nicely rounded
 	numbers inside an interval [<em>start</em>, <em>stop</em>]. You have to pass in three arguments:
 </P>
 
@@ -137,9 +132,9 @@
 </Figure>
 
 <P>
-	<Code>count</Code> is the number of ticks you are aiming for. But there is no guarantee that you will
-	get this number. As the example below shows, you may get more or fewer ticks. The only thing that matters
-	to d3.ticks is that the ticks are nicely rounded and inside [<em>start</em>,
+	<Code>count</Code> is the number of ticks you are aiming for. However, there is no guarantee that you
+	will get this number. As the example below shows, you may get more or fewer ticks. The only thing that
+	matters to d3.ticks is that the ticks are nicely rounded and inside [<em>start</em>,
 	<em>stop</em>]. <em>start</em> and <em>stop</em> can be part of the ticks.
 </P>
 
@@ -160,5 +155,5 @@
 	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">
 		JavaScript's built-in Array methods
 	</a>. d3-array complements them but does not replace them. You cannot do data visualization with
-	JavaScript without knowing built-in Array methods like the back of your hand.
+	JavaScript without knowing the built-in Array methods like the back of your hand.
 </P>

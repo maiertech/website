@@ -1,4 +1,5 @@
 import { transformPost } from '$lib/server/transformations';
+import postExploreD3ArrayMethods from '$posts/(2022)/exploring-frequently-used-methods-of-d3-array/meta';
 import postGrokingFocusPseudoClasses from '$posts/(2022)/groking-active-focus-and-focus-visible-pseudo-classes/meta';
 import postSvelteKitBreakingChanges from '$posts/(2022)/handling-breaking-changes-in-sveltekit-pre-1-0/meta';
 import postSvelteKitHmrOnGitpod from '$posts/(2022)/how-to-make-sveltekit-hmr-work-with-gitpod/meta';
@@ -17,6 +18,7 @@ export const GET: RequestHandler = async (event) => {
 		postSvelteKitBreakingChanges,
 		postAtAndHashtagSymbols,
 		postThreeWaysToBootstrapSvelteProject,
+		postExploreD3ArrayMethods,
 		postGrokingFocusPseudoClasses,
 		postRecordingScreencasts,
 		postRouteMatching,

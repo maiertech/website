@@ -1,10 +1,16 @@
-/** @type {import('./$types').PageLoad} */
-export function load() {
-	return { examples };
-}
+import type { PageServerLoad } from './$types';
+import { transformPostWithLastmodDate } from '$lib/server/transformations';
+import meta from './meta';
+import type { StackBlitzExample } from '$lib/types';
 
-/** @type {{[key: string]: import('$lib/types').StackBlitzExample}} */
-const examples = {
+export const load: PageServerLoad = async (event) => {
+	const post = await transformPostWithLastmodDate(meta, event);
+	const { title, description } = post;
+
+	return { examples, post, seo: { title, description } };
+};
+
+const examples: { [key: string]: StackBlitzExample } = {
 	'd3.min': {
 		project: {
 			template: 'javascript',
