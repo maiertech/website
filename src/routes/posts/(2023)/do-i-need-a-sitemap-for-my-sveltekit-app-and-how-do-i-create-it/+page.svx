@@ -1,39 +1,26 @@
----
-title: 'Do I need a sitemap for my SvelteKit app, and how do I create it?'
-author: thilo
-publishedDate: '2023-03-01T00:00:00.00Z'
-description:
-  In this post, I provide an overview of when you need a sitemap, what format it should have, and
-  explain how to create an endpoint for a sitemap in SveltKit.
-tags:
-  - svelte
-  - seo
-  - web-fundamentals
----
-
 <script>
 	import { Figure, P, VercelImage } from '@maiertech/sveltekit-helpers';
 	import submittedSitemap from './submitted-sitemap.png';
 </script>
 
 <P>
-Last week, I refactored parts of this website and broke the endpoint that creates <a href="/sitemap.xml" data-sveltekit-reload>this sitemap</a>. I decided to read up on sitemaps the route. Here is what I learned.
+Last week, I refactored parts of this website and broke the endpoint that creates <a href="/sitemap.xml" data-sveltekit-reload>this sitemap</a>. I decided to read up on doing sitemaps the right way. Here is what I learned.
 </P>
 
 ## Google's take on sitemaps
 
-Web developers often assume that Google might only index their site regularly with a sitemap. But is
+Web developers often assume that Google will only index their site regularly with a sitemap. But is
 this true? In the
 [Google Search Console docs](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview#do-i-need-a-sitemap),
-Google answers the question "Do I need a sitemap?" with "it depends". Google recommends a sitemap
+Google answers the question "Do I need a sitemap?" with "it depends." Google recommends a sitemap
 when
 
-- you launch a new site, and no or few external links point to your site or
+- you launch a new site, and no or few external links point to your site, or
 - your site is large, and not all pages are linked and discoverable by Google's crawler.
 
 You do not need a sitemap if
 
-- your site is small (up to 500 relevant pages) or
+- your site is small (up to 500 relevant pages), or
 - your site is linked correctly, and Google can find all relevant pages by crawling it.
 
 My website [maier.tech](/) is small, and all pages are discoverable by a crawler, so I would not
@@ -124,7 +111,7 @@ export async function GET({ fetch, setHeaders }) {
 
 Since this endpoint returns XML, I set the content type to `application/xml`. Then I fetch all posts
 from my endpoint `/api/posts`. At the end of the handler, I create the XML string, wrap it in a
-response object and return it.
+response object, and return it.
 
 To make creating entries easier, I use this helper function:
 
@@ -132,7 +119,7 @@ To make creating entries easier, I use this helper function:
 function create_entry(path, lastmod) {
 	return `<url>
     <loc>${new URL(path, PUBLIC_URL_ORIGIN).href}</loc>
-    ${lastmod ? `<lastmod>\${lastmod}</lastmod>` : ''}
+    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
   </url>`;
 }
 ```
@@ -183,7 +170,7 @@ which you can explore on GitHub. My actual endpoint adds caching, validation, an
 ## Alternative sitemap creation
 
 If your SvelteKit site uses [adapter-static](https://kit.svelte.dev/docs/adapter-static), you can
-use package [svelte-sitemap](https://github.com/bartholomej/svelte-sitemap). With this package,
+use the package [svelte-sitemap](https://github.com/bartholomej/svelte-sitemap). With this package,
 instead of implementing an endpoint for a sitemap, you can configure the `postbuild` hook in
 `package.json` to scan all routes in the `build` directory and create `build/sitemap.xml`. This
 approach only works with adapter-static, since svelte-sitemap cannot determine all possible routes

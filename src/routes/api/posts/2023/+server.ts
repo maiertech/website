@@ -6,6 +6,7 @@ import postBasicSeoComponent from '$posts/(2023)/how-to-add-a-basic-seo-componen
 import postStackBlitzCodeflowBeta from '$posts/(2023)/is-stackblitz-codeflow-beta-ready-to-replace-your-local-vs-code/meta';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import postDoINeedaSitemap from '$posts/(2023)/do-i-need-a-sitemap-for-my-sveltekit-app-and-how-do-i-create-it/meta';
 
 export const prerender = true;
 
@@ -16,6 +17,7 @@ export const GET: RequestHandler = async (event) => {
 		postCustomizingGitpodWorkspaces,
 		postConfiguringTurborepo,
 		postComplementZeroEffortTypeSafety,
+		postDoINeedaSitemap,
 		postStackBlitzCodeflowBeta
 	];
 
