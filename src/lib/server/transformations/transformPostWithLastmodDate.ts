@@ -1,4 +1,7 @@
-import { env } from '$env/dynamic/private';
+// This runs on the server only.
+// Secret is bundled into the server bundle.
+// Not great, but the only way to make prerendering work for posts.
+import { GITHUB_TOKEN } from '$env/static/private';
 import type { PostMetaType, PostType } from '@maiertech/sveltekit-helpers';
 import {
 	createAuthorTransformer,
@@ -15,7 +18,7 @@ export default async function (postMeta: PostMetaType, event: RequestEvent): Pro
 		createFilepathTransformer({
 			owner: 'maiertech',
 			repo: 'sveltekit-helpers',
-			token: env.GITHUB_TOKEN
+			token: GITHUB_TOKEN
 		})
 	]);
 	const post = await transform(postMeta, {
