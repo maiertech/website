@@ -16,5 +16,9 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	response = await fetch('/api/posts/2024');
 	posts = [...((await response.json()) as PostType[]), ...posts];
 
+	// Fetch 2025 posts.
+	response = await fetch('/api/posts/2025');
+	posts = [...((await response.json()) as PostType[]), ...posts];
+
 	return json(posts.slice(0, 10));
 };
