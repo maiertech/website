@@ -4,12 +4,14 @@ import noteHowToWriteExceptionalDocs from '$notes/(2025)/how-to-write-exceptiona
 import noteTheUmpteenthInterviewWithRichHarris from '$notes/(2025)/the-umpteenth-interview-with-rich-harris/meta';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import noteHostingInEurope from '$notes/(2025)/hosting-in-europe-beyond-big-tech/meta';
 
 export const prerender = true;
 
 export const GET: RequestHandler = async () => {
 	// Sort order: latest first.
 	return json([
+		noteHostingInEurope,
 		noteAmIStillRelevantAsADeveloper,
 		noteTheUmpteenthInterviewWithRichHarris,
 		noteHowToWriteExceptionalDocs,
