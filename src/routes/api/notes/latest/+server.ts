@@ -2,8 +2,6 @@ import type { RequestHandler } from './$types';
 import { json } from '@sveltejs/kit';
 import type { NoteType } from '@maiertech/sveltekit-helpers';
 
-export const prerender = true;
-
 // Return latest notes (up to 20).
 export const GET: RequestHandler = async ({ fetch }) => {
 	const response = await fetch('/api/notes/2025');

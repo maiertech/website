@@ -2,8 +2,6 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import type { PostType } from '@maiertech/sveltekit-helpers';
 
-export const prerender = true;
-
 // Return all posts.
 export const GET: RequestHandler = async ({ fetch }) => {
 	let posts: PostType[] = [];

@@ -9,8 +9,6 @@ import postStackBlitzCodeflowBeta from '$posts/(2023)/is-stackblitz-codeflow-bet
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
-export const prerender = true;
-
 export const GET: RequestHandler = async (event) => {
 	// Sort order: latest first.
 	const posts = [

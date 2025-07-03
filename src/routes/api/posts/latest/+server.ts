@@ -2,9 +2,7 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import type { PostType } from '@maiertech/sveltekit-helpers';
 
-export const prerender = true;
-
-// Return latest posts (up to 20).
+// Return latest posts (up to 10).
 export const GET: RequestHandler = async ({ fetch }) => {
 	let posts: PostType[] = [];
 

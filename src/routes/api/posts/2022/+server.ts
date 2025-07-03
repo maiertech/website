@@ -10,8 +10,6 @@ import postAtAndHashtagSymbols from '$posts/(2022)/using-the-at-and-hash-symbols
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
-export const prerender = true;
-
 export const GET: RequestHandler = async (event) => {
 	// Sort order: latest first.
 	const posts = [
