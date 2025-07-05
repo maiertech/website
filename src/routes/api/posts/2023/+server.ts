@@ -9,6 +9,7 @@ import postStackBlitzCodeflowBeta from '$posts/(2023)/is-stackblitz-codeflow-bet
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
+// Needs to be set explicitly because we prerender endpoint `/sitemap.xml`.
 export const prerender = true;
 
 export const GET: RequestHandler = async (event) => {

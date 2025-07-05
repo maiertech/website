@@ -2,6 +2,7 @@ import type { RequestHandler } from './$types';
 import { json } from '@sveltejs/kit';
 import type { NoteType } from '@maiertech/sveltekit-helpers';
 
+// Needs to be set explicitly because we prerender endpoint `/sitemap.xml`.
 export const prerender = true;
 
 // Return all notes.

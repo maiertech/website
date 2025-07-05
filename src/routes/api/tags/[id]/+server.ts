@@ -4,6 +4,10 @@ import { error, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import tags from './tags';
 
+// Include this endpoint into the manifest.
+// This ensures that dynamic calls for tags that have not been prerendered still work.
+export const prerender = 'auto';
+
 export const GET: RequestHandler = async ({ params }) => {
 	const id = params.id;
 	const tag = resolve<TagType>(id, tags);
