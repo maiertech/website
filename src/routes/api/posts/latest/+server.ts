@@ -2,6 +2,9 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import type { PostType } from '@maiertech/sveltekit-helpers';
 
+// No need to set `export const prerender = true;`.
+// Prerendering is triggered by `/`, which uses this endpoint and iself is prerendered.
+
 // Return latest posts (up to 10).
 export const GET: RequestHandler = async ({ fetch }) => {
 	let posts: PostType[] = [];

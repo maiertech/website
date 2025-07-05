@@ -2,6 +2,8 @@ import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 import type { PostType, NoteType } from '@maiertech/sveltekit-helpers';
 import type { RequestHandler } from './$types';
 
+export const prerender = true;
+
 export const GET: RequestHandler = async ({ fetch }) => {
 	// Fetch posts.
 	// TODO: `/api/posts/all` does not include `lastmodDate`.
