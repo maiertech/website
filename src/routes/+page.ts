@@ -1,6 +1,8 @@
 import type { NoteType, PostType } from '@maiertech/sveltekit-helpers';
 import type { PageLoad } from './$types';
 
+export const prerender = true;
+
 export const load: PageLoad = async function ({ fetch }) {
 	// Fetch latest notes.
 	let response = await fetch('/api/notes/latest');
