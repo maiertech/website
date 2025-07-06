@@ -1,6 +1,6 @@
 import type { PostMetaType } from '@maiertech/sveltekit-helpers';
 
-const postGithubCopilotContext: PostMetaType = {
+const meta: PostMetaType = {
 	title: 'How to provide better context in GitHub Copilot prompts',
 	author: 'thilo',
 	publishedDate: '2024-11-15',
@@ -11,4 +11,4 @@ const postGithubCopilotContext: PostMetaType = {
 	filepath: 'src/routes/posts/(2024)/github-copilot-context/+page.svx'
 };
 
-export default postGithubCopilotContext;
+export default meta;
