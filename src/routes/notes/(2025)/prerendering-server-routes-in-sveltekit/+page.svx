@@ -1,0 +1,5 @@
+TIL: When you prerender a page that uses a server route in SvelteKit, the corresponding `+server.ts`
+is automatically prerendered (if possible) unless it states `export const prerender = false`.
+
+However, when you prerender a server route, for example `/sitemap.xml`, you have to manually set
+`export const prerender = true` in every server route that `/sitemap.xml` calls.
