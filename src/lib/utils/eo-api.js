@@ -1,8 +1,8 @@
-import { createHash } from 'crypto';
-import { EO_API_KEY, EO_LIST_ID } from '$env/static/private';
+import { createHash } from 'node:crypto';
+import { env } from '$env/dynamic/private';
 
 const base = 'https://emailoctopus.com/api/1.6/';
-const querystring = new URLSearchParams({ api_key: EO_API_KEY });
+const querystring = new URLSearchParams({ api_key: env.EO_API_KEY });
 
 /**
  * Subscribe (add contact to list).
@@ -17,8 +17,8 @@ export function subscribe(data) {
 			FirstName: data.first_name
 		}
 	};
-	const url = `${base}lists/${EO_LIST_ID}/contacts`;
-	const payload = { api_key: EO_API_KEY, ...contact };
+	const url = `${base}lists/${env.EO_LIST_ID}/contacts`;
+	const payload = { api_key: env.EO_API_KEY, ...contact };
 	return fetch(url, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
@@ -32,7 +32,7 @@ export function subscribe(data) {
  * @returns {Promise<Response>} Promise with response from API.
  */
 export function get_list_info() {
-	const url = `${base}lists/${EO_LIST_ID}?${querystring}`;
+	const url = `${base}lists/${env.EO_LIST_ID}?${querystring}`;
 	return fetch(url, { method: 'GET' });
 }
 
@@ -45,7 +45,7 @@ export function get_list_info() {
 export function get_subscriber(email_address) {
 	// EO expects lower case email address to be hashed with MD5.
 	const digest = createHash('md5').update(email_address.toLowerCase()).digest('hex');
-	const url = `${base}lists/${EO_LIST_ID}/contacts/${digest}?${querystring}`;
+	const url = `${base}lists/${env.EO_LIST_ID}/contacts/${digest}?${querystring}`;
 	return fetch(url, { method: 'GET' });
 }
 
@@ -58,8 +58,8 @@ export function get_subscriber(email_address) {
 export function unsubscribe(email_address) {
 	// EO expects lower case email address hashed with MD5.
 	const digest = createHash('md5').update(email_address.toLowerCase()).digest('hex');
-	const url = `${base}lists/${EO_LIST_ID}/contacts/${digest}`;
-	const payload = { api_key: EO_API_KEY, status: 'UNSUBSCRIBED' };
+	const url = `${base}lists/${env.EO_LIST_ID}/contacts/${digest}`;
+	const payload = { api_key: env.EO_API_KEY, status: 'UNSUBSCRIBED' };
 	return fetch(url, {
 		method: 'PUT',
 		headers: { 'Content-Type': 'application/json' },
