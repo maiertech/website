@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'How to make SvelteKit HMR work with Gitpod',
 	author: 'thilo',
 	publishedDate: '2022-01-30',
@@ -9,6 +9,4 @@ const meta: PostMetaType = {
 	tags: ['gitpod', 'svelte', 'dx'],
 	path: '/posts/how-to-make-sveltekit-hmr-work-with-gitpod',
 	filepath: 'src/routes/posts/(2022)/how-to-make-sveltekit-hmr-work-with-gitpod/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

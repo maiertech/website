@@ -1,4 +1,4 @@
-import type { PostMetaType, PostType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta, ResolvedPost } from '@maiertech/sveltekit-helpers';
 import {
 	createAuthorTransformer,
 	createPipeline,
@@ -6,8 +6,8 @@ import {
 } from '@maiertech/sveltekit-helpers';
 import type { RequestEvent } from '@sveltejs/kit';
 
-export default async function (postMeta: PostMetaType, event: RequestEvent): Promise<PostType> {
-	const transform = createPipeline<PostMetaType, PostType>([
+export default async function (postMeta: PostMeta, event: RequestEvent): Promise<ResolvedPost> {
+	const transform = createPipeline<PostMeta, ResolvedPost>([
 		createAuthorTransformer(event),
 		createTagsTransformer(event)
 	]);

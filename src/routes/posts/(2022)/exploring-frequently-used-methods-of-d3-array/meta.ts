@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Exploring frequently used methods of d3-array',
 	author: 'thilo',
 	publishedDate: '2022-06-27',
@@ -9,6 +9,4 @@ const meta: PostMetaType = {
 	tags: ['data-visualization', 'd3'],
 	path: '/posts/exploring-frequently-used-methods-of-d3-array',
 	filepath: 'src/routes/posts/(2022)/exploring-frequently-used-methods-of-d3-array/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

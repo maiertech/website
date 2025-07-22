@@ -1,5 +1,5 @@
 import { PUBLIC_URL_ORIGIN } from '$env/static/public';
-import type { PostType } from '@maiertech/sveltekit-helpers';
+import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 import RSS from 'rss';
 import type { RequestHandler } from './$types';
 
@@ -7,7 +7,7 @@ export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {
 	const response = await fetch('/api/posts/latest');
-	const posts = (await response.json()) as PostType[];
+	const posts = (await response.json()) as ResolvedPost[];
 
 	const feed = new RSS({
 		title: 'Thilo Maier',

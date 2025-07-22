@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'How to add a basic SEO component to SvelteKit',
 	author: 'thilo',
 	publishedDate: '2023-05-20',
@@ -9,6 +9,4 @@ const meta: PostMetaType = {
 	tags: ['svelte', 'seo'],
 	path: '/posts/how-to-add-a-basic-seo-component-to-sveltekit',
 	filepath: 'src/routes/posts/(2023)/how-to-add-a-basic-seo-component-to-sveltekit/+page.svx'
-};
-
-export default meta;
+} satisfies PostMeta;

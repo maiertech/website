@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Cookie settings for StackBlitz WebContainers',
 	author: 'thilo',
 	publishedDate: '2023-02-10',
@@ -9,6 +9,4 @@ const meta: PostMetaType = {
 	tags: ['dx', 'stackblitz'],
 	path: '/posts/cookie-settings-for-stackblitz-webcontainers',
 	filepath: 'src/routes/posts/(2023)/cookie-settings-for-stackblitz-webcontainers/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

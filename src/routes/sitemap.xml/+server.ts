@@ -1,5 +1,5 @@
 import { PUBLIC_URL_ORIGIN } from '$env/static/public';
-import type { PostType, NoteType } from '@maiertech/sveltekit-helpers';
+import type { NoteMeta, ResolvedPost } from '@maiertech/sveltekit-helpers';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
@@ -8,7 +8,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	// Fetch posts.
 	// TODO: `/api/posts/all` does not include `lastmodDate`.
 	let response = await fetch('/api/posts/all');
-	const posts = (await response.json()) as PostType[];
+	const posts = (await response.json()) as ResolvedPost[];
 
 	// Create sitemap entries for posts.
 	const postEntries = posts.map(
@@ -20,7 +20,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 
 	// Fetch notes.
 	response = await fetch('/api/notes/all');
-	const notes = (await response.json()) as NoteType[];
+	const notes = (await response.json()) as NoteMeta[];
 
 	// Create sitemap entries for notes.
 	const noteEntries = notes.map(

@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Groking :active, :focus and :focus-visible pseudo-classes',
 	author: 'thilo',
 	publishedDate: '2022-06-20',
@@ -10,6 +10,4 @@ const meta: PostMetaType = {
 	path: '/posts/groking-active-focus-and-focus-visible-pseudo-classes',
 	filepath:
 		'src/routes/posts/(2022)/groking-active-focus-and-focus-visible-pseudo-classes/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;
