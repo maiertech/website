@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Configuring Turborepo for a SvelteKit monorepo',
 	author: 'thilo',
 	publishedDate: '2023-03-16',
@@ -9,6 +9,4 @@ const meta: PostMetaType = {
 	tags: ['svelte', 'turborepo'],
 	path: '/posts/configuring-turborepo-for-a-sveltekit-monorepo',
 	filepath: 'src/routes/posts/(2023)/configuring-turborepo-for-a-sveltekit-monorepo/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

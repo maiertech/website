@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Move your IDE to the cloud: introduction to GitHub Codespaces',
 	author: 'thilo',
 	publishedDate: '2021-01-03',
@@ -10,6 +10,4 @@ const meta: PostMetaType = {
 	path: '/posts/move-your-ide-to-the-cloud-introduction-to-github-codespaces',
 	filepath:
 		'src/routes/posts/(2021)/move-your-ide-to-the-cloud-introduction-to-github-codespaces/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

@@ -1,4 +1,4 @@
-import type { NoteType, PostType } from '@maiertech/sveltekit-helpers';
+import type { NoteMeta, ResolvedPost } from '@maiertech/sveltekit-helpers';
 import type { PageLoad } from './$types';
 
 export const prerender = true;
@@ -6,11 +6,11 @@ export const prerender = true;
 export const load: PageLoad = async function ({ fetch }) {
 	// Fetch latest notes.
 	let response = await fetch('/api/notes/latest');
-	const notes = (await response.json()) as NoteType[];
+	const notes = (await response.json()) as NoteMeta[];
 
 	// Fetch latest posts.
 	response = await fetch('/api/posts/latest');
-	const posts = ((await response.json()) as PostType[]).slice(0, 5);
+	const posts = ((await response.json()) as ResolvedPost[]).slice(0, 5);
 
 	return {
 		seo: {

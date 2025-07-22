@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Is StackBlitz Codeflow Beta ready to replace your local VS Code?',
 	author: 'thilo',
 	publishedDate: '2023-02-02',
@@ -10,6 +10,4 @@ const meta: PostMetaType = {
 	path: '/posts/is-stackblitz-codeflow-beta-ready-to-replace-your-local-vs-code',
 	filepath:
 		'src/routes/posts/(2023)/is-stackblitz-codeflow-beta-ready-to-replace-your-local-vs-code/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

@@ -1,12 +1,10 @@
-import type { AvatarType } from '@maiertech/sveltekit-helpers';
+import type { AvatarMeta } from '@maiertech/sveltekit-helpers';
 
-const authors: AvatarType[] = [
+export default [
 	{
 		id: 'thilo',
 		name: 'Thilo Maier',
 		url: 'https://bsky.app/profile/maier.tech',
 		imageUrl: '/assets/portrait-thilo-maier.jpg'
 	}
-];
-
-export default authors;
+] satisfies AvatarMeta[];

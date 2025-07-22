@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Complement zero-effort type safety in SvelteKit with Zod for even more type safety',
 	author: 'thilo',
 	publishedDate: '2023-03-10',
@@ -10,6 +10,4 @@ const meta: PostMetaType = {
 	path: '/posts/complement-zero-effort-type-safety-in-sveltekit-with-zod-for-even-more-type-safety',
 	filepath:
 		'src/routes/posts/(2023)/complement-zero-effort-type-safety-in-sveltekit-with-zod-for-even-more-type-safety/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

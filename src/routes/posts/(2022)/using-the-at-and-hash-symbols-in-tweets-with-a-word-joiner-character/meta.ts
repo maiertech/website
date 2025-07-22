@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Using the @ and # symbols in tweets with a word joiner character',
 	author: 'thilo',
 	publishedDate: '2022-08-30',
@@ -10,6 +10,4 @@ const meta: PostMetaType = {
 	path: '/posts/using-the-at-and-hash-symbols-in-tweets-with-a-word-joiner-character',
 	filepath:
 		'src/routes/posts/(2022)/using-the-at-and-hash-symbols-in-tweets-with-a-word-joiner-character/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

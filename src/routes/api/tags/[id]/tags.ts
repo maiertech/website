@@ -1,6 +1,6 @@
-import type { TagType } from '@maiertech/sveltekit-helpers';
+import type { Tag } from '@maiertech/sveltekit-helpers';
 
-const tags: TagType[] = [
+const tags: Tag[] = [
 	{ id: 'ai', label: 'AI', path: '/tags/ai' },
 	{
 		id: 'codesandbox',

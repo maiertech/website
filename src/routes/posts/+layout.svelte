@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import type { PostType } from '@maiertech/sveltekit-helpers';
+	import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 	import {
 		ContentLayout,
 		PostHeader,
@@ -12,10 +12,10 @@
 	let { children }: LayoutProps = $props();
 
 	// Coerce `post` to not be undefined.
-	let post = $derived(page.data.post as PostType);
+	let post = $derived(page.data.post as ResolvedPost);
 </script>
 
-<SeoLdPost {post} />
+<SeoLdPost value={post} />
 <SeoFediverseCreator username="@thilo@maier.social" />
 
 <ContentLayout>

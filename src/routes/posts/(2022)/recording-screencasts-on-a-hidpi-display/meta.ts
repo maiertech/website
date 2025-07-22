@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Recording screencasts on a HiDPI display',
 	author: 'thilo',
 	publishedDate: '2022-06-05',
@@ -9,6 +9,4 @@ const meta: PostMetaType = {
 	tags: ['content-creation'],
 	path: '/posts/recording-screencasts-on-a-hidpi-display',
 	filepath: 'src/routes/posts/(2022)/recording-screencasts-on-a-hidpi-display/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

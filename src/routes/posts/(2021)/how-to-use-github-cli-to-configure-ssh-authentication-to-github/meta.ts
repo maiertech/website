@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'How to use GitHub CLI to configure SSH authentication to GitHub',
 	author: 'thilo',
 	publishedDate: '2021-10-20',
@@ -10,6 +10,4 @@ const meta: PostMetaType = {
 	path: '/posts/how-to-use-github-cli-to-configure-ssh-authentication-to-github',
 	filepath:
 		'src/routes/posts/(2021)/how-to-use-github-cli-to-configure-ssh-authentication-to-github/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

@@ -5,9 +5,6 @@
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
 
-	// Required to make `eslint-plugin-svelte` v3 work with VS Code.
-	"eslint.validate": ["javascript", "javascriptreact", "svelte"],
-
 	"files.associations": {
 		"*.css": "tailwindcss",
 		"*.svx": "markdown"

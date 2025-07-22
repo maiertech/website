@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Three ways to bootstrap a Svelte project',
 	author: 'thilo',
 	publishedDate: '2022-07-01',
@@ -9,6 +9,4 @@ const meta: PostMetaType = {
 	tags: ['svelte', 'codesandbox'],
 	path: '/posts/three-ways-to-bootstrap-a-svelte-project',
 	filepath: 'src/routes/posts/(2022)/three-ways-to-bootstrap-a-svelte-project/+page.svelte'
-};
-
-export default meta;
+} satisfies PostMeta;

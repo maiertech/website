@@ -1,7 +1,7 @@
 import { filterByTag } from '$lib/utils/posts';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-import type { TagType, PostType } from '@maiertech/sveltekit-helpers';
+import type { Tag, ResolvedPost } from '@maiertech/sveltekit-helpers';
 
 export const prerender = true;
 
@@ -13,10 +13,10 @@ export const load: PageLoad = async ({ params, fetch }) => {
 		error(404, `Invalid tag ${params.id}.`);
 	}
 
-	const tag = (await response.json()) as TagType;
+	const tag = (await response.json()) as Tag;
 
 	response = await fetch('/api/posts/all');
-	const posts = (await response.json()) as PostType[];
+	const posts = (await response.json()) as ResolvedPost[];
 
 	const taggedPosts = filterByTag(tag.id, posts);
 

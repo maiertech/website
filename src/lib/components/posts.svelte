@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { PostPreview } from '@maiertech/sveltekit-helpers';
-	import type { PostType } from '@maiertech/sveltekit-helpers';
+	import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 
 	interface Props {
-		posts: PostType[];
+		posts: ResolvedPost[];
 	}
 
 	let { posts }: Props = $props();

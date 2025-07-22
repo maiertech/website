@@ -1,6 +1,6 @@
-import type { PostMetaType } from '@maiertech/sveltekit-helpers';
+import type { PostMeta } from '@maiertech/sveltekit-helpers';
 
-const meta: PostMetaType = {
+export default {
 	title: 'Five ways to customize a Gitpod workspace',
 	author: 'thilo',
 	publishedDate: '2023-03-23',
@@ -9,6 +9,4 @@ const meta: PostMetaType = {
 	tags: ['dx', 'gitpod'],
 	path: '/posts/five-ways-to-customize-a-gitpod-workspace',
 	filepath: 'src/routes/posts/(2023)/five-ways-to-customize-a-gitpod-workspace/+page.svx'
-};
-
-export default meta;
+} satisfies PostMeta;
