@@ -13,9 +13,9 @@
 {#if page.data.seo}
 	<SeoBasic title={page.data.seo.title} description={page.data.seo.description} />
 	{#if page.data.seo.ogImageUrl}
-		<SeoOgImage ogImageUrl={page.data.seo.ogImageUrl} />
+		<SeoOgImage src={page.data.seo.ogImageUrl} />
 	{:else}
-		<SeoOgImage ogImageUrl={data.defaultOgImageUrl} />
+		<SeoOgImage src={data.defaultOgImageUrl} />
 	{/if}
 {/if}
 

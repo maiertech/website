@@ -1,1 +1,1 @@
-export { default as ogImage } from './ogImage';
+export { default as ogImageTemplate } from './ogImageTemplate';

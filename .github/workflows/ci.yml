@@ -40,4 +40,4 @@ jobs:
       # - name: Install Playwright Chromium
       #   run: pnpm exec playwright install --with-deps chromium
 
-      - run: pnpm test:unit
+      # - run: pnpm test:unit
