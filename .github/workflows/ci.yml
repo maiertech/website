@@ -15,6 +15,7 @@ env:
   EO_LIST_ID: ${{ secrets.EO_LIST_ID }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PUBLIC_URL_ORIGIN: ${{ vars.PUBLIC_URL_ORIGIN }}
+  VIRALCARDS_API_KEY: ${{ secrets.VIRALCARDS_API_KEY }}
 
 jobs:
   checks:
