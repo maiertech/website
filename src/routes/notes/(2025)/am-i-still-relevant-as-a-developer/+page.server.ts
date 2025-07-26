@@ -1,9 +1,9 @@
-import type { PageServerLoad } from './$types';
-import meta from './meta';
-import { getOgImageUrl } from '@maiertech/sveltekit-helpers';
+import { VIRALCARDS_API_KEY } from '$env/static/private';
 import { ogImageTemplate } from '$lib/templates';
 import type { VcImageMeta } from '@maiertech/sveltekit-helpers';
-import { VIRALCARDS_API_KEY } from '$env/static/private';
+import { getOgImageUrl } from '@maiertech/sveltekit-helpers';
+import type { PageServerLoad } from './$types';
+import meta from './meta';
 
 export const load: PageServerLoad = async () => {
 	const { title, description } = meta;

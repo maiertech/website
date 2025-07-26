@@ -19,7 +19,7 @@
 		"@eslint/js": "^9.31.0",
 		"@iconify/svelte": "^5.0.0",
 		"@lucide/svelte": "^0.525.0",
-		"@maiertech/sveltekit-helpers": "^0.26.2",
+		"@maiertech/sveltekit-helpers": "^0.27.0",
 		"@playwright/test": "^1.54.1",
 		"@sindresorhus/slugify": "^2.2.1",
 		"@stackblitz/sdk": "^1.11.0",
