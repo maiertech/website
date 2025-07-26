@@ -1,4 +1,4 @@
-import { VIRALCARDS_API_KEY, GITHUB_TOKEN } from '$env/static/private'; // Needs to support prerendering.
+import { GITHUB_TOKEN, VIRALCARDS_API_KEY } from '$env/static/private'; // Needs to support prerendering.
 import { ogImageTemplate } from '$lib/templates';
 import type {
 	AvatarMeta,
@@ -7,7 +7,7 @@ import type {
 	Tag,
 	VcImageMeta
 } from '@maiertech/sveltekit-helpers';
-import { getAuthor, getOgImageUrl, getTag, getLastCommit } from '@maiertech/sveltekit-helpers';
+import { getAuthor, getLastCommit, getOgImageUrl, getTag } from '@maiertech/sveltekit-helpers';
 import type { RequestEvent } from '@sveltejs/kit';
 
 export default async function ({
@@ -64,16 +64,11 @@ export default async function ({
 	}
 
 	const resolvedPost: ResolvedPost = {
-		title: postMeta.title,
-		description: postMeta.description,
-		publishedDate: postMeta.publishedDate,
-		path: postMeta.path,
+		...postMeta,
 		author,
 		tags: tags.length > 0 ? tags : undefined,
 		ogImageUrl,
-		lastmodDate,
-		prev: postMeta.prev,
-		next: postMeta.next
+		lastmodDate
 	};
 
 	return resolvedPost;
