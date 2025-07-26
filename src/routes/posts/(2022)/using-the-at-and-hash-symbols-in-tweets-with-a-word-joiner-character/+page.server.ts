@@ -1,10 +1,10 @@
+import { resolvePost } from '$lib/server/resolvers';
 import type { PageServerLoad } from './$types';
-import { transformPostWithLastmodDate } from '$lib/server/transformations';
 import meta from './meta';
 
 export const load: PageServerLoad = async (event) => {
-	const post = await transformPostWithLastmodDate(meta, event);
-	const { title, description } = post;
+	const post = await resolvePost({ postMeta: meta, event });
+	const { title, description, ogImageUrl } = post;
 
-	return { post, seo: { title, description } };
+	return { post, seo: { title, description, ogImageUrl } };
 };

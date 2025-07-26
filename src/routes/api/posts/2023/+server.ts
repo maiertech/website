@@ -1,4 +1,4 @@
-import { transformPost } from '$lib/server/transformations';
+import { resolvePost } from '$lib/server/resolvers';
 import postComplementZeroEffortTypeSafety from '$posts/(2023)/complement-zero-effort-type-safety-in-sveltekit-with-zod-for-even-more-type-safety/meta';
 import postConfiguringTurborepo from '$posts/(2023)/configuring-turborepo-for-a-sveltekit-monorepo/meta';
 import postCookieSettingsForStackblitz from '$posts/(2023)/cookie-settings-for-stackblitz-webcontainers/meta';
@@ -26,7 +26,7 @@ export const GET: RequestHandler = async (event) => {
 
 	const transformedPosts = await Promise.all(
 		posts.map((post) => {
-			return transformPost(post, event);
+			return resolvePost({ postMeta: post, event });
 		})
 	);
 

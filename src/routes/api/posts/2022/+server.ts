@@ -1,4 +1,4 @@
-import { transformPost } from '$lib/server/transformations';
+import { resolvePost } from '$lib/server/resolvers';
 import postExploreD3ArrayMethods from '$posts/(2022)/exploring-frequently-used-methods-of-d3-array/meta';
 import postGrokingFocusPseudoClasses from '$posts/(2022)/groking-active-focus-and-focus-visible-pseudo-classes/meta';
 import postSvelteKitBreakingChanges from '$posts/(2022)/handling-breaking-changes-in-sveltekit-pre-1-0/meta';
@@ -28,7 +28,7 @@ export const GET: RequestHandler = async (event) => {
 
 	const transformedPosts = await Promise.all(
 		posts.map((post) => {
-			return transformPost(post, event);
+			return resolvePost({ postMeta: post, event });
 		})
 	);
 

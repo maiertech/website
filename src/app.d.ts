@@ -12,6 +12,7 @@ declare global {
 			seo?: {
 				title: string;
 				description: string;
+				ogImageUrl?: string;
 			};
 		}
 		// interface PageState {}
