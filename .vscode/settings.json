@@ -10,5 +10,7 @@
 		"*.svx": "markdown"
 	},
 
+	"git-worktree-menu.worktreeDir": "/Users/thilo/Projects/maiertech",
+
 	"svelte.enable-ts-plugin": true
 }
