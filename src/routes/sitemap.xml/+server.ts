@@ -5,8 +5,7 @@ import type { RequestHandler } from './$types';
 export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {
-	// Fetch posts.
-	// TODO: `/api/posts/all` does not include `lastmodDate`.
+	// Fetch posts. `/api/posts/all` includes `lastmodDate`.
 	let response = await fetch('/api/posts/all');
 	const posts = (await response.json()) as ResolvedPost[];
 
