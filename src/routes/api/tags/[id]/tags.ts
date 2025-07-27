@@ -42,6 +42,7 @@ const tags: Tag[] = [
 		label: 'Gitpod',
 		path: '/tags/gitpod'
 	},
+	{ id: 'railway', label: 'Railway', path: '/tags/railway' },
 	{
 		id: 'screen-recording',
 		label: 'Screen recording',
