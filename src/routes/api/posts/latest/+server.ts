@@ -1,6 +1,6 @@
+import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 
 // No need to set `export const prerender = true;`.
 // Prerendering is triggered by `/`, which uses this endpoint and iself is prerendered.
@@ -15,6 +15,10 @@ export const GET: RequestHandler = async ({ fetch }) => {
 
 	// Fetch 2024 posts.
 	response = await fetch('/api/posts/2024');
+	posts = [...((await response.json()) as ResolvedPost[]), ...posts];
+
+	// Fetch 2025 posts.
+	response = await fetch('/api/posts/2025');
 	posts = [...((await response.json()) as ResolvedPost[]), ...posts];
 
 	return json(posts.slice(0, 10));

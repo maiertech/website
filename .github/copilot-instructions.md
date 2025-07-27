@@ -29,3 +29,10 @@ This is my personal website with posts and notes.
 - Do not use self-closing tags for Svelte components and HTML elements.
 - Use TailwindCSS for styling and tailwind-merge for class merging.
 - Comments use proper punctuation and end with a period.
+
+## Writing style
+
+- Use American English.
+- Be concise and clear in your explanations.
+- Use active voice and present tense.
+- Write a tad informal, but not too casual.
