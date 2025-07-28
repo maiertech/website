@@ -9,7 +9,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	const posts = (await response.json()) as ResolvedPost[];
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Thilo Maier (posts)</title>
     <description>RSS feed for Thilo Maier's posts.</description>
@@ -24,11 +24,11 @@ export const GET: RequestHandler = async ({ fetch }) => {
         <description>${post.description}</description>
         <link>${PUBLIC_URL_ORIGIN}${post.path}</link>
         <pubDate>${new Date(post.publishedDate).toUTCString()}</pubDate>
-        <guid isPermalink="true">${PUBLIC_URL_ORIGIN}${post.path}</guid>
       </item>
     `
 			)
 			.join('')}
+      <atom:link href="${PUBLIC_URL_ORIGIN}/posts/rss.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>`;
 
