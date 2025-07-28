@@ -27,7 +27,7 @@
 		<SocialIcon href="https://github.com/maiertech" ariaLabel="Follow me on GitHub">
 			<Icon icon="simple-icons:github" height="100%" class="block h-8 w-8"></Icon>
 		</SocialIcon>
-		<SocialIcon href="/rss.xml" ariaLabel="Subscribe to my RSS feed">
+		<SocialIcon href="/posts/rss.xml" ariaLabel="Subscribe to my RSS feed">
 			<Icon icon="simple-icons:rss" height="100%" class="block h-8 w-8"></Icon>
 		</SocialIcon>
 	</div>
