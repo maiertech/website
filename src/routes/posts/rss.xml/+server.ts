@@ -9,14 +9,15 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	const posts = (await response.json()) as ResolvedPost[];
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <atom:link href="${PUBLIC_URL_ORIGIN}/posts/rss.xml" rel="self" type="application/rss+xml" />
     <title>Thilo Maier (posts)</title>
     <description>RSS feed for Thilo Maier's posts.</description>
     <link>${PUBLIC_URL_ORIGIN}</link>
     <language>en-US</language>
     <generator>${PUBLIC_URL_ORIGIN}</generator>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${PUBLIC_URL_ORIGIN}/posts/rss.xml" rel="self" type="application/rss+xml" />
     ${posts
 			.map(
 				(post) => `
