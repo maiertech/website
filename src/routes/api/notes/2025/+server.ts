@@ -1,3 +1,4 @@
+import { resolveNote } from '$lib/server/resolvers';
 import noteAmIStillRelevantAsADeveloper from '$notes/(2025)/am-i-still-relevant-as-a-developer/meta';
 import noteEnvVarsInCode from '$notes/(2025)/env-vars-in-vscode/meta';
 import noteHostingInEurope from '$notes/(2025)/hosting-in-europe-beyond-big-tech/meta';
@@ -13,7 +14,7 @@ export const prerender = true;
 
 export const GET: RequestHandler = async () => {
 	// Sort order: latest first.
-	return json([
+	const notes = [
 		notePenpotsMissingSvgTextToPathFeature,
 		notePrerenderingServerRoutes,
 		noteHostingInEurope,
@@ -21,5 +22,13 @@ export const GET: RequestHandler = async () => {
 		noteTheUmpteenthInterviewWithRichHarris,
 		noteHowToWriteExceptionalDocs,
 		noteEnvVarsInCode
-	]);
+	];
+
+	const resolvedNotes = await Promise.all(
+		notes.map((note) => {
+			return resolveNote(note);
+		})
+	);
+
+	return json(resolvedNotes);
 };

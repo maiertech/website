@@ -10,11 +10,11 @@ export const GET: RequestHandler = async (event) => {
 	// Sort order: latest first.
 	const posts = [postCopilotContext];
 
-	const transformedPosts = await Promise.all(
+	const resolvedPosts = await Promise.all(
 		posts.map((post) => {
 			return resolvePost({ postMeta: post, event });
 		})
 	);
 
-	return json(transformedPosts);
+	return json(resolvedPosts);
 };

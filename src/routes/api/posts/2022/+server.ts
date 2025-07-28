@@ -26,11 +26,11 @@ export const GET: RequestHandler = async (event) => {
 		postSvelteKitHmrOnGitpod
 	];
 
-	const transformedPosts = await Promise.all(
+	const resolvedPosts = await Promise.all(
 		posts.map((post) => {
 			return resolvePost({ postMeta: post, event });
 		})
 	);
 
-	return json(transformedPosts);
+	return json(resolvedPosts);
 };
