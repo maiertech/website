@@ -1,10 +1,17 @@
-User-agent: Googlebot
-User-agent: Bingbot
-User-agent: Slurp
-User-agent: DuckDuckBot
 User-agent: Baiduspider
+User-agent: Bingbot
+User-agent: DuckDuckBot
+User-agent: Googlebot
+User-agent: MojeekBot
+User-agent: SeznamBot
+User-agent: Slurp
 User-agent: YandexBot
 Allow: /
+
+# Disallowed from logs.
+User-agent: DotBot
+User-agent: MJ12bot
+Disallow: /
 
 # https://github.com/ai-robots-txt/ai.robots.txt
 User-agent: AI2Bot
