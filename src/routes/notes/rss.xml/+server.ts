@@ -1,6 +1,6 @@
-import type { RequestHandler } from '@sveltejs/kit';
 import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 import type { RssItem } from '$lib/types';
+import type { RequestHandler } from '@sveltejs/kit';
 
 export const prerender = true;
 
@@ -26,7 +26,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
         <description>${item.description}</description>
         <link>${item.link}</link>
         <pubDate>${item.pubDate}</pubDate>
-        ${item.enclosure ? `<enclosure url="${item.enclosure.url}" type="${item.enclosure.type}" />` : ''}
+        ${item.enclosure ? `<enclosure url="${item.enclosure.url}" length="${item.enclosure.length}" type="${item.enclosure.type}" />` : ''}
         <guid>${item.link}</guid>
       </item>
     `

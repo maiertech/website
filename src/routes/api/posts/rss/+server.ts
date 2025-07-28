@@ -21,7 +21,8 @@ export const GET: RequestHandler = async ({ fetch }) => {
 		enclosure: post.ogImageUrl
 			? {
 					url: escapeXml(post.ogImageUrl),
-					type: 'image/png'
+					type: 'image/png',
+					length: 0 // We don't know the size of the image.
 				}
 			: undefined
 	}));

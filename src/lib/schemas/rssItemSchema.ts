@@ -12,7 +12,7 @@ export default z.object({
 		.object({
 			url: z.url(),
 			type: z.literal('image/png'),
-			length: z.int().nonnegative().optional()
+			length: z.int().nonnegative()
 		})
 		.optional()
 });
