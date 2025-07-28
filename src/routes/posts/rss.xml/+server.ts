@@ -5,7 +5,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {
-	const response = await fetch('/api/posts/latest');
+	const response = await fetch('/api/posts/rss');
 	const rssItems = (await response.json()) as RssItem[];
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -26,7 +26,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
         <description>${item.description}</description>
         <link>${item.link}</link>
         <pubDate>${item.pubDate}</pubDate>
-        ${item.enclosure ? `<enclosure url="${item.enclosure.url}" length="${item.enclosure.length}" type="${item.enclosure.type}" />` : ''}
+        ${item.enclosure ? `<![CDATA[<enclosure url="${item.enclosure.url}" length="${item.enclosure.length}" type="${item.enclosure.type}" />]]>` : ''}
         <guid>${item.link}</guid>
       </item>
     `

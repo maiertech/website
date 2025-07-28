@@ -26,7 +26,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
         <description>${item.description}</description>
         <link>${item.link}</link>
         <pubDate>${item.pubDate}</pubDate>
-        ${item.enclosure ? `<enclosure url="${item.enclosure.url}" length="${item.enclosure.length}" type="${item.enclosure.type}" />` : ''}
+        ${item.enclosure ? `<![CDATA[<enclosure url="${item.enclosure.url}" length="${item.enclosure.length}" type="${item.enclosure.type}" />]]>` : ''}
         <guid>${item.link}</guid>
       </item>
     `
