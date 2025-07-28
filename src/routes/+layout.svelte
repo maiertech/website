@@ -28,6 +28,12 @@
 		title="Thilo Maier (posts)"
 		href="/posts/rss.xml"
 	/>
+	<link
+		rel="alternate"
+		type="application/rss+xml"
+		title="Thilo Maier (notes)"
+		href="/notes/rss.xml"
+	/>
 </svelte:head>
 
 <PageLayout>
