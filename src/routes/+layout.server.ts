@@ -1,9 +1,12 @@
-import { PUBLIC_URL_ORIGIN } from '$env/static/public';
+import { VERCEL_URL } from '$env/static/private';
 import type { LayoutServerLoad } from './$types';
+import { getFullOrigin } from '$lib/utils';
+
+const fullOrigin = getFullOrigin(VERCEL_URL);
 
 export const load: LayoutServerLoad = ({ url }) => {
 	// Make `urlOrigin` for `ResponsiveImage` component available to support prerendering.
-	const urlOrigin = PUBLIC_URL_ORIGIN || url.origin;
+	const urlOrigin = fullOrigin || url.origin;
 	return {
 		urlOrigin,
 		defaultOgImageUrl:
