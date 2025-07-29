@@ -1,9 +1,9 @@
-import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { mdsvex, escapeSvelte } from 'mdsvex';
-import { createHighlighter } from 'shiki';
-import { fileURLToPath } from 'node:url';
+import { escapeSvelte, mdsvex } from 'mdsvex';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createHighlighter } from 'shiki';
 
 // Get the directory name of the current file.
 const dirname = path.dirname(fileURLToPath(import.meta.url));
