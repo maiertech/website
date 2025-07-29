@@ -1,8 +1,11 @@
-import { PUBLIC_URL_ORIGIN } from '$env/static/public';
+import { VERCEL_URL } from '$env/static/private';
 import type { RssItem } from '$lib/types';
+import { getFullOrigin } from '$lib/utils';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const prerender = true;
+
+const fullOrigin = getFullOrigin(VERCEL_URL);
 
 export const GET: RequestHandler = async ({ fetch }) => {
 	// Read posts.
@@ -23,8 +26,8 @@ export const GET: RequestHandler = async ({ fetch }) => {
     <title>Thilo Maier</title>
     <description>RSS feed for Thilo Maier's posts and notes.</description>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <link>${PUBLIC_URL_ORIGIN}/rss.xml</link>
-    <atom:link href="${PUBLIC_URL_ORIGIN}/rss.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>${fullOrigin}/rss.xml</link>
+    <atom:link href="${fullOrigin}/rss.xml" rel="self" type="application/rss+xml"></atom:link>
     ${rssItems
 			.map(
 				(item) => `
