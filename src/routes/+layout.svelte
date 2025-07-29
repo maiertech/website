@@ -22,6 +22,7 @@
 <Favicon />
 
 <svelte:head>
+	<link rel="alternate" type="application/rss+xml" title="Thilo Maier" href="/rss.xml" />
 	<link
 		rel="alternate"
 		type="application/rss+xml"
