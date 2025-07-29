@@ -70,14 +70,14 @@ options for environment variables:
   variables cannot be accessed during the build and, like their public counterpart, are not suitable
   for pages that are prerendered. They can be changed at runtime.
 
-  Example: A feature flag for a new feature, `CHAT_FEATURE_FLAG`, so DevOps can turn off the
-  feature without redeploying if they detect a problem.
+  Example: A feature flag for a new feature, `CHAT_FEATURE_FLAG`, so DevOps can turn off the feature
+  without redeploying if they detect a problem.
 
-When I build for Vercel, most of the time I use static private variables with
-`$env/static/private`. Occasionally, I need a static public variable using `$env/static/public`, for
-example, to make a `PUBLIC_ANALYTICS_ID` available client-side.
+When I build for Vercel, most of the time I use static private variables with `$env/static/private`.
+Occasionally, I need a static public variable using `$env/static/public`, for example, to make a
+`PUBLIC_ANALYTICS_ID` available client-side.
 
 If I ship a SvelteKit app as a Docker container, I should default to dynamic private variables with
 `$env/dynamic/private`. But this often interferes with prerendering. So, even with Docker, I prefer
-using static environment variables. In a published Docker container, you should skip prerendering
-if it means you risk exposing a secret.
+using static environment variables. In a published Docker container, you should skip prerendering if
+it means you risk exposing a secret.
