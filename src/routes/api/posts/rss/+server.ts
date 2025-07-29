@@ -1,5 +1,6 @@
 import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 import type { RssItem } from '$lib/types';
+import { escapeXml } from '$lib/utils';
 import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
@@ -19,7 +20,8 @@ export const GET: RequestHandler = async ({ fetch }) => {
 		category: 'Post',
 		enclosure: post.ogImageUrl
 			? {
-					url: post.ogImageUrl,
+					// Replace `&` in URLs with `&amp;` to ensure valid XML.
+					url: escapeXml(post.ogImageUrl),
 					type: 'image/png',
 					length: 0 // We don't know the size of the image.
 				}

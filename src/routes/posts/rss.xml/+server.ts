@@ -1,4 +1,3 @@
-import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 import type { RssItem } from '$lib/types';
 import type { RequestHandler } from '@sveltejs/kit';
 
@@ -13,11 +12,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
   <channel>
     <title>Thilo Maier (posts)</title>
     <description>RSS feed for Thilo Maier's posts.</description>
-    <link>${PUBLIC_URL_ORIGIN}</link>
-    <language>en-US</language>
-    <generator>${PUBLIC_URL_ORIGIN}</generator>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${PUBLIC_URL_ORIGIN}/posts/rss.xml" rel="self" type="application/rss+xml" />
     ${rssItems
 			.map(
 				(item) => `
@@ -26,7 +21,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
         <description>${item.description}</description>
         <link>${item.link}</link>
         <pubDate>${item.pubDate}</pubDate>
-        ${item.enclosure ? `<![CDATA[<enclosure url="${item.enclosure.url}" length="${item.enclosure.length}" type="${item.enclosure.type}" />]]>` : ''}
+        ${item.enclosure ? `<enclosure url="${item.enclosure.url}" length="${item.enclosure.length}" type="${item.enclosure.type}"></enclosure>` : ''}
         <guid>${item.link}</guid>
       </item>
     `

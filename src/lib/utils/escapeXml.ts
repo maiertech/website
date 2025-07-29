@@ -1,8 +1,7 @@
 /**
- * Escapes special characters for XML content.
- * This ensures that content is safe to include in XML documents.
+ * Escape special characters for XML content.
  */
-export function escapeXml(text: string): string {
+export default function (text: string): string {
 	return text
 		.replace(/&/g, '&amp;')
 		.replace(/</g, '&lt;')

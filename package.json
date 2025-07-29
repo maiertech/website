@@ -21,7 +21,6 @@
 		"@lucide/svelte": "^0.528.0",
 		"@maiertech/sveltekit-helpers": "^0.28.0",
 		"@playwright/test": "^1.54.1",
-		"@sindresorhus/slugify": "^2.2.1",
 		"@stackblitz/sdk": "^1.11.0",
 		"@sveltejs/adapter-node": "^5.2.13",
 		"@sveltejs/kit": "^2.26.1",

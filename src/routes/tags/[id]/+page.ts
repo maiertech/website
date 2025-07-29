@@ -1,7 +1,7 @@
-import { filterByTag } from '$lib/utils/posts';
+import { filterByTag } from '$lib/utils';
+import type { ResolvedPost, Tag } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-import type { Tag, ResolvedPost } from '@maiertech/sveltekit-helpers';
 
 export const prerender = true;
 
