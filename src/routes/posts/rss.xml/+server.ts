@@ -1,3 +1,4 @@
+import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 import type { RssItem } from '$lib/types';
 import type { RequestHandler } from '@sveltejs/kit';
 
@@ -13,6 +14,8 @@ export const GET: RequestHandler = async ({ fetch }) => {
     <title>Thilo Maier (posts)</title>
     <description>RSS feed for Thilo Maier's posts.</description>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <link>${PUBLIC_URL_ORIGIN}/posts/rss.xml</link>
+    <atom:link href="${PUBLIC_URL_ORIGIN}/posts/rss.xml" rel="self" type="application/rss+xml"></atom:link>
     ${rssItems
 			.map(
 				(item) => `
