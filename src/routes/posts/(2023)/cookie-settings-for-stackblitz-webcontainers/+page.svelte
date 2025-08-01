@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code, Figure, P, ResponsiveImage } from '@maiertech/sveltekit-helpers';
+	import { Code, Figure, P, VercelImage, stripOrigin } from '@maiertech/sveltekit-helpers';
 	import srcAlwaysAllowCookies from './always-allow-cookies-light.png';
 	import srcCookiesNotEnabled from './cookies-not-enabled.png';
 </script>
@@ -36,10 +36,12 @@
 	caption="A StackBlitz WebContainer rendered in a Chromium-based browser with third-party cookies disabled."
 	class="mb-6"
 >
-	<ResponsiveImage
-		src={srcCookiesNotEnabled}
+	<VercelImage
+		src={stripOrigin(srcCookiesNotEnabled)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={1672}
 		alt="Screenshot of an embedded StackBlitz WebContainer with warning message 'Enable third-party cookies'."
-	></ResponsiveImage>
+	/>
 </Figure>
 
 <P>
@@ -52,10 +54,12 @@
 	caption="To make embedding WebContainers work without allowing third-party cookies for all sites, you must always allow cookies for these two URL patterns."
 	class="mb-6"
 >
-	<ResponsiveImage
-		src={srcAlwaysAllowCookies}
+	<VercelImage
+		src={stripOrigin(srcAlwaysAllowCookies)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={1372}
 		alt="Screenshot of the cookies settings in a Chromium-based browser. Section 'Sites that can always use cookies' lists [*.]stackblitz.io and [*.]webcontainer.io."
-	></ResponsiveImage>
+	/>
 </Figure>
 
 <P>

@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
-	import { Code, CodeSnippet, Figure, H2, P, ResponsiveImage } from '@maiertech/sveltekit-helpers';
+	import {
+		Code,
+		CodeSnippet,
+		Figure,
+		H2,
+		P,
+		stripOrigin,
+		VercelImage
+	} from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
 	import srcActiveExampleButtonActive from './active-example-button-active.png';
 	import srcActiveExampleInputActive from './active-example-input-active.png';
@@ -72,10 +80,12 @@ button:active {
 </P>
 
 <Figure class="mb-6">
-	<ResponsiveImage
-		src={srcActiveExampleInputActive}
+	<VercelImage
+		src={stripOrigin(srcActiveExampleInputActive)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={630}
 		alt="A simple web form with a name input field and a submit button. The name input field is active and highlighted with a red dashed outline."
-	></ResponsiveImage>
+	></VercelImage>
 </Figure>
 
 <P>
@@ -84,19 +94,23 @@ button:active {
 </P>
 
 <Figure class="mb-6">
-	<ResponsiveImage
-		src={srcActiveExampleInputFocus}
+	<VercelImage
+		src={stripOrigin(srcActiveExampleInputFocus)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={630}
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applies a blue outline to it."
-	></ResponsiveImage>
+	></VercelImage>
 </Figure>
 
 <P>While you click the submit button, you can see the dashed red outline until you release it.</P>
 
 <Figure class="mb-6">
-	<ResponsiveImage
-		src={srcActiveExampleButtonActive}
+	<VercelImage
+		src={stripOrigin(srcActiveExampleButtonActive)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={630}
 		alt="A simple web form with a name input field and a submit button. The submit button is highlighted with a dashed red outline."
-	></ResponsiveImage>
+	></VercelImage>
 </Figure>
 
 <P>
@@ -134,10 +148,12 @@ button:focus {
 </P>
 
 <Figure class="mb-6">
-	<ResponsiveImage
-		src={srcFocusExampleInput}
+	<VercelImage
+		src={stripOrigin(srcFocusExampleInput)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={630}
 		alt="A simple web form with a name input field and a submit button. The input field is focused and highlighted with a dashed red outline."
-	></ResponsiveImage>
+	></VercelImage>
 </Figure>
 
 <P>
@@ -145,10 +161,12 @@ button:focus {
 </P>
 
 <Figure class="mb-6">
-	<ResponsiveImage
-		src={srcFocusExampleButton}
+	<VercelImage
+		src={stripOrigin(srcFocusExampleButton)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={630}
 		alt="A simple web form with a name input field and a submit button. The submit button has focus and the browser applied a dashed red outline to it."
-	></ResponsiveImage>
+	></VercelImage>
 </Figure>
 
 <P>
@@ -192,10 +210,12 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<ResponsiveImage
-		src={srcFocusVisibleExampleInput}
+	<VercelImage
+		src={stripOrigin(srcFocusVisibleExampleInput)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={762}
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applied :focus-visible and a dashed red outline."
-	></ResponsiveImage>
+	></VercelImage>
 </Figure>
 
 <P>
@@ -205,10 +225,12 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<ResponsiveImage
-		src={srcFocusVisibleExampleButtonMouse}
+	<VercelImage
+		src={stripOrigin(srcFocusVisibleExampleButtonMouse)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={762}
 		alt="A simple web form with a name input field and a submit button. Even though the submit has focus, the browser did not apply :focus-visible and the corresponding styling."
-	></ResponsiveImage>
+	></VercelImage>
 </Figure>
 
 <P>
@@ -216,10 +238,12 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<ResponsiveImage
-		src={srcFocusVisibleExampleButtonKeyboard}
+	<VercelImage
+		src={stripOrigin(srcFocusVisibleExampleButtonKeyboard)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={762}
 		alt="A simple web form with a name input field and a submit button. This time, the browser applied :focus-visible and a dashed red outline to the submit button."
-	></ResponsiveImage>
+	></VercelImage>
 </Figure>
 
 <P>

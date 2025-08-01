@@ -6,7 +6,8 @@
 		H2,
 		Ol,
 		P,
-		ResponsiveImage
+		VercelImage,
+		stripOrigin
 	} from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
 	import srcVercelBuildError from './vercel-build-error.png';
@@ -131,10 +132,12 @@
 </P>
 
 <Figure caption="Vercel build error after migrating my repository to a Turborepo." class="mb-6">
-	<ResponsiveImage
-		src={srcVercelBuildError}
+	<VercelImage
+		src={stripOrigin(srcVercelBuildError)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={1336}
 		alt="Screenshot of the error log of a Vercel deploy. The error message reads: No output directory named 'public' found after the build completed."
-	></ResponsiveImage>
+	/>
 </Figure>
 
 <P>

@@ -6,7 +6,8 @@
 		H2,
 		Ol,
 		P,
-		ResponsiveImage
+		VercelImage,
+		stripOrigin
 	} from '@maiertech/sveltekit-helpers';
 	import srcZodTypeInferenceExample1 from './zod-type-inference-example-1.png';
 	import srcZodTypeInferenceExample2 from './zod-type-inference-example-2.png';
@@ -108,10 +109,12 @@
 </P>
 
 <Figure caption="Zod infers the type of validated data from the schema." class="mb-6">
-	<ResponsiveImage
-		src={srcZodTypeInferenceExample1}
+	<VercelImage
+		src={stripOrigin(srcZodTypeInferenceExample1)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={1304}
 		alt="Screenshot of the code snippet from above in Visual Studio Code. The mouse hovers over `frontmatter.title`, and a pop-up shows the type `string` and the description from the `PostSchema` Zod schema."
-	></ResponsiveImage>
+	/>
 </Figure>
 
 <P>
@@ -146,10 +149,12 @@
 	caption="The subscriber variable is validated and typed, thanks to Zod's type inference."
 	class="mb-6"
 >
-	<ResponsiveImage
-		src={srcZodTypeInferenceExample2}
+	<VercelImage
+		src={stripOrigin(srcZodTypeInferenceExample2)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={1225}
 		alt="Screenshot of the code snippet from above in Visual Studio Code. The mouse hovers over the validated `subscriber` variable, and a pop-up shows the object type inferred from the `EOSubscriber` Zod schema."
-	></ResponsiveImage>
+	/>
 </Figure>
 
 <H2>Conclusion</H2>

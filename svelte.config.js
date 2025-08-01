@@ -50,7 +50,14 @@ const mdsvexOptions = {
 export default {
 	extensions: ['.svelte', '.svx'],
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			images: {
+				// Restrict image generation to widths used by `VercelImage`.
+				sizes: [160, 320, 480, 640, 768, 1024, 1280, 1536, 1920, 2560],
+				formats: ['image/avif', 'image/webp'],
+				minimumCacheTTL: 300
+			}
+		}),
 		alias: {
 			$notes: 'src/routes/notes',
 			$posts: 'src/routes/posts'
