@@ -1,0 +1,14 @@
+If you have not checked the HTTP logs of your website lately, I recommend doing so. I was stunned to
+see big-name AI bots crawling my website daily, hunting for new training data.
+
+Even though my personal website is a non-commercial side project, I do not like the idea of my
+content being dissolved into some AI overview with zero credit. I am trying to give you an
+incentive, useful content, to come back to my website regularly, either directly, via my RSS feeds,
+or via my socials. Even though your clicks do not make me money, they do motivate me to post more.
+
+That is why I have updated my `robots.txt` to disallow the bots from the link above and a few more I
+found in my logs. I have also explicitly allowed a couple of bots in the classic search engine
+category, some of which I had never heard of before.
+
+Keep in mind that `robots.txt` is a convention and not a technical enforcement. I count on the big
+players to comply with my `robots.txt`, but there is no guarantee that they will.

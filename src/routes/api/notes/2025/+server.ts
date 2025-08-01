@@ -1,5 +1,6 @@
 import { resolveNote } from '$lib/server/resolvers';
 import noteAmIStillRelevantAsADeveloper from '$notes/(2025)/am-i-still-relevant-as-a-developer/meta';
+import noteDisallowingAiBotsInRobotsTxt from '$notes/(2025)/disallowing-ai-bots-in-robots-txt/meta';
 import noteEnvVarsInCode from '$notes/(2025)/env-vars-in-vscode/meta';
 import noteHostingInEurope from '$notes/(2025)/hosting-in-europe-beyond-big-tech/meta';
 import noteHowToWriteExceptionalDocs from '$notes/(2025)/how-to-write-exceptional-docs/meta';
@@ -15,6 +16,7 @@ export const prerender = true;
 export const GET: RequestHandler = async () => {
 	// Sort order: latest first.
 	const notes = [
+		noteDisallowingAiBotsInRobotsTxt,
 		notePenpotsMissingSvgTextToPathFeature,
 		notePrerenderingServerRoutes,
 		noteHostingInEurope,
