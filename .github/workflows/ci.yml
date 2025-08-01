@@ -12,7 +12,6 @@ env:
   EO_API_KEY: ${{ secrets.EO_API_KEY }}
   EO_LIST_ID: ${{ secrets.EO_LIST_ID }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  VERCEL_URL: ${{ vars.VERCEL_URL }}
   VIRALCARDS_API_KEY: ${{ secrets.VIRALCARDS_API_KEY }}
 
 jobs:

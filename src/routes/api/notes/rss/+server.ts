@@ -1,13 +1,11 @@
-import { VERCEL_URL } from '$env/static/private';
+import { ORIGIN } from '$env/static/private';
 import type { RssItem } from '$lib/types';
-import { escapeXml, getFullOrigin } from '$lib/utils';
+import { escapeXml } from '$lib/utils';
 import type { NoteMeta } from '@maiertech/sveltekit-helpers';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
-
-const fullOrigin = getFullOrigin(VERCEL_URL);
 
 export const GET: RequestHandler = async ({ fetch }) => {
 	const response = await fetch('/api/notes/latest');
@@ -16,7 +14,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	const rssItems: RssItem[] = notes.map((note) => ({
 		title: note.title,
 		description: note.description,
-		link: `${fullOrigin}${note.path}`,
+		link: `${ORIGIN}${note.path}`,
 		pubDate: new Date(note.publishedDate).toUTCString(),
 		category: 'Note',
 		enclosure: note.ogImageUrl
