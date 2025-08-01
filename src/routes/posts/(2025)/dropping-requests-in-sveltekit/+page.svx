@@ -1,5 +1,5 @@
 <script>
-  import { Figure, ResponsiveImage } from '@maiertech/sveltekit-helpers';
+  import { Figure, VercelImage, stripOrigin } from '@maiertech/sveltekit-helpers';
   import srcProbingBots from './probing-bots.png';
 </script>
 
@@ -7,8 +7,13 @@ After migrating my website to [Railway](https://railway.com/), I noticed bots pr
 accidentally exposed vulnerable files:
 
 <Figure caption="HTTP Logs from Railway after first deployment with a custom domain." class="mb-8">
-  <ResponsiveImage src={srcProbingBots} alt="Log entries on Railway.com showing bot requests to
-potentially exposed files, for example, `/.env`." intrinsicWidth={1032} aspectRatio={16/9}></ResponsiveImage>
+  <VercelImage
+	  src={stripOrigin(srcProbingBots)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+    alt="Log entries on Railway.com showing bot requests to potentially exposed files, for example, `/.env`."
+    intrinsicWidth={1032}
+    aspectRatio={16/9}
+  />
 </Figure>
 
 Since my website is built with SvelteKit, it returns a 404 for these types of requests. Nothing to

@@ -6,8 +6,9 @@
 		H2,
 		Ol,
 		P,
-		ResponsiveImage,
-		Ul
+		stripOrigin,
+		Ul,
+		VercelImage
 	} from '@maiertech/sveltekit-helpers';
 	import srcCodeflowBotLight from './codeflow-bot-light.png';
 	import srcUnsupportedExtensions from './unsupported-extensions.png';
@@ -105,10 +106,12 @@
 	caption="In this screenshot, codeflowapp commented on a pull request on GitHub and added a button to launch a Codeflow workspace for a pull request review."
 	class="mb-6"
 >
-	<ResponsiveImage
-		src={srcCodeflowBotLight}
+	<VercelImage
+		src={stripOrigin(srcCodeflowBotLight)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={1910}
 		alt="The screenshot shows codeflowapp's comment and the button to launch a Codeflow workspace."
-	></ResponsiveImage>
+	/>
 </Figure>
 
 <H2>VS Code extensions</H2>
@@ -152,8 +155,10 @@
 	caption="You are out of luck when a project requires extensions not pre-installed in Codeflow."
 	class="mb-6"
 >
-	<ResponsiveImage
-		src={srcUnsupportedExtensions}
+	<VercelImage
+		src={stripOrigin(srcUnsupportedExtensions)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={890}
 		alt="Screenshot from Codeflow showing a warning message that says that the Thunder Client and Grammarly extensions are not supported."
 	/>
 </Figure>

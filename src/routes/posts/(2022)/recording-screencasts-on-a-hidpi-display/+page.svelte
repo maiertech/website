@@ -8,7 +8,8 @@
 		Td,
 		Th,
 		Thead,
-		ResponsiveImage
+		VercelImage,
+		stripOrigin
 	} from '@maiertech/sveltekit-helpers';
 	import srcDisplayPreferences from './display-preferences-light.png';
 	import ScaledPixelSVG from './scaled-pixel.svelte';
@@ -97,8 +98,12 @@
 <P>macOS always uses the default resolution unless you opt for a different scaled resolution:</P>
 
 <Figure caption="macOS lets you choose your preferred scaled resolution." class="mb-6">
-	<ResponsiveImage src={srcDisplayPreferences} alt="Screenshot of display preferences on macOS."
-	></ResponsiveImage>
+	<VercelImage
+		src={stripOrigin(srcDisplayPreferences)}
+		sizes="(max-width: 1024px) 100vw, 1024px"
+		intrinsicWidth={1336}
+		alt="Screenshot of display preferences on macOS."
+	/>
 </Figure>
 
 <P>
