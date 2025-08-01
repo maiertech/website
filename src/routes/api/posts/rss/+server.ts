@@ -1,13 +1,11 @@
-import { VERCEL_URL } from '$env/static/private';
+import { ORIGIN } from '$env/static/private';
 import type { RssItem } from '$lib/types';
-import { escapeXml, getFullOrigin } from '$lib/utils';
+import { escapeXml } from '$lib/utils';
 import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
-
-const fullOrigin = getFullOrigin(VERCEL_URL);
 
 export const GET: RequestHandler = async ({ fetch }) => {
 	const response = await fetch('/api/posts/latest');
@@ -16,7 +14,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	const rssItems: RssItem[] = posts.map((post) => ({
 		title: post.title,
 		description: post.description,
-		link: `${fullOrigin}${post.path}`,
+		link: `${ORIGIN}${post.path}`,
 		pubDate: new Date(post.publishedDate).toUTCString(),
 		category: 'Post',
 		enclosure: post.ogImageUrl

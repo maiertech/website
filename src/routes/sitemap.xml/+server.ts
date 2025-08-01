@@ -1,11 +1,8 @@
-import { VERCEL_URL } from '$env/static/private';
+import { ORIGIN } from '$env/static/private';
 import type { NoteMeta, ResolvedPost } from '@maiertech/sveltekit-helpers';
 import type { RequestHandler } from './$types';
-import { getFullOrigin } from '$lib/utils';
 
 export const prerender = true;
-
-const fullOrigin = getFullOrigin(VERCEL_URL);
 
 export const GET: RequestHandler = async ({ fetch }) => {
 	// Fetch posts. `/api/posts/all` includes `lastmodDate`.
@@ -15,7 +12,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	// Create sitemap entries for posts.
 	const postEntries = posts.map(
 		(post) => `\t<url>
-		<loc>${fullOrigin}${post.path}</loc>
+		<loc>${ORIGIN}${post.path}</loc>
 		<lastmod>${post.lastmodDate ? post.lastmodDate : post.publishedDate}</lastmod>
 	</url>`
 	);
@@ -27,7 +24,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	// Create sitemap entries for notes.
 	const noteEntries = notes.map(
 		(note) => `\t<url>
-		<loc>${fullOrigin}${note.path}</loc>
+		<loc>${ORIGIN}${note.path}</loc>
 		<lastmod>${note.publishedDate}</lastmod>
 	</url>`
 	);
