@@ -13,7 +13,6 @@ env:
   EO_LIST_ID: ${{ secrets.EO_LIST_ID }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   VIRALCARDS_API_KEY: ${{ secrets.VIRALCARDS_API_KEY }}
-  VITE_VERCEL_PROJECT_PRODUCTION_URL: ${{ vars.VITE_VERCEL_PROJECT_PRODUCTION_URL }}
 
 jobs:
   checks:
