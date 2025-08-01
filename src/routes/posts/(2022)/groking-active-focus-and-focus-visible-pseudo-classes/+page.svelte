@@ -85,7 +85,7 @@ button:active {
 		sizes="(max-width: 1024px) 100vw, 1024px"
 		intrinsicWidth={630}
 		alt="A simple web form with a name input field and a submit button. The name input field is active and highlighted with a red dashed outline."
-	></VercelImage>
+	/>
 </Figure>
 
 <P>
@@ -99,7 +99,7 @@ button:active {
 		sizes="(max-width: 1024px) 100vw, 1024px"
 		intrinsicWidth={630}
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applies a blue outline to it."
-	></VercelImage>
+	/>
 </Figure>
 
 <P>While you click the submit button, you can see the dashed red outline until you release it.</P>
@@ -110,7 +110,7 @@ button:active {
 		sizes="(max-width: 1024px) 100vw, 1024px"
 		intrinsicWidth={630}
 		alt="A simple web form with a name input field and a submit button. The submit button is highlighted with a dashed red outline."
-	></VercelImage>
+	/>
 </Figure>
 
 <P>
@@ -153,7 +153,7 @@ button:focus {
 		sizes="(max-width: 1024px) 100vw, 1024px"
 		intrinsicWidth={630}
 		alt="A simple web form with a name input field and a submit button. The input field is focused and highlighted with a dashed red outline."
-	></VercelImage>
+	/>
 </Figure>
 
 <P>
@@ -166,7 +166,7 @@ button:focus {
 		sizes="(max-width: 1024px) 100vw, 1024px"
 		intrinsicWidth={630}
 		alt="A simple web form with a name input field and a submit button. The submit button has focus and the browser applied a dashed red outline to it."
-	></VercelImage>
+	/>
 </Figure>
 
 <P>
@@ -215,7 +215,7 @@ button:focus-visible {
 		sizes="(max-width: 1024px) 100vw, 1024px"
 		intrinsicWidth={762}
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applied :focus-visible and a dashed red outline."
-	></VercelImage>
+	/>
 </Figure>
 
 <P>
@@ -230,7 +230,7 @@ button:focus-visible {
 		sizes="(max-width: 1024px) 100vw, 1024px"
 		intrinsicWidth={762}
 		alt="A simple web form with a name input field and a submit button. Even though the submit has focus, the browser did not apply :focus-visible and the corresponding styling."
-	></VercelImage>
+	/>
 </Figure>
 
 <P>
@@ -243,7 +243,7 @@ button:focus-visible {
 		sizes="(max-width: 1024px) 100vw, 1024px"
 		intrinsicWidth={762}
 		alt="A simple web form with a name input field and a submit button. This time, the browser applied :focus-visible and a dashed red outline to the submit button."
-	></VercelImage>
+	/>
 </Figure>
 
 <P>
