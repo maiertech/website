@@ -13,6 +13,7 @@ accidentally exposed vulnerable files:
     alt="Log entries on Railway.com showing bot requests to potentially exposed files, for example, `/.env`."
     intrinsicWidth={1032}
     aspectRatio={16/9}
+    loading="eager"
   />
 </Figure>
 
