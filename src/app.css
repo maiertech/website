@@ -1,7 +1,24 @@
 @import 'tailwindcss';
 
-@import './fonts/roboto/font.css' layer(utilities);
-@import './fonts/spectral/font.css' layer(utilities);
+/* Roboto: normal, medium, semibold, bold. */
+@import '@fontsource/roboto/latin-400-italic.css' layer(utilities);
+@import '@fontsource/roboto/latin-400.css' layer(utilities);
+@import '@fontsource/roboto/latin-500-italic.css' layer(utilities);
+@import '@fontsource/roboto/latin-500.css' layer(utilities);
+@import '@fontsource/roboto/latin-600-italic.css' layer(utilities);
+@import '@fontsource/roboto/latin-600.css' layer(utilities);
+@import '@fontsource/roboto/latin-700-italic.css' layer(utilities);
+@import '@fontsource/roboto/latin-700.css' layer(utilities);
+
+/* Spectral: normal, medium, semibold, bold. */
+@import '@fontsource/spectral/latin-400-italic.css' layer(utilities);
+@import '@fontsource/spectral/latin-400.css' layer(utilities);
+@import '@fontsource/spectral/latin-500-italic.css' layer(utilities);
+@import '@fontsource/spectral/latin-500.css' layer(utilities);
+@import '@fontsource/spectral/latin-600-italic.css' layer(utilities);
+@import '@fontsource/spectral/latin-600.css' layer(utilities);
+@import '@fontsource/spectral/latin-700-italic.css' layer(utilities);
+@import '@fontsource/spectral/latin-700.css' layer(utilities);
 
 @source '../node_modules/@maiertech/sveltekit-helpers/**/*.{js,svelte}';
 
