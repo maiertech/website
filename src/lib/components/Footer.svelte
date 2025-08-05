@@ -1,7 +1,7 @@
 <script lang="ts">
 	import navLinks from '$lib/nav-links';
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
-	import Icon from '@iconify/svelte';
+	import { siBluesky, siGithub, siMastodon, siRss } from 'simple-icons';
 </script>
 
 <div
@@ -14,21 +14,33 @@
 		{/each}
 	</nav>
 	<div class="flex gap-5">
+		<SocialIcon href="/rss.xml" ariaLabel="Subscribe to my RSS feed">
+			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
+				<path d={siRss.path} />
+				<title>{siRss.title}</title>
+			</svg>
+		</SocialIcon>
 		<SocialIcon href="https://bsky.app/profile/maier.tech" ariaLabel="Follow me on BlueSky">
-			<Icon icon="simple-icons:bluesky" height="100%" class="block h-8 w-8"></Icon>
+			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
+				<path d={siBluesky.path} />
+				<title>{siBluesky.title}</title>
+			</svg>
 		</SocialIcon>
 		<SocialIcon
 			href="https://maier.social/@thilo"
 			decorator="mastodon"
 			ariaLabel="Follow me on Mastodon"
 		>
-			<Icon icon="simple-icons:mastodon" height="100%" class="block h-8 w-8"></Icon>
+			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
+				<path d={siMastodon.path} />
+				<title>{siMastodon.title}</title>
+			</svg>
 		</SocialIcon>
 		<SocialIcon href="https://github.com/maiertech" ariaLabel="Follow me on GitHub">
-			<Icon icon="simple-icons:github" height="100%" class="block h-8 w-8"></Icon>
-		</SocialIcon>
-		<SocialIcon href="/rss.xml" ariaLabel="Subscribe to my RSS feed">
-			<Icon icon="simple-icons:rss" height="100%" class="block h-8 w-8"></Icon>
+			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
+				<path d={siGithub.path} />
+				<title>{siGithub.title}</title>
+			</svg>
 		</SocialIcon>
 	</div>
 	<p>&copy; {new Date().getFullYear()} Thilo Maier</p>
