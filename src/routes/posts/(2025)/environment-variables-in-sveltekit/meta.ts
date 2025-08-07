@@ -3,7 +3,7 @@ import type { PostMeta } from '@maiertech/sveltekit-helpers';
 export default {
 	title: 'Environment variables in SvelteKit',
 	author: 'thilo',
-	publishedDate: '2025-08-01',
+	publishedDate: '2025-08-07',
 	description:
 		"Understand SvelteKit's four environment variable options and how to use them securely in different hosting and deployment scenarios.",
 	tags: ['svelte', 'vercel'],
