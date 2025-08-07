@@ -4,7 +4,7 @@
 	import { Container, PageLayout, SeoBasic, SeoOgImage } from '@maiertech/sveltekit-helpers';
 	import type { LayoutProps } from './$types';
 
-	import '@maiertech/sveltekit-helpers/themes/default.css'; // First import the theme, then the styles.
+	import '@maiertech/sveltekit-helpers/themes/maiertech.css';
 	import '../app.css';
 
 	let { data, children }: LayoutProps = $props();
