@@ -74,6 +74,11 @@ const tags: Tag[] = [
 		path: '/tags/typescript'
 	},
 	{
+		id: 'vercel',
+		label: 'Vercel',
+		path: '/tags/vercel'
+	},
+	{
 		id: 'vscode',
 		label: 'VS Code',
 		path: '/tags/vscode'
