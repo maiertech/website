@@ -23,24 +23,27 @@
 @source '../node_modules/@maiertech/sveltekit-helpers/**/*.{js,svelte}';
 
 @theme {
+	/* No color defintions. Just trigger utility class generation. */
+	--color-ink: var(--color-ink);
+	--color-ink-muted: var(--color-ink-muted);
+	--color-surface: var(--color-surface);
+	--color-surface-muted: var(--color-surface-muted);
+	--color-surface-intense: var(--color-surface-intense);
+	--color-primary: var(--color-primary);
+	--color-primary-muted: var(--color-primary-muted);
+	--color-secondary: var(--color-secondary);
+	--color-secondary-muted: var(--color-secondary-muted);
+	--color-green: var(--color-green);
+	--color-red: var(--color-red);
+
 	--font-*: initial;
 	--font-sans:
 		Roboto, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 		'Segoe UI Symbol', 'Noto Color Emoji';
 	--font-serif: Spectral, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-
-	--color-ink: var(--ink);
-	--color-surface: var(--surface);
-	--color-primary: var(--primary);
-	--color-secondary: var(--secondary);
-	--color-accent: var(--accent);
 }
 
 @layer base {
-	:root {
-		@apply bg-surface text-pretty text-ink;
-	}
-
 	a {
 		@apply underline;
 	}
