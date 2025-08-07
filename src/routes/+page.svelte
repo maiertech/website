@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Posts } from '$lib/components';
-	import { Button, NotePreview } from '@maiertech/sveltekit-helpers';
+	import { NotePreview } from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
