@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 	import {
 		ContentLayout,
 		PostHeader,
