@@ -2,9 +2,9 @@
 	import { page } from '$app/state';
 	import { Favicon, Footer, Header } from '$lib/components';
 	import { Container, PageLayout, SeoBasic, SeoOgImage } from '@maiertech/sveltekit-helpers';
+	import { ModeWatcher } from 'mode-watcher';
 	import type { LayoutProps } from './$types';
 
-	import '@maiertech/sveltekit-helpers/themes/maiertech.css';
 	import '../app.css';
 
 	let { data, children }: LayoutProps = $props();
@@ -20,6 +20,8 @@
 {/if}
 
 <Favicon />
+
+<ModeWatcher defaultTheme="maiertech" />
 
 <svelte:head>
 	<link rel="alternate" type="application/rss+xml" title="Thilo Maier" href="/rss.xml" />

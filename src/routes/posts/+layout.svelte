@@ -12,7 +12,7 @@
 	let { children }: LayoutProps = $props();
 
 	// Coerce `post` to not be undefined.
-	let post = $derived(page.data.post as ResolvedPost);
+	let post = $derived(page.data.post!);
 </script>
 
 <SeoLdPost value={post} />

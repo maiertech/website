@@ -22,53 +22,12 @@
 
 @source '../node_modules/@maiertech/sveltekit-helpers/**/*.{js,svelte}';
 
-@theme {
-	/* No color defintions. Just trigger utility class generation. */
-	--color-ink: var(--color-ink);
-	--color-ink-muted: var(--color-ink-muted);
-	--color-surface: var(--color-surface);
-	--color-surface-muted: var(--color-surface-muted);
-	--color-surface-intense: var(--color-surface-intense);
-	--color-primary: var(--color-primary);
-	--color-primary-muted: var(--color-primary-muted);
-	--color-secondary: var(--color-secondary);
-	--color-secondary-muted: var(--color-secondary-muted);
-	--color-green: var(--color-green);
-	--color-red: var(--color-red);
+@import '@maiertech/sveltekit-helpers/theme-maiertech.css';
+@import '@maiertech/sveltekit-helpers/global.css';
 
-	--font-*: initial;
+@theme {
 	--font-sans:
 		Roboto, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 		'Segoe UI Symbol', 'Noto Color Emoji';
 	--font-serif: Spectral, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-}
-
-@layer base {
-	a {
-		@apply underline;
-	}
-
-	ul {
-		@apply list-inside list-disc;
-	}
-
-	ol {
-		@apply list-outside list-decimal pl-4;
-	}
-
-	pre.shiki {
-		@apply mb-4 overflow-x-auto p-3 text-xl [tab-size:2];
-	}
-
-	@media (prefers-color-scheme: dark) {
-		.shiki,
-		.shiki span {
-			color: var(--shiki-dark) !important;
-			background-color: var(--shiki-dark-bg) !important;
-			/* Optional, if you also want font styles */
-			font-style: var(--shiki-dark-font-style) !important;
-			font-weight: var(--shiki-dark-font-weight) !important;
-			text-decoration: var(--shiki-dark-text-decoration) !important;
-		}
-	}
 }
