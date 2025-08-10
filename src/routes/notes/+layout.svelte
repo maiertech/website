@@ -1,7 +1,6 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
-	import { Note, SeoFediverseCreator, SeoCanonicalUrl } from '@maiertech/sveltekit-helpers';
 	import { page } from '$app/state';
+	import { Note, SeoCanonicalUrl, SeoFediverseCreator } from '@maiertech/sveltekit-helpers';
 	import type { LayoutProps } from './$types';
 
 	let { data, children }: LayoutProps = $props();
