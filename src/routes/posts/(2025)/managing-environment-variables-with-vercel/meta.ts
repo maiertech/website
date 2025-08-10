@@ -5,7 +5,7 @@ export default {
 	author: 'thilo',
 	publishedDate: '2025-08-10',
 	description:
-		'Manage environment variables in Vercel for any project and environment, and easily sync them to your local .env file.',
+		'How to manage environment variables in Vercel for any project and environment, and easily sync them to your local .env file.',
 	tags: ['vercel', 'vscode'],
 	path: '/posts/managing-environment-variables-with-vercel',
 	filepath: 'src/routes/posts/(2025)/managing-environment-variables-with-vercel/+page.svx'
