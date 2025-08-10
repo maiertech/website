@@ -36,3 +36,4 @@ This is my personal website with posts and notes.
 - Be concise and clear in your explanations.
 - Use active voice and present tense.
 - Write a tad informal, but not too casual.
+- Don't use em dashes.
