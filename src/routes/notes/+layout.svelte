@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { Note } from '@maiertech/sveltekit-helpers';
+	import { Note, SeoFediverseCreator, SeoCanonicalUrl } from '@maiertech/sveltekit-helpers';
 	import { page } from '$app/state';
+	import type { LayoutProps } from './$types';
 
-	interface Props {
-		children: Snippet;
-	}
-
-	let { children }: Props = $props();
+	let { data, children }: LayoutProps = $props();
 </script>
+
+<SeoFediverseCreator username="@thilo@maier.social" />
+<SeoCanonicalUrl origin={data.origin} />
 
 {#if page.data.note}
 	<Note value={page.data.note}>
