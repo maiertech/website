@@ -3,12 +3,13 @@
 	import {
 		ContentLayout,
 		PostHeader,
+		SeoCanonicalUrl,
 		SeoFediverseCreator,
 		SeoLdPost
 	} from '@maiertech/sveltekit-helpers';
 	import type { LayoutProps } from './$types';
 
-	let { children }: LayoutProps = $props();
+	let { data, children }: LayoutProps = $props();
 
 	// Coerce `post` to not be undefined.
 	let post = $derived(page.data.post!);
@@ -16,6 +17,7 @@
 
 <SeoLdPost value={post} />
 <SeoFediverseCreator username="@thilo@maier.social" />
+<SeoCanonicalUrl origin={data.origin} />
 
 <ContentLayout>
 	{#snippet header()}

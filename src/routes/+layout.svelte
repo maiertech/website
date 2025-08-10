@@ -7,15 +7,13 @@
 
 	import '../app.css';
 
-	let { data, children }: LayoutProps = $props();
+	let { children }: LayoutProps = $props();
 </script>
 
 {#if page.data.seo}
 	<SeoBasic title={page.data.seo.title} description={page.data.seo.description} />
 	{#if page.data.seo.ogImageUrl}
 		<SeoOgImage src={page.data.seo.ogImageUrl} />
-	{:else}
-		<SeoOgImage src={data.defaultOgImageUrl} />
 	{/if}
 {/if}
 
