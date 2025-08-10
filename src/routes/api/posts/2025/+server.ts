@@ -1,7 +1,7 @@
 import { resolvePost } from '$lib/server/resolvers';
 import postDroppingRequestsInSvelteKit from '$posts/(2025)/dropping-requests-in-sveltekit/meta';
-import postManagingEnvVarsWithVercel from '$posts/(2025)/managing-environment-variables-with-vercel/meta';
 import postEnvVarsInSvelteKit from '$posts/(2025)/environment-variables-in-sveltekit/meta';
+import postManagingEnvVarsWithVercel from '$posts/(2025)/managing-environment-variables-with-vercel/meta';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
