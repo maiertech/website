@@ -1,5 +1,5 @@
 <script>
-  import { Figure, VercelImage } from '@maiertech/sveltekit-helpers';
+  import { Figure, VercelImage, stripOrigin } from '@maiertech/sveltekit-helpers';
   import srcVercelDashboard from './vercel-dashboard.png';
 </script>
 
@@ -20,7 +20,7 @@ different in production than in preview. Vercel gives you all the flexibility yo
 Here is a look at my Vercel dashboard in one of my SvelteKit projects:
 
 <Figure caption="The Vercel dashboard can be used to manage environment variables." class="mb-8">
-  <VercelImage src={srcVercelDashboard} alt="Screenshot of my Vercel dashboard showing a GITHUB_TOKEN entry for development and another GITHUB_TOKEN entry for production and previews." intrinsicWidth={1824}></VercelImage>
+  <VercelImage src={stripOrigin(srcVercelDashboard)} alt="Screenshot of my Vercel dashboard showing a GITHUB_TOKEN entry for development and another GITHUB_TOKEN entry for production and previews." intrinsicWidth={1824}></VercelImage>
 </Figure>
 
 `VERCEL_URL` is a Vercel system environment variable that Vercel sets automatically. Therefore, it
