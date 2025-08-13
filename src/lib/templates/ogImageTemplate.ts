@@ -6,17 +6,12 @@ export default {
 	height: 630,
 	width: 1200,
 	colors: {
-		ink: '#020617',
-		surface: '#f8fafc',
-		primary: '#1e40af',
-		accent: '#f97316'
+		ink: '#020618',
+		surface: '#f1f5f9',
+		primary: '#193cb8',
+		accent: '#1e2939'
 	},
 	fonts: [
-		{
-			name: 'Roboto',
-			style: 'normal',
-			weight: 300
-		},
 		{
 			name: 'Roboto',
 			style: 'normal',
@@ -25,22 +20,7 @@ export default {
 		{
 			name: 'Roboto',
 			style: 'normal',
-			weight: 500
-		},
-		{
-			name: 'Roboto',
-			style: 'normal',
-			weight: 600
-		},
-		{
-			name: 'Roboto',
-			style: 'normal',
 			weight: 700
-		},
-		{
-			name: 'Roboto',
-			style: 'normal',
-			weight: 800
 		}
 	]
 };
