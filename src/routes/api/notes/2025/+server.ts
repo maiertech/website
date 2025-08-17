@@ -9,6 +9,7 @@ import notePerplexityAiCaughtInTheAct from '$notes/(2025)/perplexity-ai-caught-i
 import notePrerenderingServerRoutes from '$notes/(2025)/prerendering-server-routes-in-sveltekit/meta';
 import noteTheUmpteenthInterviewWithRichHarris from '$notes/(2025)/the-umpteenth-interview-with-rich-harris/meta';
 import noteUsingGitHubCopilotInTheTerminal from '$notes/(2025)/using-github-copilot-in-the-terminal/meta';
+import noteVercelProtectionBypass from '$notes/(2025)/vercel-deployment-protection-bypass/meta';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
@@ -18,6 +19,7 @@ export const prerender = true;
 export const GET: RequestHandler = async () => {
 	// Sort order: latest first.
 	const notes = [
+		noteVercelProtectionBypass,
 		noteUsingGitHubCopilotInTheTerminal,
 		notePerplexityAiCaughtInTheAct,
 		noteDisallowingAiBotsInRobotsTxt,
