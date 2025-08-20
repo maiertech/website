@@ -6,7 +6,7 @@
 	let { data, children }: LayoutProps = $props();
 </script>
 
-<SeoFediverseCreator username="@thilo@maier.social" />
+<SeoFediverseCreator username="@thilo@mastodon.nl" />
 <SeoCanonicalUrl origin={data.origin} />
 
 {#if page.data.note}

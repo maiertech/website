@@ -27,7 +27,7 @@
 			</svg>
 		</SocialIcon>
 		<SocialIcon
-			href="https://maier.social/@thilo"
+			href="https://mastodon.nl/@thilo"
 			decorator="mastodon"
 			ariaLabel="Follow me on Mastodon"
 		>
