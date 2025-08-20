@@ -16,7 +16,7 @@
 </script>
 
 <SeoLdPost value={post} />
-<SeoFediverseCreator username="@thilo@maier.social" />
+<SeoFediverseCreator username="@thilo@mastodon.nl" />
 <SeoCanonicalUrl origin={data.origin} />
 
 <ContentLayout>
