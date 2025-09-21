@@ -2,6 +2,7 @@ import { resolveNote } from '$lib/server/resolvers';
 import noteAmIStillRelevantAsADeveloper from '$notes/(2025)/am-i-still-relevant-as-a-developer/meta';
 import noteDisallowingAiBotsInRobotsTxt from '$notes/(2025)/disallowing-ai-bots-in-robots-txt/meta';
 import noteEnvVarsInCode from '$notes/(2025)/env-vars-in-vscode/meta';
+import noteEslintPluginSvelteMakesSveltekitLinterFail from '$notes/(2025)/eslint-plugin-svelte-makes-sveltekit-linter-fail/meta';
 import noteHostingInEurope from '$notes/(2025)/hosting-in-europe-beyond-big-tech/meta';
 import noteHowToWriteExceptionalDocs from '$notes/(2025)/how-to-write-exceptional-docs/meta';
 import notePenpotsMissingSvgTextToPathFeature from '$notes/(2025)/penpots-missing-svg-text-to-path-feature/meta';
@@ -19,6 +20,7 @@ export const prerender = true;
 export const GET: RequestHandler = async () => {
 	// Sort order: latest first.
 	const notes = [
+		noteEslintPluginSvelteMakesSveltekitLinterFail,
 		noteVercelProtectionBypass,
 		noteUsingGitHubCopilotInTheTerminal,
 		notePerplexityAiCaughtInTheAct,
