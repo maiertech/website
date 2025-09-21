@@ -5,7 +5,7 @@
 
 <div
 	data-component="Header"
-	class="flex items-center justify-start gap-[clamp(.5rem,1vw,1rem)] py-6 text-primary"
+	class="text-primary flex items-center justify-start gap-[clamp(.5rem,1vw,1rem)] py-6"
 >
 	<div class="w-[clamp(2rem,4vw,3rem)]"><Logo /></div>
 	<div class="text-[clamp(1.5rem,6vw,2.5rem)] font-semibold">Thilo Maier</div>

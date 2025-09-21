@@ -6,7 +6,7 @@
 
 <div
 	data-component="Footer"
-	class="flex flex-col items-center gap-6 bg-surface-muted py-[clamp(1.5rem,3vw,2rem)]"
+	class="bg-surface-muted flex flex-col items-center gap-6 py-[clamp(1.5rem,3vw,2rem)]"
 >
 	<nav aria-label="Footer" class="flex flex-wrap justify-center gap-[clamp(1rem,2vw,1.5rem)]">
 		{#each navLinks as link (link.title)}

@@ -19,11 +19,11 @@
 </script>
 
 <div class="relative inline-flex items-center">
-	<button onclick={copyToClipboard} class="rounded-md bg-primary px-4 py-2 text-surface">
+	<button onclick={copyToClipboard} class="bg-primary text-surface rounded-md px-4 py-2">
 		{@render children()}
 	</button>
 
 	{#if showCopied}
-		<span class="absolute -right-16 ml-2 text-sm text-ink">Copied!</span>
+		<span class="text-ink absolute -right-16 ml-2 text-sm">Copied!</span>
 	{/if}
 </div>

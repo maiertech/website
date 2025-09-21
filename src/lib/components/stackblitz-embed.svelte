@@ -12,7 +12,7 @@
 	let { project, options = {}, class: className }: Props = $props();
 </script>
 
-<div class="h-[clamp(20rem,40vw,30rem)] rounded-lg bg-secondary">
+<div class="bg-secondary h-[clamp(20rem,40vw,30rem)] rounded-lg">
 	<iframe
 		use:stackblitz={{ project, options }}
 		title="This iframe will be swapped out."
