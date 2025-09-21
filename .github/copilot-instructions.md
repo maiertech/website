@@ -1,48 +1,64 @@
 # @maiertech/website
 
-**ALWAYS follow these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.**
+**ALWAYS follow these instructions first and fallback to search or bash commands only when you
+encounter unexpected information that does not match the info here.**
 
 ## Overview
 
-This is my personal website with posts and notes built with SvelteKit v2, Svelte v5, TypeScript, and TailwindCSS v4.
+This is my personal website with posts and notes built with SvelteKit v2, Svelte v5, TypeScript, and
+TailwindCSS v4.
 
 ## Working Effectively
 
 ### Prerequisites - CRITICAL Authentication Setup
-**REQUIRED**: Create a GitHub Personal Access Token (classic) with `repo` and `read:packages` permissions before any setup.
+
+**REQUIRED**: Create a GitHub Personal Access Token (classic) with `repo` and `read:packages`
+permissions before any setup.
+
 - `repo` permission is required to retrieve last modified dates for posts from the GitHub API.
-- `read:packages` permission is required to install the private package `@maiertech/sveltekit-helpers`.
+- `read:packages` permission is required to install the private package
+  `@maiertech/sveltekit-helpers`.
 - Set the token as environment variable: `export GITHUB_TOKEN=your_token_here`
 
 ### Bootstrap, Build, and Test the Repository
+
 Run these commands in order:
 
 1. **Install PNPM** (if not available):
+
    ```bash
    npm install -g pnpm
    ```
 
 2. **Install dependencies** - takes ~25 seconds:
+
    ```bash
    pnpm install --frozen-lockfile
    ```
-   **NEVER CANCEL**: Wait for completion. If authentication fails, ensure GITHUB_TOKEN is set correctly.
+
+   **NEVER CANCEL**: Wait for completion. If authentication fails, ensure GITHUB_TOKEN is set
+   correctly.
 
 3. **Format code** - takes ~4 seconds:
+
    ```bash
    pnpm run format
    ```
 
 4. **Lint code** - takes ~4 seconds:
+
    ```bash
    pnpm run lint
    ```
+
    Must pass before committing or CI will fail.
 
 5. **Type check** - takes ~8 seconds:
+
    ```bash
    pnpm run check
    ```
+
    Must pass before committing or CI will fail.
 
 6. **Build application** - takes ~15-30 seconds. **NEVER CANCEL**. Set timeout to 120+ seconds:
@@ -53,32 +69,40 @@ Run these commands in order:
 ### Run the Application
 
 **Development server** - starts in ~2 seconds:
+
 ```bash
 pnpm run dev
 ```
+
 Access at: http://localhost:5173/
 
 **Preview built application**:
+
 ```bash
 pnpm run preview
 ```
+
 Access at: http://localhost:4173/
 
 ### Environment Variables Setup
+
 Copy `.env.example` to `.env.development` and configure:
+
 ```bash
 cp .env.example .env.development
 ```
 
 Required variables (use dummy values for development):
+
 - `GITHUB_TOKEN` - Your GitHub token (same as used for package installation)
 - `EO_API_KEY` - EmailOctopus API key (dummy: "key")
-- `EO_LIST_ID` - EmailOctopus list ID (dummy: "id") 
+- `EO_LIST_ID` - EmailOctopus list ID (dummy: "id")
 - `VIRALCARDS_API_KEY` - OG image generation key (dummy: "key")
 
 ## Validation
 
 ### Build Time Expectations
+
 - **NEVER CANCEL** any build or long-running commands
 - **Install**: ~25 seconds (depends on network)
 - **Format**: ~4 seconds
@@ -88,9 +112,11 @@ Required variables (use dummy values for development):
 - **Dev server startup**: ~2 seconds
 
 ### Manual Validation Scenarios
+
 After making code changes, ALWAYS validate by:
 
 1. **Start the development server**:
+
    ```bash
    pnpm run dev
    ```
@@ -108,7 +134,9 @@ After making code changes, ALWAYS validate by:
 5. **Verify content rendering** for posts/notes if modifying content or layouts
 
 ### Pre-commit Validation
+
 ALWAYS run before committing or the CI will fail:
+
 ```bash
 pnpm run format && pnpm run lint && pnpm run check
 ```
@@ -158,28 +186,35 @@ pnpm run format && pnpm run lint && pnpm run check
 ## Common Tasks
 
 ### Adding New Posts
+
 Posts are located in `src/routes/posts/(YEAR)/slug/` with:
+
 - `+page.svx` or `+page.svelte` - Content
 - `meta.ts` - Metadata (title, description, tags, etc.)
 - `+page.server.ts` - Server-side data loading
 
-### Adding New Notes  
+### Adding New Notes
+
 Notes follow the same pattern in `src/routes/notes/(YEAR)/slug/`
 
 ### Troubleshooting
 
-**"Cannot find module '@maiertech/sveltekit-helpers'"**: 
+**"Cannot find module '@maiertech/sveltekit-helpers'"**:
+
 - Ensure GITHUB_TOKEN environment variable is set with `read:packages` permission
 - Run `pnpm install --frozen-lockfile` again
 
 **"Module '$env/static/private' has no exported member"**:
+
 - Ensure environment variables are set in `.env.development`
 - Check `.env.example` for required variable names
 
 **Build failures**:
+
 - Always run `pnpm run format && pnpm run lint && pnpm run check` first
 - **NEVER CANCEL** builds - wait for completion even if it takes 30+ seconds
 
 **Development server issues**:
+
 - Ensure all environment variables are set (use dummy values for development)
 - Check that GITHUB_TOKEN is properly configured
