@@ -11,7 +11,7 @@ This is a content-driven website with three types of content:
 ## Stack
 
 - SvelteKit v2 with `adapter-node`.
-- Deployment to Railway.com with their zero configuration deployments.
+- Deployment to Railway.com with their zero-configuration deployments.
 - Svelte v5.
 - TypeScript.
 - Zod schemas.
@@ -23,7 +23,7 @@ This is a content-driven website with three types of content:
 
 ## Conventions
 
-- Use CamelCase for both component names and their file names.
+- Use PascalCase for both Svelte component names and their file names (e.g., PostCard.svelte).
 - Always use Svelte v5, never v4.
 - Prefer TailwindCSS in combination with tailwind-merge for styling, but you can use plain CSS
   inside Svelte's `<style>` tag for complex styles.
