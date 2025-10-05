@@ -1,7 +1,13 @@
-import { createHash } from 'node:crypto';
 import { env } from '$env/dynamic/private';
+import { error } from '@sveltejs/kit';
+import { createHash } from 'node:crypto';
 
 const base = 'https://emailoctopus.com/api/1.6/';
+
+if (!env.EO_API_KEY) {
+	error(500, 'Environment variable EO_API_KEY is not set.');
+}
+
 const querystring = new URLSearchParams({ api_key: env.EO_API_KEY });
 
 /**

@@ -27,7 +27,8 @@ This is a content-driven website with three types of content:
 - Always use Svelte v5, never v4.
 - Prefer TailwindCSS in combination with tailwind-merge for styling, but you can use plain CSS
   inside Svelte's `<style>` tag for complex styles.
-- Use `$env/dynamic/private` runtime variables in SvelteKit.
+- Use `$env/dynamic/private` for secrets in SvelteKit and `$env/static/private` environment
+  variables that are not secrets.
 - Don't return or throw SvelteKit's `error` function. It knows what to do.
 - Comments always end with a period.
 
