@@ -51,30 +51,10 @@ export default {
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 	extensions: ['.svelte', '.svx'],
 	kit: {
-		adapter: adapter({
-			images: {
-				// Restrict image generation to widths used by `VercelImage`.
-				sizes: [160, 320, 480, 640, 768, 1024, 1280, 1536, 1920, 2560],
-				formats: ['image/avif', 'image/webp'],
-				minimumCacheTTL: 300
-			}
-		}),
+		adapter: adapter(),
 		alias: {
 			$notes: 'src/routes/notes',
 			$posts: 'src/routes/posts'
-		},
-		prerender: {
-			handleHttpError: ({ path, message }) => {
-				// The SvelteKit crawler checks image URLs during prerendering.
-				// However, the Vercel image optimization API is not available during a build.
-				// Suppress crawl error handling for URLs starting with `/_vercel/image`.
-				if (path.startsWith('/_vercel/image')) {
-					return;
-				}
-
-				// Handle other errors.
-				throw new Error(message);
-			}
 		}
 	}
 };
