@@ -5,11 +5,13 @@ import type { RequestHandler } from '@sveltejs/kit';
 export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {
-	// Read posts.
+	// Read posts and notes.
+	// Do not reuse a `response` var to prevent this error:
+	// "Body is unusable: Body has already been read"
+
 	const postsResponse = await fetch('/api/posts/rss');
 	const postRssItems = (await postsResponse.json()) as RssItem[];
 
-	// Read notes.
 	const notesResponse = await fetch('/api/notes/rss');
 	const noteRssItems = (await notesResponse.json()) as RssItem[];
 
