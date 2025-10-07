@@ -1,17 +1,7 @@
 <script lang="ts">
-	import {
-		Code,
-		CodeSnippet,
-		Figure,
-		H2,
-		Ol,
-		P,
-		stripOrigin,
-		Ul,
-		VercelImage
-	} from '@maiertech/sveltekit-helpers';
-	import srcCodeflowBotLight from './codeflow-bot-light.png';
-	import srcUnsupportedExtensions from './unsupported-extensions.png';
+	import { Code, CodeSnippet, Figure, H2, Ol, P, Ul } from '@maiertech/sveltekit-helpers';
+	import srcCodeflowBotLight from './codeflow-bot-light.png?enhanced';
+	import srcUnsupportedExtensions from './unsupported-extensions.png?enhanced';
 </script>
 
 <P>
@@ -106,10 +96,8 @@
 	caption="In this screenshot, codeflowapp commented on a pull request on GitHub and added a button to launch a Codeflow workspace for a pull request review."
 	class="mb-6"
 >
-	<VercelImage
-		src={stripOrigin(srcCodeflowBotLight)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-		intrinsicWidth={1910}
+	<enhanced:img
+		src={srcCodeflowBotLight}
 		alt="The screenshot shows codeflowapp's comment and the button to launch a Codeflow workspace."
 	/>
 </Figure>
@@ -155,10 +143,8 @@
 	caption="You are out of luck when a project requires extensions not pre-installed in Codeflow."
 	class="mb-6"
 >
-	<VercelImage
-		src={stripOrigin(srcUnsupportedExtensions)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-		intrinsicWidth={890}
+	<enhanced:img
+		src={srcUnsupportedExtensions}
 		alt="Screenshot from Codeflow showing a warning message that says that the Thunder Client and Grammarly extensions are not supported."
 	/>
 </Figure>
