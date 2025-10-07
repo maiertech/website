@@ -6,12 +6,12 @@ export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {
 	// Read posts.
-	let response = await fetch('/api/posts/rss');
-	const postRssItems = (await response.json()) as RssItem[];
+	const postsResponse = await fetch('/api/posts/rss');
+	const postRssItems = (await postsResponse.json()) as RssItem[];
 
 	// Read notes.
-	response = await fetch('/api/notes/rss');
-	const noteRssItems = (await response.json()) as RssItem[];
+	const notesResponse = await fetch('/api/notes/rss');
+	const noteRssItems = (await notesResponse.json()) as RssItem[];
 
 	const rssItems = [...postRssItems, ...noteRssItems]
 		.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
