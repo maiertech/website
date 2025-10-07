@@ -1,20 +1,13 @@
 <script>
-  import { Figure, VercelImage, stripOrigin } from '@maiertech/sveltekit-helpers';
-  import srcProbingBots from './probing-bots.png';
+  import { Figure } from '@maiertech/sveltekit-helpers';
+  import ProbingBotsImage from './ProbingBotsImage.svelte';
 </script>
 
 After migrating my website to [Railway](https://railway.com/), I noticed bots probing for
 accidentally exposed vulnerable files:
 
 <Figure caption="HTTP Logs from Railway after first deployment with a custom domain." class="mb-8">
-  <VercelImage
-	  src={stripOrigin(srcProbingBots)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-    alt="Log entries on Railway.com showing bot requests to potentially exposed files, for example, `/.env`."
-    intrinsicWidth={1032}
-    aspectRatio={16/9}
-    loading="eager"
-  />
+  <ProbingBotsImage />
 </Figure>
 
 Since my website is built with SvelteKit, it returns a 404 for these types of requests. Nothing to
@@ -31,7 +24,7 @@ Here is what I came up with:
 <Figure caption="hooks.server.ts" class="mb-8">
 
 ```ts
-import { type Handle } from '@sveltejs/kit';
+import type { Handle } from '@sveltejs/kit';
 import { Blocklist } from '$lib/utils/index.js';
 import { BLOCKED_PATHS } from '$lib/blocklists/index.js';
 
