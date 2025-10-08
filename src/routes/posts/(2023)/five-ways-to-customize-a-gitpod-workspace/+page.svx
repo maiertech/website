@@ -1,6 +1,6 @@
 <script>
 	import { Figure } from '@maiertech/sveltekit-helpers';
-	import gitpod_editors_png from './gitpod-editors.png';
+  import GitpodEditorsImage from './GitpodEditorsImage.svelte';
 </script>
 
 A [Gitpod](https://gitpod.io/) workspace aims to be a no-compromise replacement for a local
@@ -215,9 +215,7 @@ only cloud workspace that supports GitHub, GitLab, and Bitbucket as Git provider
 JetBrains IDEs:
 
 <Figure caption="Gitpod supports VS Code and various JetBrains IDEs as editors." class="mb-6">
-
-![Screenshot of user settings in the Gitpod dashboard. There are ten cards with ten editor options, VS Code desktop and browser, and several IDEs by JetBrains.]({gitpod_editors_png})
-
+  <GitpodEditorsImage />
 </Figure>
 
 Not all customizations covered in this post make sense with all combinations of Git providers and

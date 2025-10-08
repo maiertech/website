@@ -1,7 +1,7 @@
 <script>
 	import { CodeSnippet, Figure } from '@maiertech/sveltekit-helpers';
+	import SeoDataFlowImage from './SeoDataFlowImage.svelte';
 	import app_html from './examples/app.html?raw';
-	import seo_data_flow_png from './seo-data-flow.png';
 </script>
 
 SvelteKit does not come with a built-in SEO component. The
@@ -151,9 +151,7 @@ SEO data is page-specific and needs to be retrieved at the page level in `+page.
 page-specific SEO data into a layout? Let's look at the following diagram:
 
 <Figure caption="How SvelteKit's load functions share data." class="mb-6">
-
-![Diagram of how data from load functions can be shared between a page and a layout top down or bottom up.]({seo_data_flow_png})
-
+	<SeoDataFlowImage />
 </Figure>
 
 The diagram shows a `+page.svelte` and its corresponding `+page.js`, which contains the load
