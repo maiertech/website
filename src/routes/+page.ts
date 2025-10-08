@@ -4,13 +4,15 @@ import type { PageLoad } from './$types';
 export const prerender = true;
 
 export const load: PageLoad = async function ({ fetch }) {
-	// Fetch latest notes.
-	let response = await fetch('/api/notes/latest');
-	const notes = (await response.json()) as NoteMeta[];
+	// Read posts and notes.
+	// Do not reuse a `response` var to prevent this error:
+	// "Body is unusable: Body has already been read"
 
-	// Fetch latest posts.
-	response = await fetch('/api/posts/latest');
-	const posts = ((await response.json()) as ResolvedPost[]).slice(0, 5);
+	const notesResponse = await fetch('/api/notes/latest');
+	const notes = (await notesResponse.json()) as NoteMeta[];
+
+	const postsResponse = await fetch('/api/posts/latest');
+	const posts = ((await postsResponse.json()) as ResolvedPost[]).slice(0, 5);
 
 	return {
 		seo: {

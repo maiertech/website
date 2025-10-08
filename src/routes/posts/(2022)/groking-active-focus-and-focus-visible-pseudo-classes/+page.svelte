@@ -1,23 +1,15 @@
 <script lang="ts">
 	import { StackblitzEmbed } from '$lib/components';
-	import {
-		Code,
-		CodeSnippet,
-		Figure,
-		H2,
-		P,
-		stripOrigin,
-		VercelImage
-	} from '@maiertech/sveltekit-helpers';
+	import { Code, CodeSnippet, Figure, H2, P } from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
-	import srcActiveExampleButtonActive from './active-example-button-active.png';
-	import srcActiveExampleInputActive from './active-example-input-active.png';
-	import srcActiveExampleInputFocus from './active-example-input-focus.png';
-	import srcFocusExampleButton from './focus-example-button.png';
-	import srcFocusExampleInput from './focus-example-input.png';
-	import srcFocusVisibleExampleButtonKeyboard from './focus-visible-example-button-keyboard.png';
-	import srcFocusVisibleExampleButtonMouse from './focus-visible-example-button-mouse.png';
-	import srcFocusVisibleExampleInput from './focus-visible-example-input.png';
+	import srcActiveExampleButtonActive from './active-example-button-active.png?enhanced';
+	import srcActiveExampleInputActive from './active-example-input-active.png?enhanced';
+	import srcActiveExampleInputFocus from './active-example-input-focus.png?enhanced';
+	import srcFocusExampleButton from './focus-example-button.png?enhanced';
+	import srcFocusExampleInput from './focus-example-input.png?enhanced';
+	import srcFocusVisibleExampleButtonKeyboard from './focus-visible-example-button-keyboard.png?enhanced';
+	import srcFocusVisibleExampleButtonMouse from './focus-visible-example-button-mouse.png?enhanced';
+	import srcFocusVisibleExampleInput from './focus-visible-example-input.png?enhanced';
 
 	let { data }: PageProps = $props();
 </script>
@@ -80,10 +72,8 @@ button:active {
 </P>
 
 <Figure class="mb-6">
-	<VercelImage
-		src={stripOrigin(srcActiveExampleInputActive)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-		intrinsicWidth={630}
+	<enhanced:img
+		src={srcActiveExampleInputActive}
 		alt="A simple web form with a name input field and a submit button. The name input field is active and highlighted with a red dashed outline."
 	/>
 </Figure>
@@ -94,10 +84,8 @@ button:active {
 </P>
 
 <Figure class="mb-6">
-	<VercelImage
-		src={stripOrigin(srcActiveExampleInputFocus)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-		intrinsicWidth={630}
+	<enhanced:img
+		src={srcActiveExampleInputFocus}
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applies a blue outline to it."
 	/>
 </Figure>
@@ -105,10 +93,8 @@ button:active {
 <P>While you click the submit button, you can see the dashed red outline until you release it.</P>
 
 <Figure class="mb-6">
-	<VercelImage
-		src={stripOrigin(srcActiveExampleButtonActive)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-		intrinsicWidth={630}
+	<enhanced:img
+		src={srcActiveExampleButtonActive}
 		alt="A simple web form with a name input field and a submit button. The submit button is highlighted with a dashed red outline."
 	/>
 </Figure>
@@ -148,10 +134,8 @@ button:focus {
 </P>
 
 <Figure class="mb-6">
-	<VercelImage
-		src={stripOrigin(srcFocusExampleInput)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-		intrinsicWidth={630}
+	<enhanced:img
+		src={srcFocusExampleInput}
 		alt="A simple web form with a name input field and a submit button. The input field is focused and highlighted with a dashed red outline."
 	/>
 </Figure>
@@ -161,10 +145,8 @@ button:focus {
 </P>
 
 <Figure class="mb-6">
-	<VercelImage
-		src={stripOrigin(srcFocusExampleButton)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-		intrinsicWidth={630}
+	<enhanced:img
+		src={srcFocusExampleButton}
 		alt="A simple web form with a name input field and a submit button. The submit button has focus and the browser applied a dashed red outline to it."
 	/>
 </Figure>
@@ -210,10 +192,8 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<VercelImage
-		src={stripOrigin(srcFocusVisibleExampleInput)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-		intrinsicWidth={762}
+	<enhanced:img
+		src={srcFocusVisibleExampleInput}
 		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applied :focus-visible and a dashed red outline."
 	/>
 </Figure>
@@ -225,10 +205,8 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<VercelImage
-		src={stripOrigin(srcFocusVisibleExampleButtonMouse)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-		intrinsicWidth={762}
+	<enhanced:img
+		src={srcFocusVisibleExampleButtonMouse}
 		alt="A simple web form with a name input field and a submit button. Even though the submit has focus, the browser did not apply :focus-visible and the corresponding styling."
 	/>
 </Figure>
@@ -238,10 +216,8 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<VercelImage
-		src={stripOrigin(srcFocusVisibleExampleButtonKeyboard)}
-		sizes="(max-width: 1024px) 100vw, 1024px"
-		intrinsicWidth={762}
+	<enhanced:img
+		src={srcFocusVisibleExampleButtonKeyboard}
 		alt="A simple web form with a name input field and a submit button. This time, the browser applied :focus-visible and a dashed red outline to the submit button."
 	/>
 </Figure>

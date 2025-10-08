@@ -1,13 +1,13 @@
 <script>
-  import { Figure, VercelImage, stripOrigin } from '@maiertech/sveltekit-helpers';
-  import src from './no-navigation-without-resolve.png';
+  import { Figure } from '@maiertech/sveltekit-helpers';
+  import Image from './Image.svelte';
 </script>
 
 When I upgraded this website's dependencies, I ended up with `eslint-plugin-svelte` v3.12.x. It
 broke the CI lint task and produced the following errors:
 
 <Figure caption="eslint-plugin-svelte v3.12.x causes the SvelteKit linter to fail with svelte/no-navigation-without-resolve errors." class="mb-8">
-  <VercelImage src={stripOrigin(src)} alt="Screenshot of the SvelteKit linter error messages." intrinsicWidth={2342}></VercelImage>
+  <Image />
 </Figure>
 
 The linter rejects links where `href` is provided as a variable. I did not investigate the change in

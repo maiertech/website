@@ -7,27 +7,15 @@ export const prerender = true;
 
 // Return all posts.
 export const GET: RequestHandler = async ({ fetch }) => {
-	let posts: ResolvedPost[] = [];
-
-	// Fetch 2021 posts.
-	let response = await fetch('/api/posts/2021');
-	posts = [...((await response.json()) as ResolvedPost[]), ...posts];
-
-	// Fetch 2022 posts.
-	response = await fetch('/api/posts/2022');
-	posts = [...((await response.json()) as ResolvedPost[]), ...posts];
-
-	// Fetch 2023 posts.
-	response = await fetch('/api/posts/2023');
-	posts = [...((await response.json()) as ResolvedPost[]), ...posts];
-
-	// Fetch 2024 posts.
-	response = await fetch('/api/posts/2024');
-	posts = [...((await response.json()) as ResolvedPost[]), ...posts];
-
-	// Fetch 2025 posts.
-	response = await fetch('/api/posts/2025');
-	posts = [...((await response.json()) as ResolvedPost[]), ...posts];
+	const years = ['2025', '2024', '2023', '2022', '2021'];
+	const posts = (
+		await Promise.all(
+			years.map(async (year) => {
+				const response = await fetch(`/api/posts/${year}`);
+				return response.json() as Promise<ResolvedPost[]>;
+			})
+		)
+	).flat();
 
 	return json(posts);
 };

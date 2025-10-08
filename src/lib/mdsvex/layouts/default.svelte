@@ -8,7 +8,6 @@
 		H4 as h4,
 		H5 as h5,
 		H6 as h6,
-		Img as img,
 		Ol as ol,
 		P as p,
 		Table as table,
@@ -18,7 +17,7 @@
 		Ul as ul
 	} from '@maiertech/sveltekit-helpers';
 	// eslint-disable-next-line no-import-assign
-	export { code, h1, h2, h3, h4, h5, h6, img, ol, p, table, td, th, thead, ul };
+	export { code, h1, h2, h3, h4, h5, h6, ol, p, table, td, th, thead, ul };
 </script>
 
 <script lang="ts">
