@@ -6,8 +6,8 @@ export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {
 	// Fetch posts. `/api/posts/all` includes `lastmodDate`.
-	let response = await fetch('/api/posts/all');
-	const posts = (await response.json()) as ResolvedPost[];
+	const postsResponse = await fetch('/api/posts/all');
+	const posts = (await postsResponse.json()) as ResolvedPost[];
 
 	// Create sitemap entries for posts.
 	const postEntries = posts.map(
@@ -18,8 +18,8 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	);
 
 	// Fetch notes.
-	response = await fetch('/api/notes/all');
-	const notes = (await response.json()) as NoteMeta[];
+	const notesResponse = await fetch('/api/notes/all');
+	const notes = (await notesResponse.json()) as NoteMeta[];
 
 	// Create sitemap entries for notes.
 	const noteEntries = notes.map(

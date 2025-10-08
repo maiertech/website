@@ -6,17 +6,17 @@ import type { PageLoad } from './$types';
 export const prerender = true;
 
 export const load: PageLoad = async ({ params, fetch }) => {
-	let response = await fetch(`/api/tags/${params.id}`);
+	const tagResponse = await fetch(`/api/tags/${params.id}`);
 
 	// Own API: if something goes wrong, it must be a 404 error.
-	if (!response.ok) {
+	if (!tagResponse.ok) {
 		error(404, `Invalid tag ${params.id}.`);
 	}
 
-	const tag = (await response.json()) as Tag;
+	const tag = (await tagResponse.json()) as Tag;
 
-	response = await fetch('/api/posts/all');
-	const posts = (await response.json()) as ResolvedPost[];
+	const postsResponse = await fetch('/api/posts/all');
+	const posts = (await postsResponse.json()) as ResolvedPost[];
 
 	const taggedPosts = filterByTag(tag.id, posts);
 
