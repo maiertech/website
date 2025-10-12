@@ -10,8 +10,8 @@ import postAtAndHashtagSymbols from '$posts/(2022)/using-the-at-and-hash-symbols
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
-// Needs to be set explicitly because we prerender endpoint `/sitemap.xml`.
-export const prerender = true;
+// Nested prerendering breaks build on Railway.
+// export const prerender = true;
 
 export const GET: RequestHandler = async (event) => {
 	// Sort order: latest first.

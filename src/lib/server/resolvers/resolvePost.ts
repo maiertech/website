@@ -10,6 +10,48 @@ import type {
 import { getAuthor, getLastCommit, getOgImageUrl, getTag } from '@maiertech/sveltekit-helpers';
 import type { RequestEvent } from '@sveltejs/kit';
 
+// Semaphore to limit concurrent API calls during prerendering
+class Semaphore {
+	private permits: number;
+	private queue: Array<() => void> = [];
+
+	constructor(permits: number) {
+		this.permits = permits;
+	}
+
+	async acquire(): Promise<void> {
+		if (this.permits > 0) {
+			this.permits--;
+			return Promise.resolve();
+		}
+		return new Promise((resolve) => {
+			this.queue.push(resolve);
+		});
+	}
+
+	release(): void {
+		const resolve = this.queue.shift();
+		if (resolve) {
+			resolve();
+		} else {
+			this.permits++;
+		}
+	}
+
+	async execute<T>(fn: () => Promise<T>): Promise<T> {
+		await this.acquire();
+		try {
+			return await fn();
+		} finally {
+			this.release();
+		}
+	}
+}
+
+// Limit concurrent OG image and GitHub API calls to avoid overwhelming the APIs
+const ogImageSemaphore = new Semaphore(3);
+const githubSemaphore = new Semaphore(5);
+
 export default async function ({
 	postMeta,
 	event
@@ -47,17 +89,23 @@ export default async function ({
 			template: 'maiertechPost',
 			title: postMeta.title
 		} as VcImageMeta;
-		ogImageUrl = await getOgImageUrl({ meta: ogImageMeta, apiKey: VIRALCARDS_API_KEY });
+		// Limit concurrent OG image API calls
+		ogImageUrl = await ogImageSemaphore.execute(() =>
+			getOgImageUrl({ meta: ogImageMeta, apiKey: VIRALCARDS_API_KEY })
+		);
 	}
 
 	// Resolve lastmodDate.
 	let lastmodDate: string | undefined = undefined;
-	const lastCommit = await getLastCommit({
-		owner: 'maiertech',
-		repo: 'website',
-		path: postMeta.filepath,
-		token: GITHUB_TOKEN
-	});
+	// Limit concurrent GitHub API calls
+	const lastCommit = await githubSemaphore.execute(() =>
+		getLastCommit({
+			owner: 'maiertech',
+			repo: 'website',
+			path: postMeta.filepath,
+			token: GITHUB_TOKEN
+		})
+	);
 
 	if (lastCommit) {
 		lastmodDate = lastCommit.commit.author?.date;

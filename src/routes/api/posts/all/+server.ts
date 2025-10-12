@@ -2,8 +2,8 @@ import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
-// Needs to be set explicitly because we prerender endpoint `/sitemap.xml`.
-export const prerender = true;
+// Nested prerendering breaks build on Railway.
+// export const prerender = true;
 
 // Return all posts.
 export const GET: RequestHandler = async ({ fetch }) => {
