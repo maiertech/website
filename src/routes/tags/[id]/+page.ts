@@ -3,7 +3,7 @@ import type { ResolvedPost, Tag } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
-// export const prerender = true;
+export const prerender = true;
 
 export const load: PageLoad = async ({ params, fetch }) => {
 	const tagResponse = await fetch(`/api/tags/${params.id}`);

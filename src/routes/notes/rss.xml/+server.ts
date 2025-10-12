@@ -2,6 +2,7 @@ import { ORIGIN } from '$env/static/private';
 import type { RssItem } from '$lib/types';
 import type { RequestHandler } from '@sveltejs/kit';
 
+// Prerendering turned off because notes endpoints are not prerendered.
 // export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {

@@ -5,6 +5,7 @@ import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
+// Nested prerendering breaks build on Railway.
 // export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {

@@ -2,6 +2,7 @@ import { ORIGIN } from '$env/static/private';
 import type { NoteMeta, ResolvedPost } from '@maiertech/sveltekit-helpers';
 import type { RequestHandler } from './$types';
 
+// Prerendering turned off because posts and notes endpoints are not prerendered.
 // export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {

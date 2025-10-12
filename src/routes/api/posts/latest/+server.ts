@@ -2,8 +2,8 @@ import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
-// No need to set `export const prerender = true;`.
-// Prerendering is triggered by `/`, which uses this endpoint and iself is prerendered.
+// Nested prerendering breaks build on Railway.
+// export const prerender = true;
 
 // Return latest posts (up to 10).
 export const GET: RequestHandler = async ({ fetch }) => {
