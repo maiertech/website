@@ -20,7 +20,7 @@
 		"@fontsource/roboto": "^5.2.8",
 		"@fontsource/spectral": "^5.2.8",
 		"@lucide/svelte": "^0.545.0",
-		"@maiertech/sveltekit-helpers": "^0.33.1",
+		"@maiertech/sveltekit-helpers": "^0.33.2",
 		"@playwright/test": "^1.56.0",
 		"@stackblitz/sdk": "^1.11.0",
 		"@sveltejs/adapter-node": "^5.3.3",
