@@ -4,6 +4,9 @@ import { error, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import authors from './authors';
 
+// We can't be sure that all routes are prerendered.
+export const prerender = 'auto';
+
 export const GET: RequestHandler = async ({ params }) => {
 	const id = params.id;
 	const author = resolve<AvatarMeta>(id, authors);
