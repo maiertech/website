@@ -12,7 +12,7 @@
 	const postsWithoutTagPaths = $derived(
 		posts.map((post) => ({
 			...post,
-			tags: post.tags?.map(({ path, ...tag }) => tag)
+			tags: post.tags?.map(({ id, label }) => ({ id, label }))
 		}))
 	);
 </script>
