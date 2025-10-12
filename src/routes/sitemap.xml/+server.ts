@@ -2,7 +2,7 @@ import { ORIGIN } from '$env/static/private';
 import type { NoteMeta, ResolvedPost } from '@maiertech/sveltekit-helpers';
 import type { RequestHandler } from './$types';
 
-export const prerender = true;
+// export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {
 	// Fetch posts. `/api/posts/all` includes `lastmodDate`.

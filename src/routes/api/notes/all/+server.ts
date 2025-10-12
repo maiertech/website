@@ -3,7 +3,7 @@ import { json } from '@sveltejs/kit';
 import type { NoteMeta } from '@maiertech/sveltekit-helpers';
 
 // Needs to be set explicitly because we prerender endpoint `/sitemap.xml`.
-export const prerender = true;
+// export const prerender = true;
 
 // Return all notes.
 export const GET: RequestHandler = async ({ fetch }) => {

@@ -1,13 +1,9 @@
 import type { NoteMeta, ResolvedPost } from '@maiertech/sveltekit-helpers';
 import type { PageLoad } from './$types';
 
-export const prerender = true;
+// export const prerender = true;
 
 export const load: PageLoad = async function ({ fetch }) {
-	// Read posts and notes.
-	// Do not reuse a `response` var to prevent this error:
-	// "Body is unusable: Body has already been read"
-
 	const notesResponse = await fetch('/api/notes/latest');
 	const notes = (await notesResponse.json()) as NoteMeta[];
 

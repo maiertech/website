@@ -5,7 +5,7 @@ import postManagingEnvVarsWithVercel from '$posts/(2025)/managing-environment-va
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
-export const prerender = true;
+// export const prerender = true;
 
 export const GET: RequestHandler = async (event) => {
 	// Sort order: latest first.

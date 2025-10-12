@@ -15,7 +15,7 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 // Needs to be set explicitly because we prerender endpoint `/sitemap.xml`.
-export const prerender = true;
+// export const prerender = true;
 
 export const GET: RequestHandler = async () => {
 	// Sort order: latest first.
