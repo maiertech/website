@@ -1,14 +1,13 @@
-import type { NoteMeta, ResolvedPost } from '@maiertech/sveltekit-helpers';
-import type { PageLoad } from './$types';
+import { latest as notes } from '$lib/server/collections/notes';
+import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
+import type { PageServerLoad } from './$types';
 
+// TODO: turn prerendering back on after posts have been migrated to a content-collection.
 // export const prerender = true;
 
-export const load: PageLoad = async function ({ fetch }) {
-	const notesResponse = await fetch('/api/notes/latest');
-	const notes = (await notesResponse.json()) as NoteMeta[];
-
-	const postsResponse = await fetch('/api/posts/latest');
-	const posts = ((await postsResponse.json()) as ResolvedPost[]).slice(0, 5);
+export const load: PageServerLoad = async function ({ fetch }) {
+	const response = await fetch('/api/posts/latest');
+	const posts = ((await response.json()) as ResolvedPost[]).slice(0, 5);
 
 	return {
 		seo: {

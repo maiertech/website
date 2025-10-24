@@ -27,7 +27,7 @@ const highlighter = await createHighlighter({
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
-	extensions: ['.svx'],
+	extensions: ['.md', '.svx'],
 	layout: {
 		// Default layout with custom components used when rendering Markdown.
 		// As of mdsvex v0.12.6, the layout paths must be absolute
@@ -49,10 +49,11 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 export default {
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
-	extensions: ['.svelte', '.svx'],
+	extensions: ['.svelte', '.md', '.svx'],
 	kit: {
 		adapter: adapter(),
 		alias: {
+			'content-collections': './.content-collections/generated',
 			$notes: 'src/routes/notes',
 			$posts: 'src/routes/posts'
 		}

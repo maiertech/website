@@ -1,8 +1,9 @@
 import { ORIGIN } from '$env/static/private';
-import type { NoteMeta, ResolvedPost } from '@maiertech/sveltekit-helpers';
+import { latest as notes } from '$lib/server/collections/notes';
+import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 import type { RequestHandler } from './$types';
 
-// Prerendering turned off because posts and notes endpoints are not prerendered.
+// TODO Prerendering turned off because posts endpoints are not prerendered.
 // export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {
@@ -17,10 +18,6 @@ export const GET: RequestHandler = async ({ fetch }) => {
 		<lastmod>${post.lastmodDate ? post.lastmodDate : post.publishedDate}</lastmod>
 	</url>`
 	);
-
-	// Fetch notes.
-	const notesResponse = await fetch('/api/notes/all');
-	const notes = (await notesResponse.json()) as NoteMeta[];
 
 	// Create sitemap entries for notes.
 	const noteEntries = notes.map(

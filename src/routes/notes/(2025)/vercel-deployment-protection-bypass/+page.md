@@ -1,3 +1,11 @@
+---
+id: d6d81419-422b-41b9-93a8-8c2eb905acc9
+title: Vercel deployment protection bypass
+description: How to bypass Vercel deployment protection when it breaks your website.
+publishedDate: 2025-08-17
+link: https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation
+---
+
 Vercel protects deploy previews by default. You need to be logged in to access them. This is a good
 thing because deploy previews are often works in progress and should not be publicly accessible.
 

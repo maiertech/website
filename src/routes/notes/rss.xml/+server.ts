@@ -1,14 +1,10 @@
 import { ORIGIN } from '$env/static/private';
-import type { RssItem } from '$lib/types';
+import { rss as rssItems } from '$lib/server/collections/notes';
 import type { RequestHandler } from '@sveltejs/kit';
 
-// Prerendering turned off because notes endpoints are not prerendered.
-// export const prerender = true;
+export const prerender = true;
 
-export const GET: RequestHandler = async ({ fetch }) => {
-	const response = await fetch('/api/notes/rss');
-	const rssItems = (await response.json()) as RssItem[];
-
+export const GET: RequestHandler = async () => {
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
