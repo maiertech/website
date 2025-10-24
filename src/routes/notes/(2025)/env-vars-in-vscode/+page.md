@@ -1,3 +1,12 @@
+---
+id: b6a143e6-d816-4dd8-9ef4-7522c71bed86
+title: 'Environment variables in VS Code'
+description:
+  'Instead of setting environment variables in your terminal, you can also set them in your user
+  settings.json in VS Code.'
+publishedDate: '2025-03-06'
+---
+
 Instead of setting environment variables in your terminal, you can also set them in your user
 `settings.json` in VS Code. Here is an example for a `GITHUB_TOKEN`:
 

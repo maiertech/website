@@ -1,3 +1,12 @@
+---
+id: bfb6370b-6758-4f07-997f-504d5cfeba6b
+title: Hosting in Europe beyond Big Tech
+description:
+  "Vercel boosted my web dev, but its Big Tech ties worry me. Now I'm searching for a true European
+  alternative to Vercel's platform."
+publishedDate: 2025-06-30
+---
+
 [Vercel](https://vercel.com/) has done three pivotal things for my frontend career:
 
 1. They eliminated servers from my web development workflow.

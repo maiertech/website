@@ -1,3 +1,13 @@
+---
+id: d2446f9c-693c-43de-9cbf-7e3150f12581
+title: Disallowing AI Bots in robots.txt
+description:
+  How and why I updated my robots.txt to block AI bots from crawling my personal website, while
+  allowing search engines.
+publishedDate: 2025-08-01
+link: https://github.com/ai-robots-txt/ai.robots.txt
+---
+
 If you have not checked the HTTP logs of your website lately, I recommend doing so. I was stunned to
 see big-name AI bots crawling my website daily, hunting for new training data.
 

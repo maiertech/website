@@ -1,3 +1,13 @@
+---
+id: 7554f455-59b8-4522-aaa2-c461e007404a
+title: Using GitHub Copilot in the terminal
+description:
+  Add GitHub Copilot support to any terminal with the GitHub CLI to enable command suggestions and
+  explanations.
+publishedDate: 2025-08-12
+link: 'https://docs.github.com/en/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-in-the-cli'
+---
+
 If you already use GitHub Copilot, there is an easy way to add Copilot to any terminal, not just
 inside VS Code:
 

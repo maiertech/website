@@ -1,24 +1,18 @@
 import { ORIGIN } from '$env/static/private';
 import type { RssItem } from '$lib/types';
 import type { RequestHandler } from '@sveltejs/kit';
+import { rss as noteRssItems } from '$lib/server/collections/notes';
 
-// Prerendering turned off because posts endpoints are not prerendered.
+// TODO: Prerendering turned off because posts endpoints are not prerendered.
 // export const prerender = true;
 
 export const GET: RequestHandler = async ({ fetch }) => {
-	// Read posts and notes.
-	// Do not reuse a `response` var to prevent this error:
-	// "Body is unusable: Body has already been read"
-
-	const postsResponse = await fetch('/api/posts/rss');
-	const postRssItems = (await postsResponse.json()) as RssItem[];
-
-	const notesResponse = await fetch('/api/notes/rss');
-	const noteRssItems = (await notesResponse.json()) as RssItem[];
+	const response = await fetch('/api/posts/rss');
+	const postRssItems = (await response.json()) as RssItem[];
 
 	const rssItems = [...postRssItems, ...noteRssItems]
 		.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
-		.slice(0, 10);
+		.slice(0, 15);
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">

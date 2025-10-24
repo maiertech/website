@@ -1,3 +1,11 @@
+---
+id: c9dff08a-6e5f-4439-9700-f865d84b10e2
+title: "Penpot's missing SVG text-to-path feature"
+description:
+  "Why Penpot's lack of SVG text-to-path conversion matters for logos, and how to work around it."
+publishedDate: 2025-07-15
+---
+
 Usually, [Penpot](https://penpot.app/) covers all my SVG creation and editing needs. Penpot fully
 embraces CSS. It is essentially CSS with a nice UI. However, it falls short in one crucial area:
 text-to-path conversion. To render text in an SVG, Penpot uses the `<text>` element with a `style`

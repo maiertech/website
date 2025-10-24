@@ -1,3 +1,13 @@
+---
+id: 30ead3c3-68a5-4d46-b767-97df3ebb7329
+title: Perplexity AI caught in the act
+description:
+  Perplexity AI caught using stealth crawlers despite robots.txt rules. Cloudflare exposes the
+  practice, raising concerns for AI industry trust.
+publishedDate: 2025-08-05
+link: https://blog.cloudflare.com/perplexity-is-using-stealth-undeclared-crawlers-to-evade-website-no-crawl-directives/
+---
+
 Last week, I wrote about [disallowing AI bots in `robots.txt`](disallowing-ai-bots-in-robots-txt).
 And I mentioned that I count on the big AI players to play nicely and respect crawling restrictions
 specified in `robots.txt`. Yesterday, Cloudflare published a blog post presenting compelling
