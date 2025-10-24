@@ -6,12 +6,9 @@ on:
   pull_request:
     branches: ['main']
 
-# With pre-rendering enabled, build loads modules, which triggers imports.
-# These variables are just dummies that need to exist while build and check run.
 env:
-  EO_API_KEY: ${{ secrets.EO_API_KEY }}
-  EO_LIST_ID: ${{ secrets.EO_LIST_ID }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ORIGIN: ${{ variables.ORIGIN }}
   VIRALCARDS_API_KEY: ${{ secrets.VIRALCARDS_API_KEY }}
 
 jobs:
@@ -32,6 +29,8 @@ jobs:
       - run: pnpm i --frozen-lockfile
 
       - run: pnpm run lint
+
+      - run: pnpm build # Generate content collections prior to running `svelte-check`.
 
       - run: pnpm run check
 
