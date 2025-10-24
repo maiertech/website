@@ -8,7 +8,7 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  ORIGIN: ${{ variables.ORIGIN }}
+  ORIGIN: ${{ vars.ORIGIN }}
   VIRALCARDS_API_KEY: ${{ secrets.VIRALCARDS_API_KEY }}
 
 jobs:
