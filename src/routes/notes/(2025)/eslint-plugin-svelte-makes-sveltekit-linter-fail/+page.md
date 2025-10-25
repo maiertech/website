@@ -20,6 +20,24 @@ broke the CI lint task and produced the following errors:
   <Image />
 </Figure>
 
-The linter rejects links where `href` is provided as a variable. I did not investigate the change in
-detail, but I linked the GitHub discussion above. As a workaround, I pinned `eslint-plugin-svelte`
-to v3.11.0 in `package.json`.
+The linter flags links where `href` is provided as a variable. To understand why, you should read
+more about the
+[svelte/no-navigation-without-resolve rule](https://sveltejs.github.io/eslint-plugin-svelte/rules/no-navigation-without-resolve/)
+and check out the GitHub discussion I linked above. I find providing `href` as a variable a common
+use case and am surprised that this rule made it into the recommended rules. It looks like this rule
+needs more tweaking.
+
+As a workaround, you can add this to your `eslint.config.js`:
+
+```json
+{
+	"rules": {
+		"svelte/no-navigation-without-resolve": [
+			"error",
+			{
+				"ignoreLinks": true
+			}
+		]
+	}
+}
+```
