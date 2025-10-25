@@ -2,10 +2,10 @@ In my post
 [Move your IDE to the cloud: introduction to GitHub Codespaces](/posts/move-your-ide-to-the-cloud-introduction-to-github-codespaces),
 I was optimistic about moving my local development environment to the cloud. During the
 [GitHub Codespaces](https://github.com/features/codespaces/) beta, I was able to run VS Code
-instances (referred to as workspaces) in the cloud as my primary development environment for several
-months. Even though my experience with cloud workspaces was positive, I initially switched back to
-local development. Using cloud workspaces felt like local development (which is a significant
-achievement), but it did not eliminate the pain points of local development.
+instances (referred to as workspaces) in the cloud as my primary development environment for
+several months. Even though my experience with cloud workspaces was positive, I initially switched
+back to local development. Using cloud workspaces felt like local development (which is a
+significant achievement), but it did not eliminate the pain points of local development.
 
 ## Moving workspaces to the cloud is not enough
 
@@ -24,16 +24,17 @@ workspace was marginal.
 
 ## Making workspaces disposable
 
-[Gitpod](https://www.gitpod.io/) is an alternative to Codespaces and a comparatively small player in
-this field. Their product
+[Gitpod](https://www.gitpod.io/) is an alternative to Codespaces and a comparatively small player
+in this field. Their product
 [precedes Codespaces](https://www.freecodecamp.org/news/github-codespaces-vs-gitpod-cloud-based-dev-environments/).
 Gitpod turns cloud workspaces into a disposable commodity with their
 [_one workspace per task approach_](https://www.gitpod.io/docs/workspaces/). This is a radical
-departure from the _one workspace for many tasks_ model, which is the default for local development.
+departure from the _one workspace for many tasks_ model, which is the default for local
+development.
 
-With Gitpod's approach, you can be wasteful with workspaces. You create a new, fresh cloud workspace
-for every issue you work on and every pull request you review. The technical prerequisite is
-configuring your workspace as code and adding the configuration to your repository. This is done
+With Gitpod's approach, you can be wasteful with workspaces. You create a new, fresh cloud
+workspace for every issue you work on and every pull request you review. The technical prerequisite
+is configuring your workspace as code and adding the configuration to your repository. This is done
 with a [`.gitpod.yml`](https://www.gitpod.io/docs/configure) file, which contains information such
 as
 
@@ -54,7 +55,8 @@ wait times in their workflow.
 
 ## How to make disposable workspaces viable
 
-Configuring a workspace in code is not a unique feature of Gitpod; Codespaces can do the same with a
+Configuring a workspace in code is not a unique feature of Gitpod; Codespaces can do the same with
+a
 [different configuration syntax](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces).
 GitHub has also removed the two-workspace limit for Codespaces, which addresses the pain points I
 described earlier. But what sets Gitpod apart are two features that make creating new workspaces
@@ -68,10 +70,10 @@ fast and easy:
 - [Browser extension](https://www.gitpod.io/docs/browser-extension): Gitpod's browser extension
   turns repository pages of GitHub, GitLab, and Bitbucket into a dashboard from which you can
   conveniently launch new workspaces. Let's say you want to work on an issue. You navigate to the
-  issue page, assign the issue to yourself, and then launch a workspace. The workspace launches with
-  an issue branch created and is up and running almost instantly. This is possible because of a
-  prebuild for the commit from which the issue branch was branched off. There is no need to create a
-  new branch or update dependencies in your new workspace; it is all done for you.
+  issue page, assign the issue to yourself, and then launch a workspace. The workspace launches
+  with an issue branch created and is up and running almost instantly. This is possible because of
+  a prebuild for the commit from which the issue branch was branched off. There is no need to
+  create a new branch or update dependencies in your new workspace; it is all done for you.
 
 Combining prebuilds and the browser extension, and adopting a _one task per workspace_ mindset,
 enables a great development workflow that treats workspaces as disposable commodities. They can be
@@ -93,7 +95,7 @@ consider a [paid plan](https://www.gitpod.io/pricing). Personal accounts on GitH
 But eventually, you will have to pay. This triggers the question of whether you want to pay for
 cloud workspaces when you can do unlimited local development on your laptop.
 
-Gitpod and Codespaces make it possible to develop inside a browser on Chromebooks, iPads, and pretty
-much any device that runs a modern browser. This is a big deal, but it comes with a price tag. On
-the other hand, there is nothing wrong with local development, but you are missing out on a
+Gitpod and Codespaces make it possible to develop inside a browser on Chromebooks, iPads, and
+pretty much any device that runs a modern browser. This is a big deal, but it comes with a price
+tag. On the other hand, there is nothing wrong with local development, but you are missing out on a
 fantastic new workflow that you cannot replicate locally.
