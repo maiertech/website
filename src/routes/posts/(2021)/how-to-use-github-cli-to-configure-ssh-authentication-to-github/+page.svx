@@ -31,13 +31,11 @@ better choice.
 
 ## SSH key generation and uploading
 
-If you do not have GitHub CLI installed, you can do so with `brew install gh`. Run `gh auth login`
-and answer the prompts. Choose SSH as the preferred protocol. You do not need to enter a password
-for the generated SSH key. Just hit <key>↵</key>:
+If you do not have GitHub CLI installed, you can install it with `brew install gh`. Run
+`gh auth login` and answer the prompts. Choose SSH as the preferred protocol. You do not need to
+enter a password for the generated SSH key. Just hit <key>↵</key>:
 
-<Figure class="mb-6">
-
-```text
+```bash
 $ gh auth login
 
 ? What account do you want to log into? GitHub.com
@@ -51,31 +49,23 @@ $ gh auth login
 ✓ Authentication complete. Press Enter to continue...
 ```
 
-</Figure>
-
 The last question will redirect you to your GitHub account page, where you need to paste the copied
 code. Review and accept the permissions that you will grant to GitHub CLI. This creates an OAuth
 token for GitHub CLI. After your SSH key has been generated and uploaded to GitHub, you will see
 this confirmation:
 
-<Figure class="mb-6">
-
-```text
+```bash
 ✓ Configured git protocol
 ✓ Uploaded the SSH key to your GitHub account: /Users/thilo/.ssh/id_ed25519.pub
 ✓ Logged in as maiertech
 ```
-
-</Figure>
 
 You can revoke an SSH key uploaded to GitHub at any time if you think that it has been compromised.
 Before you can use the generated key to authenticate to GitHub on the command line, you need to
 verify the SSH key fingerprint of the server to which it will connect. This is to ensure that you
 are connecting to GitHub and not some other server. Run this command:
 
-<Figure class="mb-6">
-
-```text
+```bash
 $ ssh -T git@github.com
 
 The authenticity of host 'github.com (140.82.114.3)' can't be established.
@@ -83,18 +73,12 @@ RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
-</Figure>
-
 Before typing yes, you need to verify that the displayed RSA fingerprint is correct. Open a new
 terminal and copy this comparison statement into the terminal, but do not run it:
 
-<Figure class="mb-6">
-
-```text
+```bash
 [[ 'fingerprint1' == 'fingerprint2' ]] && echo 'Equal' || echo 'Not equal'
 ```
-
-</Figure>
 
 Next, copy the RSA fingerprint from the above output (from your terminal, not from this website) and
 paste it to replace `fingerprint1`. Then go to
@@ -103,13 +87,9 @@ copy the RSA fingerprint, and paste it to replace `fingerprint2`. Run the compar
 both fingerprints match, type yes to respond to the above prompt. You should see the following
 confirmation message:
 
-<Figure class="mb-6">
-
-```text
+```bash
 Warning: Permanently added 'github.com,140.82.114.3' (RSA) to the list of known hosts.
 ```
-
-</Figure>
 
 The GitHub domain github.com has now been added to `~/.ssh/known_hosts` together with its public
 key. Any SSH operation in any application now trusts GitHub's server and public key and can
