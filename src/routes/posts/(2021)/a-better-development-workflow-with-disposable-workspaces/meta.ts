@@ -9,5 +9,5 @@ export default {
 	tags: ['gitpod', 'github', 'dx'],
 	path: '/posts/a-better-development-workflow-with-disposable-workspaces',
 	filepath:
-		'src/routes/posts/(2021)/a-better-development-workflow-with-disposable-workspaces/+page.svelte'
+		'src/routes/posts/(2021)/a-better-development-workflow-with-disposable-workspaces/+page.svx'
 } satisfies PostMeta;
