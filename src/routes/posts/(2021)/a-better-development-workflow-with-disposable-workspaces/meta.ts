@@ -8,6 +8,5 @@ export default {
 		'Cloud dev workspaces like Gitpod and Codespaces enable fast, disposable environments for each task, improving workflow over traditional local setups.',
 	tags: ['gitpod', 'github', 'dx'],
 	path: '/posts/a-better-development-workflow-with-disposable-workspaces',
-	filepath:
-		'src/routes/posts/(2021)/a-better-development-workflow-with-disposable-workspaces/+page.svelte'
+	filepath: 'src/routes/posts/(2021)/a-better-development-workflow-with-disposable-workspaces/+page.svx'
 } satisfies PostMeta;
