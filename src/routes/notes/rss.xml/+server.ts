@@ -2,7 +2,8 @@ import { ORIGIN } from '$env/static/private';
 import { rss as rssItems } from '$lib/server/collections/notes';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const prerender = true;
+// TODO: Enable prerendering once all content colections are in place.
+// export const prerender = false;
 
 export const GET: RequestHandler = async () => {
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>

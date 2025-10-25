@@ -3,7 +3,8 @@ import type { ResolvedPost, Tag } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
-export const prerender = true;
+// TODO: turn prerendering back on after posts have been migrated to a content-collection.
+// export const prerender = true;
 
 export const load: PageLoad = async ({ params, fetch }) => {
 	const tagResponse = await fetch(`/api/tags/${params.id}`);
