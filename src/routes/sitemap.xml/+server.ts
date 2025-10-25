@@ -3,8 +3,8 @@ import { latest as notes } from '$lib/server/collections/notes';
 import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
 import type { RequestHandler } from './$types';
 
-// TODO Prerendering turned off because posts endpoints are not prerendered.
-// export const prerender = true;
+// Prevent prerendering to avoid being crawled when linked from prerendered pages.
+export const prerender = false;
 
 export const GET: RequestHandler = async ({ fetch }) => {
 	// Fetch posts. `/api/posts/all` includes `lastmodDate`.

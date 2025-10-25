@@ -2,8 +2,8 @@ import { ORIGIN } from '$env/static/private';
 import type { RssItem } from '$lib/types';
 import type { RequestHandler } from '@sveltejs/kit';
 
-// Prerendering turned off because posts endpoints are not prerendered.
-// export const prerender = true;
+// Prevent prerendering to avoid being crawled when linked from prerendered pages.
+export const prerender = false;
 
 export const GET: RequestHandler = async ({ fetch }) => {
 	const response = await fetch('/api/posts/rss');
