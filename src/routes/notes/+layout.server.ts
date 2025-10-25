@@ -2,7 +2,8 @@ import type { LayoutServerLoad } from './$types';
 import { ORIGIN } from '$env/static/private';
 import { allNotes } from 'content-collections';
 
-export const prerender = true;
+// TODO: Enable prerendering once all content collections are in place.
+// export const prerender = true;
 
 export const load: LayoutServerLoad = async ({ route }) => {
 	const notePath = route.id?.replace(/\/\(2025\)/, '') || '';

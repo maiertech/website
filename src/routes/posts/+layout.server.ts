@@ -1,7 +1,8 @@
 import type { LayoutServerLoad } from './$types';
 import { ORIGIN } from '$env/static/private';
 
-export const prerender = true;
+// TODO: Enable prerendering once all content collections are in place.
+export const prerender = false;
 
 export const load: LayoutServerLoad = async () => {
 	return { origin: ORIGIN };
