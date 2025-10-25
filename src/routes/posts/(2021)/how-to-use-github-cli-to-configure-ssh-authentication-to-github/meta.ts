@@ -9,5 +9,5 @@ export default {
 	tags: ['dx', 'github'],
 	path: '/posts/how-to-use-github-cli-to-configure-ssh-authentication-to-github',
 	filepath:
-		'src/routes/posts/(2021)/how-to-use-github-cli-to-configure-ssh-authentication-to-github/+page.svelte'
+		'src/routes/posts/(2021)/how-to-use-github-cli-to-configure-ssh-authentication-to-github/+page.svx'
 } satisfies PostMeta;
