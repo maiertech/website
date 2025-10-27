@@ -1,15 +1,26 @@
-<script lang="ts">
-	import { StackblitzEmbed } from '$lib/components';
-	import { Code, CodeSnippet, Figure, H2, P } from '@maiertech/sveltekit-helpers';
-	import type { PageProps } from './$types';
+<script>
+	import { CodeSnippet, Example, Figure } from '@maiertech/sveltekit-helpers';
 
-	let { data }: PageProps = $props();
+	import D3MinExample from './examples/D3MinExample.svelte';
+	import srcD3MinExample from './examples/D3MinExample.svelte?raw';
+
+	import D3MaxExample from './examples/D3MaxExample.svelte';
+	import srcD3MaxExample from './examples/D3MaxExample.svelte?raw';
+
+	import D3ExtentExample from './examples/D3ExtentExample.svelte';
+	import srcD3ExtentExample from './examples/D3ExtentExample.svelte?raw';
+
+	import D3RangeExample from './examples/D3RangeExample.svelte';
+	import srcD3RangeExample from './examples/D3RangeExample.svelte?raw';
+
+	import D3TicksExample from './examples/D3TicksExample.svelte';
+	import srcD3TicksExample from './examples/D3TicksExample.svelte?raw';
 </script>
 
-In this post, I will introduce you to methods from
-[d3-array](https://github.com/d3/d3-array) that I often use for data visualization. All examples run
-inside your browser using [StackBlitz](https://stackblitz.com/). StackBlitz currently supports only
-Chromium-based and Firefox browsers.
+In this post, I will introduce you to methods from [d3-array](https://github.com/d3/d3-array) that I
+often use for data visualization. All examples run inside your browser using
+[StackBlitz](https://stackblitz.com/). StackBlitz currently supports only Chromium-based and Firefox
+browsers.
 
 ## d3.min, d3.max, and d3.extent
 
@@ -20,20 +31,24 @@ d3.min can handle missing values.
 
 Let's look at an example:
 
-<Figure class="mb-6">
-	<StackblitzEmbed
-		project={data.examples['d3.min'].project}
-		options={data.examples['d3.min'].options}
-	/>
+<Figure class="mb-8">
+	<Example>
+		{#snippet render()}
+			<D3MinExample />
+		{/snippet}
+		{#snippet code()}
+			<CodeSnippet lang="svelte" src={srcD3MinExample} />
+		{/snippet}
+	</Example>
 </Figure>
 
 Likewise, [d3.max](https://github.com/d3/d3-array#max) returns the maximum. But what happens when
-the array for which we want to compute the maximum contains objects? We can use an
-_accessor function_ to retrieve a specific object property and transform it. In the following
-example, the accessor
+the array for which we want to compute the maximum contains objects? We can use an _accessor
+function_ to retrieve a specific object property and transform it. In the following example, the
+accessor
 
-<Figure class="mb-6">
-	<CodeSnippet lang="javascript" src="(d) => new Date(d.date);" />
+<Figure class="mb-8">
+	<CodeSnippet lang="js" src="(d) => new Date(d.date);" />
 </Figure>
 
 extracts the date property and converts it into a JavaScript
@@ -45,11 +60,15 @@ most recent date.
 
 Let's look at an example:
 
-<Figure class="mb-6">
-	<StackblitzEmbed
-		project={data.examples['d3.max'].project}
-		options={data.examples['d3.max'].options}
-	/>
+<Figure class="mb-8">
+	<Example>
+		{#snippet render()}
+			<D3MaxExample />
+		{/snippet}
+		{#snippet code()}
+			<CodeSnippet lang="svelte" src={srcD3MaxExample} />
+		{/snippet}
+	</Example>
 </Figure>
 
 To create an axis for numeric values with D3, you need to know the extent of the data along that
@@ -57,13 +76,17 @@ axis. Extent means the minimum and maximum values.
 [d3.extent](https://github.com/d3/d3-array#extent) returns an array with these values. It works not
 only with numeric values but with any values that have a natural sort order.
 
-Let's look at an example:
+Let's look at two examples:
 
-<Figure class="mb-6">
-	<StackblitzEmbed
-		project={data.examples['d3.extent'].project}
-		options={data.examples['d3.extent'].options}
-	/>
+<Figure class="mb-8">
+	<Example>
+		{#snippet render()}
+			<D3ExtentExample />
+		{/snippet}
+		{#snippet code()}
+			<CodeSnippet lang="svelte" src={srcD3ExtentExample} />
+		{/snippet}
+	</Example>
 </Figure>
 
 ## d3.range
@@ -72,26 +95,30 @@ Let's look at an example:
 three arguments: _start_, _stop_, and _step_. The only required argument is _stop_. _start_ defaults
 to 0, and _step_ defaults to 1. _start_ is inclusive, _stop_ is exclusive.
 
-Let's look at an example:
+Let's look at these examples:
 
-<Figure class="mb-6">
-	<StackblitzEmbed
-		project={data.examples['d3.range'].project}
-		options={data.examples['d3.range'].options}
-	/>
+<Figure class="mb-8">
+	<Example>
+		{#snippet render()}
+			<D3RangeExample />
+		{/snippet}
+		{#snippet code()}
+			<CodeSnippet lang="svelte" src={srcD3RangeExample} />
+		{/snippet}
+	</Example>
 </Figure>
 
-As the `floating_point_range` example shows, with d3.range you can run into the
+As the `floatingPointRange` example shows, with d3.range you can run into
 [pitfalls of binary floating-point math](https://stackoverflow.com/questions/588004/is-floating-point-math-broken).
 You can fix this issue with
 [Number.toFixed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed):
 
-<Figure class="mb-6">
+<Figure class="mb-8">
 	<CodeSnippet lang="javascript" src="range(0, 1, 0.2).map((n) => n.toFixed(1));" />
 </Figure>
 
 Finally, if you try to create a range that would cause an infinite loop, like the
-<Code>infinite_loop_range</Code>, d3.range returns an empty array.
+`infiniteLoopRange`, d3.range returns an empty array.
 
 ## d3.ticks
 
@@ -102,18 +129,22 @@ an interval [_start_, _stop_]. You have to pass in three arguments:
 	<CodeSnippet lang="javascript" src="ticks(start, stop, count);" />
 </Figure>
 
-<Code>count</Code> is the number of ticks you are aiming for. However, there is no guarantee that
-you will get this number. As the example below shows, you may get more or fewer ticks. The only
-thing that matters to d3.ticks is that the ticks are nicely rounded and inside [_start_, _stop_].
-_start_ and _stop_ can be part of the ticks.
+`count` is the number of ticks you are aiming for. However, there is no guarantee that you will get
+this number. As the example below shows, you may get more or fewer ticks. The only thing that
+matters to d3.ticks is that the ticks are nicely rounded and inside [_start_, _stop_]. _start_ and
+_stop_ can be part of the ticks.
 
-Let's look at an example:
+Let's look at a few examples:
 
-<Figure class="mb-6">
-	<StackblitzEmbed
-		project={data.examples['d3.ticks'].project}
-		options={data.examples['d3.ticks'].options}
-	/>
+<Figure class="mb-8">
+	<Example>
+		{#snippet render()}
+			<D3TicksExample />
+		{/snippet}
+		{#snippet code()}
+			<CodeSnippet lang="svelte" src={srcD3TicksExample} />
+		{/snippet}
+	</Example>
 </Figure>
 
 ## JavaScript Array methods
