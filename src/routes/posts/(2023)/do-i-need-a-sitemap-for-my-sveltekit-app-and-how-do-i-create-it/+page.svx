@@ -27,7 +27,7 @@ My website [maier.tech](/) is small, and all pages are discoverable by a crawler
 need a sitemap. Yet, I submitted a sitemap in May 2021 as an initial SEO boost. You can see when
 Google last read a sitemap in the Google Search Console. For my site, it was almost two years ago:
 
-<Figure caption="For small sites, a sitemap is only initially relevant." class="mb-6">
+<Figure caption="For small sites, a sitemap is only initially relevant." class="mb-8">
 	<SubmittedSitemapImage />
 </Figure>
 
@@ -39,7 +39,7 @@ If your site already has an RSS feed, you can submit the feed URL as a sitemap a
 But the most common sitemap type is XML. A simple XML sitemap that indexes only the homepage looks
 like this:
 
-<Figure caption="sitemap.xml" class="mb-6">
+<Figure caption="sitemap.xml" class="mb-8">
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -83,7 +83,7 @@ the CMS. Add an endpoint for each type of content you want to include in your si
 Create an endpoint `src/routes/sitemap.xml/+server.js` and add an async `GET` handler with the
 following structure:
 
-<Figure caption="src/routes/sitemap.xml/+server.js" class="mb-6">
+<Figure caption="src/routes/sitemap.xml/+server.js" class="mb-8">
 
 ```javascript
 export async function GET({ fetch, setHeaders }) {
@@ -131,7 +131,7 @@ to be public.
 
 Let's add error handling to wrap up the handler:
 
-<Figure caption="src/routes/sitemap.xml/+server.js with error handling." class="mb-6">
+<Figure caption="src/routes/sitemap.xml/+server.js with error handling." class="mb-8">
 
 ```javascript
 export async function GET({ fetch, setHeaders }) {

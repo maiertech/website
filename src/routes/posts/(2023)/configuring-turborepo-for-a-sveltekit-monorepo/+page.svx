@@ -130,7 +130,7 @@ build task inherits all properties from the project root `turbo.json` and overri
 Getting the outputs wrong can have unintended side effects. After refactoring my repository to a
 monorepo, I got the following error for every Vercel deployment:
 
-<Figure caption="Vercel build error after migrating my repository to a Turborepo." class="mb-6">
+<Figure caption="Vercel build error after migrating my repository to a Turborepo." class="mb-8">
 	<Image />
 </Figure>
 
@@ -167,7 +167,7 @@ But this is not permitted since Turborepo does not allow the `dev` task to depen
 is a persistent task. Instead of defining the `watch` task as a dependency of the `dev` task in
 `turbo.json`, you need to launch the watch task at the NPM level:
 
-<Figure caption="apps/website/package.json" class="mb-6">
+<Figure caption="apps/website/package.json" class="mb-8">
 
 ```json
 {

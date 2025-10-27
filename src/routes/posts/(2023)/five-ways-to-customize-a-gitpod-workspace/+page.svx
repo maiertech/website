@@ -26,7 +26,7 @@ push code to certain repository branches. If possible, Gitpod launches a prebuil
 creating a workspace from scratch, which feels instantaneous. Use the `github` key to configure
 prebuilds:
 
-<Figure caption=".gitpod.yml" class="mb-6">
+<Figure caption=".gitpod.yml" class="mb-8">
 
 ```yaml
 # ...
@@ -53,7 +53,7 @@ dashboard [as explained in the docs](https://www.gitpod.io/docs/configure/projec
 The next step is to create tasks that run when you launch a workspace. Here is an example of a task
 that installs NPM dependencies and launches the development server:
 
-<Figure caption=".gitpod.yml" class="mb-6">
+<Figure caption=".gitpod.yml" class="mb-8">
 
 ```yaml
 # ...
@@ -75,7 +75,7 @@ When you run a development server, you need to let Gitpod know the port of your 
 preview should be publicly accessible. For a SvelteKit app, for example, Gitpod needs to expose port
 5173:
 
-<Figure caption=".gitpod.yml" class="mb-6">
+<Figure caption=".gitpod.yml" class="mb-8">
 
 ```yaml
 # ...
@@ -104,7 +104,7 @@ images.
 
 To replace the default workspace image with a custom image, set the `image` key in `.gitpod.yml`:
 
-<Figure caption=".gitpod.yml" class="mb-6">
+<Figure caption=".gitpod.yml" class="mb-8">
 
 ```yaml
 image: gitpod/workspace-node-lts
@@ -124,7 +124,7 @@ workspace. The solution: customize a workspace image.
 
 You first have to declare the custom image using the `image` key:
 
-<Figure caption=".gitpod.yml" class="mb-6">
+<Figure caption=".gitpod.yml" class="mb-8">
 
 ```yaml
 image:
@@ -137,7 +137,7 @@ image:
 Gitpod will then look for the Docker image file `.gitpod.Dockerfile` when launching the workspace. I
 customized the Docker image like this:
 
-<Figure caption=".gitpod.Dockerfile" class="mb-6">
+<Figure caption=".gitpod.Dockerfile" class="mb-8">
 
 ```bash
 FROM gitpod/workspace-node-lts
@@ -186,7 +186,7 @@ available. But you cannot access proprietary extensions such as
 If you list project-specific extensions in `.gitpod.yml`, they will be automatically installed into
 every workspace launched with this configuration:
 
-<Figure caption=".gitpod.yml" class="mb-6">
+<Figure caption=".gitpod.yml" class="mb-8">
 
 ```yaml
 # ...
@@ -214,7 +214,7 @@ and VS Code are popular choices, alternative Git providers and editors are avail
 only cloud workspace that supports GitHub, GitLab, and Bitbucket as Git providers and various
 JetBrains IDEs:
 
-<Figure caption="Gitpod supports VS Code and various JetBrains IDEs as editors." class="mb-6">
+<Figure caption="Gitpod supports VS Code and various JetBrains IDEs as editors." class="mb-8">
   <GitpodEditorsImage />
 </Figure>
 
