@@ -1,0 +1,170 @@
+<script lang="ts">
+	import { StackblitzEmbed } from '$lib/components';
+	import { Code, CodeSnippet, Figure, H2, P } from '@maiertech/sveltekit-helpers';
+	import type { PageProps } from './$types';
+	import ActiveExampleButtonActive from './ActiveExampleButtonActive.svelte';
+	import ActiveExampleInputActive from './ActiveExampleInputActive.svelte';
+	import ActiveExampleInputFocus from './ActiveExampleInputFocus.svelte';
+	import FocusExampleButton from './FocusExampleButton.svelte';
+	import FocusExampleInput from './FocusExampleInput.svelte';
+	import FocusVisibleExampleButtonKeyboard from './FocusVisibleExampleButtonKeyboard.svelte';
+	import FocusVisibleExampleButtonMouse from './FocusVisibleExampleButtonMouse.svelte';
+	import FocusVisibleExampleInput from './FocusVisibleExampleInput.svelte';
+
+	let { data }: PageProps = $props();
+</script>
+
+Recently, I worked on the newsletter sign-up form for this website. When I looked at examples, I
+noticed that other developers used the pseudo-classes
+[:active](https://developer.mozilla.org/en-US/docs/Web/CSS/:active),
+[:focus](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus), and
+[:focus-visible](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible) to style form
+fields.
+
+My understanding of these pseudo-classes could have been better, so I decided to read up on their
+specifications. In this post, I share my learnings. You can follow along with the StackBlitz
+workspace below. It also runs on mobile devices, but you should use a desktop browser to get the
+most out of this post. For instance, the pseudo-class <Code>:active</Code> does not affect touch
+devices, and the first example will make no sense.
+
+I took the screenshots in this post with Google Chrome. What you see in your browser may be
+different. There are subtle cross-browser differences for the pseudo-classes covered in this post.
+
+<Figure class="mb-6">
+	<StackblitzEmbed project={data.example.project} options={data.example.options} />
+</Figure>
+
+## Pseudo-class :active
+
+A browser applies <Code>:active</Code> when a user activates an element. Activation refers to the
+timespan between clicking an element and releasing the mouse button. <Code>:active</Code> can be
+applied to elements with which users interact, e.g., <Code>&lt;a&gt;</Code>,
+<Code>&lt;button&gt;</Code>, <Code>&lt;input&gt;</Code>, <Code>&lt;select&gt;</Code>, and
+<Code>&lt;textarea&gt;</Code>.
+
+In the first example, we look at <Code>:active</Code>. I applied <Code>:active</Code> to the input
+element and submit button with the following styles:
+
+<Figure class="mb-6">
+	<CodeSnippet
+		lang="css"
+		src={`input:active,
+button:active {
+  outline: dashed red;
+  outline-offset: 1px;
+}`}
+	/>
+</Figure>
+
+When you click the input field, you can see a dashed red outline until you release the mouse
+button:
+
+<Figure class="mb-6">
+	<ActiveExampleInputActive />
+</Figure>
+
+When you release the mouse button, the input field has focus. The browser draws a default outline
+around it to highlight its focus:
+
+<Figure class="mb-6">
+	<ActiveExampleInputFocus />
+</Figure>
+
+While you click the submit button, you can see the dashed red outline until you release it.
+
+<Figure class="mb-6">
+	<ActiveExampleButtonActive />
+</Figure>
+
+The takeaway from this example is that <Code>:active</Code> styles are in effect while you press the
+mouse button, until you release it.
+
+## Pseudo-class :focus
+
+A browser applies <Code>:focus</Code> when the activation is complete and an element is ready for
+user interaction. There are different ways of giving focus to an element. You can click or tap the
+element or use keyboard navigation with the <key>Tab</key> key.
+
+In the second example, we look at <Code>:focus</Code>. I applied <Code>:focus</Code> to the input
+element and submit button with the same styles as before:
+
+<Figure class="mb-6">
+	<CodeSnippet
+		lang="css"
+		src={`input:focus,
+button:focus {
+  outline: dashed red;
+  outline-offset: 1px;
+}`}
+	/>
+</Figure>
+
+You can see the dashed red outline again when you click the input field. But this time, it stays
+until the input field loses focus:
+
+<Figure class="mb-6">
+	<FocusExampleInput />
+</Figure>
+
+Likewise, when you click the submit button, you can see the dashed outline until it loses focus:
+
+<Figure class="mb-6">
+	<FocusExampleButton />
+</Figure>
+
+Instead of clicking the input field and submit button, you can use the <key>Tab</key> key to
+navigate between elements and focus them. Try it out in StackBlitz.
+
+The takeaway from this example is that <Code>:focus</Code> styles are applied when an element has
+focus, and it does not matter whether a click, tap, or the <key>Tab</key> key triggers the focus.
+
+## Pseudo-class :focus-visible
+
+<Code>:focus-visible</Code> can only be applied when an element has focus. However, a browser can
+decide whether or not to apply <Code>:focus-visible</Code> to an element with focus. Browsers use a
+heuristic to determine whether they apply <Code>:focus-visible</Code> to a focused element.
+
+In the third example, we look at <Code>:focus-visible</Code>. I applied <Code>:focus-visible</Code>
+to the input element and submit button with the same styles as in the previous examples:
+
+<Figure class="mb-6">
+	<CodeSnippet
+		lang="css"
+		src={`input:focus-visible,
+button:focus-visible {
+  outline: dashed red;
+  outline-offset: 1px;
+}`}
+	/>
+</Figure>
+
+When you click the input field, you can see the dashed red outline again when the input field has
+focus:
+
+<Figure class="mb-6">
+	<FocusVisibleExampleInput />
+</Figure>
+
+For the input field, there is no difference between <Code>:focus</Code> and
+<Code>:focus-visible</Code>. However, when you click the submit button, the dashed red outline is
+not visible:
+
+<Figure class="mb-6">
+	<FocusVisibleExampleButtonMouse />
+</Figure>
+
+But when you use the <key>Tab</key> key to focus the submit button, the dashed red outline is
+visible:
+
+<Figure class="mb-6">
+	<FocusVisibleExampleButtonKeyboard />
+</Figure>
+
+In this case, the browser decided against applying <Code>:focus-visible</Code> to an element with
+focus. And it makes sense. Once the input field is focused, the user must type in some information,
+and the styles applied with <Code>:focus-visible</Code> emphasize this expectation.
+
+The submit button is a different story. After a user clicks the button, no other interaction is
+required; thus, the browser does not apply <Code>:focus-visible</Code>. For most common use cases
+you will encounter as a developer, it makes sense to use the <Code>:focus-visible</Code>
+pseudo-class instead of <Code>:focus</Code>.
