@@ -2,14 +2,14 @@
 	import { StackblitzEmbed } from '$lib/components';
 	import { Code, CodeSnippet, Figure, H2, P } from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
-	import srcActiveExampleButtonActive from './active-example-button-active.png?enhanced';
-	import srcActiveExampleInputActive from './active-example-input-active.png?enhanced';
-	import srcActiveExampleInputFocus from './active-example-input-focus.png?enhanced';
-	import srcFocusExampleButton from './focus-example-button.png?enhanced';
-	import srcFocusExampleInput from './focus-example-input.png?enhanced';
-	import srcFocusVisibleExampleButtonKeyboard from './focus-visible-example-button-keyboard.png?enhanced';
-	import srcFocusVisibleExampleButtonMouse from './focus-visible-example-button-mouse.png?enhanced';
-	import srcFocusVisibleExampleInput from './focus-visible-example-input.png?enhanced';
+	import ActiveExampleButtonActive from './ActiveExampleButtonActive.svelte';
+	import ActiveExampleInputActive from './ActiveExampleInputActive.svelte';
+	import ActiveExampleInputFocus from './ActiveExampleInputFocus.svelte';
+	import FocusExampleButton from './FocusExampleButton.svelte';
+	import FocusExampleInput from './FocusExampleInput.svelte';
+	import FocusVisibleExampleButtonKeyboard from './FocusVisibleExampleButtonKeyboard.svelte';
+	import FocusVisibleExampleButtonMouse from './FocusVisibleExampleButtonMouse.svelte';
+	import FocusVisibleExampleInput from './FocusVisibleExampleInput.svelte';
 
 	let { data }: PageProps = $props();
 </script>
@@ -72,10 +72,7 @@ button:active {
 </P>
 
 <Figure class="mb-6">
-	<enhanced:img
-		src={srcActiveExampleInputActive}
-		alt="A simple web form with a name input field and a submit button. The name input field is active and highlighted with a red dashed outline."
-	/>
+	<ActiveExampleInputActive />
 </Figure>
 
 <P>
@@ -84,19 +81,13 @@ button:active {
 </P>
 
 <Figure class="mb-6">
-	<enhanced:img
-		src={srcActiveExampleInputFocus}
-		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applies a blue outline to it."
-	/>
+	<ActiveExampleInputFocus />
 </Figure>
 
 <P>While you click the submit button, you can see the dashed red outline until you release it.</P>
 
 <Figure class="mb-6">
-	<enhanced:img
-		src={srcActiveExampleButtonActive}
-		alt="A simple web form with a name input field and a submit button. The submit button is highlighted with a dashed red outline."
-	/>
+	<ActiveExampleButtonActive />
 </Figure>
 
 <P>
@@ -134,10 +125,7 @@ button:focus {
 </P>
 
 <Figure class="mb-6">
-	<enhanced:img
-		src={srcFocusExampleInput}
-		alt="A simple web form with a name input field and a submit button. The input field is focused and highlighted with a dashed red outline."
-	/>
+	<FocusExampleInput />
 </Figure>
 
 <P>
@@ -145,10 +133,7 @@ button:focus {
 </P>
 
 <Figure class="mb-6">
-	<enhanced:img
-		src={srcFocusExampleButton}
-		alt="A simple web form with a name input field and a submit button. The submit button has focus and the browser applied a dashed red outline to it."
-	/>
+	<FocusExampleButton />
 </Figure>
 
 <P>
@@ -192,10 +177,7 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<enhanced:img
-		src={srcFocusVisibleExampleInput}
-		alt="A simple web form with a name input field and a submit button. The name input field has focus, and the browser applied :focus-visible and a dashed red outline."
-	/>
+	<FocusVisibleExampleInput />
 </Figure>
 
 <P>
@@ -205,10 +187,7 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<enhanced:img
-		src={srcFocusVisibleExampleButtonMouse}
-		alt="A simple web form with a name input field and a submit button. Even though the submit has focus, the browser did not apply :focus-visible and the corresponding styling."
-	/>
+	<FocusVisibleExampleButtonMouse />
 </Figure>
 
 <P>
@@ -216,10 +195,7 @@ button:focus-visible {
 </P>
 
 <Figure class="mb-6">
-	<enhanced:img
-		src={srcFocusVisibleExampleButtonKeyboard}
-		alt="A simple web form with a name input field and a submit button. This time, the browser applied :focus-visible and a dashed red outline to the submit button."
-	/>
+	<FocusVisibleExampleButtonKeyboard />
 </Figure>
 
 <P>
