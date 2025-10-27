@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { Code, CodeSnippet, Figure, H2, H3, P, Ul } from '@maiertech/sveltekit-helpers';
 </script>
 

@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { Code, CodeSnippet, Figure, P } from '@maiertech/sveltekit-helpers';
 	import { Tweet } from 'sveltekit-embed';
 	import CopyButton from './copy-button.svelte';

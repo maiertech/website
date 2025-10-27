@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { StackblitzEmbed } from '$lib/components';
 	import { Code, Figure, H2, P, CodeSnippet, Ul } from '@maiertech/sveltekit-helpers';
 </script>
