@@ -1,0 +1,163 @@
+<script lang="ts">
+	import { StackblitzEmbed } from '$lib/components';
+	import { Code, CodeSnippet, Figure, H2, P, Ul } from '@maiertech/sveltekit-helpers';
+</script>
+
+**This post is outdated. It covers SvelteKit's router before SvelteKit v1.0.0-next.406.**
+
+The [SvelteKit docs](https://kit.svelte.dev/docs#routing) state that
+
+> _"At the heart of SvelteKit is a filesystem-based router. This means that the structure of your
+> application is defined by the structure of your codebase — specifically, the contents of
+> <Code>src/routes</Code>."_
+
+In this post, we will explore how SvelteKit's
+[filesystem-based router](https://kit.svelte.dev/docs#routing) matches a requested route to a page
+or an endpoint. SvelteKit transforms each route file in <Code>src/routes</Code> into a page or an
+endpoint. Conversely, SvelteKit needs to match a requested route to a route file. This is called
+route matching.
+
+A filesystem-based router makes route matching straightforward: the route can be interpreted as the
+subpath in <Code>src/routes</Code>, and often there is only one matching route file. But what
+happens when there are multiple matching route files? How does SvelteKit decide which route file it
+uses to render a page or endpoint?
+
+In this post, we look at a SvelteKit example and explore the rules that SvelteKit applies to decide
+which page or endpoint to serve. You will get the most out of this post if you follow along:
+
+<Figure class="mb-6">
+	<StackblitzEmbed
+		project="maiertech/sveltekit-example-route-matching"
+		options={{ openFile: 'src/routes/index.svelte' }}
+	/>
+</Figure>
+
+## Duplicate route files are not permitted
+
+When you have the example up and running, click route <Code>/green</Code> in the preview. SvelteKit
+matches this request to the page <Code>src/routes/green.svelte</Code>. This is the filesystem-based
+router at work, which takes the route and looks for the corresponding route file in
+<Code>src/routes</Code>.
+
+Now click route <Code>/red</Code>. This time SvelteKit matches the request to the page
+<Code>src/routes/red/index.svelte</Code>, which is equivalent to <Code>src/routes/red.svelte</Code>.
+
+Create the file <Code>src/routes/red.svelte</Code> in the example and copy the content of the file
+<Code>src/routes/red/index.svelte</Code>. You should see this error message in the terminal:
+
+<Figure class="mb-6">
+	<CodeSnippet lang="bash" src="$ svelte-kit dev > Duplicate route files: src/routes/red" />
+</Figure>
+
+_**Rule 1: Duplicate route files are not permitted.** You cannot have both
+<Code>src/routes/red/index.svelte</Code> and <Code>src/routes/red.svelte</Code>. SvelteKit will not
+let you._
+
+Delete <Code>src/routes/red.svelte</Code> and run
+
+<Figure class="mb-6">
+	<CodeSnippet lang="bash" src="npm run dev" />
+</Figure>
+
+to restart the development server.
+
+## Matching against path segments
+
+The SvelteKit router matches strings of route segments to path segments. Path segments inside
+<Code>src/routes</Code> can be static (<Code>.../static/...</Code>) or dynamic (
+<Code>.../[dynamic]/...</Code>) with square brackets. Dynamic path segments match any string. Static
+path segments require an exact match. The second rule describes the order in which SvelteKit matches
+route segments to path segments:
+
+_**Rule 2: SvelteKit matches route segments to path segments left to right.**_
+
+Let's revisit the <Code>/red</Code> route from before. Now that we know what dynamic path segments
+are, we realize that there were three more candidate pages:
+
+<Ul>
+	<li><Code>src/routes/[color].svelte</Code></li>
+	<li><Code>src/routes/[nocolor].svelte</Code></li>
+	<li><Code>src/routes/[colour]/index.svelte</Code></li>
+</Ul>
+
+These are not duplicate routes because the strings inside <Code>[]</Code> differ. We already know
+from the previous section that <Code>/red</Code> is not rendered with any of the above candidate
+pages. The reason is this rule:
+
+_**Rule 3: Static path segments take precedence over dynamic path segments.** E.g.,
+<Code>src/routes/green.svelte</Code> (static) takes precedence over
+<Code>src/routes/[color].svelte</Code> (dynamic)._
+
+## Alphabetical order of path segments
+
+Let's look at the route <Code>/blue</Code> in the example. The candidate pages are:
+
+<Ul>
+	<li><Code>src/routes/[color].svelte</Code></li>
+	<li><Code>src/routes/[nocolor].svelte</Code></li>
+	<li><Code>src/routes/[colour]/index.svelte</Code></li>
+</Ul>
+
+We need another rule to choose the page that is used to render <Code>/blue</Code>:
+
+_**Rule 4: Index pages take precedence over non-index pages.** This is only relevant for pages that
+are not considered duplicate routes, e.g., <Code>src/routes/[colour]/index.svelte</Code> takes
+precedence over <Code>src/routes/[color].svelte</Code>._
+
+When matching the route segment <Code>blue</Code>, we can use this rule to eliminate the first two
+candidate pages. This results in the page <Code>src/routes/[colour]/index.svelte</Code> being
+rendered. You can confirm this by clicking on <Code>/blue</Code> in the example.
+
+Let's delete the page <Code>src/routes/[colour]/index.svelte</Code> in the example. To make the
+workspace pick up this change, you need to click in the terminal and hit <Code>⌃C</Code>. Restart
+the development server with <Code>npm run dev</Code>.
+
+Now the two candidates for the route <Code>/blue</Code> are:
+
+<Ul>
+	<li><Code>src/routes/[color].svelte</Code></li>
+	<li><Code>src/routes/[nocolor].svelte</Code></li>
+</Ul>
+
+A look at the rendered page reveals that the router used <Code>src/routes/[color].svelte</Code>. It
+did so because of this rule:
+
+_**Rule 5: For two path segments of the same type, the first one in alphabetical order takes
+precedence.** E.g., <Code>src/routes/[color].svelte</Code> takes precedence over
+<Code>src/routes/[nocolor].svelte</Code> because <Code>color</Code> comes before
+<Code>nocolor</Code> in alphabetical order._
+
+## Matching with spread syntax
+
+Let's look at the route <Code>/color/blue</Code> in the example. The candidate pages are:
+
+<Ul>
+	<li><Code>src/routes/color/[color].svelte</Code></li>
+	<li><Code>src/routes/color/[...rest].svelte</Code></li>
+</Ul>
+
+<Code>[...rest]</Code> in the second route is a dynamic path segment, which uses
+[spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+and matches any path under <Code>/color</Code>, no matter how deep. We refer to it as a spread
+segment. The following rule clarifies which page the router chooses to render <Code>/color/blue</Code>:
+
+_**Rule 6: Dynamic path segments take precedence over spread segments.** E.g.,
+<Code>src/routes/color/[color].svelte</Code> takes precedence over
+<Code>src/routes/color/[...rest].svelte</Code>._
+
+You can navigate to the route <Code>/color/blue/dark</Code> to see an example of a route that is
+rendered with <Code>src/routes/color/[...rest].svelte</Code>.
+
+## Error pages
+
+Last but not least, let's navigate to the route <Code>/blue/dark</Code> in the example. This time,
+there are no candidate pages. What does the router do? It falls back to the default error page
+[<Code>src/routes/+error.svelte</Code>](https://github.com/maiertech/sveltekit-example-route-matching/blob/main/src/routes/+error.svelte).
+
+Note that as soon as there is one candidate page, including pages with spread segments, the
+SvelteKit router does not fall back to an error page. This is what we observed for the route
+<Code>/color/blue/dark</Code> in the previous section. It was rendered with
+<Code>src/routes/color/[...rest].svelte</Code> and not the default error page.
+
+SvelteKit allows you to configure error pages more granularly per directory, and you can read up on
+how this works in the [SvelteKit docs](https://kit.svelte.dev/docs/layouts#error-pages).

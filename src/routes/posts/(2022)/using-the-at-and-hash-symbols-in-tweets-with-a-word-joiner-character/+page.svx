@@ -1,0 +1,37 @@
+<script lang="ts">
+	import { Code, CodeSnippet, Figure, P } from '@maiertech/sveltekit-helpers';
+	import { Tweet } from 'sveltekit-embed';
+	import CopyButton from './copy-button.svelte';
+</script>
+
+When scrolling through Svelte tweets in my Twitter timeline, I occasionally see tweets about the
+[Svelte template syntax](https://svelte.dev/docs#template-syntax-const) that contain strings like
+@const (referring to the [<Code>{`{@const ...}`}</Code> tag](https://svelte.dev/docs#template-syntax-const))
+or #if (referring to a [<Code>{`{#if ...}`}</Code> block](https://svelte.dev/docs#template-syntax-const)).
+
+Since @ and # have special meanings in tweets, Twitter interprets the string @const as a mention of
+Twitter user [Konstantin Martynov](https://twitter.com/const) (whose Twitter username happens to be
+@const). Likewise, Twitter interprets the string #if as a hashtag and links directly to a dodgier
+part of Twitter.
+
+But there are tweets like this one by [Geoff Rich](https://geoffrich.net/) that contain the @const
+string without displaying it as a mention:
+
+<Tweet tweetLink="geoffrich_/status/1500856298652545033" />
+
+How did Geoff pull this off? Copying the @const string from the original tweet and displaying its
+second character like so:
+
+<Figure class="mb-6">
+	<CodeSnippet lang="javascript" src={`const string = '@const';\n` + `string.charCodeAt(1);`} />
+</Figure>
+
+This yields <Code>8203</Code>, corresponding to <Code>0x200B</Code> (hexadecimal). This is the
+**U+200B ZERO-WIDTH SPACE** Unicode character. An invisible space between @ and const prevents
+Twitter from displaying the string as a mention.
+
+To avoid a potential line break between @ and const, you should use the **U+2060 WORD JOINER**
+Unicode character instead. How can you insert a word joiner character into your tweet? Click the
+button below to copy a word joiner and paste it into your tweet draft.
+
+<CopyButton text="\u2060">Copy U+2060 WORD JOINER</CopyButton>
