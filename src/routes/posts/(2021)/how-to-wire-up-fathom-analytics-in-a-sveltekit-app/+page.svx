@@ -34,7 +34,7 @@ triggering Fathom calls at various points in your SPA's page lifecycle. As Matt'
 `src/routes/+layout.svelte`, the root layout component, is the place to initialize the tracking
 script:
 
-<Figure caption="src/routes/+layout.svelte" class="mb-6">
+<Figure caption="src/routes/+layout.svelte" class="mb-8">
 
 ```svelte
 <script>
@@ -58,7 +58,7 @@ Your Fathom site ID must be exposed to the client for tracking to work. There is
 hard-wiring this ID in your code, but it is better to move it into an environment variable as shown
 here:
 
-<Figure caption="src/routes/+layout.svelte" class="mb-6">
+<Figure caption="src/routes/+layout.svelte" class="mb-8">
 
 ```svelte
 <script>
@@ -119,7 +119,7 @@ You can provide an options object to `Fathom.load` as the second argument. It ha
 which defaults to Fathom's default tracking script. If you want extreme EU isolation, you need to
 set the `url` option to the alternative tracking script:
 
-<Figure caption="src/routes/+layout.svelte" class="mb-6">
+<Figure caption="src/routes/+layout.svelte" class="mb-8">
 
 ```svelte
 <script>
@@ -143,7 +143,7 @@ The previous code snippets track initial page loads. But once a page has been lo
 JavaScript fully hydrated, SvelteKit switches to client-side routing. Any client-side route changes
 would not be tracked. To fix this, let's add a reactive statement:
 
-<Figure caption="src/routes/+layout.svelte" class="mb-6">
+<Figure caption="src/routes/+layout.svelte" class="mb-8">
 
 ```svelte
 <script>
@@ -181,7 +181,7 @@ SvelteKit runs in a browser.
 Let's assume your goal is to make visitors click through to your Twitter profile. The following
 component can render social icons from an array of objects, which it receives as a prop:
 
-<Figure caption="social-icons.svelte" class="mb-6">
+<Figure caption="social-icons.svelte" class="mb-8">
 
 ```svelte
 <script>
