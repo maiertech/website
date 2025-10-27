@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Code, CodeSnippet, Figure, H2, H3, P, Ul } from '@maiertech/sveltekit-helpers';
+	import { CodeSnippet, Figure } from '@maiertech/sveltekit-helpers';
 </script>
 
 **This post is obsolete. To get started with SvelteKit, go to the
@@ -16,8 +16,8 @@ in several breaking changes.
 SvelteKit follows [semantic versioning](https://semver.org/), and the
 [specification](https://semver.org/#semantic-versioning-specification-semver) states that
 
-> 4. Major version zero (0.y.z) is for initial development. Anything MAY change at any time. The
->    public API SHOULD NOT be considered stable.
+> 4\. Major version zero (0.y.z) is for initial development. Anything MAY change at any time. The
+> public API SHOULD NOT be considered stable.
 
 While SvelteKit is pre-1.0, any release can include breaking changes. Despite this caveat, SvelteKit
 was widely adopted and used in production. Breaking changes happened occasionally, but they were
@@ -53,30 +53,27 @@ changes released in
 [1.0.0-next.406](https://github.com/sveltejs/kit/blob/master/packages/kit/CHANGELOG.md#100-next406).
 Read one of these two posts:
 
-<Ul>
-	<li>
-		Josh Collinsworth: [Breaking changes in
-		SvelteKit](https://joshcollinsworth.com/blog/sveltekit-breaking-changes).
-	</li>
-	<li>
-		Brittney Postma: [Migrating Breaking Changes in
-		SvelteKit](https://www.netlify.com/blog/migrating-breaking-changes-in-sveltekit/).
-	</li>
-</Ul>
+- Josh Collinsworth:
+  [Breaking changes in SvelteKit](https://joshcollinsworth.com/blog/sveltekit-breaking-changes).
+- Brittney Postma:
+  [Migrating Breaking Changes in SvelteKit](https://www.netlify.com/blog/migrating-breaking-changes-in-sveltekit/).
 
 Then read the
 [first comment in Rich Harris's migration guide](https://github.com/sveltejs/kit/discussions/5774#discussion-4267008)
 and run the migration script:
 
-<Figure class="mb-6">
-	<CodeSnippet lang="bash" src="npx svelte-migrate routes" />
+<Figure class="mb-8">
+
+```bash
+npx svelte-migrate routes
+```
+
 </Figure>
 
-This script is magic. It handles all the renaming of files and leaves <Code>@migration</Code>
-comments with links to the other comments in the
+This script is magic. It handles all the renaming of files and leaves `@migration` comments with
+links to the other comments in the
 [migration guide](https://github.com/sveltejs/kit/discussions/5774). You should review all migration
-comments and review all proposed changes. Depending on the size of your site, this can take a couple
-of hours.
+comments and proposed changes. Depending on the size of your site, this can take a couple of hours.
 
 ### SvelteKit 1.0.0-next.415
 
@@ -97,11 +94,14 @@ skip to the next version.
 ### SvelteKit 1.0.0-next.455
 
 [1.0.0-next.450](https://github.com/sveltejs/kit/blob/master/packages/kit/CHANGELOG.md#100-next450)
-requires an upgrade of Vite in <Code>package.json</Code>:
+requires an upgrade of Vite in `package.json`:
 
-<Figure class="mb-6">
-	<!-- eslint-disable-next-line svelte/no-useless-mustaches -->
-	<CodeSnippet lang="json" src={'"vite": "^3.1.0-beta.1"'} />
+<Figure class="mb-8">
+
+```json
+"vite": "^3.1.0-beta.1"
+```
+
 </Figure>
 
 [1.0.0-next.455](https://github.com/sveltejs/kit/blob/master/packages/kit/CHANGELOG.md#100-next455)
