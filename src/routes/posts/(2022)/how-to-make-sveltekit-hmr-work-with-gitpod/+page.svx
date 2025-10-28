@@ -7,8 +7,8 @@
 SvelteKit uses [Vite](https://vitejs.dev/) with
 [vite-plugin-svelte](https://github.com/sveltejs/vite-plugin-svelte) to implement hot module
 replacement (HMR). HMR ensures that changes in your code are reflected instantly in your browser
-preview, which provides a pleasant developer experience. HMR in SvelteKit works out of the box with no
-configuration required.
+preview, which provides a pleasant developer experience. HMR in SvelteKit works out of the box with
+no configuration required.
 
 ## Why HMR on Gitpod is different
 
@@ -133,9 +133,9 @@ server: {
 
 </Figure>
 
-We set `clientPort` and `host` depending on whether `GITPOD_WORKSPACE_URL` exists. This ensures
-that HMR works when running your Gitpod workspace in a browser, and also for anyone running the
-SvelteKit site in a local development environment.
+We set `clientPort` and `host` depending on whether `GITPOD_WORKSPACE_URL` exists. This ensures that
+HMR works when running your Gitpod workspace in a browser, and also for anyone running the SvelteKit
+site in a local development environment.
 
 There is a catch with this Vite configuration. `GITPOD_WORKSPACE_URL` also exists in a Gitpod
 workspace, which runs in a local VS Code via SSH. In this scenario, you can access the development
