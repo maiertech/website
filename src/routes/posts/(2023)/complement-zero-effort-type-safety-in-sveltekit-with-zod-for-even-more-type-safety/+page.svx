@@ -26,12 +26,12 @@ export async function load({ fetch, params }) {
 ```svelte
 <script>
 	/** @type {import('./$types').PageData} */
-  export let data;
+	export let data;
 
-  // `title`, `description`, and `topic` are typed:
-  const {(title, description, topics)} = data;
+	// `title`, `description`, and `topic` are typed:
+	const { title, description, topics } = data;
 
-  //...
+	//...
 </script>
 ```
 
