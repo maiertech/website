@@ -1,14 +1,14 @@
-<script lang="ts">
+<script>
 	import { Figure } from '@maiertech/sveltekit-helpers';
 </script>
 
-**This post is outdated. Since SvelteKit v1.0, HMR works fine with Gitpod.**
+**This post is outdated. Since SvelteKit v1.0, HMR works with Gitpod.**
 
 SvelteKit uses [Vite](https://vitejs.dev/) with
 [vite-plugin-svelte](https://github.com/sveltejs/vite-plugin-svelte) to implement hot module
 replacement (HMR). HMR ensures that changes in your code are reflected instantly in your browser
-preview. This results in a pleasant developer experience. HMR in SvelteKit works out of the box with
-no configuration required.
+preview, which provides a pleasant developer experience. HMR in SvelteKit works out of the box with no
+configuration required.
 
 ## Why HMR on Gitpod is different
 
@@ -16,14 +16,14 @@ Things change when you develop with a cloud workspace such as [Gitpod](https://w
 you are not familiar with cloud workspaces, check out my post
 [A better development workflow with disposable workspaces](/posts/a-better-development-workflow-with-disposable-workspaces).
 In a Gitpod workspace, the SvelteKit development server runs on port 5173, just like in your local
-development environment. How you access the development server depends on how you access your Gitpod
-workspace:
+development environment. How you access the development server depends on how you connect to your
+Gitpod workspace:
 
-- When you access a Gitpod workspace **from within a browser**, you can access the development
-  server with an external URL on the gitpod.io domain. To make this work, Gitpod proxies 127.0.0.1
-  to the external URL.
+- When you access a Gitpod workspace **from a browser**, you can use an external URL on the
+  gitpod.io domain to reach the development server. To make this work, Gitpod proxies 127.0.0.1 to
+  the external URL.
 - When you access your Gitpod workspace **from VS Code via SSH**, VS Code proxies the development
-  server to 127.0.0.1. You work with your Gitpod workspace as if it were a local development
+  server to 127.0.0.1. You then work with your Gitpod workspace as if it were a local development
   environment.
 
 While developing a SvelteKit app with Gitpod inside a browser, I noticed that HMR was broken. It
@@ -55,11 +55,11 @@ format:
 
 Every Gitpod workspace sets
 [`GITPOD_WORKSPACE_URL`](https://www.gitpod.io/docs/environment-variables#default-environment-variables),
-which contains the unique workspace URL.
+which contains the workspace URL.
 
 By default, a development server is not accessible externally. You need to tell the workspace which
-internal port it should expose. If your development server runs at 127.0.0.1:5173, for example, you
-need to add the following configuration to your `.gitpod.yml`:
+internal port to expose. If your development server runs at 127.0.0.1:5173, for example, add the
+following configuration to your `.gitpod.yml`:
 
 <Figure caption=".gitpod.yml" class="mb-8">
 
@@ -78,7 +78,7 @@ tasks:
 </Figure>
 
 `tasks` defines tasks that Gitpod runs when it initializes the workspace. This configuration makes
-the development server available at this URL:
+the development server available at this URL pattern:
 
 <Figure class="mb-8">
 
@@ -88,7 +88,7 @@ the development server available at this URL:
 
 </Figure>
 
-For example, I wrote this post on a Gitpod workspace running at
+For example, I wrote this post on a Gitpod workspace hosted at
 
 <Figure class="mb-8">
 
@@ -100,7 +100,7 @@ https://maiertech-maiertech-ti2zaqimh33.ws-us34.gitpod.io/
 
 The workspace ID `maiertech-maiertech-ti2zaqimh33` consists of my GitHub username `maiertech`, an ID
 derived from the repository name `maier.tech`, and a UUID. With the above `.gitpod.yml`
-configuration, the SvelteKit development server of this workspace can be reached at
+configuration, the SvelteKit development server for this workspace can be reached at
 
 <Figure class="mb-8">
 
@@ -114,7 +114,7 @@ You can access the development server only when authenticated to Gitpod.
 
 ## Overriding HMR in vite.config.js
 
-Next, we override the HMR configuration in `vite.config.js`:
+Next, we override the HMR configuration in `vite.config.js`.
 
 <Figure caption="vite.config.js" class="mb-8">
 
@@ -133,8 +133,8 @@ server: {
 
 </Figure>
 
-We set `clientPort` and `host` depending on whether `GITPOD_WORKSPACE_URL` exists. This ensures that
-HMR works when running your Gitpod workspace inside a browser, but also for anyone running the
+We set `clientPort` and `host` depending on whether `GITPOD_WORKSPACE_URL` exists. This ensures
+that HMR works when running your Gitpod workspace in a browser, and also for anyone running the
 SvelteKit site in a local development environment.
 
 There is a catch with this Vite configuration. `GITPOD_WORKSPACE_URL` also exists in a Gitpod

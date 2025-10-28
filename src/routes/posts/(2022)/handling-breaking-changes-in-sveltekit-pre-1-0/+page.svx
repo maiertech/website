@@ -1,14 +1,14 @@
-<script lang="ts">
-	import { CodeSnippet, Figure } from '@maiertech/sveltekit-helpers';
+<script>
+	import { Figure } from '@maiertech/sveltekit-helpers';
 </script>
 
 **This post is obsolete. To get started with SvelteKit, go to the
 [SvelteKit docs](https://svelte.dev/docs/kit/creating-a-project).**
 
-In August 2022, the SvelteKit team led by [Rich Harris](https://twitter.com/rich_harris) released
-several refactorings in preparation for the release of SvelteKit 1.0. The most significant changes
-were a complete overhaul of SvelteKit's
-[router and load API](https://github.com/sveltejs/kit/discussions/5748), and this redesign resulted
+In August 2022, the SvelteKit team led by [Rich Harris](https://twitter.com/rich_harris) introduced
+a series of refactorings in preparation for SvelteKit 1.0. The most significant changes were a
+complete overhaul of SvelteKit's
+[router and load API](https://github.com/sveltejs/kit/discussions/5748), and the redesign resulted
 in several breaking changes.
 
 ## Why breaking changes?
@@ -16,8 +16,8 @@ in several breaking changes.
 SvelteKit follows [semantic versioning](https://semver.org/), and the
 [specification](https://semver.org/#semantic-versioning-specification-semver) states that
 
-> 4\. Major version zero (0.y.z) is for initial development. Anything MAY change at any time. The
-> public API SHOULD NOT be considered stable.
+> _4\. Major version zero (0.y.z) is for initial development. Anything MAY change at any time. The
+> public API SHOULD NOT be considered stable._
 
 While SvelteKit is pre-1.0, any release can include breaking changes. Despite this caveat, SvelteKit
 was widely adopted and used in production. Breaking changes happened occasionally, but they were
@@ -31,8 +31,8 @@ breaking changes?
 ## Upgrading to recent SvelteKit versions with breaking changes
 
 If you have a SvelteKit app in production that you have not upgraded in a while, you should not try
-to upgrade straight to the latest version. Here are some milestone releases that you can use for
-your upgrade path:
+to upgrade directly to the latest version. Here are some milestone releases you can use for your
+upgrade path:
 
 ### SvelteKit 1.0.0-next.377
 
@@ -43,7 +43,7 @@ includes a breaking change in which you need to uppercase endpoint methods.
 
 [1.0.0-next.405](https://github.com/sveltejs/kit/blob/master/packages/kit/CHANGELOG.md#100-next405)
 is the last version before the overhaul of SvelteKit's router. Make sure your site runs without
-issues with this version.
+issues on this version.
 
 ### SvelteKit 1.0.0-next.414
 
@@ -70,8 +70,8 @@ npx svelte-migrate routes
 
 </Figure>
 
-This script is magic. It handles all the renaming of files and leaves `@migration` comments with
-links to the other comments in the
+The script automates most of the work. It handles renaming files and leaves `@migration` comments
+with links to related comments in the
 [migration guide](https://github.com/sveltejs/kit/discussions/5774). You should review all migration
 comments and proposed changes. Depending on the size of your site, this can take a couple of hours.
 
@@ -94,7 +94,7 @@ skip to the next version.
 ### SvelteKit 1.0.0-next.455
 
 [1.0.0-next.450](https://github.com/sveltejs/kit/blob/master/packages/kit/CHANGELOG.md#100-next450)
-requires an upgrade of Vite in `package.json`:
+requires upgrading Vite in your `package.json`:
 
 <Figure class="mb-8">
 
@@ -110,19 +110,19 @@ find out what has changed.
 
 ### SvelteKit 1.0.0-next.463
 
-Last but not least,
+Finally,
 [1.0.0-next.463](https://github.com/sveltejs/kit/blob/master/packages/kit/CHANGELOG.md#100-next463)
 fixes a peer dependency warning introduced with Vite 3.1.0-beta.1.
 
 ## Conclusion
 
-Fixing all recent breaking changes looks like a daunting task, and it probably is if you have a
+Fixing all recent breaking changes can feel like a daunting task, and it probably is if you have a
 large website. If you have a SvelteKit app in production, there is not much you can do other than
-upgrade to the new versions as they are released.
+upgrade to new versions as they are released.
 
-This post demonstrates that you do not have to upgrade to every new release, and you can skip
+This post demonstrates that you do not have to upgrade to every new release and that you can skip
 upgrades when they contain only patch changes. But the longer you wait, the more breaking changes
-will accumulate, and the more complex upgrading will be.
+will accumulate and the more complex upgrades will become.
 
 How many more breaking changes will there be? I don't know. But I hope the SvelteKit team is on the
-home stretch towards 1.0.
+home stretch toward 1.0.

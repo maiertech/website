@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { StackblitzEmbed } from '$lib/components';
 	import { Figure } from '@maiertech/sveltekit-helpers';
 </script>
@@ -19,8 +19,8 @@ matching.
 
 A filesystem-based router makes route matching straightforward: the route can be interpreted as the
 subpath in `src/routes`, and often there is only one matching route file. But what happens when
-there are multiple matching route files? How does SvelteKit decide which route file it uses to
-render a page or endpoint?
+there are multiple matching route files? How does SvelteKit decide which route file to use to render
+a page or endpoint?
 
 In this post, we look at a SvelteKit example and explore the rules that SvelteKit applies to decide
 which page or endpoint to serve. You will get the most out of this post if you follow along:
@@ -34,14 +34,14 @@ which page or endpoint to serve. You will get the most out of this post if you f
 
 ## Duplicate route files are not permitted
 
-When you have the example up and running, click route `/green` in the preview. SvelteKit matches
+When you have the example up and running, click the `/green` route in the preview. SvelteKit matches
 this request to the page `src/routes/green.svelte`. This is the filesystem-based router at work,
 which takes the route and looks for the corresponding route file in `src/routes`.
 
-Now click route `/red`. This time SvelteKit matches the request to the page
+Now click the `/red` route. This time SvelteKit matches the request to the page
 `src/routes/red/index.svelte`, which is equivalent to `src/routes/red.svelte`.
 
-Create the file `src/routes/red.svelte` in the example and copy the content of the file
+Create the file `src/routes/red.svelte` in the example and copy the contents of
 `src/routes/red/index.svelte`. You should see this error message in the terminal:
 
 <Figure class="mb-8">
@@ -84,8 +84,8 @@ realize that there were three more candidate pages:
 - `src/routes/[colour]/index.svelte`
 
 These are not duplicate routes because the strings inside `[]` differ. We already know from the
-previous section that `/red` is not rendered with any of the above candidate pages. The reason is
-this rule:
+previous section that `/red` is not rendered by any of the above candidate pages. The reason is the
+following rule:
 
 _**Rule 3: Static path segments take precedence over dynamic path segments.** E.g.,
 `src/routes/green.svelte` (static) takes precedence over `src/routes/[color].svelte` (dynamic)._
@@ -106,10 +106,10 @@ are not considered duplicate routes, e.g., `src/routes/[colour]/index.svelte` ta
 
 When matching the route segment `blue`, we can use this rule to eliminate the first two candidate
 pages. This results in the page `src/routes/[colour]/index.svelte` being rendered. You can confirm
-this by clicking on `/blue` in the example.
+this by clicking the `/blue` route in the example.
 
 Let's delete the page `src/routes/[colour]/index.svelte` in the example. To make the workspace pick
-up this change, you need to click in the terminal and hit `⌃C`. Restart the development server with
+up this change, click into the terminal and hit `⌃C`. Restart the development server with
 `npm run dev`.
 
 Now the two candidates for the route `/blue` are:

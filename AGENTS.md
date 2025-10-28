@@ -38,6 +38,7 @@ This is a content-driven website with three types of content:
 - Be concise and clear in your explanations.
 - Use active voice and present tense.
 - Write in a conversational but professional tone.
+- Do not use "–" (en dash).
 
 ## svelte-mcp-server
 

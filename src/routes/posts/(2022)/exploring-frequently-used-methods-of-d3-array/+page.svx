@@ -18,9 +18,7 @@
 </script>
 
 In this post, I will introduce you to methods from [d3-array](https://github.com/d3/d3-array) that I
-often use for data visualization. All examples run inside your browser using
-[StackBlitz](https://stackblitz.com/). StackBlitz currently supports only Chromium-based and Firefox
-browsers.
+often use for data visualization.
 
 ## d3.min, d3.max, and d3.extent
 
