@@ -6,8 +6,8 @@
 
 When scrolling through Svelte tweets in my Twitter timeline, I occasionally see tweets about the
 [Svelte template syntax](https://svelte.dev/docs#template-syntax-const) that contain strings like
-@const (referring to the [<Code>{`{@const ...}`}</Code> tag](https://svelte.dev/docs#template-syntax-const))
-or #if (referring to a [<Code>{`{#if ...}`}</Code> block](https://svelte.dev/docs#template-syntax-const)).
+@const (referring to the [`{@const ...}`](https://svelte.dev/docs#template-syntax-const) tag) or #if
+(referring to a [`{#if ...}`](https://svelte.dev/docs#template-syntax-const) block).
 
 Since @ and # have special meanings in tweets, Twitter interprets the string @const as a mention of
 Twitter user [Konstantin Martynov](https://twitter.com/const) (whose Twitter username happens to be
