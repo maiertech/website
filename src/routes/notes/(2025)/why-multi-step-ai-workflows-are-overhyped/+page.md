@@ -1,7 +1,9 @@
 ---
 id: e7f53a93-2aa7-46c7-a6c8-bbbddb85e551
 title: Why multi-step AI workflows are overhyped
-description: TODO
+description:
+  'Why long, multi-step AI agent workflows often fail: compounding errors, rising token costs, and
+  fragile tool integrations.'
 publishedDate: 2025-10-29
 link: https://utkarshkanwat.com/writing/betting-against-agents
 ---
