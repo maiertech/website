@@ -1,10 +1,18 @@
 import { defineCollection, defineConfig } from '@content-collections/core';
 import type { VcImageMeta } from '@maiertech/sveltekit-helpers';
-import { getOgImageUrl, noteMetaSchema } from '@maiertech/sveltekit-helpers';
+import { getOgImageUrl, noteMetaSchema, tagSchema } from '@maiertech/sveltekit-helpers';
 import { config } from 'dotenv';
 
 // This runs outside Vite. Therefore, `.env` is not automatically loaded during development.
 config();
+
+const tags = defineCollection({
+	name: 'tags',
+	directory: 'src/lib/server/data/tags',
+	include: '*.json',
+	parser: 'json',
+	schema: tagSchema
+});
 
 const notes = defineCollection({
 	name: 'notes',
@@ -67,5 +75,5 @@ const notes = defineCollection({
 });
 
 export default defineConfig({
-	collections: [notes]
+	collections: [tags, notes]
 });

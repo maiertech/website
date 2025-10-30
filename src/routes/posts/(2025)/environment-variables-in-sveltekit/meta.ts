@@ -6,7 +6,7 @@ export default {
 	publishedDate: '2025-08-07',
 	description:
 		"Understand SvelteKit's four environment variable options and how to use them securely in different hosting and deployment scenarios.",
-	tags: ['svelte', 'vercel'],
+	tags: ['svelte'],
 	path: '/posts/environment-variables-in-sveltekit',
 	filepath: 'src/routes/posts/(2025)/environment-variables-in-sveltekit/+page.svx'
 } satisfies PostMeta;

@@ -1,4 +1,5 @@
 import { GITHUB_TOKEN, VIRALCARDS_API_KEY } from '$env/static/private'; // Needs to support prerendering.
+import { all as allTags } from '$lib/server/collections/tags';
 import { ogImageTemplate } from '$lib/templates';
 import type {
 	AvatarMeta,
@@ -7,7 +8,7 @@ import type {
 	Tag,
 	VcImageMeta
 } from '@maiertech/sveltekit-helpers';
-import { getAuthor, getLastCommit, getOgImageUrl, getTag } from '@maiertech/sveltekit-helpers';
+import { getAuthor, getLastCommit, getOgImageUrl, resolve } from '@maiertech/sveltekit-helpers';
 import type { RequestEvent } from '@sveltejs/kit';
 
 // Semaphore to limit concurrent API calls during prerendering
@@ -71,7 +72,7 @@ export default async function ({
 		// Fetch all tags asynchronously.
 		await Promise.all(
 			postMeta.tags.map(async (id) => {
-				const tag = await getTag(id, event);
+				const tag = resolve<Tag>(id, allTags);
 				if (tag) {
 					tags.push(tag);
 				}
