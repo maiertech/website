@@ -1,23 +1,22 @@
+import { all as tags } from '$lib/server/collections/tags';
 import { filterByTag } from '$lib/utils';
 import type { ResolvedPost, Tag } from '@maiertech/sveltekit-helpers';
+import { resolve } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
+import type { PageServerLoad } from './$types';
 
 // TODO: turn prerendering back on after posts have been migrated to a content-collection.
 // export const prerender = true;
 
-export const load: PageLoad = async ({ params, fetch }) => {
-	const tagResponse = await fetch(`/api/tags/${params.id}`);
+export const load: PageServerLoad = async ({ params, fetch }) => {
+	const tag = resolve<Tag>(params.id, tags);
 
-	// Own API: if something goes wrong, it must be a 404 error.
-	if (!tagResponse.ok) {
-		error(404, `Invalid tag ${params.id}.`);
+	if (!tag) {
+		return error(404, { message: 'Tag not found.' });
 	}
 
-	const tag = (await tagResponse.json()) as Tag;
-
-	const postsResponse = await fetch('/api/posts/all');
-	const posts = (await postsResponse.json()) as ResolvedPost[];
+	const response = await fetch('/api/posts/all');
+	const posts = (await response.json()) as ResolvedPost[];
 
 	const taggedPosts = filterByTag(tag.id, posts);
 
