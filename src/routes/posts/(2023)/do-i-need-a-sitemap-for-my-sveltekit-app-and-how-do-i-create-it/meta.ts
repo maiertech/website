@@ -6,7 +6,7 @@ export default {
 	publishedDate: '2023-03-01',
 	description:
 		"Do you need a sitemap for your SvelteKit site? Learn when it's useful, how to create one, and static alternatives like svelte-sitemap.",
-	tags: ['svelte', 'seo', 'web-fundamentals'],
+	tags: ['svelte', 'seo'],
 	path: '/posts/do-i-need-a-sitemap-for-my-sveltekit-app-and-how-do-i-create-it',
 	filepath:
 		'src/routes/posts/(2023)/do-i-need-a-sitemap-for-my-sveltekit-app-and-how-do-i-create-it/+page.svx'

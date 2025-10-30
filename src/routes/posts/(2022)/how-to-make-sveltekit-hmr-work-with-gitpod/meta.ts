@@ -6,7 +6,7 @@ export default {
 	publishedDate: '2022-01-30',
 	description:
 		'How to fix SvelteKit HMR issues on Gitpod by customizing Vite config, exposing ports, and avoiding browser extension conflicts.',
-	tags: ['gitpod', 'svelte', 'dx'],
+	tags: ['svelte'],
 	path: '/posts/how-to-make-sveltekit-hmr-work-with-gitpod',
 	filepath: 'src/routes/posts/(2022)/how-to-make-sveltekit-hmr-work-with-gitpod/+page.svelte'
 } satisfies PostMeta;
