@@ -1,4 +1,5 @@
 import { GITHUB_TOKEN, VIRALCARDS_API_KEY } from '$env/static/private'; // Needs to support prerendering.
+import { all as allAuthors } from '$lib/server/collections/authors';
 import { all as allTags } from '$lib/server/collections/tags';
 import { ogImageTemplate } from '$lib/templates';
 import type {
@@ -8,8 +9,7 @@ import type {
 	Tag,
 	VcImageMeta
 } from '@maiertech/sveltekit-helpers';
-import { getAuthor, getLastCommit, getOgImageUrl, resolve } from '@maiertech/sveltekit-helpers';
-import type { RequestEvent } from '@sveltejs/kit';
+import { getLastCommit, getOgImageUrl, resolve } from '@maiertech/sveltekit-helpers';
 
 // Semaphore to limit concurrent API calls during prerendering
 class Semaphore {
@@ -53,17 +53,11 @@ class Semaphore {
 const ogImageSemaphore = new Semaphore(3);
 const githubSemaphore = new Semaphore(5);
 
-export default async function ({
-	postMeta,
-	event
-}: {
-	postMeta: PostMeta;
-	event: RequestEvent;
-}): Promise<ResolvedPost> {
+export default async function ({ postMeta }: { postMeta: PostMeta }): Promise<ResolvedPost> {
 	// Resolve author.
 	let author: AvatarMeta | undefined = undefined;
 	if (postMeta.author) {
-		author = await getAuthor(postMeta.author, event);
+		author = resolve<AvatarMeta>(postMeta.author, allAuthors);
 	}
 
 	// Resolve tags.

@@ -12,7 +12,7 @@ import type { RequestHandler } from './$types';
 // Nested prerendering breaks build on Railway.
 // export const prerender = true;
 
-export const GET: RequestHandler = async (event) => {
+export const GET: RequestHandler = async () => {
 	// Sort order: latest first.
 	const posts = [
 		postBasicSeoComponent,
@@ -26,7 +26,7 @@ export const GET: RequestHandler = async (event) => {
 
 	const resolvedPosts = await Promise.all(
 		posts.map((post) => {
-			return resolvePost({ postMeta: post, event });
+			return resolvePost({ postMeta: post });
 		})
 	);
 

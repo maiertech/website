@@ -1,10 +1,23 @@
 import { defineCollection, defineConfig } from '@content-collections/core';
 import type { VcImageMeta } from '@maiertech/sveltekit-helpers';
-import { getOgImageUrl, noteMetaSchema, tagSchema } from '@maiertech/sveltekit-helpers';
+import {
+	avatarMetaSchema,
+	getOgImageUrl,
+	noteMetaSchema,
+	tagSchema
+} from '@maiertech/sveltekit-helpers';
 import { config } from 'dotenv';
 
-// This runs outside Vite. Therefore, `.env` is not automatically loaded during development.
+// This file runs outside Vite. Therefore, `.env` is not automatically available in this file.
 config();
+
+const authors = defineCollection({
+	name: 'authors',
+	directory: 'src/lib/server/data/authors',
+	include: '*.json',
+	parser: 'json',
+	schema: avatarMetaSchema
+});
 
 const tags = defineCollection({
 	name: 'tags',
@@ -75,5 +88,5 @@ const notes = defineCollection({
 });
 
 export default defineConfig({
-	collections: [tags, notes]
+	collections: [authors, tags, notes]
 });
