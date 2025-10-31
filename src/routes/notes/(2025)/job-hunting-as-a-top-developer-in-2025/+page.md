@@ -2,7 +2,7 @@
 id: 4fef4ee5-d1bf-477d-9c0e-5af00a064d2b
 title: Job hunting as a top developer in 2025
 description:
-  "Insights from Adam Argyle's job‑hunting story: why resumes often fail, checklist hiring, and ways
+  "Insights from Adam Argyle's job hunting story: why resumes often fail, checklist hiring, and ways
   to stand out in a crowded market."
 publishedDate: 2025-10-31
 link: https://www.youtube.com/watch?v=JLdh9VU7YPk
@@ -10,7 +10,7 @@ link: https://www.youtube.com/watch?v=JLdh9VU7YPk
 
 About a month ago,
 [Kevin Powell teased an interview with Adam Argyle](https://bsky.app/profile/kevinpowell.co/post/3lzszx3icrk2i)
-about his job‑hunting experience. Today he released the full interview in which Adam shares some
+about his job hunting experience. Today he released the full interview in which Adam shares some
 puzzling details.
 
 Some insights on applying to jobs:
