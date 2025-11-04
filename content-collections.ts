@@ -10,8 +10,33 @@ import {
 import { config } from 'dotenv';
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import { readFileSync, writeFileSync } from 'fs';
+import { resolve } from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 const execAsync = promisify(exec);
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Load post last modified metadata as fallback for environments without Git.
+let postLastmodMetadata: Record<string, string> = {};
+const metadataPath = resolve(__dirname, 'src/lib/server/data/posts/lastmod.json');
+
+try {
+	const raw = readFileSync(metadataPath, 'utf-8');
+	postLastmodMetadata = JSON.parse(raw);
+} catch {
+	// Metadata file may not exist yet; that's okay.
+}
+
+// Function to persist updated metadata to file.
+function updateMetadataFile(): void {
+	try {
+		writeFileSync(metadataPath, JSON.stringify(postLastmodMetadata, null, 2));
+	} catch {
+		// Silently fail if we can't write; metadata is still in memory.
+	}
+}
 
 // This file runs outside Vite. Therefore, `.env` is not automatically available in this file.
 config();
@@ -55,13 +80,49 @@ const posts = defineCollection({
 				).filter((tag) => tag !== undefined)
 			: undefined;
 
-		// Resolve last modified date from Git repo.
+		// Resolve last modified date: try metadata file first, then Git, then current date.
 		const lastmodDate = await cache(postMeta._meta.filePath, async (filePath) => {
-			const { stdout } = await execAsync(`git log -1 --format=%ai -- "${filePath}"`);
-			if (stdout) {
-				return new Date(stdout.trim()).toISOString();
+			const fileKey = `src/routes/posts/${filePath}`;
+
+			// Priority 1: Check metadata file.
+			if (postLastmodMetadata[fileKey]) {
+				// Try to update from Git while returning cached value.
+				try {
+					const { stdout } = await execAsync(`git log -1 --format=%ai -- "${fileKey}"`);
+					if (stdout) {
+						const gitDate = new Date(stdout.trim()).toISOString();
+						// Update metadata file if Git date differs.
+						if (postLastmodMetadata[fileKey] !== gitDate) {
+							postLastmodMetadata[fileKey] = gitDate;
+							updateMetadataFile();
+						}
+						return gitDate;
+					}
+				} catch {
+					// Git failed; use cached value.
+				}
+				return postLastmodMetadata[fileKey];
 			}
-			return new Date().toISOString();
+
+			// Priority 2: Try Git.
+			try {
+				const { stdout } = await execAsync(`git log -1 --format=%ai -- "${fileKey}"`);
+				if (stdout) {
+					const gitDate = new Date(stdout.trim()).toISOString();
+					// Cache the value.
+					postLastmodMetadata[fileKey] = gitDate;
+					updateMetadataFile();
+					return gitDate;
+				}
+			} catch {
+				// Git command failed; proceed to fallback.
+			}
+
+			// Priority 3: Current date.
+			const currentDate = new Date().toISOString();
+			postLastmodMetadata[fileKey] = currentDate;
+			updateMetadataFile();
+			return currentDate;
 		});
 
 		// Generate and cache OG image URL.
