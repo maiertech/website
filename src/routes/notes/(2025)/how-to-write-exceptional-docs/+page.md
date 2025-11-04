@@ -1,5 +1,4 @@
 ---
-id: 02e7fea5-ec1c-4133-919f-554f7f2643f3
 title: How to write exceptional documentation
 description: Great article by Chris Nicholas on how to write exceptional documentation.
 publishedDate: 2025-03-07

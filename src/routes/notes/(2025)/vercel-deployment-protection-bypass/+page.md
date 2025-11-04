@@ -1,5 +1,4 @@
 ---
-id: d6d81419-422b-41b9-93a8-8c2eb905acc9
 title: Vercel deployment protection bypass
 description: How to bypass Vercel deployment protection when it breaks your website.
 publishedDate: 2025-08-17

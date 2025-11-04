@@ -1,0 +1,158 @@
+---
+title: Three ways to bootstrap a Svelte project
+author: thilo
+publishedDate: 2022-07-01
+description:
+  Explore three ways to start a Svelte project. Only StackBlitz offers the official Vite Svelte
+  templates; Svelte REPL and CodeSandbox use deprecated ones.
+tags:
+  - svelte
+---
+
+<script>
+	import { StackblitzEmbed } from '$lib/components';
+	import { CodeSnippet, Figure, H2, P } from '@maiertech/sveltekit-helpers';
+	import CsbNewSandboxDialogImage from './CsbNewSandboxDialogImage.svelte';
+	import CsbSvelteTemplateImage from './CsbSvelteTemplateImage.svelte';
+	import StackblitzDashboardImage from './StackblitzDashboardImage.svelte';
+	import SvelteReplImage from './SvelteReplImage.svelte';
+	import SvelteTemplateImage from './SvelteTemplateImage.svelte';
+</script>
+
+The [Svelte template](https://github.com/sveltejs/template) was, for a long time, the official way
+to bootstrap a Svelte project, but it is no longer maintained and has been deprecated. What should
+you choose instead to bootstrap a Svelte project?
+
+With [SvelteKit](https://kit.svelte.dev/) now stable at version 1.0, it is the obvious choice to
+bootstrap a Svelte project. SvelteKit shines when you need advanced features such as a
+filesystem-based router, progressive enhancement, fast initial page loads, or better SEO. For
+smaller projects — for example, a data-visualization or a quick experiment — SvelteKit can introduce
+unnecessary overhead when all you need is plain Svelte.
+
+Let's look at three ways to bootstrap a Svelte project.
+
+## Svelte REPL
+
+If you have dipped your toes into Svelte already, you are probably familiar with the
+[Svelte REPL](https://svelte.dev/repl). The REPL is the most popular way to share code examples
+within the Svelte community. It runs client-side, doesn't require a local setup, and you can start
+coding instantly.
+
+An often-overlooked feature of the Svelte REPL is the download button. You can download the source
+code of every example:
+
+<Figure
+	caption="Click the download button in the Svelte REPL to download the source code of an example."
+	class="mb-8"
+>
+	<SvelteReplImage />
+</Figure>
+
+You can start your Svelte experiments with the Svelte REPL. Once you decide you want to continue
+your experiment on GitHub, download the source and open it in your local VS Code:
+
+<Figure
+	caption="Code examples in the Svelte REPL use the legacy Svelte template, which uses Rollup as a bundler."
+	class="mb-8"
+>
+	<SvelteTemplateImage />
+</Figure>
+
+The Svelte REPL would be a convenient way to start a new Svelte project, except that every project
+you create is based on the deprecated, Rollup-based Svelte template. The Svelte team is working on a
+new REPL that will run on
+[StackBlitz's WebContainers](https://blog.stackblitz.com/posts/introducing-webcontainers/). You can
+find out more in Rich Harris's talk
+[Full Stack Documentation at JSNation 2022](https://www.youtube.com/watch?v=RwBolXX9Pis). The
+current Svelte REPL is still great for experiments, but don't use it to bootstrap a Svelte project.
+
+## CodeSandbox
+
+The [CodeSandbox](https://codesandbox.io/) team has created a bundler that can run different
+JavaScript frameworks in the browser. The bundled code runs client-side without relying on a
+back-end server. CodeSandbox provides several sandbox templates, including one for Svelte:
+
+<Figure caption="CodeSandbox has a sandbox template for Svelte." class="mb-8">
+	<CsbNewSandboxDialogImage />
+</Figure>
+
+Unfortunately, CodeSandbox's Svelte template is a variation of the deprecated Rollup-based Svelte
+template:
+
+<Figure
+	caption="CodeSandbox's Svelte template is a variation of the deprecated Svelte template."
+	class="mb-8"
+>
+	<CsbSvelteTemplateImage />
+</Figure>
+
+Thanks to semantic versioning, you still get the latest version of Svelte, but you get a legacy
+project structure. CodeSandbox's Svelte template is also great for experiments, but don't use it to
+bootstrap a Svelte project.
+
+## StackBlitz
+
+The team at [StackBlitz](https://stackblitz.com/) managed to get [Node.js](https://nodejs.org/)
+running in the browser, which is a big deal: they can run anything that runs on Node.js (including
+[Vite](https://vitejs.dev/)) in the browser without a back-end server. Therefore, StackBlitz
+supports the official Vite Svelte templates, either
+[with vanilla JavaScript](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-svelte)
+or
+[with TypeScript](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-svelte-ts):
+
+<Figure caption="StackBlitz supports the official Vite Svelte templates." class="mb-8">
+	<StackblitzDashboardImage />
+</Figure>
+
+The StackBlitz team has created shortcuts for two Vite Svelte templates. Clicking on
+[https://vite.new/svelte](https://vite.new/svelte) bootstraps the Vite Svelte template with vanilla
+JavaScript and is equivalent to running
+
+<Figure class="mb-8">
+
+```bash
+npm create vite@latest my-svelte-app -- --template svelte
+```
+
+</Figure>
+
+in a terminal. Here you can try out the Vite Svelte vanilla JavaScript template directly in your
+browser:
+
+<Figure class="mb-8">
+	<StackblitzEmbed
+		project="vitejs/vite/tree/main/packages/create-vite/template-svelte"
+		options={{ openFile: 'src/App.svelte' }}
+	/>
+</Figure>
+
+Clicking [https://vite.new/svelte-ts](https://vite.new/svelte-ts) bootstraps the Vite Svelte
+template with TypeScript and is equivalent to running
+
+<Figure class="mb-8">
+
+```bash
+npm create vite@latest my-svelte-ts-app -- --template svelte-ts
+```
+
+</Figure>
+
+in your terminal. Here you can try the Vite Svelte TypeScript template directly in your browser:
+
+<Figure class="mb-8">
+	<StackblitzEmbed
+		project="vitejs/vite/tree/main/packages/create-vite/template-svelte-ts"
+		options={{ openFile: 'src/App.svelte' }}
+	/>
+</Figure>
+
+It doesn't get easier than clicking one of these shortcuts to bootstrap a Svelte project. When
+you're ready, you can connect to GitHub, push your Svelte project to your repository, and continue
+in your favorite IDE.
+
+## Conclusion
+
+The Svelte REPL and CodeSandbox make it easy to bootstrap a new Svelte project, but they use the
+deprecated Svelte template. With StackBlitz, on the other hand, you can run the official Vite Svelte
+templates natively in the browser, and StackBlitz's URL shortcuts make bootstrapping a Svelte
+project a one-click effort.

@@ -1,5 +1,4 @@
 ---
-id: 0e097c40-6bc3-43c3-8fa7-2645ce37a7e3
 title: eslint-plugin-svelte makes SvelteKit linter fail
 description:
   'eslint-plugin-svelte v3.12.x breaks the SvelteKit linter (svelte/no-navigation-without-resolve);

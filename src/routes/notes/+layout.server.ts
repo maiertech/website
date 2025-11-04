@@ -1,13 +1,11 @@
-import type { LayoutServerLoad } from './$types';
 import { ORIGIN } from '$env/static/private';
-import { allNotes } from 'content-collections';
+import { all as notes } from '$lib/server/collections/notes';
+import type { LayoutServerLoad } from './$types';
 
-// TODO: Enable prerendering once all content collections are in place.
-// export const prerender = true;
+export const prerender = true;
 
-export const load: LayoutServerLoad = async ({ route }) => {
-	const notePath = route.id?.replace(/\/\(2025\)/, '') || '';
-	const note = allNotes.find((note) => note.path === notePath);
+export const load: LayoutServerLoad = async ({ url }) => {
+	const note = notes.find((note) => note.path === url.pathname);
 
 	return {
 		origin: ORIGIN,

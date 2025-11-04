@@ -1,15 +1,11 @@
 import { ORIGIN } from '$env/static/private';
-import type { RssItem } from '$lib/types';
-import type { RequestHandler } from '@sveltejs/kit';
 import { rss as noteRssItems } from '$lib/server/collections/notes';
+import { rss as postRssItems } from '$lib/server/collections/posts';
+import type { RequestHandler } from '@sveltejs/kit';
 
-// Prevent prerendering to avoid being crawled when linked from prerendered pages.
-export const prerender = false;
+export const prerender = true;
 
-export const GET: RequestHandler = async ({ fetch }) => {
-	const response = await fetch('/api/posts/rss');
-	const postRssItems = (await response.json()) as RssItem[];
-
+export const GET: RequestHandler = async () => {
 	const rssItems = [...postRssItems, ...noteRssItems]
 		.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
 		.slice(0, 15);

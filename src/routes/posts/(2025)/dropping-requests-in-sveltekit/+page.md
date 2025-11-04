@@ -1,0 +1,81 @@
+---
+title: Dropping requests in SvelteKit
+author: thilo
+publishedDate: 2025-07-27
+description:
+  "SvelteKit can't truly drop bad requests, so I use Cloudflare's WAF to block bots before they
+  reach my Railway-hosted app."
+tags:
+  - svelte
+  - railway
+---
+
+<script>
+  import { Figure } from '@maiertech/sveltekit-helpers';
+  import ProbingBotsImage from './ProbingBotsImage.svelte';
+</script>
+
+After migrating my website to [Railway](https://railway.com/), I noticed bots probing for
+accidentally exposed vulnerable files:
+
+<Figure caption="HTTP Logs from Railway after first deployment with a custom domain." class="mb-8">
+  <ProbingBotsImage />
+</Figure>
+
+Since my website is built with SvelteKit, it returns a 404 for these types of requests. Nothing to
+worry about in terms of security. However, all these 404 responses are processed by SvelteKit and
+consume resources on the server. This is especially annoying because Railway's pricing model is
+based on the resources a deployment consumes.
+
+The obvious solution is to host the SvelteKit app behind a web application firewall (WAF) that
+blocks such requests before they reach the server. Unfortunately, Railway does not currently offer a
+WAF. So, I thought, why not let SvelteKit play WAF and make it drop these requests?
+
+Here is what I came up with:
+
+<Figure caption="hooks.server.ts" class="mb-8">
+
+```ts
+import type { Handle } from '@sveltejs/kit';
+import { Blocklist } from '$lib/utils/index.js';
+import { BLOCKED_PATHS } from '$lib/blocklists/index.js';
+
+const pathBlocklist = new Blocklist(BLOCKED_PATHS);
+
+export const handle: Handle = async ({ event, resolve }) => {
+	const { url } = event;
+
+	if (pathBlocklist.isBlocked(url.pathname)) {
+		return new Response(null, { status: 204 });
+	}
+
+	return resolve(event);
+};
+```
+
+</Figure>
+
+Inside the `handle` hook in `hooks.server.ts`, I check if the request path is on a blocklist. The
+blocklist is a
+[`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) that
+contains paths used by bots from my Railway logs. Since SvelteKit handles requests at the
+application layer, it always wants to return a response. Even if I return `undefined` after
+detecting a malicious request, SvelteKit still returns a 500 server error.
+
+A 500 server error probably consumes the same amount of resources as the original 404 response. So,
+I don't gain anything with this approach. The 204 no content response in the code above might shave
+off a little bit of processing compared to a 404 or 500 status. But it still returns a response,
+which also messes up my Railway logs because 204 responses show up as successful requests.
+
+Unfortunately, SvelteKit cannot drop requests at the application layer. The only option is to send a
+response as early as possible to avoid wasting server resources.
+
+So, what did I do instead? I proxied the SvelteKit app through
+[Cloudflare](https://www.cloudflare.com/). Its firewall and bot detection take care of malicious
+requests and make sure they never reach the SvelteKit app hosted on Railway. Not exactly an elegant
+solution, but it works.
+
+Cloudflare and [Vercel](https://vercel.com/) have invested a lot into their WAFs lately, and if you
+have ever checked your WAF logs, you might have been stunned by how much garbage they block. I hope
+Railway (and other boutique hosters) will also offer a basic WAF in the not-too-distant future.
+After all, I want the non-big-tech hosting competition to succeed and be a viable option.

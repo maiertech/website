@@ -1,5 +1,4 @@
 ---
-id: 16fc1f56-7d7f-4cd7-83c9-5b41faa46bb1
 title: Cover Your Tracks
 description:
   Test your browser's protection against fingerprinting with the EFF's Cover Your Tracks tool.

@@ -1,5 +1,4 @@
 ---
-id: 30ead3c3-68a5-4d46-b767-97df3ebb7329
 title: Perplexity AI caught in the act
 description:
   Perplexity AI caught using stealth crawlers despite robots.txt rules. Cloudflare exposes the

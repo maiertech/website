@@ -49,13 +49,11 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 export default {
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
-	extensions: ['.svelte', '.md', '.svx'],
+	extensions: ['.svelte', '.md'],
 	kit: {
 		adapter: adapter(),
 		alias: {
-			'content-collections': './.content-collections/generated',
-			$notes: 'src/routes/notes',
-			$posts: 'src/routes/posts'
+			'content-collections': './.content-collections/generated'
 		}
 	}
 };

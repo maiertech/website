@@ -1,5 +1,4 @@
 ---
-id: bfb6370b-6758-4f07-997f-504d5cfeba6b
 title: Hosting in Europe beyond Big Tech
 description:
   "Vercel boosted my web dev, but its Big Tech ties worry me. Now I'm searching for a true European
