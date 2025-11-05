@@ -28,8 +28,11 @@ try {
 
 function writeLastmodDates(): void {
 	try {
-		// Sort keys before writing.
-		writeFileSync(filepath, JSON.stringify(lastmodDates, Object.keys(lastmodDates).sort(), 2));
+		// Sort keys before writing. Use tabs and finish with an empty line to make linter happy.
+		writeFileSync(
+			filepath,
+			JSON.stringify(lastmodDates, Object.keys(lastmodDates).sort(), '\t') + '\n'
+		);
 	} catch {
 		// Writing `lastmodDates` can fail silently.
 	}
