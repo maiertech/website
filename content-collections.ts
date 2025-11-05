@@ -4,37 +4,34 @@ import {
 	avatarMetaSchema,
 	getOgImageUrl,
 	noteMetaSchema,
-	tagSchema,
-	postMetaSchema
+	postMetaSchema,
+	tagSchema
 } from '@maiertech/sveltekit-helpers';
-import { config } from 'dotenv';
 import { exec } from 'child_process';
-import { promisify } from 'util';
+import { config } from 'dotenv';
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { promisify } from 'util';
 
 const execAsync = promisify(exec);
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// Load post last modified metadata as fallback for environments without Git.
-let postLastmodMetadata: Record<string, string> = {};
-const metadataPath = resolve(__dirname, 'src/lib/server/data/posts/lastmod.json');
+// Load last modified dates for posts.
+let lastmodDates: Record<string, string> = {};
+const filepath = resolve(process.cwd(), 'src/lib/server/data/posts/lastmod.json');
 
 try {
-	const raw = readFileSync(metadataPath, 'utf-8');
-	postLastmodMetadata = JSON.parse(raw);
+	const raw = readFileSync(filepath, 'utf-8');
+	lastmodDates = JSON.parse(raw);
 } catch {
-	// Metadata file may not exist yet; that's okay.
+	// If file doesn't exist, it will be written later.
 }
 
-// Function to persist updated metadata to file.
-function updateMetadataFile(): void {
+function writeLastmodDates(): void {
 	try {
-		writeFileSync(metadataPath, JSON.stringify(postLastmodMetadata, null, 2));
+		// Sort keys before writing.
+		writeFileSync(filepath, JSON.stringify(lastmodDates, Object.keys(lastmodDates).sort(), 2));
 	} catch {
-		// Silently fail if we can't write; metadata is still in memory.
+		// Writing `lastmodDates` can fail silently.
 	}
 }
 
@@ -80,49 +77,30 @@ const posts = defineCollection({
 				).filter((tag) => tag !== undefined)
 			: undefined;
 
-		// Resolve last modified date: try metadata file first, then Git, then current date.
+		// Resolve last modified date.
 		const lastmodDate = await cache(postMeta._meta.filePath, async (filePath) => {
-			const fileKey = `src/routes/posts/${filePath}`;
+			const path = `src/routes/posts/${filePath}`;
 
-			// Priority 1: Check metadata file.
-			if (postLastmodMetadata[fileKey]) {
-				// Try to update from Git while returning cached value.
-				try {
-					const { stdout } = await execAsync(`git log -1 --format=%ai -- "${fileKey}"`);
-					if (stdout) {
-						const gitDate = new Date(stdout.trim()).toISOString();
-						// Update metadata file if Git date differs.
-						if (postLastmodMetadata[fileKey] !== gitDate) {
-							postLastmodMetadata[fileKey] = gitDate;
-							updateMetadataFile();
-						}
-						return gitDate;
-					}
-				} catch {
-					// Git failed; use cached value.
-				}
-				return postLastmodMetadata[fileKey];
+			// Read preliminary lastmod date from cache.
+			let date: string | undefined = lastmodDates[path];
+			if (!date) {
+				date = new Date().toISOString(); // Current date as fallback.
 			}
 
-			// Priority 2: Try Git.
+			// Try to obtain the lastmod date from the Git history.
 			try {
-				const { stdout } = await execAsync(`git log -1 --format=%ai -- "${fileKey}"`);
+				const { stdout } = await execAsync(`git log -1 --format=%ai -- "${path}"`);
 				if (stdout) {
-					const gitDate = new Date(stdout.trim()).toISOString();
-					// Cache the value.
-					postLastmodMetadata[fileKey] = gitDate;
-					updateMetadataFile();
-					return gitDate;
+					date = new Date(stdout.trim()).toISOString();
+					lastmodDates[path] = date;
+					writeLastmodDates();
 				}
 			} catch {
-				// Git command failed; proceed to fallback.
+				// Silently fail when there is no Git history, e.g. on Railway.
+				// In this case, the cached date or the current date will be used.
 			}
 
-			// Priority 3: Current date.
-			const currentDate = new Date().toISOString();
-			postLastmodMetadata[fileKey] = currentDate;
-			updateMetadataFile();
-			return currentDate;
+			return date;
 		});
 
 		// Generate and cache OG image URL.
