@@ -1,5 +1,4 @@
 ---
-id: d8a81424-20f6-439c-8dc4-03f288d7144d
 title: Am I still relevant as a developer?
 description:
   AI frees developers from chores, letting us focus on communication and code quality. Will this

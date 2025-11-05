@@ -1,5 +1,4 @@
 ---
-id: d2446f9c-693c-43de-9cbf-7e3150f12581
 title: Disallowing AI Bots in robots.txt
 description:
   How and why I updated my robots.txt to block AI bots from crawling my personal website, while

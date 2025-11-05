@@ -1,0 +1,111 @@
+---
+title: 'Groking :active, :focus and :focus-visible pseudo-classes'
+author: thilo
+publishedDate: 2022-06-20
+description:
+  'Learn the differences between :active, :focus, and :focus-visible CSS pseudo-classes for form
+  elements, with practical examples and explanations.'
+tags:
+  - web-fundamentals
+  - css
+---
+
+<script>
+	import { CodeSnippet, Example, Figure } from '@maiertech/sveltekit-helpers';
+
+	import ActiveExample from './examples/ActiveExample.svelte';
+	import srcActiveExample from './examples/ActiveExample.svelte?raw';
+
+	import FocusExample from './examples/FocusExample.svelte';
+	import srcFocusExample from './examples/FocusExample.svelte?raw';
+
+	import FocusVisibleExample from './examples/FocusVisibleExample.svelte';
+	import srcFocusVisibleExample from './examples/FocusVisibleExample.svelte?raw';
+</script>
+
+Recently I worked on the newsletter sign-up form for this website. When I looked at examples, I
+noticed other developers using the pseudo-classes
+[`:active`](https://developer.mozilla.org/en-US/docs/Web/CSS/:active),
+[`:focus`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus), and
+[`:focus-visible`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible) to style form
+fields. I didn't fully understand these pseudo-classes, so I read their specifications.
+
+In this post I share what I learned.
+
+## Pseudo-class :active
+
+A browser applies `:active` when a user activates an element. Activation refers to the time span
+between pressing the mouse button on an element and releasing it. `:active` applies to interactive
+elements such as `<a>`, `<button>`, `<input>`, `<select>`, and `<textarea>`.
+
+When you click the input field below, you'll see a dashed red outline while the mouse button is
+pressed. Note that `:active` is not applied on many touch devices.
+
+<Example>
+	{#snippet render()}
+		<ActiveExample />
+	{/snippet}
+	{#snippet code()}
+		<CodeSnippet
+			lang="svelte"
+			src={srcActiveExample}
+		/>
+	{/snippet}
+</Example>
+
+When you release the mouse button, the input field receives focus and the browser draws a default
+outline to indicate that focus. If you click the submit button, you'll see the dashed red outline
+while the button is pressed; it disappears when you release the button.
+
+Takeaway: `:active` styles are applied only while the mouse button is pressed.
+
+## Pseudo-class :focus
+
+A browser applies `:focus` after activation completes and an element is ready for interaction. You
+can give focus by clicking or tapping an element, or by using keyboard navigation (Tab). Click or
+tap the input field below. The dashed red outline stays until the input field loses focus.
+Similarly, when you click the submit button, the dashed outline remains until the button loses
+focus. You can also use the Tab key to navigate between elements and give them focus.
+
+<Example>
+	{#snippet render()}
+		<FocusExample />
+	{/snippet}
+	{#snippet code()}
+		<CodeSnippet
+			lang="svelte"
+			src={srcFocusExample}
+		/>
+	{/snippet}
+</Example>
+
+Takeaway: `:focus` styles apply whenever an element has focus, regardless of whether focus was
+triggered by a click, a tap, or the Tab key.
+
+## Pseudo-class :focus-visible
+
+`:focus-visible` applies only to focused elements, but browsers decide whether to show it using a
+heuristic. Click or tap the input field: like with `:focus`, you'll see the dashed red outline while
+it has focus. In this case `:focus-visible` may look identical to `:focus`. However, when you click
+the submit button the dashed outline is not shown. If you focus the input and then press Tab to move
+focus to the submit button, the dashed outline appears.
+
+<Example>
+	{#snippet render()}
+		<FocusVisibleExample />
+	{/snippet}
+	{#snippet code()}
+		<CodeSnippet
+			lang="svelte"
+			src={srcFocusVisibleExample}
+		/>
+	{/snippet}
+</Example>
+
+Browsers apply `:focus-visible` only when it makes sense. For an input field, `:focus-visible`
+signals that the user is expected to type. When a user clicks a submit button, showing focus styles
+is often unnecessary because no further interaction is needed. When navigating with Tab, however,
+focus styles help indicate where keyboard input will go.
+
+Takeaway: in most cases prefer `:focus-visible` over `:focus` and let the browser's heuristic decide
+when to show focus styles.

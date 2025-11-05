@@ -1,21 +1,18 @@
 import { latest as notes } from '$lib/server/collections/notes';
-import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
+import { latest as posts } from '$lib/server/collections/posts';
 import type { PageServerLoad } from './$types';
 
-// TODO: turn prerendering back on after posts have been migrated to a content-collection.
-// export const prerender = true;
+export const prerender = true;
 
-export const load: PageServerLoad = async function ({ fetch }) {
-	const response = await fetch('/api/posts/latest');
-	const posts = ((await response.json()) as ResolvedPost[]).slice(0, 5);
-
+export const load: PageServerLoad = async function () {
 	return {
 		seo: {
 			title: 'Thilo Maier',
 			description:
 				"Hi, I'm Thilo. I am a Software Engineer based in The Netherlands. I build web apps with SvelteKit and Svelte and help people take control of their digital identity."
 		},
-		notes: notes.slice(0, 4),
+		notes: notes.slice(0, 6),
+		posts: posts.slice(0, 5),
 		topics: [
 			{
 				label: 'Svelte',
@@ -45,7 +42,6 @@ export const load: PageServerLoad = async function ({ fetch }) {
 					'I share what I learn about content creation. Writing posts, crafting posts on Mastodon, and recording screencasts.',
 				path: '/tags/content-creation'
 			}
-		],
-		posts
+		]
 	};
 };

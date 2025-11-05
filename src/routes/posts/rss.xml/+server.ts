@@ -1,14 +1,10 @@
 import { ORIGIN } from '$env/static/private';
-import type { RssItem } from '$lib/types';
 import type { RequestHandler } from '@sveltejs/kit';
+import { rss as rssItems } from '$lib/server/collections/posts';
 
-// Prevent prerendering to avoid being crawled when linked from prerendered pages.
-export const prerender = false;
+export const prerender = true;
 
-export const GET: RequestHandler = async ({ fetch }) => {
-	const response = await fetch('/api/posts/rss');
-	const rssItems = (await response.json()) as RssItem[];
-
+export const GET: RequestHandler = async () => {
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>

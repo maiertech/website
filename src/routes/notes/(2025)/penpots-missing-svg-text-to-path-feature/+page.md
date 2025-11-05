@@ -1,5 +1,4 @@
 ---
-id: c9dff08a-6e5f-4439-9700-f865d84b10e2
 title: "Penpot's missing SVG text-to-path feature"
 description:
   "Why Penpot's lack of SVG text-to-path conversion matters for logos, and how to work around it."

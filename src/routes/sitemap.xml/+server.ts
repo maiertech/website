@@ -1,16 +1,11 @@
 import { ORIGIN } from '$env/static/private';
 import { latest as notes } from '$lib/server/collections/notes';
-import type { ResolvedPost } from '@maiertech/sveltekit-helpers';
+import { latest as posts } from '$lib/server/collections/posts';
 import type { RequestHandler } from './$types';
 
-// Prevent prerendering to avoid being crawled when linked from prerendered pages.
-export const prerender = false;
+export const prerender = true;
 
-export const GET: RequestHandler = async ({ fetch }) => {
-	// Fetch posts. `/api/posts/all` includes `lastmodDate`.
-	const postsResponse = await fetch('/api/posts/all');
-	const posts = (await postsResponse.json()) as ResolvedPost[];
-
+export const GET: RequestHandler = async () => {
 	// Create sitemap entries for posts.
 	const postEntries = posts.map(
 		(post) => `\t<url>

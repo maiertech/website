@@ -1,5 +1,4 @@
 ---
-id: 53a134c3-dc2a-4932-92fa-f06e75627384
 title: Prerendering server routes in SvelteKit
 description:
   'SvelteKit auto-prerenders server routes, but manual `prerender = true` is needed for all server

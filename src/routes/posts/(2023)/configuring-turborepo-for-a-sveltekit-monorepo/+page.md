@@ -1,0 +1,210 @@
+---
+title: Configuring Turborepo for a SvelteKit monorepo
+author: thilo
+publishedDate: 2023-03-16
+description:
+  A guide to configuring Turborepo for a SvelteKit monorepo, covering workspaces, caching, pitfalls,
+  and best practices for efficient builds.
+tags:
+  - svelte
+  - productivity
+---
+
+<script>
+  import { Figure } from '@maiertech/sveltekit-helpers'
+  import Image from './Image.svelte'
+</script>
+
+Recently, I converted the repository for my website to a [Turborepo](https://turbo.build/repo).
+Turborepo is a task dependency management layer on top of a package manager, and it works for both
+normal repositories and monorepos. The underlying package manager must be one of
+[NPM](https://docs.npmjs.com/), [pnpm](https://pnpm.io/), or [Yarn](https://classic.yarnpkg.com/),
+all of which come with workspace support.
+
+The central pitch of Turborepo is to speed up workspace tasks, primarily builds. After configuring
+task dependencies in one or more `turbo.json` files, Turborepo uses this information to run tasks in
+parallel with an aggressive caching strategy. Turborepo can complement local caching with shared
+remote caching. Often, this will significantly reduce the duration of deployment builds because
+local builds are cached remotely and can be reused for deployment builds.
+
+## Workspaces configuration
+
+Let's look at how I configured the repository for my website with the following monorepo directory
+structure:
+
+<Figure caption="File tree for the maier.tech monorepo." class="mb-8">
+
+```bash
+maier.tech
+├── apps
+│   └── website
+└── packages
+    └── ui
+```
+
+</Figure>
+
+I use NPM as a package manager. Therefore, I defined my workspaces with the `workspaces` property:
+
+<Figure caption="package.json" class="mb-8">
+
+```json
+{
+	"private": true,
+	"workspaces": ["apps/*", "packages/*"],
+	"devDependencies": {
+		"turbo": "^1.8.8"
+	}
+}
+```
+
+</Figure>
+
+I recommend adding the `turbo` package to `devDependencies`, which gives you control over which
+version to use. You should also install the `turbo` package globally to make the `turbo` command
+available in your terminal. A globally installed `turbo` command will use the Turborepo version
+declared in `devDependencies`.
+
+## Turborepo configuration
+
+The Turborepo configuration is in `turbo.json` at the project root level. For my monorepo, it looks
+like this:
+
+<Figure caption="turbo.json" class="mb-8">
+
+```json
+{
+	"$schema": "https://turbo.build/schema.json",
+	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": [".svelte-kit/**", ".vercel/**"]
+		},
+		"check": {},
+		"lint": {},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		}
+	}
+}
+```
+
+</Figure>
+
+The `pipeline` property describes dependencies between NPM tasks (defined in the `scripts` tags of
+workspace `package.json` files). Each task can have additional properties, which you can look up in
+the [Turborepo docs (configuration options)](https://turbo.build/repo/docs/reference/configuration).
+I will highlight two of them:
+
+1. `"dependsOn"`: The value `["^build"]` means that every build task should run the build tasks of
+   dependencies that reside inside the monorepo in other workspaces.
+2. `"outputs"`: Describes build artifacts that Turborepo should cache. For example, the build of a
+   SvelteKit app goes into the `.svelte-kit` directory. If Turborepo determines that nothing has
+   changed during a build, it will retrieve `.svelte-kit` from its cache instead of running the
+   task. Similarly, the output of [adapter-vercel](https://kit.svelte.dev/docs/adapter-vercel) goes
+   into the `.vercel` directory and needs to be cached. The best case for a build is that Turborepo
+   can fetch both `.svelte-kit` and `.vercel` from the cache.
+
+## Nested configuration
+
+Starting with Turborepo v1.8, you can nest configurations and complement a project-level
+configuration with workspace-specific configurations. For example, in my monorepo, `packages/ui`
+contains a UI package that is managed with SvelteKit's package tooling. When you run the `build`
+command for `ui`, the build artifacts go into `dist` and must be cached. I could add `dist` to the
+`outputs` property of the `build` task in the project root `turbo.json`. Then it would be applied to
+every build task in every workspace.
+
+As an alternative, I created the file `packages/ui/turbo.json`, which extends the project root
+`turbo.json`:
+
+<Figure caption="packages/ui/turbo.json" class="mb-8">
+
+```json
+{
+	"extends": ["//"],
+	"pipeline": {
+		"build": {
+			"outputs": ["dist/**", ".svelte-kit/**", ".vercel/**"]
+		}
+	}
+}
+```
+
+</Figure>
+
+Turborepo permits overrides only for anything under the `pipeline` property. The above `turbo.json`
+build task inherits all properties from the project root `turbo.json` and overrides only the
+`outputs` property.
+
+## Pitfall: Getting the outputs wrong
+
+Getting the outputs wrong can have unintended side effects. After refactoring my repository to a
+monorepo, I got the following error for every Vercel deployment:
+
+<Figure caption="Vercel build error after migrating my repository to a Turborepo." class="mb-8">
+	<Image />
+</Figure>
+
+By default, Vercel expects the deployment files in the `public` directory or another special
+directory, e.g., `.vercel`. I had forgotten to add `.vercel/**` to `outputs` in `turbo.json`.
+Whenever Turborepo determined that it could reuse a cached build, it did not run the build task and
+instead fetched all outputs it was aware of from the cache. Since it did not know about `.vercel`,
+it could not fetch it from the cache, and the build ended without a valid build directory.
+
+## Pitfall: Persistent tasks
+
+Persistent tasks are long-running; for example, the `dev` task is persistent. Turborepo does not
+allow any task to depend on a persistent task because it blocks subsequent tasks. Imagine
+`ui/package.json` defines a `watch` task that builds the library whenever a file changes. I want to
+add this configuration to `apps/website/turbo.json`:
+
+<Figure caption="apps/website/turbo.json" class="mb-8">
+
+```json
+// ...
+
+"pipeline": {
+  "dev": {
+    "dependsOn": ["ui#watch"]
+  }
+}
+
+// ...
+```
+
+</Figure>
+
+But this is not permitted since Turborepo does not allow the `dev` task to depend on `watch`, which
+is a persistent task. Instead of defining the `watch` task as a dependency of the `dev` task in
+`turbo.json`, you need to launch the watch task at the NPM level:
+
+<Figure caption="apps/website/package.json" class="mb-8">
+
+```json
+{
+	// ...
+
+	"scripts": {
+		"dev": "npm run watch -w=ui & vite dev"
+
+		// ...
+	}
+
+	// ...
+}
+```
+
+</Figure>
+
+This script simultaneously launches the `watch` task for `packages/ui` and the `dev` task for
+`apps/website`.
+
+## Conclusion
+
+Configuring Turborepo for a monorepo with one or more SvelteKit apps is relatively easy. But you
+must get the `outputs` right, including any directories specific to your hosting provider. As a
+layer on top of a package manager, Turborepo does not replace NPM, pnpm, or Yarn. As you have seen
+in the above examples, some configurations go in a `turbo.json`, and others go in a `package.json`.
+Knowing where configurations go can be challenging in the beginning. Expect Turborepo to support
+more configurations over time and perhaps even merge with a package manager or another build tool.

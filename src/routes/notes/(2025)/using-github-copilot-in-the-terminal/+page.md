@@ -1,5 +1,4 @@
 ---
-id: 7554f455-59b8-4522-aaa2-c461e007404a
 title: Using GitHub Copilot in the terminal
 description:
   Add GitHub Copilot support to any terminal with the GitHub CLI to enable command suggestions and
