@@ -1,8 +1,8 @@
 <script lang="ts">
-	import srcProbingBots from './probing-bots.png?enhanced';
+	import src from './probing-bots.png?enhanced';
 </script>
 
 <enhanced:img
-	src={srcProbingBots}
+	{src}
 	alt="Log entries on Railway.com showing bot requests to potentially exposed files, for example, `/.env`."
 />
