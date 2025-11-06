@@ -2,7 +2,9 @@
 title: Apparently I need Big Tech to move off Big Tech
 author: thilo
 publishedDate: 2025-11-06
-description: TODO
+description:
+  I tried to escape Big Tech by moving to Railway. Ironically, I ended up needing Cloudflare to make
+  it work.
 tags:
   - railway
   - svelte
