@@ -1,6 +1,8 @@
 ---
 title: Vercel deployment protection bypass
-description: How to bypass Vercel deployment protection when it breaks your website.
+description:
+  "Learn how to bypass Vercel deployment protection for deploy previews that break your website's
+  internal API fetch requests using automation secrets."
 publishedDate: 2025-08-17
 link: https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation
 ---
