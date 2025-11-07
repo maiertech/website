@@ -3,7 +3,7 @@ title: 'It ain’t easy to move a side project off Big Tech'
 author: thilo
 publishedDate: 2025-11-07
 description:
-  Migrating a side project from Vercel to Railway exposed the challenges of moving off Big Tech, but
+  Migrating a side project from Vercel to Railway exposed the challenges of moving off Big Tech, and
   the price tag in terms of time and effort was higher than expected.
 tags:
   - railway
