@@ -3,8 +3,8 @@ title: Route matching in SvelteKit
 author: thilo
 publishedDate: 2022-02-13
 description:
-  "This post explains how SvelteKit's filesystem-based router matches routes to files, detailing the
-  rules and precedence for route matching."
+  "Discover how SvelteKit's filesystem-based router matches routes to files. Understand matching
+  rules, precedence, index pages, dynamic segments, and spread syntax."
 tags:
   - svelte
 ---
