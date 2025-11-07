@@ -2,7 +2,7 @@ export default {
 	template: 'maiertechPost',
 	title: 'Post title',
 	avatarName: 'Thilo Maier',
-	avatarImageUrl: 'https://www.maier.tech/assets/portrait-thilo-maier.jpg',
+	avatarImageUrl: 'https://maier.tech/assets/portrait-thilo-maier.jpg',
 	height: 630,
 	width: 1200,
 	colors: {
