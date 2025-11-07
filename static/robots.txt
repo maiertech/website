@@ -114,4 +114,4 @@ User-agent: YandexAdditionalBot
 User-agent: YouBot
 Disallow: /
 
-Sitemap: https://www.maier.tech/sitemap.xml
+Sitemap: https://maier.tech/sitemap.xml
