@@ -8,7 +8,7 @@
 	"src/routes/posts/(2022)/handling-breaking-changes-in-sveltekit-pre-1-0/+page.md": "2025-11-05T14:06:22.000Z",
 	"src/routes/posts/(2022)/how-to-make-sveltekit-hmr-work-with-gitpod/+page.md": "2025-11-05T14:06:22.000Z",
 	"src/routes/posts/(2022)/recording-screencasts-on-a-hidpi-display/+page.md": "2025-11-05T14:06:22.000Z",
-	"src/routes/posts/(2022)/route-matching-in-sveltekit/+page.md": "2025-11-05T14:06:22.000Z",
+	"src/routes/posts/(2022)/route-matching-in-sveltekit/+page.md": "2025-11-07T20:32:13.000Z",
 	"src/routes/posts/(2022)/three-ways-to-bootstrap-a-svelte-project/+page.md": "2025-11-05T14:06:22.000Z",
 	"src/routes/posts/(2022)/using-the-at-and-hash-symbols-in-tweets-with-a-word-joiner-character/+page.md": "2025-11-05T14:06:22.000Z",
 	"src/routes/posts/(2023)/complement-zero-effort-type-safety-in-sveltekit-with-zod-for-even-more-type-safety/+page.md": "2025-11-05T14:06:22.000Z",
@@ -22,5 +22,6 @@
 	"src/routes/posts/(2025)/apparently-i-need-big-tech-to-move-off-big-tech/+page.md": "2025-11-06T16:51:02.000Z",
 	"src/routes/posts/(2025)/dropping-requests-in-sveltekit/+page.md": "2025-11-05T14:06:22.000Z",
 	"src/routes/posts/(2025)/environment-variables-in-sveltekit/+page.md": "2025-11-05T14:06:22.000Z",
+	"src/routes/posts/(2025)/it-aint-easy-to-move-a-side-project-off-big-tech/+page.md": "2025-11-07T20:24:14.000Z",
 	"src/routes/posts/(2025)/managing-environment-variables-with-vercel/+page.md": "2025-11-05T14:06:22.000Z"
 }
