@@ -1,6 +1,6 @@
 import { ORIGIN } from '$env/static/private';
-import { latest as notes } from '$lib/server/collections/notes';
-import { latest as posts } from '$lib/server/collections/posts';
+import { all as notes } from '$lib/server/collections/notes';
+import { all as posts } from '$lib/server/collections/posts';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
@@ -22,7 +22,7 @@ export const GET: RequestHandler = async () => {
 	</url>`
 	);
 
-	// Add additional entries to this array.
+	// Add additional collections to this array.
 	const pages = [...postEntries, ...noteEntries];
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

@@ -16,13 +16,13 @@ tags:
 </script>
 
 <P>
-Last week, I refactored parts of this website and broke the endpoint that creates <a href="/sitemap.xml" data-sveltekit-reload>this sitemap</a>. I decided to read up on doing sitemaps the right way. Here is what I learned.
+Last week I refactored parts of this website and accidentally broke the endpoint that creates <a href="/sitemap.xml" data-sveltekit-reload>this sitemap</a>. I decided to read up on doing sitemaps the right way. Here is what I learned.
 </P>
 
 ## Google's take on sitemaps
 
-Web developers often assume that Google will only index their site regularly with a sitemap. But is
-this true? In the
+Web developers often assume that Google will only index their site regularly if they have a sitemap.
+But is this true? In the
 [Google Search Console docs](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview#do-i-need-a-sitemap),
 Google answers the question "Do I need a sitemap?" with "it depends." Google recommends a sitemap
 when
@@ -33,11 +33,12 @@ when
 You do not need a sitemap if
 
 - your site is small (up to 500 relevant pages), or
-- your site is linked correctly, and Google can find all relevant pages by crawling it.
+- your site is linked correctly and Google can find all relevant pages by crawling it.
 
-My website [maier.tech](/) is small, and all pages are discoverable by a crawler, so I would not
-need a sitemap. Yet, I submitted a sitemap in May 2021 as an initial SEO boost. You can see when
-Google last read a sitemap in the Google Search Console. For my site, it was almost two years ago:
+The website you're reading this on is small and all pages are discoverable by crawlers, so I
+wouldn't strictly need a sitemap. Still, I submitted one in May 2021 as an initial SEO boost. You
+can see when Google last read a sitemap in the Search Console. For my site it was almost two years
+ago (at the time of writing):
 
 <Figure caption="For small sites, a sitemap is only initially relevant." class="mb-8">
 	<SubmittedSitemapImage />
@@ -48,8 +49,8 @@ Google last read a sitemap in the Google Search Console. For my site, it was alm
 Google supports
 [different types of sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml).
 If your site already has an RSS feed, you can submit the feed URL as a sitemap and call it a day.
-But the most common sitemap type is XML. A simple XML sitemap that indexes only the homepage looks
-like this:
+The most common sitemap type is XML. A simple XML sitemap that indexes only the homepage looks like
+this:
 
 <Figure caption="sitemap.xml" class="mb-8">
 
@@ -66,115 +67,98 @@ like this:
 </Figure>
 
 Every indexed page goes in a `<url>` tag. The `<loc>` tag contains the URL of the indexed page. The
-`<lastmod>` tag contains the last modified date. You may have encountered posts mentioning two more
-tags, `<priority>` and `<changefreq>`. There is no need to worry about choosing values for these two
-tags.
-[Google ignores both](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml)
-([and so does Bing](https://blogs.bing.com/webmaster/february-2023/The-Importance-of-Setting-the-lastmod-Tag-in-Your-Sitemap)).
+`<lastmod>` tag contains the last modified date. You may have encountered blog posts that mention
+two additional tags, `<priority>` and `<changefreq>`. There is no need to worry about choosing
+values for these tags.
+[Google ignores both](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#xml).
+[And so does Bing](https://blogs.bing.com/webmaster/february-2023/The-Importance-of-Setting-the-lastmod-Tag-in-Your-Sitemap).
 
 ## Creating a sitemap with SvelteKit
 
 [SvelteKit's SEO docs](https://kit.svelte.dev/docs/seo#manual-setup-sitemaps) show an example of a
-sitemap implemented as an endpoint in `src/routes/sitemap.xml/+server.js`. The `GET` handler
-assembles an XML string to which you add relevant routes. There is no need to add all routes, only
-those you want to be indexed by Google. The catch is that you need to figure out how to retrieve the
-entries for your sitemap. There is no copy-paste blueprint for how to create a sitemap with
-SvelteKit because a sitemap depends on how you manage the content of your site. But I will walk you
-through the steps.
+sitemap implemented as an endpoint in `src/routes/sitemap.xml/+server.ts`. The `GET` handler
+assembles an XML string to which you add the relevant routes. You don't need to include every route,
+only those you want indexed by Google (for example, your posts). The catch is figuring out how to
+retrieve the entries for your sitemap. There's no copy-paste blueprint because it depends on how you
+manage your content. Below, I'll walk through the high-level steps.
 
-### Create endpoints to retrieve relevant pages
+### Step 1: Figure out how to retrieve the pages for your sitemap
 
-I created an endpoint
-[`src/api/posts/+server.js`](https://github.com/maiertech/maier.tech/blob/main/src/routes/api/posts/%2Bserver.js)
-that returns a list of all posts, which it obtains from a file that contains an array with metadata
-for all posts. If I managed my posts in a CMS, the endpoint would retrieve them via an API call to
-the CMS. Add an endpoint for each type of content you want to include in your sitemap.
+I write my posts in Markdown and use [Content Collections](https://www.content-collections.dev/) to
+access post metadata. Retrieving all posts for a sitemap requires one server-side import:
 
-### Create a sitemap endpoint
+```ts
+import { all as posts } from '$lib/server/collections/posts';
+```
 
-Create an endpoint `src/routes/sitemap.xml/+server.js` and add an async `GET` handler with the
-following structure:
+The import comes from this file:
 
-<Figure caption="src/routes/sitemap.xml/+server.js" class="mb-8">
+<Figure caption="src/lib/server/collections/posts.ts" class="mb-8">
 
-```javascript
-export async function GET({ fetch, setHeaders }) {
-	setHeaders({
-		'Content-Type': 'application/xml'
-	});
+```ts
+import { allPosts } from 'content-collections';
 
-	const response = await fetch('/api/posts/all');
-
-	// ...
-
-	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-// Add an entry for each post.
-</urlset>`;
-
-	return new Response(sitemap);
-}
+export const all = allPosts.toSorted((a, b) => {
+	return b.publishedDate.localeCompare(a.publishedDate);
+});
 ```
 
 </Figure>
 
-Since this endpoint returns XML, I set the content type to `application/xml`. Then I fetch all posts
-from my endpoint `/api/posts`. At the end of the handler, I create the XML string, wrap it in a
-response object, and return it.
+and all the heavy lifting is done by Content Collections. Less fancy solutions are also totally
+fine. For example, you could add an endpoint that returns the posts from a manually maintained JSON
+file. If you manage your posts in a CMS, that endpoint would retrieve them via an API call.
 
-To make creating entries easier, I use this helper function:
+### Step 2: Create a sitemap endpoint
 
-```javascript
-function create_entry(path, lastmod) {
-	return `<url>
-    <loc>${new URL(path, PUBLIC_URL_ORIGIN).href}</loc>
-    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
-  </url>`;
-}
-```
+Create an endpoint at `src/routes/sitemap.xml/+server.ts` and add a `GET` handler. My handler uses
+the post collection:
 
-`path` is a relative path, and `lastmod` is a date string in ISO format. I get both from my
-`/api/posts` endpoint. Google expects absolute URLs in a sitemap. Since I prerender the sitemap, I
-cannot obtain the origin of the URL from which the app is served in production. Therefore, I created
-an environment variable `PUBLIC_URL_ORIGIN`, which contains my site's canonical origin
-https://www.maier.tech. This variable could also be private and named `URL_ORIGIN`. But I also need
-access to the canonical origin in my SEO components client-side, which means that the variable has
-to be public.
+<Figure caption="src/routes/sitemap.xml/+server.ts" class="mb-8">
 
-Let's add error handling to wrap up the handler:
+```ts
+import { ORIGIN } from '$env/static/private';
+import { all as posts } from '$lib/server/collections/posts';
+import type { RequestHandler } from './$types';
 
-<Figure caption="src/routes/sitemap.xml/+server.js with error handling." class="mb-8">
+export const GET: RequestHandler = async () => {
+	// Create sitemap entries for posts.
+	const postEntries = posts.map(
+		(post) => `\t<url>
+		<loc>${ORIGIN}${post.path}</loc>
+		<lastmod>${post.lastmodDate ? post.lastmodDate : post.publishedDate}</lastmod>
+	</url>`
+	);
 
-```javascript
-export async function GET({ fetch, setHeaders }) {
-	setHeaders({
-		'Content-Type': 'application/xml'
-	});
-
-	const response = await fetch('/api/posts/all');
-
-	if (!response.ok) {
-		throw error(500, 'Failed to fetch posts.');
-	}
-
-	const raw_posts = await response.json();
-
-	const posts = raw_posts.map((post) => create_entry(post.path, post.lastmod));
+	// Add additional collections to this array.
+	const pages = [...postEntries];
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${posts.join('\n')}
+${pages.join('\n')}
 </urlset>`;
 
-	return new Response(sitemap);
-}
+	return new Response(sitemap, {
+		headers: {
+			'Cache-Control': 'max-age=0, s-maxage=3600',
+			'Content-Type': 'application/xml'
+		}
+	});
+};
 ```
 
 </Figure>
+
+This endpoint reads all posts from the posts collection and wraps them into `<url>` tags in the
+format discussed in the first part of this post. The content type of the response is
+`application/xml`. Since the paths in my post collection are relative, I need to prepend the origin
+from environment variable `ORIGIN` because sitemaps require absolute URLs.
 
 The above code is a simplified version of my
-[actual endpoint](https://github.com/maiertech/maier.tech/blob/main/apps/website/src/routes/sitemap.xml/%2Bserver.js),
-which you can explore on GitHub. My actual endpoint adds caching, validation, and prerendering.
+[actual endpoint](https://github.com/maiertech/website/blob/main/src/routes/sitemap.xml/%2Bserver.ts),
+which you can explore on GitHub. If you want to see an example of how to define content collections
+with transformations, look at the file
+[`content-collections.ts`](https://github.com/maiertech/website/blob/main/content-collections.ts).
 
 ## Alternative sitemap creation
 
