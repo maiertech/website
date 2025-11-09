@@ -93,8 +93,8 @@ importers:
         specifier: ^3.15.0
         version: 3.15.0
       simple-icons:
-        specifier: ^15.19.0
-        version: 15.19.0
+        specifier: ^15.20.0
+        version: 15.20.0
       svelte:
         specifier: ^5.43.5
         version: 5.43.5
@@ -105,8 +105,8 @@ importers:
         specifier: ^0.0.22
         version: 0.0.22(svelte@5.43.5)
       tailwind-merge:
-        specifier: ^3.3.1
-        version: 3.3.1
+        specifier: ^3.4.0
+        version: 3.4.0
       tailwindcss:
         specifier: ^4.1.17
         version: 4.1.17
@@ -1858,8 +1858,8 @@ packages:
   shiki@3.15.0:
     resolution: {integrity: sha512-kLdkY6iV3dYbtPwS9KXU7mjfmDm25f5m0IPNFnaXO7TBPcvbUOY72PYXSuSqDzwp+vlH/d7MXpHlKO/x+QoLXw==}
 
-  simple-icons@15.19.0:
-    resolution: {integrity: sha512-JyEgtl1l8YCqoKT3PcavneVnctp5bHPlzmO8Otop83cySrkh8vFwgUmb2PUTJWRftvare7FyJLlFLKDV/tCVzw==}
+  simple-icons@15.20.0:
+    resolution: {integrity: sha512-vo7/gojtNbh+dzKx6TGriI26O8MDn2MYUJUU4hKso6mTK1tFWl1OFPIg+D2BiAvXdyAy4z+gk/K1NvpYxh9D1A==}
     engines: {node: '>=0.12.18'}
 
   sirv@3.0.2:
@@ -1936,8 +1936,8 @@ packages:
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0
 
-  tailwind-merge@3.3.1:
-    resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
+  tailwind-merge@3.4.0:
+    resolution: {integrity: sha512-uSaO4gnW+b3Y2aWoWfFpX62vn2sR3skfhbjsEnaBI81WD1wBLlHZe5sWf0AqjksNdYTbGBEd0UasQMT3SNV15g==}
 
   tailwindcss@4.1.17:
     resolution: {integrity: sha512-j9Ee2YjuQqYT9bbRTfTZht9W/ytp5H+jJpZKiYdP/bpnXARAuELt9ofP0lPnmHjbga7SNQIxdTAXCmtKVYjN+Q==}
@@ -2434,7 +2434,7 @@ snapshots:
       mode-watcher: 1.1.0(svelte@5.43.5)
       shiki: 3.15.0
       svelte: 5.43.5
-      tailwind-merge: 3.3.1
+      tailwind-merge: 3.4.0
       tailwindcss: 4.1.17
       zod: 4.1.12
 
@@ -3712,7 +3712,7 @@ snapshots:
       '@shikijs/vscode-textmate': 10.0.2
       '@types/hast': 3.0.4
 
-  simple-icons@15.19.0: {}
+  simple-icons@15.20.0: {}
 
   sirv@3.0.2:
     dependencies:
@@ -3800,7 +3800,7 @@ snapshots:
     dependencies:
       svelte: 5.43.5
 
-  tailwind-merge@3.3.1: {}
+  tailwind-merge@3.4.0: {}
 
   tailwindcss@4.1.17: {}
 
