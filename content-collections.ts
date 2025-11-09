@@ -81,30 +81,26 @@ const posts = defineCollection({
 			: undefined;
 
 		// Resolve last modified date.
-		const lastmodDate = await cache(postMeta._meta.filePath, async (filePath) => {
-			const path = `src/routes/posts/${filePath}`;
+		const filePath = `src/routes/posts/${postMeta._meta.filePath}`;
 
-			// Read preliminary lastmod date from cache.
-			let date: string | undefined = lastmodDates[path];
-			if (!date) {
-				date = new Date().toISOString(); // Current date as fallback.
+		// Step 1: try to read lastmod date from `lastmod.json`. This may be outdated.
+		let lastmodDate: string | undefined = lastmodDates[filePath];
+		if (!lastmodDate) {
+			lastmodDate = new Date().toISOString(); // Current date as fallback.
+		}
+
+		// Step 2: Try to obtain the precise lastmod date from the Git history of the current branch.
+		try {
+			const { stdout } = await execAsync(`git log -1 --format=%ai -- "${filePath}"`);
+			if (stdout) {
+				lastmodDate = new Date(stdout.trim()).toISOString();
+				lastmodDates[filePath] = lastmodDate;
+				writeLastmodDates();
 			}
-
-			// Try to obtain the lastmod date from the Git history.
-			try {
-				const { stdout } = await execAsync(`git log -1 --format=%ai -- "${path}"`);
-				if (stdout) {
-					date = new Date(stdout.trim()).toISOString();
-					lastmodDates[path] = date;
-					writeLastmodDates();
-				}
-			} catch {
-				// Silently fail when there is no Git history, e.g. on Railway.
-				// In this case, the cached date or the current date will be used.
-			}
-
-			return date;
-		});
+		} catch {
+			// Silently fail when there is no Git history, e.g. on Railway.
+			// In this case, the date from `lastmod.json` or the current date will be used.
+		}
 
 		// Generate and cache OG image URL.
 		const ogImageUrl: string = await cache(postMeta.title, async () => {
