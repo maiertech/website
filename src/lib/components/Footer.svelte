@@ -1,7 +1,7 @@
 <script lang="ts">
 	import navLinks from '$lib/nav-links';
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
-	import { siBluesky, siGithub, siMastodon, siRss } from 'simple-icons';
+	import { siBluesky, siGithub, siRss } from 'simple-icons';
 </script>
 
 <div
@@ -24,16 +24,6 @@
 			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
 				<path d={siBluesky.path} />
 				<title>{siBluesky.title}</title>
-			</svg>
-		</SocialIcon>
-		<SocialIcon
-			href="https://mastodon.nl/@thilo"
-			decorator="mastodon"
-			ariaLabel="Follow me on Mastodon"
-		>
-			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
-				<path d={siMastodon.path} />
-				<title>{siMastodon.title}</title>
 			</svg>
 		</SocialIcon>
 		<SocialIcon href="https://github.com/maiertech" ariaLabel="Follow me on GitHub">
