@@ -2,6 +2,12 @@
 	import navLinks from '$lib/nav-links';
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
 	import { siBluesky, siGithub, siRss } from 'simple-icons';
+	import { getCommitHash } from '$lib/data.remote';
+
+	const commitHash = $derived(await getCommitHash());
+
+	// Short commit hash (first 7 characters).
+	const shortCommitHash = $derived(commitHash.slice(0, 7));
 </script>
 
 <div
@@ -33,5 +39,14 @@
 			</svg>
 		</SocialIcon>
 	</div>
+	<p>
+		<a
+			href="https://github.com/maiertech/website/commit/{commitHash}"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			{shortCommitHash}
+		</a>
+	</p>
 	<p>&copy; {new Date().getFullYear()} Thilo Maier</p>
 </div>
