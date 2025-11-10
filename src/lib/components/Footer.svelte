@@ -39,7 +39,7 @@
 	{#if hash}
 		<p>
 			<a
-				href="https://github.com/maiertech/website/commit/{hash}"
+				href="https://github.com/maiertech/website/tree/{hash}"
 				target="_blank"
 				rel="noopener noreferrer"
 			>
