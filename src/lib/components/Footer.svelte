@@ -1,13 +1,15 @@
 <script lang="ts">
+	import { getCommitHash } from '$lib/data.remote';
 	import navLinks from '$lib/nav-links';
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
 	import { siBluesky, siGithub, siRss } from 'simple-icons';
-	import { getCommitHash } from '$lib/data.remote';
+	import { onMount } from 'svelte';
 
-	const commitHash = $derived(await getCommitHash());
+	let hash = $state('');
 
-	// Short commit hash (first 7 characters).
-	const shortCommitHash = $derived(commitHash.slice(0, 7));
+	onMount(async () => {
+		hash = await getCommitHash();
+	});
 </script>
 
 <div
@@ -39,14 +41,16 @@
 			</svg>
 		</SocialIcon>
 	</div>
-	<p>
-		<a
-			href="https://github.com/maiertech/website/commit/{commitHash}"
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			{shortCommitHash}
-		</a>
-	</p>
+	{#if hash}
+		<p>
+			<a
+				href="https://github.com/maiertech/website/commit/{hash}"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{hash.slice(0, 7)}
+			</a>
+		</p>
+	{/if}
 	<p>&copy; {new Date().getFullYear()} Thilo Maier</p>
 </div>
