@@ -1,6 +1,6 @@
 import { query } from '$app/server';
-import { GIT_COMMIT_SHA } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 export const getCommitHash = query(async () => {
-	return GIT_COMMIT_SHA;
+	return env.GIT_COMMIT_SHA;
 });
