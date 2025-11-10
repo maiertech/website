@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { getCommitHash } from '$lib/data.remote';
 	import navLinks from '$lib/nav-links';
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
 	import { siBluesky, siGithub, siRss } from 'simple-icons';
+
+	const hash = $derived(await getCommitHash());
 </script>
 
 <div
@@ -33,5 +36,16 @@
 			</svg>
 		</SocialIcon>
 	</div>
+	{#if hash}
+		<p>
+			<a
+				href="https://github.com/maiertech/website/tree/{hash}"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{hash.slice(0, 7)}
+			</a>
+		</p>
+	{/if}
 	<p>&copy; {new Date().getFullYear()} Thilo Maier</p>
 </div>

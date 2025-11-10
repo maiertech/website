@@ -9,6 +9,7 @@ on:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   ORIGIN: ${{ vars.ORIGIN }}
+  RAILWAY_GIT_COMMIT_SHA: ${{ vars.RAILWAY_GIT_COMMIT_SHA }}
   VIRALCARDS_API_KEY: ${{ secrets.VIRALCARDS_API_KEY }}
 
 jobs:
