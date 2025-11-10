@@ -1,6 +1,6 @@
-import { query } from '$app/server';
-import { env } from '$env/dynamic/private';
+import { prerender } from '$app/server';
+import { RAILWAY_GIT_COMMIT_SHA } from '$env/static/private';
 
-export const getCommitHash = query(async () => {
-	return env.RAILWAY_GIT_COMMIT_SHA;
+export const getCommitHash = prerender(async () => {
+	return RAILWAY_GIT_COMMIT_SHA;
 });

@@ -3,13 +3,8 @@
 	import navLinks from '$lib/nav-links';
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
 	import { siBluesky, siGithub, siRss } from 'simple-icons';
-	import { onMount } from 'svelte';
 
-	let hash = $state('');
-
-	onMount(async () => {
-		hash = await getCommitHash();
-	});
+	const hash = $derived(await getCommitHash());
 </script>
 
 <div
