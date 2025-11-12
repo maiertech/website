@@ -1,7 +1,7 @@
 ---
 title: Managing environment variables with Vercel
 author: thilo
-publishedDate: '2025-08-10'
+publishedDate: 2025-08-10
 description:
   How to manage environment variables in Vercel for any project and environment, and easily sync
   them to your local .env file.
