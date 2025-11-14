@@ -7,7 +7,7 @@
 
 	import '../app.css';
 
-	let { children }: LayoutProps = $props();
+	let { children, data }: LayoutProps = $props();
 </script>
 
 {#if page.data.seo}
@@ -49,6 +49,6 @@
 	</Container>
 
 	{#snippet footer()}
-		<Footer></Footer>
+		<Footer commitHash={data.commitHash}></Footer>
 	{/snippet}
 </PageLayout>

@@ -55,13 +55,5 @@ export default {
 		alias: {
 			'content-collections': './.content-collections/generated'
 		}
-		// experimental: {
-		// 	remoteFunctions: true
-		// }
 	}
-	// compilerOptions: {
-	// 	experimental: {
-	// 		async: true
-	// 	}
-	// }
 };
