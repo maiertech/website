@@ -54,14 +54,14 @@ export default {
 		adapter: adapter(),
 		alias: {
 			'content-collections': './.content-collections/generated'
+		},
+		experimental: {
+			remoteFunctions: true
 		}
-		// experimental: {
-		// 	remoteFunctions: true
-		// }
+	},
+	compilerOptions: {
+		experimental: {
+			async: true
+		}
 	}
-	// compilerOptions: {
-	// 	experimental: {
-	// 		async: true
-	// 	}
-	// }
 };
