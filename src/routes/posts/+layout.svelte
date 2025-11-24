@@ -4,7 +4,6 @@
 		ContentLayout,
 		PostHeader,
 		SeoCanonicalUrl,
-		SeoFediverseCreator,
 		SeoLdPost
 	} from '@maiertech/sveltekit-helpers';
 	import type { LayoutProps } from './$types';
@@ -16,7 +15,6 @@
 </script>
 
 <SeoLdPost value={post} />
-<SeoFediverseCreator username="@thilo@mastodon.nl" />
 <SeoCanonicalUrl origin={data.origin} />
 
 <ContentLayout>
