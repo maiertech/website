@@ -1,4 +1,4 @@
-import type { NoteMeta, ResolvedPost } from '@maiertech/sveltekit-helpers';
+import type { NoteMeta, Post } from '@maiertech/sveltekit-helpers';
 
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
@@ -8,7 +8,7 @@ declare global {
 		// interface Locals {}
 		interface PageData {
 			note?: NoteMeta;
-			post?: ResolvedPost;
+			post?: Post;
 			seo?: {
 				title: string;
 				description: string;
