@@ -5,7 +5,7 @@ import {
 	getOgImageUrl,
 	noteMetaSchema,
 	postMetaSchema,
-	tagSchema
+	tagMetaSchema
 } from '@maiertech/sveltekit-helpers';
 import { exec } from 'child_process';
 import { config } from 'dotenv';
@@ -54,7 +54,7 @@ const tags = defineCollection({
 	directory: 'src/lib/server/data/tags',
 	include: '*.json',
 	parser: 'json',
-	schema: tagSchema
+	schema: tagMetaSchema
 });
 
 const posts = defineCollection({

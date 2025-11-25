@@ -1,5 +1,4 @@
 <script lang="ts">
-	import navLinks from '$lib/nav-links';
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
 	import { siBluesky, siGithub, siRss } from 'simple-icons';
 
@@ -8,6 +7,11 @@
 	}
 
 	const { commitHash }: Props = $props();
+
+	const links = [
+		{ text: 'Posts', href: '/posts' },
+		{ text: 'Notes', href: '/notes' }
+	];
 </script>
 
 <div
@@ -15,8 +19,8 @@
 	class="flex flex-col items-center gap-6 bg-surface-muted py-[clamp(1.5rem,3vw,2rem)]"
 >
 	<nav aria-label="Footer" class="flex flex-wrap justify-center gap-[clamp(1rem,2vw,1.5rem)]">
-		{#each navLinks as link (link.title)}
-			<a href={link.href}>{link.title}</a>
+		{#each links as link (link.text)}
+			<a href={link.href}>{link.text}</a>
 		{/each}
 	</nav>
 	<div class="flex gap-5">
