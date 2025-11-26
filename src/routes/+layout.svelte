@@ -38,13 +38,13 @@
 	/>
 </svelte:head>
 
-<div class="flex min-h-screen flex-col gap-8 sm:gap-10 lg:gap-12">
+<div class="isolate flex min-h-screen flex-col gap-8 sm:gap-10 lg:gap-12">
 	<SiteHeader
 		links={[
 			{ text: 'Posts', href: '/posts' },
 			{ text: 'Notes', href: '/notes' }
 		]}
-		class="shrink-0"
+		class="z-10 shrink-0"
 	>
 		{#snippet logo()}
 			<div class="flex items-center gap-3 py-2 text-primary">
