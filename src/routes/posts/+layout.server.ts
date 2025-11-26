@@ -1,11 +1,16 @@
-import type { LayoutServerLoad } from './$types';
 import { ORIGIN } from '$env/static/private';
 import { all as posts } from '$lib/server/collections/posts';
+import { error } from '@sveltejs/kit';
+import type { LayoutServerLoad } from './$types';
 
 export const prerender = true;
 
 export const load: LayoutServerLoad = async ({ url }) => {
 	const post = posts.find((post) => post.path === url.pathname);
+
+	if (!post) {
+		error(404, 'Post not found.');
+	}
 
 	return {
 		origin: ORIGIN,

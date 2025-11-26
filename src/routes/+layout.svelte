@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { Favicon, Footer, Header } from '$lib/components';
-	import { Container, PageLayout, SeoBasic, SeoOgImage } from '@maiertech/sveltekit-helpers';
+	import { Favicon, Footer } from '$lib/components';
+	import { Container, SeoBasic, SeoOgImage, SiteHeader } from '@maiertech/sveltekit-helpers';
 	import { ModeWatcher } from 'mode-watcher';
 	import type { LayoutProps } from './$types';
+	import src from '$lib/assets/thilo.jpg?enhanced';
 
 	import '../app.css';
 
@@ -37,18 +38,25 @@
 	/>
 </svelte:head>
 
-<PageLayout>
-	{#snippet header()}
-		<Container width="lg">
-			<Header></Header>
-		</Container>
-	{/snippet}
+<div class="flex min-h-screen flex-col gap-8 sm:gap-10 lg:gap-12">
+	<SiteHeader
+		links={[
+			{ text: 'Posts', href: '/posts' },
+			{ text: 'Notes', href: '/notes' }
+		]}
+		class="shrink-0"
+	>
+		{#snippet logo()}
+			<div class="flex items-center gap-3 py-2 text-primary">
+				<enhanced:img {src} alt="Thilo's avatar." class="size-8 rounded-full" />
+				<div class="text-2xl font-bold">Thilo Maier</div>
+			</div>
+		{/snippet}
+	</SiteHeader>
 
-	<Container width="lg">
+	<Container width="lg" class="flex-1">
 		{@render children()}
 	</Container>
 
-	{#snippet footer()}
-		<Footer commitHash={data.commitHash}></Footer>
-	{/snippet}
-</PageLayout>
+	<Footer commitHash={data.commitHash}></Footer>
+</div>
