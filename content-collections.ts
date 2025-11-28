@@ -17,7 +17,7 @@ const execAsync = promisify(exec);
 
 // Load last modified dates for posts.
 let lastmodDates: Record<string, string> = {};
-const filepath = resolve(process.cwd(), 'src/lib/server/data/posts/lastmod.json');
+const filepath = resolve(process.cwd(), 'src/lib/server/collections/posts/lastmod.json');
 
 try {
 	const raw = readFileSync(filepath, 'utf-8');
@@ -43,7 +43,7 @@ config();
 
 const authors = defineCollection({
 	name: 'authors',
-	directory: 'src/lib/server/data/authors',
+	directory: 'src/lib/server/collections/authors',
 	include: '*.json',
 	parser: 'json',
 	schema: avatarMetaSchema
@@ -51,7 +51,7 @@ const authors = defineCollection({
 
 const tags = defineCollection({
 	name: 'tags',
-	directory: 'src/lib/server/data/tags',
+	directory: 'src/lib/server/collections/tags',
 	include: '*.json',
 	parser: 'json',
 	schema: tagMetaSchema
