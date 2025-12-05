@@ -16,7 +16,7 @@ const execAsync = promisify(exec);
 
 // Load last modified dates for posts.
 let lastmodDates: Record<string, string> = {};
-const filepath = resolve(process.cwd(), 'src/lib/server/collections/posts/lastmod.json');
+const filepath = resolve(process.cwd(), 'src/collections/posts/lastmod.json');
 
 try {
 	const raw = readFileSync(filepath, 'utf-8');
@@ -61,20 +61,20 @@ export const collection = defineCollection({
 			: undefined;
 
 		// Resolve last modified date.
-		const filePath = `src/routes/posts/${postMeta._meta.filePath}`;
+		const filepath = `src/routes/posts/${postMeta._meta.filePath}`;
 
 		// Step 1: try to read lastmod date from `lastmod.json`. This may be outdated.
-		let lastmodDate: string | undefined = lastmodDates[filePath];
+		let lastmodDate: string | undefined = lastmodDates[filepath];
 		if (!lastmodDate) {
 			lastmodDate = new Date().toISOString(); // Current date as fallback.
 		}
 
 		// Step 2: Try to obtain the precise lastmod date from the Git history of the current branch.
 		try {
-			const { stdout } = await execAsync(`git log -1 --format=%ai -- "${filePath}"`);
+			const { stdout } = await execAsync(`git log -1 --format=%ai -- "${filepath}"`);
 			if (stdout) {
 				lastmodDate = new Date(stdout.trim()).toISOString();
-				lastmodDates[filePath] = lastmodDate;
+				lastmodDates[filepath] = lastmodDate;
 				writeLastmodDates();
 			}
 		} catch {
