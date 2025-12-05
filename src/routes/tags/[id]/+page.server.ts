@@ -1,5 +1,5 @@
-import { all as posts } from '$lib/server/collections/posts';
-import { all as tags } from '$lib/server/collections/tags';
+import { sorted as posts } from '$lib/server/collections/posts.js';
+import { sorted as tags } from '$lib/server/collections/tags.js';
 import { filterByTag } from '$lib/utils';
 import type { TagMeta } from '@maiertech/sveltekit-helpers';
 import { resolve } from '@maiertech/sveltekit-helpers';

@@ -2,17 +2,17 @@ import { allPosts } from 'content-collections';
 import { ORIGIN } from '$env/static/private';
 import { escapeXml } from '$lib/utils';
 
-export const all = allPosts.toSorted((a, b) => {
+export const sorted = allPosts.toSorted((a, b) => {
 	return b.publishedDate.localeCompare(a.publishedDate);
 });
 
-export const latest = all.slice(0, 15);
+export const latest = sorted.slice(0, 15);
 
-export const posts2025 = all.filter((post) => post.publishedDate.startsWith('2025'));
-export const posts2024 = all.filter((post) => post.publishedDate.startsWith('2024'));
-export const posts2023 = all.filter((post) => post.publishedDate.startsWith('2023'));
-export const posts2022 = all.filter((post) => post.publishedDate.startsWith('2022'));
-export const posts2021 = all.filter((post) => post.publishedDate.startsWith('2021'));
+export const posts2025 = sorted.filter((post) => post.publishedDate.startsWith('2025'));
+export const posts2024 = sorted.filter((post) => post.publishedDate.startsWith('2024'));
+export const posts2023 = sorted.filter((post) => post.publishedDate.startsWith('2023'));
+export const posts2022 = sorted.filter((post) => post.publishedDate.startsWith('2022'));
+export const posts2021 = sorted.filter((post) => post.publishedDate.startsWith('2021'));
 
 export const rss = latest.map((post) => ({
 	title: post.title,

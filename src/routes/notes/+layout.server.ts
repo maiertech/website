@@ -1,5 +1,5 @@
 import { ORIGIN } from '$env/static/private';
-import { all as notes } from '$lib/server/collections/notes';
+import { sorted as notes } from '$lib/server/collections/notes.js';
 import { error } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 

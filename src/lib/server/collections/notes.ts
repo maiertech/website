@@ -2,13 +2,13 @@ import { ORIGIN } from '$env/static/private';
 import { escapeXml } from '$lib/utils';
 import { allNotes } from 'content-collections';
 
-export const all = allNotes.toSorted((a, b) => {
+export const sorted = allNotes.toSorted((a, b) => {
 	return b.publishedDate.localeCompare(a.publishedDate);
 });
 
-export const latest = all.slice(0, 15);
+export const latest = sorted.slice(0, 15);
 
-export const notes2025 = all.filter((note) => note.publishedDate.startsWith('2025'));
+export const notes2025 = sorted.filter((note) => note.publishedDate.startsWith('2025'));
 
 export const rss = latest.map((note) => ({
 	title: note.title,

@@ -1,5 +1,5 @@
 import { ORIGIN } from '$env/static/private';
-import { all as posts } from '$lib/server/collections/posts';
+import { sorted as posts } from '$lib/server/collections/posts.js';
 import { error } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 

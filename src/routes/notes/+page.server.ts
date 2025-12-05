@@ -1,4 +1,4 @@
-import { all as notes } from '$lib/server/collections/notes';
+import { sorted as notes } from '$lib/server/collections/notes.js';
 import type { PageServerLoad } from './$types';
 
 export const prerender = true;
