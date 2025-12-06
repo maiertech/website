@@ -1,5 +1,5 @@
 import { allAuthors } from 'content-collections';
 
-export const all = allAuthors.toSorted((a, b) => {
+export const sorted = allAuthors.toSorted((a, b) => {
 	return a.name.localeCompare(b.name);
 });

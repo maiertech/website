@@ -1,5 +1,5 @@
 import { ORIGIN } from '$env/static/private';
-import { all as posts } from '$lib/server/collections/posts';
+import { sorted as posts } from '$lib/server/collections/posts.js';
 import { error } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 
@@ -15,8 +15,10 @@ export const load: LayoutServerLoad = async ({ url }) => {
 	return {
 		origin: ORIGIN,
 		post,
-		seo: post
-			? { title: post.title, description: post.description, ogImageUrl: post.ogImageUrl }
-			: undefined
+		seo: {
+			title: post.title,
+			description: post.description,
+			ogImageUrl: post.ogImageUrl
+		}
 	};
 };

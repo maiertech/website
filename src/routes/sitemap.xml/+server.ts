@@ -1,6 +1,6 @@
 import { ORIGIN } from '$env/static/private';
-import { all as notes } from '$lib/server/collections/notes';
-import { all as posts } from '$lib/server/collections/posts';
+import { sorted as notes } from '$lib/server/collections/notes.js';
+import { sorted as posts } from '$lib/server/collections/posts.js';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
