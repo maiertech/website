@@ -15,8 +15,10 @@ export const load: LayoutServerLoad = async ({ url }) => {
 	return {
 		origin: ORIGIN,
 		note,
-		seo: note
-			? { title: note.title, description: note.description, ogImageUrl: note.ogImageUrl }
-			: undefined
+		seo: {
+			title: note.title,
+			description: note.description,
+			ogImageUrl: note.ogImageUrl
+		}
 	};
 };
