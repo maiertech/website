@@ -1,16 +1,25 @@
 <script lang="ts">
-	import { Ul } from '@maiertech/sveltekit-helpers';
+	import { H1, LinkPreview, type LinkMeta } from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
+
+	const links = $derived.by(() =>
+		data.notes.map((note) => ({
+			href: note.path,
+			text: note.title,
+			description: note.description,
+			ogImageUrl: note.ogImageUrl
+		}))
+	);
 </script>
 
-<h1 class="mb-[clamp(1rem,2vw,1.5rem)] text-4xl font-bold">{data.seo.title}</h1>
+<H1>{data.seo.title}</H1>
 
-<Ul>
-	{#each data.notes as note (note.path)}
-		<li>
-			<a href={note.path}>{note.title}</a>
-		</li>
-	{/each}
-</Ul>
+<div class="@container">
+	<div class="grid grid-cols-1 gap-4 @lg:grid-cols-2 @4xl:grid-cols-3">
+		{#each links as link (link.href)}
+			<LinkPreview value={link} />
+		{/each}
+	</div>
+</div>
