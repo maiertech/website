@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { H1, LinkPreview, type LinkMeta } from '@maiertech/sveltekit-helpers';
+	import { H1, LinkPreview } from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
