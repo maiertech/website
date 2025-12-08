@@ -1,16 +1,25 @@
 <script lang="ts">
-	import { Ul } from '@maiertech/sveltekit-helpers';
+	import { H1, LinkPreview, type LinkMeta } from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
+
+	const links = $derived.by(() =>
+		data.posts.map((post) => ({
+			href: post.path,
+			text: post.title,
+			description: post.description,
+			ogImageUrl: post.ogImageUrl
+		}))
+	);
 </script>
 
-<h1 class="mb-[clamp(1rem,2vw,1.5rem)] text-4xl font-bold">{data.seo.title}</h1>
+<H1>{data.seo.title}</H1>
 
-<Ul>
-	{#each data.posts as post (post.path)}
-		<li>
-			<a href={post.path}>{post.title}</a>
-		</li>
-	{/each}
-</Ul>
+<div class="@container">
+	<div class="grid grid-cols-1 gap-5 @lg:grid-cols-2 @4xl:grid-cols-3">
+		{#each links as link (link.href)}
+			<LinkPreview value={link} />
+		{/each}
+	</div>
+</div>
