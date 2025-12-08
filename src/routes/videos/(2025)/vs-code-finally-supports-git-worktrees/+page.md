@@ -70,8 +70,8 @@ hope that they will add this soon.
 
 If you really need this feature, there are many extensions out there. I can recommend the Git
 Worktree Menu extension. It's basically obsolete now with the VS Code support of Git worktrees. But
-it does have that feature that allows you to automatically copy certain files into your work tree.
-So if that's important to you, have a look at this extension. So now let's get started with Git
+it does have that feature that allows you to automatically copy certain files into your worktree. So
+if that's important to you, have a look at this extension. So now let's get started with Git
 worktrees in VS Code.
 
 ### From GitHub issue to Git worktree
@@ -141,7 +141,7 @@ And we can see in the commit graph that our commit got merged into main. And now
 worktree, and we can dispose of it. So remember, we're still inside our Git worktree which was in a
 separate directory. We click on it, worktrees, and we say delete worktree.
 
-But we cannot delete the work tree that we're currently in. So we need to switch back to the main
+But we cannot delete the worktree that we're currently in. So we need to switch back to the main
 repository. Let's open the folder. And as mentioned before, VS Code organizes the worktrees in a
 sub-directory `website.worktrees`. So `website` was just the name of the repository, and then a
 `.worktrees`. So we need to go up one level. We choose the original main repository.
@@ -161,7 +161,7 @@ bit confusing, because it shows us the main branch, which is a normal cloned Git
 it shows us all the active worktrees that we have. And also here it shows the consolidated changes.
 So this doesn't mean that there are any changes in the main branch. The changes are actually in
 other worktrees. So if this view is confusing to you, there is a setting that we can use. And this
-setting is called `git.detectWorktrees`. It's By default, it's set to `true`. We can set it to
+setting is called `git.detectWorktrees`. It's by default, it's set to `true`. We can set it to
 `false`. We need to reload VS Code for this setting to take effect. It's scanning the repositories
 And then we have the normal view. Now we only see the main branch here, and it's a little less
 confusing.
