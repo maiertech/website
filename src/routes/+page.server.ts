@@ -11,8 +11,8 @@ export const load: PageServerLoad = async function () {
 			description:
 				"Hi, I'm Thilo. I am a Software Engineer based in The Netherlands. I build web apps with SvelteKit and Svelte and help people take control of their digital identity."
 		},
-		notes: notes.slice(0, 6),
-		posts: posts.slice(0, 5),
+		posts: posts.slice(0, 6),
+		notes: notes.slice(0, 9),
 		topics: [
 			{
 				label: 'Svelte',
