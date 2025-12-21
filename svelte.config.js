@@ -8,7 +8,6 @@ import { createHighlighter } from 'shiki';
 // Get the directory name of the current file.
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-/** @type {import('shiki').Highlighter | null} */
 const highlighter = await createHighlighter({
 	themes: ['min-light', 'min-dark'],
 	langs: [
@@ -27,7 +26,7 @@ const highlighter = await createHighlighter({
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
-	extensions: ['.md', '.svx'],
+	extensions: ['.md'],
 	layout: {
 		// Default layout with custom components used when rendering Markdown.
 		// As of mdsvex v0.12.6, the layout paths must be absolute
