@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      svelte-kit-bot-block:
+        specifier: ^0.0.7
+        version: 0.0.7
     devDependencies:
       '@content-collections/core':
         specifier: ^0.14.2
@@ -2027,6 +2031,9 @@ packages:
       svelte:
         optional: true
 
+  svelte-kit-bot-block@0.0.7:
+    resolution: {integrity: sha512-zFIBNMpzQcnPri+0vTTJQevMLcF55nq4/GENGSoQES2n8qDhY44R+Xg+AO38LzGUHrJ2NaRh1peGQzgcDP29Eg==}
+
   svelte-parse-markup@0.1.5:
     resolution: {integrity: sha512-T6mqZrySltPCDwfKXWQ6zehipVLk4GWfH1zCMGgRtLlOIFPuw58ZxVYxVvotMJgJaurKi1i14viB2GIRKXeJTQ==}
     peerDependencies:
@@ -2918,7 +2925,7 @@ snapshots:
 
   '@types/mdast@4.0.4':
     dependencies:
-      '@types/unist': 2.0.11
+      '@types/unist': 3.0.3
 
   '@types/node@25.5.0':
     dependencies:
@@ -3866,6 +3873,8 @@ snapshots:
       semver: 7.7.4
     optionalDependencies:
       svelte: 5.53.12
+
+  svelte-kit-bot-block@0.0.7: {}
 
   svelte-parse-markup@0.1.5(svelte@5.53.12):
     dependencies:
