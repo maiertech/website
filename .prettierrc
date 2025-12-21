@@ -12,14 +12,6 @@
 			"options": {
 				"parser": "svelte"
 			}
-		},
-		{
-			"files": "*.svx",
-			"options": {
-				"parser": "markdown",
-				"proseWrap": "always",
-				"printWidth": 100
-			}
 		}
 	]
 }

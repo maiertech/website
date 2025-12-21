@@ -6,8 +6,7 @@
 	},
 
 	"files.associations": {
-		"*.css": "tailwindcss",
-		"*.svx": "markdown"
+		"*.css": "tailwindcss"
 	},
 
 	"git-worktree-menu.worktreeDir": "/Users/thilo/Projects/maiertech",
