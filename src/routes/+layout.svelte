@@ -41,8 +41,8 @@
 <div class="isolate flex min-h-screen flex-col gap-8 sm:gap-10 lg:gap-12">
 	<SiteHeader
 		links={[
-			{ text: 'Posts', href: '/posts' },
-			{ text: 'Notes', href: '/notes' }
+			{ title: 'Posts', href: '/posts' },
+			{ title: 'Notes', href: '/notes' }
 		]}
 		class="z-10 shrink-0"
 	>
