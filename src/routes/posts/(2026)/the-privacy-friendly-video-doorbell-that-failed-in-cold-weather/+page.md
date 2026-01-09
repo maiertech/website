@@ -64,10 +64,10 @@ But the mailman approaching my front door will at one point appear large enough 
 But this approach is very unreliable. My son's playdate was small enough to evade detection until
 they rang the doorbell.
 
-Another quirk was that whenever someone left the house, the doorbell would not trigger. I literally
-managed to take the above picture of the doorbell without triggering an alert. This made me wonder
-whether person detection is based on an object getting larger. If you leave the house, you never get
-bigger in the camera view, only smaller. But I'm just guessing here.
+Another quirk was that whenever someone left the house, event detection would not trigger. I
+literally managed to take the above picture of the doorbell without triggering an alert. This made
+me wonder whether person detection is based on an object getting larger. If you leave the house, you
+never get larger in the camera view, only smaller. But I'm just guessing here.
 
 Then winter came and with temperatures below +5°C, the doorbell started behaving erratically. The
 battery stopped charging and started draining quickly despite being wired up to the doorbell
