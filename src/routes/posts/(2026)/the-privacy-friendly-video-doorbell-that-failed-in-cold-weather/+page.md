@@ -1,7 +1,7 @@
 ---
 title: The privacy-friendly video doorbell that failed in cold weather
 author: thilo
-publishedDate: 2026-01-10
+publishedDate: 2026-01-09
 description:
   A Reolink video doorbell promised to be privacy-friendly, but failed in cold weather with poor
   event detection and severe battery drain.
