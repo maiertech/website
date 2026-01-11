@@ -53,6 +53,15 @@ export default {
 		adapter: adapter(),
 		alias: {
 			'content-collections': './.content-collections/generated'
+		},
+		prerender: {
+			handleHttpError: ({ status, message }) => {
+				// Suppress 404 errors for posts with `published: fallse` during prerendering.
+				if (status === 404) {
+					return;
+				}
+				throw new Error(message);
+			}
 		}
 	}
 };
