@@ -7,14 +7,13 @@
 	const links = $derived.by(() =>
 		data.posts.map((post) => ({
 			href: post.path,
-			text: post.title,
-			description: post.description,
-			ogImageUrl: post.ogImageUrl
+			title: post.title,
+			description: post.description
 		}))
 	);
 </script>
 
-<H1>{data.seo.title}</H1>
+<H1 class="mb-8">{data.seo.title}</H1>
 
 <div class="@container">
 	<div class="grid grid-cols-1 gap-5 @lg:grid-cols-2 @4xl:grid-cols-3">
