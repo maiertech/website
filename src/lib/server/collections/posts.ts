@@ -2,9 +2,11 @@ import { allPosts } from 'content-collections';
 import { ORIGIN } from '$env/static/private';
 import { escapeXml } from '$lib/utils';
 
-export const sorted = allPosts.toSorted((a, b) => {
-	return b.publishedDate.localeCompare(a.publishedDate);
-});
+export const sorted = allPosts
+	.filter((post) => post.published !== false) // Quick way to unpublish a post.
+	.toSorted((a, b) => {
+		return b.publishedDate.localeCompare(a.publishedDate);
+	});
 
 export const latest = sorted.slice(0, 15);
 
