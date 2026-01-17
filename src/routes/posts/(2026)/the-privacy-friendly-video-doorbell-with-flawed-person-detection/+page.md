@@ -54,10 +54,10 @@ As an alternative, you can enable or disable detection based on object size. For
 walking on the sidewalk across the street will appear small in the camera view and can be ignored.
 But the mailman approaching my front door will at one point appear large enough to trigger an alert.
 But this approach is unreliable. The local newspaper deliverer consistently managed to put a paper
-in our mailbox without being detected. Another quirk was that whenever someone left the house,
-event detection failed as well. I literally managed to take the above photo of the doorbell
-without triggering an alert. Maybe person detection is based on an object with a face getting
-larger. If you leave the house, the camera only sees your back. But I'm just guessing here.
+in our mailbox without being detected. Another quirk was that whenever someone left the house, event
+detection failed as well. I literally managed to take the above photo of the doorbell without
+triggering an alert. Maybe person detection is based on an object with a face getting larger. If you
+leave the house, the camera only sees your back. But I'm just guessing here.
 
 The last nail in the doorbell's coffin was customer support. You get the usual remove it, reset it
 and re-install it. Which of course does not fix a flawed product. The moment I asked for a return
