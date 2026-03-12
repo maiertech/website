@@ -15,7 +15,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@content-collections/core": "^0.13.1",
+		"@content-collections/core": "^0.14.2",
 		"@content-collections/vite": "^0.2.9",
 		"@eslint/compat": "^2.0.3",
 		"@eslint/js": "^9.39.4",
@@ -26,7 +26,7 @@
 		"@playwright/test": "^1.58.2",
 		"@stackblitz/sdk": "^1.11.0",
 		"@sveltejs/adapter-node": "^5.5.4",
-		"@sveltejs/enhanced-img": "^0.9.3",
+		"@sveltejs/enhanced-img": "^0.10.3",
 		"@sveltejs/kit": "^2.53.4",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"@tailwindcss/vite": "^4.2.1",

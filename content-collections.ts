@@ -6,5 +6,5 @@ import { collection as tags } from './src/collections/tags/index.js';
 import { collection as videos } from './src/collections/videos/index.js';
 
 export default defineConfig({
-	collections: [authors, notes, posts, tags, videos]
+	content: [authors, notes, posts, tags, videos]
 });
