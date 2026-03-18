@@ -9,7 +9,7 @@ export const load: PageServerLoad = async function () {
 		seo: {
 			title: 'Thilo Maier',
 			description:
-				"Hi, I'm Thilo. I am a Software Engineer based in The Netherlands. I build web apps with SvelteKit and Svelte and help people take control of their digital identity."
+				"Hi, I'm Thilo, a web developer based in Rotterdam. I write about Svelte, web development, and the web platform."
 		},
 		posts: posts.slice(0, 6),
 		notes: notes.slice(0, 9),
