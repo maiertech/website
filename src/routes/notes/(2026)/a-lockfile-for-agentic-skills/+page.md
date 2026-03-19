@@ -1,6 +1,6 @@
 ---
 title: A lockfile for agentic skills
-description: TODO
+description: Learn how skills-lock.json turns agentic skills into managed project dependencies.
 publishedDate: 2026-03-19
 link: https://github.com/vercel-labs/skills
 ---
