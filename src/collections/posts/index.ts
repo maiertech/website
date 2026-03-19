@@ -87,7 +87,8 @@ async function createOgImageUrl(
 
 	if (!response.ok) {
 		// 1 attempt to generate an OG image link. If it fails, no retry.
-		return undefined;
+		// Return '' instead of `undefined` to not break serialization when result is cached.
+		return '';
 	}
 
 	const url = await response.text();
@@ -162,7 +163,7 @@ export const collection = defineCollection({
 			author,
 			tags: resolvedTags,
 			lastmodDate,
-			ogImageUrl
+			ogImageUrl: ogImageUrl || undefined // Convert '' to `undefined`.
 		};
 	}
 });
