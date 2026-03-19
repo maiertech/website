@@ -1,6 +1,5 @@
 import { defineCollection } from '@content-collections/core';
-import type { VcImageMeta } from '@maiertech/sveltekit-helpers';
-import { getOgImageUrl, postMetaSchema } from '@maiertech/sveltekit-helpers';
+import { postMetaSchema } from '@maiertech/sveltekit-helpers';
 import { execSync } from 'child_process';
 import { config } from 'dotenv';
 import { readFileSync, writeFileSync } from 'fs';
@@ -72,15 +71,27 @@ async function createOgImageUrl(
 		return ogImageUrl;
 	}
 
-	const ogImageMeta: VcImageMeta = {
+	const imageMeta = {
 		...OG_IMAGE_META,
 		title
-	} as unknown as VcImageMeta;
+	};
 
-	return await getOgImageUrl({
-		meta: ogImageMeta,
-		apiKey: process.env.VIRALCARDS_API_KEY!
+	const response = await fetch('https://create.viral.cards/api/v1/satori', {
+		method: 'POST',
+		headers: {
+			'X-API-Key': process.env.VIRALCARDS_API_KEY!,
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(imageMeta)
 	});
+
+	if (!response.ok) {
+		// 1 attempt to generate an OG image link. If it fails, no retry.
+		return undefined;
+	}
+
+	const url = await response.text();
+	return url;
 }
 
 /**
