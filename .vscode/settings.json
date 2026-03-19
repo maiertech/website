@@ -1,4 +1,8 @@
 {
+	"chat.agentSkillsLocations": {
+		"node_modules/@maiertech/sveltekit-helpers/.agents/skills": true
+	},
+
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[svelte]": {
@@ -9,7 +13,9 @@
 		"*.css": "tailwindcss"
 	},
 
-	"git-worktree-menu.worktreeDir": "/Users/thilo/Projects/maiertech",
+	"json.schemaDownload.trustedDomains": {
+		"https://railway.com/railway.schema.json": true
+	},
 
 	"svelte.enable-ts-plugin": true
 }
