@@ -30,8 +30,8 @@ importers:
         specifier: ^0.577.0
         version: 0.577.0(svelte@5.54.1)
       '@maiertech/sveltekit-helpers':
-        specifier: ^0.47.1
-        version: 0.47.1(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.54.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.54.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.54.1)(tailwindcss@4.2.2)(zod@4.3.6)
+        specifier: ^0.47.2
+        version: 0.47.2(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.54.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.54.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.54.1)(tailwindcss@4.2.2)(zod@4.3.6)
       '@playwright/test':
         specifier: ^1.58.2
         version: 1.58.2
@@ -706,8 +706,8 @@ packages:
     peerDependencies:
       svelte: ^5
 
-  '@maiertech/sveltekit-helpers@0.47.1':
-    resolution: {integrity: sha512-PJi+pINr7w0ZTqJzbp8t9jv4t7L0Pmm6fgkB2SS/v4JV3FHfjMiOGdThUwwEeVkfTwiIaf2FKkJp2txUhMsYeA==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.47.1/9ffc5c94fd4a99d0b60332af475af3f219cd16c3}
+  '@maiertech/sveltekit-helpers@0.47.2':
+    resolution: {integrity: sha512-1jGkYqILmVfpsZjljqxDJfyrwKD1BI7vZ1v0zkkX+RVT5eJkv0Gmc81IXvCQopdyMDBMCFWW9y2HOQrvvB/+ZQ==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.47.2/4f1d3b80f91a61c70a14296b91921ca7ba60f5f9}
     peerDependencies:
       '@sveltejs/kit': ^2.49.0
       svelte: ^5.45.3
@@ -2613,7 +2613,7 @@ snapshots:
     dependencies:
       svelte: 5.54.1
 
-  '@maiertech/sveltekit-helpers@0.47.1(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.54.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.54.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.54.1)(tailwindcss@4.2.2)(zod@4.3.6)':
+  '@maiertech/sveltekit-helpers@0.47.2(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.54.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.54.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.54.1)(tailwindcss@4.2.2)(zod@4.3.6)':
     dependencies:
       '@sveltejs/kit': 2.55.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.54.1)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.54.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3))
       shiki: 3.23.0
