@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { NotePreview, H2, PostPreview } from '@maiertech/sveltekit-helpers';
+	import { NotePreview, PostPreview, VideoPreview } from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -11,22 +11,32 @@
 	<p>{data.seo.description}</p>
 </section>
 
-<H2>Posts</H2>
+<div class="flex flex-wrap gap-8">
+	<!-- not-sidebar -->
+	<div class="@container grow-999 min-inline-3/5">
+		<div class="mb-8 flex flex-wrap gap-8">
+			<!-- Latest video (not-sidebar) -->
+			<div class="grow-999 min-inline-3/5">
+				<VideoPreview value={data.videos[0]} />
+			</div>
+			<div class="grow basis-3xs">
+				<VideoPreview value={data.videos[1]} class="h-full" />
+			</div>
+		</div>
 
-<section class="@container mb-12">
-	<div class="grid grid-cols-1 gap-6 @xl:grid-cols-2">
-		{#each data.posts as post (post.path)}
-			<PostPreview value={post} level={3} />
-		{/each}
+		<div class="grid grid-cols-1 gap-6 @xl:grid-cols-2">
+			{#each data.posts as post (post.path)}
+				<PostPreview value={post} level={3} />
+			{/each}
+		</div>
 	</div>
-</section>
 
-<H2>Notes</H2>
-
-<section class="@container mb-12">
-	<div class="grid grid-cols-1 gap-6 @lg:grid-cols-2 @4xl:grid-cols-3">
-		{#each data.notes as note (note.path)}
-			<NotePreview value={note} level={3} />
-		{/each}
+	<!-- sidebar -->
+	<div class="@container grow basis-2xs">
+		<div class="grid grid-cols-1 gap-6 @lg:grid-cols-2 @4xl:grid-cols-3">
+			{#each data.notes as note (note.path)}
+				<NotePreview value={note} level={3} />
+			{/each}
+		</div>
 	</div>
-</section>
+</div>
