@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { SocialIcon } from '@maiertech/sveltekit-helpers';
-	import { siBluesky, siGithub, siRss } from 'simple-icons';
+	import { siBluesky, siGithub, siRss, siYoutube } from 'simple-icons';
 
 	interface Props {
 		commitHash?: string;
@@ -41,6 +41,15 @@
 			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
 				<path d={siGithub.path} />
 				<title>{siGithub.title}</title>
+			</svg>
+		</SocialIcon>
+		<SocialIcon
+			href="https://www.youtube.com/@maiertech"
+			ariaLabel="Subscribe to my YouTube channel"
+		>
+			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
+				<path d={siYoutube.path} />
+				<title>{siYoutube.title}</title>
 			</svg>
 		</SocialIcon>
 	</div>
