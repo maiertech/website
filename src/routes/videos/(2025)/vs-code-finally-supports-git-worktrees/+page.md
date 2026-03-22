@@ -4,6 +4,7 @@ title: VS Code finally supports Git Worktrees
 description:
   'Discover Git worktrees in VS Code: work on multiple branches simultaneously without stashing,
   create clean workspaces, and boost your productivity.'
+aspectRatio: '16 / 9'
 publishedDate: 2025-12-05
 ---
 
