@@ -7,9 +7,7 @@
 
 <h1 class="sr-only">Thilo Maier</h1>
 
-<section class="mb-12 max-w-[45ch] text-xl lg:text-2xl">
-	<p>{data.seo.description}</p>
-</section>
+<p class="mb-12 max-w-[45ch] text-xl lg:text-2xl">{data.seo.description}</p>
 
 <div class="flex flex-wrap gap-8">
 	<!-- not-sidebar -->
