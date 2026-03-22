@@ -1,6 +1,7 @@
-import type { LayoutServerLoad } from './$types';
+import { ORIGIN } from '$env/static/private';
 import { sorted as videos } from '$lib/server/collections/videos.js';
 import { error } from '@sveltejs/kit';
+import type { LayoutServerLoad } from './$types';
 
 export const prerender = true;
 
@@ -12,6 +13,7 @@ export const load: LayoutServerLoad = async ({ url }) => {
 	}
 
 	return {
+		origin: ORIGIN,
 		video,
 		seo: {
 			title: video.title,
