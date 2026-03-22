@@ -42,7 +42,8 @@
 	<SiteHeader
 		links={[
 			{ title: 'Posts', href: '/posts' },
-			{ title: 'Notes', href: '/notes' }
+			{ title: 'Notes', href: '/notes' },
+			{ title: 'Videos', href: '/videos' }
 		]}
 		class="z-10 shrink-0"
 	>

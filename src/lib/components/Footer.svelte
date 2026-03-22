@@ -10,7 +10,8 @@
 
 	const links = [
 		{ text: 'Posts', href: '/posts' },
-		{ text: 'Notes', href: '/notes' }
+		{ text: 'Notes', href: '/notes' },
+		{ text: 'Videos', href: '/videos' }
 	];
 </script>
 
