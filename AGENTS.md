@@ -16,8 +16,7 @@ This is a content-driven website with three types of content:
 - Zod (for schemas and validation).
 - TailwindCSS v4 and `tailwind-merge`.
 - Mdsvex for authoring posts and notes.
-- Private package `@maiertech/sveltekit-helpers` to import reusable components, Zod schemas and
-  TypeScript types.
+- Private package `@maiertech/sveltekit-helpers` for reusable components, Zod schemas and types.
 - PNPM as package manager.
 - Deployment to Railway with zero config deployments.
 
@@ -36,3 +35,8 @@ This is a content-driven website with three types of content:
 - Use active voice and present tense.
 - Write in a conversational but professional tone.
 - Do not use "–" (en dash).
+
+## Checks
+
+Before you create or update a pull request, run `pnpm lint` and `pnpm check`. You can try fixing
+formatting errors with `pnpm format`.
