@@ -5,8 +5,8 @@ publishedDate: 2026-03-19
 link: https://github.com/vercel-labs/skills
 ---
 
-I recently started exploring [agent skills](https://agentskills.io/home). A skill is a Markdown
-file with some metadata that describes a task or best practice, e.g. how to use SvelteKit's new
+I recently started exploring [agent skills](https://agentskills.io/home). A skill is a Markdown file
+with some metadata that describes a task or best practice, e.g. how to use SvelteKit's new
 [remote functions](https://svelte.dev/docs/kit/remote-functions). The nice thing about skills is
 that they can be shared and reused.
 
@@ -23,5 +23,5 @@ skill updates with `npx skills check`.
 
 There are still some rough edges, e.g. `npx skills remove` does not update the lockfile.
 
-But beyond the teething problems it's fascinating to see that agent skills are evolving into
-managed project dependencies.
+But beyond the teething problems it's fascinating to see that agent skills are evolving into managed
+project dependencies.
