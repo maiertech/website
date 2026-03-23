@@ -1,3 +1,4 @@
+import { redirect } from '@sveltejs/kit';
 import type { Handle } from '@sveltejs/kit';
 
 // Permanent redirects for renamed routes.
@@ -9,7 +10,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// Handle permanent redirects.
 	const redirectTarget = redirects[event.url.pathname];
 	if (redirectTarget) {
-		return new Response(null, { status: 301, headers: { Location: redirectTarget } });
+		redirect(301, redirectTarget);
 	}
 
 	// Preload web fonts.
