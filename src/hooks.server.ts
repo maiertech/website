@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { Handle } from '@sveltejs/kit';
 
-// Permanent redirects for renamed routes.
+// Permanent redirects.
 const redirects: Record<string, string> = {
 	'/notes/a-lockfile-for-agentic-skills': '/notes/a-lockfile-for-agent-skills'
 };
