@@ -36,6 +36,12 @@
 		title="Thilo Maier (notes)"
 		href="/notes/rss.xml"
 	/>
+	<link
+		rel="alternate"
+		type="application/rss+xml"
+		title="Thilo Maier (videos)"
+		href="/videos/rss.xml"
+	/>
 </svelte:head>
 
 <div class="isolate flex min-h-screen flex-col gap-8 sm:gap-10 lg:gap-12">

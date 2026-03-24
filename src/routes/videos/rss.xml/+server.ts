@@ -1,39 +1,32 @@
 import { ORIGIN } from '$env/static/private';
-import { rss as noteRssItems } from '$lib/server/collections/notes';
-import { rss as postRssItems } from '$lib/server/collections/posts';
-import { rss as videoRssItems } from '$lib/server/collections/videos';
+import { rss as rssItems } from '$lib/server/collections/videos';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const prerender = true;
 
 export const GET: RequestHandler = async () => {
-	const rssItems = [...postRssItems, ...noteRssItems, ...videoRssItems]
-		.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
-		.slice(0, 15);
-
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>Thilo Maier</title>
-    <description>RSS feed for Thilo Maier's posts, notes, and videos.</description>
+    <title>Thilo Maier (videos)</title>
+    <description>RSS feed for Thilo Maier's videos.</description>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <link>${ORIGIN}/rss.xml</link>
-    <atom:link href="${ORIGIN}/rss.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>${ORIGIN}/videos/rss.xml</link>
+    <atom:link href="${ORIGIN}/videos/rss.xml" rel="self" type="application/rss+xml"></atom:link>
     ${rssItems
-			.map(
-				(item) => `
+		.map(
+			(item) => `
       <item>
         <title>${item.title}</title>
         <description>${item.description}</description>
         <link>${item.link}</link>
-        <category>${item.category}</category>
         <pubDate>${item.pubDate}</pubDate>
         ${item.enclosure ? `<enclosure url="${item.enclosure.url}" length="${item.enclosure.length}" type="${item.enclosure.type}"></enclosure>` : ''}
         <guid>${item.link}</guid>
       </item>
     `
-			)
-			.join('')}
+		)
+		.join('')}
   </channel>
 </rss>`;
 
