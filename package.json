@@ -15,7 +15,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@content-collections/core": "^0.14.2",
+		"@content-collections/core": "^0.14.3",
 		"@content-collections/vite": "^0.2.9",
 		"@eslint/compat": "^2.0.3",
 		"@eslint/js": "^9.39.4",
@@ -44,7 +44,7 @@
 		"prettier-plugin-tailwindcss": "^0.7.2",
 		"shiki": "^3.23.0",
 		"simple-icons": "^16.13.0",
-		"svelte": "^5.54.1",
+		"svelte": "^5.55.0",
 		"svelte-check": "^4.4.5",
 		"sveltekit-embed": "^0.0.22",
 		"tailwind-merge": "^3.5.0",
