@@ -1,8 +1,4 @@
 {
-	"chat.agentSkillsLocations": {
-		"node_modules/@maiertech/sveltekit-helpers/.agents/skills": true
-	},
-
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[svelte]": {
