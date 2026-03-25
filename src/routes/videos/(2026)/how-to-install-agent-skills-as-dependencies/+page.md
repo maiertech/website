@@ -1,7 +1,9 @@
 ---
 id: YdULRvgNODg
 title: How to install agent skills as dependencies
-description: TODO
+description:
+  Learn how to install agent skills as project dependencies in VS Code with GitHub Copilot and
+  Skills.sh.
 aspectRatio: '16 / 9'
 publishedDate: 2026-03-30
 tags:
