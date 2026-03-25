@@ -17,6 +17,8 @@ everything in between. I look at developer experience, scaling, pricing, and loc
 European hosting has come a long way, but is it ready for your web application? Let's find out
 together in this deep dive into the state of European 🇪🇺 hosting.
 
+#WebHosting #DigitalSovereignty #DockerHosting #BigTech
+
 ## Links
 
 - Links to European hosting providers (in the order they were mentioned):
