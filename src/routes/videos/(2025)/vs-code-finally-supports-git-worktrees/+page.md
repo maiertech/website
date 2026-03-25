@@ -2,26 +2,23 @@
 id: x1mjUh6-azc
 title: VS Code finally supports Git Worktrees
 description:
-  'Discover Git worktrees in VS Code: work on multiple branches simultaneously without stashing,
-  create clean workspaces, and boost your productivity.'
+  'Learn how to use Git worktrees in VS Code to switch branches faster, avoid stashing, and manage
+  multiple issues in parallel.'
 aspectRatio: '16 / 9'
 publishedDate: 2025-12-05
 ---
 
-Ever been stuck switching between branches when you need to work on multiple issues? Git worktrees
-solves this problem perfectly!
+Git worktrees just got a lot easier in VS Code, and this video shows you exactly how to use them.
 
-## What you will learn
+If you ever lose time switching branches, stashing changes, or juggling multiple issues at once, Git
+worktrees can make your workflow much smoother. In this tutorial, I show how to create a worktree in
+VS Code, what it looks like on disk, why each worktree behaves like a separate workspace, and how to
+clean it up once your branch is merged.
 
-✅ Create #Git worktrees in #VSCode to work on multiple branches without stashing.
+If you work on multiple GitHub issues, want to avoid constant branch switching, or just want a
+cleaner way to stay productive, this video is worth your time.
 
-✅ Understand how #Worktrees link to your repo's Git history without cloning.
-
-✅ Set up separate #Workspaces with independent dependencies for each issue.
-
-✅ Create pull requests from worktrees and clean them up after merging.
-
-✅ Boost your #Productivity by working on multiple #GitHub issues in parallel.
+#GitWorktrees #Git #VSCode #DeveloperExperience #Agents
 
 ## Links
 
