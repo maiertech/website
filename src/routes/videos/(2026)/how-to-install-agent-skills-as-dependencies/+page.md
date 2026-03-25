@@ -6,12 +6,6 @@ description:
   Skills.sh.
 aspectRatio: '16 / 9'
 publishedDate: 2026-03-30
-tags:
-  - agent skills
-  - GitHub Copilot
-  - VS Code
-  - AI coding assistant
-  - AI agents
 ---
 
 In this video, I explain what agent skills are, how they work, and why they matter for AI-assisted
@@ -21,6 +15,8 @@ and how to discover and install skills through the [Skills.sh](https://skills.sh
 I also walk through a practical example in VS Code with GitHub Copilot: installing the official
 Svelte skills, reviewing the security audits, understanding the `skills-lock.json` file, and using
 `npx skills` commands. If you want to make your coding agent more capable, this video is for you.
+
+#AgentSkills #GitHubCopilot #VSCode #Agents #CodingAssistant
 
 ## Links
 
