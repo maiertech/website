@@ -5,7 +5,7 @@ description:
   Is European hosting ready for your web app in 2026? I compare 7 options for solo devs and small
   teams, from bare VPS to PaaS, and pick a winner.
 aspectRatio: '16 / 9'
-publishedDate: 2026-03-16
+publishedDate: 2026-03-13
 ---
 
 Europe is pushing back against its dependence on US Big Tech. But how realistic is it to actually
