@@ -5,7 +5,7 @@ description:
   'Learn how to use Git worktrees in VS Code to switch branches faster, avoid stashing, and manage
   multiple issues in parallel.'
 aspectRatio: '16 / 9'
-publishedDate: 2025-12-05
+publishedDate: 2025-09-19
 ---
 
 Git worktrees just got a lot easier in VS Code, and this video shows you exactly how to use them.
