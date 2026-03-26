@@ -6,8 +6,9 @@ export const sorted = allNotes.toSorted((a, b) => {
 	return b.publishedDate.localeCompare(a.publishedDate);
 });
 
-export const latest = sorted.slice(0, 15);
+export const latest = sorted.slice(0, 10);
 
+export const notes2026 = sorted.filter((note) => note.publishedDate.startsWith('2026'));
 export const notes2025 = sorted.filter((note) => note.publishedDate.startsWith('2025'));
 
 export const rss = latest.map((note) => ({
