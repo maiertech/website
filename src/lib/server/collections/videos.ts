@@ -21,7 +21,7 @@ export const rss = latest.map((video) => ({
 		? {
 				// Replace `&` in URLs with `&amp;` to ensure valid XML.
 				url: escapeXml(video.thumbnailUrl),
-				type: 'image/png',
+				type: 'image/jpeg',
 				length: 0 // We don't know the size of the image.
 			}
 		: undefined
