@@ -14,8 +14,8 @@ export const GET: RequestHandler = async () => {
     <link>${ORIGIN}/videos/rss.xml</link>
     <atom:link href="${ORIGIN}/videos/rss.xml" rel="self" type="application/rss+xml"></atom:link>
     ${rssItems
-		.map(
-			(item) => `
+			.map(
+				(item) => `
       <item>
         <title>${item.title}</title>
         <description>${item.description}</description>
@@ -25,8 +25,8 @@ export const GET: RequestHandler = async () => {
         <guid>${item.link}</guid>
       </item>
     `
-		)
-		.join('')}
+			)
+			.join('')}
   </channel>
 </rss>`;
 

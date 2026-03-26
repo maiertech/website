@@ -8,8 +8,9 @@ export const sorted = allPosts
 		return b.publishedDate.localeCompare(a.publishedDate);
 	});
 
-export const latest = sorted.slice(0, 15);
+export const latest = sorted.slice(0, 10);
 
+export const posts2026 = sorted.filter((post) => post.publishedDate.startsWith('2026'));
 export const posts2025 = sorted.filter((post) => post.publishedDate.startsWith('2025'));
 export const posts2024 = sorted.filter((post) => post.publishedDate.startsWith('2024'));
 export const posts2023 = sorted.filter((post) => post.publishedDate.startsWith('2023'));
