@@ -13,14 +13,14 @@ features or APIs. For instance, they can't access `$env` or `$lib` and they can'
 resources such as an image URL generated with SvelteKit.
 
 Content Collections are defined in `content-collections.ts` in the project root. To avoid that this
-file turns into a monolith, I moved collection definitions to `src/collections` folder. Each
-collection is defined in a subfolder. The definition includes transformations. But the files that
+file becomes a monolith, I moved the collection definitions to the `src/collections` folder. Each
+collection is defined in a subfolder. The definition includes transformations, but the files that
 make up a collection can be outside this folder. Some collections are defined by Markdown files in
 subfolders of `src/routes`.
 
 To make it easier to access collections from within SvelteKit, they can be accessed through
 `$lib/server/collections`. For instance, collections may depend on the filesystem order of files,
-which is not determinsitic. Collections in `$lib/server/collections` mostly add sorting by a
+which is not deterministic. Collections in `$lib/server/collections` mostly add sorting by a
 specific field.
 
 ## YouTube thumbnails and OG images
@@ -30,6 +30,6 @@ cannot be generated at build time with SvelteKit. If you use a service to genera
 either put the generated URLs into the frontmatter or dynamically generate URLs during a collection
 transformation.
 
-Co-locating a thumbnail or OG image with a page Markdown file is not a great option. Because when
-you import the image into the page (which generates a path), you would need to write it to the page
-head right then and there. And you would need to repeat this for every single page.
+Co-locating a thumbnail or OG image with a page Markdown file is not a great option. When you
+import the image into the page, which generates a path, you would need to write it to the page head
+right then and there. You would also need to repeat this for every single page.
