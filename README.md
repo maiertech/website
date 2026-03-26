@@ -30,6 +30,6 @@ cannot be generated at build time with SvelteKit. If you use a service to genera
 either put the generated URLs into the frontmatter or dynamically generate URLs during a collection
 transformation.
 
-Co-locating a thumbnail or OG image with a page Markdown file is not a great option. When you
-import the image into the page, which generates a path, you would need to write it to the page head
-right then and there. You would also need to repeat this for every single page.
+Co-locating a thumbnail or OG image with a page Markdown file is not a great option. When you import
+the image into the page, which generates a path, you would need to write it to the page head right
+then and there. You would also need to repeat this for every single page.
