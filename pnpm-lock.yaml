@@ -27,11 +27,11 @@ importers:
         specifier: ^5.2.8
         version: 5.2.8
       '@lucide/svelte':
-        specifier: ^0.577.0
-        version: 0.577.0(svelte@5.55.0)
+        specifier: ^1.7.0
+        version: 1.7.0(svelte@5.55.0)
       '@maiertech/sveltekit-helpers':
-        specifier: ^0.47.2
-        version: 0.47.2(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.55.0)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.55.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.55.0)(tailwindcss@4.2.2)(zod@4.3.6)
+        specifier: ^0.48.0
+        version: 0.48.0(@lucide/svelte@1.7.0(svelte@5.55.0))(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.55.0)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.55.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.55.0)(tailwindcss@4.2.2)(zod@4.3.6)
       '@playwright/test':
         specifier: ^1.58.2
         version: 1.58.2
@@ -701,18 +701,19 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@lucide/svelte@0.577.0':
-    resolution: {integrity: sha512-0P6mkySd2MapIEgq08tADPmcN4DHndC/02PWwaLkOerXlx5Sv9aT4BxyXLIY+eccr0g/nEyCYiJesqS61YdBZQ==}
+  '@lucide/svelte@1.7.0':
+    resolution: {integrity: sha512-YytBKOUBGox7yWcykZnYxOkn5WpR5G1qYXLYXV/j1B79SOTTEKzB+s5yF5Rq9l9OkweDStNH2b4yTqfvhEhV8g==}
     peerDependencies:
       svelte: ^5
 
-  '@maiertech/sveltekit-helpers@0.47.2':
-    resolution: {integrity: sha512-1jGkYqILmVfpsZjljqxDJfyrwKD1BI7vZ1v0zkkX+RVT5eJkv0Gmc81IXvCQopdyMDBMCFWW9y2HOQrvvB/+ZQ==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.47.2/4f1d3b80f91a61c70a14296b91921ca7ba60f5f9}
+  '@maiertech/sveltekit-helpers@0.48.0':
+    resolution: {integrity: sha512-ts6rM9uUJPYIcytn2NLr4elsuryC1S1vLMVSh4N8weseYV+ns0Xj389WrFNzGRPcvr/l0poZRufLa6QrgxAs+w==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.48.0/c1289d2a4af275f0c952be685a1a392c4db64152}
     peerDependencies:
-      '@sveltejs/kit': ^2.49.0
-      svelte: ^5.45.3
-      tailwindcss: ^4.1.17
-      zod: ^4.1.13
+      '@lucide/svelte': ^1.7.0
+      '@sveltejs/kit': ^2.55.0
+      svelte: ^5.55.0
+      tailwindcss: ^4.2.2
+      zod: ^4.3.6
 
   '@playwright/test@1.58.2':
     resolution: {integrity: sha512-akea+6bHYBBfA9uQqSYmlJXn61cTa+jbO87xVLCWbTqbWadRVmhxlXATaOjOgcBaWU4ePo0wB41KMFv3o35IXA==}
@@ -2609,12 +2610,13 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lucide/svelte@0.577.0(svelte@5.55.0)':
+  '@lucide/svelte@1.7.0(svelte@5.55.0)':
     dependencies:
       svelte: 5.55.0
 
-  '@maiertech/sveltekit-helpers@0.47.2(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.55.0)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.55.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.55.0)(tailwindcss@4.2.2)(zod@4.3.6)':
+  '@maiertech/sveltekit-helpers@0.48.0(@lucide/svelte@1.7.0(svelte@5.55.0))(@sveltejs/kit@2.55.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.55.0)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.55.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.55.0)(tailwindcss@4.2.2)(zod@4.3.6)':
     dependencies:
+      '@lucide/svelte': 1.7.0(svelte@5.55.0)
       '@sveltejs/kit': 2.55.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.55.0)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.55.0)(typescript@5.9.3)(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3))
       shiki: 3.23.0
       svelte: 5.55.0
