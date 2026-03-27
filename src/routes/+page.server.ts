@@ -13,7 +13,7 @@ export const load: PageServerLoad = async function () {
 				"Hi, I'm Thilo, a web developer based in Rotterdam. I write about Svelte, web development, and the web platform."
 		},
 		posts: posts.slice(0, 6),
-		notes: notes.slice(0, 7),
-		videos: videos.slice(0, 2)
+		notes: notes.slice(0, 8),
+		videos: videos.slice(0, 3)
 	};
 };
