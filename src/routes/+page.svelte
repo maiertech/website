@@ -7,7 +7,7 @@
 
 <h1 class="sr-only">Thilo Maier</h1>
 
-<p class="mb-10 text-2xl font-semibold lg:mb-12 lg:text-3xl">{data.seo.description}</p>
+<p class="mb-10 text-2xl font-semibold text-balance lg:mb-12 lg:text-3xl">{data.seo.description}</p>
 
 <div class="flex flex-wrap gap-6">
 	<div
