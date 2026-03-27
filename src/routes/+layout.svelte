@@ -61,7 +61,7 @@
 		{/snippet}
 	</SiteHeader>
 
-	<Container width="lg" class="flex-1">
+	<Container width="xl" class="flex-1">
 		{@render children()}
 	</Container>
 
