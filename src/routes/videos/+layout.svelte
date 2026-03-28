@@ -12,16 +12,14 @@
 
 <VideoPlayer value={data.video} class="mb-8" />
 
-<div class="mb-8 flex justify-end">
-	<Button href={`https://www.youtube.com/watch?v=${data.video.id}`}>
-		{#snippet icon()}
-			<svg class="block size-4" viewBox="0 0 24 24" fill="currentColor" role="img">
-				<path d={siYoutube.path} />
-				<title>{siYoutube.title}</title>
-			</svg>
-		{/snippet}
-		Watch on YouTube
-	</Button>
-</div>
+<Button href={`https://www.youtube.com/watch?v=${data.video.id}`} class="mb-8">
+	{#snippet icon()}
+		<svg class="block size-4" viewBox="0 0 24 24" fill="currentColor" role="img">
+			<path d={siYoutube.path} />
+			<title>{siYoutube.title}</title>
+		</svg>
+	{/snippet}
+	Watch on YouTube
+</Button>
 
 {@render children()}
