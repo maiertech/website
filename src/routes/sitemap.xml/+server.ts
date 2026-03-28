@@ -1,6 +1,7 @@
 import { ORIGIN } from '$env/static/private';
 import { sorted as notes } from '$lib/server/collections/notes.js';
 import { sorted as posts } from '$lib/server/collections/posts.js';
+import { sorted as videos } from '$lib/server/collections/videos.js';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
@@ -22,8 +23,16 @@ export const GET: RequestHandler = async () => {
 	</url>`
 	);
 
+	// Create sitemap entries for videos.
+	const videoEntries = videos.map(
+		(video) => `\t<url>
+		<loc>${ORIGIN}${video.path}</loc>
+		<lastmod>${video.publishedDate}</lastmod>
+	</url>`
+	);
+
 	// Add additional collections to this array.
-	const pages = [...postEntries, ...noteEntries];
+	const pages = [...postEntries, ...noteEntries, ...videoEntries];
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
