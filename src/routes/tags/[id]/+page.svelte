@@ -1,24 +1,11 @@
 <script lang="ts">
-	import { H1, LinkPreview } from '@maiertech/sveltekit-helpers';
+	import { PostList } from '$lib/components';
+	import { H1 } from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
-
-	const links = $derived.by(() =>
-		data.posts.map((post) => ({
-			href: post.path,
-			title: post.title,
-			description: post.description
-		}))
-	);
 </script>
 
 <H1 class="mb-8">{data.seo.title}</H1>
 
-<div class="@container">
-	<div class="grid grid-cols-1 gap-5 @lg:grid-cols-2 @4xl:grid-cols-3">
-		{#each links as link (link.href)}
-			<LinkPreview value={link} />
-		{/each}
-	</div>
-</div>
+<PostList values={data.posts} level={2} />
