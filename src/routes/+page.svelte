@@ -12,7 +12,7 @@
 <div class="flex flex-wrap gap-6">
 	<div
 		// Not-sidebar (outer): videos & posts.
-		class="@container grow-999 min-inline-3/5"
+		class="@container grow-999 basis-0 min-inline-3/5"
 	>
 		<div class="mb-8 flex flex-wrap gap-6">
 			<h2 class="sr-only">Videos</h2>
