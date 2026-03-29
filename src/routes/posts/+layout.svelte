@@ -16,8 +16,9 @@
 		class="grow-999 basis-0 min-inline-3/5"
 	>
 		<PostHeader value={data.post} class="mb-12" />
-
 		{@render children()}
+
+		<p aria-hidden="true" class="mt-8 text-center text-xl text-ink-muted">◆◆◆</p>
 	</div>
 
 	<aside class="flex grow basis-2xs flex-col gap-3">
