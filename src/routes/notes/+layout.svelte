@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { NoteHeader, SeoCanonicalUrl, VideoPreview } from '@maiertech/sveltekit-helpers';
-	import type { LayoutProps } from './$types';
+	import { VideoList } from '$lib/components';
 	import { Clock } from '@lucide/svelte';
+	import { NoteHeader, SeoCanonicalUrl } from '@maiertech/sveltekit-helpers';
+	import type { LayoutProps } from './$types';
 
 	let { data, children }: LayoutProps = $props();
 </script>
@@ -24,8 +25,6 @@
 			<Clock class="size-5" />
 			<span class="text-lg font-semibold">My latest videos</span>
 		</h2>
-		{#each data.recommendedVideos as video (video.id)}
-			<VideoPreview value={video} class="mb-4" showDescription={false} />
-		{/each}
+		<VideoList values={data.recommendedVideos} level={3} />
 	</aside>
 </div>

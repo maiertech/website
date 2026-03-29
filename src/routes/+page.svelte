@@ -20,6 +20,7 @@
 			<VideoPreview
 				// Not-sidebar (videos): latest video.
 				value={data.videos[0]}
+				level={3}
 				class="grow-999 min-inline-3/5"
 			/>
 
@@ -28,7 +29,7 @@
 				class="flex grow basis-3xs flex-wrap gap-6"
 			>
 				{#each data.videos.slice(1) as video (video.id)}
-					<VideoPreview value={video} showDescription={false} class="grow basis-80" />
+					<VideoPreview value={video} level={3} showDescription={false} class="grow basis-80" />
 				{/each}
 			</div>
 		</div>
