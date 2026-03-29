@@ -15,6 +15,8 @@
 	>
 		<NoteHeader value={data.note} class="mb-8" />
 		{@render children()}
+
+		<p aria-hidden="true" class="mt-8 text-center text-ink-muted">✦</p>
 	</div>
 
 	<aside class="flex grow basis-2xs flex-col gap-3">
