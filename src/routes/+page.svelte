@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { PostList } from '$lib/components';
-	import { NotePreview, VideoPreview } from '@maiertech/sveltekit-helpers';
+	import { NoteList, PostList } from '$lib/components';
+	import { VideoPreview } from '@maiertech/sveltekit-helpers';
 	import type { PageProps } from './$types';
+	import { Clock } from '@lucide/svelte';
 
 	let { data }: PageProps = $props();
 </script>
@@ -13,11 +14,14 @@
 <div class="flex flex-wrap gap-6">
 	<div
 		// Not-sidebar (outer): videos & posts.
-		class="@container grow-999 basis-0 min-inline-3/5"
+		class="grow-999 basis-0 min-inline-3/5"
 	>
-		<div class="mb-8 flex flex-wrap gap-6">
-			<h2 class="sr-only">Videos</h2>
+		<h2 class="mb-4 flex items-center gap-1 text-ink-muted">
+			<Clock class="size-5" />
+			<span class="text-lg font-semibold">Latest videos</span>
+		</h2>
 
+		<div class="mb-8 flex flex-wrap gap-6">
 			<VideoPreview
 				// Not-sidebar (videos): latest video.
 				value={data.videos[0]}
@@ -35,7 +39,10 @@
 			</div>
 		</div>
 
-		<h2 class="sr-only">Posts</h2>
+		<h2 class="mb-4 flex items-center gap-1 text-ink-muted">
+			<Clock class="size-5" />
+			<span class="text-lg font-semibold">Latest posts</span>
+		</h2>
 
 		<PostList values={data.posts} level={3} />
 	</div>
@@ -44,12 +51,11 @@
 		// Sidebar (outer): notes.
 		class="@container grow basis-2xs"
 	>
-		<h2 class="sr-only">Notes</h2>
+		<h2 class="mb-4 flex items-center gap-1 text-ink-muted">
+			<Clock class="size-5" />
+			<span class="text-lg font-semibold">Latest notes</span>
+		</h2>
 
-		<div class="grid h-full grid-cols-1 gap-6 @lg:grid-cols-2 @4xl:grid-cols-3">
-			{#each data.notes as note (note.path)}
-				<NotePreview value={note} level={3} />
-			{/each}
-		</div>
+		<NoteList values={data.notes} level={3} />
 	</div>
 </div>
