@@ -18,8 +18,6 @@
 		<PostHeader value={data.post} class="mb-12" />
 		{@render children()}
 
-		<p aria-hidden="true" class="mt-8 text-center text-lg text-ink-muted">◆ ◆ ◆</p>
-
 		<Pager prev={data.prev} next={data.next} class="mt-8" />
 	</div>
 
