@@ -17,19 +17,19 @@
 	>
 		{#if prev}
 			<div class="grow basis-2xs">
-				<a href={prev.path} class="flex items-start justify-start gap-1">
-					<ChevronLeft class="size-6 pt-1" />
-					<span class="text-xl font-semibold text-pretty max-inline-xs">{prev.title}</span>
+				<a href={prev.path} class="flex items-start justify-start">
+					<ChevronLeft class="size-6 flex-none pt-1" />
+					<span class="min-w-0 text-xl font-semibold text-pretty max-inline-xs">{prev.title}</span>
 				</a>
 			</div>
 		{/if}
 		{#if next}
 			<div class="grow basis-2xs">
-				<a href={next.path} class="flex items-start justify-end gap-1">
-					<span class="text-right text-xl font-semibold text-pretty max-inline-xs">
+				<a href={next.path} class="flex items-start justify-end">
+					<span class="min-w-0 text-right text-xl font-semibold text-pretty max-inline-xs">
 						{next.title}
 					</span>
-					<ChevronRight class="size-6 pt-1" />
+					<ChevronRight class="size-6 flex-none pt-1" />
 				</a>
 			</div>
 		{/if}
