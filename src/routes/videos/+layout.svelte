@@ -33,7 +33,7 @@
 	</div>
 
 	<aside class="flex grow basis-2xs flex-col gap-3">
-		<h2 class="flex items-center gap-1 text-ink-muted">
+		<h2 class="flex items-center gap-2 text-ink-muted">
 			<ListVideo class="size-5" />
 			<span class="text-lg font-semibold">More videos</span>
 		</h2>
