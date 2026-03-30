@@ -12,9 +12,12 @@ export const load: LayoutServerLoad = async ({ url }) => {
 		error(404, 'Video not found.');
 	}
 
+	const recommendedVideos = videos.filter((v) => v.path !== video.path).slice(0, 3);
+
 	return {
 		origin: ORIGIN,
 		video,
+		recommendedVideos,
 		seo: {
 			title: video.title,
 			description: video.description,

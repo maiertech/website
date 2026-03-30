@@ -16,7 +16,7 @@
 		// Not-sidebar (outer): videos & posts.
 		class="grow-999 basis-0 min-inline-3/5"
 	>
-		<h2 class="mb-4 flex items-center gap-1 text-ink-muted">
+		<h2 class="mb-4 flex items-center gap-2 text-ink-muted">
 			<Clock class="size-5" />
 			<span class="text-lg font-semibold">Latest videos</span>
 		</h2>
@@ -39,7 +39,7 @@
 			</div>
 		</div>
 
-		<h2 class="mb-4 flex items-center gap-1 text-ink-muted">
+		<h2 class="mb-4 flex items-center gap-2 text-ink-muted">
 			<Clock class="size-5" />
 			<span class="text-lg font-semibold">Latest posts</span>
 		</h2>
@@ -51,7 +51,7 @@
 		// Sidebar (outer): notes.
 		class="@container grow basis-2xs"
 	>
-		<h2 class="mb-4 flex items-center gap-1 text-ink-muted">
+		<h2 class="mb-4 flex items-center gap-2 text-ink-muted">
 			<Clock class="size-5" />
 			<span class="text-lg font-semibold">Latest notes</span>
 		</h2>
