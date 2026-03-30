@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { VideoList } from '$lib/components';
+	import { VideoList, Pager } from '$lib/components';
 	import { Clock } from '@lucide/svelte';
 	import { NoteHeader, SeoCanonicalUrl } from '@maiertech/sveltekit-helpers';
 	import type { LayoutProps } from './$types';
@@ -17,7 +17,7 @@
 		<NoteHeader value={data.note} class="mb-8" />
 		{@render children()}
 
-		<p aria-hidden="true" class="mt-8 text-center text-lg text-ink-muted">◆ ◆ ◆</p>
+		<Pager prev={data.prev} next={data.next} class="mt-8" />
 	</div>
 
 	<aside class="flex grow basis-2xs flex-col gap-3">
