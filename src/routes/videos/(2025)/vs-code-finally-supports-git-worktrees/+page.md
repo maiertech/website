@@ -6,6 +6,27 @@ description:
   multiple issues in parallel.'
 aspectRatio: '16 / 9'
 publishedDate: 2025-09-19
+timestamps:
+  - timestamp: '00:00'
+    label: 'What are Git worktrees?'
+  - timestamp: '01:11'
+    label: 'Limitations of native Git worktree support'
+  - timestamp: '02:01'
+    label: 'From GitHub issue to Git worktree'
+  - timestamp: '03:03'
+    label: 'What Git worktrees look like on the file system'
+  - timestamp: '04:31'
+    label: 'Git worktrees are separate workspaces'
+  - timestamp: '05:43'
+    label: 'Creating a pull request'
+  - timestamp: '06:24'
+    label: 'Deleting a Git worktree'
+  - timestamp: '08:04'
+    label: 'The git.detectWorktrees setting'
+  - timestamp: '09:08'
+    label: 'Pull your changes into the main branch'
+  - timestamp: '09:35'
+    label: 'Wrap up'
 ---
 
 Git worktrees just got a lot easier in VS Code, and this video shows you exactly how to use them.
@@ -23,23 +44,10 @@ cleaner way to stay productive, this video is worth your time.
 ## Links
 
 - [VS Code v1.103 release notes](https://code.visualstudio.com/updates/v1_103#_git-worktree-support)
+
 - [VS Code worktrees docs](https://code.visualstudio.com/docs/sourcecontrol/overview#_worktrees)
+
 - [Git Worktree Menu extension](https://marketplace.visualstudio.com/items?itemName=CodeInKlingon.git-worktree-menu)
-
-## Timestamps
-
-```
-00:00 What are Git worktrees?
-01:11 Limitations of native Git worktree support
-02:01 From GitHub issue to Git worktree
-03:03 What Git worktrees look like on the file system
-04:31 Git worktrees are separate workspaces
-05:43 Creating a pull request
-06:24 Deleting a Git worktree
-08:04 The git.detectWorktrees setting
-09:08 Pull your changes into the main branch
-09:35 Wrap up
-```
 
 ## Transcript
 
