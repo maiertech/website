@@ -6,6 +6,41 @@ description:
   teams, from bare VPS to PaaS, and pick a winner.
 aspectRatio: '16 / 9'
 publishedDate: 2026-03-13
+timestamps:
+  - timestamp: '00:00'
+    label: 'Introduction'
+  - timestamp: '01:15'
+    label: 'European alternatives for what exactly?'
+  - timestamp: '02:36'
+    label: 'Why do web developers love Vercel & Co.?'
+  - timestamp: '03:56'
+    label: 'European serverless functions'
+  - timestamp: '05:55'
+    label: 'Lock-in and Docker containers'
+  - timestamp: '07:02'
+    label: 'Reference: Railway'
+  - timestamp: '11:17'
+    label: 'Docker hosting at scale'
+  - timestamp: '13:01'
+    label: 'Focus on solo devs and small teams'
+  - timestamp: '13:33'
+    label: 'Option 1: VPS'
+  - timestamp: '15:06'
+    label: 'Option 2: VPS with Coolify'
+  - timestamp: '17:10'
+    label: 'Option 3: Sliplane'
+  - timestamp: '18:53'
+    label: 'Option 4: Upsun'
+  - timestamp: '20:19'
+    label: 'Option 5: Clever Cloud'
+  - timestamp: '22:08'
+    label: 'Option 6: Koyeb'
+  - timestamp: '25:36'
+    label: 'Option 7: Bunny'
+  - timestamp: '29:18'
+    label: 'Conclusions'
+  - timestamp: '32:28'
+    label: 'And the winner is...'
 ---
 
 Europe is pushing back against its dependence on US Big Tech. But how realistic is it to actually
@@ -32,28 +67,6 @@ together in this deep dive into the state of European 🇪🇺 hosting.
 
 - Links to other services (in the order they were mentioned): [Railway](https://railway.com/),
   [Coolify](https://coolify.io/), [Dokploy](https://dokploy.com/)
-
-## Timestamps
-
-```
-00:00 Introduction
-01:15 European alternatives for what exactly?
-02:36 Why do web developers love Vercel & Co.?
-03:56 European serverless functions
-05:55 Lock-in and Docker containers
-07:02 Reference: Railway
-11:17 Docker hosting at scale
-13:01 Focus on solo devs and small teams
-13:33 Option 1: VPS
-15:06 Option 2: VPS with Coolify
-17:10 Option 3: Sliplane
-18:53 Option 4: Upsun
-20:19 Option 5: Clever Cloud
-22:08 Option 6: Koyeb
-25:36 Option 7: Bunny
-29:18 Conclusions
-32:28 And the winner is...
-```
 
 ## Transcript
 

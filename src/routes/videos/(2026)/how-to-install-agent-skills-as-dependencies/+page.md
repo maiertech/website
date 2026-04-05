@@ -6,6 +6,31 @@ description:
   Skills.sh.
 aspectRatio: '16 / 9'
 publishedDate: 2026-03-30
+timestamps:
+  - timestamp: '00:00'
+    label: 'Introduction'
+  - timestamp: '00:23'
+    label: 'What are agent skills?'
+  - timestamp: '01:49'
+    label: 'Progressive disclosure'
+  - timestamp: '03:30'
+    label: 'SKILL.md'
+  - timestamp: '04:37'
+    label: 'Discovering skills'
+  - timestamp: '06:58'
+    label: 'npx skills'
+  - timestamp: '08:09'
+    label: 'Installing skills for GitHub Copilot'
+  - timestamp: '10:59'
+    label: 'Security risk assessment'
+  - timestamp: '13:54'
+    label: 'Skills with references'
+  - timestamp: '16:52'
+    label: 'What skills does the agent have?'
+  - timestamp: '18:21'
+    label: 'More npx skills commands'
+  - timestamp: '20:21'
+    label: 'Wrap-up'
 ---
 
 In this video, I explain what agent skills are, how they work, and why they matter for AI-assisted
@@ -21,28 +46,16 @@ Svelte skills, reviewing the security audits, understanding the `skills-lock.jso
 ## Links
 
 - [Agent Skills: What are skills?](https://agentskills.io/what-are-skills)
+
 - [Agent Skills: Specification](https://agentskills.io/specification)
+
 - [Skills.sh](https://skills.sh/)
+
 - [Official Svelte skills](https://skills.sh/sveltejs/ai-tools)
+
 - [skills NPM package (GitHub)](https://github.com/vercel-labs/skills)
+
 - [`npx skills` bug: Project-level check/update is broken](https://github.com/vercel-labs/skills/pull/565)
-
-## Timestamps
-
-```
-00:00 Introduction
-00:23 What are agent skills?
-01:49 Progressive disclosure
-03:30 SKILL.md
-04:37 Discovering skills
-06:58 npx skills
-08:09 Installing skills for GitHub Copilot
-10:59 Security risk assessment
-13:54 Skills with references
-16:52 What skills does the agent have?
-18:21 More npx skills commands
-20:21 Wrap-up
-```
 
 ## Transcript
 

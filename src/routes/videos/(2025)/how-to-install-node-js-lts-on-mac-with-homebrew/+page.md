@@ -6,6 +6,17 @@ description:
   aligned with your production deployment.
 aspectRatio: '16 / 9'
 publishedDate: 2025-09-30
+timestamps:
+  - timestamp: '00:00'
+    label: 'Introduction'
+  - timestamp: '00:28'
+    label: 'Installing Node.js with Homebrew'
+  - timestamp: '01:20'
+    label: 'Using Node’s download helper'
+  - timestamp: '02:23'
+    label: 'Installing the LTS version with Homebrew'
+  - timestamp: '03:19'
+    label: 'Uninstalling the LTS version with Homebrew'
 ---
 
 Learn how to install the Node.js LTS version on a Mac with Homebrew.
@@ -20,17 +31,8 @@ pinned Homebrew Node version cleanly.
 ## Links
 
 - [Homebrew](https://brew.sh/)
+
 - [Node.js download helper](https://nodejs.org/en/download)
-
-## Timestamps
-
-```
-00:00 Introduction
-00:28 Installing Node.js with Homebrew
-01:20 Using Node’s download helper
-02:23 Installing the LTS version with Homebrew
-03:19 Uninstalling the LTS version with Homebrew
-```
 
 ## Transcript
 
