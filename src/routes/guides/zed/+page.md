@@ -7,40 +7,68 @@ description: How to use Zed for agentic coding.
 
 | Shortcut | Description         |
 | :------- | :------------------ |
+| `⌘ O`    | Open project.       |
 | `⌘ B`    | Toggle left dock.   |
 | `⌘ R`    | Toggle right dock.  |
 | `⌘ ⇧ E`  | Show project panel. |
 | `⌘ ⇧ G`  | Show Git panel.     |
 | `⌘ ⇧ B`  | Show outline panel. |
-| `⌘ ?`    | Show agent panel.   |
-| `⌃ ⇧ R`  | Review changes.     |
-| `@`      | Add to context.     |
+
+## Sidebar
+
+| Shortcut | Description            |
+| :------- | :--------------------- |
+| `⌥ ⌘ J`  | Toggle sidebar.        |
+| `⇧ ⌘ A`  | Add folder to project. |
+
+You can open multiple independent projects in the sidebar. For each project, you can run multiple
+agents independently. You can also create a worktree for workspace isolation. However, the worktree
+is still considered part of the project.
+
+Therefore, you cannot open two worktrees of the same repository in the sidebar. But you can launch
+an agent on a specific worktree and another agent on a different worktree. When you switch between
+the agents, Zed switches between the worktrees. You can still work on two worktrees of the same
+repository by opening them in separate windows.
+
+You can also let the Zed agent work on two repositories at the same time. Add the main worktree of
+the first project, and then add the main worktree of the second one by adding a folder to the
+project. This creates a multi-root workspace. You can then create worktrees for all folders
+simultaneously. Multi-root workspaces for external agents are not supported.
+
+The sidebar is a step towards orchestration in Zed.
 
 ## Worktrees
 
-Workspace isolation is done with Git [worktrees](/guides/worktrees). You can manage worktrees with
-`git: worktree`. This works well except for the creation of new worktrees. Zed thinks that all
-worktrees it creates should be located in one central (but customizable) directory. And it does not
-support creating worktrees from existing branches.
+The new sidebar tries to make it easier to create and manage Git [worktrees](/guides/worktrees).
+Click the branch name at the top to create a new worktree without a branch. You can create the
+branch later.
 
-## Orchestration
+Zed keeps all worktrees in a configurable folder. However, it is opinionated about how worktrees are
+organized within that folder and does not delete leftover empty directories from deleted worktrees.
 
-Use one worktree per window. The UI is not designed to run multiple agents in parallel. You can do
-this with one window per agent, but there is no good way to manage all the running agents.
+## Agent panel
+
+| Shortcut | Description                      |
+| :------- | :------------------------------- |
+| `⌘ ?`    | Show agent panel (not a toggle). |
+| `⇧ ␛`    | Enlarge agent panel.             |
+| `@`      | Add to context.                  |
 
 ## Code reviews
 
-### Review files changed by agent
+### Review uncommitted changes
 
-You can look at uncommitted changes with `git: diff`. You can stage or restore changes one by one,
-but that is usually not what you want. When there are uncommitted changes made by an agent, you will
-see the **Review changes** button. Alternatively, you can use the keyboard shortcut to open this
-view. In this view, you can accept or reject the agent's changes one by one.
+You can look at uncommitted changes with `git: diff` and stage or restore them one by one.
 
-When you do this is up to you. You might do a few iterations with the agent without looking at the
-code and then review, or you might review changes in every iteration. You can also copy all the
-diffs and add them to your agent's context, or rather another agent's context, and let the agent do
-a code review.
+### Review uncommitted changes by an agent
+
+| Shortcut | Description     |
+| :------- | :-------------- |
+| `⌃ ⇧ R`  | Review changes. |
+
+When the Zed agent has uncommitted changes, you will see a **Review changes** button in the chat.
+This opens a view to accept or reject changes one by one. You can also open this view with the above
+shortcut. Unfortunately, this view is not supported for external agents.
 
 ### Pull request review
 
@@ -48,18 +76,19 @@ One downside of Zed is that it does not yet have anything that matches
 [GitHub's pull requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github).
 You have to find a different workflow to do pull requests.
 
-Since you can't create a worktree from the pull request branch in Zed, you need to create a worktree
-for the review manually. With `git: branch diff`, you can create a diff between the default branch
-on origin and the branch you are on. It is currently not possible to diff against another branch,
-for example when you stack pull requests.
+With `git: branch diff`, you can create a diff between the default branch and the branch you are on.
+It is not yet possible to diff against another branch. This can be an issue if the branch you want
+to merge into is not the default branch. In this case, you can point your local `HEAD` to another
+branch.
 
-You can create a diff and send it to your current agent for a first review.
+Another great feature of this view is that you can create a diff and send it to your current agent
+for a first round of code review.
 
-Two more useful features for exploring the pull request are the Git graph and the file history,
-which you can access for each file with a right-click.
+Two more useful features for exploring a pull request are the Git graph and the file history, which
+you can access for each file with a right-click.
 
-A big downside is that you cannot write line comments during a pull request review in Zed. You need
-to switch context to the Git provider's website.
+There is currently no way to write review comments in Zed. You need to switch back to your Git
+provider's website.
 
 ## Resolve merge conflicts
 
