@@ -47,6 +47,15 @@ const mdsvexOptions = {
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
+	compilerOptions: {
+		// Force runes mode for the project, except for libraries and .md files processed by mdsvex
+		// (which generate legacy $$props syntax). Can be removed in svelte 6.
+		runes: ({ filename }) => {
+			if (filename.split(/[/\\]/).includes('node_modules')) return undefined;
+			if (filename.endsWith('.md')) return undefined;
+			return true;
+		}
+	},
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 	extensions: ['.svelte', '.md'],
 	kit: {
@@ -56,7 +65,7 @@ export default {
 		},
 		prerender: {
 			handleHttpError: ({ status, message }) => {
-				// Suppress 404 errors for posts with `published: fallse` during prerendering.
+				// Suppress 404 errors for posts with `published: false` during prerendering.
 				if (status === 404) {
 					return;
 				}
