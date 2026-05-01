@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 
-	/** @type {'light' | 'dark'} */
-	let theme;
+	/** @type {'light' | 'dark' | undefined} */
+	let theme = $state();
 
 	const QUERY = '(prefers-color-scheme: dark)';
 
