@@ -1,4 +1,5 @@
-packages: []
+minimumReleaseAgeExclude:
+  - '@maiertech/sveltekit-helpers'
 allowBuilds:
   esbuild: true
   sharp: true
