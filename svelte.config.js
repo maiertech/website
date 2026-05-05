@@ -1,5 +1,4 @@
 import adapter from '@sveltejs/adapter-node';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { escapeSvelte, mdsvex } from 'mdsvex';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -56,7 +55,7 @@ export default {
 			return true;
 		}
 	},
-	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
+	preprocess: [mdsvex(mdsvexOptions)],
 	extensions: ['.svelte', '.md'],
 	kit: {
 		adapter: adapter(),
