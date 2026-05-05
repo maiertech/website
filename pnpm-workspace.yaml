@@ -1,8 +1,14 @@
 registries:
   default: https://registry.npmjs.org/
   '@maiertech': https://npm.pkg.github.com/
+
 minimumReleaseAgeExclude:
   - '@maiertech/sveltekit-helpers'
+
+# Workaround for `ERR_PNPM_FETCH_404` error:
+# https://github.com/pnpm/pnpm/issues/11276
+lockfileIncludeTarballUrl: true
+
 allowBuilds:
   esbuild: true
   sharp: true
