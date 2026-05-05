@@ -1,3 +1,6 @@
+registries:
+  default: https://registry.npmjs.org/
+  '@maiertech': https://npm.pkg.github.com/
 minimumReleaseAgeExclude:
   - '@maiertech/sveltekit-helpers'
 allowBuilds:
