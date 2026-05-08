@@ -13,6 +13,7 @@ description: How to use Zed for agentic coding.
 | `⌘ ⇧ E`  | Show project panel. |
 | `⌘ ⇧ G`  | Show Git panel.     |
 | `⌘ ⇧ B`  | Show outline panel. |
+| `⌃ G`    | Go to line.         |
 
 ## Sidebar
 
@@ -21,74 +22,89 @@ description: How to use Zed for agentic coding.
 | `⌥ ⌘ J`  | Toggle sidebar.        |
 | `⇧ ⌘ A`  | Add folder to project. |
 
-You can open multiple independent projects in the sidebar. For each project, you can run multiple
-agents independently. You can also create a worktree for workspace isolation. However, the worktree
-is still considered part of the project.
+You can add multiple projects to the sidebar. A project is a GitHub repository. The sidebar shows
+all agent sessions for a project, including sessions for worktrees. The default is that an agent
+session runs on one project. The idea of the sidebar is to make switching between agent sessions
+seamless.
 
-Therefore, you cannot open two worktrees of the same repository in the sidebar. But you can launch
-an agent on a specific worktree and another agent on a different worktree. When you switch between
-the agents, Zed switches between the worktrees. You can still work on two worktrees of the same
-repository by opening them in separate windows.
-
-You can also let the Zed agent work on two repositories at the same time. Add the main worktree of
-the first project, and then add the main worktree of the second one by adding a folder to the
-project. This creates a multi-root workspace. You can then create worktrees for all folders
-simultaneously. Multi-root workspaces for external agents are not supported.
-
-The sidebar is a step towards orchestration in Zed.
-
-## Worktrees
-
-The new sidebar tries to make it easier to create and manage Git [worktrees](/guides/worktrees).
-Click the branch name at the top to create a new worktree without a branch. You can create the
-branch later.
-
-Zed keeps all worktrees in a configurable folder. However, it is opinionated about how worktrees are
-organized within that folder and does not delete leftover empty directories from deleted worktrees.
+If you want an agent session to run on more than one project, you can add the folder of the second
+project with above shortcut. This creates a multi-root workspace.
 
 ## Agent panel
 
-| Shortcut | Description                      |
-| :------- | :------------------------------- |
-| `⌘ ?`    | Show agent panel (not a toggle). |
-| `⇧ ␛`    | Enlarge agent panel.             |
-| `@`      | Add to context.                  |
+The agent panel is where you interact with the agent. Agent integration varies across providers. For
+example, not all agents support code reviews in which you can acceppt or reject changes
+individually.
+
+| Shortcut | Description                     |
+| :------- | :------------------------------ |
+| `⌘ B`    | Show agent panel.               |
+| `⇧ ␛`    | Enlarge agent panel.            |
+| `@`      | Add to context.                 |
+| `⌘ ⇧ >`  | Add selection to agent session. |
+
+## Worktrees
+
+Since v1, worktree support in Zed is usable. Using Git [worktrees](/guides/worktrees) to isolate
+workspaces within the same project works seamless. Click the branch name at the top to create a
+headless worktree. Then add a branch.
+
+Zed keeps all worktrees in a configurable folder. However, it is opinionated about how worktrees are
+organized within that folder. But since you can switch between worktrees in the UI, you don't need
+to care where worktrees are located.
 
 ## Code reviews
 
+Zed is a great choice for code reviews because unlike other AI coding tools, it lets you look at the
+source code. It supports different review modes:
+
 ### Review uncommitted changes
 
-You can look at uncommitted changes with `git: diff` and stage or restore them one by one.
+| Shortcut | Description           |
+| :------- | :-------------------- |
+| `⌃ ⇧ R`  | Review agent changes. |
 
-### Review uncommitted changes by an agent
+You can look at uncommitted changes with `git: diff` and stage or restore them one by one. The diff
+is against the current branch.
 
-| Shortcut | Description     |
-| :------- | :-------------- |
-| `⌃ ⇧ R`  | Review changes. |
-
-When the Zed agent has uncommitted changes, you will see a **Review changes** button in the chat.
-This opens a view to accept or reject changes one by one. You can also open this view with the above
-shortcut. Unfortunately, this view is not supported for external agents.
+If the uncommitted changes were made by an agent and the agent supports reviewing changes, you will
+see a **Review changes** button in the chat. Alternatively, you can use the shortcut. In this review
+mode, you can accept or reject changes one by one.
 
 ### Pull request review
 
-One downside of Zed is that it does not yet have anything that matches
-[GitHub's pull requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github).
-You have to find a different workflow to do pull requests.
+| Shortcut         | Description                        |
+| :--------------- | :--------------------------------- |
+| `⌥ ⌘ G` then `R` | Send the diff to agent for review. |
 
 With `git: branch diff`, you can create a diff between the default branch and the branch you are on.
-It is not yet possible to diff against another branch. This can be an issue if the branch you want
-to merge into is not the default branch. In this case, you can point your local `HEAD` to another
-branch.
+This is useful for pull request reviews. Zed does not let you choose a different branch for a branch
+diff.
 
-Another great feature of this view is that you can create a diff and send it to your current agent
-for a first round of code review.
+If the default branch is `origin/main` but you always target `origin/develop` in pull requests, you
+can configure `origin/develop` as the local branch in you local Git configuration. To find out the
+default branch, look for `remotes/origin/HEAD` in
 
-Two more useful features for exploring a pull request are the Git graph and the file history, which
-you can access for each file with a right-click.
+```bash
+git branch -a
+```
 
-There is currently no way to write review comments in Zed. You need to switch back to your Git
-provider's website.
+Run
+
+```bash
+git remote set-head origin develop
+```
+
+to update the ref `origin/HEAD` to `origin/develop` locally. Any `git: branch diff` will then pickup
+this config.
+
+Make use of these features for PR reviews:
+
+- You can send the diff to your current agent for review. Unfortunatley, you cannot establish
+  context before adding the diff tho the agent session.
+- Use the Git graph to look at the PR's commit history.
+- Use the file history to see how a file has changed over time.
+- Add review comments to individual files via your Git provider's PR website.
 
 ## Resolve merge conflicts
 
