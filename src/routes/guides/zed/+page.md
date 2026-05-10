@@ -33,8 +33,7 @@ project with above shortcut. This creates a multi-root workspace.
 ## Agent panel
 
 The agent panel is where you interact with the agent. Agent integration varies across providers. For
-example, not all agents support code reviews in which you can acceppt or reject changes
-individually.
+example, not all agents support code reviews in which you can accept or reject changes individually.
 
 | Shortcut | Description                     |
 | :------- | :------------------------------ |
@@ -45,9 +44,9 @@ individually.
 
 ## Worktrees
 
-Since v1, worktree support in Zed is usable. Using Git [worktrees](/guides/worktrees) to isolate
-workspaces within the same project works seamless. Click the branch name at the top to create a
-headless worktree. Then add a branch.
+Since v1, worktree support in Zed is actually usable. Using Git worktrees to isolate workspaces
+within the same project is seamless. Click the branch name at the top to create a headless worktree.
+Then add a branch.
 
 Zed keeps all worktrees in a configurable folder. However, it is opinionated about how worktrees are
 organized within that folder. But since you can switch between worktrees in the UI, you don't need
@@ -82,7 +81,7 @@ This is useful for pull request reviews. Zed does not let you choose a different
 diff.
 
 If the default branch is `origin/main` but you always target `origin/develop` in pull requests, you
-can configure `origin/develop` as the local branch in you local Git configuration. To find out the
+can configure `origin/develop` as the local branch in your local Git configuration. To find out the
 default branch, look for `remotes/origin/HEAD` in
 
 ```bash
@@ -100,8 +99,8 @@ this config.
 
 Make use of these features for PR reviews:
 
-- You can send the diff to your current agent for review. Unfortunatley, you cannot establish
-  context before adding the diff tho the agent session.
+- You can send the diff to your current agent for review. Unfortunately, you cannot establish
+  context before adding the diff to the agent session.
 - Use the Git graph to look at the PR's commit history.
 - Use the file history to see how a file has changed over time.
 - Add review comments to individual files via your Git provider's PR website.
