@@ -1,0 +1,8 @@
+{
+	"context_servers": {
+		"Svelte": {
+			"command": "npx",
+			"args": ["-y", "@sveltejs/mcp"]
+		}
+	}
+}

@@ -1,4 +1,6 @@
+# Ignore files for skills
 /.agents/skills
+skills-lock.json
 
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml
