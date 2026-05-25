@@ -12,8 +12,8 @@ convention that many agents honor. Unfortunately, there is no such standardizati
    your workspace. You will have to add one config per agent, e.g. `.vibe/config.toml` for Mistral
    Vibe. Since you cannot share MCP server configs across agents, you will have to add multiple
    workspace configs if you want to use multiple agents. If you configure an MCP server for Zed by
-   adding it to `.zed/settings.json` in your workspace, you can at least share the MCP server
-   config with every model supported by the Zed agent.
+   adding it to `.zed/settings.json` in your workspace, you can at least share the MCP server config
+   with every model supported by the Zed agent.
 
 2. **Option 2 (agent-vendor-specific global configs):** Every agent vendor offers a custom way to
    configure an MCP server globally in your home directory. Again, you have to add one config per
