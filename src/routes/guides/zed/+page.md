@@ -3,6 +3,13 @@ title: Zed guide
 description: How to use Zed for agentic coding.
 ---
 
+## Directories
+
+| Directory              | Type      | Description                                                   |
+| ---------------------- | --------- | ------------------------------------------------------------- |
+| `.agents/skills`       | workspace | Hooray, the Zed agent reads skills from a standard directory. |
+| `~/.config/zed/skills` | global    | Zed agent does not read skills from `~/.agents/skills`.       |
+
 ## Shortcuts
 
 | Shortcut | Description         |
@@ -44,9 +51,9 @@ example, not all agents support code reviews in which you can accept or reject c
 
 ## Worktrees
 
-Since v1, worktree support in Zed is actually usable. Using Git worktrees to isolate workspaces
-within the same project is seamless. Click the branch name at the top to create a headless worktree.
-Then add a branch.
+Since v1, worktree support in Zed is usable. Using Git worktrees to isolate workspaces within the
+same project is seamless. Click the branch name at the top to create a headless worktree. Then add a
+branch.
 
 Zed keeps all worktrees in a configurable folder. However, it is opinionated about how worktrees are
 organized within that folder. But since you can switch between worktrees in the UI, you don't need
