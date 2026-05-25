@@ -17,6 +17,7 @@ const highlighter = await createHighlighter({
 		'markdown',
 		'svelte',
 		'text',
+		'toml',
 		'typescript',
 		'yaml',
 		'xml'
