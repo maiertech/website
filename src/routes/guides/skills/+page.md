@@ -16,10 +16,10 @@ that it does not do anything fishy.
 
 ## Where should I install my skills?
 
-Project-specific skills should be installed into `.agents/skills` in your project. Non-project-specific
-skills should be installed into global `~/.agents/skills`. Both directories are the default directories
-when using `npx skills add` and `npx skills add -g`. Many agents honor these two standardized
-directories:
+Project-specific skills should be installed into `.agents/skills` in your project.
+Non-project-specific skills should be installed into global `~/.agents/skills`. Both directories are
+the default directories when using `npx skills add` and `npx skills add -g`. Many agents honor these
+two standardized directories:
 
 - Zed agent (with any supported provider)
 - OpenCode via ACP in Zed (with any connected model)
