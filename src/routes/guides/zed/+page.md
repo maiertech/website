@@ -3,13 +3,6 @@ title: Zed guide
 description: How to use Zed for agentic coding.
 ---
 
-## Directories
-
-| Directory              | Type      | Description                                                   |
-| ---------------------- | --------- | ------------------------------------------------------------- |
-| `.agents/skills`       | workspace | Hooray, the Zed agent reads skills from a standard directory. |
-| `~/.config/zed/skills` | global    | Zed agent does not read skills from `~/.agents/skills`.       |
-
 ## Shortcuts
 
 | Shortcut | Description         |
@@ -30,12 +23,11 @@ description: How to use Zed for agentic coding.
 | `⇧ ⌘ A`  | Add folder to project. |
 
 You can add multiple projects to the sidebar. A project is a GitHub repository. The sidebar shows
-all agent sessions for a project, including sessions for worktrees. The default is that an agent
-session runs on one project. The idea of the sidebar is to make switching between agent sessions
-seamless.
+all agent sessions for a project, including sessions for worktrees. The idea of the sidebar is to
+make switching between agent sessions seamless.
 
 If you want an agent session to run on more than one project, you can add the folder of the second
-project with above shortcut. This creates a multi-root workspace.
+project with the shortcut above. This creates a multi-root workspace.
 
 ## Agent panel
 
@@ -51,13 +43,13 @@ example, not all agents support code reviews in which you can accept or reject c
 
 ## Worktrees
 
-Since v1, worktree support in Zed is usable. Using Git worktrees to isolate workspaces within the
-same project is seamless. Click the branch name at the top to create a headless worktree. Then add a
-branch.
+Since version 1, worktree support in Zed is usable. Using Git worktrees to isolate workspaces within
+the same project is seamless. Click the branch name at the top to create a headless worktree. Then
+add a branch.
 
 Zed keeps all worktrees in a configurable folder. However, it is opinionated about how worktrees are
 organized within that folder. But since you can switch between worktrees in the UI, you don't need
-to care where worktrees are located.
+to worry about where worktrees are located.
 
 ## Code reviews
 
@@ -101,8 +93,8 @@ Run
 git remote set-head origin develop
 ```
 
-to update the ref `origin/HEAD` to `origin/develop` locally. Any `git: branch diff` will then pickup
-this config.
+to update the ref `origin/HEAD` to `origin/develop` locally. Any `git: branch diff` will then pick
+up this config.
 
 Make use of these features for PR reviews:
 
@@ -112,6 +104,98 @@ Make use of these features for PR reviews:
 - Use the file history to see how a file has changed over time.
 - Add review comments to individual files via your Git provider's PR website.
 
-## Resolve merge conflicts
+## Configuration
 
-Zed has built-in merge conflict resolution (not tested yet).
+| Directory                     | Type    |
+| :---------------------------- | :------ |
+| `.zed/settings.json`          | project |
+| `~/.config/zed/settings.json` | global  |
+
+### MCP servers
+
+You need to decide whether an MCP server should be defined as a global server or a project server.
+
+#### Context7 MCP server
+
+This MCP server should be installed as a global server:
+
+```json
+{
+	"context_servers": {
+		"context7": {
+			"url": "https://mcp.context7.com/mcp"
+		}
+	}
+}
+```
+
+It is a remote MCP server with rate limiting when used without authentication.
+
+#### GitHub MCP server
+
+The GitHub MCP server should be defined as a global server. This configuration should work:
+
+```json
+{
+	"context_servers": {
+		"github": {
+			"url": "https://api.githubcopilot.com/mcp/"
+		}
+	}
+}
+```
+
+This config should prompt you to log in with your GitHub credentials. But because of a bug with
+GitHub's MCP server, this does not work. Instead you have to install the GitHub MCP server
+extension, which adds this config:
+
+```json
+{
+	"context_servers": {
+		"mcp-server-github": {
+			"enabled": true,
+			"remote": false,
+			"settings": {
+				// Zed settings token.
+				"github_personal_access_token": "token"
+			}
+		}
+	}
+}
+```
+
+The extension runs an MCP server that communicates with GitHub locally.
+
+#### Railway MCP server
+
+The Railway MCP server should be defined as a global server:
+
+```json
+{
+	"context_servers": {
+		"railway": {
+			"command": "railway",
+			"args": ["mcp"]
+		}
+	}
+}
+```
+
+It requires the Railway CLI to be installed, which runs the MCP server locally.
+
+#### Svelte MCP server
+
+This MCP server should be defined as a project server:
+
+```json
+{
+	"context_servers": {
+		"Svelte": {
+			"command": "npx",
+			"args": ["-y", "@sveltejs/mcp"]
+		}
+	}
+}
+```
+
+This is another example of an MCP server.
