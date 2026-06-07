@@ -2,7 +2,6 @@
 	import { page } from '$app/state';
 	import { Favicon, Footer } from '$lib/components';
 	import { Container, SeoBasic, SeoOgImage, SiteHeader } from '@maiertech/sveltekit-helpers';
-	import { ModeWatcher } from 'mode-watcher';
 	import type { LayoutProps } from './$types';
 	import src from '$lib/assets/thilo.jpg?enhanced';
 
@@ -19,8 +18,6 @@
 {/if}
 
 <Favicon />
-
-<ModeWatcher defaultTheme="maiertech" />
 
 <svelte:head>
 	<link rel="alternate" type="application/rss+xml" title="Thilo Maier" href="/rss.xml" />

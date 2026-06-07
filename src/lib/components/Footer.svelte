@@ -25,20 +25,32 @@
 		{/each}
 	</nav>
 	<div class="flex gap-5">
-		<SocialIcon href="/rss.xml" ariaLabel="Subscribe to my RSS feed">
-			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
+		<SocialIcon
+			href="/rss.xml"
+			ariaLabel="Subscribe to my RSS feed"
+			class="preset-filled-secondary-500"
+		>
+			<svg class="block size-8" viewBox="0 0 24 24" fill="currentColor" role="img">
 				<path d={siRss.path} />
 				<title>{siRss.title}</title>
 			</svg>
 		</SocialIcon>
-		<SocialIcon href="https://bsky.app/profile/maier.tech" ariaLabel="Follow me on BlueSky">
-			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
+		<SocialIcon
+			href="https://bsky.app/profile/maier.tech"
+			ariaLabel="Follow me on BlueSky"
+			class="preset-filled-secondary-500"
+		>
+			<svg class="block size-8" viewBox="0 0 24 24" fill="currentColor" role="img">
 				<path d={siBluesky.path} />
 				<title>{siBluesky.title}</title>
 			</svg>
 		</SocialIcon>
-		<SocialIcon href="https://github.com/maiertech" ariaLabel="Follow me on GitHub">
-			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
+		<SocialIcon
+			href="https://github.com/maiertech"
+			ariaLabel="Follow me on GitHub"
+			class="preset-filled-secondary-500"
+		>
+			<svg class="block size-8" viewBox="0 0 24 24" fill="currentColor" role="img">
 				<path d={siGithub.path} />
 				<title>{siGithub.title}</title>
 			</svg>
@@ -46,8 +58,9 @@
 		<SocialIcon
 			href="https://www.youtube.com/@maiertech"
 			ariaLabel="Subscribe to my YouTube channel"
+			class="preset-filled-secondary-500"
 		>
-			<svg class="block h-8 w-8" viewBox="0 0 24 24" fill="currentColor" role="img">
+			<svg class="block size-8" viewBox="0 0 24 24" fill="currentColor" role="img">
 				<path d={siYoutube.path} />
 				<title>{siYoutube.title}</title>
 			</svg>
