@@ -11,13 +11,15 @@ tags:
 ---
 
 <script>
-	import { Figure, P } from '@maiertech/sveltekit-helpers';
+	import { Figure } from '@maiertech/sveltekit-helpers';
 	import SubmittedSitemapImage from './SubmittedSitemapImage.svelte';
 </script>
 
-<P>
-Last week I refactored parts of this website and accidentally broke the endpoint that creates <a href="/sitemap.xml" data-sveltekit-reload>this sitemap</a>. I decided to read up on doing sitemaps the right way. Here is what I learned.
-</P>
+<p>
+Last week I refactored parts of this website and accidentally broke the endpoint that creates
+<a href="/sitemap.xml" data-sveltekit-reload>this sitemap</a>. I decided to read up on doing
+sitemaps the right way. Here is what I learned.
+</p>
 
 ## Google's take on sitemaps
 

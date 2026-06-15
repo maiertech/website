@@ -22,7 +22,7 @@
 		"@fontsource/roboto": "^5.2.10",
 		"@fontsource/spectral": "^5.2.8",
 		"@lucide/svelte": "^1.20.0",
-		"@maiertech/sveltekit-helpers": "^0.52.0",
+		"@maiertech/sveltekit-helpers": "^0.53.0",
 		"@playwright/test": "^1.61.0",
 		"@skeletonlabs/skeleton": "^4.15.2",
 		"@skeletonlabs/skeleton-svelte": "^4.15.2",
