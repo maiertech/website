@@ -7,7 +7,6 @@ on:
     branches: ['main']
 
 env:
-  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   ORIGIN: ${{ vars.ORIGIN }}
   RAILWAY_GIT_COMMIT_SHA: ${{ vars.RAILWAY_GIT_COMMIT_SHA }}
   VIRALCARDS_API_KEY: ${{ secrets.VIRALCARDS_API_KEY }}
@@ -30,6 +29,8 @@ jobs:
         with:
           node-version: 'lts/*'
           cache: 'pnpm'
+
+      - run: pnpm config set //npm.pkg.github.com/:_authToken "${{ secrets.GITHUB_TOKEN }}"
 
       - run: pnpm i --frozen-lockfile
 
