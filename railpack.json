@@ -2,7 +2,7 @@
 	"$schema": "https://schema.railpack.com",
 	"steps": {
 		"install": {
-			"commands": ["pnpm config set //npm.pkg.github.com/:_authToken \"$GITHUB_TOKEN\"", "..."]
+			"commands": ["pnpm config set //npm.pkg.github.com/:_authToken $GITHUB_TOKEN", "..."]
 		}
 	}
 }
