@@ -20,19 +20,16 @@ Zed:
 
 ### OpenCode models in Zed agent
 
-With this option I can access a subset of OpenCode Go models:
+With this option I can access OpenCode Go models inside the Zed agent:
 
 - Access project skills in `.agent/skills` and global skills in `~/.agent/skills`.
 - Access MCP servers configured for Zed.
-- Pull-request-style reviews for agent code changes.
+- Rewview agent changes with agent diffs.
 
 ## OpenCode Go models
 
-For coding I currently use these models:
-
-- opencode-go/qwen3.7-max (default)
-- opencode-go/kimi-k2.6
-- opencode-go/glm-5.1
+The currently supported models are listed [here](https://opencode.ai/go). Sometimes a model goes on
+sale and you get more mileage from it.
 
 ## Configuration
 
