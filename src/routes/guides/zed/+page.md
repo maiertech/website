@@ -36,6 +36,7 @@ example, not all agents support code reviews in which you can accept or reject c
 
 | Shortcut | Description                     |
 | :------- | :------------------------------ |
+| `⌘ ?`    | Focus the agent panel.          |
 | `⌘ B`    | Show agent panel.               |
 | `⇧ ␛`    | Enlarge agent panel.            |
 | `@`      | Add to context.                 |
