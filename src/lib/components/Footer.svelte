@@ -17,7 +17,7 @@
 
 <div
 	data-component="Footer"
-	class="flex flex-col items-center gap-6 bg-surface-muted py-[clamp(1.5rem,3vw,2rem)]"
+	class="flex flex-col items-center gap-6 preset-filled-surface-50-950 py-[clamp(1.5rem,3vw,2rem)] text-base"
 >
 	<nav aria-label="Footer" class="flex flex-wrap justify-center gap-[clamp(1rem,2vw,1.5rem)]">
 		{#each links as link (link.text)}
@@ -28,7 +28,7 @@
 		<SocialIcon
 			href="/rss.xml"
 			ariaLabel="Subscribe to my RSS feed"
-			class="preset-filled-secondary-500"
+			class="preset-filled-primary-200-800"
 		>
 			<svg class="block size-8" viewBox="0 0 24 24" fill="currentColor" role="img">
 				<path d={siRss.path} />
@@ -38,7 +38,7 @@
 		<SocialIcon
 			href="https://bsky.app/profile/maier.tech"
 			ariaLabel="Follow me on BlueSky"
-			class="preset-filled-secondary-500"
+			class="preset-filled-primary-200-800"
 		>
 			<svg class="block size-8" viewBox="0 0 24 24" fill="currentColor" role="img">
 				<path d={siBluesky.path} />
@@ -48,7 +48,7 @@
 		<SocialIcon
 			href="https://github.com/maiertech"
 			ariaLabel="Follow me on GitHub"
-			class="preset-filled-secondary-500"
+			class="preset-filled-primary-200-800"
 		>
 			<svg class="block size-8" viewBox="0 0 24 24" fill="currentColor" role="img">
 				<path d={siGithub.path} />
@@ -58,7 +58,7 @@
 		<SocialIcon
 			href="https://www.youtube.com/@maiertech"
 			ariaLabel="Subscribe to my YouTube channel"
-			class="preset-filled-secondary-500"
+			class="preset-filled-primary-200-800"
 		>
 			<svg class="block size-8" viewBox="0 0 24 24" fill="currentColor" role="img">
 				<path d={siYoutube.path} />
@@ -79,3 +79,9 @@
 	{/if}
 	<p>&copy; {new Date().getFullYear()} Thilo Maier</p>
 </div>
+
+<style>
+	a {
+		text-decoration: underline;
+	}
+</style>

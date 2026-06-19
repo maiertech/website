@@ -19,7 +19,7 @@
 	</div>
 
 	<aside class="flex grow basis-2xs flex-col gap-3">
-		<h2 class="flex items-center gap-2 text-ink-muted">
+		<h2 class="flex items-center gap-2">
 			<Clock class="size-5" />
 			<span class="text-lg font-semibold">Latest videos</span>
 		</h2>

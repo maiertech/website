@@ -14,8 +14,8 @@
 	--heading-font-family: 'Kanit', sans-serif;
 	--base-font-family: 'Spectral', serif;
 	--anchor-text-decoration: underline;
-	/*--body-background-color: var(--color-surface-50);
-	--body-background-color-dark: var(--color-surface-950);*/
+	--body-background-color: var(--color-surface-50);
+	--body-background-color-dark: var(--color-surface-950);
 }
 
 @theme {

@@ -13,20 +13,24 @@
 
 {#if prev || next}
 	<nav
-		class={twMerge(className, 'flex flex-wrap gap-6 border-t-2 border-secondary pt-8 text-primary')}
+		class={twMerge(className, 'flex flex-wrap gap-6 border-t-2 pt-8 font-sans  text-primary-500')}
 	>
 		{#if prev}
 			<div class="grow basis-2xs">
-				<a href={prev.path} class="flex items-start justify-start">
+				<a href={prev.path} class="flex items-center justify-start">
 					<ChevronLeft class="size-6 flex-none pt-1" />
-					<span class="min-w-0 text-xl font-semibold text-pretty max-inline-xs">{prev.title}</span>
+					<span class="min-w-0 pl-2 text-xl leading-tight font-semibold text-pretty max-inline-xs">
+						{prev.title}
+					</span>
 				</a>
 			</div>
 		{/if}
 		{#if next}
 			<div class="grow basis-2xs">
-				<a href={next.path} class="flex items-start justify-end">
-					<span class="min-w-0 text-right text-xl font-semibold text-pretty max-inline-xs">
+				<a href={next.path} class="flex items-center justify-end">
+					<span
+						class="min-w-0 pr-2 text-right text-xl leading-tight font-semibold text-pretty max-inline-xs"
+					>
 						{next.title}
 					</span>
 					<ChevronRight class="size-6 flex-none pt-1" />
