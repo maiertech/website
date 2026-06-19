@@ -4,15 +4,15 @@
 @import '@skeletonlabs/skeleton-svelte';
 @import '@skeletonlabs/skeleton/themes/wintry';
 
-@import '@fontsource/kanit';
+@import '@fontsource/lexend';
 @import '@fontsource/spectral';
 
 @source '../node_modules/@maiertech/sveltekit-helpers/**/*.{js,svelte}';
 
 [data-theme='wintry'] {
 	--text-scaling: 1.2;
-	--heading-font-family: 'Kanit', sans-serif;
-	--base-font-family: 'Spectral', serif;
+	--heading-font-family: 'Lexend', ui-sans-serif, sans-serif;
+	--base-font-family: 'Spectral', ui-serif, serif;
 	--anchor-text-decoration: underline;
 	--body-background-color: var(--color-surface-50);
 	--body-background-color-dark: var(--color-surface-950);

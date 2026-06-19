@@ -20,9 +20,9 @@ importers:
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.5.0(jiti@2.7.0))
-      '@fontsource/kanit':
-        specifier: ^5.2.8
-        version: 5.2.8
+      '@fontsource/lexend':
+        specifier: ^5.2.11
+        version: 5.2.11
       '@fontsource/spectral':
         specifier: ^5.2.8
         version: 5.2.8
@@ -30,8 +30,8 @@ importers:
         specifier: ^1.21.0
         version: 1.21.0(svelte@5.56.3(@typescript-eslint/types@8.61.1))
       '@maiertech/sveltekit-helpers':
-        specifier: ^0.53.1
-        version: 0.53.1(@lucide/svelte@1.21.0(svelte@5.56.3(@typescript-eslint/types@8.61.1)))(@skeletonlabs/skeleton-svelte@4.15.2(svelte@5.56.3(@typescript-eslint/types@8.61.1)))(@skeletonlabs/skeleton@4.15.2(tailwindcss@4.3.1))(@sveltejs/kit@2.65.2(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(typescript@6.0.3)(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(tailwindcss@4.3.1)(zod@4.4.3)
+        specifier: ^0.53.2
+        version: 0.53.2(@lucide/svelte@1.21.0(svelte@5.56.3(@typescript-eslint/types@8.61.1)))(@skeletonlabs/skeleton-svelte@4.15.2(svelte@5.56.3(@typescript-eslint/types@8.61.1)))(@skeletonlabs/skeleton@4.15.2(tailwindcss@4.3.1))(@sveltejs/kit@2.65.2(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(typescript@6.0.3)(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(tailwindcss@4.3.1)(zod@4.4.3)
       '@playwright/test':
         specifier: ^1.61.0
         version: 1.61.0
@@ -45,13 +45,13 @@ importers:
         specifier: ^1.11.0
         version: 1.11.0
       '@sveltejs/adapter-node':
-        specifier: ^5.5.4
+        specifier: 5.5.4
         version: 5.5.4(@sveltejs/kit@2.65.2(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(typescript@6.0.3)(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))
       '@sveltejs/enhanced-img':
-        specifier: ^0.10.4
-        version: 0.10.4(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(rollup@4.62.0)(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0))
+        specifier: ^0.11.0
+        version: 0.11.0(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(rollup@4.62.0)(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0))
       '@sveltejs/kit':
-        specifier: ^2.65.2
+        specifier: 2.65.2
         version: 2.65.2(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(typescript@6.0.3)(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0))
       '@sveltejs/vite-plugin-svelte':
         specifier: ^7.1.2
@@ -369,8 +369,8 @@ packages:
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
-  '@fontsource/kanit@5.2.8':
-    resolution: {integrity: sha512-vISPW1kRoy+BTqplYCymdYRJcNFGmlPxWXqo178eGPe7P+lMX24JiQOxWdI4HLWR+0ROUzaFneXy/v1I9u99yg==}
+  '@fontsource/lexend@5.2.11':
+    resolution: {integrity: sha512-bShbQr2g2sWl7GJNyIxdllZST1faVbebXN6H7AEEDCRms/g4orDLxWnmTVodOtiErdZVUJURq4jpafZ34nIkTw==}
 
   '@fontsource/spectral@5.2.8':
     resolution: {integrity: sha512-0CqZ8/z8A38BdeSz5t2NSd5tCO1R9P1k7SF2VpRLMbZTMSSR6+2Dk0ZBMfEQK/IrBLQS1HgHLMqpdTwRpnKpGQ==}
@@ -572,8 +572,8 @@ packages:
     peerDependencies:
       svelte: ^5
 
-  '@maiertech/sveltekit-helpers@0.53.1':
-    resolution: {integrity: sha512-HUMfFZ1hPKnatnQnmDM2jUjyt5SMhKNsJsFUMjP8uwVQuZiDiCrjrxYuI6cAlhuwMdqkB7CZLAfWT0Vf0SoLyQ==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.53.1/8ba4e016352750cdf9c45264ad48dfe39f0052cc}
+  '@maiertech/sveltekit-helpers@0.53.2':
+    resolution: {integrity: sha512-QJxBiM8fnuzly7Ah+1KSwtXQguD45bu9lOtT5qpyjZqxf9AqKG15nvf1fa6jiCVVzyTy0YPkgI+mA601BPskig==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.53.2/157c170beda74e8a0d8794707287121912cc081e}
     peerDependencies:
       '@lucide/svelte': ^1.7.0
       '@skeletonlabs/skeleton': ^4.15.0
@@ -932,8 +932,8 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^2.4.0
 
-  '@sveltejs/enhanced-img@0.10.4':
-    resolution: {integrity: sha512-Am5nmAKUo7Nboqq7Dhtfn7dcXA087d7gIz6Vecn1opB41aJ680+0q9U9KvEcMgduOyeiwckTIOQOx4Mmq9GcvA==}
+  '@sveltejs/enhanced-img@0.11.0':
+    resolution: {integrity: sha512-TN7VzGoqwFqvA4Faj1brUPHLtcEkyFa08nrn9bfm98yVrzr0g4bOZHjlBoPYHHX+sZNGE+cxznhTVgarECPQsA==}
     peerDependencies:
       '@sveltejs/vite-plugin-svelte': ^6.0.0 || ^7.0.0
       svelte: ^5.0.0
@@ -2495,7 +2495,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@fontsource/kanit@5.2.8': {}
+  '@fontsource/lexend@5.2.11': {}
 
   '@fontsource/spectral@5.2.8': {}
 
@@ -2638,7 +2638,7 @@ snapshots:
     dependencies:
       svelte: 5.56.3(@typescript-eslint/types@8.61.1)
 
-  '@maiertech/sveltekit-helpers@0.53.1(@lucide/svelte@1.21.0(svelte@5.56.3(@typescript-eslint/types@8.61.1)))(@skeletonlabs/skeleton-svelte@4.15.2(svelte@5.56.3(@typescript-eslint/types@8.61.1)))(@skeletonlabs/skeleton@4.15.2(tailwindcss@4.3.1))(@sveltejs/kit@2.65.2(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(typescript@6.0.3)(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(tailwindcss@4.3.1)(zod@4.4.3)':
+  '@maiertech/sveltekit-helpers@0.53.2(@lucide/svelte@1.21.0(svelte@5.56.3(@typescript-eslint/types@8.61.1)))(@skeletonlabs/skeleton-svelte@4.15.2(svelte@5.56.3(@typescript-eslint/types@8.61.1)))(@skeletonlabs/skeleton@4.15.2(tailwindcss@4.3.1))(@sveltejs/kit@2.65.2(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(typescript@6.0.3)(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(tailwindcss@4.3.1)(zod@4.4.3)':
     dependencies:
       '@lucide/svelte': 1.21.0(svelte@5.56.3(@typescript-eslint/types@8.61.1))
       '@shikijs/langs': 4.2.0
@@ -2924,7 +2924,7 @@ snapshots:
       '@sveltejs/kit': 2.65.2(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(svelte@5.56.3(@typescript-eslint/types@8.61.1))(typescript@6.0.3)(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0))
       rollup: 4.62.0
 
-  '@sveltejs/enhanced-img@0.10.4(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(rollup@4.62.0)(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0))':
+  '@sveltejs/enhanced-img@0.11.0(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0)))(rollup@4.62.0)(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 7.1.2(svelte@5.56.3(@typescript-eslint/types@8.61.1))(vite@8.0.16(@types/node@25.9.3)(jiti@2.7.0)(yaml@2.9.0))
       magic-string: 0.30.21
