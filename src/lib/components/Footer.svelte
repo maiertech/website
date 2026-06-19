@@ -17,7 +17,7 @@
 
 <div
 	data-component="Footer"
-	class="flex flex-col items-center gap-6 preset-filled-surface-50-950 py-[clamp(1.5rem,3vw,2rem)] text-base"
+	class="flex flex-col items-center gap-6 preset-filled-surface-100-900 py-[clamp(1.5rem,3vw,2rem)] text-base"
 >
 	<nav aria-label="Footer" class="flex flex-wrap justify-center gap-[clamp(1rem,2vw,1.5rem)]">
 		{#each links as link (link.text)}
