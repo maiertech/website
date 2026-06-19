@@ -2,18 +2,20 @@
 
 @import '@skeletonlabs/skeleton';
 @import '@skeletonlabs/skeleton-svelte';
-@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton/themes/wintry';
 
-@import '@fontsource/roboto';
+@import '@fontsource/kanit';
 @import '@fontsource/spectral';
 
 @source '../node_modules/@maiertech/sveltekit-helpers/**/*.{js,svelte}';
 
-[data-theme='cerberus'] {
-	--heading-font-family: 'Roboto', sans-serif;
+[data-theme='wintry'] {
+	--text-scaling: 1.2;
+	--heading-font-family: 'Kanit', sans-serif;
 	--base-font-family: 'Spectral', serif;
-	--base-font-size: 1.25rem;
 	--anchor-text-decoration: underline;
+	/*--body-background-color: var(--color-surface-50);
+	--body-background-color-dark: var(--color-surface-950);*/
 }
 
 @theme {
@@ -35,10 +37,4 @@
 
 .shiki {
 	tab-size: 2;
-}
-
-@layer base {
-	a {
-		text-decoration: var(--anchor-text-decoration);
-	}
 }
