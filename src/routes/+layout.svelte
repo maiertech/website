@@ -51,7 +51,7 @@
 		class="z-10 shrink-0"
 	>
 		{#snippet logo()}
-			<div class="flex items-center gap-3 py-2 text-primary">
+			<div class="flex items-center gap-3 py-2">
 				<enhanced:img {src} alt="Thilo's avatar." class="size-8 rounded-full" />
 				<div class="text-2xl font-bold">Thilo Maier</div>
 			</div>

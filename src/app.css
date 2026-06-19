@@ -2,252 +2,39 @@
 
 @import '@skeletonlabs/skeleton';
 @import '@skeletonlabs/skeleton-svelte';
+@import '@skeletonlabs/skeleton/themes/wintry';
 
-/* Roboto: normal, medium, semibold, bold. */
-@import '@fontsource/roboto/latin-400-italic.css' layer(utilities);
-@import '@fontsource/roboto/latin-400.css' layer(utilities);
-@import '@fontsource/roboto/latin-500-italic.css' layer(utilities);
-@import '@fontsource/roboto/latin-500.css' layer(utilities);
-@import '@fontsource/roboto/latin-600-italic.css' layer(utilities);
-@import '@fontsource/roboto/latin-600.css' layer(utilities);
-@import '@fontsource/roboto/latin-700-italic.css' layer(utilities);
-@import '@fontsource/roboto/latin-700.css' layer(utilities);
-
-/* Spectral: normal, medium, semibold, bold. */
-@import '@fontsource/spectral/latin-400-italic.css' layer(utilities);
-@import '@fontsource/spectral/latin-400.css' layer(utilities);
-@import '@fontsource/spectral/latin-500-italic.css' layer(utilities);
-@import '@fontsource/spectral/latin-500.css' layer(utilities);
-@import '@fontsource/spectral/latin-600-italic.css' layer(utilities);
-@import '@fontsource/spectral/latin-600.css' layer(utilities);
-@import '@fontsource/spectral/latin-700-italic.css' layer(utilities);
-@import '@fontsource/spectral/latin-700.css' layer(utilities);
+@import '@fontsource/lexend';
+@import '@fontsource/spectral';
 
 @source '../node_modules/@maiertech/sveltekit-helpers/**/*.{js,svelte}';
 
-[data-theme='maiertech'] {
-	--spacing: 0.25rem;
-	--text-scaling: 1.067;
-	--base-font-color: var(--color-surface-950);
-	--base-font-color-dark: var(--color-surface-50);
-	--base-font-family: inherit;
-	--base-font-size: inherit;
-	--base-line-height: inherit;
-	--base-font-weight: normal;
-	--base-font-style: normal;
-	--base-letter-spacing: 0em;
-	--heading-font-color: inherit;
-	--heading-font-color-dark: inherit;
-	--heading-font-family: inherit;
-	--heading-font-weight: bold;
-	--heading-font-style: normal;
-	--heading-letter-spacing: inherit;
-	--anchor-font-color: var(--color-primary-500);
-	--anchor-font-color-dark: var(--color-primary-400);
-	--anchor-font-family: inherit;
-	--anchor-font-size: inherit;
-	--anchor-line-height: inherit;
-	--anchor-font-weight: inherit;
-	--anchor-font-style: inherit;
-	--anchor-letter-spacing: inherit;
-	--anchor-text-decoration: none;
-	--anchor-text-decoration-hover: underline;
-	--anchor-text-decoration-active: none;
-	--anchor-text-decoration-focus: none;
+[data-theme='wintry'] {
+	--text-scaling: 1.2;
+	--heading-font-family: 'Lexend', ui-sans-serif, sans-serif;
+	--base-font-family: 'Spectral', ui-serif, serif;
+	--anchor-text-decoration: underline;
 	--body-background-color: var(--color-surface-50);
 	--body-background-color-dark: var(--color-surface-950);
-	--radius-base: 9999rem;
-	--radius-container: 0.25rem;
-	--default-border-width: 1px;
-	--default-divide-width: 1px;
-	--default-ring-width: 1px;
-
-	/* Primary color. */
-
-	--color-primary-50: oklch(97% 0.014 254.604);
-	--color-primary-100: oklch(93.2% 0.032 255.585);
-	--color-primary-200: oklch(88.2% 0.059 254.128);
-	--color-primary-300: oklch(80.9% 0.105 251.813);
-	--color-primary-400: oklch(70.7% 0.165 254.624);
-	--color-primary-500: oklch(62.3% 0.214 259.815);
-	--color-primary-600: oklch(54.6% 0.245 262.881);
-	--color-primary-700: oklch(48.8% 0.243 264.376);
-	--color-primary-800: oklch(42.4% 0.199 265.638);
-	--color-primary-900: oklch(37.9% 0.146 265.522);
-	--color-primary-950: oklch(28.2% 0.091 267.935);
-
-	--color-primary-contrast-dark: var(--color-primary-950);
-	--color-primary-contrast-light: var(--color-primary-50);
-
-	--color-primary-contrast-50: var(--color-primary-contrast-dark);
-	--color-primary-contrast-100: var(--color-primary-contrast-dark);
-	--color-primary-contrast-200: var(--color-primary-contrast-dark);
-	--color-primary-contrast-300: var(--color-primary-contrast-dark);
-	--color-primary-contrast-400: var(--color-primary-contrast-dark);
-	--color-primary-contrast-500: var(--color-primary-contrast-light);
-	--color-primary-contrast-600: var(--color-primary-contrast-light);
-	--color-primary-contrast-700: var(--color-primary-contrast-light);
-	--color-primary-contrast-800: var(--color-primary-contrast-light);
-	--color-primary-contrast-900: var(--color-primary-contrast-light);
-	--color-primary-contrast-950: var(--color-primary-contrast-light);
-
-	--color-secondary-50: oklch(98.5% 0.002 247.839);
-	--color-secondary-100: oklch(96.7% 0.003 264.542);
-	--color-secondary-200: oklch(92.8% 0.006 264.531);
-	--color-secondary-300: oklch(87.2% 0.01 258.338);
-	--color-secondary-400: oklch(70.7% 0.022 261.325);
-	--color-secondary-500: oklch(55.1% 0.027 264.364);
-	--color-secondary-600: oklch(44.6% 0.03 256.802);
-	--color-secondary-700: oklch(37.3% 0.034 259.733);
-	--color-secondary-800: oklch(27.8% 0.033 256.848);
-	--color-secondary-900: oklch(21% 0.034 264.665);
-	--color-secondary-950: oklch(13% 0.028 261.692);
-	--color-secondary-contrast-dark: var(--color-secondary-950);
-	--color-secondary-contrast-light: var(--color-secondary-50);
-	--color-secondary-contrast-50: var(--color-secondary-contrast-dark);
-	--color-secondary-contrast-100: var(--color-secondary-contrast-dark);
-	--color-secondary-contrast-200: var(--color-secondary-contrast-dark);
-	--color-secondary-contrast-300: var(--color-secondary-contrast-dark);
-	--color-secondary-contrast-400: var(--color-secondary-contrast-dark);
-	--color-secondary-contrast-500: var(--color-secondary-contrast-light);
-	--color-secondary-contrast-600: var(--color-secondary-contrast-light);
-	--color-secondary-contrast-700: var(--color-secondary-contrast-light);
-	--color-secondary-contrast-800: var(--color-secondary-contrast-light);
-	--color-secondary-contrast-900: var(--color-secondary-contrast-light);
-	--color-secondary-contrast-950: var(--color-secondary-contrast-light);
-
-	--color-tertiary-50: oklch(96.9% 0.016 293.756);
-	--color-tertiary-100: oklch(94.3% 0.029 294.588);
-	--color-tertiary-200: oklch(89.4% 0.057 293.283);
-	--color-tertiary-300: oklch(81.1% 0.111 293.571);
-	--color-tertiary-400: oklch(70.2% 0.183 293.541);
-	--color-tertiary-500: oklch(60.6% 0.25 292.717);
-	--color-tertiary-600: oklch(54.1% 0.281 293.009);
-	--color-tertiary-700: oklch(49.1% 0.27 292.581);
-	--color-tertiary-800: oklch(43.2% 0.232 292.759);
-	--color-tertiary-900: oklch(38% 0.189 293.745);
-	--color-tertiary-950: oklch(28.3% 0.141 291.089);
-	--color-tertiary-contrast-dark: var(--color-tertiary-950);
-	--color-tertiary-contrast-light: var(--color-tertiary-50);
-	--color-tertiary-contrast-50: var(--color-tertiary-contrast-dark);
-	--color-tertiary-contrast-100: var(--color-tertiary-contrast-dark);
-	--color-tertiary-contrast-200: var(--color-tertiary-contrast-dark);
-	--color-tertiary-contrast-300: var(--color-tertiary-contrast-dark);
-	--color-tertiary-contrast-400: var(--color-tertiary-contrast-light);
-	--color-tertiary-contrast-500: var(--color-tertiary-contrast-light);
-	--color-tertiary-contrast-600: var(--color-tertiary-contrast-light);
-	--color-tertiary-contrast-700: var(--color-tertiary-contrast-light);
-	--color-tertiary-contrast-800: var(--color-tertiary-contrast-light);
-	--color-tertiary-contrast-900: var(--color-tertiary-contrast-light);
-	--color-tertiary-contrast-950: var(--color-tertiary-contrast-light);
-
-	--color-success-50: oklch(98.2% 0.018 155.826);
-	--color-success-100: oklch(96.2% 0.044 156.743);
-	--color-success-200: oklch(92.5% 0.084 155.995);
-	--color-success-300: oklch(87.1% 0.15 154.449);
-	--color-success-400: oklch(79.2% 0.209 151.711);
-	--color-success-500: oklch(72.3% 0.219 149.579);
-	--color-success-600: oklch(62.7% 0.194 149.214);
-	--color-success-700: oklch(52.7% 0.154 150.069);
-	--color-success-800: oklch(44.8% 0.119 151.328);
-	--color-success-900: oklch(39.3% 0.095 152.535);
-	--color-success-950: oklch(26.6% 0.065 152.934);
-	--color-success-contrast-dark: var(--color-success-950);
-	--color-success-contrast-light: var(--color-success-50);
-	--color-success-contrast-50: var(--color-success-contrast-dark);
-	--color-success-contrast-100: var(--color-success-contrast-dark);
-	--color-success-contrast-200: var(--color-success-contrast-dark);
-	--color-success-contrast-300: var(--color-success-contrast-dark);
-	--color-success-contrast-400: var(--color-success-contrast-dark);
-	--color-success-contrast-500: var(--color-success-contrast-dark);
-	--color-success-contrast-600: var(--color-success-contrast-dark);
-	--color-success-contrast-700: var(--color-success-contrast-light);
-	--color-success-contrast-800: var(--color-success-contrast-light);
-	--color-success-contrast-900: var(--color-success-contrast-light);
-	--color-success-contrast-950: var(--color-success-contrast-light);
-
-	--color-warning-50: oklch(98.7% 0.022 95.277);
-	--color-warning-100: oklch(96.2% 0.059 95.617);
-	--color-warning-200: oklch(92.4% 0.12 95.746);
-	--color-warning-300: oklch(87.9% 0.169 91.605);
-	--color-warning-400: oklch(82.8% 0.189 84.429);
-	--color-warning-500: oklch(76.9% 0.188 70.08);
-	--color-warning-600: oklch(66.6% 0.179 58.318);
-	--color-warning-700: oklch(55.5% 0.163 48.998);
-	--color-warning-800: oklch(47.3% 0.137 46.201);
-	--color-warning-900: oklch(41.4% 0.112 45.904);
-	--color-warning-950: oklch(27.9% 0.077 45.635);
-	--color-warning-contrast-dark: var(--color-warning-950);
-	--color-warning-contrast-light: var(--color-warning-50);
-	--color-warning-contrast-50: var(--color-warning-contrast-dark);
-	--color-warning-contrast-100: var(--color-warning-contrast-dark);
-	--color-warning-contrast-200: var(--color-warning-contrast-dark);
-	--color-warning-contrast-300: var(--color-warning-contrast-dark);
-	--color-warning-contrast-400: var(--color-warning-contrast-dark);
-	--color-warning-contrast-500: var(--color-warning-contrast-dark);
-	--color-warning-contrast-600: var(--color-warning-contrast-light);
-	--color-warning-contrast-700: var(--color-warning-contrast-light);
-	--color-warning-contrast-800: var(--color-warning-contrast-light);
-	--color-warning-contrast-900: var(--color-warning-contrast-light);
-	--color-warning-contrast-950: var(--color-warning-contrast-light);
-
-	--color-error-50: oklch(96.9% 0.015 12.422);
-	--color-error-100: oklch(94.1% 0.03 12.58);
-	--color-error-200: oklch(89.2% 0.058 10.001);
-	--color-error-300: oklch(81% 0.117 11.638);
-	--color-error-400: oklch(71.2% 0.194 13.428);
-	--color-error-500: oklch(64.5% 0.246 16.439);
-	--color-error-600: oklch(58.6% 0.253 17.585);
-	--color-error-700: oklch(51.4% 0.222 16.935);
-	--color-error-800: oklch(45.5% 0.188 13.697);
-	--color-error-900: oklch(41% 0.159 10.272);
-	--color-error-950: oklch(27.1% 0.105 12.094);
-	--color-error-contrast-dark: var(--color-error-950);
-	--color-error-contrast-light: var(--color-error-50);
-	--color-error-contrast-50: var(--color-error-contrast-dark);
-	--color-error-contrast-100: var(--color-error-contrast-dark);
-	--color-error-contrast-200: var(--color-error-contrast-dark);
-	--color-error-contrast-300: var(--color-error-contrast-dark);
-	--color-error-contrast-400: var(--color-error-contrast-light);
-	--color-error-contrast-500: var(--color-error-contrast-light);
-	--color-error-contrast-600: var(--color-error-contrast-light);
-	--color-error-contrast-700: var(--color-error-contrast-light);
-	--color-error-contrast-800: var(--color-error-contrast-light);
-	--color-error-contrast-900: var(--color-error-contrast-light);
-	--color-error-contrast-950: var(--color-error-contrast-light);
-
-	--color-surface-50: oklch(98.4% 0.003 247.858);
-	--color-surface-100: oklch(96.8% 0.007 247.896);
-	--color-surface-200: oklch(92.9% 0.013 255.508);
-	--color-surface-300: oklch(86.9% 0.022 252.894);
-	--color-surface-400: oklch(70.4% 0.04 256.788);
-	--color-surface-500: oklch(55.4% 0.046 257.417);
-	--color-surface-600: oklch(44.6% 0.043 257.281);
-	--color-surface-700: oklch(37.2% 0.044 257.287);
-	--color-surface-800: oklch(27.9% 0.041 260.031);
-	--color-surface-900: oklch(20.8% 0.042 265.755);
-	--color-surface-950: oklch(12.9% 0.042 264.695);
-	--color-surface-contrast-dark: var(--color-surface-950);
-	--color-surface-contrast-light: var(--color-surface-50);
-	--color-surface-contrast-50: var(--color-surface-contrast-dark);
-	--color-surface-contrast-100: var(--color-surface-contrast-dark);
-	--color-surface-contrast-200: var(--color-surface-contrast-dark);
-	--color-surface-contrast-300: var(--color-surface-contrast-dark);
-	--color-surface-contrast-400: var(--color-surface-contrast-light);
-	--color-surface-contrast-500: var(--color-surface-contrast-light);
-	--color-surface-contrast-600: var(--color-surface-contrast-light);
-	--color-surface-contrast-700: var(--color-surface-contrast-light);
-	--color-surface-contrast-800: var(--color-surface-contrast-light);
-	--color-surface-contrast-900: var(--color-surface-contrast-light);
-	--color-surface-contrast-950: var(--color-surface-contrast-light);
 }
 
-@import '@maiertech/sveltekit-helpers/theme-maiertech.css';
-@import '@maiertech/sveltekit-helpers/global.css';
-
 @theme {
-	--font-sans:
-		Roboto, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol', 'Noto Color Emoji';
-	--font-serif: Spectral, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+	--font-sans: var(--heading-font-family);
+	--font-serif: var(--base-font-family);
+}
+
+@media (prefers-color-scheme: dark) {
+	.shiki,
+	.shiki span {
+		color: var(--shiki-dark) !important;
+		background-color: var(--shiki-dark-bg) !important;
+		/* Some themes also switch font styles. */
+		font-style: var(--shiki-dark-font-style) !important;
+		font-weight: var(--shiki-dark-font-weight) !important;
+		text-decoration: var(--shiki-dark-text-decoration) !important;
+	}
+}
+
+.shiki {
+	tab-size: 2;
 }

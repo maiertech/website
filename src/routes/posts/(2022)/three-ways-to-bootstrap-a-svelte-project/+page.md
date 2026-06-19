@@ -11,7 +11,7 @@ tags:
 
 <script>
 	import { StackblitzEmbed } from '$lib/components';
-	import { CodeSnippet, Figure, H2, P } from '@maiertech/sveltekit-helpers';
+	import { CodeSnippet, Figure } from '@maiertech/sveltekit-helpers';
 	import CsbNewSandboxDialogImage from './CsbNewSandboxDialogImage.svelte';
 	import CsbSvelteTemplateImage from './CsbSvelteTemplateImage.svelte';
 	import StackblitzDashboardImage from './StackblitzDashboardImage.svelte';
