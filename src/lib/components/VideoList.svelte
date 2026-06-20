@@ -4,15 +4,15 @@
 
 	interface Props {
 		values: Video[];
-		level: 1 | 2 | 3 | 4 | 5 | 6;
+		as?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 		class?: string;
 	}
 
-	let { values, level, class: className }: Props = $props();
+	let { values, as, class: className }: Props = $props();
 </script>
 
 <div data-component="VideoList" class={twMerge(className, 'flex flex-wrap gap-6')}>
 	{#each values as video (video.id)}
-		<VideoPreview value={video} {level} showDescription={false} class="grow basis-xs" />
+		<VideoPreview value={video} {as} showDescription={false} class="grow basis-xs" />
 	{/each}
 </div>

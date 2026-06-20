@@ -37,6 +37,6 @@
 			<ListVideo class="size-5" />
 			<span class="text-lg font-semibold">More videos</span>
 		</h2>
-		<VideoList values={data.recommendedVideos} level={3} />
+		<VideoList values={data.recommendedVideos} as="h3" />
 	</aside>
 </div>

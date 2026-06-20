@@ -8,4 +8,4 @@
 
 <H1 class="mb-8">{data.seo.title}</H1>
 
-<VideoList values={data.videos} level={2} />
+<VideoList values={data.videos} as="h2" />
