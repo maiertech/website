@@ -4,15 +4,15 @@
 
 	interface Props {
 		values: Post[];
-		level: 1 | 2 | 3 | 4 | 5 | 6;
+		as?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 		class?: string;
 	}
 
-	let { values, level, class: className }: Props = $props();
+	let { values, as, class: className }: Props = $props();
 </script>
 
 <div data-component="PostList" class={twMerge(className, 'flex flex-wrap gap-6')}>
 	{#each values as post (post.path)}
-		<PostPreview value={post} {level} class="grow basis-xs" />
+		<PostPreview value={post} {as} class="grow basis-xs" />
 	{/each}
 </div>

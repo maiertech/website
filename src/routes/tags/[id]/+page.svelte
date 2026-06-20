@@ -8,4 +8,4 @@
 
 <H1 class="mb-8">{data.seo.title}</H1>
 
-<PostList values={data.posts} level={2} />
+<PostList values={data.posts} as="h2" />

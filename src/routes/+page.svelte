@@ -23,12 +23,12 @@
 
 		<div class="mb-8 flex flex-wrap gap-6">
 			<!-- Not-sidebar (videos): latest video. -->
-			<VideoPreview value={data.videos[0]} level={3} class="grow-999 min-inline-3/5" />
+			<VideoPreview value={data.videos[0]} as="h3" class="grow-999 min-inline-3/5" />
 
 			<!-- Sidebar (videos): 2 more videos. -->
 			<div class="flex grow basis-3xs flex-wrap gap-6">
 				{#each data.videos.slice(1) as video (video.id)}
-					<VideoPreview value={video} level={3} showDescription={false} class="grow basis-80" />
+					<VideoPreview value={video} as="h3" showDescription={false} class="grow basis-80" />
 				{/each}
 			</div>
 		</div>
@@ -38,7 +38,7 @@
 			<span class="text-lg font-semibold">Latest posts</span>
 		</h2>
 
-		<PostList values={data.posts} level={3} />
+		<PostList values={data.posts} as="h3" />
 	</div>
 
 	<!-- Sidebar (outer): notes. -->
