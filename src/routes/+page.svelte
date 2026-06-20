@@ -48,6 +48,6 @@
 			<span class="text-lg font-semibold">Latest notes</span>
 		</h2>
 
-		<NoteList values={data.notes} level={3} />
+		<NoteList values={data.notes} as="h3" />
 	</div>
 </div>
