@@ -8,4 +8,4 @@
 
 <H1 class="mb-8">{data.seo.title}</H1>
 
-<NoteList values={data.notes} level={2} />
+<NoteList values={data.notes} as="h2" />

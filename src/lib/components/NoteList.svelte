@@ -4,15 +4,15 @@
 
 	interface Props {
 		values: Note[];
-		level: 1 | 2 | 3 | 4 | 5 | 6;
+		as?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 		class?: string;
 	}
 
-	let { values, level, class: className }: Props = $props();
+	let { values, as, class: className }: Props = $props();
 </script>
 
 <div data-component="NoteList" class={twMerge(className, 'flex flex-wrap gap-6')}>
 	{#each values as note (note.path)}
-		<NotePreview value={note} {level} class="grow basis-2xs" />
+		<NotePreview value={note} {as} class="grow basis-2xs" />
 	{/each}
 </div>
