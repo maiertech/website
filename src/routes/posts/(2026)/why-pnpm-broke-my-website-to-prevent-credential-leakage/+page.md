@@ -2,7 +2,9 @@
 title: Why PNPM broke my website to prevent credential leakage
 author: thilo
 publishedDate: 2026-06-21
-description: TODO
+description:
+  PNPM v11.5.3 stopped expanding env vars in repository .npmrc files to block credential theft.
+  Here's how to authenticate with private registries now.
 tags:
   - tooling
   - pnpm
@@ -30,21 +32,21 @@ stepped up their game with v11 to
 [mitigate common supply chain attacks](https://pnpm.io/supply-chain-security). As part of these
 efforts, PNPM explained in a recent post,
 [why PNPM no longer expands environment variables in a repository's `.npmrc`](https://pnpm.io/blog/2026/06/11/env-variables-in-repository-npmrc).
-Their posts explains a way how an attacker could exfiltrate my `NODE_AUTH_TOKEN` when I clone a
+Their post explains a way how an attacker could exfiltrate my `NODE_AUTH_TOKEN` when I clone a
 repository under their control that contains an `.npmrc`, which triggers PNPM to read my
 `NODE_AUTH_TOKEN` and send it straight to the attacker.
 
-That's why PNPM v11.5.3 pulled the emergency break on environment variable expansion in repository
+That's why PNPM v11.5.3 pulled the emergency brake on environment variable expansion in repository
 `.npmrc` files. The consequence was a breaking change that broke package installations from private
 registries locally and in cloud deploy pipelines.
 
 ## Alternative authentication
 
 So, how can I authenticate with PNPM to a private NPM registry? Let's focus on local development
-first. As a first step, I removed my project `.npmrc` the global `~/.npmrc`. That's technically not
-necessary since the [PNPM authentication settings page](https://pnpm.io/npmrc) lists options that
-include using `.npmrc` files. But they are meant as fallbacks to make the transition to the new way
-of authenticating with private registries easier.
+first. As a first step, I removed my project `.npmrc` and the global `~/.npmrc`. That's technically
+not necessary since the [PNPM authentication settings page](https://pnpm.io/npmrc) lists options
+that include using `.npmrc` files. But they are meant as fallbacks to make the transition to the new
+way of authenticating with private registries easier.
 
 I decided to go the PNPM route. Therefore, I added my private registry to a workspace
 `pnpm-workspace.yaml` file:
@@ -70,7 +72,7 @@ Now you can install packages from the private NPM registry locally. But how to y
 the package registry when you deploy your website?
 
 The short answer is: you run the above `pnpm config set` command before installing packages. How you
-can run this command depends on where you run CI or to which provider you deploy your website.
+can run this command depends on where you run CI or which provider you deploy your website to.
 
 In GitHub Action, you run the `pnpm config set` command before `pnpm i`:
 
@@ -80,7 +82,7 @@ In GitHub Action, you run the `pnpm config set` command before `pnpm i`:
 ```
 
 In this example, I use the auto-generated `GITHUB_TOKEN`, which is augmented with a `packages: read`
-permission. If you use a registry other then GitHub you can configure the authentication token just
+permission. If you use a registry other than GitHub you can configure the authentication token just
 like any other GitHub Action secret.
 
 I deploy my website to [Railway](https://railway.com/) using [Railpack](https://railpack.com/),
