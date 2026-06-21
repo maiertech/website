@@ -10,6 +10,7 @@ env:
   ORIGIN: ${{ vars.ORIGIN }}
   RAILWAY_GIT_COMMIT_SHA: ${{ vars.RAILWAY_GIT_COMMIT_SHA }}
   VIRALCARDS_API_KEY: ${{ secrets.VIRALCARDS_API_KEY }}
+  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 permissions:
   contents: read
@@ -28,9 +29,8 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 'lts/*'
+          registry-url: 'https://npm.pkg.github.com'
           cache: 'pnpm'
-
-      - run: pnpm config set //npm.pkg.github.com/:_authToken "${{ secrets.GITHUB_TOKEN }}"
 
       - run: pnpm i --frozen-lockfile
 
