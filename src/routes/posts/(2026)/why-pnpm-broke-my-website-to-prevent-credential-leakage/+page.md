@@ -95,7 +95,7 @@ add a `railpack.json` to my project with which I can add the `pnpm config set` c
 	"$schema": "https://schema.railpack.com",
 	"steps": {
 		"install": {
-			"commands": ["pnpm config set //npm.pkg.github.com/:_authToken $GITHUB_TOKEN"]
+			"commands": ["pnpm config set //npm.pkg.github.com/:_authToken $GITHUB_TOKEN", "..."]
 		}
 	}
 }
