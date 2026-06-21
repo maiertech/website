@@ -30,11 +30,11 @@ been the standard approach to authenticate to private NPM registries since basic
 In response to a number of NPM package supply chain attacks in recent weeks, the PNPM team has
 stepped up their game with v11 to
 [mitigate common supply chain attacks](https://pnpm.io/supply-chain-security). As part of these
-efforts, PNPM explained in a recent post,
+efforts, PNPM explained in a recent post
 [why PNPM no longer expands environment variables in a repository's `.npmrc`](https://pnpm.io/blog/2026/06/11/env-variables-in-repository-npmrc).
-Their post explains a way how an attacker could exfiltrate my `NODE_AUTH_TOKEN` when I clone a
-repository under their control that contains an `.npmrc`, which triggers PNPM to read my
-`NODE_AUTH_TOKEN` and send it straight to the attacker.
+Their post explains how an attacker could exfiltrate my `NODE_AUTH_TOKEN` when I clone a repository
+under their control that contains an `.npmrc`, which triggers PNPM to read my `NODE_AUTH_TOKEN` and
+send it straight to the attacker.
 
 That's why PNPM v11.5.3 pulled the emergency brake on environment variable expansion in repository
 `.npmrc` files. The consequence was a breaking change that broke package installations from private
@@ -48,8 +48,8 @@ not necessary since the [PNPM authentication settings page](https://pnpm.io/npmr
 that include using `.npmrc` files. But they are meant as fallbacks to make the transition to the new
 way of authenticating with private registries easier.
 
-I decided to go the PNPM route. Therefore, I added my private registry to a workspace
-`pnpm-workspace.yaml` file:
+I decided to go the PNPM route for local development. Therefore, I added my private registry to a
+workspace `pnpm-workspace.yaml` file:
 
 ```yaml
 registries:
@@ -68,27 +68,35 @@ Note that PNPM always combines the repository config in `pnpm-workspace.yaml` wi
 config. When you run `pnpm config list` from within your repository workspace, you will see the
 combined config.
 
-Now you can install packages from the private NPM registry locally. But how to you authenticate to
-the package registry when you deploy your website?
+Now you can install packages from the private NPM registry locally. But how do you authenticate to
+the package registry when you deploy your website? The short answer is: you need to make sure that
+the authentication config is in place before installing packages. There are different ways to
+achieve this.
 
-The short answer is: you run the above `pnpm config set` command before installing packages. How you
-can run this command depends on where you run CI or which provider you deploy your website to.
+## Example: GitHub Actions
 
-In GitHub Action, you run the `pnpm config set` command before `pnpm i`:
+In a GitHub Action, you can tweak the action that configures Node:
 
 ```yaml
-- run: pnpm config set //npm.pkg.github.com/:_authToken "${{ secrets.GITHUB_TOKEN }}"
-- run: pnpm i --frozen-lockfile
+- uses: actions/setup-node@v5
+  with:
+    node-version: 'lts/*'
+    registry-url: 'https://npm.pkg.github.com'
+    cache: 'pnpm'
 ```
 
-In this example, I use the auto-generated `GITHUB_TOKEN`, which is augmented with a `packages: read`
-permission. If you use a registry other than GitHub you can configure the authentication token just
-like any other GitHub Action secret.
+This results in a global `.npmrc` file with `_authToken=${NODE_AUTH_TOKEN}`. In this case, PNPM will
+expand the `NODE_AUTH_TOKEN` environment variable because the `.npmrc` file is not part of your
+repository. All you have to do in your GitHub Action is set environment variable `NODE_AUTH_TOKEN`
+to `secrets.GITHUB_TOKEN`. If you use a registry other than GitHub, set `NODE_AUTH_TOKEN` to that
+registry's token.
+
+## Example: Deployment to Railway
 
 I deploy my website to [Railway](https://railway.com/) using [Railpack](https://railpack.com/),
-which handles the Docker image build and deployment automatically. Luckily, Railpack allows me to
-add a `railpack.json` to my project with which I can add the `pnpm config set` command to the
-`install` step:
+which handles the Docker image build and deployment. Luckily, Railpack allows me to add a
+`railpack.json` to my project with which I can add the `pnpm config set` command to the `install`
+step:
 
 ```json
 {
@@ -101,8 +109,8 @@ add a `railpack.json` to my project with which I can add the `pnpm config set` c
 }
 ```
 
-All I had to do to make this work, was configure a `GITHUB_TOKEN` environment variable in my Railway
-project with `read:packages` permission (classic token).
+All I had to do to make this work was configure a `GITHUB_TOKEN` environment variable with
+`read:packages` permission (classic token) in my Railway project.
 
-Both examples give you an idea of what you need to do in your situation: figure out how and when you
-can run the `pnpm config set` command before you run `pnpm install`.
+Both examples give you an idea of what you need to do in your specific situation: figure out the
+best way to put the authentication configuration in place before running `pnpm install`.
