@@ -1,3 +1,7 @@
+# TODO: Remove when Railway uses PNPM v11.
+packages:
+  - .
+
 registries:
   '@maiertech': https://npm.pkg.github.com/
 
