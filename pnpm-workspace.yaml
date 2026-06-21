@@ -1,8 +1,8 @@
+# TODO: Remove when Railway uses PNPM v11.
 packages:
   - .
 
 registries:
-  default: https://registry.npmjs.org/
   '@maiertech': https://npm.pkg.github.com/
 
 minimumReleaseAgeExclude:
