@@ -5,6 +5,10 @@ description: How to review code in agentic workflows.
 
 ## Agent diff reviews
 
+| Shortcut | Description      |
+| :------- | :--------------- |
+| `⌃ ⇧ R`  | Show agent diff. |
+
 When using Zed agent, you have full agent diff support. This means that you (the human) review code
 created by an agent. Make many small code reviews while you iterate with the agent.
 
@@ -40,3 +44,22 @@ Once a pull request passes the first assessment, there are a couple of things yo
   provider's pull request page.
 - It's always a good idea to ask an agent to look at the branch diff and suggest what to focus on in
   the review.
+
+## Tweaking the branch diff in Zed
+
+If the default branch is `origin/main` but you always target `origin/develop` in pull requests, you
+can configure `origin/develop` as the local branch in your local Git configuration. To find out the
+default branch, look for `remotes/origin/HEAD` in
+
+```bash
+git branch -a
+```
+
+Run
+
+```bash
+git remote set-head origin develop
+```
+
+to update the ref `origin/HEAD` to `origin/develop` locally. Any `git: branch diff` will then pick
+up this config.
