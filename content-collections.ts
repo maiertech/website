@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { defineConfig } from '@content-collections/core';
 import { collection as authors } from './src/collections/authors/index.js';
 import { collection as guides } from './src/collections/guides/index.js';

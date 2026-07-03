@@ -30,13 +30,13 @@ description: How to use Zed for agentic coding.
 
 ## Finding
 
-| Shortcut                      | Description                   |
-| :---------------------------- | :---------------------------- |
-| `⌘ P`                         | Find and open file.           |
-| `⌘ F`                         | Find in editor.               |
-| `⇧ ⌘ F`                       | Find in project (string).     |
-| `⌘ T`                         | Go to symbol.                 |
-| `editor: find all references` | Starts with symbol at cursor. |
+| Shortcut     | Description                                         |
+| :----------- | :-------------------------------------------------- |
+| `⌘ P`        | Find and open file.                                 |
+| `⌘ F`        | Find in editor.                                     |
+| `⇧ ⌘ F`      | Find in project (string).                           |
+| `⌘ T`        | Go to symbol.                                       |
+| `⌥ Fn ⇧ F12` | Find all references (starts with symbol at cursor). |
 
 Search results are shown as multibuffers that can be augmented with an outline view on the side.
 

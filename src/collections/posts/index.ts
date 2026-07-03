@@ -1,14 +1,10 @@
 import { defineCollection } from '@content-collections/core';
 import { postMetaSchema } from '@maiertech/sveltekit-helpers';
 import { execSync } from 'child_process';
-import { config } from 'dotenv';
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 import { collection as authors } from '../authors/index.js';
 import { collection as tags } from '../tags/index.js';
-
-// Load `.env` since this file runs outside Vite.
-config();
 
 /**
  * Lastmod date management.
@@ -40,54 +36,46 @@ function writeLastmodDates(): void {
 
 readLastmodDates();
 
-/**
- * OG image link generation.
- */
-
-const OG_IMAGE_META = {
-	template: 'maiertechPost' as const,
-	avatarName: 'Thilo Maier' as const,
-	avatarImageUrl: 'https://maier.tech/assets/portrait-thilo-maier.jpg' as const,
-	height: 630 as const,
-	width: 1200 as const,
-	colors: {
-		ink: '#020618',
-		surface: '#f1f5f9',
-		primary: '#193cb8',
-		accent: '#1e2939'
-	},
-	fonts: [
-		{ name: 'Roboto' as const, style: 'normal' as const, weight: 400 as const },
-		{ name: 'Roboto' as const, style: 'normal' as const, weight: 700 as const }
-	]
-};
-
-async function createOgImageUrl(
-	title: string,
-	ogImageUrl: string | undefined
-): Promise<string | undefined> {
+async function createOgImageUrl({
+	title,
+	author,
+	ogImageUrl
+}: {
+	title: string;
+	author: string | undefined;
+	ogImageUrl: string | undefined;
+}): Promise<string | undefined> {
 	// `ogImageUrl` from `postMeta` takes precedence.
 	if (ogImageUrl) {
 		return ogImageUrl;
 	}
 
-	const imageMeta = {
-		...OG_IMAGE_META,
-		title
+	const config = {
+		title,
+		author,
+		tag: 'Post',
+		colors: {
+			ink: '#020618',
+			surface: '#f1f5f9',
+			primary: '#193cb8',
+			accent: '#1e2939'
+		},
+		fontName: 'Roboto'
 	};
 
-	const response = await fetch('https://create.viral.cards/api/v1/satori', {
+	const response = await fetch('https://create.viral.cards/api/v1/create-link', {
 		method: 'POST',
 		headers: {
 			'X-API-Key': process.env.VIRALCARDS_API_KEY!,
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(imageMeta)
+		body: JSON.stringify({ username: 'maiertech', template: 'og-article', config })
 	});
 
 	if (!response.ok) {
 		// 1 attempt to generate an OG image link. If it fails, no retry.
 		// Return '' instead of `undefined` to not break serialization when result is cached.
+		// TODO: Log or throw the error somehow.
 		return '';
 	}
 
@@ -137,15 +125,13 @@ export const collection = defineCollection({
 		const path = `/posts/${slug}`;
 
 		// Resolve author.
-		const author = await documents(authors).find((a) => a.id === postMeta.author);
+		const author = documents(authors).find((a) => a.id === postMeta.author);
 
 		// Resolve tags. Filter tags that cannot be resolved.
 		const resolvedTags = postMeta.tags
-			? (
-					await Promise.all(
-						postMeta.tags.map((tagId) => documents(tags).find((t) => t.id === tagId))
-					)
-				).filter((tag) => tag !== undefined)
+			? postMeta.tags
+					.map((tagId) => documents(tags).find((t) => t.id === tagId))
+					.filter((tag) => tag !== undefined)
 			: undefined;
 
 		// Resolve last modified date.
@@ -154,7 +140,11 @@ export const collection = defineCollection({
 
 		// Generate and cache OG image URL.
 		const ogImageUrl = await cache(postMeta.title, () =>
-			createOgImageUrl(postMeta.title, postMeta.ogImageUrl)
+			createOgImageUrl({
+				title: postMeta.title,
+				author: author?.name,
+				ogImageUrl: postMeta.ogImageUrl
+			})
 		);
 
 		return {
