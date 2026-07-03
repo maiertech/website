@@ -15,11 +15,9 @@ export const collection = defineCollection({
 
 		// Resolve tags. Filter tags that cannot be resolved.
 		const resolvedTags = videoMeta.tags
-			? (
-					await Promise.all(
-						videoMeta.tags.map((tagId) => documents(tags).find((t) => t.id === tagId))
-					)
-				).filter((tag) => tag !== undefined)
+			? videoMeta.tags
+					.map((tagId) => documents(tags).find((t) => t.id === tagId))
+					.filter((tag) => tag !== undefined)
 			: undefined;
 
 		// Thumbnail URL has usually aspect ratio 16:9.
