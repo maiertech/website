@@ -4,9 +4,9 @@
 
 This is a content-driven website with three types of content:
 
-1. Type post: An article that dives deeper into a topic.
-2. Type note: A brief observation or thought.
-3. Type video: A YouTube video instead of a post.
+1. Type post: A long-form, evergreen article.
+2. Type note: A short link post, a single external URL with a few sentences of framing.
+3. Type video: A support page for one of my own YouTube videos
 
 ## Stack
 
@@ -15,26 +15,29 @@ This is a content-driven website with three types of content:
 - TypeScript.
 - Zod (for schemas and validation).
 - TailwindCSS v4 and `tailwind-merge`.
+- `@skeletonlabs/skeleton` v4.
 - Mdsvex for authoring posts and notes.
+- Content Collections for the content pipeline.
 - Private package `@maiertech/sveltekit-helpers` for reusable components, Zod schemas and types.
 - PNPM as package manager.
-- Deployment to Railway with zero config deployments.
 
 ## Conventions
 
 - Prefer TailwindCSS in combination with `tailwind-merge` for styling. You can use plain CSS inside
   Svelte's `<style>` tag for complex styles.
-- Use `$env/dynamic/private` for secrets in SvelteKit and `$env/static/private` environment
-  variables that are not secrets.
+- Follow the best practices for Skeleton v4 as outlined in https://v4.skeleton.dev/llms-svelte.txt.
 - Comments always end with a period.
 
-## Written Content
+## Authoring
 
+- A post must be evergreen content and relevant in the long-term.
+- A note usually shares a link.
+- A video page hosts the transcription of one of my own YouTube videos.
 - Use American English.
 - Be concise and clear.
 - Use active voice and present tense.
 - Write in a conversational but professional tone.
-- Do not use "–" (en dash).
+- Do not use en dashes or em dashes.
 
 ## Checks
 
