@@ -7,7 +7,7 @@
 	let { data, children }: LayoutProps = $props();
 </script>
 
-<SeoLdPost value={data.post} />
+<SeoLdPost value={data.post} origin={data.origin} />
 <SeoCanonicalUrl origin={data.origin} />
 
 <div class="flex flex-wrap gap-10">

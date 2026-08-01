@@ -15,7 +15,7 @@ This is a content-driven website with three types of content:
 - TypeScript.
 - Zod (for schemas and validation).
 - TailwindCSS v4 and `tailwind-merge`.
-- `@skeletonlabs/skeleton` v4.
+- `@skeletonlabs/skeleton` v5.
 - Mdsvex for authoring posts and notes.
 - Content Collections for the content pipeline.
 - Private package `@maiertech/sveltekit-helpers` for reusable components, Zod schemas and types.
@@ -25,7 +25,7 @@ This is a content-driven website with three types of content:
 
 - Prefer TailwindCSS in combination with `tailwind-merge` for styling. You can use plain CSS inside
   Svelte's `<style>` tag for complex styles.
-- Follow the best practices for Skeleton v4 as outlined in https://v4.skeleton.dev/llms-svelte.txt.
+- Follow the best practices for Skeleton v5 as outlined in https://www.skeleton.dev/llms-svelte.txt.
 - Comments always end with a period.
 
 ## Authoring
