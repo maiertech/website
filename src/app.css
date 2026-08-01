@@ -11,16 +11,16 @@
 
 [data-theme='wintry'] {
 	--text-scaling: 1.2;
-	--heading-font-family: 'Lexend', ui-sans-serif, sans-serif;
-	--base-font-family: 'Spectral', ui-serif, serif;
-	--anchor-text-decoration: underline;
-	--body-background-color: var(--color-surface-50);
-	--body-background-color-dark: var(--color-surface-950);
+	--typo-heading--font-family: 'Lexend', ui-sans-serif, sans-serif;
+	--typo-base--font-family: 'Spectral', ui-serif, serif;
+	--typo-anchor--text-decoration-line: underline;
+	--color-root-bg-light: var(--color-surface-50);
+	--color-root-bg-dark: var(--color-surface-950);
 }
 
 @theme {
-	--font-sans: var(--heading-font-family);
-	--font-serif: var(--base-font-family);
+	--font-sans: var(--typo-heading--font-family);
+	--font-serif: var(--typo-base--font-family);
 }
 
 @media (prefers-color-scheme: dark) {
