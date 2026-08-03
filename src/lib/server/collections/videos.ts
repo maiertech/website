@@ -8,9 +8,6 @@ export const sorted = allVideos.toSorted((a, b) => {
 
 export const latest = sorted.slice(0, 10);
 
-export const videos2026 = sorted.filter((video) => video.publishedDate.startsWith('2026'));
-export const videos2025 = sorted.filter((video) => video.publishedDate.startsWith('2025'));
-
 export const rss = latest.map((video) => ({
 	title: video.title,
 	description: video.description,

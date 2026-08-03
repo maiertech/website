@@ -38,6 +38,8 @@ jobs:
 
       - run: pnpm build # Generate content collections prior to running `svelte-check`.
 
+      - run: pnpm knip --reporter github-actions
+
       - run: pnpm run check
 
       # - name: Install Playwright Chromium
