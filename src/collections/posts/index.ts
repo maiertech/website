@@ -138,14 +138,17 @@ export const collection = defineCollection({
 		const filepath = `src/routes/posts/${postMeta._meta.filePath}`;
 		const lastmodDate = resolveLastmodDate(filepath);
 
-		// Generate and cache OG image URL.
-		const ogImageUrl = await cache(postMeta.title, () =>
-			createOgImageUrl({
-				title: postMeta.title,
-				author: author?.name,
-				ogImageUrl: postMeta.ogImageUrl
-			})
-		);
+		// Generate and cache OG image URL if API key is set.
+		// API key is not set in CI to prevent API calls.
+		const ogImageUrl = process.env.VIRALCARDS_API_KEY
+			? await cache(postMeta.title, () =>
+					createOgImageUrl({
+						title: postMeta.title,
+						author: author?.name,
+						ogImageUrl: postMeta.ogImageUrl
+					})
+				)
+			: postMeta.ogImageUrl;
 
 		return {
 			...postMeta,
