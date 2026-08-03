@@ -9,7 +9,6 @@ on:
 env:
   ORIGIN: ${{ vars.ORIGIN }}
   RAILWAY_GIT_COMMIT_SHA: ${{ vars.RAILWAY_GIT_COMMIT_SHA }}
-  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 permissions:
   contents: read
@@ -32,6 +31,8 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm i --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: pnpm run lint
 
