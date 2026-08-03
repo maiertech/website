@@ -10,13 +10,6 @@ export const sorted = allPosts
 
 export const latest = sorted.slice(0, 10);
 
-export const posts2026 = sorted.filter((post) => post.publishedDate.startsWith('2026'));
-export const posts2025 = sorted.filter((post) => post.publishedDate.startsWith('2025'));
-export const posts2024 = sorted.filter((post) => post.publishedDate.startsWith('2024'));
-export const posts2023 = sorted.filter((post) => post.publishedDate.startsWith('2023'));
-export const posts2022 = sorted.filter((post) => post.publishedDate.startsWith('2022'));
-export const posts2021 = sorted.filter((post) => post.publishedDate.startsWith('2021'));
-
 export const rss = latest.map((post) => ({
 	title: post.title,
 	description: post.description,

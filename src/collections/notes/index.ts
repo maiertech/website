@@ -57,13 +57,16 @@ export const collection = defineCollection({
 		const slug = noteMeta._meta.directory.split('/').pop();
 		const path = `/notes/${slug}`;
 
-		// Generate and cache OG image URL.
-		const ogImageUrl = await cache(noteMeta.title, () =>
-			createOgImageUrl({
-				title: noteMeta.title,
-				ogImageUrl: noteMeta.ogImageUrl
-			})
-		);
+		// Generate and cache OG image URL if API key is set.
+		// API key is not set in CI to prevent API calls.
+		const ogImageUrl = process.env.VIRALCARDS_API_KEY
+			? await cache(noteMeta.title, () =>
+					createOgImageUrl({
+						title: noteMeta.title,
+						ogImageUrl: noteMeta.ogImageUrl
+					})
+				)
+			: noteMeta.ogImageUrl;
 
 		return {
 			...noteMeta,

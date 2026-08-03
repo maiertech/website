@@ -8,9 +8,6 @@ export const sorted = allNotes.toSorted((a, b) => {
 
 export const latest = sorted.slice(0, 10);
 
-export const notes2026 = sorted.filter((note) => note.publishedDate.startsWith('2026'));
-export const notes2025 = sorted.filter((note) => note.publishedDate.startsWith('2025'));
-
 export const rss = latest.map((note) => ({
 	title: note.title,
 	description: note.description,
