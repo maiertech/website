@@ -1,6 +1,9 @@
-# Ignore files for skills
+# Ignore installed skills.
 /.agents/skills
 skills-lock.json
+
+# Ignore specific OpenCode files.
+/.opencode/package.json
 
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml
