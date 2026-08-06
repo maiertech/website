@@ -20,6 +20,7 @@
 <Favicon />
 
 <svelte:head>
+	<link rel="me" href="https://sifa.id/p/maier.tech" />
 	<link rel="alternate" type="application/rss+xml" title="Thilo Maier" href="/rss.xml" />
 	<link
 		rel="alternate"
