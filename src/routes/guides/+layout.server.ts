@@ -1,7 +1,7 @@
+import { error } from '@sveltejs/kit';
 import { ORIGIN } from '$env/static/private';
 import { sorted as guides } from '$lib/server/collections/guides.js';
 import { latest as latestVideos } from '$lib/server/collections/videos.js';
-import { error } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 
 export const prerender = true;

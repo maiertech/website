@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { NoteList, PostList } from '$lib/components';
-	import { VideoPreview } from '@maiertech/sveltekit-helpers';
-	import type { PageProps } from './$types';
 	import { Clock } from '@lucide/svelte';
+	import { VideoPreview } from '@maiertech/sveltekit-helpers';
+	import { NoteList, PostList } from '$lib/components';
+	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 </script>

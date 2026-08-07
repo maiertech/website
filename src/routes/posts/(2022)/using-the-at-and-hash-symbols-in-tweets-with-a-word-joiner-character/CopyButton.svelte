@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
 	import { Button } from '@maiertech/sveltekit-helpers';
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		text: string;

@@ -1,6 +1,6 @@
-import { allPosts } from 'content-collections';
 import { ORIGIN } from '$env/static/private';
 import { escapeXml } from '$lib/utils';
+import { allPosts } from 'content-collections';
 
 export const sorted = allPosts
 	.filter((post) => post.published !== false) // Quick way to unpublish a post.

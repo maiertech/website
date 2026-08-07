@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { VideoList, Pager } from '$lib/components';
 	import { Clock } from '@lucide/svelte';
 	import { NoteHeader, SeoCanonicalUrl } from '@maiertech/sveltekit-helpers';
+	import { Pager, VideoList } from '$lib/components';
 	import type { LayoutProps } from './$types';
 
 	let { data, children }: LayoutProps = $props();
