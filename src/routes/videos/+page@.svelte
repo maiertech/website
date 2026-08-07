@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { VideoList } from '$lib/components';
 	import { H1 } from '@maiertech/sveltekit-helpers';
+	import { VideoList } from '$lib/components';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

@@ -1,6 +1,6 @@
+import type { RequestHandler } from '@sveltejs/kit';
 import { ORIGIN } from '$env/static/private';
 import { rss as rssItems } from '$lib/server/collections/posts';
-import type { RequestHandler } from '@sveltejs/kit';
 
 export const prerender = true;
 

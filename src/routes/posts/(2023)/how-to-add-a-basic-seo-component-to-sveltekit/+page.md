@@ -89,8 +89,8 @@ So, here is my basic SEO component:
 
 ```svelte
 <script>
-	import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 	import { page } from '$app/stores';
+	import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 	import decorate from '$lib/utils/decorate';
 
 	/** @type {import('$lib/types').SeoDefaultData} */

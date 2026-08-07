@@ -37,8 +37,8 @@ Here is what I came up with:
 
 ```ts
 import type { Handle } from '@sveltejs/kit';
-import { Blocklist } from '$lib/utils/index.js';
 import { BLOCKED_PATHS } from '$lib/blocklists/index.js';
+import { Blocklist } from '$lib/utils/index.js';
 
 const pathBlocklist = new Blocklist(BLOCKED_PATHS);
 

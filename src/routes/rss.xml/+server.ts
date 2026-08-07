@@ -1,8 +1,8 @@
+import type { RequestHandler } from '@sveltejs/kit';
 import { ORIGIN } from '$env/static/private';
 import { rss as noteRssItems } from '$lib/server/collections/notes';
 import { rss as postRssItems } from '$lib/server/collections/posts';
 import { rss as videoRssItems } from '$lib/server/collections/videos';
-import type { RequestHandler } from '@sveltejs/kit';
 
 export const prerender = true;
 

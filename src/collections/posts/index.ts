@@ -1,8 +1,8 @@
-import { defineCollection } from '@content-collections/core';
-import { postMetaSchema } from '@maiertech/sveltekit-helpers';
 import { execSync } from 'child_process';
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
+import { defineCollection } from '@content-collections/core';
+import { postMetaSchema } from '@maiertech/sveltekit-helpers';
 import { collection as authors } from '../authors/index.js';
 import { collection as tags } from '../tags/index.js';
 

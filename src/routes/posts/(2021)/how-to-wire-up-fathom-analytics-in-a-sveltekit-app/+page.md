@@ -49,8 +49,9 @@ script:
 
 ```svelte
 <script>
-	import { onMount } from 'svelte';
 	import * as Fathom from 'fathom-client';
+	import { onMount } from 'svelte';
+
 	onMount(() => {
 		Fathom.load('ABCDEFG');
 	});
@@ -73,9 +74,9 @@ here:
 
 ```svelte
 <script>
-	import { onMount } from 'svelte';
-	import * as Fathom from 'fathom-client';
 	import { PUBLIC_FATHOM_SITE_ID } from '$env/static/public';
+	import * as Fathom from 'fathom-client';
+	import { onMount } from 'svelte';
 
 	onMount(() => {
 		Fathom.load(PUBLIC_FATHOM_SITE_ID);
@@ -134,9 +135,9 @@ set the `url` option to the alternative tracking script:
 
 ```svelte
 <script>
-	import { onMount } from 'svelte';
-	import * as Fathom from 'fathom-client';
 	import { PUBLIC_FATHOM_SITE_ID } from '$env/static/public';
+	import * as Fathom from 'fathom-client';
+	import { onMount } from 'svelte';
 
 	onMount(() => {
 		Fathom.load(PUBLIC_FATHOM_SITE_ID, {
