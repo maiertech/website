@@ -5,7 +5,11 @@ const config = {
 	trailingComma: 'none',
 	printWidth: 100,
 	proseWrap: 'always',
-	plugins: ['prettier-plugin-svelte', 'prettier-plugin-tailwindcss'],
+	plugins: [
+		'prettier-plugin-svelte',
+		'@ianvs/prettier-plugin-sort-imports',
+		'prettier-plugin-tailwindcss'
+	],
 	tailwindStylesheet: './src/app.css',
 	overrides: [
 		{
