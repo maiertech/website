@@ -3,24 +3,21 @@ title: Zed guide
 description: How to use Zed for agentic coding.
 ---
 
-## Project navigation
+## Basic shortcuts
 
-| Shortcut | Description            |
-| :------- | :--------------------- |
-| `⌘ O`    | Open project.          |
-| `⌥ ⌘ O`  | Open recent.           |
-| `⌃ ⌘ W`  | Manage worktrees.      |
-| `⌃ ⌘ B`  | Manage branches.       |
-| `⌘ B`    | Toggle left dock.      |
-| `⌘ R`    | Toggle right dock.     |
-| `⌘ ⇧ E`  | Show project panel.    |
-| `⌘ ⇧ G`  | Show Git panel.        |
-| `⌘ ⇧ B`  | Show outline panel.    |
-| `⌥ ⌘ J`  | Toggle sidebar.        |
-| `⌘ ?`    | Focus the agent panel. |
-| `⌃ ↹`    | Tab switcher.          |
+| Shortcut | Description         |
+| :------- | :------------------ |
+| `⌘ O`    | Open project.       |
+| `⌥ ⌘ O`  | Open recent.        |
+| `⌃ ⌘ B`  | Manage branches.    |
+| `⌘ B`    | Toggle left dock.   |
+| `⌘ R`    | Toggle right dock.  |
+| `⌘ ⇧ E`  | Show project panel. |
+| `⌘ ⇧ G`  | Show Git panel.     |
+| `⌘ ⇧ B`  | Show outline panel. |
+| `⌃ ↹`    | Tab switcher.       |
 
-## Focus
+## Focused work
 
 | Shortcut                            | Description                               |
 | :---------------------------------- | :---------------------------------------- |
@@ -28,15 +25,15 @@ description: How to use Zed for agentic coding.
 | `workspace: toggle all docks`       | Keyboard shortcut does not work reliably. |
 | `workspace: toggle centered layout` | Focus view.                               |
 
-## Finding
+## Find and explore
 
-| Shortcut     | Description                                         |
-| :----------- | :-------------------------------------------------- |
-| `⌘ P`        | Find and open file.                                 |
-| `⌘ F`        | Find in editor.                                     |
-| `⇧ ⌘ F`      | Find in project (string).                           |
-| `⌘ T`        | Go to symbol.                                       |
-| `⌥ Fn ⇧ F12` | Find all references (starts with symbol at cursor). |
+| Shortcut    | Description                          |
+| :---------- | :----------------------------------- |
+| `⌘ P`       | Find and open file.                  |
+| `⌘ F`       | Find in editor.                      |
+| `⇧ ⌘ F`     | Find in project (string).            |
+| `⌘ T`       | Go to symbol.                        |
+| `⌘ K` `⌘ H` | Call hierarchy: show incoming calls. |
 
 Search results are shown as multibuffers that can be augmented with an outline view on the side.
 
@@ -59,26 +56,64 @@ make switching between agent sessions seamless.
 If you want an agent session to run on more than one project, you can add the folder of the second
 project with the shortcut above. This creates a multi-root workspace.
 
-## Agent panel
+## Agentic coding
 
-The agent panel is where you interact with the agent. Agent integration varies across providers. For
-example, not all agents support code reviews where changes can be accepted or rejected individually.
+### Agent sidebar
+
+| Shortcut | Description     |
+| :------- | :-------------- |
+| `⌥ ⌘ J`  | Toggle sidebar. |
+
+The sidebar shows agent sessions sorted per project. It falls short of alternative agentic IDEs. For
+instance, it does not sort sessions by worktree. It also does not offer a workflow to archive all
+sessions on a specific worktree once the worktree is removed. The sidebar starts behaving
+erratically when archiving a session fails. That's why I don't use the sidebar at all.
+
+### Using Zed as a harness
+
+You can use Zed as a harness with [Zed agent](https://zed.dev/docs/ai/zed-agent). Most developers
+already use another harness that they have tweaked, be it from one of the big labs or an alternative
+such as [OpenCode](https://opencode.ai/). It makes little sense to use Zed as a harness because you
+would have to configure skills and MCP servers again in Zed. Instead, it makes more sense to use
+your harness of choice within Zed.
+
+### Agent panel
 
 | Shortcut | Description                     |
 | :------- | :------------------------------ |
+| `⌘ ?`    | Focus the agent panel.          |
 | `⌘ N`    | New agent.                      |
 | `@`      | Add to context.                 |
 | `⌘ ⇧ >`  | Add selection to agent session. |
 
-## Worktrees
+The agent panel is where you interact with your harness of choice. This can be via ACP integration
+or via the terminal. For OpenCode, the ACP integration leaves much to be desired. That's why I use
+OpenCode via the terminal. Other harnesses may give you a better ACP integration. For example, some
+integrations let you accept or reject agent changes individually.
 
-Worktree support in Zed has been usable since version 1.0. Using Git worktrees to isolate workspaces
-within the same project is seamless. Click the branch name at the top to create a headless worktree,
-then add a branch.
+### Worktrees
 
-Zed keeps all worktrees in a configurable folder and is opinionated about how worktrees are
-organized within it. Since you can switch between worktrees in the UI, you don't need to worry about
-where worktrees are located.
+| Shortcut | Description       |
+| :------- | :---------------- |
+| `⌃ ⌘ W`  | Manage worktrees. |
+
+The default worktree directory configuration in Zed is
+
+```json
+{
+	"git": {
+		"worktree_directory": "../worktrees"
+	}
+}
+```
+
+By default, Zed co-locates worktrees with the main project directory. Inside the worktree directory,
+Zed places the worktree in `project_name/worktree_name/project_name`. The
+[second `project_name` is a bug](https://github.com/zed-industries/zed/issues/58055). But it's
+currently not configurable.
+
+A positive detail about Zed's worktree implementation is that you can create a worktree from an
+existing branch. This is handy for code reviews.
 
 ## Code reviews
 
@@ -90,92 +125,3 @@ Check out the [code reviews guide](/guides/code-reviews).
 | :---------------------------- | :------ |
 | `.zed/settings.json`          | project |
 | `~/.config/zed/settings.json` | global  |
-
-### MCP servers
-
-You need to decide whether an MCP server should be defined as a global server or a project server.
-
-#### Context7 MCP server
-
-This MCP server should be installed as a global server:
-
-```json
-{
-	"context_servers": {
-		"context7": {
-			"url": "https://mcp.context7.com/mcp"
-		}
-	}
-}
-```
-
-It is a remote MCP server with rate limiting when used without authentication.
-
-#### GitHub MCP server
-
-The GitHub MCP server should be defined as a global server. This configuration should work:
-
-```json
-{
-	"context_servers": {
-		"github": {
-			"url": "https://api.githubcopilot.com/mcp/"
-		}
-	}
-}
-```
-
-This config should prompt you to log in with your GitHub credentials. But because of a bug with
-GitHub's MCP server, this does not work. Instead you have to install the GitHub MCP server
-extension, which adds this config:
-
-```json
-{
-	"context_servers": {
-		"mcp-server-github": {
-			"enabled": true,
-			"remote": false,
-			"settings": {
-				// Zed settings token.
-				"github_personal_access_token": "token"
-			}
-		}
-	}
-}
-```
-
-The extension runs an MCP server that communicates with GitHub locally.
-
-#### Railway MCP server
-
-The Railway MCP server should be defined as a global server:
-
-```json
-{
-	"context_servers": {
-		"railway": {
-			"command": "railway",
-			"args": ["mcp"]
-		}
-	}
-}
-```
-
-It requires the Railway CLI to be installed, which runs the MCP server locally.
-
-#### Svelte MCP server
-
-This MCP server should be defined as a project server:
-
-```json
-{
-	"context_servers": {
-		"Svelte": {
-			"command": "npx",
-			"args": ["-y", "@sveltejs/mcp"]
-		}
-	}
-}
-```
-
-This is a local MCP server that runs on demand via `npx`.

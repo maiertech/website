@@ -3,50 +3,82 @@ title: OpenCode
 description: How to use and configure OpenCode.
 ---
 
-## Running OpenCode
+OpenCode is my harness of choice. Whether I work with Zed or in the terminal, I always use OpenCode
+with the same configuration.
 
-### OpenCode in the terminal
+## Skills
 
-I run OpenCode in the terminal only to configure it, e.g. to connect to LLM providers with API keys.
+- Global skills go in `~/.agent/skills`.
+- Project skills go in `.agent/skills`.
 
-### OpenCode via ACP in Zed
+## Config
 
-With this option I get access to all OpenCode Go models while enjoying a polished integration with
-Zed:
+- The global configuration goes in `~/.config/opencode/opencode.jsonc`.
+- Project overrides go in `.opencode/opencode.jsonc`.
 
-- Access project skills in `.agent/skills` and global skills in `~/.agent/skills`.
-- Access MCP servers configured for Zed and in `~/.config/opencode/opencode.jsonc`.
-- No pull request-style reviews for agent code changes.
-
-### OpenCode models in Zed agent
-
-With this option I can access OpenCode Go models inside the Zed agent:
-
-- Access project skills in `.agent/skills` and global skills in `~/.agent/skills`.
-- Access MCP servers configured for Zed.
-- Rewview agent changes with agent diffs.
-
-## OpenCode Go models
-
-The currently supported models are listed [here](https://opencode.ai/go). Sometimes a model goes on
-sale and you get more mileage from it.
-
-## Configuration
+A project config is merged with the global config, and project overrides take precedence. OpenCode
+picks up the configuration no matter whether you use it in the terminal or via ACP in Zed.
 
 ### Default model
 
+You can set the default model with
+
 ```json
 {
-	"model": "opencode-go/qwen3.7-max"
+	"model": "opencode-go/glm-5.3-flash"
+}
+```
+
+and look up the model IDs [here](https://opencode.ai/docs/go/#endpoints). Pricing information
+(including inference promotions) is listed [here](https://opencode.ai/go).
+
+### Disabled providers
+
+You can disable providers with
+
+```json
+{
+	"disabled_providers": ["opencode"]
+}
+```
+
+This one turns off OpenCode Zen models.
+
+### Voice dictation
+
+To make voice dictation work properly with OpenCode, disable past summaries:
+
+```json
+{
+	"experimental": {
+		"disable_paste_summary": true
+	}
 }
 ```
 
 ### MCP servers
 
-Since I use OpenCode within Zed only, there is no real point configuring MCP servers for OpenCode.
-It makes sense to configure MCP servers in Zed instead. For reference, two MCP server examples.
+For MCP servers, you need to decide whether they belong in the global or project config.
 
-#### Railway MCP server
+#### GitHub
+
+```json
+{
+	"mcp": {
+		"github": {
+			"type": "remote",
+			"url": "https://api.githubcopilot.com/mcp/",
+			"enabled": true,
+			"oauth": false,
+			"headers": {
+				"Authorization": "Bearer {env:GITHUB_TOKEN}"
+			}
+		}
+	}
+}
+```
+
+#### Railway
 
 ```json
 {
@@ -60,18 +92,3 @@ It makes sense to configure MCP servers in Zed instead. For reference, two MCP s
 ```
 
 This requires the Railway CLI to be installed locally.
-
-#### Context7 MCP server
-
-```json
-{
-	"mcp": {
-		"context7": {
-			"type": "remote",
-			"url": "https://mcp.context7.com/mcp"
-		}
-	}
-}
-```
-
-This MCP server is a remote server.
