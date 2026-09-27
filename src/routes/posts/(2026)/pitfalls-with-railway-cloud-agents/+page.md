@@ -146,9 +146,9 @@ To wrap up this section, here is an overview of the commands you need to manage 
   additional layer of abstraction and indirection makes local development feel like the better
   option.
 - I don't mind configuring a physical piece of hardware as a one-off: the configuration is stored on
-  the device and won't go anywhere. Although cloud agents persist configurations when put to sleep,
-  they still feel ephemeral and brittle. Before long, you will have to do the configuration all over
-  again, because you forgot to add an environment variable when you created the cloud agent. To be
+  the device and won't go anywhere. Cloud agents keep their configuration when put to sleep, but
+  deleting one means setting it up again. If you forget an environment variable, you cannot add it to
+  a running agent, so you will need to create a replacement with the correct configuration. To be
   fair, this will only get better as Railway improves the developer experience.
 - If you run multiple cloud agents or, God forbid, forget to turn off a cloud agent, you will feel
   the billing pain. How much extra are you willing to spend each month on cloud-agent compute, on
