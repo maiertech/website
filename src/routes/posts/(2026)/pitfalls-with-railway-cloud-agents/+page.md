@@ -152,14 +152,15 @@ To wrap up this section, here is an overview of the commands you need to manage 
   fair, this will only get better as Railway improves the developer experience.
 - If you run multiple cloud agents or, God forbid, forget to turn off a cloud agent, you will feel
   the billing pain. How much extra are you willing to spend each month on cloud-agent compute, on
-  top of your agent subscription? I would argue that if you spent only $20 per month on cloud agent
-  compute, you would have a business case to buy a beefy mini PC.
+  top of your agent subscription? If you are spending around $20 per month on cloud-agent compute, a
+  beefy mini PC might be worth considering, depending on your workload and hardware preferences.
 
 ## Conclusion
 
 Railway cloud agents sound like an appealing option for agentic development. They isolate agents
 from my laptop and home network, which is exactly what I was looking for. But they also add friction
 and latency to my development workflow. Cloud agents feel like GitHub Codespaces reloaded for the
-agentic age. Metered usage does not make sense for heavy users. Just go and buy a Mac mini. You will
-break even pretty fast. But if you just want to try out remote agentic workflows without making a
-hardware commitment, spending a few bucks on Railway cloud agents is a great option.
+agentic age. Metered usage may not make sense for heavy users. Depending on your workload, buying a
+Mac mini or other hardware could be more cost-effective over time. But if you just want to try out
+remote agentic workflows without making a hardware commitment, spending a few bucks on Railway cloud
+agents is a great option.
