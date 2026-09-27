@@ -29,8 +29,9 @@ the most normal thing to do.
 When I read about [Railway cloud agents](https://docs.railway.com/cloud-agents), I thought that this
 was the perfect opportunity to test a workflow where agents do not run on my laptop, without having
 to make a big upfront investment. The idea of cloud agents is simple: Railway helps you spin up a VM
-with your favorite harness installed, your global skills installed, and authentication with your
-model provider configured. And then you just do what you would do locally on the cloud agent VM.
+with your favorite harness and global skills installed, and authentication with your model provider
+configured. You can then connect to the VM and use the harness, but you will still need to set up
+each project.
 
 Let's dive a little bit deeper into how Railway cloud agents work.
 
