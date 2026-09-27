@@ -1,11 +1,13 @@
 ---
-title: Pitfalls with Railway cloud agents
+title: Pitfalls of using Railway cloud agents
 author: thilo
 publishedDate: 2026-09-27
-description: TODO
+description:
+  A hands-on look at Railway cloud agents, covering setup, SSH access, configuration limits,
+  billing, and trade-offs compared with local hardware.
 tags:
   - ai
-  - productivity
+  - railway
 ---
 
 I have been using [OpenCode](https://opencode.ai) as my harness at work and in my side projects for
@@ -116,8 +118,8 @@ ssh railway-agent-<agent-name>
 
 The cloud agent will spin up OpenCode for you. You can also SSH into your cloud agent with
 [Zed remote development](https://zed.dev/docs/remote-development) or [Herdr](https://herdr.dev/).
-It's important to note that at this point you are authenticated with OpenCode, and if you have a Go
-subscription, you will be able to use it. That's pretty neat.
+It's important to note that at this point you are authenticated with OpenCode, and if you have an
+OpenCode Go subscription, you will be able to use it. That's pretty neat.
 
 The downside is that nothing else is configured: any OpenCode customizations are not carried over,
 no repository is cloned to the cloud agent, and other configurations, such as authenticating with a
@@ -147,8 +149,8 @@ To wrap up this section, here is an overview of the commands you need to manage 
   option.
 - I don't mind configuring a physical piece of hardware as a one-off: the configuration is stored on
   the device and won't go anywhere. Cloud agents keep their configuration when put to sleep, but
-  deleting one means setting it up again. If you forget an environment variable, you cannot add it to
-  a running agent, so you will need to create a replacement with the correct configuration. To be
+  deleting one means setting it up again. If you forget an environment variable, you cannot add it
+  to a running agent, so you will need to create a replacement with the correct configuration. To be
   fair, this will only get better as Railway improves the developer experience.
 - If you run multiple cloud agents or, God forbid, forget to turn off a cloud agent, you will feel
   the billing pain. How much extra are you willing to spend each month on cloud-agent compute, on
