@@ -3,8 +3,8 @@ title: OpenCode
 description: How to use and configure OpenCode.
 ---
 
-OpenCode is my harness of choice. Whether I work with Zed or in the terminal, I always use
-OpenCode with the same configuration.
+OpenCode is my harness of choice. Whether I work with Zed or in the terminal, I always use OpenCode
+with the same configuration.
 
 ## Skills
 
@@ -16,9 +16,8 @@ OpenCode with the same configuration.
 - The global configuration goes in `~/.config/opencode/opencode.jsonc`.
 - Project overrides go in `.opencode/opencode.jsonc`.
 
-A project config is merged with the global config, and project overrides take precedence.
-OpenCode picks up the configuration no matter whether you use it in the terminal or via ACP in
-Zed.
+A project config is merged with the global config, and project overrides take precedence. OpenCode
+picks up the configuration no matter whether you use it in the terminal or via ACP in Zed.
 
 ### Default model
 
