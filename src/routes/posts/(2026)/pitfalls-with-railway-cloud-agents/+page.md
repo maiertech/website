@@ -75,8 +75,8 @@ create cloud agents.
 
 ## Creating and managing cloud agents
 
-Cloud agents cost nothing when they do not run. But you are billed as soon as you start one. You
-have to actively pause a cloud agent to avoid being charged. That's a potential footgun because an
+Cloud agents cost nothing while they are asleep. Billing starts when you wake one and stops when you
+put it back to sleep. Forgetting to put a cloud agent to sleep can be a costly footgun because an
 always-on VM on Railway is not cheap.
 
 Spin up a new cloud agent with
@@ -93,9 +93,10 @@ this with a stupid little hack:
 railway ca desktop --opencode --agent website --dry-run
 ```
 
-Copy the displayed SSH connection, `railway-agent-<agent-name>`, into your `~/.ssh/config`. This
-assumes that you already have an SSH key configured that Railway can reuse. In my generated
-configuration, I had a bad line and had to replace
+Copy the generated SSH config entry for `railway-agent-<agent-name>` into your `~/.ssh/config`. This
+assumes that Railway can use your public SSH key and that the matching private key is available on
+your computer. In my generated configuration, `IdentityFile` pointed to the public key, so I had to
+replace
 
 ```bash
 IdentityFile /path/to/.ssh/id_ed25519.pub
@@ -107,7 +108,7 @@ with
 IdentityFile /path/to/.ssh/id_ed25519
 ```
 
-You need to reference the private key. Now run
+The `IdentityFile` setting must point to the private key. Now run
 
 ```bash
 ssh railway-agent-<agent-name>
