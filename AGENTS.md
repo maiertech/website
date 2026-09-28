@@ -43,3 +43,17 @@ This is a content-driven website with three types of content:
 
 Before you create or update a pull request, run `pnpm lint` and `pnpm check`. You can try fixing
 formatting errors with `pnpm format`.
+
+## Agent skills
+
+### Issue tracker
+
+Issues and specs live in GitHub Issues. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Use the default canonical triage labels. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Use the single-context layout. See `docs/agents/domain.md`.
