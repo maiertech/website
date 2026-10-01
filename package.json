@@ -46,7 +46,7 @@
 		"prettier-plugin-svelte": "^4.1.1",
 		"prettier-plugin-tailwindcss": "^0.8.1",
 		"shiki": "^4.4.3",
-		"simple-icons": "^16.32.0",
+		"simple-icons": "^16.33.0",
 		"svelte": "^5.57.1",
 		"svelte-check": "^4.7.6",
 		"sveltekit-embed": "^0.0.22",
