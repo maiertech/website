@@ -19,11 +19,11 @@ description: How to use Zed for agentic coding.
 
 ## Focused work
 
-| Shortcut                            | Description                               |
-| :---------------------------------- | :---------------------------------------- |
-| `⇧ ␛`                               | Enlarge panel.                            |
-| `workspace: toggle all docks`       | Keyboard shortcut does not work reliably. |
-| `workspace: toggle centered layout` | Focus view.                               |
+| Shortcut                            | Description                                   |
+| :---------------------------------- | :-------------------------------------------- |
+| `⇧ ␛`                               | Enlarge panel.                                |
+| `workspace: toggle all docks`       | The keyboard shortcut does not work reliably. |
+| `workspace: toggle centered layout` | Focus view.                                   |
 
 ## Find and explore
 
@@ -97,7 +97,7 @@ integrations let you accept or reject agent changes individually.
 | :------- | :---------------- |
 | `⌃ ⌘ W`  | Manage worktrees. |
 
-The default worktree directory configuration in Zed is
+The default worktree directory configuration in Zed is:
 
 ```json
 {
@@ -107,13 +107,13 @@ The default worktree directory configuration in Zed is
 }
 ```
 
-By default, Zed co-locates worktrees with the main project directory. Inside the worktree directory,
-Zed places the worktree in `project_name/worktree_name/project_name`. The
-[second `project_name` is a bug](https://github.com/zed-industries/zed/issues/58055). But it's
-currently not configurable.
+Inside the worktree directory, Zed places the worktree in `project_name/worktree_name/project_name`.
+The second `project_name` ensures that you see `project_name` instead of `worktree_name` as the
+top-level folder name in the project panel.
 
-A positive detail about Zed's worktree implementation is that you can create a worktree from an
-existing branch. This is handy for code reviews.
+Zed's worktree support lets you create a new worktree from an existing branch. This allows you to
+isolate a code review inside a worktree, which is handy when you have multiple unfinished code
+reviews in parallel.
 
 ## Code reviews
 
