@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "ORIGIN=${ORIGIN:-https://maier.tech} vite build",
+		"build": "node scripts/nodion-diagnostic.mjs && ORIGIN=${ORIGIN:-https://maier.tech} vite build",
 		"start": "node build/index.js",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
