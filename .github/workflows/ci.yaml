@@ -8,7 +8,7 @@ on:
 
 env:
   ORIGIN: ${{ vars.ORIGIN }}
-  RAILWAY_GIT_COMMIT_SHA: ${{ vars.RAILWAY_GIT_COMMIT_SHA }}
+  NODION_GIT_SHA: ${{ github.sha }}
 
 permissions:
   contents: read
