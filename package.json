@@ -3,6 +3,9 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
+	"engines": {
+		"node": ">=24"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -35,7 +38,6 @@
 		"@tailwindcss/vite": "^4.3.3",
 		"@types/node": "^26.6.5",
 		"d3-array": "^3.2.4",
-		"dotenv": "^17.4.2",
 		"eslint": "^10.13.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.23.1",
