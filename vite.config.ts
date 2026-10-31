@@ -73,6 +73,7 @@ export default defineConfig({
 				}
 			}
 		}),
-		contentCollections()
+		// Generate collections once per build, not once per Vite environment.
+		contentCollections({ environment: 'ssr' })
 	]
 });

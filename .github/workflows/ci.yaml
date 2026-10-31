@@ -34,13 +34,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: pnpm run lint
+      - run: pnpm verify
 
-      - run: pnpm build # Generate content collections prior to running `svelte-check`.
-
-      - run: pnpm knip --reporter github-actions
-
-      - run: pnpm run check
+      - run: pnpm build
 
       # - name: Install Playwright Chromium
       #   run: pnpm exec playwright install --with-deps chromium
