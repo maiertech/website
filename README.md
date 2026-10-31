@@ -33,3 +33,9 @@ transformation.
 Co-locating a thumbnail or OG image with a page Markdown file is not a great option. When you import
 the image into the page, which generates a path, you would need to write it to the page head right
 then and there. You would also need to repeat this for every single page.
+
+## Worktrees
+
+The "Setup worktree" script in `t3.json` copies the main checkout's `.env` into new worktrees, then
+runs `pnpm install`. Import it from `t3.json` into T3 Code's project settings once per machine, and
+re-import it whenever `t3.json` changes.

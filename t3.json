@@ -3,7 +3,7 @@
 	"scripts": [
 		{
 			"name": "Setup worktree",
-			"command": "pnpm install && { [ ! -f \"$T3CODE_PROJECT_ROOT/.env\" ] || ln -sf \"$T3CODE_PROJECT_ROOT/.env\" .env; }",
+			"command": "if [ -f \"$T3CODE_PROJECT_ROOT/.env\" ]; then cp \"$T3CODE_PROJECT_ROOT/.env\" .env; else echo \"WARNING: no .env in $T3CODE_PROJECT_ROOT, skipping copy\" >&2; fi; pnpm install",
 			"runOnWorktreeCreate": true,
 			"async": false
 		}
