@@ -1,0 +1,11 @@
+{
+	"$schema": "https://t3.codes/schema/t3.json",
+	"scripts": [
+		{
+			"name": "Setup worktree",
+			"command": "pnpm install && { [ ! -f \"$T3CODE_PROJECT_ROOT/.env\" ] || ln -sf \"$T3CODE_PROJECT_ROOT/.env\" .env; }",
+			"runOnWorktreeCreate": true,
+			"async": false
+		}
+	]
+}
