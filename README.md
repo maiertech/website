@@ -36,10 +36,6 @@ then and there. You would also need to repeat this for every single page.
 
 ## Worktrees
 
-The "Setup worktree" script in `t3.json` runs when T3 Code creates a new worktree. It copies the
-main checkout's `.env` into the worktree as a regular file, then runs `pnpm install`. If the main
-checkout has no `.env`, the script prints a warning and continues. Worktrees created before this
-change may have a `.env` symlink. Remove it before you re-run the script in such a worktree.
-
-Import the script from `t3.json` into T3 Code's project settings once per machine. Re-import it
-whenever `t3.json` changes.
+The "Setup worktree" script in `t3.json` copies the main checkout's `.env` into new worktrees, then
+runs `pnpm install`. Import it from `t3.json` into T3 Code's project settings once per machine, and
+re-import it whenever `t3.json` changes.
