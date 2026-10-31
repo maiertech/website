@@ -1,8 +1,5 @@
 import { spawn } from 'node:child_process';
 
-// `check` and `knip` fail without these; CI sets them from its own environment.
-const env = { NODION_GIT_SHA: 'local', ...process.env };
-
 interface StepResult {
 	script: string;
 	ok: boolean;
@@ -11,7 +8,7 @@ interface StepResult {
 
 function run(script: string): Promise<StepResult> {
 	return new Promise((resolve) => {
-		const child = spawn('pnpm', ['run', script], { env, stdio: ['ignore', 'pipe', 'pipe'] });
+		const child = spawn('pnpm', ['run', script], { stdio: ['ignore', 'pipe', 'pipe'] });
 		let output = '';
 		child.stdout.on('data', (chunk) => (output += chunk));
 		child.stderr.on('data', (chunk) => (output += chunk));
