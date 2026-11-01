@@ -36,6 +36,7 @@ jobs:
 
       - run: pnpm verify
 
+      # Not covered by `verify`: production build, prerendering, and the `ORIGIN` env var.
       - run: pnpm build
 
       # - name: Install Playwright Chromium
