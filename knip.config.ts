@@ -15,7 +15,7 @@ const mdsvexCompiler = (source: string) => {
 const config = {
 	// These files are not all statically traceable through Vite and mdsvex configuration.
 	entry: ['content-collections.ts', 'src/lib/mdsvex/layouts/default.svelte', 'src/routes/**/*.md'],
-	project: ['*.{js,ts}', 'src/**/*.{js,ts,svelte,md,css}'],
+	project: ['*.{js,ts}', 'scripts/**/*.ts', 'src/**/*.{js,ts,svelte,md,css}'],
 	compilers: {
 		md: mdsvexCompiler
 	},

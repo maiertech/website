@@ -4,8 +4,8 @@ A content-driven SvelteKit website. Content types are defined in [GLOSSARY.md](G
 
 ## Verification
 
-Before you create or update a pull request, run `pnpm lint` and `pnpm check` and fix any errors or
-warnings.
+Before you create or update a pull request, run `pnpm verify` and fix any errors or warnings. It
+regenerates the content collections and runs lint, type checks, and knip.
 
 ## Agent skills
 

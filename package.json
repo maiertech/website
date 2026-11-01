@@ -12,10 +12,11 @@
 		"start": "node build/index.js",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"check": "pnpm run generate && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"generate": "node scripts/generate-content.ts",
 		"lint": "prettier --check . && eslint .",
-		"knip": "svelte-kit sync && knip",
+		"knip": "pnpm run generate && svelte-kit sync && knip",
+		"verify": "node scripts/verify.ts",
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
