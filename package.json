@@ -13,7 +13,6 @@
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "pnpm run generate && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "pnpm run generate && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"generate": "node scripts/generate-content.ts",
 		"lint": "prettier --check . && eslint .",
 		"knip": "pnpm run generate && svelte-kit sync && knip",
