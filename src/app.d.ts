@@ -18,6 +18,9 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+
+	// Defined in vite.config.ts. Set only for builds that serve assets from a CDN.
+	const __CDN_HOST__: string | null;
 }
 
 export {};

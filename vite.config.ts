@@ -12,6 +12,13 @@ import { defineConfig } from 'vite';
 // Get the directory name of the current file.
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
+const cdnOrigin = (process.env.CDN_ORIGIN || undefined) as `https://${string}` | undefined;
+if (cdnOrigin && !/^https:\/\/[^/]+$/.test(cdnOrigin)) {
+	throw new Error(
+		`CDN_ORIGIN must be an https:// URL without a trailing slash, got "${cdnOrigin}".`
+	);
+}
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
@@ -43,37 +50,51 @@ const mdsvexOptions = {
 	}
 };
 
-export default defineConfig({
-	plugins: [
-		tailwindcss(),
-		enhancedImages(),
-		sveltekit({
-			extensions: ['.svelte', '.md'],
-			preprocess: [mdsvex(mdsvexOptions)],
-			compilerOptions: {
-				// Force runes mode for the project, except for libraries and .md files processed by mdsvex.
-				// Can be removed in Svelte 6.
-				runes: ({ filename }) => {
-					if (filename.split(/[/\\]/).includes('node_modules')) return undefined;
-					if (filename.endsWith('.md')) return undefined;
-					return true;
-				}
-			},
-			adapter: adapter(),
-			alias: {
-				'content-collections': './.content-collections/generated'
-			},
-			prerender: {
-				handleHttpError: ({ status, message }) => {
-					// Suppress 404 errors for posts with `published: false` during prerendering.
-					if (status === 404) {
-						return;
+export default defineConfig(({ command }) => {
+	// Only production builds serve assets from the CDN. `NODION_PREVIEW` keeps them on the site's origin.
+	const cdnAssetsOrigin =
+		command === 'build' && cdnOrigin && !process.env.NODION_PREVIEW ? cdnOrigin : undefined;
+
+	return {
+		define: {
+			// Hostname only, e.g. `cdn.maier.tech`. Null when not serving assets from a CDN.
+			__CDN_HOST__: JSON.stringify(cdnAssetsOrigin ? new URL(cdnAssetsOrigin).hostname : null)
+		},
+		plugins: [
+			tailwindcss(),
+			enhancedImages(),
+			sveltekit({
+				extensions: ['.svelte', '.md'],
+				preprocess: [mdsvex(mdsvexOptions)],
+				compilerOptions: {
+					// Force runes mode for the project, except for libraries and .md files processed by mdsvex.
+					// Can be removed in Svelte 6.
+					runes: ({ filename }) => {
+						if (filename.split(/[/\\]/).includes('node_modules')) return undefined;
+						if (filename.endsWith('.md')) return undefined;
+						return true;
 					}
-					throw new Error(message);
+				},
+				adapter: adapter(),
+				alias: {
+					'content-collections': './.content-collections/generated'
+				},
+				// Serve built JS, CSS, and imported assets from the CDN. Empty means the site's own origin.
+				paths: {
+					assets: cdnAssetsOrigin ?? ''
+				},
+				prerender: {
+					handleHttpError: ({ status, message }) => {
+						// Suppress 404 errors for posts with `published: false` during prerendering.
+						if (status === 404) {
+							return;
+						}
+						throw new Error(message);
+					}
 				}
-			}
-		}),
-		// Generate collections once per build, not once per Vite environment.
-		contentCollections({ environment: 'ssr' })
-	]
+			}),
+			// Generate collections once per build, not once per Vite environment.
+			contentCollections({ environment: 'ssr' })
+		]
+	};
 });
