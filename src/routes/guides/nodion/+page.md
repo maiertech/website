@@ -28,6 +28,12 @@ Then:
   served through the CDN. Everything served by `maier.tech` is also reachable at `cdn.maier.tech`,
   so without this you risk a duplicate content penalty.
 
+Caveats with `adapter-node`:
+
+- Static files and prerendered pages are served before SvelteKit's `handle` hook runs, so the 404
+  check does not apply to them. Disable prerendering for pages that must not be reachable on
+  `cdn.maier.tech`, or block the host in a custom server wrapper.
+
 ### Reverse proxy CDN
 
 To use a reverse proxy CDN:
