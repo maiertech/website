@@ -50,3 +50,17 @@ Be aware of two limitations:
 - **Cookie behavior is unknown.** The Nodion docs do not say whether responses with a cookie are
   cached, and the actual behavior is unclear. Until this is verified, use the reverse proxy CDN only
   for static websites.
+
+## Sandboxes
+
+Sandboxes are short-lived, isolated microVMs for agents. They are not remote development machines:
+SSH gives an interactive shell only, not a full SSH server.
+
+There are two ways to use them:
+
+1. **Run the agent inside the sandbox.** Open the web terminal or SSH in, clone the repository, and
+   start the agent there. Dev servers are reachable through HTTPS previews, but this approach leaves
+   a lot to be desired.
+
+2. **Drive the sandbox from a local agent.** Use the Nodion MCP server or CLI to delegate work to a
+   sandbox. The agent itself still runs on your machine.
