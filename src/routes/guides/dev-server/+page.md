@@ -5,78 +5,98 @@ description: How to configure a Linux dev server.
 
 ## Ubuntu
 
-- Your user is `root`. No other users are configured.
-- Clone projects into `/root/projects`.
-- Run `sudo apt update` and `sudo apt upgrade` regularly.
-- Connect with Zed to edit files.
+While many people probably just run their remote dev server with `root`, let's create a user with
 
-## GitHub CLI
-
-The GitHub CLI handles human access to GitHub on the dev server. The agent uses the GitHub MCP
-server instead. Install it by following the Debian/Ubuntu instructions:
-
-https://github.com/cli/cli/blob/trunk/docs/install_linux.md
-
-To update, run `sudo apt update` and then `sudo apt install gh`.
-
-To authenticate, run `gh auth login` and choose `https`. The command prints a URL and an auth code.
-Open the URL in a browser on your local laptop and enter the code there.
-
-## Git config
-
-Add `~/.gitconfig`:
-
-```ini
-[user]
-	name = <username>
-	email = <email>
-
-[github]
-	# GitHub username for command-line tools.
-	user = <username>
-
-[init]
-	defaultBranch = main
-
-[color]
-	# Colour terminal command output when possible.
-	ui = auto
-
-[pull]
-	# Default to rebasing on pulls.
-	rebase = true
-
-[fetch]
-	# Always prune when fetching (and pulling).
-	prune = true
-
-[core]
-	editor = zed --wait
-
-[credential "https://github.com"]
-	helper =
-	helper = !/usr/bin/gh auth git-credential
-
-[credential "https://gist.github.com"]
-	helper =
-	helper = !/usr/bin/gh auth git-credential
+```bash
+sudo adduser <username>
 ```
 
-Verify it by running `git config -l` in a git repository and checking that `user.email` is correct.
+and assign a password. Give that user `sudo` privileges:
+
+```bash
+sudo usermod -aG sudo <username>
+```
+
+In the Hetzner console, we assigned the server a public key that is used to SSH into the server as
+the root user. We will reuse the same key for the newly created user:
+
+```bash
+mkdir -p /home/<username>/.ssh
+cp /root/.ssh/authorized_keys /home/<username>/.ssh/authorized_keys
+chown -R <username>:<username> /home/<username>/.ssh
+chmod 700 /home/<username>/.ssh
+chmod 600 /home/<username>/.ssh/authorized_keys
+```
+
+Next, SSH into the server as the new user and run `sudo -v` to verify that the user has `sudo`
+privileges.
+
+Since we create the Hetzner base image with an SSH key, the root user is not allowed to log in with
+a username and password. This is good enough protection to justify allowing the root user to log in
+via SSH, just in case we need to recover.
+
+Last but not least, run
+
+```bash
+sudo apt update
+sudo apt upgrade
+```
+
+## Install Homebrew
+
+SSH into the server and run the official installation script from https://brew.sh/. A successful
+installation will end with a warning prompting you to complete the following next steps:
+
+```bash
+==> Next steps:
+- Run these commands in your terminal to add Homebrew to your PATH:
+    echo >> /home/thilo/.bashrc
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/thilo/.bashrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+- Install Homebrew's dependencies if you have sudo access:
+    sudo apt-get install build-essential
+  For more information, see:
+    https://docs.brew.sh/Homebrew-on-Linux
+- Run brew help to get started
+- Further documentation:
+    https://docs.brew.sh
+```
+
+Run `brew doctor` to verify that Homebrew is installed correctly and `brew analytics off` to turn
+off analytics permanently.
+
+## Git
+
+Run
+
+```bash
+brew install git
+```
+
+to override the system Git.
+
+## GitHub token
+
+Add the following line to the end of `.bashrc`:
+
+```bash
+export GH_TOKEN="<token>"
+```
+
+Name it `GH_TOKEN`, not `GITHUB_TOKEN` since the latter triggers OpenCode to list Copilot models
+when using `/model`. `GH_TOKEN` gets `repo` for the GitHub MCP and in my case also `read:packages`
+to access a private registry.
 
 ## OpenCode
 
-Install OpenCode by running:
+Run
 
 ```bash
-curl -fsSL https://opencode.ai/v2/install | bash
+brew install anomalyco/tap/opencode-v2
 ```
 
-Then run `opencode`, run `/connect`, and connect to the OpenCode Console. Docs:
-https://opencode.ai/docs/
-
-Add `~/.config/opencode/opencode.jsonc`. Model IDs are listed at
-https://opencode.ai/docs/go/#endpoints.
+Then run `opencode`, run `/connect`, and connect to the OpenCode Console. Add
+`~/.config/opencode/opencode.jsonc`:
 
 ```jsonc
 {
@@ -85,7 +105,7 @@ https://opencode.ai/docs/go/#endpoints.
 		// Turn off OpenCode Zen models.
 		{ "action": "provider.use", "resource": "opencode", "effect": "deny" }
 	],
-	"model": "opencode-go/claude-haiku-5-5",
+	"model": "opencode-go/claude-haiku-5-5", // https://opencode.ai/docs/go/#endpoints.
 	"default_agent": "plan",
 	"mcp": {
 		"servers": {
@@ -95,8 +115,7 @@ https://opencode.ai/docs/go/#endpoints.
 				"disabled": false,
 				"oauth": false,
 				"headers": {
-					// Reads the token from ~/.config/opencode/GITHUB_TOKEN (see below).
-					"Authorization": "Bearer {file:./GITHUB_TOKEN}"
+					"Authorization": "Bearer {env:GH_TOKEN}"
 				}
 			}
 		}
@@ -104,7 +123,7 @@ https://opencode.ai/docs/go/#endpoints.
 }
 ```
 
-Add `~/.config/opencode/cli.jsonc`:
+And then `~/.config/opencode/cli.jsonc`:
 
 ```jsonc
 {
@@ -127,52 +146,97 @@ Add `~/.config/opencode/cli.jsonc`:
 }
 ```
 
-### GitHub token
+Restart your terminal to ensure it picks up `GH_TOKEN` and run
 
-Do not set `GITHUB_TOKEN` in `.bashrc`. It only applies to interactive shells, and Zed starts a
-non-interactive shell. Instead, store the token in a file that OpenCode reads. This keeps the token
-out of the global environment.
+```bash
+opencode service restart
+```
 
-1. Create `~/.config/opencode/.editorconfig` before the token file, so Zed applies it:
+OpenCode should now recognize the GitHub MCP server.
 
-   ```ini
-   [GITHUB_TOKEN]
-   insert_final_newline = false
-   ```
+## GitHub CLI
 
-   This stops Zed from adding a final newline, so the token file contains only the token.
+While OpenCode will be using the GitHub MCP server to interact with GitHub, we still need the GitHub
+CLI for human GitHub interactions. Run
 
-2. In Zed, create `~/.config/opencode/GITHUB_TOKEN` and paste in a GitHub API token.
+```bash
+brew install gh
+```
 
-3. Restrict the file to your user:
+and then
 
-   ```bash
-   chmod 600 ~/.config/opencode/GITHUB_TOKEN
-   ```
+```bash
+gh auth login
+```
 
-## Node
+Choose **Login with a web browser** and then **HTTPS**. Open https://github.com/login/device in a
+local browser and copy and paste the code from the dev server.
 
-1. Run `sudo apt update` and `sudo apt install unzip`.
-2. Run the official fnm install script: https://github.com/Schniz/fnm
-3. In a new shell, `fnm --version` should print a version.
-4. Run `fnm install 26` and then `fnm default 26` to make Node 26 the global default.
+## Git config
 
-## PNPM
+Add `~/.gitconfig`:
 
-Run the official PNPM installation script: https://pnpm.io/installation
+```toml
+[user]
+	name = <firstname-lastname>
+	email = <email>
 
-## GitHub registry
+[init]
+	defaultBranch = main
 
-Add `~/.npmrc`, replacing `token` with a GitHub token that has the `read:packages` scope:
+[pull]
+	# Default to rebasing on pulls.
+	rebase = true
 
-```ini
-//npm.pkg.github.com/:_authToken=token
+[fetch]
+	# Always prune when fetching (and pulling).
+	prune = true
+
+[core]
+	editor = nano # zed --wait will not work.
+
+[credential "https://github.com"]
+	helper =
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+```
+
+Verify the configuration by running `git config -l` and checking that `user.email` is correct.
+
+## Node and PNPM
+
+Run
+
+```bash
+brew install node
+brew install pnpm
+```
+
+To make sure that all projects can access the private GitHub registry, add `~/.npmrc`:
+
+```bash
+//npm.pkg.github.com/:_authToken=${GH_TOKEN}
 ```
 
 ## Skills
 
-Run:
+Install the Skills CLI with
 
 ```bash
-npx skills add mattpocock/skills
+brew install skills
+```
+
+and then run
+
+```bash
+skills add mattpocock/skills
+```
+
+If OpenCode does not recognize the skills run
+
+```bash
+opencode service restart
 ```
