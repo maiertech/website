@@ -7,49 +7,39 @@ description: How to use Nodion.
 
 There are two ways to configure a CDN zone:
 
-1. **Asset pull CDN**: The CDN does not sit in front of your primary domain. It runs on a separate
-   domain, such as `cdn.maier.tech`, and fetches anything it has not cached yet from its origin.
+1. **Asset pull CDN**: DNS for `maier.tech` points to a Nodion app. The CDN does not sit in front of
+   the Nodion app. It runs on a separate domain, such as `website.nodioncdn.net`, and fetches
+   anything it has not cached yet from the CDN's origin.
 
-2. **Reverse proxy CDN**: The CDN sits in front of the entire website. DNS for `maier.tech` points
-   at the Nodion CDN zone. Anything cached, including HTML, is served by the CDN. Anything else is
-   fetched from the origin server.
+2. **Reverse proxy CDN**: The CDN sits in front of the entire Nodion app. DNS for `maier.tech`
+   points at the Nodion CDN zone, not at the Nodion app. Anything that gets cached, including HTML,
+   is served by the CDN.
 
-### Asset pull CDN
+### Asset pull CDN for a SvelteKit app
 
-To serve a SvelteKit app hosted on Nodion at `maier.tech` through an asset pull CDN, create a CDN
-zone with the custom domain `cdn.maier.tech` and the origin `maier.tech`.
+Let's see whether Nodion's asset pull CDN is compatible with a SvelteKit app that uses adapter-node.
+We would deploy the SvelteKit app as Nodion app and point `maier.tech` at it. Certain assets from
+the SvelteKit app are suitable to be served from a CDN, for example, anything in `_app/immutable/`
+or prerendered pages.
 
-Then:
+Adapter-node assumes that it is the point of entry to the app and decides what to serve for each
+route. It is oblivious to the existence of a CDN and what should or should not be cached. So, when
+we make the SvelteKit app with adapter-node the origin of a Nodion CDN zone, it will just serve the
+entire build from the origin URL.
 
-- Update the production deployment to load static assets from `cdn.maier.tech`.
-- Add `Access-Control-Allow-Origin` to the CDN zone's response headers. Nodion only supports the
-  wildcard value `*`, not a specific origin such as `https://maier.tech`.
-- Make the SvelteKit app return 404 for any request to `cdn.maier.tech` that is not meant to be
-  served through the CDN. Everything served by `maier.tech` is also reachable at `cdn.maier.tech`,
-  so without this you risk a duplicate content penalty.
-
-Caveats with `adapter-node`:
-
-- Static files and prerendered pages are served before SvelteKit's `handle` hook runs, so the 404
-  check does not apply to them. Disable prerendering for pages that must not be reachable on
-  `cdn.maier.tech`, or block the host in a custom server wrapper.
+Ideally, we would like to have full control over which files the CDN origin serves. This could
+either be achieved with a custom adapter or by allowing or denying certain paths on the CDN origin.
+With the current Nodion setup it is all or nothing for the CDN origin.
 
 ### Reverse proxy CDN
 
-To use a reverse proxy CDN:
+For a reverse proxy CDN, we would point `maier.tech` at the CDN Zone. The SvelteKit app would be
+served from a different URL, e.g. `website.nodioncdn.net`. Nodion makes this URL publicly available,
+which means the entire SvelteKit app is served from two URLs.
 
-- Remove `maier.tech` from the origin and link it to the CDN zone.
-- Make sure the CDN respects origin cache headers.
-- Set up canonical URLs correctly. Unlike with the asset pull CDN, the origin URL stays reachable
-  and can get indexed, so the canonical URLs must point at `maier.tech`.
-
-Be aware of two limitations:
-
-- **The origin is not locked down.** The origin should accept requests from Nodion only, but Nodion
-  has no setting for this. Anyone who knows the origin address can reach it directly.
-- **Cookie behavior is unknown.** The Nodion docs do not say whether responses with a cookie are
-  cached, and the actual behavior is unclear. Until this is verified, use the reverse proxy CDN only
-  for static websites.
+Ideally, the origin URL would be available only via Nodion's internal network since it is meant to
+be accessed by the CDN zone only. As with an asset pull CDN, adapter-node controls routing within
+the SvelteKit app, but this should be controlled by the infrastructure around the app.
 
 ## Sandboxes
 
@@ -60,7 +50,7 @@ There are two ways to use them:
 
 1. **Run the agent inside the sandbox.** Open the web terminal or SSH in, clone the repository, and
    start the agent there. Dev servers are reachable through HTTPS previews, but this approach leaves
-   a lot to be desired.
+   much to be desired.
 
 2. **Drive the sandbox from a local agent.** Use the Nodion MCP server or CLI to delegate work to a
    sandbox. The agent itself still runs on your machine.
