@@ -80,12 +80,12 @@ to override the system Git.
 Add the following line to the end of `.bashrc`:
 
 ```bash
-export GH_TOKEN="<token>"
+export GITHUB_PAT="<token>"
 ```
 
-Name it `GH_TOKEN`, not `GITHUB_TOKEN` since the latter triggers OpenCode to list Copilot models
-when using `/model`. `GH_TOKEN` gets `repo` for the GitHub MCP and in my case also `read:packages`
-to access a private registry.
+Name it `GITHUB_PAT`, not `GH_TOKEN` or `GITHUB_TOKEN`, since the latter two would override GitHub
+CLI's default permissions. `GITHUB_PAT` gets `repo` permissions for the GitHub MCP and in my special
+case `read:packages` to access a private registry.
 
 ## OpenCode
 
@@ -115,7 +115,7 @@ Then run `opencode`, run `/connect`, and connect to the OpenCode Console. Add
 				"disabled": false,
 				"oauth": false,
 				"headers": {
-					"Authorization": "Bearer {env:GH_TOKEN}"
+					"Authorization": "Bearer {env:GITHUB_PAT}"
 				}
 			}
 		}
@@ -146,7 +146,7 @@ And then `~/.config/opencode/cli.jsonc`:
 }
 ```
 
-Restart your terminal to ensure it picks up `GH_TOKEN` and run
+Restart your terminal to ensure it picks up `GITHUB_PAT` and run
 
 ```bash
 opencode service restart
@@ -218,7 +218,7 @@ brew install pnpm
 To make sure that all projects can access the private GitHub registry, add `~/.npmrc`:
 
 ```bash
-//npm.pkg.github.com/:_authToken=${GH_TOKEN}
+//npm.pkg.github.com/:_authToken=${GITHUB_PAT}
 ```
 
 ## Skills
