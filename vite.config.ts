@@ -64,6 +64,7 @@ export default defineConfig({
 				'content-collections': './.content-collections/generated'
 			},
 			prerender: {
+				origin: 'https://maier.tech',
 				handleHttpError: ({ status, message }) => {
 					// Suppress 404 errors for posts with `published: false` during prerendering.
 					if (status === 404) {

@@ -15,12 +15,6 @@ tags:
 	import SubmittedSitemapImage from './SubmittedSitemapImage.svelte';
 </script>
 
-<p>
-Last week I refactored parts of this website and accidentally broke the endpoint that creates
-<a href="/sitemap.xml" data-sveltekit-reload>this sitemap</a>. I decided to read up on doing
-sitemaps the right way. Here is what I learned.
-</p>
-
 ## Google's take on sitemaps
 
 Web developers often assume that Google will only index their site regularly if they have a sitemap.
@@ -119,15 +113,16 @@ the post collection:
 <Figure caption="src/routes/sitemap.xml/+server.ts" class="mb-8">
 
 ```ts
-import { ORIGIN } from '$env/static/private';
 import { all as posts } from '$lib/server/collections/posts';
 import type { RequestHandler } from './$types';
 
-export const GET: RequestHandler = async () => {
+export const prerender = true;
+
+export const GET: RequestHandler = async ({ url }) => {
 	// Create sitemap entries for posts.
 	const postEntries = posts.map(
 		(post) => `\t<url>
-		<loc>${ORIGIN}${post.path}</loc>
+		<loc>${url.origin}${post.path}</loc>
 		<lastmod>${post.lastmodDate ? post.lastmodDate : post.publishedDate}</lastmod>
 	</url>`
 	);
@@ -154,7 +149,9 @@ ${pages.join('\n')}
 This endpoint reads all posts from the posts collection and wraps them into `<url>` tags in the
 format discussed in the first part of this post. The content type of the response is
 `application/xml`. Since the paths in my post collection are relative, I need to prepend the origin
-from environment variable `ORIGIN` because sitemaps require absolute URLs.
+because sitemaps require absolute URLs. The endpoint is prerendered at build time, and SvelteKit
+sets `url.origin` to the origin configured as `prerender.origin` in `vite.config.ts`, so the sitemap
+always contains the production URLs.
 
 The above code is a simplified version of my
 [actual endpoint](https://github.com/maiertech/website/blob/main/src/routes/sitemap.xml/%2Bserver.ts),

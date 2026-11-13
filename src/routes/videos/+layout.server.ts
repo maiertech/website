@@ -1,5 +1,4 @@
 import { error } from '@sveltejs/kit';
-import { ORIGIN } from '$env/static/private';
 import { sorted as videos } from '$lib/server/collections/videos.js';
 import type { LayoutServerLoad } from './$types';
 
@@ -19,7 +18,7 @@ export const load: LayoutServerLoad = async ({ url }) => {
 	const recommendedVideos = videos.filter((v) => v.path !== video.path).slice(0, 3);
 
 	return {
-		origin: ORIGIN,
+		origin: url.origin,
 		video,
 		prev,
 		next,
