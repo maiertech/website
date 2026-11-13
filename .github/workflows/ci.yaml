@@ -7,7 +7,6 @@ on:
     branches: ['main']
 
 env:
-  ORIGIN: ${{ vars.ORIGIN }}
   NODION_GIT_SHA: ${{ github.sha }}
 
 permissions:

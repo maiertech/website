@@ -1,4 +1,3 @@
-import { ORIGIN } from '$env/static/private';
 import { sorted as notes } from '$lib/server/collections/notes.js';
 import { sorted as posts } from '$lib/server/collections/posts.js';
 import { sorted as videos } from '$lib/server/collections/videos.js';
@@ -6,11 +5,11 @@ import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-export const GET: RequestHandler = async () => {
+export const GET: RequestHandler = async ({ url }) => {
 	// Create sitemap entries for posts.
 	const postEntries = posts.map(
 		(post) => `\t<url>
-		<loc>${ORIGIN}${post.path}</loc>
+		<loc>${url.origin}${post.path}</loc>
 		<lastmod>${post.lastmodDate ? post.lastmodDate : post.publishedDate}</lastmod>
 	</url>`
 	);
@@ -18,7 +17,7 @@ export const GET: RequestHandler = async () => {
 	// Create sitemap entries for notes.
 	const noteEntries = notes.map(
 		(note) => `\t<url>
-		<loc>${ORIGIN}${note.path}</loc>
+		<loc>${url.origin}${note.path}</loc>
 		<lastmod>${note.publishedDate}</lastmod>
 	</url>`
 	);
@@ -26,7 +25,7 @@ export const GET: RequestHandler = async () => {
 	// Create sitemap entries for videos.
 	const videoEntries = videos.map(
 		(video) => `\t<url>
-		<loc>${ORIGIN}${video.path}</loc>
+		<loc>${url.origin}${video.path}</loc>
 		<lastmod>${video.publishedDate}</lastmod>
 	</url>`
 	);

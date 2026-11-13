@@ -1,4 +1,3 @@
-import { ORIGIN } from '$env/static/private';
 import { escapeXml } from '$lib/utils';
 import { allPosts } from 'content-collections';
 
@@ -13,7 +12,7 @@ export const latest = sorted.slice(0, 10);
 export const rss = latest.map((post) => ({
 	title: post.title,
 	description: post.description,
-	link: `${ORIGIN}${post.path}`,
+	link: post.path,
 	pubDate: new Date(post.publishedDate).toUTCString(),
 	category: 'Post',
 	enclosure: post.ogImageUrl

@@ -1,4 +1,3 @@
-import { ORIGIN } from '$env/static/private';
 import { escapeXml } from '$lib/utils';
 import { allVideos } from 'content-collections';
 
@@ -11,7 +10,7 @@ export const latest = sorted.slice(0, 10);
 export const rss = latest.map((video) => ({
 	title: video.title,
 	description: video.description,
-	link: `${ORIGIN}${video.path}`,
+	link: video.path,
 	pubDate: new Date(video.publishedDate).toUTCString(),
 	category: 'Video',
 	enclosure: video.thumbnailUrl
