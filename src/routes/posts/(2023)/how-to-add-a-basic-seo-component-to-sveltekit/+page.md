@@ -90,17 +90,18 @@ So, here is my basic SEO component:
 ```svelte
 <script>
 	import { page } from '$app/stores';
-	import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 	import decorate from '$lib/utils/decorate';
 
 	/** @type {import('$lib/types').SeoDefaultData} */
 	export let data;
+	/** @type {string} */
+	export let canonical_origin;
 </script>
 
 <svelte:head>
 	<title>{$page.url.pathname !== '/' ? decorate(data.title) : data.title}</title>
 	<meta name="description" content={data.description} />
-	<link rel="canonical" href={data.canonical_url ?? `${PUBLIC_URL_ORIGIN}${$page.url.pathname}`} />
+	<link rel="canonical" href={data.canonical_url ?? `${canonical_origin}${$page.url.pathname}`} />
 </svelte:head>
 ```
 
@@ -136,8 +137,9 @@ suggestions for search engines on how to rank and display you in search results,
 
 The canonical link tag of the SEO component covers the two scenarios mentioned before. First, it
 sets a default canonical URL as insurance against an SEO penalty caused by accidental duplicate
-content. The origin of the default canonical URL comes from the environment variable
-`PUBLIC_URL_ORIGIN`, e.g., https://www.maier.tech, and is intentionally hard-wired.
+content. The origin of the default canonical URL is passed in as the prop `canonical_origin`, for
+example `https://maier.tech`. A layout's server load function returns it as `origin: url.origin`,
+and the origin is set once for the whole site in `vite.config.ts`.
 
 If you provide the property `canonical_url`, it will override the default canonical URL. This is
 useful when you syndicate content from another website and that other website is the canonical
@@ -204,14 +206,13 @@ component hierarchy:
 ```svelte
 <script>
 	import { page } from '$app/stores';
-	import { PUBLIC_URL_ORIGIN } from '$env/static/public';
 	import { SeoComponent } from '$lib/seo';
 	import '../app.css';
 </script>
 
 <SeoComponent
 	url={$page.url}
-	canonical_origin={PUBLIC_URL_ORIGIN}
+	canonical_origin={$page.data.origin}
 	data={{ title: $page.data.title, description: $page.data.description }}
 />
 
