@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Clock } from '@lucide/svelte';
 	import { VideoPreview } from '@maiertech/sveltekit-helpers';
-	import { NoteList, PostList } from '$lib/components';
+	import { NoteList, PostList } from '#lib/components/index.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

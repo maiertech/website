@@ -1,6 +1,6 @@
-import { sorted as notes } from '$lib/server/collections/notes.js';
-import { sorted as posts } from '$lib/server/collections/posts.js';
-import { sorted as videos } from '$lib/server/collections/videos.js';
+import { sorted as notes } from '#lib/server/collections/notes.js';
+import { sorted as posts } from '#lib/server/collections/posts.js';
+import { sorted as videos } from '#lib/server/collections/videos.js';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;

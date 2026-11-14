@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { sorted as videos } from '$lib/server/collections/videos.js';
+import { sorted as videos } from '#lib/server/collections/videos.js';
 import type { LayoutServerLoad } from './$types';
 
 export const prerender = true;

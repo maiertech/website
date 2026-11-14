@@ -1,4 +1,4 @@
-import { NODION_GIT_SHA } from '$env/static/private';
+import { NODION_GIT_SHA } from '$app/env/private';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = () => {

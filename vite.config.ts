@@ -60,11 +60,10 @@ export default defineConfig({
 				}
 			},
 			adapter: adapter(),
-			alias: {
-				'content-collections': './.content-collections/generated'
+			paths: {
+				origin: 'https://maier.tech'
 			},
 			prerender: {
-				origin: 'https://maier.tech',
 				handleHttpError: ({ status, message }) => {
 					// Suppress 404 errors for posts with `published: false` during prerendering.
 					if (status === 404) {

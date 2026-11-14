@@ -1,9 +1,9 @@
 import type { TagMeta } from '@maiertech/sveltekit-helpers';
 import { resolve } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
-import { sorted as posts } from '$lib/server/collections/posts.js';
-import { sorted as tags } from '$lib/server/collections/tags.js';
-import { filterByTag } from '$lib/utils';
+import { sorted as posts } from '#lib/server/collections/posts.js';
+import { sorted as tags } from '#lib/server/collections/tags.js';
+import { filterByTag } from '#lib/utils/index.ts';
 import type { PageServerLoad } from './$types';
 
 export const prerender = true;
@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	const tag = resolve<TagMeta>(params.id, tags);
 
 	if (!tag) {
-		return error(404, { message: 'Tag not found.' });
+		return error(404, 'Tag not found.');
 	}
 
 	const taggedPosts = filterByTag(tag.id, posts);

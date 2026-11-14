@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Container, SeoBasic, SeoOgImage, SiteHeader } from '@maiertech/sveltekit-helpers';
+	import src from '#lib/assets/thilo.jpg?enhanced';
+	import { Favicon, Footer } from '#lib/components/index.ts';
 	import { page } from '$app/state';
-	import src from '$lib/assets/thilo.jpg?enhanced';
-	import { Favicon, Footer } from '$lib/components';
 	import type { LayoutProps } from './$types';
 	import '../app.css';
 

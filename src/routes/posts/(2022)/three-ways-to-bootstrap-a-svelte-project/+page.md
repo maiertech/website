@@ -10,7 +10,7 @@ tags:
 ---
 
 <script>
-	import { StackblitzEmbed } from '$lib/components';
+	import { StackblitzEmbed } from '#lib/components/index.ts';
 	import { CodeSnippet, Figure } from '@maiertech/sveltekit-helpers';
 	import CsbNewSandboxDialogImage from './CsbNewSandboxDialogImage.svelte';
 	import CsbSvelteTemplateImage from './CsbSvelteTemplateImage.svelte';

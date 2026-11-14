@@ -1,5 +1,5 @@
-import { escapeXml } from '$lib/utils';
-import { allNotes } from 'content-collections';
+import { allNotes } from '#content-collections';
+import { escapeXml } from '#lib/utils/index.ts';
 
 export const sorted = allNotes.toSorted((a, b) => {
 	return b.publishedDate.localeCompare(a.publishedDate);

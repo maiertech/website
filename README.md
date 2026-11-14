@@ -9,7 +9,7 @@ updates are not part of SvelteKit's HMR. You need to manually refresh a page to 
 changes.
 
 Because collections run outside of SvelteKit, they do not have access to any SvelteKit-specific
-features or APIs. For instance, they can't access `$env` or `$lib` and they can't reference dynamica
+features or APIs. For instance, they can't access `$env` or `#lib` and they can't reference dynamica
 resources such as an image URL generated with SvelteKit.
 
 Content Collections are defined in `content-collections.ts` in the project root. To avoid that this
@@ -19,8 +19,8 @@ make up a collection can be outside this folder. Some collections are defined by
 subfolders of `src/routes`.
 
 To make it easier to access collections from within SvelteKit, they can be accessed through
-`$lib/server/collections`. For instance, collections may depend on the filesystem order of files,
-which is not deterministic. Collections in `$lib/server/collections` mostly add sorting by a
+`#lib/server/collections`. For instance, collections may depend on the filesystem order of files,
+which is not deterministic. Collections in `#lib/server/collections` mostly add sorting by a
 specific field.
 
 ## YouTube thumbnails and OG images

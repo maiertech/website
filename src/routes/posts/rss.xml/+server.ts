@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { rss as rssItems } from '$lib/server/collections/posts';
+import { rss as rssItems } from '#lib/server/collections/posts.ts';
 
 export const prerender = true;
 

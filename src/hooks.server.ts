@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit';
-import type { Handle } from '@sveltejs/kit';
+import type { Handle } from '@sveltejs/kit/hooks';
 
 // Permanent redirects.
 const redirects: Record<string, string> = {
