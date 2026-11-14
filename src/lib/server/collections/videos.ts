@@ -1,5 +1,5 @@
-import { escapeXml } from '$lib/utils';
-import { allVideos } from 'content-collections';
+import { allVideos } from '#content-collections';
+import { escapeXml } from '#lib/utils/index.js';
 
 export const sorted = allVideos.toSorted((a, b) => {
 	return b.publishedDate.localeCompare(a.publishedDate);

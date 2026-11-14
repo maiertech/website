@@ -1,4 +1,4 @@
-import { sorted as posts } from '$lib/server/collections/posts.js';
+import { sorted as posts } from '#lib/server/collections/posts.js';
 import type { PageServerLoad } from './$types';
 
 export const prerender = true;

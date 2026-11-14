@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { EmbedOptions, Project } from '@stackblitz/sdk';
-	import stackblitz from '$lib/actions/stackblitz';
+	import stackblitz from '#lib/actions/stackblitz.js';
 	import { twMerge } from 'tailwind-merge';
 
 	interface Props {

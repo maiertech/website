@@ -1,4 +1,4 @@
-import { allGuides } from 'content-collections';
+import { allGuides } from '#content-collections';
 
 // Sort alphabetically by title.
 export const sorted = allGuides.toSorted((a, b) => {

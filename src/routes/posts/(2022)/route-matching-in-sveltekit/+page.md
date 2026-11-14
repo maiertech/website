@@ -10,7 +10,7 @@ tags:
 ---
 
 <script>
-	import { StackblitzEmbed } from '$lib/components';
+	import { StackblitzEmbed } from '#lib/components/index.js';
 	import { Figure } from '@maiertech/sveltekit-helpers';
 </script>
 

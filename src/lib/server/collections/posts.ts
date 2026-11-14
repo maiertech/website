@@ -1,5 +1,5 @@
-import { escapeXml } from '$lib/utils';
-import { allPosts } from 'content-collections';
+import { allPosts } from '#content-collections';
+import { escapeXml } from '#lib/utils/index.js';
 
 export const sorted = allPosts
 	.filter((post) => post.published !== false) // Quick way to unpublish a post.

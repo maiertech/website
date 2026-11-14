@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { rss as rssItems } from '$lib/server/collections/videos';
+import { rss as rssItems } from '#lib/server/collections/videos.js';
 
 export const prerender = true;
 
