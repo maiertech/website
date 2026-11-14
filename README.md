@@ -9,8 +9,8 @@ updates are not part of SvelteKit's HMR. You need to manually refresh a page to 
 changes.
 
 Because collections run outside of SvelteKit, they do not have access to any SvelteKit-specific
-features or APIs. For instance, they can't access `$env` or `#lib` and they can't reference dynamica
-resources such as an image URL generated with SvelteKit.
+features or APIs. For instance, they can't access `$env` or `$app/*` modules and they can't
+reference dynamica resources such as an image URL generated with SvelteKit.
 
 Content Collections are defined in `content-collections.ts` in the project root. To avoid that this
 file becomes a monolith, I moved the collection definitions to the `src/collections` folder. Each
