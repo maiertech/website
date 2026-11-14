@@ -1,7 +1,7 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { rss as noteRssItems } from '#lib/server/collections/notes.ts';
-import { rss as postRssItems } from '#lib/server/collections/posts.ts';
-import { rss as videoRssItems } from '#lib/server/collections/videos.ts';
+import { rss as noteRssItems } from '#lib/server/collections/notes.js';
+import { rss as postRssItems } from '#lib/server/collections/posts.js';
+import { rss as videoRssItems } from '#lib/server/collections/videos.js';
 
 export const prerender = true;
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ListVideo } from '@lucide/svelte';
 	import { Button, SeoCanonicalUrl, VideoHeader, VideoPlayer } from '@maiertech/sveltekit-helpers';
-	import { Pager, VideoList } from '#lib/components/index.ts';
+	import { Pager, VideoList } from '#lib/components/index.js';
 	import { siYoutube } from 'simple-icons';
 	import type { LayoutProps } from './$types';
 

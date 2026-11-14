@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { H1 } from '@maiertech/sveltekit-helpers';
-	import { NoteList } from '#lib/components/index.ts';
+	import { NoteList } from '#lib/components/index.js';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

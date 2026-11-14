@@ -1,6 +1,6 @@
-import { latest as notes } from '#lib/server/collections/notes.ts';
-import { latest as posts } from '#lib/server/collections/posts.ts';
-import { latest as videos } from '#lib/server/collections/videos.ts';
+import { latest as notes } from '#lib/server/collections/notes.js';
+import { latest as posts } from '#lib/server/collections/posts.js';
+import { latest as videos } from '#lib/server/collections/videos.js';
 import type { PageServerLoad } from './$types';
 
 export const prerender = true;

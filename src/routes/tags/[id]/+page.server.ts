@@ -3,7 +3,7 @@ import { resolve } from '@maiertech/sveltekit-helpers';
 import { error } from '@sveltejs/kit';
 import { sorted as posts } from '#lib/server/collections/posts.js';
 import { sorted as tags } from '#lib/server/collections/tags.js';
-import { filterByTag } from '#lib/utils/index.ts';
+import { filterByTag } from '#lib/utils/index.js';
 import type { PageServerLoad } from './$types';
 
 export const prerender = true;
