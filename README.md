@@ -4,16 +4,16 @@
 
 This project uses [Content Collections](https://www.content-collections.dev/) to manage and organize
 content. Collections are built outside of [SvelteKit](https://svelte.dev/docs/kit/introduction)
-before the dev server launches or before a build. Collection update when files change, but these
+before the dev server launches or before a build. Collections update when files change, but these
 updates are not part of SvelteKit's HMR. You need to manually refresh a page to see collection
 changes.
 
 Because collections run outside of SvelteKit, they do not have access to any SvelteKit-specific
 features or APIs. For instance, they can't access `$env` or `$app/*` modules and they can't
-reference dynamica resources such as an image URL generated with SvelteKit.
+reference dynamic resources such as an image URL generated with SvelteKit.
 
-Content Collections are defined in `content-collections.ts` in the project root. To avoid that this
-file becomes a monolith, I moved the collection definitions to the `src/collections` folder. Each
+Content Collections are defined in `content-collections.ts` in the project root. To avoid this file
+becoming a monolith, I moved the collection definitions to the `src/collections` folder. Each
 collection is defined in a subfolder. The definition includes transformations, but the files that
 make up a collection can be outside this folder. Some collections are defined by Markdown files in
 subfolders of `src/routes`.
