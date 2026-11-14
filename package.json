@@ -16,6 +16,7 @@
 		"generate": "node scripts/generate-content.ts",
 		"lint": "prettier --check . && eslint .",
 		"knip": "pnpm run generate && svelte-kit sync && knip",
+		"setup-worktree": "scripts/setup-worktree.sh",
 		"verify": "node scripts/verify.ts",
 		"format": "prettier --write ."
 	},
