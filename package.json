@@ -63,7 +63,6 @@
 	},
 	"imports": {
 		"#content-collections": "./.content-collections/generated/index.js",
-		"#lib": "./src/lib/index.js",
 		"#lib/*": "./src/lib/*"
 	}
 }

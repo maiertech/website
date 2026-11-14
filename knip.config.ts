@@ -25,7 +25,7 @@ const config = {
 		md: mdsvexCompiler
 	},
 	// `$app/tsconfig` is provided by SvelteKit. The `#lib` subpath is the root alias for `src/lib`.
-	ignoreIssues: { 'tsconfig.json': ['unlisted'], 'package.json': ['subpaths'] },
+	ignoreIssues: { 'tsconfig.json': ['unlisted'] },
 	treatConfigHintsAsErrors: true
 } satisfies KnipConfig;
 
