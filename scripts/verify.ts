@@ -29,8 +29,9 @@ const dependents = ['check', 'knip'];
 
 // `check` and `knip` both run `svelte-kit sync`, which fails when they run concurrently.
 const linting = run('lint');
+const testing = run('test');
 const typesAndDeadCode = generation.ok ? runInOrder(dependents) : Promise.resolve([]);
-const results = [generation, await linting, ...(await typesAndDeadCode)];
+const results = [generation, await linting, await testing, ...(await typesAndDeadCode)];
 const skipped = generation.ok ? [] : dependents;
 
 for (const result of results) {
