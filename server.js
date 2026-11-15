@@ -5,8 +5,6 @@ const port = Number(process.env.PORT ?? 3000);
 const host = process.env.HOST ?? '0.0.0.0';
 const shutdownTimeoutMs = 30_000;
 
-console.log(`Starting server for commit ${process.env.NODION_GIT_SHA_SHORT ?? 'unknown'}`);
-
 const adapterNodeSettings = [
 	'SOCKET_PATH',
 	'LISTEN_PID',
