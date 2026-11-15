@@ -5,6 +5,20 @@ const port = Number(process.env.PORT ?? 3000);
 const host = process.env.HOST ?? '0.0.0.0';
 const shutdownTimeoutMs = 30_000;
 
+const adapterNodeSettings = [
+	'SOCKET_PATH',
+	'LISTEN_PID',
+	'LISTEN_FDS',
+	'SHUTDOWN_TIMEOUT',
+	'IDLE_TIMEOUT',
+	'KEEP_ALIVE_TIMEOUT',
+	'HEADERS_TIMEOUT'
+];
+const ignoredSettings = adapterNodeSettings.filter((name) => process.env[name] !== undefined);
+if (ignoredSettings.length > 0) {
+	console.warn(`Ignoring adapter-node settings: ${ignoredSettings.join(', ')}`);
+}
+
 const server = createApp({
 	handler: (req, res) =>
 		handler(req, res, () => {
