@@ -71,6 +71,13 @@ test('redirects www.maier.tech to maier.tech with path and query preserved', asy
 	assert.equal(res.location, 'https://maier.tech/some/path?x=1');
 });
 
+test('redirects absolute-form request targets with path and query preserved', async () => {
+	const res = await request('http://www.maier.tech/some/path?x=1', 'www.maier.tech');
+
+	assert.equal(res.status, 301);
+	assert.equal(res.location, 'https://maier.tech/some/path?x=1');
+});
+
 test('serves other hosts with the app handler', async () => {
 	const res = await request('/some/path?x=1', 'maier.tech');
 

@@ -16,7 +16,8 @@ export function createApp({ handler }) {
 
 		const host = req.headers.host?.toLowerCase().replace(/:\d+$/, '');
 		if (host === WWW_HOST) {
-			res.writeHead(301, { location: CANONICAL_ORIGIN + req.url });
+			const target = new URL(req.url ?? '/', CANONICAL_ORIGIN);
+			res.writeHead(301, { location: CANONICAL_ORIGIN + target.pathname + target.search });
 			res.end();
 			return;
 		}
