@@ -106,7 +106,7 @@ function resolveLastmodDate(filepath: string): string {
 			return lastmodDate;
 		}
 	} catch {
-		// Silently fail when there is no Git history, e.g. on Railway.
+		// Silently fail when there is no Git history, e.g. on Nodion.
 	}
 
 	// Fallback: current date.
