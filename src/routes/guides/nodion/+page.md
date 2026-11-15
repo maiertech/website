@@ -3,6 +3,22 @@ title: Nodion
 description: How to use Nodion.
 ---
 
+<script>
+	import AttachImage from './AttachImage.svelte';
+</script>
+
+## Previews
+
+Nodion previews do not trigger when a pull request is created by a bot. But you can add label
+`nodion-preview` to a pull request without a Nodion preview to trigger the creation of a preview.
+
+## Console
+
+You can access a deployment via the console by the **Attach** link next to a process instance on the
+**Overview** tab in the dahsboard:
+
+<AttachImage />
+
 ## CDN zones
 
 There are two ways to configure a CDN zone:

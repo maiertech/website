@@ -27,11 +27,11 @@ importers:
         specifier: ^4.7.1
         version: 4.7.1(prettier@3.10.1)
       '@lucide/svelte':
-        specifier: ^1.72.0
-        version: 1.72.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
+        specifier: ^1.73.0
+        version: 1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
       '@maiertech/sveltekit-helpers':
-        specifier: ^0.56.1
-        version: 0.56.1(@lucide/svelte@1.72.0(svelte@5.57.3(@typescript-eslint/types@8.72.2)))(@skeletonlabs/skeleton-svelte@5.0.4(svelte@5.57.3(@typescript-eslint/types@8.72.2)))(@skeletonlabs/skeleton@5.0.4(tailwindcss@4.3.5))(@sveltejs/kit@3.2.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.2))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(typescript@6.0.3)(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(tailwindcss@4.3.5)(zod@4.6.7)
+        specifier: ^0.56.2
+        version: 0.56.2(@lucide/svelte@1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2)))(@skeletonlabs/skeleton-svelte@5.0.4(svelte@5.57.3(@typescript-eslint/types@8.72.2)))(@skeletonlabs/skeleton@5.0.4(tailwindcss@4.3.5))(@sveltejs/kit@3.2.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.2))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(typescript@6.0.3)(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(tailwindcss@4.3.5)(zod@4.6.7)
       '@playwright/test':
         specifier: ^1.65.1
         version: 1.65.1
@@ -653,13 +653,13 @@ packages:
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
-  '@lucide/svelte@1.72.0':
-    resolution: {integrity: sha512-DRwtZ5p/m5ZRsNlfCzELJRDzd2z19mc76eMs8rwllx/JWfvykmLoTFs3RyzFN519ldQxHt8Jxum/LKukgzuTLQ==}
+  '@lucide/svelte@1.73.0':
+    resolution: {integrity: sha512-Rz1uA9aTJ7HA/j2Hf9Dm2OVM8NtkzHnNeIQvVWoUkpf1ZD/7dR9cB4ftjbOiWAeJrKkEAVvTDrcVtITFdx6KAA==}
     peerDependencies:
       svelte: ^5
 
-  '@maiertech/sveltekit-helpers@0.56.1':
-    resolution: {integrity: sha512-vezVmjqONjiadAa7BBEQXEwQ9Z81IGAnlXF0gzV2uZ6T97P60VbVcmbs9LjCuv/RXgVMs9eqk1KQfD4lQInpjA==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.56.1/e73f57bdee5187ad117fc128becfb91b7f67c983}
+  '@maiertech/sveltekit-helpers@0.56.2':
+    resolution: {integrity: sha512-bvRwQqz3BUUVZvW/78kKhFCsbbmirg6+GIaEOjciNUZbGt//yf1Fy+6OK7iNFfqloiFAeAwb7oMeHtau5Ok0qQ==, tarball: https://npm.pkg.github.com/download/@maiertech/sveltekit-helpers/0.56.2/6596998cdd050dcea1bd41846f33bdc44f025f39}
     engines: {node: '>=24'}
     peerDependencies:
       '@lucide/svelte': ^1.7.0
@@ -2066,8 +2066,8 @@ packages:
     resolution: {integrity: sha512-GwxlMgTTXwIom+ebC7an3k6RaJDwklRQQnfiXsLPGicu8FYV/k/+1/9YY2OU2+r938H2t4X0TDxoif+HP2rjzQ==}
     engines: {node: '>=4'}
 
-  postcss@8.5.32:
-    resolution: {integrity: sha512-LJlKCCAUFKOuZxipUdYw1NzIITEsPcgyOG9LkvRJvuKj/bRzbuRY0ARXvL0pWGpsZvn8jku+LMep2eU0seHp8g==}
+  postcss@8.5.33:
+    resolution: {integrity: sha512-RVHEU9/Pp1Fnjr/MpAJsZoADukCKhfIi15OunEYiGktIkYLkPVvC1sioWolGDS7XByMTx9m/IGbro0Js13zhnQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -2896,13 +2896,13 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@lucide/svelte@1.72.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))':
+  '@lucide/svelte@1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))':
     dependencies:
       svelte: 5.57.3(@typescript-eslint/types@8.72.2)
 
-  '@maiertech/sveltekit-helpers@0.56.1(@lucide/svelte@1.72.0(svelte@5.57.3(@typescript-eslint/types@8.72.2)))(@skeletonlabs/skeleton-svelte@5.0.4(svelte@5.57.3(@typescript-eslint/types@8.72.2)))(@skeletonlabs/skeleton@5.0.4(tailwindcss@4.3.5))(@sveltejs/kit@3.2.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.2))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(typescript@6.0.3)(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(tailwindcss@4.3.5)(zod@4.6.7)':
+  '@maiertech/sveltekit-helpers@0.56.2(@lucide/svelte@1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2)))(@skeletonlabs/skeleton-svelte@5.0.4(svelte@5.57.3(@typescript-eslint/types@8.72.2)))(@skeletonlabs/skeleton@5.0.4(tailwindcss@4.3.5))(@sveltejs/kit@3.2.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.2))(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(typescript@6.0.3)(vite@8.3.8(@types/node@26.6.6)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.2))(tailwindcss@4.3.5)(zod@4.6.7)':
     dependencies:
-      '@lucide/svelte': 1.72.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
+      '@lucide/svelte': 1.73.0(svelte@5.57.3(@typescript-eslint/types@8.72.2))
       '@shikijs/langs': 4.6.0
       '@shikijs/themes': 4.6.0
       '@skeletonlabs/skeleton': 5.0.4(tailwindcss@4.3.5)
@@ -3913,9 +3913,9 @@ snapshots:
       esutils: 2.0.3
       globals: 16.5.0
       known-css-properties: 0.37.0
-      postcss: 8.5.32
-      postcss-load-config: 3.1.4(postcss@8.5.32)
-      postcss-safe-parser: 7.1.0(postcss@8.5.32)
+      postcss: 8.5.33
+      postcss-load-config: 3.1.4(postcss@8.5.33)
+      postcss-safe-parser: 7.1.0(postcss@8.5.33)
       semver: 7.8.6
       svelte-eslint-parser: 1.10.1(svelte@5.57.3(@typescript-eslint/types@8.72.2))
     optionalDependencies:
@@ -4380,26 +4380,26 @@ snapshots:
 
   pluralize@8.0.0: {}
 
-  postcss-load-config@3.1.4(postcss@8.5.32):
+  postcss-load-config@3.1.4(postcss@8.5.33):
     dependencies:
       lilconfig: 2.1.0
       yaml: 1.10.3
     optionalDependencies:
-      postcss: 8.5.32
+      postcss: 8.5.33
 
-  postcss-safe-parser@7.1.0(postcss@8.5.32):
+  postcss-safe-parser@7.1.0(postcss@8.5.33):
     dependencies:
-      postcss: 8.5.32
+      postcss: 8.5.33
 
-  postcss-scss@4.0.9(postcss@8.5.32):
+  postcss-scss@4.0.9(postcss@8.5.33):
     dependencies:
-      postcss: 8.5.32
+      postcss: 8.5.33
 
   postcss-selector-parser@7.2.1:
     dependencies:
       util-deprecate: 1.0.2
 
-  postcss@8.5.32:
+  postcss@8.5.33:
     dependencies:
       nanoid: 3.3.20
       picocolors: 1.1.1
@@ -4579,8 +4579,8 @@ snapshots:
       eslint-scope: 8.4.0
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
-      postcss: 8.5.32
-      postcss-scss: 4.0.9(postcss@8.5.32)
+      postcss: 8.5.33
+      postcss-scss: 4.0.9(postcss@8.5.33)
       postcss-selector-parser: 7.2.1
       semver: 7.8.6
     optionalDependencies:
@@ -4730,7 +4730,7 @@ snapshots:
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
-      postcss: 8.5.32
+      postcss: 8.5.33
       rolldown: 1.2.19
       tinyglobby: 0.2.17
     optionalDependencies:
