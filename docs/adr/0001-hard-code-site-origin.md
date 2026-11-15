@@ -8,3 +8,7 @@ functions that would need a runtime origin, so the value no longer needs to be c
 environment. The trade-off is that a preview deployment on another domain will still generate
 canonical URLs for `maier.tech`, and routes that become dynamic would read the origin from the
 request instead.
+
+The app server (`server.js`, see [ADR 0002](0002-custom-node-server-entry.md)) also needs the origin
+as the target of the `www` redirect. It hard-codes `https://maier.tech` in `server/app.js`,
+separately from `vite.config.ts`. Changing the site origin means changing both.
