@@ -12,5 +12,5 @@
 		"moduleResolution": "bundler",
 		"module": "es2022"
 	},
-	"exclude": ["src/service-worker", "server.js"]
+	"exclude": ["src/service-worker", "server/index.js"]
 }
