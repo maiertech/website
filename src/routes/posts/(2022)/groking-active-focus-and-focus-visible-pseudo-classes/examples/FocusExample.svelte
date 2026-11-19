@@ -1,6 +1,6 @@
 <div>
-	<label
-		>Name:
+	<label>
+		Name:
 		<input type="text" />
 	</label>
 	<button>Submit</button>

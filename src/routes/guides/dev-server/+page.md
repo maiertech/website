@@ -119,8 +119,8 @@ Run
 brew install anomalyco/tap/opencode-v2
 ```
 
-I manage my OpenCode config in the repository https://github.com/maiertech/opencode, which I clone to
-`~/.config/opencode`. Restart your terminal to ensure it picks up `GITHUB_PAT` and run
+I manage my OpenCode config in the repository https://github.com/maiertech/opencode, which I clone
+to `~/.config/opencode`. Restart your terminal to ensure it picks up `GITHUB_PAT` and run
 
 ```bash
 opencode service restart
