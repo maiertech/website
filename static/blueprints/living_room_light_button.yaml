@@ -1,0 +1,129 @@
+# yaml-language-server: $schema=https://git.sr.ht/~johnhamelink/hass-json-schema/blob/main/json-schemas/blueprint-automation.json
+blueprint:
+  name: Living room light button
+  description: |
+    Control room lights with an IKEA BILRESA wireless remote. The remote has two
+    independent buttons, not a single on/off switch:
+
+    - **Upper button:** used exclusively to turn lights on.
+    - **Lower button:** used exclusively to turn lights off.
+
+    This automation behaves as follows:
+
+    - **Upper button, single press:** turn on light 1.
+    - **Upper button, double press:** turn on light 2.
+    - **Upper button, long press:** turn on the all-lights group.
+    - **Lower button, single press:** turn off light 1.
+    - **Lower button, double press:** turn off light 2.
+    - **Lower button, long press:** turn off the all-lights group.
+  source_url: https://maier.tech/blueprints/living_room_light_button.yaml
+  domain: automation
+  homeassistant:
+    min_version: 2026.11.0
+  input:
+    # The dots only satisfy the entity ID pattern in the schema that Zed uses to
+    # validate !input references. Remove them if Home Assistant rejects these names.
+    remote.on_button:
+      name: Upper button
+      description: Event entity of the upper button, used to turn lights on.
+      selector:
+        entity:
+          filter:
+            - domain: event
+    remote.off_button:
+      name: Lower button
+      description: Event entity of the lower button, used to turn lights off.
+      selector:
+        entity:
+          filter:
+            - domain: event
+    light_1:
+      name: Light 1
+      description: Light controlled by a single press.
+      selector:
+        entity:
+          filter:
+            - domain: light
+    light_2:
+      name: Light 2
+      description: Light controlled by a double press.
+      selector:
+        entity:
+          filter:
+            - domain: light
+    all_lights:
+      name: All lights
+      description: Light group entity for all lights in the room, controlled by a long press.
+      selector:
+        entity:
+          filter:
+            - domain: light
+
+triggers:
+  # Event entities expose each button press as a state change, with the press
+  # type in the event_type attribute.
+  - trigger: state
+    entity_id: !input remote.on_button
+    id: upper_button
+  - trigger: state
+    entity_id: !input remote.off_button
+    id: lower_button
+
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: upper_button
+          - condition: template
+            value_template: "{{ trigger.to_state.attributes.event_type == 'multi_press_1' }}"
+        sequence:
+          - action: light.turn_on
+            target:
+              entity_id: !input light_1
+      - conditions:
+          - condition: trigger
+            id: upper_button
+          - condition: template
+            value_template: "{{ trigger.to_state.attributes.event_type == 'multi_press_2' }}"
+        sequence:
+          - action: light.turn_on
+            target:
+              entity_id: !input light_2
+      - conditions:
+          - condition: trigger
+            id: upper_button
+          - condition: template
+            value_template: "{{ trigger.to_state.attributes.event_type == 'long_press' }}"
+        sequence:
+          - action: light.turn_on
+            target:
+              entity_id: !input all_lights
+      - conditions:
+          - condition: trigger
+            id: lower_button
+          - condition: template
+            value_template: "{{ trigger.to_state.attributes.event_type == 'multi_press_1' }}"
+        sequence:
+          - action: light.turn_off
+            target:
+              entity_id: !input light_1
+      - conditions:
+          - condition: trigger
+            id: lower_button
+          - condition: template
+            value_template: "{{ trigger.to_state.attributes.event_type == 'multi_press_2' }}"
+        sequence:
+          - action: light.turn_off
+            target:
+              entity_id: !input light_2
+      - conditions:
+          - condition: trigger
+            id: lower_button
+          - condition: template
+            value_template: "{{ trigger.to_state.attributes.event_type == 'long_press' }}"
+        sequence:
+          - action: light.turn_off
+            target:
+              entity_id: !input all_lights
+
+mode: queued
