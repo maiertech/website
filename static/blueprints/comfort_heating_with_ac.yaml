@@ -1,0 +1,145 @@
+# yaml-language-server: $schema=https://git.sr.ht/~johnhamelink/hass-json-schema/blob/main/json-schemas/blueprint-automation.json
+blueprint:
+  name: Comfort heating with AC
+  description: |
+    Heats a room while the comfort heating switch is on. Basic heating owns the
+    AC while the switch is off.
+
+    Turning the switch on sets the AC to heat at the default temperature. After
+    that, the AC's temperature belongs to you: this blueprint doesn't change it
+    again.
+
+    This automation behaves as follows:
+
+    - **When the comfort heating switch turns on:** switch HVAC mode to `heat`
+      and set the default temperature. If the AC is unavailable or unknown,
+      turn the switch off instead.
+    - **When HVAC mode changes to anything other than `heat`:** turn the comfort
+      heating switch off. If the AC becomes unavailable or unknown, the switch
+      stays on.
+    - **When Home Assistant starts while the comfort heating switch is on:** if
+      the AC is available and not in heat mode, turn the switch off. Otherwise
+      do nothing.
+    - **When the comfort heating switch turns off:** nothing happens. Basic
+      heating takes over.
+
+  source_url: https://maier.tech/blueprints/comfort_heating_with_ac.yaml
+  domain: automation
+  homeassistant:
+    min_version: 2026.11.2
+  input:
+    climate_entity:
+      name: AC
+      description: Climate entity of the room AC.
+      selector:
+        entity:
+          filter:
+            - domain: climate
+    comfort_heating_switch:
+      name: Comfort heating switch
+      description: On while comfort heating is on.
+      selector:
+        entity:
+          filter:
+            - domain: input_boolean
+    default_temperature:
+      name: Default temperature
+      description:
+        Set temperature applied when the comfort heating switch turns on. You can change it on the
+        AC afterwards.
+      default: 21
+      selector:
+        number:
+          min: 19
+          max: 23
+          step: 1 # Minimum resolution.
+          unit_of_measurement: °C
+
+triggers:
+  - trigger: state
+    entity_id: !input comfort_heating_switch
+    from: 'off'
+    to: 'on'
+    id: comfort_heating_switch_on
+  # Not `heat`: the AC switching to heat would only queue a run that does nothing.
+  # Also ignores attribute-only updates.
+  - trigger: state
+    entity_id: !input climate_entity
+    not_to: heat
+    id: hvac_mode_changed
+  - trigger: homeassistant
+    event: start
+    id: ha_started
+
+actions:
+  - variables:
+      climate_entity: !input climate_entity
+      comfort_heating_switch: !input comfort_heating_switch
+      default_temperature: !input default_temperature
+      ac_unavailable: >-
+        {{ is_state(climate_entity, 'unavailable') or is_state(climate_entity, 'unknown') }}
+      # True only for a known mode other than heat, not unavailable or unknown.
+      ac_in_other_known_mode: >-
+        {{ not is_state(climate_entity, 'heat') and not ac_unavailable }}
+
+  - if:
+      - condition: template
+        value_template: "{{ not is_state(comfort_heating_switch, 'on') }}"
+    then:
+      - stop: 'Heating switch is off: comfort heating does nothing.'
+
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: comfort_heating_switch_on
+        sequence:
+          - if:
+              - condition: template
+                value_template: '{{ ac_unavailable }}'
+            then:
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: !input comfort_heating_switch
+              - stop: "AC is unavailable or unknown: comfort heating can't start."
+          # The Toshiba integration ignores hvac_mode in climate.set_temperature.
+          - action: climate.set_hvac_mode
+            target:
+              entity_id: !input climate_entity
+            data:
+              hvac_mode: heat
+          - action: climate.set_temperature
+            target:
+              entity_id: !input climate_entity
+            data:
+              temperature: '{{ default_temperature }}'
+          - stop: 'Heating switch was turned on: heat at the default temperature.'
+
+      - conditions:
+          - condition: trigger
+            id: hvac_mode_changed
+        sequence:
+          - if:
+              - condition: template
+                value_template: '{{ ac_in_other_known_mode }}'
+            then:
+              - action: input_boolean.turn_off
+                target:
+                  entity_id: !input comfort_heating_switch
+          - stop:
+              'HVAC mode has changed to something other than heat: turn comfort heating switch off.'
+
+    default:
+      - if:
+          - condition: trigger
+            id: ha_started
+          - condition: template
+            value_template: '{{ ac_in_other_known_mode }}'
+        then:
+          - action: input_boolean.turn_off
+            target:
+              entity_id: !input comfort_heating_switch
+          - stop:
+              'Home Assistant re-started and the AC is not in heat mode: turn off comfort heating
+              switch.'
+
+mode: queued
