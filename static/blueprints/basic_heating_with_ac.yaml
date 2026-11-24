@@ -1,0 +1,213 @@
+# yaml-language-server: $schema=https://git.sr.ht/~johnhamelink/hass-json-schema/blob/main/json-schemas/blueprint-automation.json
+blueprint:
+  name: Basic heating with AC
+  description: |
+    Sets the AC to 17 °C while it's cold outside, and turns it off while it's
+    warm outside. Only applies while the comfort heating switch is off: comfort
+    heating owns the AC temperature while the switch is on.
+
+    Only runs from 1 October to 31 March, so it never interferes with cooling in
+    summer. Outside that period it doesn't run at all.
+
+    Runs when the comfort heating switch turns off, when Home Assistant starts,
+    at the start of quiet hours, and every 15 minutes.
+
+    During quiet hours it stays paused. The one exception: when quiet hours
+    start, or when the comfort heating switch turns off, the AC is turned off if
+    it's in heat.
+
+    This automation behaves as follows:
+
+    - **When the outdoor temperature is below the on threshold:** switch HVAC
+      mode to `heat` and set the temperature to 17 °C. The AC idles when the
+      room is warm enough.
+    - **When the outdoor temperature is above the off threshold:** if HVAC mode
+      is `heat`, set it to `off`.
+    - **When the outdoor temperature is between the thresholds:** if HVAC mode
+      is `heat`, keep the set temperature at 17 °C. If it's `off`, leave it off.
+    - **When the comfort heating switch is on:** nothing happens.
+    - **When HVAC mode is anything other than `off` or `heat`:** nothing
+      happens, because that mode was set by hand.
+    - **When the AC was turned off since quiet hours last ended:** nothing
+      happens until quiet hours end again. This applies whether you turned it off
+      or this automation did. Turning the comfort heating switch on clears it,
+      because the AC then goes to heat.
+
+  domain: automation
+  homeassistant:
+    min_version: 2026.11.2
+  input:
+    climate_entity:
+      name: AC
+      description: Climate entity of the room AC.
+      selector:
+        entity:
+          filter:
+            - domain: climate
+    comfort_heating_switch:
+      name: Comfort heating switch
+      description: When on, comfort heating is active.
+      selector:
+        entity:
+          filter:
+            - domain: input_boolean
+    quiet_start:
+      name: Quiet hours start
+      description: Basic heating pauses from this time.
+      default: '22:00:00'
+      selector:
+        time: {}
+    quiet_end:
+      name: Quiet hours end
+      description: Basic heating resumes at this time.
+      default: '07:00:00'
+      selector:
+        time: {}
+
+conditions:
+  # Active during heating season.
+  - condition: template
+    value_template: '{{ now().month in [10, 11, 12, 1, 2, 3] }}'
+
+triggers:
+  - trigger: state
+    entity_id: !input comfort_heating_switch
+    from: 'on'
+    to: 'off'
+    id: comfort_heating_switch_off
+  - trigger: time
+    at: !input quiet_start
+    id: quiet_hours_started
+  - trigger: time_pattern
+    minutes: '/15'
+    id: periodic
+  - trigger: homeassistant
+    event: start
+    id: ha_started
+
+actions:
+  - variables:
+      climate_entity: !input climate_entity
+      comfort_heating_switch: !input comfort_heating_switch
+      on_threshold: 10
+      off_threshold: 12
+      target_temp: 17
+      quiet_start: !input quiet_start
+      quiet_end: !input quiet_end
+      in_quiet_hours: >-
+        {% set now_time = now().strftime('%H:%M:%S') %} {{ now_time >= quiet_start or now_time <
+        quiet_end }}
+      outdoor_temp: "{{ state_attr('weather.home', 'temperature') }}"
+      # Unix time of the most recent quiet hours end.
+      last_quiet_end: >-
+        {% set end_ts = as_timestamp(today_at(quiet_end)) %} {{ end_ts - (0 if now().timestamp() >=
+        end_ts else 86400) }}
+
+  - if:
+      - condition: template
+        value_template: "{{ is_state(comfort_heating_switch, 'on') }}"
+    then:
+      - stop: 'Comfort heating switch is on: comfort heating owns the AC.'
+
+  - if:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: !input climate_entity
+            state:
+              - unavailable
+              - unknown
+          - condition: template
+            value_template: '{{ not is_number(outdoor_temp) }}'
+    then:
+      - stop: 'AC or outdoor temperature is unavailable or unknown: leave the AC unchanged.'
+
+  # Any mode other than `off` or `heat` was set by hand.
+  - if:
+      - condition: template
+        value_template:
+          "{{ not is_state(climate_entity, 'heat') and not is_state(climate_entity, 'off') }}"
+    then:
+      - stop: 'AC is in a mode set by hand: leave it alone.'
+
+  # Turned off since quiet hours last ended: stay off until they end again.
+  - if:
+      - condition: state
+        entity_id: !input climate_entity
+        state: 'off'
+      - condition: template
+        value_template:
+          '{{ as_timestamp(states[climate_entity].last_changed) >= last_quiet_end | float }}'
+    then:
+      - stop:
+          'AC was turned off since quiet hours last ended: basic heating waits for them to end
+          again.'
+
+  - if:
+      - condition: template
+        value_template: '{{ in_quiet_hours }}'
+    then:
+      - if:
+          - condition: trigger
+            id:
+              - comfort_heating_switch_off
+              - quiet_hours_started
+          - condition: state
+            entity_id: !input climate_entity
+            state: heat
+        then:
+          - action: climate.set_hvac_mode
+            target:
+              entity_id: !input climate_entity
+            data:
+              hvac_mode: 'off'
+      - stop: 'Quiet hours: basic heating is paused.'
+
+  - choose:
+      # Cold outside: heat.
+      - conditions:
+          - condition: template
+            value_template: '{{ outdoor_temp | float < on_threshold | float }}'
+        sequence:
+          - if:
+              - condition: template
+                value_template: "{{ not is_state(climate_entity, 'heat') }}"
+            then:
+              - action: climate.set_hvac_mode
+                target:
+                  entity_id: !input climate_entity
+                data:
+                  hvac_mode: heat
+
+      # Warm outside: turn off, but only if the AC is in heat.
+      - conditions:
+          - condition: template
+            value_template: '{{ outdoor_temp | float > off_threshold | float }}'
+        sequence:
+          - if:
+              - condition: state
+                entity_id: !input climate_entity
+                state: heat
+            then:
+              - action: climate.set_hvac_mode
+                target:
+                  entity_id: !input climate_entity
+                data:
+                  hvac_mode: 'off'
+          - stop: "Outdoor temperature is warm: turn AC off if it's in heat."
+
+  # Cold or in between: hold 17 °C while the AC is in heat.
+  - if:
+      - condition: state
+        entity_id: !input climate_entity
+        state: heat
+      - condition: template
+        value_template: "{{ state_attr(climate_entity, 'temperature') | float(0) != target_temp }}"
+    then:
+      - action: climate.set_temperature
+        target:
+          entity_id: !input climate_entity
+        data:
+          temperature: '{{ target_temp }}'
+
+mode: queued
