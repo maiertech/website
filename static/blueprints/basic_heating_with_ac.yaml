@@ -33,6 +33,7 @@ blueprint:
       or this automation did. Turning the comfort heating switch on clears it,
       because the AC then goes to heat.
 
+  source_url: https://maier.tech/blueprints/basic_heating_with_ac.yaml
   domain: automation
   homeassistant:
     min_version: 2026.11.2

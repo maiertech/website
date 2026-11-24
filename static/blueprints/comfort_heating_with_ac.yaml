@@ -23,6 +23,7 @@ blueprint:
     - **When the comfort heating switch turns off:** nothing happens. Basic
       heating takes over.
 
+  source_url: https://maier.tech/blueprints/comfort_heating_with_ac.yaml
   domain: automation
   homeassistant:
     min_version: 2026.11.2
