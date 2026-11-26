@@ -38,8 +38,7 @@ blueprint:
             - domain: input_boolean
     room_temperature_sensor:
       name: Room temperature sensor
-      description:
-        External sensor in the room. Used instead of the AC's own sensor.
+      description: External sensor in the room. Used instead of the AC's own sensor.
       selector:
         entity:
           filter:
@@ -48,39 +47,39 @@ blueprint:
     quiet_start:
       name: Quiet hours start
       description: Basic heating pauses from this time.
-      default: "22:30:00"
+      default: '22:30:00'
       selector:
         time: {}
     quiet_end:
       name: Quiet hours end
       description: Basic heating resumes at this time.
-      default: "06:30:00"
+      default: '06:30:00'
       selector:
         time: {}
 
 conditions:
   # Active during heating season.
   - condition: template
-    value_template: "{{ now().month in [10, 11, 12, 1, 2, 3] }}"
+    value_template: '{{ now().month in [10, 11, 12, 1, 2, 3] }}'
   - condition: state
     entity_id: !input comfort_heating_switch
-    state: "off"
+    state: 'off'
 
 triggers:
   - trigger: state
     entity_id: !input comfort_heating_switch
-    from: "on"
-    to: "off"
+    from: 'on'
+    to: 'off'
     id: comfort_heating_switch_off
   # Triggers can't read variables, so these repeat the values in actions.
   - trigger: numeric_state
     entity_id: !input room_temperature_sensor
     above: 19
-    for: "00:05:00"
+    for: '00:05:00'
   - trigger: numeric_state
     entity_id: !input room_temperature_sensor
     below: 17
-    for: "00:15:00"
+    for: '00:15:00'
   - trigger: time
     at: !input quiet_start
     id: quiet_hours_started
@@ -92,7 +91,7 @@ triggers:
 actions:
   - variables:
       room_temperature_sensor: !input room_temperature_sensor
-      room_temp: "{{ states(room_temperature_sensor) }}"
+      room_temp: '{{ states(room_temperature_sensor) }}'
       target_temp: 17
       off_temp: 19
 
@@ -107,14 +106,13 @@ actions:
               - condition: trigger
                 id: quiet_hours_started
               - condition: template
-                value_template:
-                  "{{ is_number(room_temp) and room_temp | float > off_temp }}"
+                value_template: '{{ is_number(room_temp) and room_temp | float > off_temp }}'
         sequence:
           - action: climate.set_hvac_mode
             target:
               entity_id: !input climate_entity
             data:
-              hvac_mode: "off"
+              hvac_mode: 'off'
 
       # Comfort heating turned off: basic heating takes over the temperature.
       - conditions:
@@ -128,16 +126,15 @@ actions:
             target:
               entity_id: !input climate_entity
             data:
-              temperature: "{{ target_temp }}"
+              temperature: '{{ target_temp }}'
 
       # Cold room outside quiet hours: heat, but only if the AC is off.
       - conditions:
           - condition: template
-            value_template:
-              "{{ is_number(room_temp) and room_temp | float < target_temp }}"
+            value_template: '{{ is_number(room_temp) and room_temp | float < target_temp }}'
           - condition: state
             entity_id: !input climate_entity
-            state: "off"
+            state: 'off'
           - condition: time
             after: !input quiet_end
             before: !input quiet_start
@@ -152,6 +149,6 @@ actions:
             target:
               entity_id: !input climate_entity
             data:
-              temperature: "{{ target_temp }}"
+              temperature: '{{ target_temp }}'
 
 mode: queued
