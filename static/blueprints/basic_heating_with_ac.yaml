@@ -10,6 +10,12 @@ blueprint:
     - **Room below 17 °C for 15 minutes:** turn the AC on at 17 °C if it's off.
       This overrides a manual off.
     - **During quiet hours:** the AC never turns on.
+    - **Comfort heating switch turns off:** set the AC to 17 °C if it's in heat.
+
+    Limitation: starting this automation does not turn on the AC if the room is
+    already below 17 °C. The AC turns on at the next trigger instead: the room
+    stays below 17 °C for 15 minutes after a drop, quiet hours end, Home
+    Assistant restarts, or the comfort heating switch turns off.
 
   source_url: https://maier.tech/blueprints/basic_heating_with_ac.yaml
   domain: automation
@@ -64,6 +70,7 @@ triggers:
     entity_id: !input comfort_heating_switch
     from: 'on'
     to: 'off'
+    id: comfort_heating_switch_off
   # Triggers can't read variables, so these repeat the values in actions.
   - trigger: numeric_state
     entity_id: !input room_temperature_sensor
@@ -106,6 +113,20 @@ actions:
               entity_id: !input climate_entity
             data:
               hvac_mode: 'off'
+
+      # Comfort heating turned off: basic heating takes over the temperature.
+      - conditions:
+          - condition: trigger
+            id: comfort_heating_switch_off
+          - condition: state
+            entity_id: !input climate_entity
+            state: heat
+        sequence:
+          - action: climate.set_temperature
+            target:
+              entity_id: !input climate_entity
+            data:
+              temperature: '{{ target_temp }}'
 
       # Cold room outside quiet hours: heat, but only if the AC is off.
       - conditions:
