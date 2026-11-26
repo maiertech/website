@@ -10,7 +10,8 @@ blueprint:
     - **Room below 17 °C for 15 minutes:** turn the AC on at 17 °C if it's off.
       This overrides a manual off.
     - **During quiet hours:** the AC never turns on.
-    - **Comfort heating switch turns off:** set the AC to 17 °C if it's in heat.
+    - **Comfort heating switch turns off:** during quiet hours, turn the AC off if
+      it's in heat. Otherwise, set the AC to 17 °C if it's in heat.
 
     Limitation: starting this automation does not turn on the AC if the room is
     already below 17 °C. The AC turns on at the next trigger instead: the room
@@ -105,6 +106,15 @@ actions:
             conditions:
               - condition: trigger
                 id: quiet_hours_started
+              - condition: and
+                conditions:
+                  - condition: trigger
+                    id: comfort_heating_switch_off
+                  - condition: not
+                    conditions:
+                      - condition: time
+                        after: !input quiet_end
+                        before: !input quiet_start
               - condition: template
                 value_template: '{{ is_number(room_temp) and room_temp | float > off_temp }}'
         sequence:
